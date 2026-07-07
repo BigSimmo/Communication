@@ -5,6 +5,7 @@ import { LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
 import { CARD_DATA } from "@/lib/cards";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
+import { useScrollDirection } from "@/hooks/use-scroll-direction";
 
 const IMPACT_BADGE: Record<CardImpact, { label: string; bg: string; color: string }> = {
   high:   { label: "High",   bg: "rgba(245,158,11,0.14)", color: "#f59e0b" },
@@ -39,9 +40,12 @@ export default function Library() {
   const [, setLocation] = useLocation();
   const { searchOpen, searchQuery, setSearchQuery, openSearch, headerDetailsOpen } = useNav();
   const { isCardFav, toggleCard } = useFavourites();
+  const scrollDirection = useScrollDirection(60);
 
   const hasFiltersActive =
     !!categoryFilter || !!impactFilter || !!difficultyFilter || sortBy !== "default" || !!searchQuery;
+  const filterHidden = scrollDirection === "down" && !hasFiltersActive;
+  const showHeaderDetails = headerDetailsOpen && !filterHidden;
   const activeFilterCount =
     (categoryFilter ? 1 : 0) +
     (impactFilter ? 1 : 0) +
@@ -132,23 +136,23 @@ export default function Library() {
       <div
         id="library-header-details"
         data-testid="library-header-details"
-        aria-hidden={!headerDetailsOpen}
+        aria-hidden={!showHeaderDetails}
         className="sticky z-10 flex-shrink-0 px-3 md:px-6"
         style={{
           top: "var(--app-header-height, 56px)",
           background: "var(--surface-header)",
           backdropFilter: "blur(16px) saturate(1.2)",
           WebkitBackdropFilter: "blur(16px) saturate(1.2)",
-          borderBottom: headerDetailsOpen ? "1px solid var(--fg-07)" : "1px solid transparent",
-          maxHeight: headerDetailsOpen ? 260 : 0,
-          opacity: headerDetailsOpen ? 1 : 0,
+          borderBottom: showHeaderDetails ? "1px solid var(--fg-07)" : "1px solid transparent",
+          maxHeight: showHeaderDetails ? 260 : 0,
+          opacity: showHeaderDetails ? 1 : 0,
           overflow: "hidden",
-          paddingTop: headerDetailsOpen ? 8 : 0,
-          paddingBottom: headerDetailsOpen ? 8 : 0,
+          paddingTop: showHeaderDetails ? 8 : 0,
+          paddingBottom: showHeaderDetails ? 8 : 0,
           transform: "translateZ(0)",
           transition:
             "max-height 220ms ease, opacity 160ms ease, padding 220ms ease, border-color 180ms ease, top 180ms ease",
-          pointerEvents: headerDetailsOpen ? "auto" : "none",
+          pointerEvents: showHeaderDetails ? "auto" : "none",
         }}
       >
         <div className="space-y-2 min-w-0">
