@@ -67,7 +67,7 @@ export default function Drill() {
             className="text-[13px] font-bold"
             style={{ color: streakActive && state.streak > 0 ? "#f59e0b" : "var(--fg-30)" }}
           >
-            {state.streak > 0
+            {streakActive && state.streak > 0
               ? `${state.streak} day streak`
               : "Start your streak"}
           </span>

@@ -1,23 +1,59 @@
 import { useState, useEffect, useRef } from "react";
 import { X, Check, Copy, Heart } from "lucide-react";
-import { getQuickModePhrases, LIBRARY_CATEGORIES } from "@/lib/data";
+import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { CARD_DATA } from "@/lib/cards";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { copyToClipboard } from "@/lib/utils";
+
+interface QuickPhrase {
+  text: string;
+  cardId: string;
+  cardTitle: string;
+}
+
+interface QuickGroup {
+  id: string;
+  label: string;
+  tag: string;
+  phrases: QuickPhrase[];
+}
 
 const CARD_TITLE_MAP_QM: Record<string, string> = {};
 for (const cards of Object.values(LIBRARY_CATEGORIES)) {
   for (const c of cards) CARD_TITLE_MAP_QM[c.id] = c.title;
 }
 
-// phraseGroupId → { cardId, cardTitle }
-const PHRASE_GROUP_CARD: Record<string, { cardId: string; cardTitle: string }> = {};
-for (const [cardId, cardData] of Object.entries(CARD_DATA)) {
-  for (const group of cardData.phraseBank) {
-    PHRASE_GROUP_CARD[group.id] = { cardId, cardTitle: CARD_TITLE_MAP_QM[cardId] ?? cardId };
+const ALL_QUICK_GROUPS: QuickGroup[] = (() => {
+  const groupsMap = new Map<string, QuickGroup>();
+
+  for (const [cardId, card] of Object.entries(CARD_DATA)) {
+    const cardMeta = Object.values(LIBRARY_CATEGORIES)
+      .flat()
+      .find((c) => c.id === cardId);
+    if (!cardMeta?.loaded) continue;
+
+    for (const group of card.phraseBank) {
+      if (!groupsMap.has(group.id)) {
+        groupsMap.set(group.id, {
+          id: group.id,
+          label: group.label,
+          tag: group.tag,
+          phrases: [],
+        });
+      }
+      const targetGroup = groupsMap.get(group.id)!;
+      for (const phraseText of group.phrases) {
+        targetGroup.phrases.push({
+          text: phraseText,
+          cardId,
+          cardTitle: cardMeta.title,
+        });
+      }
+    }
   }
-}
+  return Array.from(groupsMap.values());
+})();
 
 export function QuickModeOverlay() {
   const { isOpen, setIsOpen } = useQuickMode();
@@ -25,9 +61,6 @@ export function QuickModeOverlay() {
   const [quickFilter, setQuickFilter] = useState<string | null>(null);
   const [copiedPhrase, setCopiedPhrase] = useState<string | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-
-  // Aggregate phrase groups from all loaded cards — single source of truth
-  const allPhraseGroups = getQuickModePhrases();
 
   // Focus close button when overlay opens; reset state when it closes
   useEffect(() => {
@@ -58,8 +91,8 @@ export function QuickModeOverlay() {
   };
 
   const filteredGroups = quickFilter
-    ? allPhraseGroups.filter((g) => g.id === quickFilter)
-    : allPhraseGroups;
+    ? ALL_QUICK_GROUPS.filter((g) => g.id === quickFilter)
+    : ALL_QUICK_GROUPS;
 
   return (
     <div
@@ -113,7 +146,7 @@ export function QuickModeOverlay() {
           >
             All
           </button>
-          {allPhraseGroups.map((g) => (
+          {ALL_QUICK_GROUPS.map((g) => (
             <button
               key={g.id}
               onClick={() => setQuickFilter(quickFilter === g.id ? null : g.id)}
@@ -173,60 +206,57 @@ export function QuickModeOverlay() {
               }}
             >
               {group.phrases.map((phrase, i) => {
-                const meta = PHRASE_GROUP_CARD[group.id];
-                const isFav = meta ? isPhrasesFav(meta.cardId, phrase) : false;
+                const isFav = isPhrasesFav(phrase.cardId, phrase.text);
                 return (
                   <div
                     key={i}
-                    onClick={() => handleCopy(phrase)}
+                    onClick={() => handleCopy(phrase.text)}
                     role="button"
-                    aria-label={`Copy phrase: ${phrase}`}
+                    aria-label={`Copy phrase: ${phrase.text}`}
                     data-testid={`quick-copy-${group.id}-${i}`}
                     className="w-full flex items-center justify-between text-left cursor-pointer transition-all active:scale-[0.99]"
                     style={{
-                      background: copiedPhrase === phrase ? "rgba(245,158,11,0.08)" : "transparent",
+                      background: copiedPhrase === phrase.text ? "rgba(245,158,11,0.08)" : "transparent",
                       borderBottom: i < group.phrases.length - 1 ? "1px solid var(--fg-04)" : "none",
                       minHeight: 56,
                       padding: "14px 20px",
                     }}
                     onMouseEnter={(e) => {
-                      if (copiedPhrase !== phrase)
+                      if (copiedPhrase !== phrase.text)
                         (e.currentTarget as HTMLElement).style.background = "var(--fg-03)";
                     }}
                     onMouseLeave={(e) => {
-                      if (copiedPhrase !== phrase)
+                      if (copiedPhrase !== phrase.text)
                         (e.currentTarget as HTMLElement).style.background = "transparent";
                     }}
                   >
                     <p
                       className="text-[14px] leading-relaxed pr-3 flex-1"
-                      style={{ color: copiedPhrase === phrase ? "#f59e0b" : "var(--fg-85)" }}
+                      style={{ color: copiedPhrase === phrase.text ? "#f59e0b" : "var(--fg-85)" }}
                     >
-                      {phrase}
+                      {phrase.text}
                     </p>
                     <div
                       className="flex items-center gap-1.5 flex-shrink-0"
                       onClick={e => e.stopPropagation()}
                     >
-                      {copiedPhrase === phrase ? (
+                      {copiedPhrase === phrase.text ? (
                         <Check className="w-4 h-4" style={{ color: "#f59e0b" }} />
                       ) : (
-                        !meta && <Copy className="w-4 h-4 flex-shrink-0" style={{ color: "var(--fg-18)" }} />
+                        <Copy className="w-4 h-4 flex-shrink-0" style={{ color: "var(--fg-18)" }} />
                       )}
-                      {meta && (
-                        <button
-                          onClick={() => togglePhrase({ cardId: meta.cardId, cardTitle: meta.cardTitle, groupLabel: group.label, text: phrase })}
-                          aria-label={isFav ? "Remove from favourites" : "Save phrase"}
-                          className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
-                          style={{ background: isFav ? "rgba(245,158,11,0.1)" : "transparent" }}
-                        >
-                          <Heart
-                            className="w-3.5 h-3.5"
-                            style={{ color: isFav ? "#f59e0b" : "var(--fg-20)" }}
-                            fill={isFav ? "#f59e0b" : "none"}
-                          />
-                        </button>
-                      )}
+                      <button
+                        onClick={() => togglePhrase({ cardId: phrase.cardId, cardTitle: phrase.cardTitle, groupLabel: group.label, text: phrase.text })}
+                        aria-label={isFav ? "Remove from favourites" : "Save phrase"}
+                        className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        style={{ background: isFav ? "rgba(245,158,11,0.1)" : "transparent" }}
+                      >
+                        <Heart
+                          className="w-3.5 h-3.5"
+                          style={{ color: isFav ? "#f59e0b" : "var(--fg-20)" }}
+                          fill={isFav ? "#f59e0b" : "none"}
+                        />
+                      </button>
                     </div>
                   </div>
                 );
