@@ -1,24 +1,39 @@
 import { useState, useCallback } from "react";
 import { useLocation } from "wouter";
-import { ChevronRight, SearchX, Heart, Search, X, Shuffle, ArrowUpDown } from "lucide-react";
+import {
+  ChevronRight,
+  SearchX,
+  Heart,
+  Search,
+  X,
+  Shuffle,
+  ArrowUpDown,
+} from "lucide-react";
 import { LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
+import { CARD_DATA } from "@/lib/cards";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
-import { IMPACT_STYLES } from "@/lib/design-tokens";
 
-// Derived at module level — no re-computation on every render. Sourced from the
-// light data.ts metadata (not the heavy card content) so the Library route
-// stays off the card-data chunk; a content invariant keeps difficulty in sync.
+const IMPACT_BADGE: Record<
+  CardImpact,
+  { label: string; bg: string; color: string }
+> = {
+  high: { label: "High", bg: "rgba(245,158,11,0.14)", color: "#f59e0b" },
+  medium: { label: "Medium", bg: "rgba(96,165,250,0.12)", color: "#60a5fa" },
+  low: { label: "Low", bg: "var(--fg-06)", color: "var(--fg-38)" },
+};
+
+// Derived at module level — no re-computation on every render
 const CARD_DIFFICULTY: Record<string, string> = Object.fromEntries(
-  Object.values(LIBRARY_CATEGORIES).flat().map((c) => [c.id, c.difficulty])
+  Object.entries(CARD_DATA).map(([id, card]) => [id, card.overview.difficulty]),
 );
 
 const DIFFICULTY_ORDER: Record<string, number> = {
-  "Easy": 0,
+  Easy: 0,
   "Easy-Medium": 1,
-  "Medium": 2,
-  "Hard": 3,
+  Medium: 2,
+  Hard: 3,
 };
 
 const IMPACT_ORDER: Record<CardImpact, number> = { high: 0, medium: 1, low: 2 };
@@ -26,22 +41,36 @@ const IMPACT_ORDER: Record<CardImpact, number> = { high: 0, medium: 1, low: 2 };
 const DIFFICULTY_LEVELS = ["Easy", "Easy-Medium", "Medium", "Hard"] as const;
 
 // Used by Surprise me — all loaded cards regardless of active filters
-const ALL_LOADED_CARDS = Object.values(LIBRARY_CATEGORIES).flat().filter((c) => c.loaded);
+const ALL_LOADED_CARDS = Object.values(LIBRARY_CATEGORIES)
+  .flat()
+  .filter((c) => c.loaded);
 
 export default function Library() {
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
   const [impactFilter, setImpactFilter] = useState<CardImpact | null>(null);
   const [difficultyFilter, setDifficultyFilter] = useState<string | null>(null);
-  const [sortBy, setSortBy] = useState<"default" | "impact" | "difficulty">("default");
+  const [sortBy, setSortBy] = useState<"default" | "impact" | "difficulty">(
+    "default",
+  );
   const [, setLocation] = useLocation();
-  const { searchOpen, searchQuery, setSearchQuery, openSearch, headerDetailsOpen } = useNav();
+  const {
+    searchOpen,
+    searchQuery,
+    setSearchQuery,
+    openSearch,
+    headerDetailsOpen,
+  } = useNav();
   const { isCardFav, toggleCard } = useFavourites();
   const scrollDirection = useScrollDirection(60);
 
   const hasFiltersActive =
-    !!categoryFilter || !!impactFilter || !!difficultyFilter || sortBy !== "default" || !!searchQuery;
-  const filterHidden = scrollDirection === "down" && !hasFiltersActive;
-  const showHeaderDetails = headerDetailsOpen && !filterHidden;
+    !!categoryFilter ||
+    !!impactFilter ||
+    !!difficultyFilter ||
+    sortBy !== "default" ||
+    !!searchQuery;
+  const isFilterHidden = scrollDirection === "down" && !hasFiltersActive;
+  const showHeaderDetails = headerDetailsOpen && !isFilterHidden;
   const activeFilterCount =
     (categoryFilter ? 1 : 0) +
     (impactFilter ? 1 : 0) +
@@ -60,14 +89,19 @@ export default function Library() {
   // Navigate to a random loaded card (ignores current filters for a true "surprise")
   const surpriseMe = useCallback(() => {
     if (!ALL_LOADED_CARDS.length) return;
-    const pick = ALL_LOADED_CARDS[Math.floor(Math.random() * ALL_LOADED_CARDS.length)];
+    const pick =
+      ALL_LOADED_CARDS[Math.floor(Math.random() * ALL_LOADED_CARDS.length)];
     setLocation(`/card/${pick.id}`);
   }, [setLocation]);
 
   // Cycle sort: default → impact (high first) → difficulty (easy first) → default
   const cycleSortBy = useCallback(() => {
     setSortBy((prev) =>
-      prev === "default" ? "impact" : prev === "impact" ? "difficulty" : "default"
+      prev === "default"
+        ? "impact"
+        : prev === "impact"
+          ? "difficulty"
+          : "default",
     );
   }, []);
 
@@ -82,7 +116,8 @@ export default function Library() {
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       filtered = filtered.filter(
-        (c) => c.id.toLowerCase().includes(q) || c.title.toLowerCase().includes(q)
+        (c) =>
+          c.id.toLowerCase().includes(q) || c.title.toLowerCase().includes(q),
       );
     }
 
@@ -91,7 +126,9 @@ export default function Library() {
     }
 
     if (difficultyFilter) {
-      filtered = filtered.filter((c) => CARD_DIFFICULTY[c.id] === difficultyFilter);
+      filtered = filtered.filter(
+        (c) => CARD_DIFFICULTY[c.id] === difficultyFilter,
+      );
     }
 
     if (sortBy === "impact") {
@@ -100,7 +137,7 @@ export default function Library() {
       filtered.sort(
         (a, b) =>
           (DIFFICULTY_ORDER[CARD_DIFFICULTY[a.id]] ?? 0) -
-          (DIFFICULTY_ORDER[CARD_DIFFICULTY[b.id]] ?? 0)
+          (DIFFICULTY_ORDER[CARD_DIFFICULTY[b.id]] ?? 0),
       );
     }
 
@@ -113,10 +150,14 @@ export default function Library() {
   // Shared style for compact filter/sort chips
   const chipStyle = (active: boolean): React.CSSProperties => ({
     minHeight: 28,
-    background: active ? "var(--gradient-active)" : "var(--fg-05)",
-    color: active ? "var(--brand-contrast)" : "var(--fg-60)",
-    border: active ? "1px solid color-mix(in srgb, var(--brand) 60%, transparent)" : "1px solid var(--fg-08)",
-    boxShadow: active ? "0 2px 8px color-mix(in srgb, var(--brand) 28%, transparent)" : "none",
+    background: active
+      ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+      : "var(--fg-05)",
+    color: active ? "#0f1724" : "var(--fg-60)",
+    border: active
+      ? "1px solid rgba(245,158,11,0.6)"
+      : "1px solid var(--fg-08)",
+    boxShadow: active ? "0 2px 8px rgba(245,158,11,0.28)" : "none",
   });
 
   const groupStyle: React.CSSProperties = {
@@ -128,7 +169,6 @@ export default function Library() {
 
   return (
     <div className="flex flex-col bg-background w-full max-w-full min-w-0 overflow-x-clip sm:max-w-2xl sm:mx-auto">
-
       <div
         id="library-header-details"
         data-testid="library-header-details"
@@ -139,7 +179,9 @@ export default function Library() {
           background: "var(--surface-header)",
           backdropFilter: "blur(16px) saturate(1.2)",
           WebkitBackdropFilter: "blur(16px) saturate(1.2)",
-          borderBottom: showHeaderDetails ? "1px solid var(--fg-07)" : "1px solid transparent",
+          borderBottom: showHeaderDetails
+            ? "1px solid var(--fg-07)"
+            : "1px solid transparent",
           maxHeight: showHeaderDetails ? 260 : 0,
           opacity: showHeaderDetails ? 1 : 0,
           overflow: "hidden",
@@ -168,9 +210,8 @@ export default function Library() {
                 aria-expanded={searchOpen}
                 aria-controls="search-popout-panel"
                 data-search-toggle="true"
-                data-search-open-on-focus="true"
                 data-testid="library-search-input"
-                className="w-full h-9 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-50)]"
+                className="w-full h-9 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-30)]"
                 style={{
                   background: "var(--fg-05)",
                   border: "1px solid var(--fg-08)",
@@ -178,13 +219,10 @@ export default function Library() {
                   padding: "0 34px 0 34px",
                 }}
                 onFocus={(e) => {
-                  // Suppression marker set by SearchModal when it returns
-                  // focus here on close — style, but don't reopen the modal
-                  if (!e.currentTarget.hasAttribute("data-suppress-search-open")) {
-                    openSearch();
-                  }
-                  e.currentTarget.style.borderColor = "color-mix(in srgb, var(--brand) 45%, transparent)";
-                  e.currentTarget.style.boxShadow = "0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent)";
+                  openSearch();
+                  e.currentTarget.style.borderColor = "rgba(245,158,11,0.45)";
+                  e.currentTarget.style.boxShadow =
+                    "0 0 0 3px rgba(245,158,11,0.12)";
                 }}
                 onClick={() => {
                   if (!searchOpen) openSearch();
@@ -202,7 +240,10 @@ export default function Library() {
                   className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full transition-all active:scale-90"
                   style={{ background: "var(--fg-08)" }}
                 >
-                  <X className="w-3.5 h-3.5" style={{ color: "var(--fg-50)" }} />
+                  <X
+                    className="w-3.5 h-3.5"
+                    style={{ color: "var(--fg-50)" }}
+                  />
                 </button>
               )}
             </div>
@@ -214,9 +255,9 @@ export default function Library() {
                 data-testid="reset-filters"
                 className="h-9 flex-shrink-0 inline-flex items-center gap-1.5 rounded-xl px-2.5 text-[10px] font-bold transition-all active:scale-95 whitespace-nowrap"
                 style={{
-                  background: "color-mix(in srgb, var(--brand) 10%, transparent)",
-                  border: "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
-                  color: "var(--brand-text)",
+                  background: "rgba(245,158,11,0.10)",
+                  border: "1px solid rgba(245,158,11,0.35)",
+                  color: "#f59e0b",
                   minWidth: 0,
                 }}
               >
@@ -224,7 +265,7 @@ export default function Library() {
                 Reset
                 <span
                   className="ml-0.5 rounded-full px-1.5 py-0.5 text-[9px] leading-none"
-                  style={{ background: "color-mix(in srgb, var(--brand) 16%, transparent)" }}
+                  style={{ background: "rgba(245,158,11,0.16)" }}
                 >
                   {activeFilterCount}
                 </span>
@@ -241,7 +282,7 @@ export default function Library() {
               onClick={() => setCategoryFilter(null)}
               aria-pressed={!categoryFilter}
               data-testid="filter-all"
-              className="inline-flex h-10 items-center justify-center rounded-xl px-2 text-[11px] font-semibold transition-all"
+              className="inline-flex h-8 items-center justify-center rounded-xl px-2 text-[11px] font-semibold transition-all"
               style={chipStyle(!categoryFilter)}
             >
               All
@@ -255,7 +296,7 @@ export default function Library() {
                   onClick={() => setCategoryFilter(active ? null : cat)}
                   aria-pressed={active}
                   data-testid={`filter-${cat.toLowerCase().replace(/[\s/]+/g, "-")}`}
-                  className="inline-flex h-10 min-w-0 items-center justify-center rounded-xl px-2 text-[10.5px] font-semibold leading-tight transition-all"
+                  className="inline-flex h-8 min-w-0 items-center justify-center rounded-xl px-2 text-[10.5px] font-semibold leading-tight transition-all"
                   style={chipStyle(active)}
                 >
                   <span className="truncate">{cat}</span>
@@ -273,14 +314,18 @@ export default function Library() {
             >
               {(["high", "medium", "low"] as CardImpact[]).map((impact) => {
                 const active = impactFilter === impact;
-                const label: Record<CardImpact, string> = { high: "High", medium: "Med", low: "Low" };
+                const label: Record<CardImpact, string> = {
+                  high: "High",
+                  medium: "Med",
+                  low: "Low",
+                };
                 return (
                   <button
                     key={impact}
                     onClick={() => setImpactFilter(active ? null : impact)}
                     aria-pressed={active}
                     data-testid={`filter-impact-${impact}`}
-                    className="inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
+                    className="inline-flex h-7 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
                     style={chipStyle(active)}
                   >
                     {label[impact]}
@@ -305,7 +350,7 @@ export default function Library() {
                     aria-pressed={active}
                     aria-label={`Filter by ${diff} difficulty`}
                     data-testid={`filter-difficulty-${diff.toLowerCase().replace(/-/g, "")}`}
-                    className="inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
+                    className="inline-flex h-7 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
                     style={chipStyle(active)}
                   >
                     {shortLabel}
@@ -320,15 +365,19 @@ export default function Library() {
                 sortBy === "default"
                   ? "Sort by: default order"
                   : sortBy === "impact"
-                  ? "Sort by: impact high to low (click to change)"
-                  : "Sort by: difficulty easy to hard (click to change)"
+                    ? "Sort by: impact high to low (click to change)"
+                    : "Sort by: difficulty easy to hard (click to change)"
               }
               data-testid="sort-control"
               className="inline-flex h-9 items-center gap-1.5 rounded-xl px-3 text-[10px] font-bold transition-all whitespace-nowrap"
               style={chipStyle(sortBy !== "default")}
             >
               <ArrowUpDown className="w-3 h-3" aria-hidden="true" />
-              {sortBy === "default" ? "Sort" : sortBy === "impact" ? "Impact" : "Difficulty"}
+              {sortBy === "default"
+                ? "Sort"
+                : sortBy === "impact"
+                  ? "Impact"
+                  : "Difficulty"}
             </button>
 
             <button
@@ -357,53 +406,64 @@ export default function Library() {
               key={cat}
               data-testid={`category-section-${cat.toLowerCase().replace(/[\s/]+/g, "-")}`}
             >
-              <h2
+              <p
                 className="text-[11px] font-semibold tracking-widest uppercase mb-3 px-1"
-                style={{ color: "var(--fg-55)" }}
+                style={{ color: "var(--fg-32)" }}
               >
                 {cat}
-              </h2>
+              </p>
               <div className="space-y-2">
                 {cards.map((card) => {
-                  const badge = IMPACT_STYLES[card.impact];
+                  const badge = IMPACT_BADGE[card.impact];
                   return (
                     <div
                       key={card.id}
-                      onClick={() => (card.loaded ? setLocation(`/card/${card.id}`) : undefined)}
+                      onClick={() =>
+                        card.loaded
+                          ? setLocation(`/card/${card.id}`)
+                          : undefined
+                      }
                       role={card.loaded ? "button" : undefined}
                       tabIndex={card.loaded ? 0 : undefined}
                       onKeyDown={
                         card.loaded
-                          ? (e) => {
-                              if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                setLocation(`/card/${card.id}`);
-                              }
-                            }
+                          ? (e) =>
+                              e.key === "Enter" &&
+                              setLocation(`/card/${card.id}`)
                           : undefined
                       }
                       aria-label={`${card.title} (${card.id})${!card.loaded ? " — coming soon" : ""}`}
                       data-testid={`card-link-${card.id}`}
-                      className={`w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 rounded-2xl transition-all duration-150 text-left overflow-hidden ${
-                        card.loaded
-                          ? "bg-[color-mix(in_srgb,var(--brand)_8%,transparent)] hover:bg-[color-mix(in_srgb,var(--brand)_12%,transparent)]"
-                          : "bg-[var(--fg-02)]"
-                      }`}
+                      className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 rounded-2xl transition-all duration-150 text-left overflow-hidden"
                       style={{
+                        background: card.loaded
+                          ? "rgba(245,158,11,0.08)"
+                          : "var(--fg-02)",
                         border: card.loaded
-                          ? "1px solid color-mix(in srgb, var(--brand) 18%, transparent)"
+                          ? "1px solid rgba(245,158,11,0.18)"
                           : "1px solid var(--fg-04)",
                         opacity: card.loaded ? 1 : 0.55,
                         cursor: card.loaded ? "pointer" : "default",
                         minHeight: 64,
+                      }}
+                      onMouseEnter={(e) => {
+                        if (card.loaded)
+                          (e.currentTarget as HTMLElement).style.background =
+                            "rgba(245,158,11,0.12)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.background =
+                          card.loaded
+                            ? "rgba(245,158,11,0.08)"
+                            : "var(--fg-02)";
                       }}
                     >
                       {/* Number badge */}
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
                         style={{
-                          background: card.loaded ? "var(--brand)" : "var(--fg-07)",
-                          color: card.loaded ? "var(--brand-contrast)" : "var(--fg-28)",
+                          background: card.loaded ? "#f59e0b" : "var(--fg-07)",
+                          color: card.loaded ? "#0f1724" : "var(--fg-28)",
                         }}
                       >
                         {card.id.slice(2)}
@@ -413,14 +473,20 @@ export default function Library() {
                       <div className="flex-1 text-left min-w-0">
                         <p
                           className="text-[14px] font-semibold leading-tight"
-                          style={{ color: card.loaded ? "var(--fg-90)" : "var(--fg-40)" }}
+                          style={{
+                            color: card.loaded
+                              ? "var(--fg-90)"
+                              : "var(--fg-40)",
+                          }}
                         >
                           {card.title}
                         </p>
                         <p
                           className="text-[11px] mt-0.5"
                           style={{
-                            color: card.loaded ? "color-mix(in srgb, var(--brand-text) 70%, transparent)" : "var(--fg-20)",
+                            color: card.loaded
+                              ? "rgba(245,158,11,0.7)"
+                              : "var(--fg-20)",
                           }}
                         >
                           {card.id} · {cat}
@@ -447,19 +513,21 @@ export default function Library() {
                                   ? "Remove from favourites"
                                   : "Save to favourites"
                               }
-                              className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                              className="w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95"
                               style={{
                                 background: isCardFav(card.id)
-                                  ? "color-mix(in srgb, var(--brand) 12%, transparent)"
+                                  ? "rgba(245,158,11,0.12)"
                                   : "var(--fg-05)",
                               }}
                             >
                               <Heart
                                 className="w-3.5 h-3.5"
                                 style={{
-                                  color: isCardFav(card.id) ? "var(--brand-text)" : "var(--fg-30)",
+                                  color: isCardFav(card.id)
+                                    ? "#f59e0b"
+                                    : "var(--fg-30)",
                                 }}
-                                fill={isCardFav(card.id) ? "var(--brand-text)" : "none"}
+                                fill={isCardFav(card.id) ? "#f59e0b" : "none"}
                               />
                             </button>
                             <ChevronRight
@@ -487,16 +555,22 @@ export default function Library() {
           <div className="flex flex-col items-center py-16 px-4 text-center">
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-              style={{ background: "var(--fg-04)", border: "1px solid var(--fg-07)" }}
+              style={{
+                background: "var(--fg-04)",
+                border: "1px solid var(--fg-07)",
+              }}
             >
               <SearchX className="w-6 h-6" style={{ color: "var(--fg-25)" }} />
             </div>
-            <p className="text-[16px] font-semibold mb-1.5" style={{ color: "var(--fg-60)" }}>
+            <p
+              className="text-[16px] font-semibold mb-1.5"
+              style={{ color: "var(--fg-60)" }}
+            >
               No techniques found
             </p>
             <p
               className="text-[13px] leading-relaxed mb-6 max-w-[240px]"
-              style={{ color: "var(--fg-55)" }}
+              style={{ color: "var(--fg-30)" }}
             >
               Try a different combination of filters, or start fresh.
             </p>
@@ -505,9 +579,9 @@ export default function Library() {
               data-testid="clear-all-filters"
               className="text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
               style={{
-                background: "color-mix(in srgb, var(--brand) 12%, transparent)",
-                border: "1px solid color-mix(in srgb, var(--brand) 25%, transparent)",
-                color: "var(--brand-text)",
+                background: "rgba(245,158,11,0.12)",
+                border: "1px solid rgba(245,158,11,0.25)",
+                color: "#f59e0b",
               }}
             >
               Clear all filters

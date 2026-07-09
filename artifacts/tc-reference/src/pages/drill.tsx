@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { Flame, CheckCircle2, ChevronRight, ArrowRight, Dumbbell } from "lucide-react";
+import {
+  Flame,
+  CheckCircle2,
+  ChevronRight,
+  ArrowRight,
+  Dumbbell,
+  Sparkles,
+} from "lucide-react";
 import { CARD_DATA } from "@/lib/cards";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import {
@@ -11,6 +18,8 @@ import {
   completeDrill,
   isCompletedToday,
   isStreakActive,
+  updateSRS,
+  getDueCardsCount,
 } from "@/lib/drill-state";
 
 const CARD_TITLE_MAP: Record<string, string> = Object.values(LIBRARY_CATEGORIES)
@@ -23,12 +32,15 @@ const CARD_TITLE_MAP: Record<string, string> = Object.values(LIBRARY_CATEGORIES)
 export default function Drill() {
   const [, setLocation] = useLocation();
   const [state, setState] = useState<DrillState>(() => loadDrillState());
+  const [dueCount, setDueCount] = useState(() => getDueCardsCount());
 
   const done = isCompletedToday(state);
   const streakActive = isStreakActive(state);
 
-  const activeCardIndex = done && state.prevCardIndex >= 0 ? state.prevCardIndex : state.cardIndex;
-  const activeDayIndex = done && state.prevDayIndex >= 0 ? state.prevDayIndex : state.dayIndex;
+  const activeCardIndex =
+    done && state.prevCardIndex >= 0 ? state.prevCardIndex : state.cardIndex;
+  const activeDayIndex =
+    done && state.prevDayIndex >= 0 ? state.prevDayIndex : state.dayIndex;
 
   const cardId = CARD_IDS[activeCardIndex] ?? CARD_IDS[0];
   const cardData = CARD_DATA[cardId];
@@ -46,37 +58,55 @@ export default function Drill() {
     state.cardIndex * 7 + state.dayIndex + (done ? 1 : 0);
   const overallPct = Math.round((completedSessions / totalSessions) * 100);
 
-  const handleComplete = () => {
+  const handleComplete = (rating: "hard" | "good" | "easy" = "good") => {
+    updateSRS(cardId, rating);
     const newState = completeDrill(state);
     saveDrillState(newState);
     setState(newState);
+    setDueCount(getDueCardsCount());
   };
 
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-10 gap-5">
-
-      <h1 className="sr-only">Daily Drill</h1>
-
       {/* ── Streak + overall progress row ── */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Flame
             className="w-5 h-5"
-            style={{ color: streakActive && state.streak > 0 ? "var(--brand-text)" : "var(--fg-22)" }}
+            style={{
+              color:
+                streakActive && state.streak > 0 ? "#f59e0b" : "var(--fg-22)",
+            }}
             aria-hidden="true"
           />
           <span
             className="text-[13px] font-bold"
-            style={{ color: streakActive && state.streak > 0 ? "var(--brand-text)" : "var(--fg-30)" }}
+            style={{
+              color:
+                streakActive && state.streak > 0 ? "#f59e0b" : "var(--fg-30)",
+            }}
           >
             {streakActive && state.streak > 0
               ? `${state.streak} day streak`
               : "Start your streak"}
           </span>
         </div>
-        <span className="text-[11px] font-medium" style={{ color: "var(--fg-28)" }}>
-          Card {activeCardIndex + 1} of {CARD_IDS.length} · Day {dayNum} of 7
-        </span>
+        <div className="flex items-center gap-2">
+          {dueCount > 0 && (
+            <span
+              className="text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-0.5"
+              style={{ background: "rgba(245,158,11,0.14)", color: "#f59e0b" }}
+            >
+              <Sparkles className="w-3 h-3" /> {dueCount} due
+            </span>
+          )}
+          <span
+            className="text-[11px] font-medium"
+            style={{ color: "var(--fg-28)" }}
+          >
+            Card {activeCardIndex + 1} of {CARD_IDS.length} · Day {dayNum} of 7
+          </span>
+        </div>
       </div>
 
       {/* ── Overall progress bar ── */}
@@ -93,7 +123,7 @@ export default function Drill() {
           className="h-full rounded-full transition-all duration-500"
           style={{
             width: `${overallPct}%`,
-            background: "linear-gradient(90deg, var(--brand), var(--brand-bright))",
+            background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
           }}
         />
       </div>
@@ -102,12 +132,10 @@ export default function Drill() {
       <div
         className="rounded-2xl p-5"
         style={{
-          background: done
-            ? "color-mix(in srgb, var(--accent-green) 6%, transparent)"
-            : "color-mix(in srgb, var(--brand) 7%, transparent)",
+          background: done ? "rgba(34,197,94,0.06)" : "rgba(245,158,11,0.07)",
           border: done
-            ? "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)"
-            : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
+            ? "1px solid rgba(34,197,94,0.18)"
+            : "1px solid rgba(245,158,11,0.2)",
         }}
       >
         {/* Card ID + title row */}
@@ -116,21 +144,29 @@ export default function Drill() {
             <div className="flex items-center gap-2 mb-1">
               <span
                 className="text-[10px] font-bold tracking-widest uppercase"
-                style={{ color: done ? "color-mix(in srgb, var(--accent-green) 70%, transparent)" : "color-mix(in srgb, var(--brand-text) 70%, transparent)" }}
+                style={{
+                  color: done ? "rgba(34,197,94,0.7)" : "rgba(245,158,11,0.7)",
+                }}
               >
                 {cardId}
               </span>
               {done && (
                 <span
                   className="flex items-center gap-1 text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full"
-                  style={{ background: "color-mix(in srgb, var(--accent-green) 12%, transparent)", color: "var(--accent-green)" }}
+                  style={{
+                    background: "rgba(34,197,94,0.12)",
+                    color: "#22c55e",
+                  }}
                 >
                   <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
                   Done
                 </span>
               )}
             </div>
-            <p className="text-[15px] font-bold leading-snug" style={{ color: "var(--fg-90)" }}>
+            <p
+              className="text-[15px] font-bold leading-snug"
+              style={{ color: "var(--fg-90)" }}
+            >
               {cardTitle}
             </p>
           </div>
@@ -139,19 +175,25 @@ export default function Drill() {
           <div
             className="flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 rounded-xl"
             style={{
-              background: done ? "color-mix(in srgb, var(--accent-green) 12%, transparent)" : "color-mix(in srgb, var(--brand) 12%, transparent)",
-              border: done ? "1px solid color-mix(in srgb, var(--accent-green) 20%, transparent)" : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
+              background: done
+                ? "rgba(34,197,94,0.12)"
+                : "rgba(245,158,11,0.12)",
+              border: done
+                ? "1px solid rgba(34,197,94,0.2)"
+                : "1px solid rgba(245,158,11,0.2)",
             }}
           >
             <span
-              className="text-[18px] font-extrabold leading-none"
-              style={{ color: done ? "var(--accent-green)" : "var(--brand-text)" }}
+              className="text-[18px] font-black leading-none"
+              style={{ color: done ? "#22c55e" : "#f59e0b" }}
             >
               {dayNum}
             </span>
             <span
               className="text-[8px] font-semibold tracking-wide uppercase mt-0.5"
-              style={{ color: done ? "color-mix(in srgb, var(--accent-green) 60%, transparent)" : "color-mix(in srgb, var(--brand-text) 60%, transparent)" }}
+              style={{
+                color: done ? "rgba(34,197,94,0.6)" : "rgba(245,158,11,0.6)",
+              }}
             >
               / 7
             </span>
@@ -169,10 +211,10 @@ export default function Drill() {
                 className="flex-1 h-1.5 rounded-full transition-all duration-300"
                 style={{
                   background: isPast
-                    ? "var(--accent-green)"
+                    ? "#22c55e"
                     : isCurrent
-                    ? "var(--brand)"
-                    : "var(--fg-08)",
+                      ? "#f59e0b"
+                      : "var(--fg-08)",
                 }}
                 aria-hidden="true"
               />
@@ -204,56 +246,111 @@ export default function Drill() {
         <div
           className="rounded-2xl p-4 flex items-center gap-3"
           style={{
-            background: "color-mix(in srgb, var(--accent-green) 6%, transparent)",
-            border: "1px solid color-mix(in srgb, var(--accent-green) 13%, transparent)",
+            background: "rgba(34,197,94,0.06)",
+            border: "1px solid rgba(34,197,94,0.13)",
           }}
         >
-          <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: "var(--accent-green)" }} aria-hidden="true" />
+          <CheckCircle2
+            className="w-5 h-5 flex-shrink-0"
+            style={{ color: "#22c55e" }}
+            aria-hidden="true"
+          />
           <div className="flex-1 min-w-0">
-            <p className="text-[13px] font-semibold" style={{ color: "var(--accent-green)" }}>
+            <p
+              className="text-[13px] font-semibold"
+              style={{ color: "#22c55e" }}
+            >
               Great work — come back tomorrow
             </p>
             {nextDrillEntry && (
-              <p className="text-[11px] mt-0.5 truncate" style={{ color: "var(--fg-30)" }}>
-                Next: {nextCardId} · {nextDrillEntry.day} · {nextDrillEntry.title}
+              <p
+                className="text-[11px] mt-0.5 truncate"
+                style={{ color: "var(--fg-30)" }}
+              >
+                Next: {nextCardId} · {nextDrillEntry.day} ·{" "}
+                {nextDrillEntry.title}
               </p>
             )}
           </div>
         </div>
       ) : (
-        <button
-          onClick={handleComplete}
-          data-testid="drill-mark-complete"
-          className="w-full flex items-center justify-center gap-2 rounded-2xl font-bold text-[14px] transition-all duration-150 active:scale-[0.98] hover:opacity-[0.92]"
-          style={{
-            minHeight: 52,
-            background: "linear-gradient(135deg, var(--brand), var(--brand-bright))",
-            color: "var(--brand-contrast)",
-          }}
-        >
-          <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
-          Mark complete for today
-        </button>
+        <div className="flex flex-col gap-2.5">
+          <p
+            className="text-[11px] font-bold tracking-wider uppercase text-center"
+            style={{ color: "var(--fg-35)" }}
+          >
+            How confident do you feel with this technique?
+          </p>
+          <div className="grid grid-cols-3 gap-2">
+            <button
+              onClick={() => handleComplete("hard")}
+              className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
+              style={{
+                borderColor: "rgba(239,68,68,0.3)",
+                background: "rgba(239,68,68,0.06)",
+                color: "#ef4444",
+              }}
+            >
+              Hard (Soon)
+            </button>
+            <button
+              onClick={() => handleComplete("good")}
+              className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
+              style={{
+                borderColor: "rgba(96,165,250,0.3)",
+                background: "rgba(96,165,250,0.06)",
+                color: "#60a5fa",
+              }}
+            >
+              Good (Medium)
+            </button>
+            <button
+              onClick={() => handleComplete("easy")}
+              className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
+              style={{
+                borderColor: "rgba(34,197,94,0.3)",
+                background: "rgba(34,197,94,0.06)",
+                color: "#22c55e",
+              }}
+            >
+              Easy (Later)
+            </button>
+          </div>
+        </div>
       )}
 
       {/* ── View full card link ── */}
       <button
         onClick={() => setLocation(`/card/${cardId}`)}
         data-testid="drill-view-card"
-        className="w-full flex items-center justify-between px-4 py-3.5 rounded-2xl transition-all duration-150 text-left bg-[var(--fg-03)] hover:bg-[var(--fg-05)]"
+        className="w-full flex items-center justify-between px-4 py-3.5 rounded-2xl transition-all duration-150 text-left"
         style={{
+          background: "var(--fg-03)",
           border: "1px solid var(--fg-07)",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLElement).style.background = "var(--fg-05)";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.background = "var(--fg-03)";
         }}
       >
         <div>
-          <p className="text-[13px] font-semibold" style={{ color: "var(--fg-75)" }}>
+          <p
+            className="text-[13px] font-semibold"
+            style={{ color: "var(--fg-75)" }}
+          >
             View full card
           </p>
           <p className="text-[11px] mt-0.5" style={{ color: "var(--fg-28)" }}>
             Phrases, decision tree, scenarios &amp; more
           </p>
         </div>
-        <ChevronRight className="w-4 h-4 flex-shrink-0" style={{ color: "var(--fg-22)" }} aria-hidden="true" />
+        <ChevronRight
+          className="w-4 h-4 flex-shrink-0"
+          style={{ color: "var(--fg-22)" }}
+          aria-hidden="true"
+        />
       </button>
 
       {/* ── After completing full card cycle hint ── */}
@@ -261,15 +358,22 @@ export default function Drill() {
         <div
           className="flex items-center gap-3 rounded-2xl px-4 py-3"
           style={{
-            background: "color-mix(in srgb, var(--brand) 6%, transparent)",
-            border: "1px solid color-mix(in srgb, var(--brand) 13%, transparent)",
+            background: "rgba(245,158,11,0.06)",
+            border: "1px solid rgba(245,158,11,0.13)",
           }}
         >
-          <ArrowRight className="w-4 h-4 flex-shrink-0" style={{ color: "var(--brand-text)" }} aria-hidden="true" />
-          <p className="text-[12px] font-medium" style={{ color: "var(--fg-50)" }}>
+          <ArrowRight
+            className="w-4 h-4 flex-shrink-0"
+            style={{ color: "#f59e0b" }}
+            aria-hidden="true"
+          />
+          <p
+            className="text-[12px] font-medium"
+            style={{ color: "var(--fg-50)" }}
+          >
             You finished all 7 days on{" "}
-            <span style={{ color: "var(--brand-text)" }}>{cardTitle}</span>. Tomorrow starts{" "}
-            <span style={{ color: "var(--brand-text)" }}>{nextCardTitle}</span>.
+            <span style={{ color: "#f59e0b" }}>{cardTitle}</span>. Tomorrow
+            starts <span style={{ color: "#f59e0b" }}>{nextCardTitle}</span>.
           </p>
         </div>
       )}
@@ -284,14 +388,24 @@ export default function Drill() {
           }}
         >
           <div className="flex items-center gap-2 mb-1">
-            <Dumbbell className="w-3.5 h-3.5" style={{ color: "color-mix(in srgb, var(--brand-text) 50%, transparent)" }} aria-hidden="true" />
-            <p className="text-[10px] font-semibold tracking-wide uppercase" style={{ color: "var(--fg-28)" }}>
+            <Dumbbell
+              className="w-3.5 h-3.5"
+              style={{ color: "rgba(245,158,11,0.5)" }}
+              aria-hidden="true"
+            />
+            <p
+              className="text-[10px] font-semibold tracking-wide uppercase"
+              style={{ color: "var(--fg-28)" }}
+            >
               How it works
             </p>
           </div>
-          <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-38)" }}>
-            Each card has a 7-day practice plan. Complete today's task, then come back tomorrow.
-            One technique at a time — done in 31 cards.
+          <p
+            className="text-[12px] leading-relaxed"
+            style={{ color: "var(--fg-38)" }}
+          >
+            Each card has a 7-day practice plan. Complete today's task, then
+            come back tomorrow. One technique at a time — done in 98 cards.
           </p>
         </div>
       )}

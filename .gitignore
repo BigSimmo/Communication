@@ -44,3 +44,7 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Large binary files
+/techniques/
+

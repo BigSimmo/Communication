@@ -1,4 +1,14 @@
-import { createContext, useContext, useState, useRef, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+  type RefObject,
+} from "react";
 
 interface NavContextType {
   searchOpen: boolean;
@@ -11,7 +21,7 @@ interface NavContextType {
   toggleHeaderDetails: () => void;
   searchQuery: string;
   setSearchQuery: (q: string) => void;
-  searchInputRef: React.RefObject<HTMLInputElement | null>;
+  searchInputRef: RefObject<HTMLInputElement | null>;
 }
 
 const NavContext = createContext<NavContextType | undefined>(undefined);
@@ -22,63 +32,72 @@ export function NavProvider({ children }: { children: ReactNode }) {
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const openSearch = () => {
+  const openSearch = useCallback(() => {
     setSearchOpen(true);
-  };
+  }, []);
 
-  const closeSearch = () => {
+  const closeSearch = useCallback(() => {
     setSearchOpen(false);
-  };
+  }, []);
 
-  const toggleSearch = () => {
+  const toggleSearch = useCallback(() => {
     setSearchOpen((open) => !open);
-  };
+  }, []);
 
-  const openHeaderDetails = () => {
+  const openHeaderDetails = useCallback(() => {
     setHeaderDetailsOpen(true);
-  };
+  }, []);
 
-  const closeHeaderDetails = () => {
+  const closeHeaderDetails = useCallback(() => {
     setHeaderDetailsOpen(false);
-  };
+  }, []);
 
-  const toggleHeaderDetails = () => {
+  const toggleHeaderDetails = useCallback(() => {
     setHeaderDetailsOpen((open) => !open);
-  };
+  }, []);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        if (searchOpen) {
-          closeSearch();
-        } else {
-          openSearch();
-        }
+        setSearchOpen((open) => !open);
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [searchOpen]);
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({
+      searchOpen,
+      openSearch,
+      closeSearch,
+      toggleSearch,
+      headerDetailsOpen,
+      openHeaderDetails,
+      closeHeaderDetails,
+      toggleHeaderDetails,
+      searchQuery,
+      setSearchQuery,
+      searchInputRef,
+    }),
+    [
+      headerDetailsOpen,
+      openHeaderDetails,
+      openSearch,
+      closeHeaderDetails,
+      closeSearch,
+      searchInputRef,
+      searchOpen,
+      searchQuery,
+      setSearchQuery,
+      toggleHeaderDetails,
+      toggleSearch,
+    ],
+  );
 
   return (
-    <NavContext.Provider
-      value={{
-        searchOpen,
-        openSearch,
-        closeSearch,
-        toggleSearch,
-        headerDetailsOpen,
-        openHeaderDetails,
-        closeHeaderDetails,
-        toggleHeaderDetails,
-        searchQuery,
-        setSearchQuery,
-        searchInputRef,
-      }}
-    >
-      {children}
-    </NavContext.Provider>
+    <NavContext.Provider value={contextValue}>{children}</NavContext.Provider>
   );
 }
 

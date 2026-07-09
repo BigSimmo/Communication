@@ -1,70 +1,63 @@
-import { Suspense, lazy } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Library from "@/pages/library";
-// Routes that pull in the heavy card content (the `card-data` chunk) are lazy
-// so the landing page (Library) never loads it up front. Each becomes its own
-// chunk fetched on first navigation.
-const CardDetail = lazy(() => import("@/pages/card-detail"));
-const Drill = lazy(() => import("@/pages/drill"));
-const Favourites = lazy(() => import("@/pages/favourites"));
-const Phrases = lazy(() => import("@/pages/phrases"));
+import CardDetail from "@/pages/card-detail";
+import Drill from "@/pages/drill";
+import Favourites from "@/pages/favourites";
+import Phrases from "@/pages/phrases";
+import Playbooks from "@/pages/playbooks";
 import { QuickModeProvider } from "@/lib/quick-mode";
 import { FavouritesProvider } from "@/lib/favourites-context";
+import { PlaybookProvider } from "@/lib/playbook-context";
 import { NavProvider } from "@/lib/nav-context";
 import { ThemeProvider } from "@/lib/theme";
 import { PdfProvider } from "@/lib/pdf-context";
 import { AppLayout } from "@/components/app-layout";
 
-function RouteFallback() {
-  return (
-    <div
-      className="flex items-center justify-center py-24"
-      role="status"
-      aria-live="polite"
-      aria-busy="true"
-    >
-      <span
-        className="w-6 h-6 rounded-full border-2 animate-spin"
-        style={{ borderColor: "var(--fg-15)", borderTopColor: "var(--brand)" }}
-        aria-hidden="true"
-      />
-      <span className="sr-only">Loading…</span>
-    </div>
-  );
-}
+const queryClient = new QueryClient();
 
 function Router() {
   return (
-    <Suspense fallback={<RouteFallback />}>
-      <Switch>
-        <Route path="/" component={Library} />
-        <Route path="/card/:cardId" component={CardDetail} />
-        <Route path="/drill" component={Drill} />
-        <Route path="/favourites" component={Favourites} />
-        <Route path="/phrases" component={Phrases} />
-        <Route component={NotFound} />
-      </Switch>
-    </Suspense>
+    <Switch>
+      <Route path="/" component={Library} />
+      <Route path="/card/:cardId" component={CardDetail} />
+      <Route path="/drill" component={Drill} />
+      <Route path="/favourites" component={Favourites} />
+      <Route path="/phrases" component={Phrases} />
+      <Route path="/playbooks" component={Playbooks} />
+      <Route component={NotFound} />
+    </Switch>
   );
 }
 
 function App() {
   return (
     <ThemeProvider>
-      <QuickModeProvider>
-        <NavProvider>
-          <FavouritesProvider>
-            <PdfProvider>
-              <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-                <AppLayout>
-                  <Router />
-                </AppLayout>
-              </WouterRouter>
-            </PdfProvider>
-          </FavouritesProvider>
-        </NavProvider>
-      </QuickModeProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <QuickModeProvider>
+            <NavProvider>
+              <FavouritesProvider>
+                <PlaybookProvider>
+                  <PdfProvider>
+                    <WouterRouter
+                      base={import.meta.env.BASE_URL.replace(/\/$/, "")}
+                    >
+                      <AppLayout>
+                        <Router />
+                      </AppLayout>
+                    </WouterRouter>
+                  </PdfProvider>
+                </PlaybookProvider>
+              </FavouritesProvider>
+            </NavProvider>
+          </QuickModeProvider>
+          <Toaster />
+        </TooltipProvider>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }

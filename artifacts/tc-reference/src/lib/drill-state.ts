@@ -75,8 +75,8 @@ export function completeDrill(state: DrillState): DrillState {
     state.lastCompletionDate === yesterday
       ? state.streak + 1
       : state.lastCompletionDate === today
-      ? state.streak
-      : 1;
+        ? state.streak
+        : 1;
 
   const nextDayIndex = state.dayIndex < 6 ? state.dayIndex + 1 : 0;
   const nextCardIndex =
@@ -102,7 +102,89 @@ export function isStreakActive(state: DrillState): boolean {
   const yesterday = getYesterdayISO();
   const today = getTodayISO();
   return (
-    state.lastCompletionDate === yesterday ||
-    state.lastCompletionDate === today
+    state.lastCompletionDate === yesterday || state.lastCompletionDate === today
   );
+}
+
+export interface CardSRS {
+  cardId: string;
+  interval: number;
+  repetition: number;
+  efactor: number;
+  nextReviewDate: string;
+}
+
+export function updateSRS(
+  cardId: string,
+  rating: "hard" | "good" | "easy",
+): CardSRS {
+  let srsMap: Record<string, CardSRS> = {};
+  try {
+    const stored = localStorage.getItem("tc_srs_reviews");
+    if (stored) srsMap = JSON.parse(stored);
+  } catch {
+    srsMap = {};
+  }
+
+  const current = srsMap[cardId] || {
+    cardId,
+    interval: 0,
+    repetition: 0,
+    efactor: 2.5,
+    nextReviewDate: getTodayISO(),
+  };
+
+  let q = 4;
+  if (rating === "hard") q = 2;
+  if (rating === "easy") q = 5;
+
+  let nextRep = current.repetition;
+  let nextInterval = current.interval;
+  let nextEfactor = current.efactor;
+
+  if (q >= 3) {
+    if (nextRep === 0) {
+      nextInterval = 1;
+    } else if (nextRep === 1) {
+      nextInterval = 6;
+    } else {
+      nextInterval = Math.round(nextInterval * nextEfactor);
+    }
+    nextRep += 1;
+  } else {
+    nextRep = 0;
+    nextInterval = 1;
+  }
+
+  nextEfactor = nextEfactor + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02));
+  if (nextEfactor < 1.3) nextEfactor = 1.3;
+
+  const nextDate = new Date();
+  nextDate.setDate(nextDate.getDate() + nextInterval);
+  const nextReviewDateISO = nextDate.toISOString().split("T")[0];
+
+  const updated: CardSRS = {
+    cardId,
+    interval: nextInterval,
+    repetition: nextRep,
+    efactor: nextEfactor,
+    nextReviewDate: nextReviewDateISO,
+  };
+
+  srsMap[cardId] = updated;
+  localStorage.setItem("tc_srs_reviews", JSON.stringify(srsMap));
+  return updated;
+}
+
+export function getDueCardsCount(): number {
+  try {
+    const stored = localStorage.getItem("tc_srs_reviews");
+    if (!stored) return 0;
+    const srsMap: Record<string, CardSRS> = JSON.parse(stored);
+    const today = getTodayISO();
+    return Object.values(srsMap).filter((item) => item.nextReviewDate <= today)
+      .length;
+  } catch {
+    return 0;
+  }
 }
