@@ -54,10 +54,13 @@ export default function Favourites() {
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
 
+      <h1 className="sr-only">Favourites</h1>
+
       {/* Sticky search bar */}
       <div
-        className="sticky top-14 z-10 px-4 md:px-6 py-3"
+        className="sticky z-10 px-4 md:px-6 py-3"
         style={{
+          top: "var(--app-header-height, 56px)",
           background: "var(--surface-header)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
@@ -115,7 +118,7 @@ export default function Favourites() {
             </p>
             <p
               className="text-[13px] leading-relaxed max-w-[260px] mb-6"
-              style={{ color: "var(--fg-30)" }}
+              style={{ color: "var(--fg-55)" }}
             >
               Tap the heart icon on any technique card or phrase to save it here for quick access.
             </p>
@@ -139,7 +142,7 @@ export default function Favourites() {
             <p className="text-[14px] font-semibold mb-1.5" style={{ color: "var(--fg-45)" }}>
               No matches for "{searchQuery}"
             </p>
-            <p className="text-[12px]" style={{ color: "var(--fg-25)" }}>
+            <p className="text-[12px]" style={{ color: "var(--fg-55)" }}>
               Try a card name, ID, or phrase keyword.
             </p>
           </div>
@@ -149,9 +152,9 @@ export default function Favourites() {
         {totalSaved > 0 && (
           <div>
             <div className="flex items-center justify-between mb-3 px-1">
-              <p className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "var(--fg-32)" }}>
+              <h2 className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "var(--fg-55)" }}>
                 Techniques
-              </p>
+              </h2>
               <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(245,158,11,0.12)", color: "#f59e0b" }}>
                 {state.cardIds.length}
               </span>
@@ -202,7 +205,7 @@ export default function Favourites() {
                         <button
                           onClick={() => setLocation(`/card/${id}`)}
                           aria-label={`Open ${id}`}
-                          className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                           style={{ background: "var(--fg-05)" }}
                         >
                           <ChevronRight className="w-4 h-4" style={{ color: "var(--fg-40)" }} />
@@ -210,7 +213,7 @@ export default function Favourites() {
                         <button
                           onClick={() => toggleCard(id)}
                           aria-label="Remove from favourites"
-                          className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                           style={{ background: "rgba(245,158,11,0.12)" }}
                         >
                           <Heart className="w-4 h-4" style={{ color: "#f59e0b" }} fill="#f59e0b" />
@@ -228,10 +231,10 @@ export default function Favourites() {
         {totalSaved > 0 && (
           <div>
             <div className="flex items-center justify-between mb-3 px-1">
-              <p className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "var(--fg-32)" }}>
+              <h2 className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "var(--fg-55)" }}>
                 Phrases
-              </p>
-              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(96,165,250,0.12)", color: "#60a5fa" }}>
+              </h2>
+              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: "color-mix(in srgb, var(--accent-blue) 12%, transparent)", color: "var(--accent-blue)" }}>
                 {state.phrases.length}
               </span>
             </div>
@@ -284,6 +287,16 @@ export default function Favourites() {
                             key={i}
                             onClick={() => handleCopy(p.text)}
                             role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                              // Only respond when the row itself is focused — let the
+                              // nested favourite button handle its own keys
+                              if (e.target !== e.currentTarget) return;
+                              if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                handleCopy(p.text);
+                              }
+                            }}
                             aria-label={`Copy: ${p.text}`}
                             className="w-full flex items-center gap-3 px-4 py-3 cursor-pointer transition-all"
                             style={{
@@ -308,7 +321,7 @@ export default function Favourites() {
                               <button
                                 onClick={() => togglePhrase(p)}
                                 aria-label="Remove from favourites"
-                                className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                                className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                                 style={{ background: "rgba(245,158,11,0.1)" }}
                               >
                                 <Heart className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} fill="#f59e0b" />

@@ -22,6 +22,9 @@ function getInitialTheme(): Theme {
 
 function applyTheme(theme: Theme) {
   document.documentElement.setAttribute("data-theme", theme);
+  // Tailwind's dark: variant and shadcn components key off the .dark class,
+  // so keep it in sync with the data-theme attribute.
+  document.documentElement.classList.toggle("dark", theme === "dark");
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {

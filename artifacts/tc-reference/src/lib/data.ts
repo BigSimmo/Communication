@@ -1,5 +1,3 @@
-import { CARD_DATA, PhraseGroup } from "./cards";
-
 export type CardImpact = "high" | "medium" | "low";
 
 interface LibraryCard {
@@ -7,59 +5,6 @@ interface LibraryCard {
   title: string;
   loaded: boolean;
   impact: CardImpact;
-}
-
-interface LoadedCardData {
-  id: string;
-  phraseBank: PhraseGroup[];
-}
-
-/**
- * A single phrase entry that carries its source card and tone/group metadata.
- * Used by the unified Phrases browser and any other aggregated phrase view.
- */
-export interface AggregatedPhrase {
-  text: string;
-  groupId: string;
-  groupLabel: string;
-  groupTag: string;
-  cardId: string;
-  cardTitle: string;
-}
-
-/**
- * Full content records for every loaded card — sourced from cards.ts.
- * Quick Mode and any other aggregation should pull from here.
- */
-const LOADED_CARD_DATA: Record<string, LoadedCardData> = Object.fromEntries(
-  Object.entries(CARD_DATA).map(([id, card]) => [id, { id, phraseBank: card.phraseBank }])
-);
-
-/** Returns the aggregated phrase groups across all loaded cards (drops source card). */
-export function getQuickModePhrases(): PhraseGroup[] {
-  return Object.values(LOADED_CARD_DATA).flatMap((card) => card.phraseBank);
-}
-
-/**
- * Flattens every loaded card's phrase bank into a single list.
- * Each entry keeps its tone/group label and source card id + title,
- * making it suitable for the unified Phrases browser.
- * Results are cached after the first call.
- */
-let _aggregatedCache: AggregatedPhrase[] | null = null;
-export function getAggregatedPhrases(cardTitleMap: Record<string, string>): AggregatedPhrase[] {
-  if (_aggregatedCache) return _aggregatedCache;
-  const result: AggregatedPhrase[] = [];
-  for (const [cardId, card] of Object.entries(CARD_DATA)) {
-    const cardTitle = cardTitleMap[cardId] ?? cardId;
-    for (const group of card.phraseBank) {
-      for (const text of group.phrases) {
-        result.push({ text, groupId: group.id, groupLabel: group.label, groupTag: group.tag, cardId, cardTitle });
-      }
-    }
-  }
-  _aggregatedCache = result;
-  return result;
 }
 
 export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {

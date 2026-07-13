@@ -1,7 +1,29 @@
+/**
+ * Controlled tone vocabulary for the Phrases browser filter.
+ * Every phrase group maps to exactly one canonical tone:
+ * - Quick — short, low-effort lines for everyday moments
+ * - Warm — connection, empathy, praise, genuine curiosity
+ * - Professional — structured work contexts: meetings, updates, decisions
+ * - Direct — asks, boundaries, brevity, stating positions plainly
+ * - Repair — mending or softening: apologies, ownership, de-escalation
+ * - High-stakes — pressure moments: challenges, interviews, being put on the spot
+ */
+export type CanonicalTone = "Quick" | "Warm" | "Professional" | "Direct" | "Repair" | "High-stakes";
+
+export const CANONICAL_TONES: CanonicalTone[] = [
+  "Quick",
+  "Warm",
+  "Professional",
+  "Direct",
+  "Repair",
+  "High-stakes",
+];
+
 export interface PhraseGroup {
   id: string;
   label: string;
   tag: string;
+  tone: CanonicalTone;
   phrases: string[];
 }
 
@@ -147,99 +169,107 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "quick",
         label: "Quick",
         tag: "Short natural starters",
+        tone: "Quick",
         phrases: [
-          "\"What was that like?\"",
-          "\"How did that happen?\"",
-          "\"What happened next?\"",
-          "\"What made that stand out?\"",
-          "\"How did it go from there?\"",
+          "What was that like?",
+          "How did that happen?",
+          "What happened next?",
+          "What made that stand out?",
+          "How did it go from there?",
         ],
       },
       {
         id: "warm",
         label: "Warm",
         tag: "Comments that invite more",
+        tone: "Warm",
         phrases: [
-          "\"That sounds like it mattered.\"",
-          "\"That must have been a lot in the moment.\"",
-          "\"What was going through your head?\"",
-          "\"What was the best part of that?\"",
-          "\"What was the hardest part?\"",
+          "That sounds like it mattered.",
+          "That must have been a lot in the moment.",
+          "What was going through your head?",
+          "What was the best part of that?",
+          "What was the hardest part?",
         ],
       },
       {
         id: "charismatic",
         label: "Charismatic",
         tag: "More distinctive responses",
+        tone: "Warm",
         phrases: [
-          "\"There's a detail in that I want to ask about.\"",
-          "\"That sounds like the interesting part.\"",
-          "\"That sentence is doing a lot of work.\"",
-          "\"That sounds more complicated than the short version.\"",
-          "\"I feel like there's a story behind that.\"",
+          "There's a detail in that I want to ask about.",
+          "That sounds like the interesting part.",
+          "That sentence is doing a lot of work.",
+          "That sounds more complicated than the short version.",
+          "I feel like there's a story behind that.",
         ],
       },
       {
         id: "two-option",
-        label: "Two-option",
+        label: "Two-Option",
         tag: "Give them something to react to",
+        tone: "Quick",
         phrases: [
-          "\"Was that exciting-intense or stressful-intense?\"",
-          "\"Did that feel like a relief or more like pressure?\"",
-          "\"Was the hard part the task or the uncertainty?\"",
-          "\"Did that change your mind or confirm what you already thought?\"",
-          "\"Was it a good surprise or a complicated surprise?\"",
-          "\"Did that make things clearer or messier?\"",
+          "Was that exciting-intense or stressful-intense?",
+          "Did that feel like a relief or more like pressure?",
+          "Was the hard part the task or the uncertainty?",
+          "Did that change your mind or confirm what you already thought?",
+          "Was it a good surprise or a complicated surprise?",
+          "Did that make things clearer or messier?",
         ],
       },
       {
-        id: "professional",
+        id: "professional-work",
         label: "Professional",
         tag: "Work and meetings",
+        tone: "Professional",
         phrases: [
-          "\"What led you to that decision?\"",
-          "\"What was the key factor?\"",
-          "\"What constraint were you working around?\"",
-          "\"What would good look like from your side?\"",
-          "\"What part of this matters most to get right?\"",
-          "\"What would make the next step easier?\"",
+          "What led you to that decision?",
+          "What was the key factor?",
+          "What constraint were you working around?",
+          "What would good look like from your side?",
+          "What part of this matters most to get right?",
+          "What would make the next step easier?",
         ],
       },
       {
         id: "social-dating",
-        label: "Social / dating",
+        label: "Social / Dating",
         tag: "Chemistry and connection",
+        tone: "Warm",
         phrases: [
-          "\"What are you like when you're really into something?\"",
-          "\"What makes you lose track of time?\"",
-          "\"What are you weirdly passionate about?\"",
-          "\"What's the most 'you' thing you've done recently?\"",
-          "\"What do people usually get wrong about you?\"",
-          "\"What kind of person brings out your best side?\"",
+          "What are you like when you're really into something?",
+          "What makes you lose track of time?",
+          "What are you weirdly passionate about?",
+          "What's the most 'you' thing you've done recently?",
+          "What do people usually get wrong about you?",
+          "What kind of person brings out your best side?",
         ],
       },
       {
-        id: "conflict",
-        label: "Conflict softening",
+        id: "conflict-softening",
+        label: "Conflict Softening",
         tag: "Disagreement and tension",
+        tone: "Repair",
         phrases: [
-          "\"What part of this feels most important to you?\"",
-          "\"What are you worried I'm not seeing?\"",
-          "\"What would feel fair from your side?\"",
-          "\"What did that mean to you when it happened?\"",
-          "\"What do you need me to understand before I respond?\"",
+          "What part of this feels most important to you?",
+          "What are you worried I'm not seeing?",
+          "What would feel fair from your side?",
+          "What did that mean to you when it happened?",
+          "What do you need me to understand before I respond?",
         ],
       },
       {
-        id: "digital",
-        label: "Digital / text",
+        id: "digital-text",
+        label: "Digital / Text",
         tag: "One-line messages",
+        tone: "Quick",
         phrases: [
-          "\"Curious, what made you choose that?\"",
-          "\"What's the short version and the honest version?\"",
-          "\"Was that good-intense or bad-intense?\"",
-          "\"What happened after that?\"",
-          "\"What's the part you're still thinking about?\"",
+          "Curious, what made you choose that?",
+          "What's the short version and the honest version?",
+          "Was that good-intense or bad-intense?",
+          "What happened after that?",
+          "What's the part you're still thinking about?",
         ],
       },
     ],
@@ -333,29 +363,39 @@ export const CARD_DATA: Record<string, CardData> = {
     },
     drill: [
       {
-        day: "Step 1",
+        day: "Day 1",
         title: "Just notice",
-        task: "Pick three ordinary comments someone might make today. Identify the emotionally loaded word in each. Don't act — just practice spotting the thread.",
+        task: "Pick three ordinary comments someone makes today. Identify the emotionally loaded word in each. Don't act — just practise spotting the thread.",
       },
       {
-        day: "Step 2",
+        day: "Day 2",
         title: "Write the move",
-        task: "For each comment, write the minimum viable follow-up in five words or less. Examples: \"Weird how?\" / \"Intense how?\" / \"What was that like?\"",
+        task: "For each comment you noticed, write the minimum viable follow-up in five words or less. Examples: \"Weird how?\" / \"Intense how?\" / \"What was that like?\"",
       },
       {
-        day: "Step 3",
+        day: "Day 3",
         title: "Say it aloud",
         task: "Say each line once in a normal conversational voice. Cut any line that sounds clever, therapeutic, corporate, or rehearsed.",
       },
       {
-        day: "Step 4",
+        day: "Day 4",
         title: "Use the smallest version",
-        task: "In the next real conversation, use the smallest natural version once. Did they give more? Did the tone warm? Don't judge — just observe.",
+        task: "In one real conversation, use the smallest natural version once. Did they give more? Did the tone warm? Don't judge — just observe.",
       },
       {
-        day: "Step 5",
-        title: "Calibrate and contribute",
-        task: "After two follow-ups, reflect briefly and add something small from yourself. This prevents interview energy and shows you are a participant, not an interrogator.",
+        day: "Day 5",
+        title: "Reflect it back",
+        task: "After a follow-up lands, reflect back the feeling or key word once before asking anything else. One short reflection is enough — let them confirm or correct it.",
+      },
+      {
+        day: "Day 6",
+        title: "Contribute after two",
+        task: "After two follow-ups, add something small from yourself. This prevents interview energy and shows you are a participant, not an interrogator.",
+      },
+      {
+        day: "Day 7",
+        title: "Run the full chain",
+        task: "In one conversation, run Notice → Comment → Ask → Reflect → Contribute end to end. Afterwards, note which step felt weakest — that is the one to repeat deliberately next week.",
       },
     ],
     checklist: [
@@ -475,14 +515,14 @@ export const CARD_DATA: Record<string, CardData> = {
       },
     ],
     liveThreadClues: [
-      "\"honestly…\"",
-      "\"weirdly…\"",
-      "\"the strange thing was…\"",
-      "\"I didn't expect…\"",
-      "\"the best part was…\"",
-      "\"the annoying part was…\"",
-      "\"it sounds silly, but…\"",
-      "\"I was surprised that…\"",
+      "honestly...",
+      "weirdly...",
+      "the strange thing was...",
+      "I didn't expect...",
+      "the best part was...",
+      "the annoying part was...",
+      "it sounds silly, but...",
+      "I was surprised that...",
     ],
     depthDial: [
       { depth: "Light", useWhen: "Early conversation", phrase: "\"What happened next?\"" },
@@ -514,7 +554,7 @@ export const CARD_DATA: Record<string, CardData> = {
       },
       {
         mistake: "Turning back to yourself too soon",
-        soundsLike: "\"That happened to me too…\"",
+        soundsLike: "\"That happened to me too...\"",
         better: "\"That makes sense. What did you do next?\"",
       },
       {
@@ -529,14 +569,14 @@ export const CARD_DATA: Record<string, CardData> = {
       },
     ],
     recoveryPhrases: [
-      "\"I'm asking because it sounded interesting, not because I'm trying to interrogate you.\"",
-      "\"No pressure if you'd rather not get into it.\"",
-      "\"That came out more intense than I meant.\"",
-      "\"Let me ask that in a less clunky way.\"",
-      "\"We can change topic if you'd rather.\"",
-      "\"I got curious there. My bad.\"",
-      "\"I'll stop making you do all the talking.\"",
-      "\"That sounded like a job interview question. What I meant was…\"",
+      "I'm asking because it sounded interesting, not because I'm trying to interrogate you.",
+      "No pressure if you'd rather not get into it.",
+      "That came out more intense than I meant.",
+      "Let me ask that in a less clunky way.",
+      "We can change topic if you'd rather.",
+      "I got curious there. My bad.",
+      "I'll stop making you do all the talking.",
+      "That sounded like a job interview question. What I meant was...",
     ],
     bestRecoveryLine: "\"I'm asking because it sounded interesting, but no pressure if you'd rather move on.\"",
     chains: [
@@ -544,41 +584,41 @@ export const CARD_DATA: Record<string, CardData> = {
         label: "Rapport chain",
         sequence: "Warm comment → live-thread follow-up → reflection → light self-disclosure → appreciation",
         example: [
-          "\"That sounds like a big shift.\"",
-          "\"What made you choose it?\"",
-          "\"So it was partly excitement and partly needing a change.\"",
-          "\"I get that. I'm slow to make changes, but once I know, I know.\"",
-          "\"I like how clearly you thought about it.\"",
+          "That sounds like a big shift.",
+          "What made you choose it?",
+          "So it was partly excitement and partly needing a change.",
+          "I get that. I'm slow to make changes, but once I know, I know.",
+          "I like how clearly you thought about it.",
         ],
       },
       {
         label: "Influence chain",
         sequence: "Understand goal → ask about values → frame around that value → release pressure",
         example: [
-          "\"What are you hoping this solves?\"",
-          "\"What matters most: speed, quality, or less stress?\"",
-          "\"Since you care most about reducing stress, I'd lean to the simpler option.\"",
-          "\"But it's your call.\"",
+          "What are you hoping this solves?",
+          "What matters most: speed, quality, or less stress?",
+          "Since you care most about reducing stress, I'd lean to the simpler option.",
+          "But it's your call.",
         ],
       },
       {
         label: "Conflict chain",
         sequence: "Validate → live-thread follow-up → clarify the need → propose next step",
         example: [
-          "\"I can see why that felt frustrating.\"",
-          "\"What part bothered you most?\"",
-          "\"So the issue is less the decision and more that it felt sprung on you.\"",
-          "\"Can we step back and talk through the reasoning properly?\"",
+          "I can see why that felt frustrating.",
+          "What part bothered you most?",
+          "So the issue is less the decision and more that it felt sprung on you.",
+          "Can we step back and talk through the reasoning properly?",
         ],
       },
       {
         label: "Charisma chain",
         sequence: "Playful observation → live-thread follow-up → reflection → light humour",
         example: [
-          "\"That sounds like the short version of a chaotic story.\"",
-          "\"What actually happened?\"",
-          "\"So you were improvising the entire time.\"",
-          "\"Respectfully, that is both impressive and concerning.\"",
+          "That sounds like the short version of a chaotic story.",
+          "What actually happened?",
+          "So you were improvising the entire time.",
+          "Respectfully, that is both impressive and concerning.",
         ],
       },
     ],
@@ -619,6 +659,20 @@ export const CARD_DATA: Record<string, CardData> = {
         group: "Visual Cards",
       },
       {
+        label: "Visual Card — Front (PNG)",
+        description: "Front side as a shareable image",
+        href: "cards/TC001/TC001_TwoCard_Front.png",
+        type: "png",
+        group: "Visual Cards",
+      },
+      {
+        label: "Visual Card — Back (PNG)",
+        description: "Back side as a shareable image",
+        href: "cards/TC001/TC001_TwoCard_Back.png",
+        type: "png",
+        group: "Visual Cards",
+      },
+      {
         label: "Single Card Format (PDF)",
         description: "Condensed one-card version",
         href: "cards/TC001/TC001_OneCard.pdf",
@@ -654,6 +708,13 @@ export const CARD_DATA: Record<string, CardData> = {
         group: "Written Guides",
       },
       {
+        label: "Detailed Guide — Table Format (PDF)",
+        description: "Condensed table layout, printable PDF version",
+        href: "cards/TC001/TC001_Detailed_Guide_Table.pdf",
+        type: "pdf",
+        group: "Written Guides",
+      },
+      {
         label: "Anki Flashcards (CSV)",
         description: "Import into Anki for spaced-repetition practice",
         href: "cards/TC001/TC001_Anki_Flashcards.csv",
@@ -671,7 +732,7 @@ export const CARD_DATA: Record<string, CardData> = {
   },
 
   /* ──────────────────────────────────────────────
-     TC002  Live-Thread Follow-Up
+     TC002  Thread Recall
   ────────────────────────────────────────────── */
   TC002: {
     id: "TC002",
@@ -693,6 +754,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "recall-openers",
         label: "Recall Openers",
         tag: "Referencing what they said",
+        tone: "Warm",
         phrases: [
           "You mentioned earlier that...",
           "Going back to what you said about...",
@@ -708,6 +770,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "warmth-signals",
         label: "Warmth Signals",
         tag: "Making the reference feel natural",
+        tone: "Warm",
         phrases: [
           "I am asking because it sounded important, not just making conversation.",
           "That came up again in my thinking after we spoke.",
@@ -725,7 +788,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You are at the start of a meeting or conversation", action: "Open with a reference before any agenda.", phrase: "Before we start — you mentioned last time that... Any update?" },
     ],
     ladder: [
-      { weak: "Generic 'How are things?' with no memory of past conversations", better: "How have you been?", best: "'Last time we spoke you mentioned X — how did that turn out?'" },
+      { weak: "Generic 'How are things?' with no memory of past conversations", better: "How have you been?", best: "Last time we spoke you mentioned X — how did that turn out?" },
       { weak: "Bringing up a reference in a way that feels like an agenda", better: "I remembered you were dealing with X.", best: "Casual reference with genuine curiosity and no expectation." },
       { weak: "Forgetting entirely and pretending you remember", better: "I think you mentioned something about...", best: "Honest admission: 'I cannot remember the exact detail but I know it was important.'" },
     ],
@@ -810,12 +873,13 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "bluf-openers",
         label: "BLUF Openers",
         tag: "Leading with the conclusion",
+        tone: "Direct",
         phrases: [
           "Bottom line: I recommend...",
           "The short answer is...",
           "My conclusion is... — I can explain why if useful.",
           "The decision is...",
-          "In one sentence: ...",
+          "Up front: ...",
           "The answer is yes, with one condition.",
           "The answer is no, and here is the reason.",
           "My recommendation: ...",
@@ -825,6 +889,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "context-offers",
         label: "Context Offers",
         tag: "Adding detail without burying the lead",
+        tone: "Direct",
         phrases: [
           "I can give you the background if you need it.",
           "That is the headline — want the detail?",
@@ -844,8 +909,8 @@ export const CARD_DATA: Record<string, CardData> = {
     ],
     ladder: [
       { weak: "Long preamble then the actual request at the end", better: "I have a request — [context] — could you...?", best: "'I need X by Thursday. Here is why.' Context in one line after." },
-      { weak: "Answering a question with 'well, it depends...' before the answer", better: "There are a few factors, but generally...", best: "'The answer is X. The main caveat is Y.'" },
-      { weak: "Email that starts with 'Hope you're well, I wanted to reach out about...'", better: "I'm reaching out because...", best: "'I need your input on X. Background below.'" },
+      { weak: "Answering a question with 'well, it depends...' before the answer", better: "There are a few factors, but generally...", best: "The answer is X. The main caveat is Y." },
+      { weak: "Email that starts with 'Hope you're well, I wanted to reach out about...'", better: "I'm reaching out because...", best: "I need your input on X. Background below." },
     ],
     scenarios: [
       { situation: "Senior exec asks for your view in a meeting", move: "One sentence answer. Then offer to elaborate.", phrase: "My recommendation is X. The main reason is Y. Want the detail?" },
@@ -927,6 +992,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "repair-openers",
         label: "Repair Openers",
         tag: "Naming the rupture",
+        tone: "Repair",
         phrases: [
           "Last time was harder than I wanted it to be.",
           "I have been thinking about our last conversation.",
@@ -942,6 +1008,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "ownership-phrases",
         label: "Ownership Phrases",
         tag: "Taking your part without over-apologising",
+        tone: "Repair",
         phrases: [
           "The part I can own is that I came in too hot.",
           "I could have said that more clearly.",
@@ -961,9 +1028,9 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You are avoiding the conversation entirely", action: "The longer you wait, the harder it gets. Name it sooner rather than later.", phrase: "I know we have been avoiding this. I would rather not." },
     ],
     ladder: [
-      { weak: "Pretending the rupture did not happen", better: "Acknowledging something felt off", best: "'Last time was harder than I wanted. Can we come back to it?'" },
+      { weak: "Pretending the rupture did not happen", better: "Acknowledging something felt off", best: "Last time was harder than I wanted. Can we come back to it?" },
       { weak: "Over-apologising to smooth it over without real repair", better: "I am sorry, that was not great.", best: "Name what you did, own it specifically, then ask to move forward." },
-      { weak: "Bringing it up and immediately defending yourself", better: "I know that did not go well.", best: "'I know I came in wrong there. I wanted to say that before we moved on.'" },
+      { weak: "Bringing it up and immediately defending yourself", better: "I know that did not go well.", best: "I know I came in wrong there. I wanted to say that before we moved on." },
     ],
     scenarios: [
       { situation: "After a tense meeting where things were said badly", move: "Brief, direct, no drama — just reopen the channel.", phrase: "Yesterday was hard. I did not want to leave it like that." },
@@ -1045,6 +1112,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "request-core",
         label: "Clean Request Core",
         tag: "What, when, why",
+        tone: "Direct",
         phrases: [
           "I need X from you by Thursday at 5 pm.",
           "Could you do X? I need it before the 3 pm call.",
@@ -1060,6 +1128,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "request-followup",
         label: "Request Follow-Up",
         tag: "Confirming and clarifying",
+        tone: "Direct",
         phrases: [
           "Does that feel doable by then?",
           "Any blockers I should know about?",
@@ -1078,7 +1147,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "Someone asks a vague favour", action: "Ask: what specifically and when?", phrase: "Happy to help — what do you need and when?" },
     ],
     ladder: [
-      { weak: "Vague: 'Could you look at this at some point?'", better: "Can you review this when you get a chance?", best: "'Can you review section 3 and send your notes by Thursday noon?'" },
+      { weak: "Vague: 'Could you look at this at some point?'", better: "Can you review this when you get a chance?", best: "Can you review section 3 and send your notes by Thursday noon?" },
       { weak: "Over-explaining before making the ask", better: "I have a project that needs input — can you help?", best: "'I need your input on X by [date]. Context: one sentence.' Then stop." },
       { weak: "Multiple bundled requests in one message", better: "I have a few things — can we go through them?", best: "One clean request. Then a second message for the next one." },
     ],
@@ -1161,6 +1230,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "specific-praise",
         label: "Specific Praise",
         tag: "Naming the thing",
+        tone: "Warm",
         phrases: [
           "The way you handled that question in the meeting was sharp.",
           "That document was really well-structured — easy to follow.",
@@ -1176,6 +1246,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "impact-phrases",
         label: "Impact Phrases",
         tag: "Why it mattered",
+        tone: "Warm",
         phrases: [
           "It made the difference in how the meeting landed.",
           "That kind of thing does not go unnoticed.",
@@ -1193,9 +1264,9 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You give a lot of compliments and they feel cheap", action: "Give fewer. Choose the ones you actually mean.", phrase: "I do not say this often, but..." },
     ],
     ladder: [
-      { weak: "Generic: 'Great job today!'", better: "You did well in that meeting.", best: "'The way you stayed calm when they pushed back — that changed the whole dynamic.'" },
+      { weak: "Generic: 'Great job today!'", better: "You did well in that meeting.", best: "The way you stayed calm when they pushed back — that changed the whole dynamic." },
       { weak: "Compliment attached to a request", better: "You did great, and while I have you — could you...?", best: "Compliment on its own, request in a separate message." },
-      { weak: "Vague praise: 'You are really talented'", better: "Your presentation skills are strong.", best: "'That opening line in your talk changed the energy in the room.'" },
+      { weak: "Vague praise: 'You are really talented'", better: "Your presentation skills are strong.", best: "That opening line in your talk changed the energy in the room." },
     ],
     scenarios: [
       { situation: "Colleague who did unnoticed work well", move: "Name the specific work and the impact it had.", phrase: "The report you put together — the structure made it really easy to use. I noticed." },
@@ -1276,6 +1347,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "disagreement-openers",
         label: "Disagreement Openers",
         tag: "Stating the difference without contempt",
+        tone: "Direct",
         phrases: [
           "I see this differently — my view is...",
           "I do not think that is quite right, and here is why.",
@@ -1291,6 +1363,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "curiosity-phrases",
         label: "Curiosity Phrases",
         tag: "Staying open while disagreeing",
+        tone: "Warm",
         phrases: [
           "Help me understand how you got there.",
           "I want to make sure I am disagreeing with what you actually said.",
@@ -1309,8 +1382,8 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You have been right about this before and feel vindicated", action: "Be careful. Contempt creeps in through 'told you so' energy.", phrase: "I think this confirms the concern I raised. I am not saying I was right — I am saying the data suggests..." },
     ],
     ladder: [
-      { weak: "Dismissive sigh, eye-roll, or 'obviously not'", better: "I do not think that is the right approach.", best: "'I disagree — and I want to explain my reasoning.'" },
-      { weak: "Aggressive disagreement: 'That is completely wrong'", better: "I do not agree with that conclusion.", best: "'I reach a different conclusion. Here is what I am seeing.'" },
+      { weak: "Dismissive sigh, eye-roll, or 'obviously not'", better: "I do not think that is the right approach.", best: "I disagree — and I want to explain my reasoning." },
+      { weak: "Aggressive disagreement: 'That is completely wrong'", better: "I do not agree with that conclusion.", best: "I reach a different conclusion. Here is what I am seeing." },
       { weak: "Disguised contempt: 'Well, I suppose if you want to look at it that way...'", better: "There are other ways to look at this.", best: "Direct disagreement with no passive-aggressive framing." },
     ],
     scenarios: [
@@ -1393,6 +1466,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "stopping-phrases",
         label: "Stopping Phrases",
         tag: "Signals that you are done",
+        tone: "Direct",
         phrases: [
           "That is my position.",
           "I will leave it there.",
@@ -1406,7 +1480,8 @@ export const CARD_DATA: Record<string, CardData> = {
       {
         id: "recovery-stops",
         label: "Recovery Stops",
-        tag: "Catching yourself mid-overexplain",
+        tag: "Catching yourself mid-over-explain",
+        tone: "Direct",
         phrases: [
           "Actually — I am over-explaining. The point is simply: ...",
           "Let me stop there. I was adding too much.",
@@ -1419,9 +1494,9 @@ export const CARD_DATA: Record<string, CardData> = {
     decisionTree: [
       { condition: "You have made your point and feel the urge to add more", action: "Notice the urge. Pause. Say nothing. See if they respond.", phrase: "" },
       { condition: "They look confused after your point", action: "Ask a clarifying question rather than adding more explanation.", phrase: "Does that answer the question, or would a different angle help?" },
-      { condition: "You catch yourself mid-overexplain", action: "Stop. Name it. Restate the core point.", phrase: "Let me cut that down — the actual answer is: ..." },
+      { condition: "You catch yourself mid-over-explain", action: "Stop. Name it. Restate the core point.", phrase: "Let me cut that down — the actual answer is: ..." },
       { condition: "They press for more detail", action: "Now you can add — but one sentence at a time, then stop again.", phrase: "The one detail I would add is..." },
-      { condition: "You overexplain because you are nervous", action: "Slow down. The overexplaining is coming from pressure — not from the content needing more.", phrase: "I want to answer that directly. The answer is: ..." },
+      { condition: "You over-explain because you are nervous", action: "Slow down. The over-explaining is coming from pressure — not from the content needing more.", phrase: "I want to answer that directly. The answer is: ..." },
     ],
     ladder: [
       { weak: "Three paragraphs where one sentence would have worked", better: "Here is the answer — there are three reasons behind it...", best: "One sentence answer. Then silence. Add detail only if asked." },
@@ -1452,7 +1527,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { day: "Day 1", title: "Notice the urge", task: "In one conversation today, notice every moment when you want to add more after you have made your point. Do not change anything — just notice." },
       { day: "Day 2", title: "Stop after one sentence", task: "In three exchanges today, stop after one sentence answer and wait." },
       { day: "Day 3", title: "The pause test", task: "After making your main point, pause for three full seconds before adding anything else." },
-      { day: "Day 4", title: "Catch mid-overexplain", task: "Practise the recovery: 'Let me cut that down — the point is: ...' Use it once today." },
+      { day: "Day 4", title: "Catch mid-over-explain", task: "Practise the recovery: 'Let me cut that down — the point is: ...' Use it once today." },
       { day: "Day 5", title: "Two-sentence limit", task: "Set a self-imposed limit of two sentences for answers to direct questions. Notice the effect." },
       { day: "Day 6", title: "High-pressure context", task: "Use this in a meeting or presentation where you would normally over-explain." },
       { day: "Day 7", title: "Calibration", task: "Did your communication land better? Did anyone ask for more detail? Did any brevity feel underpowered?" },
@@ -1462,7 +1537,7 @@ export const CARD_DATA: Record<string, CardData> = {
       "Did I resist the urge to restate the same point three different ways?",
       "Did I avoid adding qualifiers that diluted the point?",
       "Did I wait to see if they asked for more before explaining further?",
-      "Did I catch myself overexplaining and self-correct?",
+      "Did I catch myself over-explaining and self-correct?",
       "Did I trust that my point had landed rather than re-explaining it?",
       "Did I keep my energy and tone steady rather than speeding up with more words?",
     ],
@@ -1507,6 +1582,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "summary-checks",
         label: "Summary Checks",
         tag: "Confirming understanding",
+        tone: "Professional",
         phrases: [
           "What I am taking away from this is...",
           "Let me check I have understood: you are saying...",
@@ -1522,6 +1598,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "check-invitations",
         label: "Check Invitations",
         tag: "Inviting correction",
+        tone: "Professional",
         phrases: [
           "Tell me if I have that wrong.",
           "Correct me if I have missed anything.",
@@ -1622,6 +1699,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "curiosity-openers",
         label: "Curiosity Openers",
         tag: "Questions from genuine interest",
+        tone: "Warm",
         phrases: [
           "What made you want to do it that way?",
           "How did you arrive at that?",
@@ -1637,6 +1715,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "followup-questions",
         label: "Follow-Up Questions",
         tag: "Going deeper on what they said",
+        tone: "Warm",
         phrases: [
           "Say more about that.",
           "What do you mean when you say X?",
@@ -1738,6 +1817,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "prep-structure",
         label: "PREP Phrases",
         tag: "Signalling the structure",
+        tone: "Professional",
         phrases: [
           "My view is [Point]. The reason is [Reason]. For example, [Example]. So I would say [Point].",
           "I would answer that in two parts — the principle and the example.",
@@ -1752,6 +1832,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "example-bridges",
         label: "Example Bridges",
         tag: "Moving to evidence",
+        tone: "Professional",
         phrases: [
           "A concrete example of that is...",
           "The clearest instance I have seen was...",
@@ -1769,7 +1850,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You are using PREP too rigidly and it sounds mechanical", action: "Keep the logic but vary the phrasing.", phrase: "I think X, and here is the best evidence I have for it." },
     ],
     ladder: [
-      { weak: "Rambling answer with no clear point", better: "There are several factors involved here...", best: "'My view is X. The reason is Y. The clearest example is Z. So: X.'" },
+      { weak: "Rambling answer with no clear point", better: "There are several factors involved here...", best: "My view is X. The reason is Y. The clearest example is Z. So: X." },
       { weak: "Example without a point: 'Well, one time I did this thing...'", better: "Here is a relevant experience...", best: "State the point first. Then the example to back it." },
       { weak: "Strong point, no evidence: 'I believe X.'", better: "I believe X, and I have seen evidence of it.", best: "Point, specific reason, concrete example, restate point." },
     ],
@@ -1852,6 +1933,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "boundary-statements",
         label: "Boundary Statements",
         tag: "As a need, not a complaint",
+        tone: "Direct",
         phrases: [
           "I am not able to take that on right now.",
           "I need to keep that part of my work separate.",
@@ -1867,6 +1949,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "alternatives",
         label: "Alternatives",
         tag: "Offering a different path",
+        tone: "Direct",
         phrases: [
           "What I can offer instead is...",
           "Here is what I am able to do...",
@@ -1884,9 +1967,9 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You are over-explaining your no", action: "Stop. The boundary does not need a detailed justification.", phrase: "The answer is no — I do not need to explain the full reason." },
     ],
     ladder: [
-      { weak: "Passive: 'I am quite busy... I will try... I will see...'", better: "I am not sure I can do that.", best: "'I cannot take that on. What I can do is X.'" },
-      { weak: "Blaming: 'You always ask me last minute'", better: "Short notice requests are difficult for me.", best: "'I need more lead time for this. I can commit to X if you can give me Y days.'" },
-      { weak: "Over-apologising: 'I am so sorry, I really wish I could...'", better: "I am sorry — I cannot do it.", best: "'I cannot do it. Here is what I can offer instead.'" },
+      { weak: "Passive: 'I am quite busy... I will try... I will see...'", better: "I am not sure I can do that.", best: "I cannot take that on. What I can do is X." },
+      { weak: "Blaming: 'You always ask me last minute'", better: "Short notice requests are difficult for me.", best: "I need more lead time for this. I can commit to X if you can give me Y days." },
+      { weak: "Over-apologising: 'I am so sorry, I really wish I could...'", better: "I am sorry — I cannot do it.", best: "I cannot do it. Here is what I can offer instead." },
     ],
     scenarios: [
       { situation: "Being asked to take on work you cannot handle", move: "Name the limit plainly. Offer a different scope if possible.", phrase: "I am not able to take this on at the current quality level. I could do a smaller version by X." },
@@ -1968,6 +2051,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "effort-acknowledgements",
         label: "Effort Acknowledgements",
         tag: "Naming the work",
+        tone: "Warm",
         phrases: [
           "I can see how much work went into that.",
           "That took real effort and it shows.",
@@ -1983,6 +2067,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "specific-effort",
         label: "Specific Effort",
         tag: "Naming the particular thing",
+        tone: "Warm",
         phrases: [
           "The preparation you put into that meeting was clear.",
           "You did not have to go that far — and you did.",
@@ -1999,8 +2084,8 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "The result was good but the effort was exceptional", action: "Acknowledge the effort separately from the result.", phrase: "The result speaks for itself — but I also wanted to name what it took to get there." },
     ],
     ladder: [
-      { weak: "Moving straight to the next task without acknowledgement", better: "Good work on that.", best: "'I know how much work went into that. I did not want to move past it without saying so.'" },
-      { weak: "Generic praise: 'You worked so hard!'", better: "That was a demanding piece of work.", best: "'The preparation you put into that presentation was clear — especially under that timeline.'" },
+      { weak: "Moving straight to the next task without acknowledgement", better: "Good work on that.", best: "I know how much work went into that. I did not want to move past it without saying so." },
+      { weak: "Generic praise: 'You worked so hard!'", better: "That was a demanding piece of work.", best: "The preparation you put into that presentation was clear — especially under that timeline." },
       { weak: "Backhanded acknowledgement: 'Finally got there!'", better: "It took a while but we got there.", best: "Clean acknowledgement of the effort, no qualifiers." },
     ],
     scenarios: [
@@ -2056,7 +2141,7 @@ export const CARD_DATA: Record<string, CardData> = {
     notFor: [
       "When the effort was poor and naming it implies the outcome is acceptable.",
       "When managing underperformance — naming effort can inadvertently reward the wrong behaviour.",
-      "When your acknowledgment would be read as performative because no real follow-through is planned.",
+      "When your acknowledgement would be read as performative because no real follow-through is planned.",
     ],
   },
 
@@ -2083,6 +2168,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "validation-phrases",
         label: "Validation Phrases",
         tag: "Showing you understood",
+        tone: "Warm",
         phrases: [
           "I understand why that would be a concern.",
           "That is a reasonable worry to have.",
@@ -2098,6 +2184,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "full-understanding",
         label: "Full Understanding",
         tag: "Showing you got the whole concern",
+        tone: "Warm",
         phrases: [
           "Just to make sure I have the full picture — is the concern about X, or also about Y?",
           "Tell me more about what is driving that worry.",
@@ -2114,7 +2201,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "They do not feel heard even after you validated", action: "Go deeper. Ask what you missed.", phrase: "I want to make sure I got the full weight of the concern — what did I miss?" },
     ],
     ladder: [
-      { weak: "Jumping to defence: 'Well, actually the data shows...'", better: "I understand the concern, but...", best: "'That is a real concern — let me make sure I have understood it fully before I respond.'" },
+      { weak: "Jumping to defence: 'Well, actually the data shows...'", better: "I understand the concern, but...", best: "That is a real concern — let me make sure I have understood it fully before I respond." },
       { weak: "Minimal validation: 'I hear you'", better: "I understand that is frustrating.", best: "State the concern back in your own words, then add 'Is that right?' before responding." },
       { weak: "Validation followed immediately by dismissal", better: "That is a valid point, but...", best: "Full validation, full pause, then a genuine response that takes the concern seriously." },
     ],
@@ -2198,10 +2285,11 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "close-phrases",
         label: "Next-Step Close Phrases",
         tag: "Ending with clarity",
+        tone: "Professional",
         phrases: [
           "Before we close — who is doing what and by when?",
           "Let us confirm the next action: [who] will do [what] by [when].",
-          "The next step is X, and [name] owns it by [date].",
+          "The next step is X, and [Name] owns it by [date].",
           "To make this concrete: I will do X by Thursday.",
           "Can we name the one thing that needs to happen before we next meet?",
           "Who is taking the first action from this conversation?",
@@ -2212,6 +2300,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "confirmation",
         label: "Confirmation Phrases",
         tag: "Getting explicit agreement",
+        tone: "Professional",
         phrases: [
           "Does everyone agree that is the next step?",
           "Are you comfortable committing to that timeline?",
@@ -2228,7 +2317,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "The next step is too large to be one action", action: "Break it into the first concrete thing that needs to happen.", phrase: "The first step is X — everything else follows from that." },
     ],
     ladder: [
-      { weak: "Ending with: 'Great chat — let us stay in touch'", better: "Let us follow up on this.", best: "'The next step is X, [name] owns it, deadline is Y. Sound right?'" },
+      { weak: "Ending with: 'Great chat — let us stay in touch'", better: "Let us follow up on this.", best: "The next step is X, [Name] owns it, deadline is Y. Sound right?" },
       { weak: "Vague action: 'Someone needs to look into that'", better: "That needs an owner.", best: "Specific owner, specific deliverable, specific date — confirmed by the owner in the room." },
       { weak: "Meeting notes without confirmed commitments", better: "I will send around the notes afterwards.", best: "Confirm next steps aloud in the meeting before anyone leaves." },
     ],
@@ -2312,6 +2401,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "validation-without-agreeing",
         label: "Validation Without Agreement",
         tag: "Acknowledging without conceding",
+        tone: "Repair",
         phrases: [
           "I can see why that would feel that way.",
           "That experience sounds genuinely frustrating — and...",
@@ -2327,6 +2417,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "holding-both",
         label: "Holding Both",
         tag: "Keeping validation and your position simultaneously",
+        tone: "Repair",
         phrases: [
           "I can hold both of those at once.",
           "Your experience is real and I see it differently.",
@@ -2343,7 +2434,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You validate and they feel dismissed anyway", action: "Ask what they need to feel heard.", phrase: "I want to make sure I am hearing you fully — what am I missing?" },
     ],
     ladder: [
-      { weak: "Dismissing the emotion: 'That is not what happened'", better: "I do not think that is quite right.", best: "'I can see why it felt that way — and my read of what happened is different.'" },
+      { weak: "Dismissing the emotion: 'That is not what happened'", better: "I do not think that is quite right.", best: "I can see why it felt that way — and my read of what happened is different." },
       { weak: "Agreeing to end the conflict: 'You are right, I was wrong'", better: "I can see why you are frustrated.", best: "Validate the feeling cleanly. Then state your position clearly. Hold both." },
       { weak: "Validating in a tone that implies sarcasm", better: "I understand.", best: "Genuine acknowledgement of their experience, then a clear, neutral statement of your view." },
     ],
@@ -2427,6 +2518,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "shared-ground",
         label: "Shared Ground",
         tag: "Naming what you have in common",
+        tone: "Repair",
         phrases: [
           "We are both trying to solve the same problem.",
           "We agree on the goal — we differ on the method.",
@@ -2442,6 +2534,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "disagreement-bridge",
         label: "Disagreement Bridge",
         tag: "Pivoting to the difference",
+        tone: "Direct",
         phrases: [
           "Where I diverge is on the approach.",
           "The part I see differently is how to get there.",
@@ -2541,6 +2634,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "brevity-openers",
         label: "Brevity Openers",
         tag: "Signalling you are being concise",
+        tone: "Direct",
         phrases: [
           "Short version: ...",
           "In one sentence: ...",
@@ -2555,6 +2649,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "cut-phrases",
         label: "Cut Phrases",
         tag: "Catching and shortening",
+        tone: "Direct",
         phrases: [
           "Actually — let me say that more simply.",
           "I am over-explaining. The point is: ...",
@@ -2655,6 +2750,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "autonomy-phrases",
         label: "Autonomy Phrases",
         tag: "Giving genuine choice",
+        tone: "Warm",
         phrases: [
           "No pressure — only if it works for you.",
           "Feel free to say no — I mean that.",
@@ -2670,6 +2766,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "remove-pressure",
         label: "Remove Pressure",
         tag: "When someone seems reluctant",
+        tone: "Warm",
         phrases: [
           "You do not have to decide now.",
           "Take your time — this is not urgent.",
@@ -2686,7 +2783,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You use 'no pressure' but clearly want them to say yes", action: "That is not autonomy — it is manipulation. Do not use it.", phrase: "" },
     ],
     ladder: [
-      { weak: "Asking for something with implied obligation", better: "I know you are busy — only if you can.", best: "'No pressure at all — say no if this does not work, I mean that.'" },
+      { weak: "Asking for something with implied obligation", better: "I know you are busy — only if you can.", best: "No pressure at all — say no if this does not work, I mean that." },
       { weak: "Giving advice without invitation", better: "Can I share a thought on that?", best: "Ask first. If they say yes, give it once. If no, respect it." },
       { weak: "Fake autonomy: 'It is up to you' when you clearly want a specific answer", better: "I have a preference but I want your input.", best: "Be honest about your preference AND genuinely release the decision." },
     ],
@@ -2769,6 +2866,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "uncertain-phrases",
         label: "Confident Uncertainty Phrases",
         tag: "Owning not knowing",
+        tone: "High-stakes",
         phrases: [
           "I do not know the answer to that — and I do not want to guess.",
           "I am not certain about this and I would rather say so than bluff.",
@@ -2784,6 +2882,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "bounded-answer",
         label: "Bounded Answer",
         tag: "Saying what you can say",
+        tone: "High-stakes",
         phrases: [
           "What I can say is...",
           "What I know for certain is...",
@@ -2800,8 +2899,8 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "They seem disappointed you do not know", action: "Hold the uncertainty rather than backfilling with speculation.", phrase: "I understand you need a clearer answer — I would rather give you the right one." },
     ],
     ladder: [
-      { weak: "Bluffing: 'Yes, I believe that would be around...'", better: "I am not entirely sure — my best guess would be...", best: "'I do not know that. I can find out by X and come back to you.'" },
-      { weak: "Apologising excessively for not knowing", better: "I am sorry, I do not have that.", best: "'I do not know — and I do not want to guess. What I can say is...'" },
+      { weak: "Bluffing: 'Yes, I believe that would be around...'", better: "I am not entirely sure — my best guess would be...", best: "I do not know that. I can find out by X and come back to you." },
+      { weak: "Apologising excessively for not knowing", better: "I am sorry, I do not have that.", best: "I do not know — and I do not want to guess. What I can say is..." },
       { weak: "Saying you do not know but then speculating anyway", better: "I am not sure, but maybe...", best: "Stop at 'I do not know.' Add only what you genuinely know." },
     ],
     scenarios: [
@@ -2884,6 +2983,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "reframe-phrases",
         label: "Reframe Phrases",
         tag: "Shifting the frame",
+        tone: "Professional",
         phrases: [
           "I want to step back for a moment — the real question here is...",
           "I think we may be arguing about the wrong thing.",
@@ -2899,6 +2999,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "invite-into-frame",
         label: "Invite Into the Frame",
         tag: "Getting them to engage with the reframe",
+        tone: "Professional",
         phrases: [
           "Does that land as the real issue for you?",
           "Am I naming the right thing, or is it something else?",
@@ -2914,9 +3015,9 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You use reframes to avoid engaging with the actual issue", action: "Do not. This is a misuse. Engage with the issue first.", phrase: "" },
     ],
     ladder: [
-      { weak: "Getting deeper and deeper into a detail that does not matter", better: "Can we look at the bigger picture here?", best: "'I want to name what I think is actually at stake. Can we check whether we agree on that?'" },
+      { weak: "Getting deeper and deeper into a detail that does not matter", better: "Can we look at the bigger picture here?", best: "I want to name what I think is actually at stake. Can we check whether we agree on that?" },
       { weak: "Reframing to avoid a difficult point", better: "I want to make sure we are solving the right problem.", best: "Reframe that points to the actual issue, not away from it." },
-      { weak: "Presenting a reframe as if it is the only correct view", better: "I think the real issue is...", best: "'This is my read of the real issue — does that match yours?'" },
+      { weak: "Presenting a reframe as if it is the only correct view", better: "I think the real issue is...", best: "This is my read of the real issue — does that match yours?" },
     ],
     scenarios: [
       { situation: "Negotiation stuck on pricing", move: "Name what is really driving the resistance.", phrase: "I wonder if the real concern is not the price but the risk. Can we talk about that?" },
@@ -2997,6 +3098,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "exit-signals",
         label: "Exit Signals",
         tag: "Signalling you are wrapping up",
+        tone: "Quick",
         phrases: [
           "I want to wrap up shortly — ",
           "Before I go —",
@@ -3011,6 +3113,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "warm-exits",
         label: "Warm Exit Phrases",
         tag: "Leaving well",
+        tone: "Warm",
         phrases: [
           "This was a really useful conversation — thank you.",
           "I want to come back to this — can we set a time?",
@@ -3028,7 +3131,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You trail off rather than making a clean exit", action: "End with a definite statement, not a trailing sentence.", phrase: "On that note — I am going to go. Good to see you." },
     ],
     ladder: [
-      { weak: "Trailing off and slowly backing away", better: "I should probably get going.", best: "'I need to head off in a moment — but I wanted to say it was good to connect.'" },
+      { weak: "Trailing off and slowly backing away", better: "I should probably get going.", best: "I need to head off in a moment — but I wanted to say it was good to connect." },
       { weak: "Abrupt exit: 'Sorry I have to go, bye'", better: "I have to go — thanks for chatting.", best: "Signal → brief warm close → clean end. Thirty seconds total." },
       { weak: "Fake reason to leave", better: "I have something I need to get to.", best: "Honest reason, briefly stated. Or simply: 'I am going to head off.'" },
     ],
@@ -3112,6 +3215,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "deferment-phrases",
         label: "Deferment Phrases",
         tag: "Buying time with a deadline",
+        tone: "Direct",
         phrases: [
           "I cannot answer that properly right now. I can get back to you by end of day.",
           "That deserves a better answer than I can give you on the spot — give me until tomorrow morning.",
@@ -3127,6 +3231,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "acknowledge-urgency",
         label: "Acknowledge Urgency",
         tag: "When they need it faster than you can give",
+        tone: "Repair",
         phrases: [
           "I understand you need this quickly — my fastest honest answer is by X.",
           "If you need it now, my provisional answer is Y — but I want to confirm that by Z.",
@@ -3142,9 +3247,9 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "You defer frequently and people stop trusting the deadlines", action: "Only defer when you will genuinely return. Then return.", phrase: "" },
     ],
     ladder: [
-      { weak: "Vague deferral: 'I will let you know...'", better: "I need to think about it.", best: "'I cannot give you the right answer now. I will come back to you by [specific time].'" },
+      { weak: "Vague deferral: 'I will let you know...'", better: "I need to think about it.", best: "I cannot give you the right answer now. I will come back to you by [specific time]." },
       { weak: "Endless deferral with no committed return", better: "I am still thinking it through.", best: "Specific time commitment made and kept." },
-      { weak: "Provisional answer presented as final", better: "I think the answer is yes, but I want to check.", best: "'Provisionally yes — I will confirm by X.'" },
+      { weak: "Provisional answer presented as final", better: "I think the answer is yes, but I want to check.", best: "Provisionally yes — I will confirm by X." },
     ],
     scenarios: [
       { situation: "Salary or scope negotiation: asked for your number on the spot", move: "Defer with a specific return time rather than guessing.", phrase: "I need to think about that properly. Can I come back to you by end of week?" },
@@ -3226,6 +3331,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "lead-ask",
         label: "Lead With the Ask",
         tag: "Ask first, context after",
+        tone: "Direct",
         phrases: [
           "I need your help with X — here is the context.",
           "Quick ask before the background: can you...?",
@@ -3241,6 +3347,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "context-follows",
         label: "Context Follows",
         tag: "Adding background after the ask",
+        tone: "Direct",
         phrases: [
           "The reason for the ask is...",
           "Here is why it matters: ...",
@@ -3340,6 +3447,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "credit-phrases",
         label: "Shared Credit Phrases",
         tag: "Naming contributors",
+        tone: "Professional",
         phrases: [
           "[Name] built the core of this — I want to make sure that is visible.",
           "This came from [Name]'s analysis.",
@@ -3355,6 +3463,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "credit-framing",
         label: "Credit Framing",
         tag: "Making it feel natural",
+        tone: "Professional",
         phrases: [
           "Before I present this — let me name who is actually behind it.",
           "I want to start by attributing this properly.",
@@ -3370,7 +3479,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "Credit-sharing sounds performative", action: "Be specific. Vague credit sounds like it is for show.", phrase: "[Name] specifically spotted the data anomaly that changed everything." },
     ],
     ladder: [
-      { weak: "Vague: 'A great team effort'", better: "I had a lot of help on this.", best: "'[Name] built the analysis. [Name] caught the error. I pulled it together.'" },
+      { weak: "Vague: 'A great team effort'", better: "I had a lot of help on this.", best: "[Name] built the analysis. [Name] caught the error. I pulled it together." },
       { weak: "Taking full credit for collaborative work", better: "I worked with [Name] on this.", best: "Name each person's specific contribution before presenting the work." },
       { weak: "Over-crediting: spreading it so thin no one seems particularly important", better: "A lot of people were involved.", best: "Name the two or three people whose contribution was most essential. Be specific." },
     ],
@@ -3453,13 +3562,14 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "decision-framing",
         label: "Decision Framing",
         tag: "Setting up the decision clearly",
+        tone: "Professional",
         phrases: [
           "The decision we are making is: ...",
           "Let me name what we are actually deciding.",
           "The options as I see them are X and Y.",
           "The question we need to answer before we leave is: ...",
           "This is a decision about X — not about Y.",
-          "The decision owner is [name]. We are here to inform it, not to make it.",
+          "The decision owner is [Name]. We are here to inform it, not to make it.",
           "To be clear on the stakes: if we choose X, we get A but lose B.",
           "What is the decision, and who makes it?",
         ],
@@ -3468,6 +3578,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "option-naming",
         label: "Option Naming",
         tag: "Making options explicit",
+        tone: "Professional",
         phrases: [
           "Option one is X. Option two is Y. Are there others I am missing?",
           "I want to name the options explicitly before we discuss them.",
@@ -3484,7 +3595,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "Who decides is unclear", action: "Name it before the discussion, not after.", phrase: "Before we get into this — whose decision is it? I want to make sure we are clear." },
     ],
     ladder: [
-      { weak: "Group discusses for an hour with no clear decision framework", better: "Let us agree on what we are deciding.", best: "'The decision is X. Options are A and B. Trade-offs are [stated]. [Name] makes the final call.'" },
+      { weak: "Group discusses for an hour with no clear decision framework", better: "Let us agree on what we are deciding.", best: "The decision is X. Options are A and B. Trade-offs are [stated]. [Name] makes the final call." },
       { weak: "Naming the decision after the discussion is over", better: "So it sounds like we have decided...", best: "Name the decision before discussion begins." },
       { weak: "Implicit options that different people understand differently", better: "I think we are deciding between two approaches.", best: "Explicit options named and agreed before analysis begins." },
     ],
@@ -3569,6 +3680,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "ask-permission",
         label: "Ask Permission",
         tag: "Before advising",
+        tone: "Warm",
         phrases: [
           "Would it be useful to hear my view on that?",
           "Do you want input, or do you want me to just listen?",
@@ -3583,6 +3695,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "give-once",
         label: "Give Once and Stop",
         tag: "After they say yes",
+        tone: "Warm",
         phrases: [
           "My view is X — that is it.",
           "One thought: ...",
@@ -3599,7 +3712,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "They keep coming back with the same problem and not taking your advice", action: "Do not repeat the same advice. Ask what they are actually looking for.", phrase: "I notice we keep coming back to this — what would actually help right now?" },
     ],
     ladder: [
-      { weak: "Unsolicited advice immediately: 'What you need to do is...'", better: "Can I share a thought?", best: "'Do you want advice on that, or would you rather think it through yourself?'" },
+      { weak: "Unsolicited advice immediately: 'What you need to do is...'", better: "Can I share a thought?", best: "Do you want advice on that, or would you rather think it through yourself?" },
       { weak: "Repeating advice they did not take", better: "I know I said this before, but...", best: "Give advice once. If they do not take it, accept their choice." },
       { weak: "Framing advice as a question to smuggle it in: 'Have you thought about doing X?'", better: "You might want to consider X.", best: "Direct advice clearly labelled as advice, given once, after asking permission." },
     ],
@@ -3683,13 +3796,14 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "vocal-openers",
         label: "Warm Vocal Openers",
         tag: "Starting from the right register",
+        tone: "Warm",
         phrases: [
           "Let me come back to that in a moment.",
           "That is a fair question.",
           "I want to answer that carefully.",
-          "Let me think for a second.",
+          "Let me take a second with that.",
           "I appreciate you raising that.",
-          "The honest answer is...",
+          "My honest take is...",
           "I want to be clear about this.",
           "That is a reasonable concern.",
         ],
@@ -3698,6 +3812,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "recovery-to-warm",
         label: "Recovery to Warm",
         tag: "When your voice has spiked or gone cold",
+        tone: "Repair",
         phrases: [
           "Let me slow that down.",
           "I came in a bit sharp there — let me try again.",
@@ -3797,6 +3912,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "silence-bridges",
         label: "Silence Bridges",
         tag: "Holding space before answering",
+        tone: "High-stakes",
         phrases: [
           "[One breath pause] My honest answer is...",
           "[Pause] The right way to put this is...",
@@ -3809,6 +3925,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "invite-silence",
         label: "Invite to Fill",
         tag: "Letting the other person speak into silence",
+        tone: "Warm",
         phrases: [
           "[Ask question. Pause. Wait fully before adding anything.]",
           "[State your position. Do not add a question. Wait.]",
@@ -3907,6 +4024,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "grounding-phrases",
         label: "Grounding Phrases",
         tag: "Anchoring before you speak",
+        tone: "High-stakes",
         phrases: [
           "Let me say this plainly.",
           "I want to be direct about this.",
@@ -3920,6 +4038,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "recovery-movement",
         label: "Recovery Phrases",
         tag: "When you notice excess movement",
+        tone: "High-stakes",
         phrases: [
           "[Plant feet. Pause. Continue.]",
           "[Still hands. Look at the person. Finish the sentence.]",
@@ -4018,6 +4137,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "reset",
         label: "Reset Openers",
         tag: "Any pressure moment",
+        tone: "High-stakes",
         phrases: [
           "Let me think for a second.",
           "Give me one moment to answer that properly.",
@@ -4033,6 +4153,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "professional",
         label: "Professional Challenge",
         tag: "Meetings · Reviews · Interviews",
+        tone: "High-stakes",
         phrases: [
           "I see the concern. My view is...",
           "That is a fair challenge. The reason I would still do it this way is...",
@@ -4048,6 +4169,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "conflict",
         label: "Conflict / Resistance",
         tag: "Disagreement · Tension",
+        tone: "Repair",
         phrases: [
           "Let us slow this down. I do want to understand the actual concern.",
           "I hear that this landed badly. My intention was...",
@@ -4063,6 +4185,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "social",
         label: "Social Pressure",
         tag: "Being put on the spot",
+        tone: "High-stakes",
         phrases: [
           "Fair question.",
           "The honest answer is...",
@@ -4078,6 +4201,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "highstatus",
         label: "High Status / Busy Person",
         tag: "Senior people · Decision-makers",
+        tone: "High-stakes",
         phrases: [
           "I will keep it concise.",
           "Bottom line first...",
@@ -4093,6 +4217,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "shy",
         label: "Shy / Guarded Person",
         tag: "Low-pressure conversations",
+        tone: "Warm",
         phrases: [
           "No pressure to answer quickly.",
           "Take a second if you need.",
@@ -4108,6 +4233,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "digital",
         label: "Digital / Text / Audio",
         tag: "Messages · Voice notes",
+        tone: "Quick",
         phrases: [
           "Let me answer this without over-explaining.",
           "Short version: yes, with one caveat.",
@@ -4123,6 +4249,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "boundaries",
         label: "Boundaries / Defer",
         tag: "Buying time · Saying no",
+        tone: "Direct",
         phrases: [
           "I cannot answer that properly on the spot.",
           "I can give you a considered answer by tomorrow.",
@@ -4138,6 +4265,7 @@ export const CARD_DATA: Record<string, CardData> = {
         id: "recovery",
         label: "Recovery",
         tag: "After speeding up or going cold",
+        tone: "Repair",
         phrases: [
           "I sped up there. Let me say it more clearly.",
           "That sounded more defensive than I meant.",
@@ -4157,14 +4285,14 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "They are emotionally activated", action: "Use slower sober warmth, then validate before defending.", phrase: "" },
       { condition: "They are rushing you", action: "Choose between a provisional answer and a clear timeline. Do not say yes to escape.", phrase: "" },
       { condition: "They interpret slowness as evasive", action: "Get more direct:", phrase: "The direct answer is..." },
-      { condition: "You start overexplaining", action: "Stop after current sentence:", phrase: "The actual point is..." },
+      { condition: "You start over-explaining", action: "Stop after current sentence:", phrase: "The actual point is..." },
       { condition: "You sound cold or superior", action: "Add warmth:", phrase: "I am not trying to be difficult. I want to be clear." },
       { condition: "The setting is urgent", action: "Use crisp brevity:", phrase: "Yes. Do X now. I will explain after." },
     ],
     ladder: [
       { weak: "Fast defensive paragraph", better: "That is not quite what I meant. Let me clarify.", best: "One breath. \"I see why it sounded that way. My actual point is...\"" },
       { weak: "Instant apology to reduce tension", better: "I can see this is tense. Let me answer properly.", best: "\"I can own my part without rushing into a yes. The part I would change is...\"" },
-      { weak: "Overexplaining to a senior person", better: "There are three reasons...", best: "\"Bottom line first: I recommend X. The main reason is Y.\"" },
+      { weak: "Over-explaining to a senior person", better: "There are three reasons...", best: "\"Bottom line first: I recommend X. The main reason is Y.\"" },
       { weak: "Social pressure laugh + rushed self-justification", better: "That is a fair question.", best: "Smile lightly. \"Fair question. The honest answer is...\"" },
     ],
     scenarios: [
@@ -4205,7 +4333,7 @@ export const CARD_DATA: Record<string, CardData> = {
       "Did I take one beat before the first answer?",
       "Was the first sentence 10–20% slower, not theatrically slow?",
       "Did I answer the actual question or hide behind delay?",
-      "Did I say less rather than overexplaining slowly?",
+      "Did I say less rather than over-explaining slowly?",
       "Did my voice keep warmth and engagement?",
       "Did I finish the sentence cleanly?",
       "Did my body look steady rather than frozen?",

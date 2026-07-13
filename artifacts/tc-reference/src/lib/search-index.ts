@@ -39,7 +39,7 @@ const SEARCH_CORPUS: SearchCorpusEntry[] = Object.entries(CARD_DATA).map(([id, c
     bestForText: card.overview.bestFor.join(" ").toLowerCase(),
     coreFormulaText: card.overview.coreFormula.join(" ").toLowerCase(),
     phraseBankText: card.phraseBank
-      .flatMap((g) => [g.label, g.tag, ...g.phrases])
+      .flatMap((g) => [g.label, g.tag, g.tone, ...g.phrases])
       .join(" ")
       .toLowerCase(),
     scenariosText: card.scenarios

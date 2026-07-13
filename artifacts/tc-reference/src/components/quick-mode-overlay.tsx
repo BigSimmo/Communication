@@ -5,6 +5,7 @@ import { CARD_DATA } from "@/lib/cards";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { copyToClipboard } from "@/lib/utils";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
 
 interface QuickPhrase {
   text: string;
@@ -61,12 +62,14 @@ export function QuickModeOverlay() {
   const [quickFilter, setQuickFilter] = useState<string | null>(null);
   const [copiedPhrase, setCopiedPhrase] = useState<string | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
-  // Focus close button when overlay opens; reset state when it closes
+  // Trap focus inside the overlay while open (initial focus on close button)
+  useFocusTrap(isOpen, overlayRef, { initialFocusRef: closeButtonRef });
+
+  // Reset transient state when the overlay closes
   useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => closeButtonRef.current?.focus(), 60);
-    } else {
+    if (!isOpen) {
       setQuickFilter(null);
       setCopiedPhrase(null);
     }
@@ -96,10 +99,12 @@ export function QuickModeOverlay() {
 
   return (
     <div
+      ref={overlayRef}
       role="dialog"
       aria-modal="true"
       aria-label="Quick Lookup"
-      className="fixed inset-0 z-50 bg-background flex flex-col animate-in slide-in-from-bottom-full duration-300"
+      className="fixed inset-0 bg-background flex flex-col animate-in slide-in-from-bottom-full duration-300"
+      style={{ zIndex: "var(--z-overlay)" as unknown as number }}
       data-testid="quick-mode-overlay"
     >
       {/* ── Header ── */}
@@ -172,7 +177,7 @@ export function QuickModeOverlay() {
             <p className="text-[15px] font-semibold mb-1.5" style={{ color: "var(--fg-50)" }}>
               No phrases in this group
             </p>
-            <p className="text-[13px] mb-5" style={{ color: "var(--fg-28)" }}>
+            <p className="text-[13px] mb-5" style={{ color: "var(--fg-55)" }}>
               Try a different situation filter.
             </p>
             <button
@@ -194,7 +199,7 @@ export function QuickModeOverlay() {
               <p className="text-[13px] font-bold" style={{ color: "var(--fg-80)" }}>
                 {group.label}
               </p>
-              <p className="text-[11px]" style={{ color: "var(--fg-30)" }}>
+              <p className="text-[11px]" style={{ color: "var(--fg-50)" }}>
                 {group.tag}
               </p>
             </div>
@@ -212,6 +217,16 @@ export function QuickModeOverlay() {
                     key={i}
                     onClick={() => handleCopy(phrase.text)}
                     role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      // Only respond when the row itself is focused — let the
+                      // nested favourite button handle its own keys
+                      if (e.target !== e.currentTarget) return;
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        handleCopy(phrase.text);
+                      }
+                    }}
                     aria-label={`Copy phrase: ${phrase.text}`}
                     data-testid={`quick-copy-${group.id}-${i}`}
                     className="w-full flex items-center justify-between text-left cursor-pointer transition-all active:scale-[0.99]"
@@ -248,7 +263,7 @@ export function QuickModeOverlay() {
                       <button
                         onClick={() => togglePhrase({ cardId: phrase.cardId, cardTitle: phrase.cardTitle, groupLabel: group.label, text: phrase.text })}
                         aria-label={isFav ? "Remove from favourites" : "Save phrase"}
-                        className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                         style={{ background: isFav ? "rgba(245,158,11,0.1)" : "transparent" }}
                       >
                         <Heart

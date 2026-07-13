@@ -100,6 +100,9 @@ export function AppHeader({
 
   const cardId = location.startsWith("/card/") ? location.replace("/card/", "").split("?")[0] : null;
   const mode: "library" | "card" = cardId !== null ? "card" : "library";
+  // The brand title is only the page heading on the Library route itself;
+  // other pages (Phrases, Drill, Favourites) provide their own h1.
+  const TitleTag: "h1" | "p" = location === "/" ? "h1" : "p";
   const cardMeta = cardId ? CARD_META[cardId] ?? null : null;
 
   const totalCards = allCards.length;
@@ -180,13 +183,13 @@ export function AppHeader({
                 >
                   {cardId}
                 </span>
-                <h2
+                <h1
                   className="text-[15px] font-bold leading-tight truncate"
                   style={{ color: "var(--fg-90)" }}
                   data-testid="card-title"
                 >
                   {cardMeta?.cardTitle ?? cardId}
-                </h2>
+                </h1>
               </div>
               {cardId && (
                 <button
@@ -274,7 +277,7 @@ export function AppHeader({
                 >
                   Technique Cards
                 </p>
-                <h1
+                <TitleTag
                   className="font-bold leading-tight"
                   style={{
                     color: "var(--fg-90)",
@@ -284,7 +287,7 @@ export function AppHeader({
                   data-testid="library-title"
                 >
                   TC Library
-                </h1>
+                </TitleTag>
               </div>
               <div className="flex items-center justify-end gap-1.5 sm:gap-2.5 flex-shrink-0">
                 <HeaderIconButton
