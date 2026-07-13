@@ -27,15 +27,20 @@ export function useFocusTrap(
 
   useEffect(() => {
     if (!active) return;
-    const container = containerRef.current;
-    if (!container) return;
+    if (!containerRef.current) return;
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
 
-    const getFocusable = () =>
-      Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
+    // Read the ref lazily on every use: the trapped container may be swapped
+    // for a different element while the trap stays active (e.g. the FAB menu
+    // switching between stack and fan layouts).
+    const getFocusable = () => {
+      const container = containerRef.current;
+      if (!container) return [];
+      return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
         (el) => el.tabIndex !== -1
       );
+    };
 
     const frame = requestAnimationFrame(() => {
       const target = initialFocusRef?.current ?? getFocusable()[0];
@@ -44,6 +49,8 @@ export function useFocusTrap(
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key !== "Tab") return;
+      const container = containerRef.current;
+      if (!container) return;
       const focusable = getFocusable();
       if (focusable.length === 0) return;
       const first = focusable[0];

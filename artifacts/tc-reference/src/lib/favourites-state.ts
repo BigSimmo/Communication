@@ -18,6 +18,8 @@ const DEFAULT: FavouritesState = { cardIds: [], phrases: [] };
 // duplicated phrases reworded), so stored favourites saved before that would
 // no longer match. This idempotent migration applies the same transforms to
 // stored favourites on load.
+// Keys are the OLD text after the generic normalisation below has run
+// (quotes stripped, ellipsis converted).
 const REPHRASED: Record<string, Record<string, string>> = {
   TC028: {
     "Let me think for a second.": "Let me take a second with that.",
@@ -25,6 +27,16 @@ const REPHRASED: Record<string, Record<string, string>> = {
   },
   TC003: {
     "In one sentence: ...": "Up front: ...",
+  },
+  TC015: {
+    "The next step is X, and [name] owns it by [date].":
+      "The next step is X, and [Name] owns it by [date].",
+    "The next step is X, [name] owns it, deadline is Y. Sound right?":
+      "The next step is X, [Name] owns it, deadline is Y. Sound right?",
+  },
+  TC026: {
+    "The decision owner is [name]. We are here to inform it, not to make it.":
+      "The decision owner is [Name]. We are here to inform it, not to make it.",
   },
 };
 

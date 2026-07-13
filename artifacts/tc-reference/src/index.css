@@ -252,7 +252,8 @@
   --destructive-foreground: 0 0% 100%;
 
   --input: 217 42% 10% / 0.10;
-  --ring: 38 92% 50%;
+  /* Darker amber so the focus ring stays visible on near-white surfaces */
+  --ring: 26 90% 40%;
   --chart-1: 38 92% 50%;
   --chart-2: 217 42% 10%;
   --chart-3: 217 42% 10% / 0.5;
@@ -472,7 +473,7 @@
   [role="tab"]:focus-visible,
   [role="checkbox"]:focus-visible,
   [role="option"]:focus-visible {
-    outline: 2px solid hsl(var(--ring) / 0.7);
+    outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
   }
 }
