@@ -262,8 +262,12 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
 let generated = 0;
 for (const cardId of Object.keys(CARD_DATA).sort()) {
   if (cardId === "TC001") continue; // ships designed PDFs already
-  const meta = CARD_META[cardId] ?? { title: cardId, category: "" };
-  const bytes = await buildPdf(cardId, meta.title, meta.category);
+  const meta = CARD_META[cardId];
+  if (!meta) {
+    console.warn(`WARNING: ${cardId} has no LIBRARY_CATEGORIES entry — using id as title`);
+  }
+  const { title, category } = meta ?? { title: cardId, category: "" };
+  const bytes = await buildPdf(cardId, title, category);
   const dir = path.join(OUT_BASE, cardId);
   mkdirSync(dir, { recursive: true });
   const file = path.join(dir, `${cardId}_Reference.pdf`);
