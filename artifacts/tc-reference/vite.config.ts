@@ -46,6 +46,22 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        // Split the static card content and the framework/icon vendors out
+        // of the main bundle — better caching and keeps chunks under 500 kB.
+        manualChunks(id: string) {
+          if (id.includes("src/lib/cards.ts")) return "card-data";
+          if (id.includes("node_modules")) {
+            if (/[\\/]node_modules[\\/](react|react-dom|scheduler|wouter|@tanstack)[\\/]/.test(id)) {
+              return "react-vendor";
+            }
+            if (id.includes("lucide-react")) return "icons";
+          }
+          return undefined;
+        },
+      },
+    },
   },
   server: {
     port,

@@ -127,7 +127,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
 });
 
 describe("CardDetail PDF availability contract", () => {
-  it("exposes the bundled PDF URL for cards that have one, and null otherwise", () => {
+  it("exposes each card's own bundled PDF URL", () => {
     const { rerender } = render(
       <Wrapper>
         <PdfUrlDisplay />
@@ -150,6 +150,9 @@ describe("CardDetail PDF availability contract", () => {
       );
     });
 
-    expect(screen.getByTestId("pdf-url").textContent).toBe("null");
+    // Cards without a designed PDF ship a generated reference PDF
+    expect(screen.getByTestId("pdf-url").textContent).toMatch(
+      /cards\/TC002\/TC002_Reference\.pdf$/
+    );
   });
 });
