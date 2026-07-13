@@ -21,6 +21,11 @@ function PdfStatusDisplay() {
   return <div data-testid="pdf-status">{pdfOpen ? "open" : "closed"}</div>;
 }
 
+function PdfUrlDisplay() {
+  const { pdfUrl } = usePdf();
+  return <div data-testid="pdf-url">{pdfUrl ?? "null"}</div>;
+}
+
 function Wrapper({ children }: { children: React.ReactNode }) {
   return (
     <FavouritesProvider>
@@ -31,8 +36,13 @@ function Wrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
+function mockCard(cardId: string) {
+  vi.mocked(useRoute).mockReturnValue([true, { cardId }]);
+  vi.mocked(useLocation).mockReturnValue([`/card/${cardId}`, vi.fn()]);
+}
+
 beforeEach(() => {
-  vi.mocked(useLocation).mockReturnValue(["/card/TC031", vi.fn()]);
+  mockCard("TC001");
 
   global.IntersectionObserver = class {
     observe() {}
@@ -45,8 +55,6 @@ beforeEach(() => {
 
 describe("CardDetail PDF viewer — section switching regression", () => {
   it("keeps PDF open when switching section tabs within the same card", () => {
-    vi.mocked(useRoute).mockReturnValue([true, { cardId: "TC031" }]);
-
     render(
       <Wrapper>
         <OpenPdfButton />
@@ -72,8 +80,6 @@ describe("CardDetail PDF viewer — section switching regression", () => {
   });
 
   it("closes PDF when navigating to a different card", () => {
-    vi.mocked(useRoute).mockReturnValue([true, { cardId: "TC031" }]);
-
     const { rerender } = render(
       <Wrapper>
         <OpenPdfButton />
@@ -85,8 +91,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
     fireEvent.click(screen.getByTestId("open-pdf"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
-    vi.mocked(useRoute).mockReturnValue([true, { cardId: "TC001" }]);
-    vi.mocked(useLocation).mockReturnValue(["/card/TC001", vi.fn()]);
+    mockCard("TC002");
 
     act(() => {
       rerender(
@@ -102,8 +107,6 @@ describe("CardDetail PDF viewer — section switching regression", () => {
   });
 
   it("switching multiple sections rapidly keeps PDF open throughout", () => {
-    vi.mocked(useRoute).mockReturnValue([true, { cardId: "TC031" }]);
-
     render(
       <Wrapper>
         <OpenPdfButton />
@@ -120,5 +123,33 @@ describe("CardDetail PDF viewer — section switching regression", () => {
       fireEvent.click(screen.getByTestId(tab));
       expect(screen.getByTestId("pdf-status").textContent).toBe("open");
     }
+  });
+});
+
+describe("CardDetail PDF availability contract", () => {
+  it("exposes the bundled PDF URL for cards that have one, and null otherwise", () => {
+    const { rerender } = render(
+      <Wrapper>
+        <PdfUrlDisplay />
+        <CardDetail />
+      </Wrapper>
+    );
+
+    expect(screen.getByTestId("pdf-url").textContent).toMatch(
+      /cards\/TC001\/TC001_TwoCard_Combined\.pdf$/
+    );
+
+    mockCard("TC002");
+
+    act(() => {
+      rerender(
+        <Wrapper>
+          <PdfUrlDisplay />
+          <CardDetail />
+        </Wrapper>
+      );
+    });
+
+    expect(screen.getByTestId("pdf-url").textContent).toBe("null");
   });
 });

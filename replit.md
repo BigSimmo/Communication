@@ -1,45 +1,47 @@
-# [Project name]
+# TC Reference Tool
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A mobile-first reference app for 31 communication techniques (TC001–TC031) — phrase banks, decision trees, scenarios and daily practice drills. Fully static SPA; no account, no backend required.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/tc-reference run dev` — run the web app (Vite dev server)
+- `pnpm --filter @workspace/tc-reference test` — run the Vitest suite
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- The tc-reference app needs **no environment variables**
+- The separate `api-server` artifact (scaffolded, not used by tc-reference) uses `DATABASE_URL` and `pnpm --filter @workspace/api-server run dev`
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Web app: React 18 + Vite, Tailwind CSS v4 (CSS-first config), shadcn/ui, wouter, TanStack Query
+- Testing: Vitest + @testing-library/react
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/tc-reference/src/lib/cards.ts` — **single source of truth for all card content** (31 cards: overview, phrase bank, ladder, decision tree, scenarios, drill, checklist)
+- `artifacts/tc-reference/src/lib/data.ts` — `LIBRARY_CATEGORIES` (card titles, categories, impact)
+- `artifacts/tc-reference/src/lib/phrases-data.ts` — phrase aggregation for the Phrases browser
+- `artifacts/tc-reference/src/index.css` — theme tokens (`--fg-*`, `--impact-*`, `--accent-*`, z-index scale), light/dark values
+- `artifacts/tc-reference/src/lib/design-tokens.ts` — shared impact-badge styling used by Library and Card Detail
+- `artifacts/tc-reference/public/cards/<id>/` — downloadable PDFs/PNGs/CSVs per card (currently TC001 only)
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
-
-## Product
-
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- All content is static TypeScript data — no API calls; user state (favourites, drill progress, theme) lives in localStorage only
+- Each phrase group carries a required `tone` from a six-value canonical vocabulary (Quick / Warm / Professional / Direct / Repair / High-stakes) — the Phrases page filter is built on it
+- Cards without a bundled `pdfUrl` expose `pdfUrl: null` via PdfContext, which hides the PDF nav button; there is no placeholder PDF
+- Theme is applied as both `data-theme` attribute and `.dark` class (Tailwind's `dark:` variant keys off the class)
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Favourite phrases are keyed by `(cardId, text)` — editing phrase text in `cards.ts` orphans saved favourites unless you extend the migration in `favourites-state.ts` (`REPHRASED` map / `normalisePhraseText`)
+- `--app-header-height` is set on `<html>` by `app-header.tsx` (56px, 46px when compacted); sticky sub-headers and card-detail anchor-scroll math read it — don't hardcode 56px
+- The Daily Drill assumes every card has exactly 7 drill entries labelled "Day 1"–"Day 7" (`drill-state.ts` hardcodes the 7-day cycle)
+- Quick Lookup merges phrase groups across cards by group `id` — keep group ids unique per card
+- `pnpm-workspace.yaml` `overrides` strip non-win32-x64/linux-x64 platform binaries; `allowBuilds.esbuild` must stay `true` or installs fail with `ERR_PNPM_IGNORED_BUILDS`
 
 ## Pointers
 
 - See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- Root `README.md` covers features, routes, and data architecture in detail

@@ -6,12 +6,7 @@ import { CARD_DATA } from "@/lib/cards";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
-
-const IMPACT_BADGE: Record<CardImpact, { label: string; bg: string; color: string }> = {
-  high:   { label: "High",   bg: "rgba(245,158,11,0.14)", color: "#f59e0b" },
-  medium: { label: "Medium", bg: "rgba(96,165,250,0.12)",  color: "#60a5fa" },
-  low:    { label: "Low",    bg: "var(--fg-06)",           color: "var(--fg-38)" },
-};
+import { IMPACT_STYLES } from "@/lib/design-tokens";
 
 // Derived at module level — no re-computation on every render
 const CARD_DIFFICULTY: Record<string, string> = Object.fromEntries(
@@ -173,7 +168,7 @@ export default function Library() {
                 aria-controls="search-popout-panel"
                 data-search-toggle="true"
                 data-testid="library-search-input"
-                className="w-full h-9 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-30)]"
+                className="w-full h-9 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-50)]"
                 style={{
                   background: "var(--fg-05)",
                   border: "1px solid var(--fg-08)",
@@ -240,7 +235,7 @@ export default function Library() {
               onClick={() => setCategoryFilter(null)}
               aria-pressed={!categoryFilter}
               data-testid="filter-all"
-              className="inline-flex h-8 items-center justify-center rounded-xl px-2 text-[11px] font-semibold transition-all"
+              className="inline-flex h-10 items-center justify-center rounded-xl px-2 text-[11px] font-semibold transition-all"
               style={chipStyle(!categoryFilter)}
             >
               All
@@ -254,7 +249,7 @@ export default function Library() {
                   onClick={() => setCategoryFilter(active ? null : cat)}
                   aria-pressed={active}
                   data-testid={`filter-${cat.toLowerCase().replace(/[\s/]+/g, "-")}`}
-                  className="inline-flex h-8 min-w-0 items-center justify-center rounded-xl px-2 text-[10.5px] font-semibold leading-tight transition-all"
+                  className="inline-flex h-10 min-w-0 items-center justify-center rounded-xl px-2 text-[10.5px] font-semibold leading-tight transition-all"
                   style={chipStyle(active)}
                 >
                   <span className="truncate">{cat}</span>
@@ -279,7 +274,7 @@ export default function Library() {
                     onClick={() => setImpactFilter(active ? null : impact)}
                     aria-pressed={active}
                     data-testid={`filter-impact-${impact}`}
-                    className="inline-flex h-7 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
+                    className="inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
                     style={chipStyle(active)}
                   >
                     {label[impact]}
@@ -304,7 +299,7 @@ export default function Library() {
                     aria-pressed={active}
                     aria-label={`Filter by ${diff} difficulty`}
                     data-testid={`filter-difficulty-${diff.toLowerCase().replace(/-/g, "")}`}
-                    className="inline-flex h-7 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
+                    className="inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
                     style={chipStyle(active)}
                   >
                     {shortLabel}
@@ -356,15 +351,15 @@ export default function Library() {
               key={cat}
               data-testid={`category-section-${cat.toLowerCase().replace(/[\s/]+/g, "-")}`}
             >
-              <p
+              <h2
                 className="text-[11px] font-semibold tracking-widest uppercase mb-3 px-1"
-                style={{ color: "var(--fg-32)" }}
+                style={{ color: "var(--fg-55)" }}
               >
                 {cat}
-              </p>
+              </h2>
               <div className="space-y-2">
                 {cards.map((card) => {
-                  const badge = IMPACT_BADGE[card.impact];
+                  const badge = IMPACT_STYLES[card.impact];
                   return (
                     <div
                       key={card.id}
@@ -373,7 +368,12 @@ export default function Library() {
                       tabIndex={card.loaded ? 0 : undefined}
                       onKeyDown={
                         card.loaded
-                          ? (e) => e.key === "Enter" && setLocation(`/card/${card.id}`)
+                          ? (e) => {
+                              if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                setLocation(`/card/${card.id}`);
+                              }
+                            }
                           : undefined
                       }
                       aria-label={`${card.title} (${card.id})${!card.loaded ? " — coming soon" : ""}`}
@@ -448,7 +448,7 @@ export default function Library() {
                                   ? "Remove from favourites"
                                   : "Save to favourites"
                               }
-                              className="w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95"
+                              className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                               style={{
                                 background: isCardFav(card.id)
                                   ? "rgba(245,158,11,0.12)"
@@ -497,7 +497,7 @@ export default function Library() {
             </p>
             <p
               className="text-[13px] leading-relaxed mb-6 max-w-[240px]"
-              style={{ color: "var(--fg-30)" }}
+              style={{ color: "var(--fg-55)" }}
             >
               Try a different combination of filters, or start fresh.
             </p>

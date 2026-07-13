@@ -174,7 +174,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
   const backdropStyle: React.CSSProperties = {
     position: "fixed",
     inset: 0,
-    zIndex: 9000,
+    zIndex: "var(--z-search)" as unknown as number,
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-end",
@@ -224,7 +224,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             <button
               onClick={() => setQuery("")}
               aria-label="Clear search"
-              className="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95"
+              className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
               style={{ background: "var(--fg-07)" }}
             >
               <X className="w-3.5 h-3.5" style={{ color: "var(--fg-50)" }} />
@@ -347,10 +347,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                       >
                         <HighlightedText text={result.title} query={query} />
                       </p>
-                      <p className="text-[11px] mt-0.5" style={{ color: "var(--fg-30)" }}>
+                      <p className="text-[11px] mt-0.5" style={{ color: "var(--fg-55)" }}>
                         {result.id} · {result.category}
                         {result.matchedIn && result.matchedIn !== "title" && result.matchedIn !== "id" && (
-                          <span style={{ color: "var(--fg-22)" }}> · matched in {result.matchedIn}</span>
+                          <span style={{ color: "var(--fg-55)" }}> · matched in {result.matchedIn}</span>
                         )}
                       </p>
                     </div>
@@ -374,10 +374,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 className="px-4 py-2.5 flex items-center justify-between"
                 style={{ borderTop: "1px solid var(--fg-05)" }}
               >
-                <p className="text-[10px]" style={{ color: "var(--fg-22)" }}>
+                <p className="text-[10px]" style={{ color: "var(--fg-55)" }}>
                   {results.length} result{results.length !== 1 ? "s" : ""}
                 </p>
-                <p className="text-[10px]" style={{ color: "var(--fg-18)" }}>
+                <p className="text-[10px]" style={{ color: "var(--fg-55)" }}>
                   ↑↓ navigate · Enter open
                 </p>
               </div>
@@ -390,7 +390,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
               <p className="text-[15px] font-semibold mb-1.5" style={{ color: "var(--fg-50)" }}>
                 No results for "{query}"
               </p>
-              <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-28)" }}>
+              <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-55)" }}>
                 Try a technique number (TC031), a keyword like "pressure" or "clarity", or a situation like "disagreement".
               </p>
             </div>
@@ -409,7 +409,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 <button
                   onClick={clearRecents}
                   className="text-[10px] font-medium transition-colors"
-                  style={{ color: "var(--fg-32)" }}
+                  style={{ color: "var(--fg-55)", minHeight: 32, paddingInline: 6 }}
                 >
                   Clear
                 </button>
@@ -437,7 +437,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           {/* Empty state — no query, no recents */}
           {!showRecents && query.trim().length === 0 && (
             <div className="flex flex-col items-center py-10 px-6 text-center">
-              <p className="text-[13px]" style={{ color: "var(--fg-30)" }}>
+              <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
                 Search across all techniques, phrases, and scenarios
               </p>
             </div>

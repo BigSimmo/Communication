@@ -22,6 +22,7 @@ import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { loadDrillState, isCompletedToday, isStreakActive } from "@/lib/drill-state";
 import { useFavourites } from "@/lib/favourites-context";
 import { usePdf } from "@/lib/pdf-context";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
 
 const TOTAL_CARDS = Object.values(LIBRARY_CATEGORIES).flat().length;
 const LOADED_CARDS = Object.values(LIBRARY_CATEGORIES).flat().filter((c) => c.loaded).length;
@@ -159,14 +160,9 @@ export function AppLayout({ children }: AppLayoutProps) {
     };
   }, [fabOpen]);
 
-  // Focus management: move focus to first item when menu opens
-  useEffect(() => {
-    if (!fabOpen) return;
-    requestAnimationFrame(() => {
-      const first = navRef.current?.querySelector("button") as HTMLElement | null;
-      first?.focus();
-    });
-  }, [fabOpen]);
+  // Focus management: move focus into the menu on open and keep Tab cycling
+  // within it (shared trap; focus return on close is handled by closeFab)
+  useFocusTrap(fabOpen, navRef, { restoreFocus: false });
 
   // Fan layout — brief label reveal: show all labels for 1.6s after opening, then fade
   useEffect(() => {
@@ -175,22 +171,6 @@ export function AppLayout({ children }: AppLayoutProps) {
     const t = setTimeout(() => setFanLabelsVisible(false), 1600);
     return () => clearTimeout(t);
   }, [fabOpen, layoutMode]);
-
-  // Focus trap: Tab/Shift+Tab cycles within the open nav, wrapping at boundaries
-  const handleNavKeyDown = useCallback((e: React.KeyboardEvent<HTMLElement>) => {
-    if (e.key !== "Tab") return;
-    const nav = navRef.current;
-    if (!nav) return;
-    const buttons = Array.from(nav.querySelectorAll("button")) as HTMLElement[];
-    if (buttons.length === 0) return;
-    const first = buttons[0];
-    const last = buttons[buttons.length - 1];
-    if (e.shiftKey) {
-      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-    } else {
-      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-    }
-  }, []);
 
   const handleSearchTab = () => {
     if (!isLibrary) {
@@ -296,7 +276,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           <p className="text-[9px] font-bold tracking-[0.18em] uppercase" style={{ color: "rgba(245,158,11,0.65)" }}>
             Technique Cards
           </p>
-          <h1 className="text-[18px] font-bold leading-tight mt-0.5" style={{ color: "var(--fg-90)" }}>TC Library</h1>
+          <p className="text-[18px] font-bold leading-tight mt-0.5" style={{ color: "var(--fg-90)" }}>TC Library</p>
         </div>
 
         <div className="w-full h-px" style={{ background: "var(--fg-06)" }} />
@@ -355,7 +335,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                 {/* Badge lives on the chip, matching the mobile pill pattern */}
                 {item.badge && (
                   <span
-                    className="absolute text-[7px] font-black rounded-full leading-none flex items-center justify-center"
+                    className="absolute text-[7px] font-extrabold rounded-full leading-none flex items-center justify-center"
                     style={{
                       top: -2,
                       right: -3,
@@ -471,7 +451,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             overflowY: isShortScreen ? "auto" : undefined,
             pointerEvents: fabOpen ? "auto" : "none",
           }}
-          onKeyDown={handleNavKeyDown}
+
         >
           {navItems.map((item, i) => {
             const n = navItems.length;
@@ -531,7 +511,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                   />
                   {item.badge && (
                     <span
-                      className="absolute text-[8px] font-black rounded-full leading-none flex items-center justify-center"
+                      className="absolute text-[8px] font-extrabold rounded-full leading-none flex items-center justify-center"
                       style={{
                         top: -3,
                         right: -4,
@@ -588,7 +568,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             overflow: "visible",
             pointerEvents: fabOpen ? "auto" : "none",
           }}
-          onKeyDown={handleNavKeyDown}
+
         >
           {navItems.map((item, i) => {
             const n = navItems.length;
@@ -660,7 +640,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                 />
                 {item.badge && (
                   <span
-                    className="absolute text-[7px] font-black rounded-full leading-none flex items-center justify-center"
+                    className="absolute text-[7px] font-extrabold rounded-full leading-none flex items-center justify-center"
                     style={{
                       top: -2,
                       [isRtl ? "left" : "right"]: -3,

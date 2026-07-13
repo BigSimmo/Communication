@@ -1,4 +1,5 @@
-import { CARD_DATA } from "./cards";
+import { CARD_DATA, CANONICAL_TONES } from "./cards";
+import type { CanonicalTone } from "./cards";
 import { LIBRARY_CATEGORIES } from "./data";
 
 export interface AggregatedPhrase {
@@ -6,6 +7,7 @@ export interface AggregatedPhrase {
   groupId: string;
   groupLabel: string;
   groupTag: string;
+  tone: CanonicalTone;
   cardId: string;
   cardTitle: string;
 }
@@ -16,7 +18,7 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
 }
 
 let _phrasesCache: AggregatedPhrase[] | null = null;
-let _tonesCache: string[] | null = null;
+let _tonesCache: CanonicalTone[] | null = null;
 
 export function getAllAggregatedPhrases(): AggregatedPhrase[] {
   if (_phrasesCache) return _phrasesCache;
@@ -25,7 +27,7 @@ export function getAllAggregatedPhrases(): AggregatedPhrase[] {
     const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
     for (const group of card.phraseBank) {
       for (const text of group.phrases) {
-        result.push({ text, groupId: group.id, groupLabel: group.label, groupTag: group.tag, cardId, cardTitle });
+        result.push({ text, groupId: group.id, groupLabel: group.label, groupTag: group.tag, tone: group.tone, cardId, cardTitle });
       }
     }
   }
@@ -33,16 +35,10 @@ export function getAllAggregatedPhrases(): AggregatedPhrase[] {
   return result;
 }
 
-export function getAllTones(): string[] {
+export function getAllTones(): CanonicalTone[] {
   if (_tonesCache) return _tonesCache;
-  const seen = new Set<string>();
-  const ordered: string[] = [];
-  for (const p of getAllAggregatedPhrases()) {
-    if (!seen.has(p.groupLabel)) {
-      seen.add(p.groupLabel);
-      ordered.push(p.groupLabel);
-    }
-  }
-  _tonesCache = ordered.sort();
+  const present = new Set(getAllAggregatedPhrases().map((p) => p.tone));
+  // Fixed canonical order — not alphabetical
+  _tonesCache = CANONICAL_TONES.filter((t) => present.has(t));
   return _tonesCache;
 }

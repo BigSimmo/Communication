@@ -16,11 +16,11 @@ export default function NotFound() {
         <div
           className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
           style={{
-            background: "rgba(239,68,68,0.08)",
-            border: "1px solid rgba(239,68,68,0.18)",
+            background: "hsl(var(--destructive) / 0.08)",
+            border: "1px solid hsl(var(--destructive) / 0.18)",
           }}
         >
-          <AlertCircle className="w-7 h-7" style={{ color: "rgba(239,68,68,0.7)" }} />
+          <AlertCircle className="w-7 h-7" style={{ color: "hsl(var(--destructive) / 0.7)" }} />
         </div>
         <h1 className="text-[20px] font-bold text-foreground mb-2">
           404 — Page not found

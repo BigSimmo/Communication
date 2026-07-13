@@ -11,7 +11,7 @@ const ALL_TONES = getAllTones();
 
 const TONE_COUNTS: Record<string, number> = {};
 for (const p of ALL_PHRASES) {
-  TONE_COUNTS[p.groupLabel] = (TONE_COUNTS[p.groupLabel] ?? 0) + 1;
+  TONE_COUNTS[p.tone] = (TONE_COUNTS[p.tone] ?? 0) + 1;
 }
 
 export default function Phrases() {
@@ -27,7 +27,7 @@ export default function Phrases() {
 
   const filtered = useMemo(() => {
     let result = ALL_PHRASES;
-    if (toneFilter) result = result.filter((p) => p.groupLabel === toneFilter);
+    if (toneFilter) result = result.filter((p) => p.tone === toneFilter);
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       result = result.filter(
@@ -65,16 +65,17 @@ export default function Phrases() {
             Phrase Bank
           </h1>
         </div>
-        <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-38)" }}>
+        <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-55)" }}>
           Every phrase from all {ALL_PHRASES.length} entries across {Object.keys(TONE_COUNTS).length} tones — filter by tone or search to find the right words.
         </p>
       </div>
 
       {/* ── Sticky filter bar ── */}
       <div
-        className="sticky top-14 z-10 flex-shrink-0"
+        className="sticky z-10 flex-shrink-0"
         style={{
-          maxHeight: filterHidden ? 0 : 92,
+          top: "var(--app-header-height, 56px)",
+          maxHeight: filterHidden ? 0 : 104,
           overflow: "hidden",
           transition: "max-height 300ms ease",
         }}
@@ -103,7 +104,7 @@ export default function Phrases() {
               data-testid="tone-filter-all"
               className="flex-shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
               style={{
-                minHeight: 34,
+                minHeight: 40,
                 background: !toneFilter
                   ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
                   : "var(--fg-05)",
@@ -136,7 +137,7 @@ export default function Phrases() {
                   data-testid={`tone-filter-${tone.toLowerCase().replace(/\s+/g, "-")}`}
                   className="flex-shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
                   style={{
-                    minHeight: 34,
+                    minHeight: 40,
                     background: active
                       ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
                       : "var(--fg-05)",
@@ -180,7 +181,7 @@ export default function Phrases() {
                 placeholder="Search phrases or card names…"
                 aria-label="Search phrases"
                 data-testid="phrases-search-input"
-                className="w-full text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-30)]"
+                className="w-full text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-50)]"
                 style={{
                   background: "var(--fg-04)",
                   border: "1px solid var(--fg-07)",
@@ -214,7 +215,7 @@ export default function Phrases() {
 
       {/* ── Count bar ── */}
       <div className="px-4 md:px-6 pt-3 pb-2 flex items-center justify-between">
-        <p className="text-[11px] font-semibold" style={{ color: "var(--fg-32)" }}>
+        <p className="text-[11px] font-semibold" style={{ color: "var(--fg-55)" }}>
           {filtered.length}{" "}
           {filtered.length === 1 ? "phrase" : "phrases"}
           {toneFilter ? ` · ${toneFilter}` : ""}
@@ -226,7 +227,7 @@ export default function Phrases() {
             data-testid="phrases-reset"
             className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 rounded-full transition-all active:scale-95 whitespace-nowrap"
             style={{
-              minHeight: 24,
+              minHeight: 36,
               background: "rgba(245,158,11,0.10)",
               border: "1px solid rgba(245,158,11,0.35)",
               color: "#f59e0b",
@@ -367,7 +368,7 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
           onClick={onFav}
           aria-label={faved ? "Remove from favourites" : "Save phrase"}
           data-testid={`phrase-fav-btn`}
-          className="w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
           style={{ background: faved ? "rgba(245,158,11,0.12)" : "transparent" }}
         >
           <Heart
@@ -382,7 +383,7 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
           onClick={onCopy}
           aria-label={copied ? "Copied!" : `Copy phrase`}
           data-testid={`phrase-copy-icon-btn`}
-          className="w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
           style={{
             background: copied ? "rgba(245,158,11,0.12)" : "var(--fg-05)",
             border: "1px solid var(--fg-07)",

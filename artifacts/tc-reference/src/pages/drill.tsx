@@ -55,6 +55,8 @@ export default function Drill() {
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-10 gap-5">
 
+      <h1 className="sr-only">Daily Drill</h1>
+
       {/* ── Streak + overall progress row ── */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -121,7 +123,7 @@ export default function Drill() {
               {done && (
                 <span
                   className="flex items-center gap-1 text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full"
-                  style={{ background: "rgba(34,197,94,0.12)", color: "#22c55e" }}
+                  style={{ background: "rgba(34,197,94,0.12)", color: "var(--accent-green)" }}
                 >
                   <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
                   Done
@@ -142,8 +144,8 @@ export default function Drill() {
             }}
           >
             <span
-              className="text-[18px] font-black leading-none"
-              style={{ color: done ? "#22c55e" : "#f59e0b" }}
+              className="text-[18px] font-extrabold leading-none"
+              style={{ color: done ? "var(--accent-green)" : "#f59e0b" }}
             >
               {dayNum}
             </span>
@@ -167,7 +169,7 @@ export default function Drill() {
                 className="flex-1 h-1.5 rounded-full transition-all duration-300"
                 style={{
                   background: isPast
-                    ? "#22c55e"
+                    ? "var(--accent-green)"
                     : isCurrent
                     ? "#f59e0b"
                     : "var(--fg-08)",
@@ -206,9 +208,9 @@ export default function Drill() {
             border: "1px solid rgba(34,197,94,0.13)",
           }}
         >
-          <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: "#22c55e" }} aria-hidden="true" />
+          <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: "var(--accent-green)" }} aria-hidden="true" />
           <div className="flex-1 min-w-0">
-            <p className="text-[13px] font-semibold" style={{ color: "#22c55e" }}>
+            <p className="text-[13px] font-semibold" style={{ color: "var(--accent-green)" }}>
               Great work — come back tomorrow
             </p>
             {nextDrillEntry && (

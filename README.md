@@ -8,8 +8,8 @@ A mobile-first reference app for 31 communication techniques, built with React, 
 
 - **31 Technique Cards** — detailed reference cards covering voice/presence, influence/framing, clarity/direction, connection/warmth, and resilience/recovery
 - **Library** — browse all cards with category chips, impact/difficulty filters, sort by impact or difficulty, and a Surprise Me shortcut
-- **Phrases Browser** — 484+ phrases aggregated across all cards, filterable by tone group (Quick, Warm, Professional, etc.) with full-text search
-- **Daily Drill** — 7-step daily practice cycle cycling through all 31 cards, with streak tracking
+- **Phrases Browser** — 484 phrases aggregated across all cards, filterable by six canonical tones (Quick, Warm, Professional, Direct, Repair, High-stakes) with full-text search
+- **Daily Drill** — 7-day practice cycle per card, cycling through all 31 cards, with streak tracking
 - **Favourites** — save cards and individual phrases; persisted to localStorage
 - **Quick Lookup** — a floating overlay with all phrases grouped by tone for fast in-conversation access
 - **Search** — keyboard-accessible global search modal (Cmd+K / Ctrl+K) with live filtering
@@ -137,13 +137,13 @@ All content is static — **no backend required** for the tc-reference app. Card
 
 Card IDs follow the format `TC001`–`TC031`. Each card record includes:
 - `overview` — core formula, impact, difficulty, misuse, best-for
-- `phraseBank` — grouped phrases by tone (Quick / Warm / Professional / …)
+- `phraseBank` — phrase groups, each tagged with one of six canonical tones (Quick / Warm / Professional / Direct / Repair / High-stakes)
 - `ladder` — weak → better → best phrase progressions
 - `decisionTree` — conditional use-case guidance
 - `scenarios` — real-world situation examples
-- `chainsWith` — related technique combinations
-- `practiceSteps` — 7-day practice protocol
+- `drill` — 7-day practice protocol
 - `checklist` — self-assessment items
+- Optional sections (currently TC001 only): `method`, `chains`, `relatedTechniques`, `resources` (downloadable PDFs/images/CSVs under `public/cards/<id>/`), and `pdfUrl` (bundled reference PDF for the in-app viewer)
 
 ---
 
