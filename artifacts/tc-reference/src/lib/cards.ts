@@ -736,6 +736,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC002: {
     id: "TC002",
+    pdfUrl: "cards/TC002/TC002_Reference.pdf",
     overview: {
       coreFormula: ["Note something specific", "Reference it later", "No agenda — just showing you listened"],
       minimumViableMove: "In your next conversation, pick one specific thing the person says and reference it later — even just five minutes later. Nothing more.",
@@ -855,6 +856,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC003: {
     id: "TC003",
+    pdfUrl: "cards/TC003/TC003_Reference.pdf",
     overview: {
       coreFormula: ["State the conclusion", "Give one reason", "Offer context if asked"],
       minimumViableMove: "Before speaking or writing, ask: 'What is the one thing I want them to take away?' Say that first.",
@@ -974,6 +976,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC004: {
     id: "TC004",
+    pdfUrl: "cards/TC004/TC004_Reference.pdf",
     overview: {
       coreFormula: ["Name the rupture lightly", "Take your part", "Reopen the door"],
       minimumViableMove: "Name the fact that the last conversation was difficult — without over-explaining it — and say you want to move forward.",
@@ -1094,6 +1097,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC005: {
     id: "TC005",
+    pdfUrl: "cards/TC005/TC005_Reference.pdf",
     overview: {
       coreFormula: ["What you need", "By when", "Why it matters", "One ask — stop"],
       minimumViableMove: "Before making any request, answer: what specifically do I need, and by when? State those two things. Leave out the rest.",
@@ -1212,6 +1216,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC006: {
     id: "TC006",
+    pdfUrl: "cards/TC006/TC006_Reference.pdf",
     overview: {
       coreFormula: ["Specific thing", "Why it stood out", "Stop"],
       minimumViableMove: "Give one compliment today that names the specific thing you observed and why it mattered to you. Do not add qualifiers or requests after it.",
@@ -1329,6 +1334,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC007: {
     id: "TC007",
+    pdfUrl: "cards/TC007/TC007_Reference.pdf",
     overview: {
       coreFormula: ["Disagree with the idea", "Stay curious", "No dismissal signals"],
       minimumViableMove: "Before disagreeing, check your face and tone. Remove any dismissal — eye-roll, sigh, 'obviously', sarcasm. Then disagree with the position, not the person.",
@@ -1448,6 +1454,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC008: {
     id: "TC008",
+    pdfUrl: "cards/TC008/TC008_Reference.pdf",
     overview: {
       coreFormula: ["Make the point", "Stop", "Wait", "Add one sentence only if pressed"],
       minimumViableMove: "After making your point, stop before adding another sentence. Sit in the silence. If you feel the pull to add more, resist it for five seconds.",
@@ -1564,6 +1571,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC009: {
     id: "TC009",
+    pdfUrl: "cards/TC009/TC009_Reference.pdf",
     overview: {
       coreFormula: ["Pause after key exchange", "Mirror what you understood", "Check accuracy"],
       minimumViableMove: "After any exchange where misalignment is possible, say: 'What I understood from that is X — is that right?' Then listen.",
@@ -1681,6 +1689,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC010: {
     id: "TC010",
+    pdfUrl: "cards/TC010/TC010_Reference.pdf",
     overview: {
       coreFormula: ["Ask from genuine interest", "Open-ended", "Follow up on what they said"],
       minimumViableMove: "Ask one question in your next conversation that you are genuinely curious about — not to make a point, not to steer, just to understand.",
@@ -1799,6 +1808,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC011: {
     id: "TC011",
+    pdfUrl: "cards/TC011/TC011_Reference.pdf",
     overview: {
       coreFormula: ["Point", "Reason", "Evidence / Example", "Point (restate)"],
       minimumViableMove: "Before answering any important question, identify: what is my point? One reason. One example. Then restate the point.",
@@ -1915,6 +1925,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC012: {
     id: "TC012",
+    pdfUrl: "cards/TC012/TC012_Reference.pdf",
     overview: {
       coreFormula: ["Name what you need", "Not what they did wrong", "Invite the alternative"],
       minimumViableMove: "State your boundary as a need you have, not as a complaint about what they did. One sentence. Then stop.",
@@ -2033,6 +2044,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC013: {
     id: "TC013",
+    pdfUrl: "cards/TC013/TC013_Reference.pdf",
     overview: {
       coreFormula: ["Notice the specific work", "Name it aloud", "Do not qualify"],
       minimumViableMove: "Name one piece of effort you noticed today that would normally go unacknowledged. Say it without qualifying it or immediately moving on.",
@@ -2150,6 +2162,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC014: {
     id: "TC014",
+    pdfUrl: "cards/TC014/TC014_Reference.pdf",
     overview: {
       coreFormula: ["Show you understood the concern", "Fully", "Before responding or defending"],
       minimumViableMove: "Before addressing a concern, state it back in your own words to show you heard it. Then respond. Not before.",
@@ -2267,6 +2280,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC015: {
     id: "TC015",
+    pdfUrl: "cards/TC015/TC015_Reference.pdf",
     overview: {
       coreFormula: ["Name the next action", "Who owns it", "By when", "Confirm aloud"],
       minimumViableMove: "Before ending any meeting or important conversation, name one specific next action with an owner and a date. Confirm it aloud.",
@@ -2383,6 +2397,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC016: {
     id: "TC016",
+    pdfUrl: "cards/TC016/TC016_Reference.pdf",
     overview: {
       coreFormula: ["Acknowledge their experience", "Make clear you are not agreeing with the claim", "Hold both"],
       minimumViableMove: "Say 'I can see why you feel that way' before 'I don't agree with that.' Both sentences. In that order.",
@@ -2500,6 +2515,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC017: {
     id: "TC017",
+    pdfUrl: "cards/TC017/TC017_Reference.pdf",
     overview: {
       coreFormula: ["State what you share", "Build the common ground", "Then diverge clearly"],
       minimumViableMove: "Before presenting your counter-argument, name one specific thing you agree with in their position. Then state your difference.",
@@ -2616,6 +2632,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC018: {
     id: "TC018",
+    pdfUrl: "cards/TC018/TC018_Reference.pdf",
     overview: {
       coreFormula: ["Cut words in half", "Lead with the point", "Earn elaboration"],
       minimumViableMove: "Take whatever you were about to say and cut it in half. Lead with the most important word or sentence. Leave the rest.",
@@ -2732,6 +2749,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC019: {
     id: "TC019",
+    pdfUrl: "cards/TC019/TC019_Reference.pdf",
     overview: {
       coreFormula: ["Offer choice", "Remove pressure to agree", "Genuine — not performative"],
       minimumViableMove: "Before the next time you ask for something, explicitly give the person permission to say no or choose differently. Mean it.",
@@ -2848,6 +2866,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC020: {
     id: "TC020",
+    pdfUrl: "cards/TC020/TC020_Reference.pdf",
     overview: {
       coreFormula: ["Name what you know", "Name what you do not know", "Own the gap with confidence"],
       minimumViableMove: "When you do not know something, say so directly and then name what you do know. Do not bluff and do not apologise for not knowing.",
@@ -2965,6 +2984,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC021: {
     id: "TC021",
+    pdfUrl: "cards/TC021/TC021_Reference.pdf",
     overview: {
       coreFormula: ["Name what the conversation is actually about", "Shift from surface detail to real stakes", "Invite them into the new frame"],
       minimumViableMove: "When a conversation is stuck on the wrong thing, say: 'I want to step back — the real question here is...' and name it.",
@@ -3080,6 +3100,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC022: {
     id: "TC022",
+    pdfUrl: "cards/TC022/TC022_Reference.pdf",
     overview: {
       coreFormula: ["Signal the close", "Give a warm and honest reason", "End clean"],
       minimumViableMove: "Signal your exit before you actually leave. Give one brief, honest reason. End the conversation cleanly rather than trailing off.",
@@ -3197,6 +3218,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC023: {
     id: "TC023",
+    pdfUrl: "cards/TC023/TC023_Reference.pdf",
     overview: {
       coreFormula: ["Decline to decide now", "Specific return time", "Honor the commitment"],
       minimumViableMove: "When you cannot answer properly on the spot, say: 'I cannot give you the right answer now — I can have it for you by [specific time].' Then keep that commitment.",
@@ -3313,6 +3335,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC024: {
     id: "TC024",
+    pdfUrl: "cards/TC024/TC024_Reference.pdf",
     overview: {
       coreFormula: ["State what you need first", "Then context", "One ask at a time"],
       minimumViableMove: "Before your next request, identify exactly what you need and say that in the first sentence. Context can follow.",
@@ -3429,6 +3452,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC025: {
     id: "TC025",
+    pdfUrl: "cards/TC025/TC025_Reference.pdf",
     overview: {
       coreFormula: ["Name who contributed", "Name what they did", "Do not be vague"],
       minimumViableMove: "The next time you present work that involved others, name at least one contributor specifically before you present it.",
@@ -3544,6 +3568,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC026: {
     id: "TC026",
+    pdfUrl: "cards/TC026/TC026_Reference.pdf",
     overview: {
       coreFormula: ["Name the decision", "Options on the table", "Stakes and trade-offs", "Who decides"],
       minimumViableMove: "Before any group decision, spend thirty seconds naming: what decision are we making, what are the options, and who makes the final call?",
@@ -3662,6 +3687,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC027: {
     id: "TC027",
+    pdfUrl: "cards/TC027/TC027_Reference.pdf",
     overview: {
       coreFormula: ["Ask if they want advice", "Wait for yes", "Give it once", "Stop"],
       minimumViableMove: "Before giving advice, ask: 'Would it be useful to hear my view on that?' Wait for the answer. If yes, give your advice once and stop.",
@@ -3778,6 +3804,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC028: {
     id: "TC028",
+    pdfUrl: "cards/TC028/TC028_Reference.pdf",
     overview: {
       coreFormula: ["Slower default", "Lower register", "More resonance", "Consistent — not turned on"],
       minimumViableMove: "Before entering your next conversation, take one slow breath and let your voice settle a half-tone lower than where you started. Use that as your opening register.",
@@ -3894,6 +3921,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC029: {
     id: "TC029",
+    pdfUrl: "cards/TC029/TC029_Reference.pdf",
     overview: {
       coreFormula: ["Pause before answering", "Use silence as a signal — not a void", "Let them fill it sometimes"],
       minimumViableMove: "Before answering your next difficult question, take one full silent beat before speaking. Notice what happens.",
@@ -4006,6 +4034,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC030: {
     id: "TC030",
+    pdfUrl: "cards/TC030/TC030_Reference.pdf",
     overview: {
       coreFormula: ["Still baseline", "Deliberate movement", "Gestures that reinforce the point"],
       minimumViableMove: "Before your next important conversation or presentation, notice your default physical behaviour. Set a still baseline. Move only when you mean to.",
@@ -4118,6 +4147,7 @@ export const CARD_DATA: Record<string, CardData> = {
   ────────────────────────────────────────────── */
   TC031: {
     id: "TC031",
+    pdfUrl: "cards/TC031/TC031_Reference.pdf",
     overview: {
       coreFormula: ["Pressure cue", "One breath", "10–20% slower", "Clean ending", "Choose next move"],
       minimumViableMove: "Before answering under pressure, take one quiet breath and say the first sentence 10–20% slower than your instinct, with a clean stop at the end.",

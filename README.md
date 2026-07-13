@@ -143,7 +143,8 @@ Card IDs follow the format `TC001`–`TC031`. Each card record includes:
 - `scenarios` — real-world situation examples
 - `drill` — 7-day practice protocol
 - `checklist` — self-assessment items
-- Optional sections (currently TC001 only): `method`, `chains`, `relatedTechniques`, `resources` (downloadable PDFs/images/CSVs under `public/cards/<id>/`), and `pdfUrl` (bundled reference PDF for the in-app viewer)
+- `pdfUrl` — bundled reference PDF for the in-app viewer. TC001 ships a designed card PDF; every other card ships a generated reference PDF (regenerate with `pnpm --filter @workspace/scripts run generate:card-pdfs` after content edits)
+- Optional sections (currently TC001 only): `method`, `chains`, `relatedTechniques`, and a curated `resources` list (downloadable PDFs/images/CSVs under `public/cards/<id>/`); cards without one expose their reference PDF as a single Downloads entry
 
 ---
 

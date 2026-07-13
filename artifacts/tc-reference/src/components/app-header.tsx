@@ -106,8 +106,6 @@ export function AppHeader({
   const cardMeta = cardId ? CARD_META[cardId] ?? null : null;
 
   const totalCards = allCards.length;
-  const loadedCards = allCards.filter((c) => c.loaded).length;
-  const loadedPct = totalCards > 0 ? (loadedCards / totalCards) * 100 : 0;
   const headerHeight = compact ? 46 : 56;
 
   useEffect(() => {
@@ -325,14 +323,14 @@ export function AppHeader({
                     : <Moon className="w-4 h-4" aria-hidden="true" />
                   }
                 </HeaderIconButton>
-                {/* Progress block — count badge + thin loaded-vs-total bar + X/Y label */}
+                {/* Library size badge — count of technique cards */}
                 <div
                   className="library-progress-full flex-col items-end gap-1"
-                  aria-label={`${loadedCards} of ${totalCards} cards loaded`}
+                  aria-label={`${totalCards} technique cards`}
                   data-testid="library-progress"
                 >
                   <div
-                    className="flex items-center justify-center rounded-lg px-2.5 py-1 leading-none"
+                    className="flex items-center justify-center gap-1 rounded-lg px-2.5 py-1 leading-none"
                     style={{
                       background:
                         "linear-gradient(135deg, rgba(245,158,11,0.20) 0%, rgba(245,158,11,0.07) 100%)",
@@ -343,30 +341,8 @@ export function AppHeader({
                     <span className="text-[12px] font-bold" style={{ color: "#f59e0b" }}>
                       {totalCards}
                     </span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <div
-                      className="relative w-16 h-1.5 rounded-full overflow-hidden"
-                      style={{ background: "var(--fg-08)" }}
-                      role="progressbar"
-                      aria-label={`${loadedCards} of ${totalCards} cards loaded`}
-                      aria-valuenow={loadedCards}
-                      aria-valuemin={0}
-                      aria-valuemax={totalCards}
-                    >
-                      <div
-                        className="absolute left-0 top-0 h-full rounded-full transition-all duration-500"
-                        style={{
-                          width: `${loadedPct}%`,
-                          background: "linear-gradient(90deg, #f59e0b, #d97706)",
-                        }}
-                      />
-                    </div>
-                    <span
-                      className="text-[10px] font-semibold tabular-nums whitespace-nowrap leading-none"
-                      style={{ color: "var(--fg-45)" }}
-                    >
-                      {loadedCards}/{totalCards}
+                    <span className="text-[10px] font-semibold" style={{ color: "var(--fg-55)" }}>
+                      cards
                     </span>
                   </div>
                 </div>

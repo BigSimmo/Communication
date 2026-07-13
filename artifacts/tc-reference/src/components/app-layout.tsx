@@ -27,6 +27,14 @@ import { useFocusTrap } from "@/hooks/use-focus-trap";
 const TOTAL_CARDS = Object.values(LIBRARY_CATEGORIES).flat().length;
 const LOADED_CARDS = Object.values(LIBRARY_CATEGORIES).flat().filter((c) => c.loaded).length;
 
+// iOS/iPadOS render PDFs unreliably inside iframes (often a blank or single
+// non-scrollable page) — detect so the PDF nav action can open the document
+// directly instead. iPadOS 13+ masquerades as macOS, hence the touch check.
+const IS_IOS =
+  typeof navigator !== "undefined" &&
+  (/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
+
 // Light haptic feedback for a native-app feel — degrades silently when unsupported
 function triggerHaptic(pattern: number | number[]) {
   if (typeof navigator !== "undefined" && typeof navigator.vibrate === "function") {
@@ -58,6 +66,10 @@ export function AppLayout({ children }: AppLayoutProps) {
   const [fabOpen, setFabOpen] = useState(false);
   const fabRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  // Wraps both nav layouts AND the layout-toggle button so the focus trap
+  // covers the complete open menu (children are position:fixed, so the
+  // unstyled wrapper has no layout effect)
+  const fabMenuRef = useRef<HTMLDivElement>(null);
 
   // Layout mode — "stack" (vertical pills, default) or "fan" (radial arc chips).
   const [layoutMode, setLayoutMode] = useState<"stack" | "fan">("stack");
@@ -161,8 +173,9 @@ export function AppLayout({ children }: AppLayoutProps) {
   }, [fabOpen]);
 
   // Focus management: move focus into the menu on open and keep Tab cycling
-  // within it (shared trap; focus return on close is handled by closeFab)
-  useFocusTrap(fabOpen, navRef, { restoreFocus: false });
+  // within it — including the layout-toggle button (shared trap; focus
+  // return on close is handled by closeFab)
+  useFocusTrap(fabOpen, fabMenuRef, { restoreFocus: false });
 
   // Fan layout — brief label reveal: show all labels for 1.6s after opening, then fade
   useEffect(() => {
@@ -249,7 +262,13 @@ export function AppLayout({ children }: AppLayoutProps) {
     label: "PDF",
     icon: FileText,
     active: pdfOpen,
-    action: () => setPdfOpen(true),
+    action: () => {
+      if (IS_IOS && pdfUrl) {
+        window.open(pdfUrl, "_blank", "noopener");
+        return;
+      }
+      setPdfOpen(true);
+    },
     testIdDesktop: "nav-sidebar-pdf",
     testIdMobile: "nav-tab-pdf",
     badge: null as string | null,
@@ -374,34 +393,17 @@ export function AppLayout({ children }: AppLayoutProps) {
             }}
           >
             <div className="flex items-center justify-between mb-1">
-              <p className="text-[10px] font-semibold" style={{ color: "var(--fg-35)" }}>
-                Cards loaded
+              <p className="text-[10px] font-semibold" style={{ color: "var(--fg-55)" }}>
+                Technique cards
               </p>
               <BookOpen className="w-3.5 h-3.5" style={{ color: "rgba(245,158,11,0.45)" }} aria-hidden="true" />
             </div>
             <p className="text-[22px] font-bold" style={{ color: "#f59e0b" }}>
-              {LOADED_CARDS}
-              <span className="text-[13px] font-normal ml-1" style={{ color: "var(--fg-22)" }}>
-                / {TOTAL_CARDS}
+              {TOTAL_CARDS}
+              <span className="text-[13px] font-normal ml-1" style={{ color: "var(--fg-45)" }}>
+                in the library
               </span>
             </p>
-            <div
-              className="mt-2 h-1.5 rounded-full overflow-hidden"
-              style={{ background: "var(--fg-06)" }}
-              role="progressbar"
-              aria-valuenow={LOADED_CARDS}
-              aria-valuemin={0}
-              aria-valuemax={TOTAL_CARDS}
-              aria-label={`${LOADED_CARDS} of ${TOTAL_CARDS} cards loaded`}
-            >
-              <div
-                className="h-full rounded-full transition-all duration-300"
-                style={{
-                  width: `${(LOADED_CARDS / TOTAL_CARDS) * 100}%`,
-                  background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
-                }}
-              />
-            </div>
           </div>
         </div>
       </aside>
@@ -433,6 +435,11 @@ export function AppLayout({ children }: AppLayoutProps) {
         }}
         onClick={() => closeFab(false)}
       />
+
+      {/* ── Menu container: both nav layouts + layout toggle share one
+           focus-trap boundary (children are fixed-position; the wrapper
+           itself renders nothing) ── */}
+      <div ref={fabMenuRef}>
 
       {/* ── Stack nav (vertical pills, default) ── */}
       {layoutMode === "stack" && (
@@ -703,6 +710,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         aria-label={layoutMode === "fan" ? "Switch to list layout" : "Switch to fan layout"}
         onClick={toggleLayoutMode}
         data-testid="button-fab-layout-toggle"
+        tabIndex={fabOpen ? 0 : -1}
         className="md:hidden fixed z-[41] flex items-center justify-center"
         style={{
           bottom: "calc(16px + env(safe-area-inset-bottom, 0px))",
@@ -729,6 +737,8 @@ export function AppLayout({ children }: AppLayoutProps) {
           : <LayoutGrid className="w-3.5 h-3.5" style={{ color: "var(--fg-55)" }} aria-hidden="true" />
         }
       </button>
+
+      </div>
 
       {/* Idle attention halo — gentle breathing glow behind the closed FAB */}
       <div

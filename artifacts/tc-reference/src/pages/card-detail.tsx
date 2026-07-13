@@ -4,6 +4,7 @@ import { Check, Copy, ChevronRight, Zap, ChevronLeft, ChevronDown, Heart, FileTe
 import { copyToClipboard } from "@/lib/utils";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { CARD_DATA } from "@/lib/cards";
+import type { CardResource } from "@/lib/cards";
 import { useFavourites } from "@/lib/favourites-context";
 import { usePdf } from "@/lib/pdf-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
@@ -106,6 +107,18 @@ export default function CardDetail() {
   const prevCard = loadedCardIdx > 0 ? LOADED_CARDS_NAV[loadedCardIdx - 1] : LOADED_CARDS_NAV[LOADED_CARDS_NAV.length - 1];
   const nextCard = loadedCardIdx >= 0 && loadedCardIdx < LOADED_CARDS_NAV.length - 1 ? LOADED_CARDS_NAV[loadedCardIdx + 1] : LOADED_CARDS_NAV[0];
 
+  // Downloads: cards without a curated resource list still expose their
+  // reference PDF as a single download entry
+  const resourceItems: CardResource[] = cardData.resources ?? (cardData.pdfUrl
+    ? [{
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: cardData.pdfUrl,
+        type: "pdf",
+        group: "Visual Cards",
+      }]
+    : []);
+
   // Optional sections only render (and only show a nav pill) when the card has data for them.
   const sectionAvailable = (id: CardSection): boolean => {
     switch (id) {
@@ -115,7 +128,7 @@ export default function CardDetail() {
       case "mistakes": return !!(cardData.commonMistakes && cardData.commonMistakes.length > 0);
       case "recovery": return !!(cardData.recoveryPhrases && cardData.recoveryPhrases.length > 0);
       case "related": return !!(cardData.relatedTechniques && cardData.relatedTechniques.length > 0);
-      case "resources": return !!(cardData.resources && cardData.resources.length > 0);
+      case "resources": return resourceItems.length > 0;
       default: return true;
     }
   };
@@ -1430,7 +1443,7 @@ export default function CardDetail() {
             </div>
 
             {(["Visual Cards", "Written Guides", "Practice Tools"] as const).map(group => {
-              const items = cardData.resources!.filter(r => r.group === group);
+              const items = resourceItems.filter(r => r.group === group);
               if (items.length === 0) return null;
               const typeStyle: Record<string, { bg: string; color: string }> = {
                 pdf:  { bg: "rgba(239,68,68,0.09)",   color: "rgba(248,113,113,0.85)" },
