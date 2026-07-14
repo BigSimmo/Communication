@@ -48,15 +48,13 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        // Split the static card content and the framework/icon vendors out
-        // of the main bundle — better caching and keeps chunks under 500 kB.
+        // Split the static card content and third-party code out of the main
+        // bundle — better caching, chunks stay under 500 kB, and no per-package
+        // allow-list to maintain as dependencies change.
         manualChunks(id: string) {
           if (id.includes("src/lib/cards.ts")) return "card-data";
           if (id.includes("node_modules")) {
-            if (/[\\/]node_modules[\\/](react|react-dom|scheduler|wouter|@tanstack)[\\/]/.test(id)) {
-              return "react-vendor";
-            }
-            if (id.includes("lucide-react")) return "icons";
+            return id.includes("lucide-react") ? "icons" : "vendor";
           }
           return undefined;
         },

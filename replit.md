@@ -24,13 +24,13 @@ A mobile-first reference app for 31 communication techniques (TC001–TC031) —
 - `artifacts/tc-reference/src/lib/phrases-data.ts` — phrase aggregation for the Phrases browser
 - `artifacts/tc-reference/src/index.css` — theme tokens (`--fg-*`, `--impact-*`, `--accent-*`, z-index scale), light/dark values
 - `artifacts/tc-reference/src/lib/design-tokens.ts` — shared impact-badge styling used by Library and Card Detail
-- `artifacts/tc-reference/public/cards/<id>/` — downloadable PDFs per card (TC001 has designed assets; other cards have generated `<id>_Reference.pdf` files — regenerate via `pnpm --filter @workspace/scripts run generate:card-pdfs`)
+- `artifacts/tc-reference/public/cards/<id>/` — downloadable PDFs per card (TC001 has designed assets; other cards have generated `<id>_Reference.pdf` files — regenerated automatically during `build`, or manually via `pnpm --filter @workspace/scripts run generate:card-pdfs`)
 
 ## Architecture decisions
 
 - All content is static TypeScript data — no API calls; user state (favourites, drill progress, theme) lives in localStorage only
 - Each phrase group carries a required `tone` from a six-value canonical vocabulary (Quick / Warm / Professional / Direct / Repair / High-stakes) — the Phrases page filter is built on it
-- Every card has a bundled `pdfUrl` (designed for TC001, generated for the rest); a card without one would expose `pdfUrl: null` via PdfContext, which hides the PDF nav button — there is no placeholder PDF. After editing `cards.ts`, re-run the PDF generator so the reference PDFs stay in sync
+- Every card has a bundled `pdfUrl` (designed for TC001, generated for the rest); a card without one would expose `pdfUrl: null` via PdfContext, which hides the PDF nav button — there is no placeholder PDF. The generator runs automatically inside the tc-reference `build` script (deterministic output — fixed PDF dates), so deployed PDFs can't drift from `cards.ts`; the committed PDFs only need a manual regeneration if you want the dev server to serve refreshed copies
 - Theme is applied as both `data-theme` attribute and `.dark` class (Tailwind's `dark:` variant keys off the class)
 
 ## Gotchas
