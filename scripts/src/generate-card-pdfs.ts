@@ -97,6 +97,11 @@ async function buildPdf(cardId: string, title: string, category: string) {
 
   doc.setTitle(`${cardId} — ${title}`);
   doc.setSubject(`TC Reference Tool — ${category}`);
+  // Fixed dates keep the output byte-for-byte deterministic, so re-running
+  // the generator only dirties git when card content actually changed
+  const FIXED_DATE = new Date("2026-01-01T00:00:00Z");
+  doc.setCreationDate(FIXED_DATE);
+  doc.setModificationDate(FIXED_DATE);
 
   const w: Writer = { page: doc.addPage([PAGE_W, PAGE_H]), y: PAGE_H };
 

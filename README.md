@@ -143,7 +143,7 @@ Card IDs follow the format `TC001`–`TC031`. Each card record includes:
 - `scenarios` — real-world situation examples
 - `drill` — 7-day practice protocol
 - `checklist` — self-assessment items
-- `pdfUrl` — bundled reference PDF for the in-app viewer. TC001 ships a designed card PDF; every other card ships a generated reference PDF (regenerate with `pnpm --filter @workspace/scripts run generate:card-pdfs` after content edits)
+- `pdfUrl` — bundled reference PDF for the in-app viewer. TC001 ships a designed card PDF; every other card ships a generated reference PDF. Generation is deterministic and runs automatically as part of `pnpm --filter @workspace/tc-reference run build`, so deployed PDFs always match `cards.ts`; run `pnpm --filter @workspace/scripts run generate:card-pdfs` manually only if you want refreshed PDFs in the dev server before a build
 - Optional sections (currently TC001 only): `method`, `chains`, `relatedTechniques`, and a curated `resources` list (downloadable PDFs/images/CSVs under `public/cards/<id>/`); cards without one expose their reference PDF as a single Downloads entry
 
 ---
