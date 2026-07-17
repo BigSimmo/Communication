@@ -438,7 +438,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           menuOpen={fabOpen}
           onToggleMenu={toggleFabOpen}
         />
-        <main className="flex-1 pb-20 md:pb-0 min-w-0 overflow-x-clip">
+        <main className="flex-1 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0 min-w-0 overflow-x-clip">
           {children}
         </main>
       </div>
