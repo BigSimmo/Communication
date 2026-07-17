@@ -1,0 +1,31 @@
+category,phrase
+Confident Uncertainty Phrases,I do not know the answer to that — and I do not want to guess.
+Confident Uncertainty Phrases,I am not certain about this and I would rather say so than bluff.
+Confident Uncertainty Phrases,That is outside what I can say confidently.
+Confident Uncertainty Phrases,My honest answer is: I do not know.
+Confident Uncertainty Phrases,"I can tell you what I do know, which is X. I cannot tell you Y."
+Confident Uncertainty Phrases,I do not have that information in front of me.
+Confident Uncertainty Phrases,I would rather admit that and come back with the right answer.
+Confident Uncertainty Phrases,That is a better question than I can currently answer.
+Bounded Answer,What I can say is...
+Bounded Answer,What I know for certain is...
+Bounded Answer,I can confirm X — I cannot confirm Y.
+Bounded Answer,"My best estimate is X, but I want to flag that I am not certain."
+Bounded Answer,I will give you my best current read — with the caveat that...
+Quick Admissions,I do not know — I will find out.
+Quick Admissions,Not sure. Let me check.
+Quick Admissions,Good question — I do not have it to hand.
+Quick Admissions,Cannot say yet.
+Quick Admissions,I would be guessing.
+Quick Admissions,No idea — yet.
+Calibrated Updates,"Here is what is confirmed, and here is what is still assumption."
+Calibrated Updates,"I am confident on cost, less so on timeline — the risk sits there."
+Calibrated Updates,Two things I know and one I do not — let me take them in that order.
+Calibrated Updates,I would put roughly seventy per cent confidence on that estimate.
+Calibrated Updates,"The honest status: on track for scope, uncertain on the integration date."
+Calibrated Updates,"The data supports the first claim; on the second we are still guessing, and I want to label it as guessing."
+Warm Honesty,I honestly do not know what I would do in your shoes.
+Warm Honesty,I do not have an answer — but I am happy to sit with the question with you.
+Warm Honesty,I wish I could promise it will be fine. What I can promise is that you will not face it alone.
+Warm Honesty,"I do not know enough to advise you, but I know enough to listen."
+Warm Honesty,My honest answer is that I am not sure — and I would rather give you that than something polished.

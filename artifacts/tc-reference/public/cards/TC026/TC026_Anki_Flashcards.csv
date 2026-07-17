@@ -1,0 +1,13 @@
+front,back
+TC026: What is the minimum viable move?,"Before any group decision, spend thirty seconds naming: what decision are we making, what are the options, and who makes the final call?"
+TC026: What is the core sequence?,Name the decision -> Options on the table -> Stakes and trade-offs -> Who decides.
+TC026: What is the field tip?,The frame must arrive before the first opinion does.
+TC026: What is the strong version of: Group discusses for an hour with no clear decision framework?,The decision is X. Options are A and B. Trade-offs are [stated]. [Name] makes the final call.
+TC026: What is the strong version of: Naming the decision after the discussion is over?,Name the decision before discussion begins.
+TC026: What is the strong version of: Implicit options that different people understand differently?,Explicit options named and agreed before analysis begins.
+"TC026: What is better than: 'Right, so obviously we should choose A, because...'?",'Before we advocate — can we agree what we are deciding and how we will judge it?'
+TC026: What is better than: 'It is A or B.' — while everyone privately considers C?,'The options I see are A and B. What am I missing?'
+TC026: What is better than: 'This option is basically all upside.'?,'X buys us speed and costs us flexibility. Are we happy paying that?'
+TC026: What are signs it is working?,Meetings end with clearer decisions. Group discussion is faster and more productive. Trade-offs are made consciously rather than accidentally. People leave knowing who owns what and what was decided.
+TC026: When should you avoid this technique?,When the decision is urgent and time spent establishing criteria delays it critically. When criteria are already agreed and restating them is unnecessary overhead.
+TC026: What is the best recovery line?,'I think we have been arguing different decisions. Can we back up and agree what this one is?'

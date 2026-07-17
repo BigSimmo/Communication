@@ -1,0 +1,30 @@
+category,phrase
+Deferment Phrases,I cannot answer that properly right now. I can get back to you by end of day.
+Deferment Phrases,That deserves a better answer than I can give you on the spot — give me until tomorrow morning.
+Deferment Phrases,Let me sit with that — I will come back to you by [time].
+Deferment Phrases,I am not in a position to commit to that today. I will have an answer by Friday.
+Deferment Phrases,I do not want to answer that badly. Can I have until Thursday?
+Deferment Phrases,That needs more thought. I will send you my view by noon.
+Deferment Phrases,I cannot say yes or no right now — I can say yes or no by Wednesday.
+Deferment Phrases,"Give me 24 hours — not to avoid it, but to answer it properly."
+Acknowledge Urgency,I understand you need this quickly — my fastest honest answer is by X.
+Acknowledge Urgency,"If you need it now, my provisional answer is Y — but I want to confirm that by Z."
+Acknowledge Urgency,"I can give you my best current read now, with the caveat that it may change."
+Acknowledge Urgency,"If the decision cannot wait, I would say X provisionally."
+Professional Deferrals,That is a fair question — I want to check the numbers before I answer it. I will confirm by tomorrow's stand-up.
+Professional Deferrals,I would rather send you an accurate answer this afternoon than a rough one now.
+Professional Deferrals,Let me take that away as an action — you will have my answer by Thursday's meeting.
+Professional Deferrals,I want to consult the team before committing them. I will close this out by Friday.
+Professional Deferrals,Good challenge. I do not want to improvise the answer — give me until end of day.
+Professional Deferrals,I will put time in my calendar for this today and reply by five.
+Personal Deferrals,I care about getting this right more than getting it fast — can we talk tomorrow evening?
+Personal Deferrals,I am not avoiding you — I need a night to sit with what you said.
+Personal Deferrals,"That deserves a real answer, not a tired one. Breakfast tomorrow?"
+Personal Deferrals,I want to respond from a calmer place. I will come to you in the morning.
+Personal Deferrals,"This matters to me, which is exactly why I do not want to answer on the spot."
+Deferring Under Pressure,I understand the pressure to decide now. A rushed answer would cost us more than a day's wait.
+Deferring Under Pressure,You can have a fast answer or my real answer. My real answer arrives tomorrow at nine.
+Deferring Under Pressure,Pushing me to answer now will get you my most cautious no. Give me until Monday and you may get a yes.
+Deferring Under Pressure,I am not going to commit on the spot — this is exactly the kind of decision that deserves a night.
+Deferring Under Pressure,"If you need it decided in this meeting, my answer is no. If it can wait until Thursday, it is a genuine maybe."
+Deferring Under Pressure,The deadline I can promise is noon tomorrow. I will not miss it.

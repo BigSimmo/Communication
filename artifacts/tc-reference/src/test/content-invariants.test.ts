@@ -1,7 +1,12 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { describe, it, expect } from "vitest";
 import { CARD_DATA, CANONICAL_TONES, isSpeakablePhrase } from "@/lib/cards";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { getAllAggregatedPhrases } from "@/lib/phrases-data";
+
+const PUBLIC_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "public");
 
 // Structural guarantees the app relies on. cards.ts is hand-edited content —
 // these tests turn silent content mistakes into loud test failures.
@@ -55,6 +60,17 @@ describe("card content invariants", () => {
     // so a regression in the predicate itself can't hide leaked entries
     for (const phrase of getAllAggregatedPhrases()) {
       expect(phrase.text, phrase.text).not.toMatch(/^\[[\s\S]*\]$/);
+    }
+  });
+
+  it("points every pdfUrl and resource href at a real file in public/", () => {
+    for (const [id, card] of Object.entries(CARD_DATA)) {
+      if (card.pdfUrl) {
+        expect(existsSync(path.join(PUBLIC_DIR, card.pdfUrl)), `${id}: ${card.pdfUrl}`).toBe(true);
+      }
+      for (const resource of card.resources ?? []) {
+        expect(existsSync(path.join(PUBLIC_DIR, resource.href)), `${id}: ${resource.href}`).toBe(true);
+      }
     }
   });
 

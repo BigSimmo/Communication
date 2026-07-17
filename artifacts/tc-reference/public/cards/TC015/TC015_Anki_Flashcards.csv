@@ -1,0 +1,13 @@
+front,back
+TC015: What is the minimum viable move?,"Before ending any meeting or important conversation, name one specific next action with an owner and a date. Confirm it aloud."
+TC015: What is the core sequence?,Name the next action -> Who owns it -> By when -> Confirm aloud.
+TC015: What is the field tip?,The last ninety seconds decide whether the meeting happened.
+TC015: What is the strong version of: Ending with: 'Great chat — let us stay in touch'?,"The next step is X, [Name] owns it, deadline is Y. Sound right?"
+TC015: What is the strong version of: Vague action: 'Someone needs to look into that'?,"Specific owner, specific deliverable, specific date — confirmed by the owner in the room."
+TC015: What is the strong version of: Meeting notes without confirmed commitments?,Confirm next steps aloud in the meeting before anyone leaves.
+TC015: What is better than: 'Great energy today — let's keep this going!'?,'Loved this. Before we go: who is doing what by when?'
+TC015: What is better than: 'We should get the data cleaned up.'?,"'Dan owns the data clean-up. Dan, by when?'"
+TC015: What is better than: 'I'll get to it in the next little while.'?,'Can we put a date on that? Even a rough one beats none.'
+TC015: What are signs it is working?,Things actually happen after conversations rather than drifting. People leave meetings knowing exactly what they are doing next. Follow-up conversations start with clear context. You need fewer chasing messages.
+TC015: When should you avoid this technique?,In open exploratory conversations where closing too early cuts off valuable thinking. When the next step is not yet clear — forcing one prematurely creates false closure.
+TC015: What is the best recovery line?,'We are about to leave without a next step — can I take two minutes to fix that?'
