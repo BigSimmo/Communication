@@ -2385,7 +2385,6 @@ export const CARD_DATA: Record<string, CardData> = {
           "I recommend we pass on this deal.",
           "(Silence.)",
           "The economics only work if renewals double, and I do not believe they will.",
-          "That is the whole of my concern.",
         ],
       },
       {
@@ -2699,8 +2698,8 @@ export const CARD_DATA: Record<string, CardData> = {
         phrases: [
           "Yes — because it saves us a week. We saw that on the last sprint. So yes.",
           "I would skip it. Low turnout last time. Skip it.",
-          "Worth doing: cheap, fast, and it worked in March.",
-          "No — the numbers do not support it. They did not in Q2 either.",
+          "Worth doing: cheap, fast, and it worked in March. So do it.",
+          "No — the numbers do not support it. They did not in Q2 either. Still no.",
           "My take: go early. Early worked for the pilot. Go early.",
         ],
       },
