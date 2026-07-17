@@ -319,18 +319,34 @@ export function AppLayout({ children }: AppLayoutProps) {
           borderRight: "1px solid var(--fg-07)",
         }}
       >
-        {/* Brand */}
-        <div className="px-5 pt-7 pb-5">
-          <p className="text-[9px] font-bold tracking-[0.18em] uppercase" style={{ color: "var(--brand-text)" }}>
-            Technique Cards
-          </p>
-          <p className="text-[18px] font-bold leading-tight mt-0.5" style={{ color: "var(--fg-90)" }}>TC Library</p>
+        {/* Brand — same lockup as the mobile header for a consistent identity */}
+        <div className="px-4 pt-6 pb-4 flex items-center gap-2.5">
+          <span
+            aria-hidden="true"
+            className="flex items-center justify-center flex-shrink-0"
+            style={{
+              width: 34,
+              height: 34,
+              borderRadius: 10,
+              background: "var(--gradient-active)",
+              boxShadow:
+                "0 2px 8px color-mix(in srgb, var(--brand) 38%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)",
+            }}
+          >
+            <BookOpen className="w-[17px] h-[17px]" style={{ color: "var(--brand-contrast)" }} aria-hidden="true" />
+          </span>
+          <div className="min-w-0 leading-none">
+            <p className="text-[8.5px] font-bold tracking-[0.16em] uppercase leading-none mb-1" style={{ color: "var(--brand-text)", opacity: 0.85 }}>
+              Technique Cards
+            </p>
+            <p className="text-[16px] font-bold leading-none" style={{ color: "var(--fg-90)" }}>TC Library</p>
+          </div>
         </div>
 
         <div className="w-full h-px" style={{ background: "var(--fg-06)" }} />
 
         {/* Nav items */}
-        <nav className="flex-1 px-3 pt-3 space-y-0.5" aria-label="Navigation">
+        <nav className="flex-1 px-3 pt-2.5 space-y-0.5" aria-label="Navigation">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -345,9 +361,9 @@ export function AppLayout({ children }: AppLayoutProps) {
                   : "bg-transparent hover:bg-[var(--fg-05)]"
               }`}
               style={{
-                minHeight: 44,
-                paddingTop: 8,
-                paddingBottom: 8,
+                minHeight: 40,
+                paddingTop: 7,
+                paddingBottom: 7,
                 paddingLeft: item.active ? 10 : 12,
                 paddingRight: 12,
                 borderLeft: item.active
@@ -359,8 +375,8 @@ export function AppLayout({ children }: AppLayoutProps) {
               <span
                 className="relative flex items-center justify-center flex-shrink-0 rounded-full"
                 style={{
-                  width: 26,
-                  height: 26,
+                  width: 24,
+                  height: 24,
                   background: item.active
                     ? "var(--gradient-active)"
                     : "var(--fg-08)",
@@ -475,9 +491,9 @@ export function AppLayout({ children }: AppLayoutProps) {
           data-open={fabOpen}
           className="fab-nav md:hidden fixed z-[var(--z-fab)] flex flex-col items-end"
           style={{
-            bottom: "calc(68px + env(safe-area-inset-bottom, 0px))",
+            bottom: "calc(66px + env(safe-area-inset-bottom, 0px))",
             ...fabSideStyle,
-            gap: isShortScreen ? 6 : 9,
+            gap: isShortScreen ? 5 : 7,
             maxHeight: isShortScreen ? "calc(100dvh - 120px)" : undefined,
             overflowY: isShortScreen ? "auto" : undefined,
             pointerEvents: fabOpen ? "auto" : "none",
@@ -490,7 +506,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             const exitDelay = i * 16;
             const pillDelay = fabOpen ? enterDelay : exitDelay;
             const labelDelay = fabOpen ? enterDelay + 55 : exitDelay;
-            const chipSize = isShortScreen ? 24 : 28;
+            const chipSize = isShortScreen ? 22 : 26;
             return (
               <button
                 key={item.id}
@@ -502,18 +518,18 @@ export function AppLayout({ children }: AppLayoutProps) {
                 tabIndex={fabOpen ? 0 : -1}
                 className="fab-pill flex items-center rounded-full active:scale-95"
                 style={{
-                  height: isShortScreen ? 36 : 44,
-                  paddingLeft: isShortScreen ? 5 : 6,
-                  paddingRight: isShortScreen ? 13 : 16,
-                  gap: isShortScreen ? 7 : 9,
+                  height: isShortScreen ? 34 : 40,
+                  paddingLeft: isShortScreen ? 4 : 5,
+                  paddingRight: isShortScreen ? 12 : 15,
+                  gap: isShortScreen ? 6 : 8,
                   fontSize: isShortScreen ? 12 : 13,
-                  background: item.active ? "color-mix(in srgb, var(--brand) 16%, transparent)" : "var(--surface-float)",
+                  background: item.active ? "color-mix(in srgb, var(--brand) 15%, transparent)" : "var(--surface-float)",
                   backdropFilter: "blur(18px)",
                   WebkitBackdropFilter: "blur(18px)",
-                  border: item.active ? "1px solid color-mix(in srgb, var(--brand) 42%, transparent)" : "1px solid var(--fg-10)",
+                  border: item.active ? "1px solid color-mix(in srgb, var(--brand) 40%, transparent)" : "1px solid var(--fg-08)",
                   boxShadow: item.active
-                    ? "0 0 0 1px color-mix(in srgb, var(--brand) 30%, transparent), 0 6px 20px color-mix(in srgb, var(--brand) 24%, transparent), 0 2px 8px rgba(0,0,0,0.20)"
-                    : "0 4px 16px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.06)",
+                    ? "0 0 0 1px color-mix(in srgb, var(--brand) 26%, transparent), 0 5px 16px color-mix(in srgb, var(--brand) 20%, transparent)"
+                    : "0 3px 12px rgba(0,0,0,0.16), inset 0 1px 0 rgba(255,255,255,0.07)",
                   opacity: fabOpen ? 1 : 0,
                   transform: fabOpen ? "translateY(0) scale(1)" : "translateY(6px) scale(0.9)",
                   transition: "opacity 200ms ease, transform 300ms cubic-bezier(0.34,1.56,0.64,1), background 200ms ease, box-shadow 200ms ease, border-color 200ms ease",
@@ -617,7 +633,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             const enterDelay = fabOpen ? i * 45 : (n - 1 - i) * 22;
             // Labels follow chip with a beat
             const labelEnterDelay = fabOpen ? i * 45 + 60 : 0;
-            const chipSize = isShortScreen ? 36 : 40;
+            const chipSize = isShortScreen ? 34 : 38;
             // Labels: always visible for active item; for others fade in for 1.6s then out
             const labelOpacity = fabOpen ? (item.active ? 1 : fanLabelsVisible ? 0.88 : 0) : 0;
             const labelTransition = fanLabelsVisible || item.active
@@ -823,7 +839,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               border: fabOpen ? "1.5px solid color-mix(in srgb, var(--brand) 35%, transparent)" : "none",
               boxShadow: fabOpen
                 ? "inset 0 0 0 1px color-mix(in srgb, var(--brand) 15%, transparent)"
-                : "0 6px 22px color-mix(in srgb, var(--brand) 50%, transparent), 0 2px 8px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.40), inset 0 -2px 6px color-mix(in srgb, var(--brand-deep) 45%, transparent)",
+                : "0 5px 18px color-mix(in srgb, var(--brand) 42%, transparent), 0 2px 6px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.40), inset 0 -2px 6px color-mix(in srgb, var(--brand-deep) 45%, transparent)",
               backdropFilter: fabOpen ? "blur(16px)" : undefined,
               WebkitBackdropFilter: fabOpen ? "blur(16px)" : undefined,
               touchAction: "manipulation",
