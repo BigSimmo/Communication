@@ -6,6 +6,7 @@ import { searchCards, highlightMatch, RankedResult } from "@/lib/search-index";
 import { useRecentSearches } from "@/lib/use-recent-searches";
 import { useTheme } from "@/lib/theme";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
 
 interface SearchModalProps {
   query: string;
@@ -22,8 +23,8 @@ function HighlightedText({ text, query }: { text: string; query: string }) {
           <mark
             key={i}
             style={{
-              background: "rgba(245,158,11,0.28)",
-              color: "#f59e0b",
+              background: "color-mix(in srgb, var(--brand) 28%, transparent)",
+              color: "var(--brand-text)",
               borderRadius: 2,
               padding: "0 1px",
             }}
@@ -68,9 +69,18 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  // Keep Tab cycling inside the popout while it's open (initial focus lands
+  // on the input). Focus restore is handled manually below — restoring into
+  // an element that opens search on focus would immediately reopen the modal.
+  useFocusTrap(true, panelRef, { initialFocusRef: inputRef, restoreFocus: false });
+
   useEffect(() => {
-    const t = setTimeout(() => inputRef.current?.focus(), 50);
-    return () => clearTimeout(t);
+    const opener = document.activeElement as HTMLElement | null;
+    return () => {
+      if (opener && opener.isConnected && !opener.hasAttribute("data-search-open-on-focus")) {
+        opener.focus?.();
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -191,7 +201,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
     <div
       style={backdropStyle}
       role="dialog"
-      aria-modal="false"
+      aria-modal="true"
       aria-label="Search"
       data-testid="search-modal"
     >
@@ -206,16 +216,19 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             flexShrink: 0,
           }}
         >
-          <Search className="w-5 h-5 flex-shrink-0" style={{ color: "rgba(245,158,11,0.6)" }} aria-hidden="true" />
+          <Search className="w-5 h-5 flex-shrink-0" style={{ color: "color-mix(in srgb, var(--brand-text) 60%, transparent)" }} aria-hidden="true" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search techniques, phrases, situations…"
+            role="combobox"
             aria-label="Search techniques"
             aria-autocomplete="list"
+            aria-expanded={results.length > 0}
             aria-controls="search-modal-results"
+            aria-activedescendant={selectedIndex >= 0 ? `search-modal-option-${selectedIndex}` : undefined}
             data-testid="search-modal-input"
             className="flex-1 text-[15px] bg-transparent outline-none"
             style={{ color: "var(--fg-90)" }}
@@ -241,12 +254,11 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           </button>
         </div>
 
-        {/* Scrollable body */}
+        {/* Scrollable body — the listbox role lives on the results-only
+            wrapper below; this container also holds chips, recents and
+            footers, which must not be listbox children */}
         <div
           ref={listRef}
-          id="search-modal-results"
-          role="listbox"
-          aria-label="Search results"
           className="overflow-y-auto overscroll-contain"
           style={{
             flex: 1,
@@ -259,7 +271,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
               style={{ borderBottom: showRecents ? "1px solid var(--fg-05)" : "none" }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <Sparkles className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} aria-hidden="true" />
+                <Sparkles className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} aria-hidden="true" />
                 <p
                   className="text-[10px] font-semibold tracking-widest uppercase"
                   style={{ color: "var(--fg-30)" }}
@@ -290,9 +302,9 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                     onClick={() => applyRecent(term)}
                     className="rounded-full px-2.5 py-1.5 text-[10.5px] font-semibold transition-all active:scale-95"
                     style={{
-                      background: "rgba(245,158,11,0.08)",
-                      border: "1px solid rgba(245,158,11,0.18)",
-                      color: "#f59e0b",
+                      background: "color-mix(in srgb, var(--brand) 8%, transparent)",
+                      border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+                      color: "var(--brand-text)",
                     }}
                   >
                     {term}
@@ -311,11 +323,13 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
               >
                 Results
               </p>
+              <div id="search-modal-results" role="listbox" aria-label="Search results">
               {results.map((result, i) => {
                 const isSelected = i === selectedIndex;
                 return (
                   <button
                     key={result.id}
+                    id={`search-modal-option-${i}`}
                     role="option"
                     aria-selected={isSelected}
                     aria-disabled={!result.loaded}
@@ -334,8 +348,8 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
                       style={{
-                        background: result.loaded ? "#f59e0b" : "var(--fg-08)",
-                        color: result.loaded ? "#0f1724" : "var(--fg-30)",
+                        background: result.loaded ? "var(--brand)" : "var(--fg-08)",
+                        color: result.loaded ? "var(--brand-contrast)" : "var(--fg-30)",
                       }}
                     >
                       {result.id.slice(2)}
@@ -357,7 +371,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                     {result.loaded ? (
                       <ArrowRight
                         className="w-4 h-4 flex-shrink-0"
-                        style={{ color: isSelected ? "#f59e0b" : "var(--fg-22)" }}
+                        style={{ color: isSelected ? "var(--brand-text)" : "var(--fg-22)" }}
                       />
                     ) : (
                       <span
@@ -370,6 +384,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                   </button>
                 );
               })}
+              </div>
               <div
                 className="px-4 py-2.5 flex items-center justify-between"
                 style={{ borderTop: "1px solid var(--fg-05)" }}
@@ -418,14 +433,8 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 <button
                   key={term}
                   onClick={() => applyRecent(term)}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors duration-100"
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors duration-100 hover:bg-[var(--fg-04)] focus-visible:bg-[var(--fg-04)]"
                   style={{ color: "var(--fg-60)" }}
-                  onMouseEnter={(e) =>
-                    ((e.currentTarget as HTMLElement).style.background = "var(--fg-04)")
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.currentTarget as HTMLElement).style.background = "transparent")
-                  }
                 >
                   <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--fg-28)" }} />
                   <span className="text-[13px]">{term}</span>

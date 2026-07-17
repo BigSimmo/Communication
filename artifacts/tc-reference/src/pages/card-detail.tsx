@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useRoute, useLocation } from "wouter";
 import { Check, Copy, ChevronRight, Zap, ChevronLeft, ChevronDown, Heart, FileText, X, ExternalLink } from "lucide-react";
-import { copyToClipboard } from "@/lib/utils";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { CARD_DATA } from "@/lib/cards";
 import type { CardResource } from "@/lib/cards";
@@ -9,6 +8,7 @@ import { useFavourites } from "@/lib/favourites-context";
 import { usePdf } from "@/lib/pdf-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { impactStyleFor } from "@/lib/design-tokens";
+import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 
 const CARD_TITLE_MAP: Record<string, string> = {};
 for (const cards of Object.values(LIBRARY_CATEGORIES)) {
@@ -53,6 +53,60 @@ function getHeaderHeight(): number {
   return parseInt(raw, 10) || 56;
 }
 
+// ── Accordion section wrapper ─────────────────────────────────────────────
+// Module scope on purpose: defined inside CardDetail it would get a fresh
+// component identity every render, remounting each open section's subtree on
+// any state change (losing focus and transient DOM state within sections).
+function SectionAccordion({
+  id, label, color, subtitle, open, onToggle, children,
+}: {
+  id: CardSection;
+  label: string;
+  color: string;
+  subtitle?: string;
+  open: boolean;
+  onToggle: (id: CardSection) => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      id={`section-${id}`}
+      className="scroll-mt-44 rounded-2xl overflow-hidden"
+      role="region"
+      aria-labelledby={`section-${id}-header`}
+      style={{ background: "var(--fg-02)", border: "1px solid var(--fg-05)" }}
+    >
+      <h2 className="m-0">
+        <button
+          id={`section-${id}-header`}
+          onClick={() => onToggle(id)}
+          aria-expanded={open}
+          className="w-full flex items-center gap-3.5 px-5 py-4 text-left transition-colors active:bg-[var(--fg-03)]"
+          style={{ minHeight: 56 }}
+        >
+          <div className="w-1 h-[18px] rounded-full flex-shrink-0" style={{ background: color }} aria-hidden="true" />
+          <div className="flex-1 min-w-0">
+            <span className="block text-[14px] font-bold text-foreground/85">{label}</span>
+            {subtitle && (
+              <span className="block text-[11px] mt-0.5 leading-snug font-normal" style={{ color: "var(--fg-55)" }}>{subtitle}</span>
+            )}
+          </div>
+          <ChevronDown
+            className="w-4 h-4 flex-shrink-0 transition-transform duration-200"
+            style={{ color: "var(--fg-35)", transform: open ? "rotate(180deg)" : "none" }}
+            aria-hidden="true"
+          />
+        </button>
+      </h2>
+      {open && (
+        <div className="px-5 pb-5 pt-4" style={{ borderTop: "1px solid var(--fg-04)" }}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // All card IDs in the library (loaded or not)
 const ALL_CARD_IDS = new Set(Object.values(LIBRARY_CATEGORIES).flat().map(c => c.id));
 
@@ -82,7 +136,7 @@ export default function CardDetail() {
     () => new Set<CardSection>(["overview"])
   );
   const [expandedPhraseGroup, setExpandedPhraseGroup] = useState<string | null>(null);
-  const [copiedPhrase, setCopiedPhrase] = useState<string | null>(null);
+  const { copied: copiedPhrase, copy: handleCopy } = useCopyFeedback();
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const [whyOpen, setWhyOpen] = useState(false);
   const [notForOpen, setNotForOpen] = useState(false);
@@ -131,12 +185,6 @@ export default function CardDetail() {
       case "resources": return resourceItems.length > 0;
       default: return true;
     }
-  };
-
-  const handleCopy = async (phrase: string) => {
-    await copyToClipboard(phrase);
-    setCopiedPhrase(phrase);
-    setTimeout(() => setCopiedPhrase(null), 1600);
   };
 
   const toggleCheck = (i: number) => {
@@ -318,51 +366,6 @@ export default function CardDetail() {
     return () => clearTimeout(timer);
   }, [pdfOpen]);
 
-  // ── Accordion section wrapper ─────────────────────────────────────────────
-  const SectionAccordion = ({
-    id, label, color, subtitle, children,
-  }: {
-    id: CardSection; label: string; color: string; subtitle?: string; children: React.ReactNode;
-  }) => {
-    const open = openSections.has(id);
-    return (
-      <div
-        id={`section-${id}`}
-        className="scroll-mt-44 rounded-2xl overflow-hidden"
-        role="tabpanel"
-        aria-labelledby={`nav-${id}`}
-        style={{ background: "var(--fg-02)", border: "1px solid var(--fg-05)" }}
-      >
-        <h2 className="m-0">
-          <button
-            onClick={() => toggleSection(id)}
-            aria-expanded={open}
-            className="w-full flex items-center gap-3.5 px-5 py-4 text-left transition-colors active:bg-[var(--fg-03)]"
-            style={{ minHeight: 56 }}
-          >
-            <div className="w-1 h-[18px] rounded-full flex-shrink-0" style={{ background: color }} aria-hidden="true" />
-            <div className="flex-1 min-w-0">
-              <span className="block text-[14px] font-bold text-foreground/85">{label}</span>
-              {subtitle && (
-                <span className="block text-[11px] mt-0.5 leading-snug font-normal" style={{ color: "var(--fg-55)" }}>{subtitle}</span>
-              )}
-            </div>
-            <ChevronDown
-              className="w-4 h-4 flex-shrink-0 transition-transform duration-200"
-              style={{ color: "var(--fg-35)", transform: open ? "rotate(180deg)" : "none" }}
-              aria-hidden="true"
-            />
-          </button>
-        </h2>
-        {open && (
-          <div className="px-5 pb-5 pt-4" style={{ borderTop: "1px solid var(--fg-04)" }}>
-            {children}
-          </div>
-        )}
-      </div>
-    );
-  };
-
   // ── Unknown card ID — not in the library at all ──
   if (!isKnownCard) {
     return (
@@ -387,9 +390,9 @@ export default function CardDetail() {
           onClick={() => setLocation("/")}
           className="flex items-center gap-2 text-[13px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
           style={{
-            background: "rgba(245,158,11,0.12)",
-            border: "1px solid rgba(245,158,11,0.22)",
-            color: "#f59e0b",
+            background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+            border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+            color: "var(--brand-text)",
           }}
         >
           <ChevronLeft className="w-4 h-4" />
@@ -406,11 +409,11 @@ export default function CardDetail() {
         <div
           className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
           style={{
-            background: "rgba(245,158,11,0.08)",
-            border: "1px solid rgba(245,158,11,0.18)",
+            background: "color-mix(in srgb, var(--brand) 8%, transparent)",
+            border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
           }}
         >
-          <span className="text-[20px] font-bold" style={{ color: "rgba(245,158,11,0.6)" }}>
+          <span className="text-[20px] font-bold" style={{ color: "color-mix(in srgb, var(--brand-text) 60%, transparent)" }}>
             {cardId?.slice(2)}
           </span>
         </div>
@@ -425,9 +428,9 @@ export default function CardDetail() {
           onClick={() => setLocation("/")}
           className="flex items-center gap-2 text-[13px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
           style={{
-            background: "rgba(245,158,11,0.12)",
-            border: "1px solid rgba(245,158,11,0.22)",
-            color: "#f59e0b",
+            background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+            border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+            color: "var(--brand-text)",
           }}
         >
           <ChevronLeft className="w-4 h-4" />
@@ -495,32 +498,33 @@ export default function CardDetail() {
         }}
       >
         <div className="flex items-center gap-0">
-          <div
+          {/* In-page section navigation. Deliberately NOT the tab pattern:
+              sections are multi-open accordions (role=region), so tablist/tab
+              semantics would misdescribe them to assistive tech. */}
+          <nav
             className="flex gap-1.5 py-2 px-4 md:px-6 overflow-x-auto flex-1"
             style={{ scrollbarWidth: "none" }}
-            role="tablist"
             aria-label="Card sections"
           >
             {SECTIONS.filter(s => sectionAvailable(s.id)).map((s) => (
               <button
                 key={s.id}
                 id={`nav-${s.id}`}
-                role="tab"
-                aria-selected={activeSection === s.id}
+                aria-current={activeSection === s.id ? "true" : undefined}
                 aria-controls={`section-${s.id}`}
                 onClick={() => scrollSectionIntoView(s.id)}
                 data-testid={`nav-${s.id}`}
                 className="text-[11px] font-semibold px-3 rounded-full transition-all flex-shrink-0"
                 style={{
                   minHeight: 40,
-                  background: activeSection === s.id ? "#f59e0b" : "var(--fg-05)",
-                  color: activeSection === s.id ? "#0f1724" : "var(--fg-55)",
+                  background: activeSection === s.id ? "var(--brand)" : "var(--fg-05)",
+                  color: activeSection === s.id ? "var(--brand-contrast)" : "var(--fg-55)",
                 }}
               >
                 {s.label}
               </button>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
 
@@ -530,8 +534,10 @@ export default function CardDetail() {
         {/* ── Overview ── */}
         <SectionAccordion
           id="overview"
+          open={openSections.has("overview")}
+          onToggle={toggleSection}
           label="Overview"
-          color="#f59e0b"
+          color="var(--brand)"
           subtitle="Core formula, quick stats & when not to use"
         >
           <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 mb-4">
@@ -557,8 +563,8 @@ export default function CardDetail() {
             <div
               className="rounded-2xl mb-4 overflow-hidden"
               style={{
-                background: "rgba(139,92,246,0.07)",
-                border: "1px solid rgba(139,92,246,0.18)",
+                background: "color-mix(in srgb, var(--accent-purple) 7%, transparent)",
+                border: "1px solid color-mix(in srgb, var(--accent-purple) 18%, transparent)",
               }}
             >
               <button
@@ -566,10 +572,10 @@ export default function CardDetail() {
                 className="w-full flex items-center justify-between px-5 py-3.5 transition-colors active:bg-[var(--fg-03)]"
                 aria-expanded={whyOpen}
               >
-                <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "rgba(167,139,250,0.8)" }}>Why It Works</p>
+                <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "color-mix(in srgb, var(--accent-purple) 80%, transparent)" }}>Why It Works</p>
                 <ChevronDown
                   className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
-                  style={{ color: "rgba(167,139,250,0.6)", transform: whyOpen ? "rotate(180deg)" : "none" }}
+                  style={{ color: "color-mix(in srgb, var(--accent-purple) 60%, transparent)", transform: whyOpen ? "rotate(180deg)" : "none" }}
                   aria-hidden="true"
                 />
               </button>
@@ -587,7 +593,7 @@ export default function CardDetail() {
             {([
               ["Impact", cardData.overview.impact, impactStyleFor(cardData.overview.impact).color],
               ["Difficulty", cardData.overview.difficulty, "var(--accent-blue)"],
-              ["Misuse risk", cardData.overview.misuse, "#f59e0b"],
+              ["Misuse risk", cardData.overview.misuse, "var(--brand)"],
             ] as [string, string, string][]).map(([k, v, c]) => (
               <div key={k} className="flex items-center gap-2 rounded-full px-3.5 py-1.5" style={{ background: "var(--fg-03)", border: "1px solid var(--fg-06)" }}>
                 <div className="w-2 h-2 rounded-full" style={{ background: c }} aria-hidden="true" />
@@ -612,8 +618,8 @@ export default function CardDetail() {
           <div
             className="rounded-2xl overflow-hidden"
             style={{
-              background: "rgba(239,68,68,0.06)",
-              border: "1px solid rgba(239,68,68,0.16)",
+              background: "color-mix(in srgb, var(--accent-red) 6%, transparent)",
+              border: "1px solid color-mix(in srgb, var(--accent-red) 16%, transparent)",
             }}
           >
             <button
@@ -621,10 +627,10 @@ export default function CardDetail() {
               className="w-full flex items-center justify-between px-5 py-3.5 transition-colors active:bg-[var(--fg-03)]"
               aria-expanded={notForOpen}
             >
-              <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "rgba(248,113,113,0.8)" }}>When Not to Use</p>
+              <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "color-mix(in srgb, var(--accent-red) 80%, transparent)" }}>When Not to Use</p>
               <ChevronDown
                 className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
-                style={{ color: "rgba(248,113,113,0.6)", transform: notForOpen ? "rotate(180deg)" : "none" }}
+                style={{ color: "color-mix(in srgb, var(--accent-red) 60%, transparent)", transform: notForOpen ? "rotate(180deg)" : "none" }}
                 aria-hidden="true"
               />
             </button>
@@ -633,7 +639,7 @@ export default function CardDetail() {
                 <ul className="space-y-2">
                   {cardData.notFor.map((item) => (
                     <li key={item} className="flex gap-2.5 items-start">
-                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: "rgba(239,68,68,0.5)" }} aria-hidden="true" />
+                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: "color-mix(in srgb, var(--accent-red) 50%, transparent)" }} aria-hidden="true" />
                       <p className="text-[13px] leading-snug" style={{ color: "var(--fg-65)" }}>{item}</p>
                     </li>
                   ))}
@@ -647,12 +653,14 @@ export default function CardDetail() {
         {sectionAvailable("why") && (
           <SectionAccordion
             id="why"
+            open={openSections.has("why")}
+            onToggle={toggleSection}
             label="Why It Works"
             color="var(--accent-purple)"
             subtitle="Psychological principle & what it builds"
           >
-            <div className="rounded-2xl p-5 mb-4" style={{ background: "rgba(139,92,246,0.08)", border: "1px solid rgba(139,92,246,0.2)" }}>
-              <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: "rgba(167,139,250,0.85)" }}>What they feel</p>
+            <div className="rounded-2xl p-5 mb-4" style={{ background: "color-mix(in srgb, var(--accent-purple) 8%, transparent)", border: "1px solid color-mix(in srgb, var(--accent-purple) 20%, transparent)" }}>
+              <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: "color-mix(in srgb, var(--accent-purple) 85%, transparent)" }}>What they feel</p>
               <p className="text-[15px] font-semibold leading-relaxed" style={{ color: "var(--fg-90)" }}>"{cardData.influencePayoff!.feeling}"</p>
             </div>
 
@@ -665,17 +673,17 @@ export default function CardDetail() {
               <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-3">What it builds</p>
               <div className="flex flex-wrap gap-2">
                 {cardData.influencePayoff!.gains.map((g) => (
-                  <span key={g} className="text-[12px] font-medium px-3 py-1.5 rounded-full" style={{ background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.2)", color: "rgba(167,139,250,0.95)" }}>{g}</span>
+                  <span key={g} className="text-[12px] font-medium px-3 py-1.5 rounded-full" style={{ background: "color-mix(in srgb, var(--accent-purple) 10%, transparent)", border: "1px solid color-mix(in srgb, var(--accent-purple) 20%, transparent)", color: "color-mix(in srgb, var(--accent-purple) 95%, transparent)" }}>{g}</span>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-2xl p-5 mb-4" style={{ background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.14)" }}>
-              <p className="text-[10px] font-bold tracking-widest uppercase mb-3" style={{ color: "rgba(248,113,113,0.8)" }}>Why most people fail</p>
+            <div className="rounded-2xl p-5 mb-4" style={{ background: "color-mix(in srgb, var(--accent-red) 5%, transparent)", border: "1px solid color-mix(in srgb, var(--accent-red) 14%, transparent)" }}>
+              <p className="text-[10px] font-bold tracking-widest uppercase mb-3" style={{ color: "color-mix(in srgb, var(--accent-red) 80%, transparent)" }}>Why most people fail</p>
               <ul className="space-y-2">
                 {cardData.influencePayoff!.whyMostFail.map((item) => (
                   <li key={item} className="flex gap-2.5 items-start">
-                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: "rgba(239,68,68,0.5)" }} aria-hidden="true" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: "color-mix(in srgb, var(--accent-red) 50%, transparent)" }} aria-hidden="true" />
                     <p className="text-[13px] leading-snug" style={{ color: "var(--fg-65)" }}>{item}</p>
                   </li>
                 ))}
@@ -702,13 +710,15 @@ export default function CardDetail() {
         {sectionAvailable("method") && (
           <SectionAccordion
             id="method"
+            open={openSections.has("method")}
+            onToggle={toggleSection}
             label="The Method"
-            color="#f59e0b"
+            color="var(--brand)"
             subtitle={`${cardData.method?.length ?? 0}-step execution guide`}
           >
             {cardData.fieldTip && (
-              <div className="rounded-2xl p-5 mb-5" style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" }}>
-                <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: "rgba(245,158,11,0.85)" }}>Guiding principle</p>
+              <div className="rounded-2xl p-5 mb-5" style={{ background: "color-mix(in srgb, var(--brand) 8%, transparent)", border: "1px solid color-mix(in srgb, var(--brand) 20%, transparent)" }}>
+                <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: "color-mix(in srgb, var(--brand-text) 85%, transparent)" }}>Guiding principle</p>
                 <p className="text-[15px] font-bold text-foreground/90 mb-1.5 leading-snug">{cardData.fieldTip.headline}</p>
                 <p className="text-[13px] leading-relaxed text-foreground/65">{cardData.fieldTip.body}</p>
                 {cardData.fieldTip.example && (
@@ -716,10 +726,10 @@ export default function CardDetail() {
                     <p className="text-[12px] italic text-foreground/60 mb-2">They say {cardData.fieldTip.example}</p>
                     <div className="flex flex-wrap gap-2">
                       {cardData.fieldTip.dont && (
-                        <span className="text-[12px] px-3 py-1 rounded-full" style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.18)", color: "rgba(248,113,113,0.9)" }}>Don't: {cardData.fieldTip.dont}</span>
+                        <span className="text-[12px] px-3 py-1 rounded-full" style={{ background: "color-mix(in srgb, var(--accent-red) 8%, transparent)", border: "1px solid color-mix(in srgb, var(--accent-red) 18%, transparent)", color: "color-mix(in srgb, var(--accent-red) 90%, transparent)" }}>Don't: {cardData.fieldTip.dont}</span>
                       )}
                       {cardData.fieldTip.do && (
-                        <span className="text-[12px] px-3 py-1 rounded-full" style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.18)", color: "rgba(74,222,128,0.95)" }}>Do: {cardData.fieldTip.do}</span>
+                        <span className="text-[12px] px-3 py-1 rounded-full" style={{ background: "color-mix(in srgb, var(--accent-green) 8%, transparent)", border: "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)", color: "color-mix(in srgb, var(--accent-green) 95%, transparent)" }}>Do: {cardData.fieldTip.do}</span>
                       )}
                     </div>
                   </div>
@@ -731,12 +741,12 @@ export default function CardDetail() {
               <div className="absolute left-3 top-6 bottom-6 w-px" style={{ background: "var(--fg-08)" }} aria-hidden="true" />
               {cardData.method!.map((m, i) => (
                 <div key={m.step} className="relative">
-                  <div className="absolute -left-7 top-3 w-6 h-6 rounded-full flex items-center justify-center z-10" style={{ background: "#f59e0b", color: "#0f1724" }} aria-hidden="true">
+                  <div className="absolute -left-7 top-3 w-6 h-6 rounded-full flex items-center justify-center z-10" style={{ background: "var(--brand)", color: "var(--brand-contrast)" }} aria-hidden="true">
                     <span className="text-[11px] font-bold">{i + 1}</span>
                   </div>
                   <div className="rounded-2xl p-4 shadow-sm" style={{ background: "var(--fg-03)", border: "1px solid var(--fg-06)" }}>
                     <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                      <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "rgba(245,158,11,0.12)", color: "#f59e0b" }}>{m.step}</span>
+                      <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" style={{ background: "color-mix(in srgb, var(--brand) 12%, transparent)", color: "var(--brand-text)" }}>{m.step}</span>
                       <p className="text-[14px] font-bold text-foreground/90">{m.title}</p>
                     </div>
                     <p className="text-[13px] text-foreground/65 leading-relaxed mb-3">{m.body}</p>
@@ -782,11 +792,11 @@ export default function CardDetail() {
                         onClick={() => handleCopy(row.phrase)}
                         aria-label={`Copy: ${row.phrase}`}
                         className="flex-1 text-left flex items-center justify-between gap-2 rounded-xl px-3 py-2 transition-all active:scale-[0.98]"
-                        style={{ background: copiedPhrase === row.phrase ? "rgba(245,158,11,0.1)" : "var(--fg-03)", border: "1px solid var(--fg-06)" }}
+                        style={{ background: copiedPhrase === row.phrase ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "var(--fg-03)", border: "1px solid var(--fg-06)" }}
                       >
-                        <span className="text-[13px]" style={{ color: copiedPhrase === row.phrase ? "#f59e0b" : "var(--fg-78)" }}>{row.phrase}</span>
+                        <span className="text-[13px]" style={{ color: copiedPhrase === row.phrase ? "var(--brand-text)" : "var(--fg-78)" }}>{row.phrase}</span>
                         {copiedPhrase === row.phrase
-                          ? <Check className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#f59e0b" }} />
+                          ? <Check className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--brand-text)" }} />
                           : <Copy className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--fg-25)" }} />
                         }
                       </button>
@@ -802,6 +812,8 @@ export default function CardDetail() {
         {/* ── Phrase Bank ── */}
         <SectionAccordion
           id="phrases"
+          open={openSections.has("phrases")}
+          onToggle={toggleSection}
           label="Phrase Bank"
           color="var(--accent-blue)"
           subtitle={`${cardData.phraseBank.reduce((a, g) => a + g.phrases.length, 0)} phrases · ${cardData.phraseBank.length} groups`}
@@ -820,8 +832,8 @@ export default function CardDetail() {
                 className="flex-shrink-0 text-[11px] font-semibold px-3.5 rounded-full transition-all"
                 style={{
                   minHeight: 44,
-                  background: expandedPhraseGroup === null ? "#f59e0b" : "var(--fg-06)",
-                  color: expandedPhraseGroup === null ? "#0f1724" : "var(--fg-60)",
+                  background: expandedPhraseGroup === null ? "var(--brand)" : "var(--fg-06)",
+                  color: expandedPhraseGroup === null ? "var(--brand-contrast)" : "var(--fg-60)",
                 }}
               >
                 All groups
@@ -834,8 +846,8 @@ export default function CardDetail() {
                   className="flex-shrink-0 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
                   style={{
                     minHeight: 44,
-                    background: expandedPhraseGroup === g.id ? "#f59e0b" : "var(--fg-06)",
-                    color: expandedPhraseGroup === g.id ? "#0f1724" : "var(--fg-60)",
+                    background: expandedPhraseGroup === g.id ? "var(--brand)" : "var(--fg-06)",
+                    color: expandedPhraseGroup === g.id ? "var(--brand-contrast)" : "var(--fg-60)",
                   }}
                 >
                   {g.label}
@@ -875,14 +887,14 @@ export default function CardDetail() {
                         key={i}
                         className="w-full flex items-center justify-between px-5 py-3 text-left"
                         style={{
-                          background: copiedPhrase === phrase ? "rgba(245,158,11,0.07)" : "transparent",
+                          background: copiedPhrase === phrase ? "color-mix(in srgb, var(--brand) 7%, transparent)" : "transparent",
                           borderBottom: i < group.phrases.length - 1 ? "1px solid var(--fg-03)" : "none",
                           minHeight: 52,
                         }}
                       >
                         <p
                           className="text-[13px] leading-snug pr-3 flex-1"
-                          style={{ color: copiedPhrase === phrase ? "#f59e0b" : "var(--fg-78)" }}
+                          style={{ color: copiedPhrase === phrase ? "var(--brand-text)" : "var(--fg-78)" }}
                         >
                           {phrase}
                         </p>
@@ -892,12 +904,12 @@ export default function CardDetail() {
                             aria-label={isPhrasesFav(cardId, phrase) ? "Remove from favourites" : "Save phrase"}
                             data-testid={`phrase-fav-${group.id}-${i}`}
                             className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                            style={{ background: isPhrasesFav(cardId, phrase) ? "rgba(245,158,11,0.1)" : "transparent" }}
+                            style={{ background: isPhrasesFav(cardId, phrase) ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "transparent" }}
                           >
                             <Heart
                               className="w-3.5 h-3.5"
-                              style={{ color: isPhrasesFav(cardId, phrase) ? "#f59e0b" : "var(--fg-20)" }}
-                              fill={isPhrasesFav(cardId, phrase) ? "#f59e0b" : "none"}
+                              style={{ color: isPhrasesFav(cardId, phrase) ? "var(--brand-text)" : "var(--fg-20)" }}
+                              fill={isPhrasesFav(cardId, phrase) ? "var(--brand-text)" : "none"}
                             />
                           </button>
                           <button
@@ -907,7 +919,7 @@ export default function CardDetail() {
                             className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                           >
                             {copiedPhrase === phrase
-                              ? <Check className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} />
+                              ? <Check className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} />
                               : <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-18)" }} />
                             }
                           </button>
@@ -924,6 +936,8 @@ export default function CardDetail() {
         {/* ── Ladder ── */}
         <SectionAccordion
           id="ladder"
+          open={openSections.has("ladder")}
+          onToggle={toggleSection}
           label="Weak → Better → Best"
           color="var(--accent-orange)"
           subtitle={`${cardData.ladder.length} upgrade examples`}
@@ -952,12 +966,12 @@ export default function CardDetail() {
                         onClick={() => togglePhrase({ cardId, cardTitle: CARD_TITLE_MAP[cardId] ?? cardId, groupLabel: "Ladder", text: row.best })}
                         aria-label={isPhrasesFav(cardId, row.best) ? "Remove from favourites" : "Save phrase"}
                         className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                        style={{ background: isPhrasesFav(cardId, row.best) ? "rgba(245,158,11,0.1)" : "transparent" }}
+                        style={{ background: isPhrasesFav(cardId, row.best) ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "transparent" }}
                       >
                         <Heart
                           className="w-3.5 h-3.5"
-                          style={{ color: isPhrasesFav(cardId, row.best) ? "#f59e0b" : "var(--fg-25)" }}
-                          fill={isPhrasesFav(cardId, row.best) ? "#f59e0b" : "none"}
+                          style={{ color: isPhrasesFav(cardId, row.best) ? "var(--brand-text)" : "var(--fg-25)" }}
+                          fill={isPhrasesFav(cardId, row.best) ? "var(--brand-text)" : "none"}
                         />
                       </button>
                       <button
@@ -966,7 +980,7 @@ export default function CardDetail() {
                         className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                       >
                         {copiedPhrase === row.best
-                          ? <Check className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} />
+                          ? <Check className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} />
                           : <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-25)" }} />
                         }
                       </button>
@@ -981,6 +995,8 @@ export default function CardDetail() {
         {/* ── In Practice ── */}
         <SectionAccordion
           id="inpractice"
+          open={openSections.has("inpractice")}
+          onToggle={toggleSection}
           label="In Practice"
           color="var(--accent-green)"
           subtitle="Without vs. with — see the difference"
@@ -988,17 +1004,17 @@ export default function CardDetail() {
           <div className="space-y-3">
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(239,68,68,0.18)" }}
+              style={{ border: "1px solid color-mix(in srgb, var(--accent-red) 18%, transparent)" }}
             >
               <div
                 className="px-4 py-2.5"
-                style={{ background: "rgba(239,68,68,0.08)" }}
+                style={{ background: "color-mix(in srgb, var(--accent-red) 8%, transparent)" }}
               >
-                <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "rgba(248,113,113,0.85)" }}>Without this technique</p>
+                <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "color-mix(in srgb, var(--accent-red) 85%, transparent)" }}>Without this technique</p>
               </div>
               <div
                 className="px-4 pb-4 pt-3 space-y-2"
-                style={{ background: "rgba(239,68,68,0.04)" }}
+                style={{ background: "color-mix(in srgb, var(--accent-red) 4%, transparent)" }}
               >
                 {cardData.example.without.map((line, i) => (
                   <p key={i} className="text-[13px] leading-relaxed" style={{ color: "var(--fg-65)" }}>{line}</p>
@@ -1008,17 +1024,17 @@ export default function CardDetail() {
 
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(34,197,94,0.18)" }}
+              style={{ border: "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)" }}
             >
               <div
                 className="px-4 py-2.5"
-                style={{ background: "rgba(34,197,94,0.08)" }}
+                style={{ background: "color-mix(in srgb, var(--accent-green) 8%, transparent)" }}
               >
-                <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "rgba(74,222,128,0.85)" }}>With this technique</p>
+                <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "color-mix(in srgb, var(--accent-green) 85%, transparent)" }}>With this technique</p>
               </div>
               <div
                 className="px-4 pb-4 pt-3 space-y-2"
-                style={{ background: "rgba(34,197,94,0.04)" }}
+                style={{ background: "color-mix(in srgb, var(--accent-green) 4%, transparent)" }}
               >
                 {cardData.example.with.map((line, i) => (
                   <p key={i} className="text-[13px] leading-relaxed" style={{ color: "var(--fg-78)" }}>{line}</p>
@@ -1030,11 +1046,11 @@ export default function CardDetail() {
               <div
                 className="rounded-2xl px-4 py-3"
                 style={{
-                  background: "rgba(245,158,11,0.06)",
-                  border: "1px solid rgba(245,158,11,0.14)",
+                  background: "color-mix(in srgb, var(--brand) 6%, transparent)",
+                  border: "1px solid color-mix(in srgb, var(--brand) 14%, transparent)",
                 }}
               >
-                <p className="text-[12px] italic" style={{ color: "rgba(245,158,11,0.7)" }}>{cardData.example.note}</p>
+                <p className="text-[12px] italic" style={{ color: "color-mix(in srgb, var(--brand-text) 70%, transparent)" }}>{cardData.example.note}</p>
               </div>
             )}
           </div>
@@ -1043,6 +1059,8 @@ export default function CardDetail() {
         {/* ── Decision Tree ── */}
         <SectionAccordion
           id="tree"
+          open={openSections.has("tree")}
+          onToggle={toggleSection}
           label="Decision Tree"
           color="var(--accent-purple)"
           subtitle={`${cardData.decisionTree.length} situation → action paths`}
@@ -1063,9 +1081,9 @@ export default function CardDetail() {
                       aria-label={`Copy: ${item.phrase}`}
                       className="inline-flex items-center gap-1.5 text-[12px] font-medium px-3 py-1.5 rounded-full border transition-all"
                       style={{
-                        background: copiedPhrase === item.phrase ? "rgba(245,158,11,0.15)" : "rgba(245,158,11,0.06)",
-                        border: copiedPhrase === item.phrase ? "1px solid rgba(245,158,11,0.35)" : "1px solid rgba(245,158,11,0.15)",
-                        color: "#f59e0b",
+                        background: copiedPhrase === item.phrase ? "color-mix(in srgb, var(--brand) 15%, transparent)" : "color-mix(in srgb, var(--brand) 6%, transparent)",
+                        border: copiedPhrase === item.phrase ? "1px solid color-mix(in srgb, var(--brand) 35%, transparent)" : "1px solid color-mix(in srgb, var(--brand) 15%, transparent)",
+                        color: "var(--brand-text)",
                         minHeight: 44,
                       }}
                     >
@@ -1082,6 +1100,8 @@ export default function CardDetail() {
         {/* ── Scenarios ── */}
         <SectionAccordion
           id="scenarios"
+          open={openSections.has("scenarios")}
+          onToggle={toggleSection}
           label="Scenario Playbook"
           color="var(--accent-teal)"
           subtitle={`${cardData.scenarios.length} real-world entries`}
@@ -1097,9 +1117,9 @@ export default function CardDetail() {
                     aria-label={`Copy: ${s.phrase}`}
                     className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full border transition-all"
                     style={{
-                      background: copiedPhrase === s.phrase ? "rgba(245,158,11,0.15)" : "rgba(245,158,11,0.08)",
-                      border: copiedPhrase === s.phrase ? "1px solid rgba(245,158,11,0.4)" : "1px solid rgba(245,158,11,0.18)",
-                      color: "#f59e0b",
+                      background: copiedPhrase === s.phrase ? "color-mix(in srgb, var(--brand) 15%, transparent)" : "color-mix(in srgb, var(--brand) 8%, transparent)",
+                      border: copiedPhrase === s.phrase ? "1px solid color-mix(in srgb, var(--brand) 40%, transparent)" : "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+                      color: "var(--brand-text)",
                       minHeight: 44,
                     }}
                   >
@@ -1110,12 +1130,12 @@ export default function CardDetail() {
                     onClick={() => togglePhrase({ cardId, cardTitle: CARD_TITLE_MAP[cardId] ?? cardId, groupLabel: "Scenario", text: s.phrase })}
                     aria-label={isPhrasesFav(cardId, s.phrase) ? "Remove from favourites" : "Save phrase"}
                     className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                    style={{ background: isPhrasesFav(cardId, s.phrase) ? "rgba(245,158,11,0.1)" : "var(--fg-05)" }}
+                    style={{ background: isPhrasesFav(cardId, s.phrase) ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "var(--fg-05)" }}
                   >
                     <Heart
                       className="w-4 h-4"
-                      style={{ color: isPhrasesFav(cardId, s.phrase) ? "#f59e0b" : "var(--fg-30)" }}
-                      fill={isPhrasesFav(cardId, s.phrase) ? "#f59e0b" : "none"}
+                      style={{ color: isPhrasesFav(cardId, s.phrase) ? "var(--brand-text)" : "var(--fg-30)" }}
+                      fill={isPhrasesFav(cardId, s.phrase) ? "var(--brand-text)" : "none"}
                     />
                   </button>
                 </div>
@@ -1128,6 +1148,8 @@ export default function CardDetail() {
         {sectionAvailable("chains") && (
           <SectionAccordion
             id="chains"
+            open={openSections.has("chains")}
+            onToggle={toggleSection}
             label="Technique Chains"
             color="var(--accent-indigo)"
             subtitle="Combine this move into longer sequences"
@@ -1136,12 +1158,12 @@ export default function CardDetail() {
               {cardData.chains!.map((chain) => (
                 <div key={chain.label} className="rounded-2xl p-5 shadow-sm" style={{ background: "var(--fg-03)", border: "1px solid var(--fg-06)" }}>
                   <p className="text-[14px] font-bold text-foreground/90 mb-2">{chain.label}</p>
-                  <p className="text-[12px] leading-relaxed mb-4" style={{ color: "rgba(129,140,248,0.95)" }}>{chain.sequence}</p>
+                  <p className="text-[12px] leading-relaxed mb-4" style={{ color: "color-mix(in srgb, var(--accent-indigo) 95%, transparent)" }}>{chain.sequence}</p>
                   <div className="space-y-2.5 relative pl-5">
                     <div className="absolute left-[5px] top-2 bottom-2 w-px" style={{ background: "var(--fg-08)" }} aria-hidden="true" />
                     {chain.example.map((line, j) => (
                       <div key={j} className="relative">
-                        <div className="absolute -left-5 top-1.5 w-2.5 h-2.5 rounded-full" style={{ background: "rgba(129,140,248,0.5)" }} aria-hidden="true" />
+                        <div className="absolute -left-5 top-1.5 w-2.5 h-2.5 rounded-full" style={{ background: "color-mix(in srgb, var(--accent-indigo) 50%, transparent)" }} aria-hidden="true" />
                         <p className="text-[13px] leading-snug text-foreground/75">{line}</p>
                       </div>
                     ))}
@@ -1155,6 +1177,8 @@ export default function CardDetail() {
         {/* ── Calibration ── */}
         <SectionAccordion
           id="calibration"
+          open={openSections.has("calibration")}
+          onToggle={toggleSection}
           label="Calibration"
           color="var(--accent-rose)"
           subtitle="Is it working? When to adjust"
@@ -1195,6 +1219,8 @@ export default function CardDetail() {
         {sectionAvailable("mistakes") && (
           <SectionAccordion
             id="mistakes"
+            open={openSections.has("mistakes")}
+            onToggle={toggleSection}
             label="Common Mistakes"
             color="var(--accent-red)"
             subtitle={`${cardData.commonMistakes?.length ?? 0} pitfalls + fixes`}
@@ -1202,16 +1228,16 @@ export default function CardDetail() {
             <div className="space-y-3">
               {cardData.commonMistakes!.map((m) => (
                 <div key={m.mistake} className="rounded-2xl overflow-hidden shadow-sm" style={{ background: "var(--fg-03)", border: "1px solid var(--fg-05)" }}>
-                  <div className="px-4 py-3" style={{ background: "rgba(239,68,68,0.06)", borderBottom: "1px solid var(--fg-05)" }}>
+                  <div className="px-4 py-3" style={{ background: "color-mix(in srgb, var(--accent-red) 6%, transparent)", borderBottom: "1px solid var(--fg-05)" }}>
                     <p className="text-[13px] font-bold text-foreground/90">{m.mistake}</p>
                   </div>
                   <div className="p-4 space-y-3">
                     <div className="flex items-start gap-2.5">
-                      <span className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]" style={{ color: "rgba(248,113,113,0.85)" }}>Sounds like</span>
+                      <span className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]" style={{ color: "color-mix(in srgb, var(--accent-red) 85%, transparent)" }}>Sounds like</span>
                       <p className="text-[13px] flex-1 italic" style={{ color: "var(--fg-60)" }}>{m.soundsLike}</p>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <span className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]" style={{ color: "rgba(74,222,128,0.9)" }}>Better</span>
+                      <span className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]" style={{ color: "color-mix(in srgb, var(--accent-green) 90%, transparent)" }}>Better</span>
                       <div className="flex-1 flex items-start justify-between gap-2">
                         <p className="text-[13px]" style={{ color: "var(--fg-85)" }}>{m.better}</p>
                         <button
@@ -1220,7 +1246,7 @@ export default function CardDetail() {
                           className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                         >
                           {copiedPhrase === m.better
-                            ? <Check className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} />
+                            ? <Check className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} />
                             : <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-20)" }} />
                           }
                         </button>
@@ -1237,24 +1263,26 @@ export default function CardDetail() {
         {sectionAvailable("recovery") && (
           <SectionAccordion
             id="recovery"
+            open={openSections.has("recovery")}
+            onToggle={toggleSection}
             label="Recovery"
             color="var(--accent-emerald)"
             subtitle="When you've pushed too far — reset scripts"
           >
             {cardData.bestRecoveryLine && (
-              <div className="rounded-2xl p-5 mb-4" style={{ background: "rgba(52,211,153,0.08)", border: "1px solid rgba(52,211,153,0.2)" }}>
-                <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: "rgba(52,211,153,0.9)" }}>Best all-purpose line</p>
+              <div className="rounded-2xl p-5 mb-4" style={{ background: "color-mix(in srgb, var(--accent-emerald) 8%, transparent)", border: "1px solid color-mix(in srgb, var(--accent-emerald) 20%, transparent)" }}>
+                <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: "color-mix(in srgb, var(--accent-emerald) 90%, transparent)" }}>Best all-purpose line</p>
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-[14px] font-semibold leading-relaxed text-foreground/90 flex-1">{cardData.bestRecoveryLine}</p>
                   <button
                     onClick={() => handleCopy(cardData.bestRecoveryLine!)}
                     aria-label={`Copy: ${cardData.bestRecoveryLine}`}
                     className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
-                    style={{ background: "rgba(52,211,153,0.12)" }}
+                    style={{ background: "color-mix(in srgb, var(--accent-emerald) 12%, transparent)" }}
                   >
                     {copiedPhrase === cardData.bestRecoveryLine
-                      ? <Check className="w-4 h-4" style={{ color: "#34d399" }} />
-                      : <Copy className="w-4 h-4" style={{ color: "rgba(52,211,153,0.8)" }} />
+                      ? <Check className="w-4 h-4" style={{ color: "var(--accent-emerald)" }} />
+                      : <Copy className="w-4 h-4" style={{ color: "color-mix(in srgb, var(--accent-emerald) 80%, transparent)" }} />
                     }
                   </button>
                 </div>
@@ -1266,20 +1294,20 @@ export default function CardDetail() {
                 <div
                   key={i}
                   className="w-full flex items-center justify-between px-5 py-3"
-                  style={{ background: copiedPhrase === phrase ? "rgba(245,158,11,0.07)" : "transparent", borderBottom: i < cardData.recoveryPhrases!.length - 1 ? "1px solid var(--fg-04)" : "none", minHeight: 52 }}
+                  style={{ background: copiedPhrase === phrase ? "color-mix(in srgb, var(--brand) 7%, transparent)" : "transparent", borderBottom: i < cardData.recoveryPhrases!.length - 1 ? "1px solid var(--fg-04)" : "none", minHeight: 52 }}
                 >
-                  <p className="text-[13px] leading-snug pr-3 flex-1" style={{ color: copiedPhrase === phrase ? "#f59e0b" : "var(--fg-78)" }}>{phrase}</p>
+                  <p className="text-[13px] leading-snug pr-3 flex-1" style={{ color: copiedPhrase === phrase ? "var(--brand-text)" : "var(--fg-78)" }}>{phrase}</p>
                   <div className="flex items-center gap-1 flex-shrink-0">
                     <button
                       onClick={() => togglePhrase({ cardId, cardTitle: CARD_TITLE_MAP[cardId] ?? cardId, groupLabel: "Recovery", text: phrase })}
                       aria-label={isPhrasesFav(cardId, phrase) ? "Remove from favourites" : "Save phrase"}
                       className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                      style={{ background: isPhrasesFav(cardId, phrase) ? "rgba(245,158,11,0.1)" : "transparent" }}
+                      style={{ background: isPhrasesFav(cardId, phrase) ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "transparent" }}
                     >
                       <Heart
                         className="w-3.5 h-3.5"
-                        style={{ color: isPhrasesFav(cardId, phrase) ? "#f59e0b" : "var(--fg-20)" }}
-                        fill={isPhrasesFav(cardId, phrase) ? "#f59e0b" : "none"}
+                        style={{ color: isPhrasesFav(cardId, phrase) ? "var(--brand-text)" : "var(--fg-20)" }}
+                        fill={isPhrasesFav(cardId, phrase) ? "var(--brand-text)" : "none"}
                       />
                     </button>
                     <button
@@ -1288,7 +1316,7 @@ export default function CardDetail() {
                       className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                     >
                       {copiedPhrase === phrase
-                        ? <Check className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} />
+                        ? <Check className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} />
                         : <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-18)" }} />
                       }
                     </button>
@@ -1302,6 +1330,8 @@ export default function CardDetail() {
         {/* ── Practice Protocol ── */}
         <SectionAccordion
           id="practice"
+          open={openSections.has("practice")}
+          onToggle={toggleSection}
           label="Practice Protocol"
           color="var(--accent-sky)"
           subtitle={`${cardData.drill.length}-day program`}
@@ -1328,6 +1358,8 @@ export default function CardDetail() {
         {/* ── After-Action Checklist ── */}
         <SectionAccordion
           id="checklist"
+          open={openSections.has("checklist")}
+          onToggle={toggleSection}
           label="After-Action Checklist"
           color="var(--accent-emerald)"
           subtitle={`${checkedItems.size} / ${cardData.checklist.length} items checked`}
@@ -1359,7 +1391,7 @@ export default function CardDetail() {
                 data-testid={`checklist-item-${i}`}
                 className="w-full flex gap-4 p-4 text-left transition-all"
                 style={{
-                  background: checkedItems.has(i) ? "rgba(245,158,11,0.04)" : "transparent",
+                  background: checkedItems.has(i) ? "color-mix(in srgb, var(--brand) 4%, transparent)" : "transparent",
                   borderBottom: i < cardData.checklist.length - 1 ? "1px solid var(--fg-03)" : "none",
                   minHeight: 52,
                 }}
@@ -1375,12 +1407,12 @@ export default function CardDetail() {
                 <div
                   className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors"
                   style={{
-                    background: checkedItems.has(i) ? "#f59e0b" : "var(--fg-05)",
+                    background: checkedItems.has(i) ? "var(--brand)" : "var(--fg-05)",
                     border: checkedItems.has(i) ? "none" : "1px solid var(--fg-10)",
                   }}
                   aria-hidden="true"
                 >
-                  {checkedItems.has(i) && <Check className="w-3.5 h-3.5" style={{ color: "#0f1724" }} />}
+                  {checkedItems.has(i) && <Check className="w-3.5 h-3.5" style={{ color: "var(--brand-contrast)" }} />}
                 </div>
                 <span
                   className="text-[13px] leading-snug transition-colors"
@@ -1400,6 +1432,8 @@ export default function CardDetail() {
         {sectionAvailable("related") && (
           <SectionAccordion
             id="related"
+            open={openSections.has("related")}
+            onToggle={toggleSection}
             label="Related Techniques"
             color="var(--accent-indigo)"
             subtitle={`${cardData.relatedTechniques?.length ?? 0} paired techniques`}
@@ -1431,12 +1465,14 @@ export default function CardDetail() {
         {sectionAvailable("resources") && (
           <SectionAccordion
             id="resources"
+            open={openSections.has("resources")}
+            onToggle={toggleSection}
             label="Downloads"
             color="var(--accent-purple)"
             subtitle="PDFs & reference files"
           >
-            <div className="rounded-2xl px-4 py-3 mb-5 flex items-start gap-3" style={{ background: "rgba(167,139,250,0.07)", border: "1px solid rgba(167,139,250,0.14)" }}>
-              <FileText className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "rgba(167,139,250,0.65)" }} aria-hidden="true" />
+            <div className="rounded-2xl px-4 py-3 mb-5 flex items-start gap-3" style={{ background: "color-mix(in srgb, var(--accent-purple) 7%, transparent)", border: "1px solid color-mix(in srgb, var(--accent-purple) 14%, transparent)" }}>
+              <FileText className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "color-mix(in srgb, var(--accent-purple) 65%, transparent)" }} aria-hidden="true" />
               <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-55)" }}>
                 The visual card PDF can also be viewed in-app via the PDF button in the app navigation.
               </p>
@@ -1446,10 +1482,10 @@ export default function CardDetail() {
               const items = resourceItems.filter(r => r.group === group);
               if (items.length === 0) return null;
               const typeStyle: Record<string, { bg: string; color: string }> = {
-                pdf:  { bg: "rgba(239,68,68,0.09)",   color: "rgba(248,113,113,0.85)" },
-                docx: { bg: "rgba(59,130,246,0.09)",  color: "rgba(96,165,250,0.85)"  },
-                png:  { bg: "rgba(16,185,129,0.09)",  color: "rgba(52,211,153,0.85)"  },
-                csv:  { bg: "rgba(245,158,11,0.09)",  color: "rgba(245,158,11,0.85)"  },
+                pdf:  { bg: "color-mix(in srgb, var(--accent-red) 9%, transparent)",   color: "color-mix(in srgb, var(--accent-red) 85%, transparent)" },
+                docx: { bg: "color-mix(in srgb, var(--accent-blue) 9%, transparent)",  color: "color-mix(in srgb, var(--accent-blue) 85%, transparent)"  },
+                png:  { bg: "color-mix(in srgb, var(--accent-emerald) 9%, transparent)",  color: "color-mix(in srgb, var(--accent-emerald) 85%, transparent)"  },
+                csv:  { bg: "color-mix(in srgb, var(--brand) 9%, transparent)",  color: "color-mix(in srgb, var(--brand-text) 85%, transparent)"  },
               };
               return (
                 <div key={group} className="mb-5">
@@ -1531,7 +1567,7 @@ export default function CardDetail() {
                 style={{ borderBottom: "1px solid var(--fg-08)" }}
               >
                 <div className="flex items-center gap-2.5">
-                  <FileText className="w-4 h-4" style={{ color: "#f59e0b" }} />
+                  <FileText className="w-4 h-4" style={{ color: "var(--brand-text)" }} />
                   <span className="text-[13px] font-semibold" style={{ color: "var(--fg-70)" }}>
                     {cardId} — Reference PDF
                   </span>
@@ -1570,11 +1606,11 @@ export default function CardDetail() {
                   <div
                     className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                     style={{
-                      background: "rgba(239,68,68,0.07)",
-                      border: "1px solid rgba(239,68,68,0.16)",
+                      background: "color-mix(in srgb, var(--accent-red) 7%, transparent)",
+                      border: "1px solid color-mix(in srgb, var(--accent-red) 16%, transparent)",
                     }}
                   >
-                    <FileText className="w-6 h-6" style={{ color: "rgba(239,68,68,0.5)" }} />
+                    <FileText className="w-6 h-6" style={{ color: "color-mix(in srgb, var(--accent-red) 50%, transparent)" }} />
                   </div>
                   <div>
                     <p className="text-[15px] font-semibold text-foreground/80 mb-2">Couldn't display the PDF</p>
@@ -1592,9 +1628,9 @@ export default function CardDetail() {
                     className="flex items-center gap-2 text-[13px] font-semibold px-5 rounded-full transition-all active:scale-95"
                     style={{
                       minHeight: 44,
-                      background: "rgba(245,158,11,0.12)",
-                      border: "1px solid rgba(245,158,11,0.22)",
-                      color: "#f59e0b",
+                      background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+                      border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                      color: "var(--brand-text)",
                     }}
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -1607,7 +1643,7 @@ export default function CardDetail() {
                     <div className="flex-1 flex flex-col items-center justify-center gap-4 px-6 text-center">
                       <div
                         className="w-8 h-8 rounded-full border-2 animate-spin"
-                        style={{ borderColor: "var(--fg-10)", borderTopColor: "#f59e0b" }}
+                        style={{ borderColor: "var(--fg-10)", borderTopColor: "var(--brand)" }}
                         aria-hidden="true"
                       />
                       <p className="text-[13px]" style={{ color: "var(--fg-35)" }}>Loading PDF…</p>

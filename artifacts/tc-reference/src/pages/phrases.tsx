@@ -3,8 +3,8 @@ import { useLocation } from "wouter";
 import { Check, Copy, Heart, Search, X, MessagesSquare } from "lucide-react";
 import { getAllAggregatedPhrases, getAllTones, AggregatedPhrase } from "@/lib/phrases-data";
 import { useFavourites } from "@/lib/favourites-context";
-import { copyToClipboard } from "@/lib/utils";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
+import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 
 const ALL_PHRASES = getAllAggregatedPhrases();
 const ALL_TONES = getAllTones();
@@ -17,7 +17,7 @@ for (const p of ALL_PHRASES) {
 export default function Phrases() {
   const [toneFilter, setToneFilter] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [copiedPhrase, setCopiedPhrase] = useState<string | null>(null);
+  const { copied: copiedPhrase, copy: handleCopy } = useCopyFeedback(1800);
   const [, setLocation] = useLocation();
   const { togglePhrase, isPhrasesFav } = useFavourites();
   const scrollDirection = useScrollDirection(60);
@@ -40,12 +40,6 @@ export default function Phrases() {
     return result;
   }, [toneFilter, searchQuery]);
 
-  const handleCopy = async (text: string) => {
-    await copyToClipboard(text);
-    setCopiedPhrase(text);
-    setTimeout(() => setCopiedPhrase((prev) => (prev === text ? null : prev)), 1800);
-  };
-
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
 
@@ -55,11 +49,11 @@ export default function Phrases() {
           <div
             className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
             style={{
-              background: "linear-gradient(135deg, rgba(245,158,11,0.18) 0%, rgba(245,158,11,0.08) 100%)",
-              border: "1px solid rgba(245,158,11,0.22)",
+              background: "linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, transparent) 0%, color-mix(in srgb, var(--brand) 8%, transparent) 100%)",
+              border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
             }}
           >
-            <MessagesSquare className="w-4 h-4" style={{ color: "#f59e0b" }} aria-hidden="true" />
+            <MessagesSquare className="w-4 h-4" style={{ color: "var(--brand-text)" }} aria-hidden="true" />
           </div>
           <h1 className="text-[20px] font-bold leading-tight" style={{ color: "var(--fg-90)" }}>
             Phrase Bank
@@ -106,13 +100,13 @@ export default function Phrases() {
               style={{
                 minHeight: 40,
                 background: !toneFilter
-                  ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+                  ? "var(--gradient-active)"
                   : "var(--fg-05)",
-                color: !toneFilter ? "#0f1724" : "var(--fg-60)",
+                color: !toneFilter ? "var(--brand-contrast)" : "var(--fg-60)",
                 border: !toneFilter
-                  ? "1px solid rgba(245,158,11,0.6)"
+                  ? "1px solid color-mix(in srgb, var(--brand) 60%, transparent)"
                   : "1px solid var(--fg-08)",
-                boxShadow: !toneFilter ? "0 2px 10px rgba(245,158,11,0.32)" : "none",
+                boxShadow: !toneFilter ? "0 2px 10px color-mix(in srgb, var(--brand) 32%, transparent)" : "none",
               }}
             >
               All
@@ -120,7 +114,7 @@ export default function Phrases() {
                 className="text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none"
                 style={{
                   background: !toneFilter ? "rgba(15,23,36,0.18)" : "var(--fg-08)",
-                  color: !toneFilter ? "#0f1724" : "var(--fg-40)",
+                  color: !toneFilter ? "var(--brand-contrast)" : "var(--fg-40)",
                 }}
               >
                 {ALL_PHRASES.length}
@@ -139,13 +133,13 @@ export default function Phrases() {
                   style={{
                     minHeight: 40,
                     background: active
-                      ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+                      ? "var(--gradient-active)"
                       : "var(--fg-05)",
-                    color: active ? "#0f1724" : "var(--fg-60)",
+                    color: active ? "var(--brand-contrast)" : "var(--fg-60)",
                     border: active
-                      ? "1px solid rgba(245,158,11,0.6)"
+                      ? "1px solid color-mix(in srgb, var(--brand) 60%, transparent)"
                       : "1px solid var(--fg-08)",
-                    boxShadow: active ? "0 2px 10px rgba(245,158,11,0.32)" : "none",
+                    boxShadow: active ? "0 2px 10px color-mix(in srgb, var(--brand) 32%, transparent)" : "none",
                   }}
                 >
                   {tone}
@@ -153,7 +147,7 @@ export default function Phrases() {
                     className="text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none"
                     style={{
                       background: active ? "rgba(15,23,36,0.18)" : "var(--fg-08)",
-                      color: active ? "#0f1724" : "var(--fg-40)",
+                      color: active ? "var(--brand-contrast)" : "var(--fg-40)",
                     }}
                   >
                     {count}
@@ -189,8 +183,8 @@ export default function Phrases() {
                   padding: "7px 32px 7px 32px",
                 }}
                 onFocus={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(245,158,11,0.45)";
-                  e.currentTarget.style.boxShadow = "0 0 0 3px rgba(245,158,11,0.10)";
+                  e.currentTarget.style.borderColor = "color-mix(in srgb, var(--brand) 45%, transparent)";
+                  e.currentTarget.style.boxShadow = "0 0 0 3px color-mix(in srgb, var(--brand) 10%, transparent)";
                 }}
                 onBlur={(e) => {
                   e.currentTarget.style.borderColor = "var(--fg-07)";
@@ -228,9 +222,9 @@ export default function Phrases() {
             className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 rounded-full transition-all active:scale-95 whitespace-nowrap"
             style={{
               minHeight: 36,
-              background: "rgba(245,158,11,0.10)",
-              border: "1px solid rgba(245,158,11,0.35)",
-              color: "#f59e0b",
+              background: "color-mix(in srgb, var(--brand) 10%, transparent)",
+              border: "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
+              color: "var(--brand-text)",
             }}
           >
             <X className="w-2.5 h-2.5" aria-hidden="true" />
@@ -263,7 +257,7 @@ export default function Phrases() {
             <button
               onClick={() => { setToneFilter(null); setSearchQuery(""); }}
               className="text-[12px] font-semibold px-4 py-2 rounded-full transition-all active:scale-95"
-              style={{ background: "rgba(245,158,11,0.10)", color: "#f59e0b" }}
+              style={{ background: "color-mix(in srgb, var(--brand) 10%, transparent)", color: "var(--brand-text)" }}
             >
               Clear filters
             </button>
@@ -308,9 +302,9 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
       data-testid={`phrase-row-${phrase.cardId}`}
       className="w-full rounded-2xl px-4 py-3 transition-all duration-150"
       style={{
-        background: copied ? "rgba(245,158,11,0.09)" : "var(--fg-03)",
+        background: copied ? "color-mix(in srgb, var(--brand) 9%, transparent)" : "var(--fg-03)",
         border: copied
-          ? "1px solid rgba(245,158,11,0.25)"
+          ? "1px solid color-mix(in srgb, var(--brand) 25%, transparent)"
           : "1px solid var(--fg-05)",
       }}
     >
@@ -320,7 +314,7 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
         aria-label={`Copy: ${phrase.text}`}
         data-testid={`phrase-copy-btn-${phrase.cardId}`}
         className="w-full text-left text-[14px] leading-snug font-medium mb-2.5 transition-colors active:opacity-70"
-        style={{ color: copied ? "#f59e0b" : "var(--fg-82)" }}
+        style={{ color: copied ? "var(--brand-text)" : "var(--fg-82)" }}
       >
         {phrase.text}
       </button>
@@ -331,9 +325,9 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
         <span
           className="text-[9px] font-bold tracking-wide px-2 py-0.5 rounded-full uppercase flex-shrink-0"
           style={{
-            background: "rgba(245,158,11,0.10)",
-            color: "rgba(245,158,11,0.75)",
-            border: "1px solid rgba(245,158,11,0.18)",
+            background: "color-mix(in srgb, var(--brand) 10%, transparent)",
+            color: "color-mix(in srgb, var(--brand-text) 75%, transparent)",
+            border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
           }}
         >
           {phrase.groupLabel}
@@ -353,7 +347,7 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
         >
           <span
             className="text-[8px] font-bold px-1 py-0.5 rounded"
-            style={{ background: "#f59e0b", color: "#0f1724" }}
+            style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
           >
             {phrase.cardId}
           </span>
@@ -369,12 +363,12 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
           aria-label={faved ? "Remove from favourites" : "Save phrase"}
           data-testid={`phrase-fav-btn`}
           className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
-          style={{ background: faved ? "rgba(245,158,11,0.12)" : "transparent" }}
+          style={{ background: faved ? "color-mix(in srgb, var(--brand) 12%, transparent)" : "transparent" }}
         >
           <Heart
             className="w-3.5 h-3.5"
-            style={{ color: faved ? "#f59e0b" : "var(--fg-28)" }}
-            fill={faved ? "#f59e0b" : "none"}
+            style={{ color: faved ? "var(--brand-text)" : "var(--fg-28)" }}
+            fill={faved ? "var(--brand-text)" : "none"}
           />
         </button>
 
@@ -385,12 +379,12 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
           data-testid={`phrase-copy-icon-btn`}
           className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
           style={{
-            background: copied ? "rgba(245,158,11,0.12)" : "var(--fg-05)",
+            background: copied ? "color-mix(in srgb, var(--brand) 12%, transparent)" : "var(--fg-05)",
             border: "1px solid var(--fg-07)",
           }}
         >
           {copied ? (
-            <Check className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} />
+            <Check className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} />
           ) : (
             <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-40)" }} />
           )}

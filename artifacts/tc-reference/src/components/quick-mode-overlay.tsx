@@ -4,8 +4,8 @@ import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { CARD_DATA } from "@/lib/cards";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
-import { copyToClipboard } from "@/lib/utils";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
+import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 
 interface QuickPhrase {
   text: string;
@@ -60,7 +60,7 @@ export function QuickModeOverlay() {
   const { isOpen, setIsOpen } = useQuickMode();
   const { isPhrasesFav, togglePhrase } = useFavourites();
   const [quickFilter, setQuickFilter] = useState<string | null>(null);
-  const [copiedPhrase, setCopiedPhrase] = useState<string | null>(null);
+  const { copied: copiedPhrase, copy: handleCopy, reset: resetCopied } = useCopyFeedback();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -71,9 +71,9 @@ export function QuickModeOverlay() {
   useEffect(() => {
     if (!isOpen) {
       setQuickFilter(null);
-      setCopiedPhrase(null);
+      resetCopied();
     }
-  }, [isOpen]);
+  }, [isOpen, resetCopied]);
 
   // Escape key dismissal
   useEffect(() => {
@@ -86,12 +86,6 @@ export function QuickModeOverlay() {
   }, [isOpen, setIsOpen]);
 
   if (!isOpen) return null;
-
-  const handleCopy = async (phrase: string) => {
-    await copyToClipboard(phrase);
-    setCopiedPhrase(phrase);
-    setTimeout(() => setCopiedPhrase(null), 1600);
-  };
 
   const filteredGroups = quickFilter
     ? ALL_QUICK_GROUPS.filter((g) => g.id === quickFilter)
@@ -144,8 +138,8 @@ export function QuickModeOverlay() {
             data-testid="quick-filter-all"
             className="flex-shrink-0 text-[11px] font-semibold px-4 rounded-full transition-all whitespace-nowrap"
             style={{
-              background: !quickFilter ? "#f59e0b" : "var(--fg-06)",
-              color: !quickFilter ? "#0f1724" : "var(--fg-60)",
+              background: !quickFilter ? "var(--brand)" : "var(--fg-06)",
+              color: !quickFilter ? "var(--brand-contrast)" : "var(--fg-60)",
               minHeight: 44,
             }}
           >
@@ -159,8 +153,8 @@ export function QuickModeOverlay() {
               data-testid={`quick-filter-${g.id}`}
               className="flex-shrink-0 text-[11px] font-semibold px-4 rounded-full transition-all whitespace-nowrap"
               style={{
-                background: quickFilter === g.id ? "#f59e0b" : "var(--fg-06)",
-                color: quickFilter === g.id ? "#0f1724" : "var(--fg-60)",
+                background: quickFilter === g.id ? "var(--brand)" : "var(--fg-06)",
+                color: quickFilter === g.id ? "var(--brand-contrast)" : "var(--fg-60)",
                 minHeight: 44,
               }}
             >
@@ -184,9 +178,9 @@ export function QuickModeOverlay() {
               onClick={() => setQuickFilter(null)}
               className="text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
               style={{
-                background: "rgba(245,158,11,0.12)",
-                border: "1px solid rgba(245,158,11,0.22)",
-                color: "#f59e0b",
+                background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+                border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                color: "var(--brand-text)",
               }}
             >
               Show all phrases
@@ -229,25 +223,20 @@ export function QuickModeOverlay() {
                     }}
                     aria-label={`Copy phrase: ${phrase.text}`}
                     data-testid={`quick-copy-${group.id}-${i}`}
-                    className="w-full flex items-center justify-between text-left cursor-pointer transition-all active:scale-[0.99]"
+                    className={`w-full flex items-center justify-between text-left cursor-pointer transition-all active:scale-[0.99] ${
+                      copiedPhrase === phrase.text
+                        ? "bg-[color-mix(in_srgb,var(--brand)_8%,transparent)]"
+                        : "bg-transparent hover:bg-[var(--fg-03)]"
+                    }`}
                     style={{
-                      background: copiedPhrase === phrase.text ? "rgba(245,158,11,0.08)" : "transparent",
                       borderBottom: i < group.phrases.length - 1 ? "1px solid var(--fg-04)" : "none",
                       minHeight: 56,
                       padding: "14px 20px",
                     }}
-                    onMouseEnter={(e) => {
-                      if (copiedPhrase !== phrase.text)
-                        (e.currentTarget as HTMLElement).style.background = "var(--fg-03)";
-                    }}
-                    onMouseLeave={(e) => {
-                      if (copiedPhrase !== phrase.text)
-                        (e.currentTarget as HTMLElement).style.background = "transparent";
-                    }}
                   >
                     <p
                       className="text-[14px] leading-relaxed pr-3 flex-1"
-                      style={{ color: copiedPhrase === phrase.text ? "#f59e0b" : "var(--fg-85)" }}
+                      style={{ color: copiedPhrase === phrase.text ? "var(--brand-text)" : "var(--fg-85)" }}
                     >
                       {phrase.text}
                     </p>
@@ -256,7 +245,7 @@ export function QuickModeOverlay() {
                       onClick={e => e.stopPropagation()}
                     >
                       {copiedPhrase === phrase.text ? (
-                        <Check className="w-4 h-4" style={{ color: "#f59e0b" }} />
+                        <Check className="w-4 h-4" style={{ color: "var(--brand-text)" }} />
                       ) : (
                         <Copy className="w-4 h-4 flex-shrink-0" style={{ color: "var(--fg-18)" }} />
                       )}
@@ -264,12 +253,12 @@ export function QuickModeOverlay() {
                         onClick={() => togglePhrase({ cardId: phrase.cardId, cardTitle: phrase.cardTitle, groupLabel: group.label, text: phrase.text })}
                         aria-label={isFav ? "Remove from favourites" : "Save phrase"}
                         className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                        style={{ background: isFav ? "rgba(245,158,11,0.1)" : "transparent" }}
+                        style={{ background: isFav ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "transparent" }}
                       >
                         <Heart
                           className="w-3.5 h-3.5"
-                          style={{ color: isFav ? "#f59e0b" : "var(--fg-20)" }}
-                          fill={isFav ? "#f59e0b" : "none"}
+                          style={{ color: isFav ? "var(--brand-text)" : "var(--fg-20)" }}
+                          fill={isFav ? "var(--brand-text)" : "none"}
                         />
                       </button>
                     </div>

@@ -46,6 +46,20 @@ interface AppLayoutProps {
   children: React.ReactNode;
 }
 
+interface NavItem {
+  id: string;
+  label: string;
+  icon: typeof Home;
+  active: boolean;
+  action: () => void;
+  testIdDesktop: string;
+  testIdMobile: string;
+  badge: string | null;
+  /** Full accessible name — aria-label overrides child content, so badge
+      info (counts, streaks) must be folded in here to be announced. */
+  ariaLabel?: string;
+}
+
 export function AppLayout({ children }: AppLayoutProps) {
   const [location, setLocation] = useLocation();
   const { isOpen, setIsOpen } = useQuickMode();
@@ -194,7 +208,7 @@ export function AppLayout({ children }: AppLayoutProps) {
     }
   };
 
-  const baseNavItems = [
+  const baseNavItems: NavItem[] = [
     {
       id: "library",
       label: "Library",
@@ -203,7 +217,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       action: () => setLocation("/"),
       testIdDesktop: "nav-sidebar-library",
       testIdMobile: "nav-tab-library",
-      badge: null as string | null,
+      badge: null,
     },
     {
       id: "phrases",
@@ -213,7 +227,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       action: () => setLocation("/phrases"),
       testIdDesktop: "nav-sidebar-phrases",
       testIdMobile: "nav-tab-phrases",
-      badge: null as string | null,
+      badge: null,
     },
     {
       id: "favourites",
@@ -223,7 +237,8 @@ export function AppLayout({ children }: AppLayoutProps) {
       action: () => setLocation("/favourites"),
       testIdDesktop: "nav-sidebar-favourites",
       testIdMobile: "nav-tab-favourites",
-      badge: favCount > 0 ? String(favCount) : null as string | null,
+      badge: favCount > 0 ? String(favCount) : null,
+      ariaLabel: favCount > 0 ? `Favourites, ${favCount} saved` : "Favourites",
     },
     {
       id: "drill",
@@ -234,6 +249,11 @@ export function AppLayout({ children }: AppLayoutProps) {
       testIdDesktop: "nav-sidebar-drill",
       testIdMobile: "nav-tab-drill",
       badge: drillStreakActive ? String(drillState.streak) : drillDone ? "✓" : null,
+      ariaLabel: drillStreakActive
+        ? `Drill, ${drillState.streak}-day streak`
+        : drillDone
+        ? "Drill, completed today"
+        : "Drill",
     },
     {
       id: "quick",
@@ -243,7 +263,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       action: () => setIsOpen(true),
       testIdDesktop: "nav-sidebar-quick",
       testIdMobile: "nav-tab-quick",
-      badge: null as string | null,
+      badge: null,
     },
     {
       id: "search",
@@ -253,11 +273,11 @@ export function AppLayout({ children }: AppLayoutProps) {
       action: handleSearchTab,
       testIdDesktop: "nav-sidebar-search",
       testIdMobile: "nav-tab-search",
-      badge: null as string | null,
+      badge: null,
     },
   ];
 
-  const pdfNavItem = {
+  const pdfNavItem: NavItem = {
     id: "pdf",
     label: "PDF",
     icon: FileText,
@@ -271,7 +291,7 @@ export function AppLayout({ children }: AppLayoutProps) {
     },
     testIdDesktop: "nav-sidebar-pdf",
     testIdMobile: "nav-tab-pdf",
-    badge: null as string | null,
+    badge: null,
   };
 
   const navItems = isOnCard && pdfUrl !== null
@@ -284,7 +304,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       <aside
         data-testid="sidebar-desktop"
         aria-label="Main navigation"
-        className="hidden md:flex fixed left-0 top-0 bottom-0 w-[200px] flex-col z-30"
+        className="hidden md:flex fixed left-0 top-0 bottom-0 w-[200px] flex-col z-[var(--z-header)]"
         style={{
           background: "var(--surface-sidebar)",
           borderRight: "1px solid var(--fg-07)",
@@ -292,7 +312,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       >
         {/* Brand */}
         <div className="px-5 pt-7 pb-5">
-          <p className="text-[9px] font-bold tracking-[0.18em] uppercase" style={{ color: "rgba(245,158,11,0.65)" }}>
+          <p className="text-[9px] font-bold tracking-[0.18em] uppercase" style={{ color: "color-mix(in srgb, var(--brand-text) 65%, transparent)" }}>
             Technique Cards
           </p>
           <p className="text-[18px] font-bold leading-tight mt-0.5" style={{ color: "var(--fg-90)" }}>TC Library</p>
@@ -306,29 +326,24 @@ export function AppLayout({ children }: AppLayoutProps) {
             <button
               key={item.id}
               onClick={item.action}
-              aria-label={item.label}
+              aria-label={item.ariaLabel ?? item.label}
               aria-current={item.active ? "page" : undefined}
               data-search-toggle={item.id === "search" ? "true" : undefined}
               data-testid={item.testIdDesktop}
-              className="w-full flex items-center gap-2.5 rounded-xl transition-all duration-200 text-left active:scale-[0.98]"
+              className={`w-full flex items-center gap-2.5 rounded-xl transition-all duration-200 text-left active:scale-[0.98] ${
+                item.active
+                  ? "bg-[color-mix(in_srgb,var(--brand)_11%,transparent)]"
+                  : "bg-transparent hover:bg-[var(--fg-05)]"
+              }`}
               style={{
                 minHeight: 44,
                 paddingTop: 8,
                 paddingBottom: 8,
                 paddingLeft: item.active ? 10 : 12,
                 paddingRight: 12,
-                background: item.active ? "rgba(245,158,11,0.11)" : "transparent",
                 borderLeft: item.active
-                  ? "2px solid rgba(245,158,11,0.65)"
+                  ? "2px solid color-mix(in srgb, var(--brand) 65%, transparent)"
                   : "2px solid transparent",
-              }}
-              onMouseEnter={(e) => {
-                if (!item.active)
-                  (e.currentTarget as HTMLElement).style.background = "var(--fg-05)";
-              }}
-              onMouseLeave={(e) => {
-                if (!item.active)
-                  (e.currentTarget as HTMLElement).style.background = "transparent";
               }}
             >
               {/* Icon chip — circular, amber gradient when active */}
@@ -338,17 +353,17 @@ export function AppLayout({ children }: AppLayoutProps) {
                   width: 26,
                   height: 26,
                   background: item.active
-                    ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+                    ? "var(--gradient-active)"
                     : "var(--fg-08)",
                   boxShadow: item.active
-                    ? "0 2px 8px rgba(245,158,11,0.45), inset 0 1px 0 rgba(255,255,255,0.35)"
+                    ? "0 2px 8px color-mix(in srgb, var(--brand) 45%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)"
                     : "inset 0 1px 0 rgba(255,255,255,0.05)",
                   transition: "background 200ms ease, box-shadow 200ms ease",
                 }}
               >
                 <item.icon
                   className="w-3.5 h-3.5"
-                  style={{ color: item.active ? "#0f1724" : "var(--fg-50)" }}
+                  style={{ color: item.active ? "var(--brand-contrast)" : "var(--fg-50)" }}
                   aria-hidden="true"
                 />
                 {/* Badge lives on the chip, matching the mobile pill pattern */}
@@ -362,8 +377,8 @@ export function AppLayout({ children }: AppLayoutProps) {
                       height: 13,
                       paddingLeft: 2,
                       paddingRight: 2,
-                      background: item.active ? "#0f1724" : "#f59e0b",
-                      color: item.active ? "#f59e0b" : "#0f1724",
+                      background: item.active ? "var(--brand-contrast)" : "var(--brand)",
+                      color: item.active ? "var(--brand-text)" : "var(--brand-contrast)",
                       border: "1.5px solid var(--surface-sidebar)",
                       boxShadow: "0 1px 3px rgba(0,0,0,0.25)",
                     }}
@@ -375,7 +390,7 @@ export function AppLayout({ children }: AppLayoutProps) {
 
               <span
                 className="text-[13px] font-semibold"
-                style={{ color: item.active ? "#f59e0b" : "var(--fg-55)" }}
+                style={{ color: item.active ? "var(--brand-text)" : "var(--fg-55)" }}
               >
                 {item.label}
               </span>
@@ -388,17 +403,17 @@ export function AppLayout({ children }: AppLayoutProps) {
           <div
             className="rounded-xl px-4 py-3"
             style={{
-              background: "rgba(245,158,11,0.06)",
-              border: "1px solid rgba(245,158,11,0.13)",
+              background: "color-mix(in srgb, var(--brand) 6%, transparent)",
+              border: "1px solid color-mix(in srgb, var(--brand) 13%, transparent)",
             }}
           >
             <div className="flex items-center justify-between mb-1">
               <p className="text-[10px] font-semibold" style={{ color: "var(--fg-55)" }}>
                 Technique cards
               </p>
-              <BookOpen className="w-3.5 h-3.5" style={{ color: "rgba(245,158,11,0.45)" }} aria-hidden="true" />
+              <BookOpen className="w-3.5 h-3.5" style={{ color: "color-mix(in srgb, var(--brand-text) 45%, transparent)" }} aria-hidden="true" />
             </div>
-            <p className="text-[22px] font-bold" style={{ color: "#f59e0b" }}>
+            <p className="text-[22px] font-bold" style={{ color: "var(--brand-text)" }}>
               {TOTAL_CARDS}
               <span className="text-[13px] font-normal ml-1" style={{ color: "var(--fg-45)" }}>
                 in the library
@@ -424,7 +439,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       {/* Backdrop — always rendered, fades in/out via opacity transition (no mount/unmount pop) */}
       <div
         aria-hidden="true"
-        className="fab-backdrop md:hidden fixed inset-0 z-[38]"
+        className="fab-backdrop md:hidden fixed inset-0 z-[var(--z-fab-backdrop)]"
         style={{
           background: "rgba(0,0,0,0.45)",
           backdropFilter: fabOpen ? "blur(6px)" : "blur(0px)",
@@ -449,7 +464,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           aria-label="Main navigation"
           aria-hidden={!fabOpen}
           data-open={fabOpen}
-          className="fab-nav md:hidden fixed z-[40] flex flex-col items-end"
+          className="fab-nav md:hidden fixed z-[var(--z-fab)] flex flex-col items-end"
           style={{
             bottom: "calc(68px + env(safe-area-inset-bottom, 0px))",
             ...fabSideStyle,
@@ -471,7 +486,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               <button
                 key={item.id}
                 onClick={() => { triggerHaptic(8); item.action(); closeFab(false); }}
-                aria-label={item.label}
+                aria-label={item.ariaLabel ?? item.label}
                 aria-current={item.active ? "page" : undefined}
                 data-search-toggle={item.id === "search" ? "true" : undefined}
                 data-testid={item.testIdMobile}
@@ -483,12 +498,12 @@ export function AppLayout({ children }: AppLayoutProps) {
                   paddingRight: isShortScreen ? 13 : 16,
                   gap: isShortScreen ? 7 : 9,
                   fontSize: isShortScreen ? 12 : 13,
-                  background: item.active ? "rgba(245,158,11,0.16)" : "var(--surface-float)",
+                  background: item.active ? "color-mix(in srgb, var(--brand) 16%, transparent)" : "var(--surface-float)",
                   backdropFilter: "blur(18px)",
                   WebkitBackdropFilter: "blur(18px)",
-                  border: item.active ? "1px solid rgba(245,158,11,0.42)" : "1px solid var(--fg-10)",
+                  border: item.active ? "1px solid color-mix(in srgb, var(--brand) 42%, transparent)" : "1px solid var(--fg-10)",
                   boxShadow: item.active
-                    ? "0 0 0 1px rgba(245,158,11,0.30), 0 6px 20px rgba(245,158,11,0.24), 0 2px 8px rgba(0,0,0,0.20)"
+                    ? "0 0 0 1px color-mix(in srgb, var(--brand) 30%, transparent), 0 6px 20px color-mix(in srgb, var(--brand) 24%, transparent), 0 2px 8px rgba(0,0,0,0.20)"
                     : "0 4px 16px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.06)",
                   opacity: fabOpen ? 1 : 0,
                   transform: fabOpen ? "translateY(0) scale(1)" : "translateY(6px) scale(0.9)",
@@ -503,17 +518,17 @@ export function AppLayout({ children }: AppLayoutProps) {
                     width: chipSize,
                     height: chipSize,
                     background: item.active
-                      ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+                      ? "var(--gradient-active)"
                       : "var(--fg-08)",
                     boxShadow: item.active
-                      ? "0 2px 8px rgba(245,158,11,0.45), inset 0 1px 0 rgba(255,255,255,0.35)"
+                      ? "0 2px 8px color-mix(in srgb, var(--brand) 45%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)"
                       : "inset 0 1px 0 rgba(255,255,255,0.05)",
                     transition: "background 200ms ease, box-shadow 200ms ease",
                   }}
                 >
                   <item.icon
                     className="w-4 h-4"
-                    style={{ color: item.active ? "#0f1724" : "var(--fg-55)" }}
+                    style={{ color: item.active ? "var(--brand-contrast)" : "var(--fg-55)" }}
                     aria-hidden="true"
                   />
                   {item.badge && (
@@ -526,8 +541,8 @@ export function AppLayout({ children }: AppLayoutProps) {
                         height: 14,
                         paddingLeft: 3,
                         paddingRight: 3,
-                        background: item.active ? "#0f1724" : "#f59e0b",
-                        color: item.active ? "#f59e0b" : "#0f1724",
+                        background: item.active ? "var(--brand-contrast)" : "var(--brand)",
+                        color: item.active ? "var(--brand-text)" : "var(--brand-contrast)",
                         border: "1.5px solid var(--surface-float)",
                         boxShadow: "0 1px 3px rgba(0,0,0,0.30)",
                         opacity: fabOpen ? 1 : 0,
@@ -543,7 +558,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                 <span
                   className="font-semibold whitespace-nowrap"
                   style={{
-                    color: item.active ? "#f59e0b" : "var(--fg-78)",
+                    color: item.active ? "var(--brand-text)" : "var(--fg-78)",
                     opacity: fabOpen ? 1 : 0,
                     transform: fabOpen ? "translateX(0)" : "translateX(-4px)",
                     transition: "opacity 180ms ease, transform 240ms cubic-bezier(0.34,1.56,0.64,1), color 200ms ease",
@@ -566,7 +581,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           aria-label="Main navigation"
           aria-hidden={!fabOpen}
           data-open={fabOpen}
-          className="fab-nav md:hidden fixed z-[40]"
+          className="fab-nav md:hidden fixed z-[var(--z-fab)]"
           style={{
             bottom: "calc(16px + env(safe-area-inset-bottom, 0px))",
             ...fabSideStyle,
@@ -603,7 +618,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               <button
                 key={item.id}
                 onClick={() => { triggerHaptic(8); item.action(); closeFab(false); }}
-                aria-label={item.label}
+                aria-label={item.ariaLabel ?? item.label}
                 aria-current={item.active ? "page" : undefined}
                 data-search-toggle={item.id === "search" ? "true" : undefined}
                 data-testid={item.testIdMobile}
@@ -621,13 +636,13 @@ export function AppLayout({ children }: AppLayoutProps) {
                   justifyContent: "center",
                   flexShrink: 0,
                   background: item.active
-                    ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+                    ? "var(--gradient-active)"
                     : "var(--surface-float)",
                   backdropFilter: "blur(18px)",
                   WebkitBackdropFilter: "blur(18px)",
-                  border: item.active ? "1.5px solid rgba(245,158,11,0.50)" : "1px solid var(--fg-10)",
+                  border: item.active ? "1.5px solid color-mix(in srgb, var(--brand) 50%, transparent)" : "1px solid var(--fg-10)",
                   boxShadow: item.active
-                    ? "0 0 0 1px rgba(245,158,11,0.22), 0 6px 20px rgba(245,158,11,0.38), 0 2px 8px rgba(0,0,0,0.25)"
+                    ? "0 0 0 1px color-mix(in srgb, var(--brand) 22%, transparent), 0 6px 20px color-mix(in srgb, var(--brand) 38%, transparent), 0 2px 8px rgba(0,0,0,0.25)"
                     : "0 4px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08)",
                   opacity: fabOpen ? 1 : 0,
                   transform: fabOpen ? `translate(${fanX}px, ${fanY}px) scale(1)` : "translate(0, 0) scale(0.3)",
@@ -642,7 +657,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               >
                 <item.icon
                   className="w-[18px] h-[18px]"
-                  style={{ color: item.active ? "#0f1724" : "var(--fg-65)" }}
+                  style={{ color: item.active ? "var(--brand-contrast)" : "var(--fg-65)" }}
                   aria-hidden="true"
                 />
                 {item.badge && (
@@ -655,8 +670,8 @@ export function AppLayout({ children }: AppLayoutProps) {
                       height: 13,
                       paddingLeft: 2,
                       paddingRight: 2,
-                      background: item.active ? "#0f1724" : "#f59e0b",
-                      color: item.active ? "#f59e0b" : "#0f1724",
+                      background: item.active ? "var(--brand-contrast)" : "var(--brand)",
+                      color: item.active ? "var(--brand-text)" : "var(--brand-contrast)",
                       border: "1.5px solid var(--surface-float)",
                       boxShadow: "0 1px 3px rgba(0,0,0,0.30)",
                       opacity: fabOpen ? 1 : 0,
@@ -689,8 +704,8 @@ export function AppLayout({ children }: AppLayoutProps) {
                     background: "var(--surface-float)",
                     backdropFilter: "blur(14px)",
                     WebkitBackdropFilter: "blur(14px)",
-                    border: item.active ? "1px solid rgba(245,158,11,0.32)" : "1px solid var(--fg-07)",
-                    color: item.active ? "#f59e0b" : "var(--fg-75)",
+                    border: item.active ? "1px solid color-mix(in srgb, var(--brand) 32%, transparent)" : "1px solid var(--fg-07)",
+                    color: item.active ? "var(--brand-text)" : "var(--fg-75)",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.18)",
                     pointerEvents: "none",
                     opacity: labelOpacity,
@@ -711,7 +726,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         onClick={toggleLayoutMode}
         data-testid="button-fab-layout-toggle"
         tabIndex={fabOpen ? 0 : -1}
-        className="md:hidden fixed z-[41] flex items-center justify-center"
+        className="md:hidden fixed z-[var(--z-fab-toggle)] flex items-center justify-center"
         style={{
           bottom: "calc(16px + env(safe-area-inset-bottom, 0px))",
           [isRtl ? "left" : "right"]: 76,
@@ -744,14 +759,14 @@ export function AppLayout({ children }: AppLayoutProps) {
       <div
         aria-hidden="true"
         data-open={fabOpen}
-        className="fab-halo md:hidden fixed z-[39]"
+        className="fab-halo md:hidden fixed z-[var(--z-fab-halo)]"
         style={{
           bottom: "calc(16px + env(safe-area-inset-bottom, 0px))",
           ...fabSideStyle,
           width: 48,
           height: 48,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(245,158,11,0.55) 0%, rgba(245,158,11,0) 70%)",
+          background: "radial-gradient(circle, color-mix(in srgb, var(--brand) 55%, transparent) 0%, color-mix(in srgb, var(--brand) 0%, transparent) 70%)",
           pointerEvents: "none",
         }}
       />
@@ -759,7 +774,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       {/* Transparent swipe zone — extends touch target near the FAB; disabled when menu is open */}
       <div
         aria-hidden="true"
-        className="md:hidden fixed z-[37]"
+        className="md:hidden fixed z-[var(--z-fab-swipe-zone)]"
         style={{
           bottom: 0,
           ...(isRtl ? { left: 0 } : { right: 0 }),
@@ -786,7 +801,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             onClick={toggleFabOpen}
             onTouchStart={handleSwipeTouchStart}
             onTouchEnd={handleSwipeTouchEnd}
-            className="fab-button md:hidden fixed z-[40] flex items-center justify-center transition-all duration-200 active:scale-90"
+            className="fab-button md:hidden fixed z-[var(--z-fab)] flex items-center justify-center transition-all duration-200 active:scale-90"
             style={{
               bottom: "calc(16px + env(safe-area-inset-bottom, 0px))",
               ...fabSideStyle,
@@ -794,12 +809,12 @@ export function AppLayout({ children }: AppLayoutProps) {
               height: 48,
               borderRadius: "50%",
               background: fabOpen
-                ? "rgba(245,158,11,0.14)"
-                : "linear-gradient(135deg, #fbbf24 0%, #f59e0b 48%, #d97706 100%)",
-              border: fabOpen ? "1.5px solid rgba(245,158,11,0.35)" : "none",
+                ? "color-mix(in srgb, var(--brand) 14%, transparent)"
+                : "linear-gradient(135deg, var(--brand-bright) 0%, var(--brand) 48%, var(--brand-deep) 100%)",
+              border: fabOpen ? "1.5px solid color-mix(in srgb, var(--brand) 35%, transparent)" : "none",
               boxShadow: fabOpen
-                ? "inset 0 0 0 1px rgba(245,158,11,0.15)"
-                : "0 6px 22px rgba(245,158,11,0.50), 0 2px 8px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.40), inset 0 -2px 6px rgba(180,83,9,0.45)",
+                ? "inset 0 0 0 1px color-mix(in srgb, var(--brand) 15%, transparent)"
+                : "0 6px 22px color-mix(in srgb, var(--brand) 50%, transparent), 0 2px 8px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.40), inset 0 -2px 6px color-mix(in srgb, var(--brand-deep) 45%, transparent)",
               backdropFilter: fabOpen ? "blur(16px)" : undefined,
               WebkitBackdropFilter: fabOpen ? "blur(16px)" : undefined,
               touchAction: "manipulation",
@@ -810,7 +825,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               <Menu
                 className="absolute w-[18px] h-[18px] fab-icon-menu transition-all duration-200"
                 style={{
-                  color: "#0f1724",
+                  color: "var(--brand-contrast)",
                   opacity: fabOpen ? 0 : 1,
                   transform: fabOpen ? "rotate(90deg) scale(0.7)" : "rotate(0deg) scale(1)",
                 }}
@@ -819,7 +834,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               <X
                 className="absolute w-[18px] h-[18px] fab-icon-close transition-all duration-200"
                 style={{
-                  color: "#f59e0b",
+                  color: "var(--brand-text)",
                   opacity: fabOpen ? 1 : 0,
                   transform: fabOpen ? "rotate(0deg) scale(1)" : "rotate(-90deg) scale(0.7)",
                 }}
@@ -836,7 +851,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                   right: 7,
                   width: 9,
                   height: 9,
-                  background: "#f59e0b",
+                  background: "var(--brand)",
                   border: "2px solid hsl(var(--background))",
                 }}
               />
