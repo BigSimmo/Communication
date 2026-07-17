@@ -1,6 +1,6 @@
 # TC Reference Tool
 
-A mobile-first reference app for 31 communication techniques (TC001–TC031) — phrase banks, decision trees, scenarios and daily practice drills. Fully static SPA; no account, no backend required.
+A mobile-first reference app for 31 communication techniques (TC001–TC031) — phrase banks, decision trees, scenarios and daily practice drills. Fully static SPA and installable PWA that works offline; no account, no backend required.
 
 ## Run & Operate
 
@@ -9,12 +9,12 @@ A mobile-first reference app for 31 communication techniques (TC001–TC031) —
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - The tc-reference app needs **no environment variables**
-- The separate `api-server` artifact (scaffolded, not used by tc-reference) uses `DATABASE_URL` and `pnpm --filter @workspace/api-server run dev`
 
 ## Stack
 
 - pnpm workspaces (pnpm 11, pinned), Node.js 22.13+ (Replit runs 24), TypeScript 5.9
-- Web app: React 19.1 + Vite 7, Tailwind CSS v4 (CSS-first config), shadcn/ui, wouter
+- Web app: React 19.1 + Vite 7, Tailwind CSS v4 (CSS-first config), wouter
+- Offline/PWA: vite-plugin-pwa (Workbox) + self-hosted Inter via @fontsource
 - Testing: Vitest + @testing-library/react
 
 ## Where things live
@@ -32,6 +32,8 @@ A mobile-first reference app for 31 communication techniques (TC001–TC031) —
 - Each phrase group carries a required `tone` from a six-value canonical vocabulary (Quick / Warm / Professional / Direct / Repair / High-stakes) — the Phrases page filter is built on it
 - Every card has a bundled `pdfUrl` (designed for TC001, generated for the rest); a card without one would expose `pdfUrl: null` via PdfContext, which hides the PDF nav button — there is no placeholder PDF. The generator runs automatically inside the tc-reference `build` script (deterministic output — fixed PDF dates), so deployed PDFs can't drift from `cards.ts`; the committed PDFs only need a manual regeneration if you want the dev server to serve refreshed copies
 - Theme is applied as both `data-theme` attribute and `.dark` class (Tailwind's `dark:` variant keys off the class)
+- Service worker (vite-plugin-pwa, autoUpdate) precaches the app shell incl. fonts/icons; the 31 card PDFs are runtime-cached (CacheFirst) instead of precached to keep the install small
+- Bracketed stage directions in `phraseBank` (text wrapped in `[...]`) render on the card but are excluded from the Phrases browser and Quick Lookup via `isSpeakablePhrase` in `cards.ts`
 
 ## Gotchas
 

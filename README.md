@@ -1,6 +1,6 @@
 # TC Reference Tool
 
-A mobile-first reference app for 31 communication techniques, built with React, Vite, Tailwind CSS v4, and shadcn/ui. Each technique card covers the core formula, phrases, decision trees, scenarios, practice drills, and more — no account required, and all user data stays on your device.
+A mobile-first reference app for 31 communication techniques, built with React, Vite, and Tailwind CSS v4. Each technique card covers the core formula, phrases, decision trees, scenarios, practice drills, and more — installable as a PWA, works fully offline, no account required, and all user data stays on your device.
 
 ---
 
@@ -8,13 +8,14 @@ A mobile-first reference app for 31 communication techniques, built with React, 
 
 - **31 Technique Cards** — detailed reference cards covering voice/presence, influence/framing, clarity/direction, connection/warmth, and resilience/recovery
 - **Library** — browse all cards with category chips, impact/difficulty filters, sort by impact or difficulty, and a Surprise Me shortcut
-- **Phrases Browser** — 484 phrases aggregated across all cards, filterable by six canonical tones (Quick, Warm, Professional, Direct, Repair, High-stakes) with full-text search
+- **Phrases Browser** — 477 speakable phrases aggregated across all cards, filterable by six canonical tones (Quick, Warm, Professional, Direct, Repair, High-stakes) with full-text search
 - **Daily Drill** — 7-day practice cycle per card, cycling through all 31 cards, with streak tracking
 - **Favourites** — save cards and individual phrases; persisted to localStorage
 - **Quick Lookup** — a floating overlay with all phrases grouped by tone for fast in-conversation access
 - **Search** — keyboard-accessible global search modal (Cmd+K / Ctrl+K) with live filtering
 - **Dark & light themes** — persistent preference via localStorage
 - **Mobile-first** — floating action button with swipe-up gesture, haptic feedback, fan/stack nav layouts
+- **Offline-capable PWA** — installable to the home screen; a service worker precaches the app shell (including the self-hosted Inter font) and caches card PDFs on demand
 
 ---
 
@@ -25,7 +26,7 @@ A mobile-first reference app for 31 communication techniques, built with React, 
 | Framework | React 19.1 + Vite 7 |
 | Language | TypeScript 5.9 |
 | Styling | Tailwind CSS v4 (CSS-first config) |
-| Components | shadcn/ui (Radix UI primitives) |
+| Offline / install | vite-plugin-pwa (Workbox service worker + web manifest), self-hosted Inter via @fontsource |
 | Routing | Wouter v3 |
 | Testing | Vitest + @testing-library/react |
 | Package manager | pnpm workspaces (pnpm 11, pinned via `packageManager`) |
@@ -60,21 +61,17 @@ workspace/
 │   │   │   │   ├── nav-context.tsx    Shared search/nav state
 │   │   │   │   └── theme.tsx          Dark/light theme provider
 │   │   │   ├── hooks/
-│   │   │   │   └── use-scroll-direction.ts  Auto-hide filter bar helper
+│   │   │   │   ├── use-scroll-direction.ts  Auto-hide filter bar helper
+│   │   │   │   ├── use-copy-feedback.ts     Shared copy-to-clipboard feedback
+│   │   │   │   └── use-focus-trap.ts        Modal/overlay focus management
 │   │   │   └── App.tsx               Route definitions + provider tree
-│   │   ├── public/
+│   │   ├── public/                   Icons, manifest assets, per-card PDFs
 │   │   ├── index.html
-│   │   ├── vite.config.ts
+│   │   ├── vite.config.ts            Vite + Tailwind + PWA (service worker) config
 │   │   └── package.json
-│   └── api-server/            ← Express API server (scaffolded, separate artifact)
-├── lib/
-│   ├── db/                    ← Drizzle ORM schema + PostgreSQL client (scaffold)
-│   ├── api-spec/              ← OpenAPI spec + orval codegen config (scaffold)
-│   ├── api-zod/               ← Generated Zod types for the API (scaffold)
-│   └── api-client-react/      ← Generated React API client (scaffold)
 ├── scripts/
 │   ├── src/generate-card-pdfs.ts  ← Deterministic per-card reference PDFs
-│   └── post-merge.sh          ← Runs after task merges (db push)
+│   └── post-merge.sh          ← Runs after task merges
 ├── pnpm-workspace.yaml
 ├── tsconfig.base.json
 └── package.json
@@ -154,9 +151,6 @@ Card IDs follow the format `TC001`–`TC031`. Each card record includes:
 ## Environment Variables
 
 The tc-reference app requires **no environment variables**. It is a fully static SPA.
-
-The api-server artifact uses:
-- `DATABASE_URL` — PostgreSQL connection string (Drizzle ORM)
 
 ---
 

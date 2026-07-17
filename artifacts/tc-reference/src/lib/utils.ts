@@ -1,10 +1,3 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-
 export async function copyToClipboard(text: string): Promise<boolean> {
   if (!navigator?.clipboard) {
     // Fallback for older browsers / webviews

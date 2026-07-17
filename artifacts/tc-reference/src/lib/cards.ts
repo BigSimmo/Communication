@@ -27,6 +27,18 @@ export interface PhraseGroup {
   phrases: string[];
 }
 
+/**
+ * A few phrase groups contain bracketed stage directions rather than
+ * speakable lines — e.g. "[Ask question. Pause. Wait fully.]" (TC029) or
+ * "[Plant feet. Pause. Continue.]" (TC030). They belong on the card's own
+ * phrase section as practice cues, but must not leak into the tone-filtered
+ * Phrases browser or Quick Lookup, where every entry is meant to be a line
+ * you can actually say.
+ */
+export function isSpeakablePhrase(text: string): boolean {
+  return !(text.startsWith("[") && text.endsWith("]"));
+}
+
 export interface DecisionNode {
   condition: string;
   action: string;
@@ -151,7 +163,7 @@ export const CARD_DATA: Record<string, CardData> = {
     pdfUrl: "cards/TC001/TC001_TwoCard_Combined.pdf",
     overview: {
       coreFormula: ["Notice", "Comment", "Ask", "Reflect", "Contribute"],
-      minimumViableMove: "Pick the emotionally loaded word and ask: \"[word] how?\" — or simply: \"What was that like?\"",
+      minimumViableMove: "Pick the emotionally loaded word and ask: '[word] how?' — or simply: 'What was that like?'",
       impact: "High",
       difficulty: "Easy-Medium",
       misuse: "High",
@@ -277,29 +289,29 @@ export const CARD_DATA: Record<string, CardData> = {
       {
         condition: "Person gives a cue — a loaded word, emotional signal, or unfinished thread",
         action: "Use the minimum viable move: follow the energy, not the facts.",
-        phrase: "\"[loaded word] how?\" or \"What was that like?\"",
+        phrase: "'[loaded word] how?' or 'What was that like?'",
       },
       {
         condition: "The follow-up opens more or warms the tone",
         action: "Stay with the thread once more — one reflection, then contribute something small yourself.",
-        phrase: "\"So it wasn't the work itself — it was the uncertainty.\"",
+        phrase: "'So it wasn't the work itself — it was the uncertainty.'",
       },
       {
         condition: "Pressure, distress, or urgency is present",
         action: "Slow down, shorten, or add warmth and an explicit opt-out before asking.",
-        phrase: "\"No pressure to get into it. I was just curious.\"",
+        phrase: "'No pressure to get into it. I was just curious.'",
       },
       {
         condition: "You have already asked two or more follow-ups",
         action: "Stop asking. Switch to a reflection or contribute a small related thought.",
-        phrase: "\"I get that. New places are tiring because you're learning the job and the hidden rules at once.\"",
+        phrase: "'I get that. New places are tiring because you're learning the job and the hidden rules at once.'",
       },
     ],
     ladder: [
       {
         weak: "Follows obvious factual details instead of emotional energy.",
         better: "Asks one short question connected to something they said.",
-        best: "Follows the word or phrase that carries the most feeling. \"Weird how?\"",
+        best: "Follows the word or phrase that carries the most feeling. 'Weird how?'",
       },
       {
         weak: "Uses it mechanically or too often — asks questions without contributing.",
@@ -316,32 +328,32 @@ export const CARD_DATA: Record<string, CardData> = {
       {
         situation: "Social conversation",
         move: "Use the smallest natural version. Make them feel heard without being analysed.",
-        phrase: "\"That sounds like the interesting part. What happened there?\"",
+        phrase: "'That sounds like the interesting part. What happened there?'",
       },
       {
         situation: "Professional discussion",
         move: "Keep it concise and tie the move to the task, decision, or concern.",
-        phrase: "\"What was the key factor in that decision?\"",
+        phrase: "'What was the key factor in that decision?'",
       },
       {
         situation: "Conflict or objection",
         move: "Add validation and reduce speed. Do not weaponise curiosity.",
-        phrase: "\"What part of this feels most important to you?\"",
+        phrase: "'What part of this feels most important to you?'",
       },
       {
         situation: "Digital / text message",
         move: "One sentence. No stacked questions.",
-        phrase: "\"What's the part you're still thinking about?\"",
+        phrase: "'What's the part you're still thinking about?'",
       },
       {
         situation: "Shy or guarded person",
         move: "Make the move lighter, more tentative, and explicitly lower-pressure.",
-        phrase: "\"Only if you want to get into it — what was that like?\"",
+        phrase: "'Only if you want to get into it — what was that like?'",
       },
       {
         situation: "High-status or busy person",
         move: "Brief, grounded, and useful. No warmth performance.",
-        phrase: "\"What was the key factor there?\"",
+        phrase: "'What was the key factor there?'",
       },
     ],
     calibration: {
@@ -350,7 +362,7 @@ export const CARD_DATA: Record<string, CardData> = {
         "Their tone warms or they become more animated.",
         "They add extra detail you didn't ask for.",
         "They ask you questions back.",
-        "They laugh, soften, or say \"Exactly\" / \"That's it\" / \"That's what I mean.\"",
+        "They laugh, soften, or say 'Exactly' / 'That's it' / 'That's what I mean.'",
         "The conversation moves from facts into stories, feelings, or meaning.",
       ],
       adjust: [
@@ -370,7 +382,7 @@ export const CARD_DATA: Record<string, CardData> = {
       {
         day: "Day 2",
         title: "Write the move",
-        task: "For each comment you noticed, write the minimum viable follow-up in five words or less. Examples: \"Weird how?\" / \"Intense how?\" / \"What was that like?\"",
+        task: "For each comment you noticed, write the minimum viable follow-up in five words or less. Examples: 'Weird how?' / 'Intense how?' / 'What was that like?'",
       },
       {
         day: "Day 3",
@@ -406,25 +418,25 @@ export const CARD_DATA: Record<string, CardData> = {
       "Did I adjust when they gave shorter answers or seemed pressured?",
       "What neighbouring technique would have been better if this one missed?",
     ],
-    whyItWorks: "Live-thread follow-ups make you more likable because the other person feels: \"They noticed the real part of what I said.\" The underlying principle is that people become more receptive to you when they first feel you have been receptive to them. Most people fail not from coldness but from bad habits — turning conversations back to themselves too quickly, asking bland questions, following factual details instead of emotional energy, or asking so many questions the exchange feels like an interview.",
+    whyItWorks: "Live-thread follow-ups make you more likable because the other person feels: 'They noticed the real part of what I said.' The underlying principle is that people become more receptive to you when they first feel you have been receptive to them. Most people fail not from coldness but from bad habits — turning conversations back to themselves too quickly, asking bland questions, following factual details instead of emotional energy, or asking so many questions the exchange feels like an interview.",
     example: {
       without: [
-        "Person: \"I just started a new job.\"",
-        "You: \"Nice. I hated my first job. My boss was awful.\"",
+        "Person: 'I just started a new job.'",
+        "You: 'Nice. I hated my first job. My boss was awful.'",
         "[Conversation turns back to you — they have no reason to elaborate, nothing felt noticed.]",
       ],
       with: [
-        "Person: \"I just started a new job.\"",
-        "You: \"Nice. How has the first week actually felt?\"",
-        "Person: \"Exciting, but honestly pretty overwhelming.\"",
-        "You: \"Good-overwhelming or what-have-I-done overwhelming?\"",
-        "Person: \"A bit of both.\"",
-        "You: \"That's usually the honest answer. What's been the most full-on part?\"",
-        "Person: \"Learning how everything works. It's not even the job itself.\"",
-        "You: \"So it's the hidden rules layer.\"",
-        "Person: \"Exactly.\"",
+        "Person: 'I just started a new job.'",
+        "You: 'Nice. How has the first week actually felt?'",
+        "Person: 'Exciting, but honestly pretty overwhelming.'",
+        "You: 'Good-overwhelming or what-have-I-done overwhelming?'",
+        "Person: 'A bit of both.'",
+        "You: 'That's usually the honest answer. What's been the most full-on part?'",
+        "Person: 'Learning how everything works. It's not even the job itself.'",
+        "You: 'So it's the hidden rules layer.'",
+        "Person: 'Exactly.'",
       ],
-      note: "The two-option question (\"good-overwhelming or what-have-I-done overwhelming?\") shows attunement and gives them something specific to react to without forcing a direction.",
+      note: "The two-option question ('good-overwhelming or what-have-I-done overwhelming?') shows attunement and gives them something specific to react to without forcing a direction.",
     },
     notFor: [
       "When they are giving short answers, seem rushed, or are clearly distracted.",
@@ -435,7 +447,7 @@ export const CARD_DATA: Record<string, CardData> = {
       "When you are not willing to share anything yourself.",
     ],
     whatItIsNot: [
-      "Not simply \"asking more questions\" — too many questions can feel like an interview.",
+      "Not simply 'asking more questions' — too many questions can feel like an interview.",
       "Not therapy-speak, interrogation, or a trick to steer the person.",
       "It is socially intelligent responsiveness — following what is alive in what they just said.",
     ],
@@ -461,9 +473,9 @@ export const CARD_DATA: Record<string, CardData> = {
     fieldTip: {
       headline: "Follow emotional energy, not just information.",
       body: "The best follow-up usually comes from the word they load with feeling — not the factual detail.",
-      example: "\"It was technically fine, just weird.\"",
-      dont: "\"Where was it?\"",
-      do: "\"Weird how?\"",
+      example: "'It was technically fine, just weird.'",
+      dont: "'Where was it?'",
+      do: "'Weird how?'",
     },
     method: [
       {
@@ -471,9 +483,9 @@ export const CARD_DATA: Record<string, CardData> = {
         title: "Catch the live thread",
         body: "Listen for the word or detail carrying the most energy — usually the emotionally loaded word, not the factual one. That is the thread to pull.",
         examples: [
-          { label: "They say", text: "\"It was technically fine, just weird.\"" },
-          { label: "Live thread", text: "\"weird\"" },
-          { label: "Follow-up", text: "\"Weird how?\"" },
+          { label: "They say", text: "'It was technically fine, just weird.'" },
+          { label: "Live thread", text: "'weird'" },
+          { label: "Follow-up", text: "'Weird how?'" },
         ],
       },
       {
@@ -481,9 +493,9 @@ export const CARD_DATA: Record<string, CardData> = {
         title: "Comment before you question",
         body: "A small comment makes the question warmer and less interrogative. It shows you noticed the nuance before asking for more.",
         examples: [
-          { label: "Weak", text: "\"Why was it intense?\"" },
-          { label: "Better", text: "\"Weirdly intense sounds specific. What made it intense?\"" },
-          { label: "Charismatic", text: "\"Good-intense or what-have-I-done intense?\"" },
+          { label: "Weak", text: "'Why was it intense?'" },
+          { label: "Better", text: "'Weirdly intense sounds specific. What made it intense?'" },
+          { label: "Charismatic", text: "'Good-intense or what-have-I-done intense?'" },
         ],
       },
       {
@@ -491,8 +503,8 @@ export const CARD_DATA: Record<string, CardData> = {
         title: "Ask one short question",
         body: "Keep it short, easy to answer, tied to their words, and warm rather than analytical. Don't go too deep too early.",
         examples: [
-          { label: "Too clinical", text: "\"How did that impact you emotionally?\"" },
-          { label: "Natural", text: "\"Did that throw you a bit?\"" },
+          { label: "Too clinical", text: "'How did that impact you emotionally?'" },
+          { label: "Natural", text: "'Did that throw you a bit?'" },
         ],
       },
       {
@@ -500,8 +512,8 @@ export const CARD_DATA: Record<string, CardData> = {
         title: "Reflect briefly",
         body: "After they answer, show you understood. This is where the move becomes likable — you are not just asking, you are tracking them.",
         examples: [
-          { label: "Reflect", text: "\"So it was exciting, but a lot to absorb.\"" },
-          { label: "Reflect", text: "\"Sounds like the job was fine, but the uncertainty was draining.\"" },
+          { label: "Reflect", text: "'So it was exciting, but a lot to absorb.'" },
+          { label: "Reflect", text: "'Sounds like the job was fine, but the uncertainty was draining.'" },
         ],
       },
       {
@@ -509,8 +521,8 @@ export const CARD_DATA: Record<string, CardData> = {
         title: "Contribute after curiosity",
         body: "After one or two follow-ups, add something small from yourself. This stops the conversation from becoming an interview.",
         examples: [
-          { label: "Contribute", text: "\"I get that. New places are tiring — you're learning the job and the hidden rules at once.\"" },
-          { label: "Contribute", text: "\"That makes sense. There's a difference between being busy and feeling unanchored.\"" },
+          { label: "Contribute", text: "'I get that. New places are tiring — you're learning the job and the hidden rules at once.'" },
+          { label: "Contribute", text: "'That makes sense. There's a difference between being busy and feeling unanchored.'" },
         ],
       },
     ],
@@ -525,47 +537,47 @@ export const CARD_DATA: Record<string, CardData> = {
       "I was surprised that...",
     ],
     depthDial: [
-      { depth: "Light", useWhen: "Early conversation", phrase: "\"What happened next?\"" },
-      { depth: "Warm", useWhen: "Rapport forming", phrase: "\"What was that like?\"" },
-      { depth: "Personal", useWhen: "Trust present", phrase: "\"Did that throw you a bit?\"" },
-      { depth: "Meaningful", useWhen: "Deeper conversation", phrase: "\"What did that change for you?\"" },
-      { depth: "Intimate", useWhen: "Strong trust only", phrase: "\"Did that change how you saw yourself?\"" },
+      { depth: "Light", useWhen: "Early conversation", phrase: "'What happened next?'" },
+      { depth: "Warm", useWhen: "Rapport forming", phrase: "'What was that like?'" },
+      { depth: "Personal", useWhen: "Trust present", phrase: "'Did that throw you a bit?'" },
+      { depth: "Meaningful", useWhen: "Deeper conversation", phrase: "'What did that change for you?'" },
+      { depth: "Intimate", useWhen: "Strong trust only", phrase: "'Did that change how you saw yourself?'" },
     ],
     commonMistakes: [
       {
         mistake: "Asking naked questions",
-        soundsLike: "\"Why?\"",
-        better: "\"That sounds like it mattered. Why was it important?\"",
+        soundsLike: "'Why?'",
+        better: "'That sounds like it mattered. Why was it important?'",
       },
       {
         mistake: "Stacking too many questions",
-        soundsLike: "\"Where? Who? Why? How?\"",
-        better: "\"What's been the most interesting part?\"",
+        soundsLike: "'Where? Who? Why? How?'",
+        better: "'What's been the most interesting part?'",
       },
       {
         mistake: "Following facts, not energy",
-        soundsLike: "\"Where was it?\"",
-        better: "\"Weird how?\"",
+        soundsLike: "'Where was it?'",
+        better: "'Weird how?'",
       },
       {
         mistake: "Going too deep too early",
-        soundsLike: "\"What did that reveal about your deepest fear?\"",
-        better: "\"Did that throw you a bit?\"",
+        soundsLike: "'What did that reveal about your deepest fear?'",
+        better: "'Did that throw you a bit?'",
       },
       {
         mistake: "Turning back to yourself too soon",
-        soundsLike: "\"That happened to me too...\"",
-        better: "\"That makes sense. What did you do next?\"",
+        soundsLike: "'That happened to me too...'",
+        better: "'That makes sense. What did you do next?'",
       },
       {
         mistake: "Sounding too clinical",
-        soundsLike: "\"How did that impact you emotionally?\"",
-        better: "\"Did that hit harder than expected?\"",
+        soundsLike: "'How did that impact you emotionally?'",
+        better: "'Did that hit harder than expected?'",
       },
       {
         mistake: "Never contributing",
         soundsLike: "Only ever asking questions",
-        better: "\"I get that. I find the social side of new places more tiring than the work itself.\"",
+        better: "'I get that. I find the social side of new places more tiring than the work itself.'",
       },
     ],
     recoveryPhrases: [
@@ -578,7 +590,7 @@ export const CARD_DATA: Record<string, CardData> = {
       "I'll stop making you do all the talking.",
       "That sounded like a job interview question. What I meant was...",
     ],
-    bestRecoveryLine: "\"I'm asking because it sounded interesting, but no pressure if you'd rather move on.\"",
+    bestRecoveryLine: "'I'm asking because it sounded interesting, but no pressure if you'd rather move on.'",
     chains: [
       {
         label: "Rapport chain",
@@ -4320,10 +4332,10 @@ export const CARD_DATA: Record<string, CardData> = {
       { condition: "The setting is urgent", action: "Use crisp brevity:", phrase: "Yes. Do X now. I will explain after." },
     ],
     ladder: [
-      { weak: "Fast defensive paragraph", better: "That is not quite what I meant. Let me clarify.", best: "One breath. \"I see why it sounded that way. My actual point is...\"" },
-      { weak: "Instant apology to reduce tension", better: "I can see this is tense. Let me answer properly.", best: "\"I can own my part without rushing into a yes. The part I would change is...\"" },
-      { weak: "Over-explaining to a senior person", better: "There are three reasons...", best: "\"Bottom line first: I recommend X. The main reason is Y.\"" },
-      { weak: "Social pressure laugh + rushed self-justification", better: "That is a fair question.", best: "Smile lightly. \"Fair question. The honest answer is...\"" },
+      { weak: "Fast defensive paragraph", better: "That is not quite what I meant. Let me clarify.", best: "One breath. 'I see why it sounded that way. My actual point is...'" },
+      { weak: "Instant apology to reduce tension", better: "I can see this is tense. Let me answer properly.", best: "'I can own my part without rushing into a yes. The part I would change is...'" },
+      { weak: "Over-explaining to a senior person", better: "There are three reasons...", best: "'Bottom line first: I recommend X. The main reason is Y.'" },
+      { weak: "Social pressure laugh + rushed self-justification", better: "That is a fair question.", best: "Smile lightly. 'Fair question. The honest answer is...'" },
     ],
     scenarios: [
       { situation: "Meeting challenge", move: "One breath, answer the actual challenge in one sentence.", phrase: "Fair challenge. The short answer is..." },
@@ -4353,7 +4365,7 @@ export const CARD_DATA: Record<string, CardData> = {
       { day: "Day 1", title: "Baseline", task: "Record a 60-second answer to a mildly challenging question. Notice speed, filler, pitch, sentence endings." },
       { day: "Day 2", title: "One-breath reps", task: "Practise ten answers beginning with one quiet breath and a first sentence 10–20% slower." },
       { day: "Day 3", title: "Short-answer reps", task: "Answer five challenge prompts in one sentence only, then stop." },
-      { day: "Day 4", title: "Recovery reps", task: "Deliberately answer too fast, then use: \"I sped up there. Let me say it more clearly.\"" },
+      { day: "Day 4", title: "Recovery reps", task: "Deliberately answer too fast, then use: 'I sped up there. Let me say it more clearly.'" },
       { day: "Day 5", title: "Live field test", task: "Use the minimum viable move once in a real low-stakes conversation." },
       { day: "Day 6", title: "Digital test", task: "Wait before replying to one pressure message, then cut the reply by half." },
       { day: "Day 7", title: "Calibration", task: "Note whether you sounded calmer, colder, clearer or slower than necessary." },
