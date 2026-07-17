@@ -276,9 +276,12 @@ export default function Favourites() {
                         <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--fg-20)" }} />
                       </button>
                       <div className="divide-y" style={{ borderColor: "var(--fg-04)" }}>
-                        {phrases.map((p, i) => (
+                        {phrases.map((p) => (
                           <div
-                            key={i}
+                            // Rows are removable — index keys would misassociate
+                            // DOM/state after a deletion; (cardId, text) is the
+                            // favourite's identity
+                            key={`${p.cardId}:${p.text}`}
                             onClick={() => handleCopy(p.text)}
                             role="button"
                             tabIndex={0}

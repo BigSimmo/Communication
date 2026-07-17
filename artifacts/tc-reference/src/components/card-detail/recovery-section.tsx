@@ -48,7 +48,7 @@ export function RecoverySection({
       <div className="rounded-2xl overflow-hidden shadow-sm" style={{ background: "var(--fg-03)", border: "1px solid var(--fg-06)" }}>
         {cardData.recoveryPhrases!.map((phrase, i) => (
           <div
-            key={i}
+            key={phrase}
             className="w-full flex items-center justify-between px-5 py-3"
             style={{ background: copiedPhrase === phrase ? "color-mix(in srgb, var(--brand) 7%, transparent)" : "transparent", borderBottom: i < cardData.recoveryPhrases!.length - 1 ? "1px solid var(--fg-04)" : "none", minHeight: 52 }}
           >

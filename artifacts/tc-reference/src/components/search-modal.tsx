@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { useLocation } from "wouter";
 import { Search, X, Clock, ArrowRight, Sparkles } from "lucide-react";
@@ -60,7 +60,12 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [visible, setVisible] = useState(false);
 
-  const results: RankedResult[] = query.trim().length >= 1 ? searchCards(query) : [];
+  // Memoised: a stable array identity keeps the keydown effect from
+  // re-subscribing on unrelated re-renders (hover, selection changes)
+  const results: RankedResult[] = useMemo(
+    () => (query.trim().length >= 1 ? searchCards(query) : []),
+    [query],
+  );
   const showRecents = query.trim().length === 0 && recents.length > 0;
   const showSmartStart = query.trim().length === 0;
 

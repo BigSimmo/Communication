@@ -49,12 +49,17 @@ export function loadDrillState(): DrillState {
   }
 }
 
+/** Fired after every drill-state save so listeners (the nav badge in
+    AppLayout) can re-read without polling localStorage each render. */
+export const DRILL_STATE_EVENT = "tc-drill-state-changed";
+
 export function saveDrillState(state: DrillState): void {
   // Private browsing / quota-exceeded must not break drill completion —
   // the in-memory state still updates, persistence just silently degrades.
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {}
+  window.dispatchEvent(new Event(DRILL_STATE_EVENT));
 }
 
 export function completeDrill(state: DrillState): DrillState {

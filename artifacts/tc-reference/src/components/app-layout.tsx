@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useLocation } from "wouter";
 import {
   Home,
@@ -19,7 +19,7 @@ import { useNav } from "@/lib/nav-context";
 import { QuickModeOverlay } from "./quick-mode-overlay";
 import { AppHeader } from "./app-header";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-import { loadDrillState, isCompletedToday, isStreakActive } from "@/lib/drill-state";
+import { loadDrillState, isCompletedToday, isStreakActive, DRILL_STATE_EVENT } from "@/lib/drill-state";
 import { useFavourites } from "@/lib/favourites-context";
 import { usePdf } from "@/lib/pdf-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
@@ -73,7 +73,16 @@ export function AppLayout({ children }: AppLayoutProps) {
   const isOnCard = location.startsWith("/card/");
 
   const { totalCount: favCount } = useFavourites();
-  const drillState = loadDrillState();
+  // Re-read from localStorage on navigation or when a drill save fires the
+  // invalidation event — completing a drill doesn't navigate, and the desktop
+  // sidebar badge is visible while completing, so it must refresh immediately
+  const [drillStateVersion, setDrillStateVersion] = useState(0);
+  useEffect(() => {
+    const bump = () => setDrillStateVersion((v) => v + 1);
+    window.addEventListener(DRILL_STATE_EVENT, bump);
+    return () => window.removeEventListener(DRILL_STATE_EVENT, bump);
+  }, []);
+  const drillState = useMemo(() => loadDrillState(), [location, drillStateVersion]);
   const drillDone = isCompletedToday(drillState);
   const drillStreakActive = isStreakActive(drillState) && drillState.streak > 0;
 

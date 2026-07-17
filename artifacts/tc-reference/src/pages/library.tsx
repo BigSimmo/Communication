@@ -383,25 +383,18 @@ export default function Library() {
                       }
                       aria-label={`${card.title} (${card.id})${!card.loaded ? " — coming soon" : ""}`}
                       data-testid={`card-link-${card.id}`}
-                       className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 rounded-2xl transition-all duration-150 text-left overflow-hidden"
+                      className={`w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 rounded-2xl transition-all duration-150 text-left overflow-hidden ${
+                        card.loaded
+                          ? "bg-[color-mix(in_srgb,var(--brand)_8%,transparent)] hover:bg-[color-mix(in_srgb,var(--brand)_12%,transparent)]"
+                          : "bg-[var(--fg-02)]"
+                      }`}
                       style={{
-                        background: card.loaded ? "color-mix(in srgb, var(--brand) 8%, transparent)" : "var(--fg-02)",
                         border: card.loaded
                           ? "1px solid color-mix(in srgb, var(--brand) 18%, transparent)"
                           : "1px solid var(--fg-04)",
                         opacity: card.loaded ? 1 : 0.55,
                         cursor: card.loaded ? "pointer" : "default",
                         minHeight: 64,
-                      }}
-                      onMouseEnter={(e) => {
-                        if (card.loaded)
-                          (e.currentTarget as HTMLElement).style.background =
-                            "color-mix(in srgb, var(--brand) 12%, transparent)";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLElement).style.background = card.loaded
-                          ? "color-mix(in srgb, var(--brand) 8%, transparent)"
-                          : "var(--fg-02)";
                       }}
                     >
                       {/* Number badge */}
