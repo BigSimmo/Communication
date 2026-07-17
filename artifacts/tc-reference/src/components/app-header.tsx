@@ -10,6 +10,7 @@ import {
   Menu,
   X,
   SlidersHorizontal,
+  BookOpen,
 } from "lucide-react";
 import { useNav } from "@/lib/nav-context";
 import { useQuickMode } from "@/lib/quick-mode";
@@ -106,7 +107,7 @@ export function AppHeader({
   const cardMeta = cardId ? CARD_META[cardId] ?? null : null;
 
   const totalCards = allCards.length;
-  const headerHeight = compact ? 46 : 56;
+  const headerHeight = compact ? 42 : 48;
 
   useEffect(() => {
     let lastY = Math.max(0, window.scrollY);
@@ -273,31 +274,54 @@ export function AppHeader({
               className="flex items-center justify-between flex-1 min-w-0 gap-2"
               data-testid="header-normal-mode"
             >
-              <div className="min-w-0">
-                <p
-                  className="text-[9px] font-bold tracking-[0.18em] uppercase leading-none"
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span
+                  aria-hidden="true"
+                  className="flex items-center justify-center flex-shrink-0"
                   style={{
-                    color: "var(--brand-text)",
-                    opacity: compact ? 0 : 1,
-                    maxHeight: compact ? 0 : 12,
-                    overflow: "hidden",
-                    transition: "opacity 150ms ease, max-height 180ms ease",
+                    width: compact ? 27 : 30,
+                    height: compact ? 27 : 30,
+                    borderRadius: 9,
+                    background: "var(--gradient-active)",
+                    boxShadow:
+                      "0 2px 8px color-mix(in srgb, var(--brand) 38%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)",
+                    transition: "width 180ms ease, height 180ms ease",
                   }}
-                  data-testid="library-subtitle"
                 >
-                  Technique Cards
-                </p>
-                <TitleTag
-                  className="font-bold leading-tight"
-                  style={{
-                    color: "var(--fg-90)",
-                    fontSize: compact ? 17 : 19,
-                    transition: "font-size 180ms ease",
-                  }}
-                  data-testid="library-title"
-                >
-                  TC Library
-                </TitleTag>
+                  <BookOpen
+                    className="w-[15px] h-[15px]"
+                    style={{ color: "var(--brand-contrast)" }}
+                    aria-hidden="true"
+                  />
+                </span>
+                <div className="min-w-0 leading-none">
+                  <p
+                    className="text-[8.5px] font-bold tracking-[0.16em] uppercase leading-none"
+                    style={{
+                      color: "var(--brand-text)",
+                      opacity: compact ? 0 : 0.85,
+                      maxHeight: compact ? 0 : 11,
+                      marginBottom: compact ? 0 : 2,
+                      overflow: "hidden",
+                      transition:
+                        "opacity 150ms ease, max-height 180ms ease, margin-bottom 180ms ease",
+                    }}
+                    data-testid="library-subtitle"
+                  >
+                    Technique Cards
+                  </p>
+                  <TitleTag
+                    className="font-bold leading-none truncate"
+                    style={{
+                      color: "var(--fg-90)",
+                      fontSize: compact ? 15 : 16,
+                      transition: "font-size 180ms ease",
+                    }}
+                    data-testid="library-title"
+                  >
+                    TC Library
+                  </TitleTag>
+                </div>
               </div>
               <div className="flex items-center justify-end gap-1.5 sm:gap-2.5 flex-shrink-0">
                 <HeaderIconButton
