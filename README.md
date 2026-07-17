@@ -8,7 +8,7 @@ A mobile-first reference app for 31 communication techniques, built with React, 
 
 - **31 Technique Cards** — detailed reference cards covering voice/presence, influence/framing, clarity/direction, connection/warmth, and resilience/recovery
 - **Library** — browse all cards with category chips, impact/difficulty filters, sort by impact or difficulty, and a Surprise Me shortcut
-- **Phrases Browser** — 634 speakable phrases aggregated across all cards, filterable by six canonical tones (Quick, Warm, Professional, Direct, Repair, High-stakes) with full-text search
+- **Phrases Browser** — 965 speakable phrases aggregated across all cards, filterable by six canonical tones (Quick, Warm, Professional, Direct, Repair, High-stakes) with full-text search
 - **Daily Drill** — 7-day practice cycle per card, cycling through all 31 cards, with streak tracking
 - **Favourites** — save cards and individual phrases; persisted to localStorage
 - **Quick Lookup** — a floating overlay with all phrases grouped by tone for fast in-conversation access
@@ -144,7 +144,7 @@ Card IDs follow the format `TC001`–`TC031`. Each card record includes:
 - `drill` — 7-day practice protocol
 - `checklist` — self-assessment items
 - `pdfUrl` — bundled reference PDF for the in-app viewer. TC001 ships a designed card PDF; every other card ships a generated reference PDF. Generation is deterministic and runs automatically as part of `pnpm --filter @workspace/tc-reference run build`, so deployed PDFs always match `cards.ts`; run `pnpm --filter @workspace/scripts run generate:card-pdfs` manually only if you want refreshed PDFs in the dev server before a build
-- Optional sections (TC001 plus the enriched cards TC003, TC004, TC005, TC007, TC008, TC011, TC012, TC014, TC016, TC018 so far): `whatItIsNot`, `influencePayoff`, `fieldTip`, `method`, `commonMistakes`, `recoveryPhrases`, `bestRecoveryLine`, `chains`, `relatedTechniques`; a curated `resources` list (downloadable PDFs/images/CSVs under `public/cards/<id>/`) exists for TC001 only — cards without one expose their reference PDF as a single Downloads entry
+- Optional sections (all 31 cards): `whatItIsNot`, `influencePayoff`, `fieldTip`, `method`, `commonMistakes`, `recoveryPhrases`, `bestRecoveryLine`, `chains`, `relatedTechniques`; a curated `resources` list (downloadable PDFs/images/CSVs under `public/cards/<id>/`) exists for TC001 only — cards without one expose their reference PDF as a single Downloads entry
 
 ---
 
