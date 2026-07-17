@@ -1,6 +1,6 @@
 # TC Reference Tool
 
-A mobile-first reference app for 31 communication techniques, built with React, Vite, Tailwind CSS v4, and shadcn/ui. Each technique card covers the core formula, phrases, decision trees, scenarios, practice drills, and more — all offline-capable, no account required.
+A mobile-first reference app for 31 communication techniques, built with React, Vite, Tailwind CSS v4, and shadcn/ui. Each technique card covers the core formula, phrases, decision trees, scenarios, practice drills, and more — no account required, and all user data stays on your device.
 
 ---
 
@@ -22,15 +22,14 @@ A mobile-first reference app for 31 communication techniques, built with React, 
 
 | Layer | Technology |
 |---|---|
-| Framework | React 18 + Vite 6 |
+| Framework | React 19.1 + Vite 7 |
 | Language | TypeScript 5.9 |
 | Styling | Tailwind CSS v4 (CSS-first config) |
 | Components | shadcn/ui (Radix UI primitives) |
 | Routing | Wouter v3 |
-| Data fetching | TanStack Query v5 |
 | Testing | Vitest + @testing-library/react |
-| Package manager | pnpm workspaces |
-| Node runtime | Node.js 24 |
+| Package manager | pnpm workspaces (pnpm 11, pinned via `packageManager`) |
+| Node runtime | Node.js 22.13+ (Replit deployment runs Node 24) |
 
 ---
 
@@ -59,7 +58,7 @@ workspace/
 │   │   │   │   ├── drill-state.ts     Drill cycle logic + localStorage persistence
 │   │   │   │   ├── favourites-state.ts / favourites-context.tsx
 │   │   │   │   ├── nav-context.tsx    Shared search/nav state
-│   │   │   │   └── theme.ts           Dark/light theme provider
+│   │   │   │   └── theme.tsx          Dark/light theme provider
 │   │   │   ├── hooks/
 │   │   │   │   └── use-scroll-direction.ts  Auto-hide filter bar helper
 │   │   │   └── App.tsx               Route definitions + provider tree
@@ -69,8 +68,12 @@ workspace/
 │   │   └── package.json
 │   └── api-server/            ← Express API server (scaffolded, separate artifact)
 ├── lib/
-│   └── db/                    ← Drizzle ORM schema + PostgreSQL client
+│   ├── db/                    ← Drizzle ORM schema + PostgreSQL client (scaffold)
+│   ├── api-spec/              ← OpenAPI spec + orval codegen config (scaffold)
+│   ├── api-zod/               ← Generated Zod types for the API (scaffold)
+│   └── api-client-react/      ← Generated React API client (scaffold)
 ├── scripts/
+│   ├── src/generate-card-pdfs.ts  ← Deterministic per-card reference PDFs
 │   └── post-merge.sh          ← Runs after task merges (db push)
 ├── pnpm-workspace.yaml
 ├── tsconfig.base.json
@@ -82,8 +85,8 @@ workspace/
 ## Getting Started
 
 ### Prerequisites
-- Node.js 24+
-- pnpm 9+
+- Node.js 22.13+ (the pinned `pnpm@11.1.1` requires `>=22.13`; Vite 7 requires `^20.19.0 || >=22.12.0`)
+- pnpm 11 (the repo pins `pnpm@11.1.1` via the `packageManager` field — Corepack picks this up automatically)
 
 ### Install dependencies
 
