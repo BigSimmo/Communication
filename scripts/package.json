@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "generate:card-pdfs": "tsx ./src/generate-card-pdfs.ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "generate:card-csvs": "tsx ./src/generate-card-csvs.ts"
   },
   "devDependencies": {
     "@types/node": "catalog:",

@@ -1024,6 +1024,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC010", reason: "Curiosity Question gives the recall somewhere to go — the remembered detail becomes a genuinely open question." },
       { id: "TC006", reason: "Genuine Specific Compliment runs on the same noticing muscle — specific attention, offered back with nothing attached." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC002/TC002_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC002/TC002_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC002/TC002_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -1306,6 +1329,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC018", reason: "Crisp Brevity keeps the sentences short once BLUF has put them in the right order." },
       { id: "TC011", reason: "PREP gives you a full structure — point, reason, example, point — when one sentence is not enough." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC003/TC003_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC003/TC003_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC003/TC003_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -1587,6 +1633,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC016", reason: "Validation Without Agreement lets you honour their experience of the rupture without conceding the original point." },
       { id: "TC007", reason: "Disagreement Without Contempt prevents the next disagreement from needing a repair at all." },
       { id: "TC014", reason: "Validate the Concern is the receiving side — how to respond well when someone brings a rupture to you." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC004/TC004_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC004/TC004_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC004/TC004_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -1877,6 +1946,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC015", reason: "Next-Step Close is the meeting-level version: one owner, one action, one deadline." },
       { id: "TC012", reason: "Boundary Without Blame is the mirror image — how to answer someone else's request with a clean no." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC005/TC005_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC005/TC005_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC005/TC005_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -2157,6 +2249,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC013", reason: "Name the Effort is the sibling move — this card praises the quality of the work; that one honours what it cost." },
       { id: "TC025", reason: "Shared Credit scales the compliment to a room — naming exactly who did what in front of the people who matter." },
       { id: "TC008", reason: "No-Overexplaining Discipline is the 'stop' in the formula — a compliment padded with qualifiers stops being believed." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC006/TC006_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC006/TC006_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC006/TC006_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -2444,6 +2559,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC016", reason: "Validation Without Agreement lets you honour their reasoning fully before dismantling the conclusion." },
       { id: "TC004", reason: "Repair Opening is the recovery move when a disagreement has already turned into a rupture." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC007/TC007_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC007/TC007_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC007/TC007_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -2729,6 +2867,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC029", reason: "Strategic Silence is the positive use of the pause you are learning not to fill." },
       { id: "TC012", reason: "Boundary Without Blame depends on this muscle — a no survives only if it is not buried in justifications." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC008/TC008_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC008/TC008_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC008/TC008_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -3009,6 +3170,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC015", reason: "Next-Step Close is the action-flavoured twin — the summary check confirms what was meant; the close confirms who does what by when." },
       { id: "TC016", reason: "Validation Without Agreement uses the same mirroring skill on positions and feelings — reflecting accurately without conceding anything." },
       { id: "TC014", reason: "Validate the Concern starts with exactly this mirror — you cannot validate a concern you have not accurately restated." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC009/TC009_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC009/TC009_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC009/TC009_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -3291,6 +3475,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC001", reason: "Live Thread Follow-Ups is curiosity applied in the moment — picking up the thread they just offered instead of starting your own." },
       { id: "TC029", reason: "Strategic Silence is the second half of every good question — the answer arrives in the gap you refuse to fill." },
       { id: "TC027", reason: "Permission-Based Advice keeps curiosity honest — you ask to understand first, and offer advice only when it is invited." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC010/TC010_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC010/TC010_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC010/TC010_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -3577,6 +3784,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC003", reason: "BLUF is the first quarter of PREP — when one sentence is enough, stop there." },
       { id: "TC008", reason: "No-Overexplaining Discipline is what keeps the structure from sprouting extra reasons." },
       { id: "TC026", reason: "Decision Frame structures the decision itself, where PREP structures your argument within it." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC011/TC011_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC011/TC011_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC011/TC011_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -3872,6 +4102,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC023", reason: "Bounded Deferment buys thinking time so you never set a boundary — or make a promise — under pressure." },
       { id: "TC004", reason: "Repair Opening mends the relationship if a boundary conversation lands badly." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC012/TC012_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC012/TC012_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC012/TC012_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -4153,6 +4406,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC025", reason: "Shared Credit takes the acknowledgement public — naming whose effort carried the result in front of the people who matter." },
       { id: "TC014", reason: "Validate the Concern applies the same move to feelings — acknowledging what is real for someone before moving to what happens next." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC013/TC013_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC013/TC013_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC013/TC013_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -4430,6 +4706,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC016", reason: "Validation Without Agreement is the harder sibling — for when you must validate a feeling while disputing the claim attached to it." },
       { id: "TC010", reason: "Curiosity Question supplies the probes that find the real concern under the stated one." },
       { id: "TC004", reason: "Repair Opening applies when the concern is about you — and it arrived late because they did not feel safe raising it." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC014/TC014_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC014/TC014_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC014/TC014_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -4720,6 +5019,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC005", reason: "Clean Request has the same anatomy — specific action, single owner, explicit deadline — pointed at a favour instead of a close." },
       { id: "TC026", reason: "Decision Frame gets the room to a clear choice; this close makes sure the choice leaves the room as motion." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC015/TC015_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC015/TC015_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC015/TC015_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -4997,6 +5319,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC014", reason: "Validate the Concern is the everyday version — for concerns you can largely accept rather than claims you must dispute." },
       { id: "TC007", reason: "Disagreement Without Contempt governs the second sentence — how to hold your position without a sneer." },
       { id: "TC017", reason: "Agreement Before Disagreement finds the true common ground first, which makes the 'different reading' easier to hear." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC016/TC016_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC016/TC016_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC016/TC016_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -5277,6 +5622,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC016", reason: "Validation Without Agreement is the neighbouring move for when you understand their position but cannot honestly agree with any of it." },
       { id: "TC014", reason: "Validate the Concern applies the same sequencing to objections — legitimacy first, answer second." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC017/TC017_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC017/TC017_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC017/TC017_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -5554,6 +5922,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC003", reason: "BLUF decides what comes first; Crisp Brevity decides how little of it there is." },
       { id: "TC008", reason: "No-Overexplaining Discipline guards the ending — brevity is wasted if you keep adding after the stop." },
       { id: "TC024", reason: "Lead With the Ask is the request-shaped application of the same compression." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC018/TC018_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC018/TC018_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC018/TC018_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -5835,6 +6226,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC005", reason: "Clean Request states the ask without padding; Autonomy Release makes the yes to it voluntary." },
       { id: "TC012", reason: "Boundary Without Blame is the mirror image — honouring their no the way you want your own respected." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC019/TC019_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC019/TC019_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC019/TC019_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -6115,6 +6529,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC008", reason: "No-Overexplaining Discipline keeps the admission clean — nerves want to bury 'I do not know' under speculation." },
       { id: "TC031", reason: "Slow Down Under Pressure protects the steady delivery that makes uncertainty read as precision rather than panic." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC020/TC020_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC020/TC020_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC020/TC020_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -6391,6 +6828,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC026", reason: "Decision Frame sets the frame before a choice is made; Reframe the Stakes resets it when the conversation has locked onto the wrong one." },
       { id: "TC010", reason: "Curiosity Question supplies the checking move — a genuine question is how a proposed reframe becomes a shared one." },
       { id: "TC014", reason: "Validate the Concern keeps the surface worry respected while you name the deeper one — without it a reframe feels dismissive." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC021/TC021_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC021/TC021_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC021/TC021_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -6672,6 +7132,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC006", reason: "Genuine Specific Compliment supplies the warm close — referencing something real they said beats a generic goodbye." },
       { id: "TC012", reason: "Boundary Without Blame is the same muscle at larger scale — leaving on time is a small limit stated without accusation." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC022/TC022_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC022/TC022_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC022/TC022_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -6951,6 +7434,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC012", reason: "Boundary Without Blame pairs with this — defer first and you never have to set a boundary, or make a promise, on the spot." },
       { id: "TC031", reason: "Slow Down Under Pressure is the in-the-moment version; Bounded Deferment extends the same slowing from seconds to days." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC023/TC023_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC023/TC023_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC023/TC023_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -7229,6 +7735,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC005", reason: "Clean Request shapes what the ask itself should contain — this technique decides where it goes." },
       { id: "TC018", reason: "Crisp Brevity keeps the context that follows the ask from swallowing it." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC024/TC024_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC024/TC024_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC024/TC024_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -7505,6 +8034,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC006", reason: "Genuine Specific Compliment supplies the grammar — credit works exactly like praise: named, specific, evidenced." },
       { id: "TC013", reason: "Name the Effort recognises the labour behind the outcome; Shared Credit makes sure that recognition reaches the right person publicly." },
       { id: "TC004", reason: "Repair Opening is the move when you got it wrong — missed credit is a small harm worth naming plainly." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC025/TC025_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC025/TC025_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC025/TC025_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -7796,6 +8348,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC015", reason: "Next-Step Close is where the frame lands — the decision, its owner, and the first action, stated before the meeting ends." },
       { id: "TC021", reason: "Reframe the Stakes works on one axis of the frame — sizing the stakes honestly so the decision gets the weight it deserves." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC026/TC026_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC026/TC026_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC026/TC026_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -8084,6 +8659,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC019", reason: "Autonomy Release is the closing move — once the advice is given, the decision is handed back whole." },
       { id: "TC010", reason: "Curiosity Question is what you offer instead when the answer to 'want advice?' is no." },
       { id: "TC008", reason: "No-Overexplaining Discipline keeps the advice to one clean telling instead of a re-argued case." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC027/TC027_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC027/TC027_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC027/TC027_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -8374,6 +8972,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC030", reason: "Measured Movement is the same discipline in the body — a settled voice and a settled posture reinforce each other." },
       { id: "TC029", reason: "Strategic Silence gives the warm register its punctuation — pauses are where the calm becomes audible." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC028/TC028_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC028/TC028_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC028/TC028_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -8650,6 +9271,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC031", reason: "Slow Down Under Pressure supplies the breath and pace that make a deliberate pause possible at all." },
       { id: "TC023", reason: "Bounded Deferment is the longer form — when one beat is not enough thinking time, buy hours instead of seconds." },
     ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC029/TC029_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC029/TC029_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC029/TC029_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -8925,6 +9569,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC028", reason: "Warm Vocal Baseline is the same principle in the voice — a settled register and a settled body make one coherent signal." },
       { id: "TC029", reason: "Strategic Silence pairs naturally with stillness — a pause held in a still body reads as command, not blankness." },
       { id: "TC008", reason: "No-Overexplaining Discipline is the verbal form of this economy — stop moving when the point is made, stop talking when the point is made." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC030/TC030_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC030/TC030_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC030/TC030_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 
@@ -9301,6 +9968,29 @@ export const CARD_DATA: Record<string, CardData> = {
       { id: "TC023", reason: "Bounded Deferment is the formal version of 'choose next move' — a slowed answer often ends in a clean, time-boxed defer." },
       { id: "TC018", reason: "Crisp Brevity is the escape hatch for genuine urgency — when slowing would cost real time, short still beats rushed." },
       { id: "TC029", reason: "Strategic Silence extends the one breath into a full deliberate pause when the moment can carry it." },
+    ],
+    resources: [
+      {
+        label: "Reference Card (PDF)",
+        description: "Printable quick reference generated from this card's content",
+        href: "cards/TC031/TC031_Reference.pdf",
+        type: "pdf",
+        group: "Visual Cards",
+      },
+      {
+        label: "Phrase Bank (CSV)",
+        description: "Every phrase from this card in a spreadsheet-friendly format",
+        href: "cards/TC031/TC031_Phrase_Bank.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
+      {
+        label: "Anki Flashcards (CSV)",
+        description: "Key moves as front/back flashcards ready to import into Anki",
+        href: "cards/TC031/TC031_Anki_Flashcards.csv",
+        type: "csv",
+        group: "Practice Tools",
+      },
     ],
   },
 

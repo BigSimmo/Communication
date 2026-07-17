@@ -1,0 +1,30 @@
+category,phrase
+Lead With the Ask,I need your help with X — here is the context.
+Lead With the Ask,Quick ask before the background: can you...?
+Lead With the Ask,I am going to lead with what I need: ...
+Lead With the Ask,The ask is simple: ...
+Lead With the Ask,Before I give you the background — I need X by Y.
+Lead With the Ask,I need a decision from you on X. Context below.
+Lead With the Ask,What I need from you: ...
+Lead With the Ask,One ask: could you...?
+Context Follows,The reason for the ask is...
+Context Follows,Here is why it matters: ...
+Context Follows,The context that explains the urgency: ...
+Context Follows,"Background, if useful: ..."
+Context Follows,For context only — not required to act: ...
+Ten-Second Asks,Thirty seconds: can you approve the invoice today?
+Ten-Second Asks,One thing: are you free Thursday at two?
+Ten-Second Asks,Quick one — can I borrow your dashboard slide?
+Ten-Second Asks,Yes-or-no question: should I send this tonight?
+Ten-Second Asks,Tiny ask: reply-all so the team sees your sign-off?
+Ten-Second Asks,Before you dash — can you introduce me to Sam this week?
+Structured Work Asks,Decision needed by Friday: which vendor do we proceed with? Detail below.
+Structured Work Asks,This email has one ask: your sign-off on the budget line. Everything else is context.
+Structured Work Asks,I am bringing one request to this meeting: two days of design time next sprint.
+Structured Work Asks,"Action for you, deadline Thursday: review section three. The rest of the document can wait."
+Structured Work Asks,"To be explicit about what I need from this group: a decision on scope, today."
+Warm Asks,"I have a favour to ask, and I will just ask it: could you mentor Priya this quarter?"
+Warm Asks,I am asking straight out because I respect your time: can you speak at our offsite?
+Warm Asks,"This is an ask, not just a catch-up — I would love your help with my application."
+Warm Asks,You are the first person I thought of for this: would you review my draft?
+Warm Asks,"I will not bury this in small talk: I need a reference, and I would be honoured if it came from you."

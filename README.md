@@ -144,7 +144,7 @@ Card IDs follow the format `TC001`–`TC031`. Each card record includes:
 - `drill` — 7-day practice protocol
 - `checklist` — self-assessment items
 - `pdfUrl` — bundled reference PDF for the in-app viewer. TC001 ships a designed card PDF; every other card ships a generated reference PDF. Generation is deterministic and runs automatically as part of `pnpm --filter @workspace/tc-reference run build`, so deployed PDFs always match `cards.ts`; run `pnpm --filter @workspace/scripts run generate:card-pdfs` manually only if you want refreshed PDFs in the dev server before a build
-- Optional sections (all 31 cards): `whatItIsNot`, `influencePayoff`, `fieldTip`, `method`, `commonMistakes`, `recoveryPhrases`, `bestRecoveryLine`, `chains`, `relatedTechniques`; a curated `resources` list (downloadable PDFs/images/CSVs under `public/cards/<id>/`) exists for TC001 only — cards without one expose their reference PDF as a single Downloads entry
+- Optional sections (all 31 cards): `whatItIsNot`, `influencePayoff`, `fieldTip`, `method`, `commonMistakes`, `recoveryPhrases`, `bestRecoveryLine`, `chains`, `relatedTechniques`; every card now has a `resources` list: TC001 ships its original curated pack, and every other card offers its reference PDF plus generated Phrase Bank and Anki Flashcards CSVs (regenerated automatically during `build` alongside the PDFs, or manually via `pnpm --filter @workspace/scripts run generate:card-csvs`)
 
 ---
 

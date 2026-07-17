@@ -1,0 +1,28 @@
+category,phrase
+PREP Phrases,"My view is [Point]. The reason is [Reason]. For example, [Example]. So I would say [Point]."
+PREP Phrases,I would answer that in two parts — the principle and the example.
+PREP Phrases,"Let me give you the direct answer, then the evidence."
+PREP Phrases,Short version: [Point]. The reason I say that is [Reason].
+PREP Phrases,The way I think about it is: [Point] — and here is why.
+PREP Phrases,I can answer that in one sentence and then give you a concrete example.
+PREP Phrases,"The point I want to make is [Point], because [Reason]."
+Example Bridges,A concrete example of that is...
+Example Bridges,The clearest instance I have seen was...
+Example Bridges,"In practice, this looks like..."
+Example Bridges,I can give you a recent example:
+Example Bridges,That showed up clearly when...
+Mini-PREP,Yes — because it saves us a week. We saw that on the last sprint. So yes.
+Mini-PREP,I would skip it. Low turnout last time. Skip it.
+Mini-PREP,"Worth doing: cheap, fast, and it worked in March. So do it."
+Mini-PREP,No — the numbers do not support it. They did not in Q2 either. Still no.
+Mini-PREP,My take: go early. Early worked for the pilot. Go early.
+PREP Under Pressure,"Let me answer that directly, then give you my evidence."
+PREP Under Pressure,"My position has three parts: the claim, the reason, and what I saw that convinced me."
+PREP Under Pressure,I will give you my conclusion first and then defend it.
+PREP Under Pressure,"That is a fair challenge — my answer is X, and here is the strongest case for it."
+PREP Under Pressure,"Give me ten seconds to structure this properly, because it deserves a clear answer."
+Point Restaters,"So, coming back to where I started: X."
+Point Restaters,Which is exactly why I say X.
+Point Restaters,All of that points the same way: X.
+Point Restaters,So my answer stands: X.
+Point Restaters,That is the evidence — and it is why I hold the view.
