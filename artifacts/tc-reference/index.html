@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>TC Reference Tool</title>
     <meta name="description" content="A mobile-first reference library of 31 communication techniques — phrase banks, decision trees, scenarios and daily practice drills. Works offline, no account required; your data stays on your device." />
     <meta name="robots" content="index, follow" />
@@ -27,6 +27,13 @@
             : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
           document.documentElement.setAttribute('data-theme', theme);
           document.documentElement.classList.toggle('dark', theme === 'dark');
+          // The stored theme can differ from prefers-color-scheme, so the
+          // media-keyed theme-color metas above may not match — pin them.
+          var color = theme === 'dark' ? '#0f1724' : '#f8fafc';
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+            m.setAttribute('content', color);
+            m.removeAttribute('media');
+          });
         } catch (e) {
           document.documentElement.setAttribute('data-theme', 'dark');
           document.documentElement.classList.add('dark');

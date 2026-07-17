@@ -25,6 +25,13 @@ function applyTheme(theme: Theme) {
   // Tailwind's dark: variant and shadcn components key off the .dark class,
   // so keep it in sync with the data-theme attribute.
   document.documentElement.classList.toggle("dark", theme === "dark");
+  // Safari tints its toolbars with theme-color; the stored theme can differ
+  // from prefers-color-scheme, so pin the metas to the active theme.
+  const color = theme === "dark" ? "#0f1724" : "#f8fafc";
+  document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
+    m.setAttribute("content", color);
+    m.removeAttribute("media");
+  });
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {

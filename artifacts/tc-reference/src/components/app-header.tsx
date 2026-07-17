@@ -143,7 +143,13 @@ export function AppHeader({
   }, []);
 
   useEffect(() => {
-    document.documentElement.style.setProperty("--app-header-height", `${headerHeight}px`);
+    // Includes the top safe-area inset so sticky elements offset by this var
+    // sit flush below the header when it extends under the status bar
+    // (standalone PWA with viewport-fit=cover; env() is 0px elsewhere).
+    document.documentElement.style.setProperty(
+      "--app-header-height",
+      `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
+    );
   }, [headerHeight]);
 
   return (
@@ -155,9 +161,10 @@ export function AppHeader({
           backdropFilter: "blur(20px) saturate(1.4)",
           WebkitBackdropFilter: "blur(20px) saturate(1.4)",
           borderBottom: "1px solid var(--fg-07)",
-          height: headerHeight,
-          minHeight: headerHeight,
-          maxHeight: headerHeight,
+          paddingTop: "env(safe-area-inset-top, 0px)",
+          height: `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
+          minHeight: `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
+          maxHeight: `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
           transform: "translateZ(0)",
           contain: "layout paint",
           transition: "height 180ms ease, min-height 180ms ease, max-height 180ms ease",

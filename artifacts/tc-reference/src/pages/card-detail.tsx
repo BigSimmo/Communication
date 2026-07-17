@@ -39,9 +39,13 @@ function getCardPdfUrl(cardId: string): string | null {
 // In-session memory: remembers which section and scroll position the user last viewed per card
 const cardSectionMemory = new Map<string, { section: CardSection; scrollY: number }>();
 
-// Live header height — set on <html> by AppHeader (56px expanded, 46px compact).
+// Live header height (56px expanded, 46px compact, plus any top safe-area
+// inset). Measured from the element because the --app-header-height var is a
+// calc() expression that parseInt can't evaluate.
 // Falls back to 56 when AppHeader isn't mounted (e.g. bare test renders).
 function getHeaderHeight(): number {
+  const el = document.querySelector('[data-testid="app-header"]');
+  if (el) return Math.round(el.getBoundingClientRect().height);
   const raw = getComputedStyle(document.documentElement).getPropertyValue("--app-header-height");
   return parseInt(raw, 10) || 56;
 }
