@@ -13,8 +13,8 @@ A mobile-first reference app for 31 communication techniques (TC001–TC031) —
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- Web app: React 18 + Vite, Tailwind CSS v4 (CSS-first config), shadcn/ui, wouter, TanStack Query
+- pnpm workspaces (pnpm 11, pinned), Node.js 22+ (Replit runs 24), TypeScript 5.9
+- Web app: React 19 + Vite 7, Tailwind CSS v4 (CSS-first config), shadcn/ui, wouter
 - Testing: Vitest + @testing-library/react
 
 ## Where things live
