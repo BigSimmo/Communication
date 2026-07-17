@@ -312,7 +312,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       >
         {/* Brand */}
         <div className="px-5 pt-7 pb-5">
-          <p className="text-[9px] font-bold tracking-[0.18em] uppercase" style={{ color: "color-mix(in srgb, var(--brand-text) 65%, transparent)" }}>
+          <p className="text-[9px] font-bold tracking-[0.18em] uppercase" style={{ color: "var(--brand-text)" }}>
             Technique Cards
           </p>
           <p className="text-[18px] font-bold leading-tight mt-0.5" style={{ color: "var(--fg-90)" }}>TC Library</p>

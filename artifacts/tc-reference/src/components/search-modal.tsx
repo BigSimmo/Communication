@@ -77,7 +77,15 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
   useEffect(() => {
     const opener = document.activeElement as HTMLElement | null;
     return () => {
-      if (opener && opener.isConnected && !opener.hasAttribute("data-search-open-on-focus")) {
+      if (!opener || !opener.isConnected) return;
+      if (opener.hasAttribute("data-search-open-on-focus")) {
+        // Openers that reopen search on focus (the library inline input) get a
+        // one-shot suppression marker so focus can still return to them
+        // without immediately re-triggering the modal.
+        opener.setAttribute("data-suppress-search-open", "true");
+        opener.focus?.();
+        setTimeout(() => opener.removeAttribute("data-suppress-search-open"), 0);
+      } else {
         opener.focus?.();
       }
     };
@@ -227,8 +235,12 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             aria-label="Search techniques"
             aria-autocomplete="list"
             aria-expanded={results.length > 0}
-            aria-controls="search-modal-results"
-            aria-activedescendant={selectedIndex >= 0 ? `search-modal-option-${selectedIndex}` : undefined}
+            aria-controls={results.length > 0 ? "search-modal-results" : undefined}
+            aria-activedescendant={
+              selectedIndex >= 0 && selectedIndex < results.length
+                ? `search-modal-option-${selectedIndex}`
+                : undefined
+            }
             data-testid="search-modal-input"
             className="flex-1 text-[15px] bg-transparent outline-none"
             style={{ color: "var(--fg-90)" }}

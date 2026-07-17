@@ -265,7 +265,7 @@ export function AppHeader({
                 <p
                   className="text-[9px] font-bold tracking-[0.18em] uppercase leading-none"
                   style={{
-                    color: "color-mix(in srgb, var(--brand-text) 75%, transparent)",
+                    color: "var(--brand-text)",
                     opacity: compact ? 0 : 1,
                     maxHeight: compact ? 0 : 12,
                     overflow: "hidden",

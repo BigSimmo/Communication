@@ -326,9 +326,10 @@
   --surface-dd: hsl(0,0%,99%);
   --surface-sidebar: hsl(210,20%,98%);
 
-  /* Brand accent — amber text darkens for contrast on light surfaces
-     (matches --impact-high); fills/tints keep the raw brand hue */
-  --brand-text: #d97706;
+  /* Brand accent — amber text darkens for contrast on light surfaces:
+     #b45309 is ~4.8:1 on the near-white background, meeting AA for the
+     small labels this token colours; fills/tints keep the raw brand hue */
+  --brand-text: #b45309;
 
   /* Semantic metric colours — darkened for contrast on light surfaces */
   --impact-high: #d97706;

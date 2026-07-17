@@ -177,7 +177,11 @@ export default function Library() {
                   padding: "0 34px 0 34px",
                 }}
                 onFocus={(e) => {
-                  openSearch();
+                  // Suppression marker set by SearchModal when it returns
+                  // focus here on close — style, but don't reopen the modal
+                  if (!e.currentTarget.hasAttribute("data-suppress-search-open")) {
+                    openSearch();
+                  }
                   e.currentTarget.style.borderColor = "color-mix(in srgb, var(--brand) 45%, transparent)";
                   e.currentTarget.style.boxShadow = "0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent)";
                 }}
