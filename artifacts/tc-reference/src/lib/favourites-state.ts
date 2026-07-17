@@ -72,7 +72,11 @@ export function loadFavouritesState(): FavouritesState {
 }
 
 export function saveFavouritesState(state: FavouritesState): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  // Private browsing / quota-exceeded must not break the toggle handlers —
+  // the in-memory state still updates, persistence just silently degrades.
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch {}
 }
 
 export function toggleFavouriteCard(state: FavouritesState, cardId: string): FavouritesState {

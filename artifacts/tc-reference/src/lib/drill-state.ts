@@ -50,7 +50,11 @@ export function loadDrillState(): DrillState {
 }
 
 export function saveDrillState(state: DrillState): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  // Private browsing / quota-exceeded must not break drill completion —
+  // the in-memory state still updates, persistence just silently degrades.
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch {}
 }
 
 export function completeDrill(state: DrillState): DrillState {

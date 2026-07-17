@@ -3220,7 +3220,7 @@ export const CARD_DATA: Record<string, CardData> = {
     id: "TC023",
     pdfUrl: "cards/TC023/TC023_Reference.pdf",
     overview: {
-      coreFormula: ["Decline to decide now", "Specific return time", "Honor the commitment"],
+      coreFormula: ["Decline to decide now", "Specific return time", "Honour the commitment"],
       minimumViableMove: "When you cannot answer properly on the spot, say: 'I cannot give you the right answer now — I can have it for you by [specific time].' Then keep that commitment.",
       impact: "High",
       difficulty: "Easy-Medium",
@@ -3863,7 +3863,7 @@ export const CARD_DATA: Record<string, CardData> = {
     scenarios: [
       { situation: "Delivering difficult feedback", move: "Open with a lower, slower register before saying anything hard.", phrase: "I want to share something with you. Take a moment to hear the full picture before you respond." },
       { situation: "Negotiation under pressure", move: "Use vocal warmth to defuse tension before addressing the substance.", phrase: "I hear the concern. Let me address it properly." },
-      { situation: "Managing an upset person", move: "Match their energy down — not up. Slower and warmer draws them toward your register.", phrase: "I can see this is difficult. Let me respond carefully." },
+      { situation: "Managing an upset person", move: "Match their energy down — not up. Slower and warmer draws them towards your register.", phrase: "I can see this is difficult. Let me respond carefully." },
       { situation: "Presenting to a hostile audience", move: "Do not raise the voice. Go slower and lower — it signals control.", phrase: "I want to take a minute to address the main concerns I know are in the room." },
     ],
     calibration: {

@@ -67,11 +67,11 @@ function HeaderIconButton({
       className={`h-9 w-9 flex-shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-95 ${className}`}
       style={{
         background: active
-          ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+          ? "var(--gradient-active)"
           : "var(--fg-05)",
-        border: active ? "1px solid rgba(245,158,11,0.55)" : "1px solid var(--fg-08)",
-        color: active ? "#0f1724" : "var(--fg-55)",
-        boxShadow: active ? "0 2px 10px rgba(245,158,11,0.24)" : "none",
+        border: active ? "1px solid color-mix(in srgb, var(--brand) 55%, transparent)" : "1px solid var(--fg-08)",
+        color: active ? "var(--brand-contrast)" : "var(--fg-55)",
+        boxShadow: active ? "0 2px 10px color-mix(in srgb, var(--brand) 24%, transparent)" : "none",
       }}
     >
       {children}
@@ -144,7 +144,7 @@ export function AppHeader({
   return (
     <>
       <div
-        className="sticky top-0 z-30 flex-shrink-0"
+        className="sticky top-0 z-[var(--z-header)] flex-shrink-0"
         style={{
           background: "var(--surface-header)",
           backdropFilter: "blur(20px) saturate(1.4)",
@@ -177,7 +177,7 @@ export function AppHeader({
               <div className="flex-1 min-w-0 flex items-center gap-2">
                 <span
                   className="text-[9px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
-                  style={{ background: "#f59e0b", color: "#0f1724" }}
+                  style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
                 >
                   {cardId}
                 </span>
@@ -196,14 +196,14 @@ export function AppHeader({
                   data-testid="button-fav-card"
                   className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                   style={{
-                    background: isCardFav(cardId) ? "rgba(245,158,11,0.12)" : "var(--fg-05)",
+                    background: isCardFav(cardId) ? "color-mix(in srgb, var(--brand) 12%, transparent)" : "var(--fg-05)",
                     border: isCardFav(cardId) ? "none" : "1px solid var(--fg-08)"
                   }}
                 >
                   <Heart
                     className="w-4 h-4"
-                    style={{ color: isCardFav(cardId) ? "#f59e0b" : "var(--fg-40)" }}
-                    fill={isCardFav(cardId) ? "#f59e0b" : "none"}
+                    style={{ color: isCardFav(cardId) ? "var(--brand-text)" : "var(--fg-40)" }}
+                    fill={isCardFav(cardId) ? "var(--brand-text)" : "none"}
                   />
                 </button>
               )}
@@ -247,7 +247,7 @@ export function AppHeader({
                 aria-label="Open Quick Lookup"
                 data-testid="button-quick"
                 className="flex items-center gap-1.5 text-[11px] font-bold px-2.5 md:px-3.5 py-2 rounded-full active:scale-95 transition-transform flex-shrink-0"
-                style={{ background: "#f59e0b", color: "#0f1724" }}
+                style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
               >
                 <Zap className="w-3.5 h-3.5" />
                 <span className="hidden md:inline">Quick</span>
@@ -265,7 +265,7 @@ export function AppHeader({
                 <p
                   className="text-[9px] font-bold tracking-[0.18em] uppercase leading-none"
                   style={{
-                    color: "rgba(245,158,11,0.75)",
+                    color: "var(--brand-text)",
                     opacity: compact ? 0 : 1,
                     maxHeight: compact ? 0 : 12,
                     overflow: "hidden",
@@ -333,12 +333,12 @@ export function AppHeader({
                     className="flex items-center justify-center gap-1 rounded-lg px-2.5 py-1 leading-none"
                     style={{
                       background:
-                        "linear-gradient(135deg, rgba(245,158,11,0.20) 0%, rgba(245,158,11,0.07) 100%)",
-                      border: "1px solid rgba(245,158,11,0.30)",
-                      boxShadow: "0 0 12px rgba(245,158,11,0.10)",
+                        "linear-gradient(135deg, color-mix(in srgb, var(--brand) 20%, transparent) 0%, color-mix(in srgb, var(--brand) 7%, transparent) 100%)",
+                      border: "1px solid color-mix(in srgb, var(--brand) 30%, transparent)",
+                      boxShadow: "0 0 12px color-mix(in srgb, var(--brand) 10%, transparent)",
                     }}
                   >
-                    <span className="text-[12px] font-bold" style={{ color: "#f59e0b" }}>
+                    <span className="text-[12px] font-bold" style={{ color: "var(--brand-text)" }}>
                       {totalCards}
                     </span>
                     <span className="text-[10px] font-semibold" style={{ color: "var(--fg-55)" }}>

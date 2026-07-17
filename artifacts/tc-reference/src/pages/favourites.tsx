@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useLocation } from "wouter";
 import { Heart, Copy, Check, Search, ChevronRight, X } from "lucide-react";
 import { useFavourites } from "@/lib/favourites-context";
-import { copyToClipboard } from "@/lib/utils";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 
 const CARD_META: Record<string, { title: string; category: string }> = {};
 for (const [cat, cards] of Object.entries(LIBRARY_CATEGORIES)) {
@@ -16,7 +16,7 @@ export default function Favourites() {
   const { state, toggleCard, togglePhrase } = useFavourites();
   const [, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
-  const [copiedPhrase, setCopiedPhrase] = useState<string | null>(null);
+  const { copied: copiedPhrase, copy: handleCopy } = useCopyFeedback();
 
   const q = searchQuery.toLowerCase().trim();
 
@@ -42,12 +42,6 @@ export default function Favourites() {
     phrasesByCard[p.cardId].push(p);
   }
 
-  const handleCopy = async (text: string) => {
-    await copyToClipboard(text);
-    setCopiedPhrase(text);
-    setTimeout(() => setCopiedPhrase(null), 1600);
-  };
-
   const totalSaved = state.cardIds.length + state.phrases.length;
   const hasResults = favCards.length > 0 || Object.keys(phrasesByCard).length > 0;
 
@@ -70,7 +64,7 @@ export default function Favourites() {
         <div className="relative">
           <Search
             className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4"
-            style={{ color: "rgba(245,158,11,0.5)" }}
+            style={{ color: "color-mix(in srgb, var(--brand-text) 50%, transparent)" }}
             aria-hidden="true"
           />
           <input
@@ -107,11 +101,11 @@ export default function Favourites() {
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
               style={{
-                background: "rgba(245,158,11,0.08)",
-                border: "1px solid rgba(245,158,11,0.18)",
+                background: "color-mix(in srgb, var(--brand) 8%, transparent)",
+                border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
               }}
             >
-              <Heart className="w-6 h-6" style={{ color: "rgba(245,158,11,0.5)" }} />
+              <Heart className="w-6 h-6" style={{ color: "color-mix(in srgb, var(--brand-text) 50%, transparent)" }} />
             </div>
             <p className="text-[16px] font-semibold mb-2" style={{ color: "var(--fg-65)" }}>
               No favourites yet
@@ -126,9 +120,9 @@ export default function Favourites() {
               onClick={() => setLocation("/")}
               className="text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
               style={{
-                background: "rgba(245,158,11,0.12)",
-                border: "1px solid rgba(245,158,11,0.25)",
-                color: "#f59e0b",
+                background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+                border: "1px solid color-mix(in srgb, var(--brand) 25%, transparent)",
+                color: "var(--brand-text)",
               }}
             >
               Browse the Library
@@ -155,7 +149,7 @@ export default function Favourites() {
               <h2 className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "var(--fg-55)" }}>
                 Techniques
               </h2>
-              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(245,158,11,0.12)", color: "#f59e0b" }}>
+              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: "color-mix(in srgb, var(--brand) 12%, transparent)", color: "var(--brand-text)" }}>
                 {state.cardIds.length}
               </span>
             </div>
@@ -178,14 +172,14 @@ export default function Favourites() {
                       key={id}
                       className="flex items-center gap-3.5 px-4 py-3.5 rounded-2xl"
                       style={{
-                        background: "rgba(245,158,11,0.08)",
-                        border: "1px solid rgba(245,158,11,0.18)",
+                        background: "color-mix(in srgb, var(--brand) 8%, transparent)",
+                        border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
                         minHeight: 64,
                       }}
                     >
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
-                        style={{ background: "#f59e0b", color: "#0f1724" }}
+                        style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
                       >
                         {id.slice(2)}
                       </div>
@@ -197,7 +191,7 @@ export default function Favourites() {
                         <p className="text-[14px] font-semibold leading-tight" style={{ color: "var(--fg-90)" }}>
                           {meta.title}
                         </p>
-                        <p className="text-[11px] mt-0.5" style={{ color: "rgba(245,158,11,0.7)" }}>
+                        <p className="text-[11px] mt-0.5" style={{ color: "color-mix(in srgb, var(--brand-text) 70%, transparent)" }}>
                           {id} · {meta.category}
                         </p>
                       </button>
@@ -214,9 +208,9 @@ export default function Favourites() {
                           onClick={() => toggleCard(id)}
                           aria-label="Remove from favourites"
                           className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                          style={{ background: "rgba(245,158,11,0.12)" }}
+                          style={{ background: "color-mix(in srgb, var(--brand) 12%, transparent)" }}
                         >
-                          <Heart className="w-4 h-4" style={{ color: "#f59e0b" }} fill="#f59e0b" />
+                          <Heart className="w-4 h-4" style={{ color: "var(--brand-text)" }} fill="var(--brand-text)" />
                         </button>
                       </div>
                     </div>
@@ -265,7 +259,7 @@ export default function Favourites() {
                       >
                         <div
                           className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
-                          style={{ background: "#f59e0b", color: "#0f1724" }}
+                          style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
                         >
                           {cardId.slice(2)}
                         </div>
@@ -301,12 +295,12 @@ export default function Favourites() {
                             className="w-full flex items-center gap-3 px-4 py-3 cursor-pointer transition-all"
                             style={{
                               minHeight: 52,
-                              background: copiedPhrase === p.text ? "rgba(245,158,11,0.07)" : "transparent",
+                              background: copiedPhrase === p.text ? "color-mix(in srgb, var(--brand) 7%, transparent)" : "transparent",
                             }}
                           >
                             <p
                               className="flex-1 text-[13px] leading-snug"
-                              style={{ color: copiedPhrase === p.text ? "#f59e0b" : "var(--fg-75)" }}
+                              style={{ color: copiedPhrase === p.text ? "var(--brand-text)" : "var(--fg-75)" }}
                             >
                               {p.text}
                             </p>
@@ -315,16 +309,16 @@ export default function Favourites() {
                               onClick={e => e.stopPropagation()}
                             >
                               {copiedPhrase === p.text
-                                ? <Check className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} />
+                                ? <Check className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} />
                                 : <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-20)" }} />
                               }
                               <button
                                 onClick={() => togglePhrase(p)}
                                 aria-label="Remove from favourites"
                                 className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                                style={{ background: "rgba(245,158,11,0.1)" }}
+                                style={{ background: "color-mix(in srgb, var(--brand) 10%, transparent)" }}
                               >
-                                <Heart className="w-3.5 h-3.5" style={{ color: "#f59e0b" }} fill="#f59e0b" />
+                                <Heart className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} fill="var(--brand-text)" />
                               </button>
                             </div>
                           </div>

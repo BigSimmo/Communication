@@ -35,9 +35,9 @@ export default function NotFound() {
           onClick={() => setLocation("/")}
           className="inline-flex items-center gap-2 text-[13px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
           style={{
-            background: "rgba(245,158,11,0.12)",
-            border: "1px solid rgba(245,158,11,0.22)",
-            color: "#f59e0b",
+            background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+            border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+            color: "var(--brand-text)",
           }}
         >
           <ChevronLeft className="w-4 h-4" />

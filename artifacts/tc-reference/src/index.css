@@ -185,6 +185,21 @@
   --surface-dd: hsl(217,42%,13%);
   --surface-sidebar: hsl(217,42%,10%);
 
+  /* ── Brand accent (amber) ──
+     --brand: raw brand hue for fills, tints, borders and glows (same in both
+     themes — always paired with --brand-contrast foreground or used at low
+     alpha via color-mix).
+     --brand-text: amber used AS foreground text/icons — darkened in the light
+     theme so small amber text keeps contrast on near-white surfaces.
+     --brand-contrast: the navy half of the brand pair (text on solid amber,
+     badge inversions on active chips). */
+  --brand: #f59e0b;
+  --brand-bright: #fbbf24;
+  --brand-deep: #b45309;
+  --brand-text: #f59e0b;
+  --brand-contrast: #0f1724;
+  --gradient-active: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+
   /* ── Semantic metric colours (impact / difficulty / misuse badges) ── */
   --impact-high: #f59e0b;
   --impact-medium: #60a5fa;
@@ -208,6 +223,11 @@
      header/sidebar 30 · FAB stack 37–41 · overlays 50 (Quick Lookup) ·
      modals 60 (PDF sheet) · search 70 */
   --z-header: 30;
+  --z-fab-swipe-zone: 37;
+  --z-fab-backdrop: 38;
+  --z-fab-halo: 39;
+  --z-fab: 40;
+  --z-fab-toggle: 41;
   --z-overlay: 50;
   --z-modal: 60;
   --z-search: 70;
@@ -306,6 +326,11 @@
   --surface-dd: hsl(0,0%,99%);
   --surface-sidebar: hsl(210,20%,98%);
 
+  /* Brand accent — amber text darkens for contrast on light surfaces:
+     #b45309 is ~4.8:1 on the near-white background, meeting AA for the
+     small labels this token colours; fills/tints keep the raw brand hue */
+  --brand-text: #b45309;
+
   /* Semantic metric colours — darkened for contrast on light surfaces */
   --impact-high: #d97706;
   --impact-medium: #2563eb;
@@ -349,8 +374,8 @@
   animation: fab-dot-pulse 2s ease-in-out infinite;
 }
 @keyframes fab-dot-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.55); }
-  50%      { box-shadow: 0 0 0 5px rgba(245,158,11,0); }
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand) 55%, transparent); }
+  50%      { box-shadow: 0 0 0 5px transparent; }
 }
 
 /* Reduced motion: drop spring/stagger/pulse — fade only, no movement */

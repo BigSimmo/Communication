@@ -112,10 +112,10 @@ export default function Library() {
   // Shared style for compact filter/sort chips
   const chipStyle = (active: boolean): React.CSSProperties => ({
     minHeight: 28,
-    background: active ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)" : "var(--fg-05)",
-    color: active ? "#0f1724" : "var(--fg-60)",
-    border: active ? "1px solid rgba(245,158,11,0.6)" : "1px solid var(--fg-08)",
-    boxShadow: active ? "0 2px 8px rgba(245,158,11,0.28)" : "none",
+    background: active ? "var(--gradient-active)" : "var(--fg-05)",
+    color: active ? "var(--brand-contrast)" : "var(--fg-60)",
+    border: active ? "1px solid color-mix(in srgb, var(--brand) 60%, transparent)" : "1px solid var(--fg-08)",
+    boxShadow: active ? "0 2px 8px color-mix(in srgb, var(--brand) 28%, transparent)" : "none",
   });
 
   const groupStyle: React.CSSProperties = {
@@ -167,6 +167,7 @@ export default function Library() {
                 aria-expanded={searchOpen}
                 aria-controls="search-popout-panel"
                 data-search-toggle="true"
+                data-search-open-on-focus="true"
                 data-testid="library-search-input"
                 className="w-full h-9 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-50)]"
                 style={{
@@ -176,9 +177,13 @@ export default function Library() {
                   padding: "0 34px 0 34px",
                 }}
                 onFocus={(e) => {
-                  openSearch();
-                  e.currentTarget.style.borderColor = "rgba(245,158,11,0.45)";
-                  e.currentTarget.style.boxShadow = "0 0 0 3px rgba(245,158,11,0.12)";
+                  // Suppression marker set by SearchModal when it returns
+                  // focus here on close — style, but don't reopen the modal
+                  if (!e.currentTarget.hasAttribute("data-suppress-search-open")) {
+                    openSearch();
+                  }
+                  e.currentTarget.style.borderColor = "color-mix(in srgb, var(--brand) 45%, transparent)";
+                  e.currentTarget.style.boxShadow = "0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent)";
                 }}
                 onClick={() => {
                   if (!searchOpen) openSearch();
@@ -208,9 +213,9 @@ export default function Library() {
                 data-testid="reset-filters"
                 className="h-9 flex-shrink-0 inline-flex items-center gap-1.5 rounded-xl px-2.5 text-[10px] font-bold transition-all active:scale-95 whitespace-nowrap"
                 style={{
-                  background: "rgba(245,158,11,0.10)",
-                  border: "1px solid rgba(245,158,11,0.35)",
-                  color: "#f59e0b",
+                  background: "color-mix(in srgb, var(--brand) 10%, transparent)",
+                  border: "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
+                  color: "var(--brand-text)",
                   minWidth: 0,
                 }}
               >
@@ -218,7 +223,7 @@ export default function Library() {
                 Reset
                 <span
                   className="ml-0.5 rounded-full px-1.5 py-0.5 text-[9px] leading-none"
-                  style={{ background: "rgba(245,158,11,0.16)" }}
+                  style={{ background: "color-mix(in srgb, var(--brand) 16%, transparent)" }}
                 >
                   {activeFilterCount}
                 </span>
@@ -380,9 +385,9 @@ export default function Library() {
                       data-testid={`card-link-${card.id}`}
                        className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 rounded-2xl transition-all duration-150 text-left overflow-hidden"
                       style={{
-                        background: card.loaded ? "rgba(245,158,11,0.08)" : "var(--fg-02)",
+                        background: card.loaded ? "color-mix(in srgb, var(--brand) 8%, transparent)" : "var(--fg-02)",
                         border: card.loaded
-                          ? "1px solid rgba(245,158,11,0.18)"
+                          ? "1px solid color-mix(in srgb, var(--brand) 18%, transparent)"
                           : "1px solid var(--fg-04)",
                         opacity: card.loaded ? 1 : 0.55,
                         cursor: card.loaded ? "pointer" : "default",
@@ -391,11 +396,11 @@ export default function Library() {
                       onMouseEnter={(e) => {
                         if (card.loaded)
                           (e.currentTarget as HTMLElement).style.background =
-                            "rgba(245,158,11,0.12)";
+                            "color-mix(in srgb, var(--brand) 12%, transparent)";
                       }}
                       onMouseLeave={(e) => {
                         (e.currentTarget as HTMLElement).style.background = card.loaded
-                          ? "rgba(245,158,11,0.08)"
+                          ? "color-mix(in srgb, var(--brand) 8%, transparent)"
                           : "var(--fg-02)";
                       }}
                     >
@@ -403,8 +408,8 @@ export default function Library() {
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
                         style={{
-                          background: card.loaded ? "#f59e0b" : "var(--fg-07)",
-                          color: card.loaded ? "#0f1724" : "var(--fg-28)",
+                          background: card.loaded ? "var(--brand)" : "var(--fg-07)",
+                          color: card.loaded ? "var(--brand-contrast)" : "var(--fg-28)",
                         }}
                       >
                         {card.id.slice(2)}
@@ -421,7 +426,7 @@ export default function Library() {
                         <p
                           className="text-[11px] mt-0.5"
                           style={{
-                            color: card.loaded ? "rgba(245,158,11,0.7)" : "var(--fg-20)",
+                            color: card.loaded ? "color-mix(in srgb, var(--brand-text) 70%, transparent)" : "var(--fg-20)",
                           }}
                         >
                           {card.id} · {cat}
@@ -451,16 +456,16 @@ export default function Library() {
                               className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                               style={{
                                 background: isCardFav(card.id)
-                                  ? "rgba(245,158,11,0.12)"
+                                  ? "color-mix(in srgb, var(--brand) 12%, transparent)"
                                   : "var(--fg-05)",
                               }}
                             >
                               <Heart
                                 className="w-3.5 h-3.5"
                                 style={{
-                                  color: isCardFav(card.id) ? "#f59e0b" : "var(--fg-30)",
+                                  color: isCardFav(card.id) ? "var(--brand-text)" : "var(--fg-30)",
                                 }}
-                                fill={isCardFav(card.id) ? "#f59e0b" : "none"}
+                                fill={isCardFav(card.id) ? "var(--brand-text)" : "none"}
                               />
                             </button>
                             <ChevronRight
@@ -506,9 +511,9 @@ export default function Library() {
               data-testid="clear-all-filters"
               className="text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
               style={{
-                background: "rgba(245,158,11,0.12)",
-                border: "1px solid rgba(245,158,11,0.25)",
-                color: "#f59e0b",
+                background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+                border: "1px solid color-mix(in srgb, var(--brand) 25%, transparent)",
+                color: "var(--brand-text)",
               }}
             >
               Clear all filters

@@ -62,12 +62,12 @@ export default function Drill() {
         <div className="flex items-center gap-2">
           <Flame
             className="w-5 h-5"
-            style={{ color: streakActive && state.streak > 0 ? "#f59e0b" : "var(--fg-22)" }}
+            style={{ color: streakActive && state.streak > 0 ? "var(--brand-text)" : "var(--fg-22)" }}
             aria-hidden="true"
           />
           <span
             className="text-[13px] font-bold"
-            style={{ color: streakActive && state.streak > 0 ? "#f59e0b" : "var(--fg-30)" }}
+            style={{ color: streakActive && state.streak > 0 ? "var(--brand-text)" : "var(--fg-30)" }}
           >
             {streakActive && state.streak > 0
               ? `${state.streak} day streak`
@@ -93,7 +93,7 @@ export default function Drill() {
           className="h-full rounded-full transition-all duration-500"
           style={{
             width: `${overallPct}%`,
-            background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
+            background: "linear-gradient(90deg, var(--brand), var(--brand-bright))",
           }}
         />
       </div>
@@ -103,11 +103,11 @@ export default function Drill() {
         className="rounded-2xl p-5"
         style={{
           background: done
-            ? "rgba(34,197,94,0.06)"
-            : "rgba(245,158,11,0.07)",
+            ? "color-mix(in srgb, var(--accent-green) 6%, transparent)"
+            : "color-mix(in srgb, var(--brand) 7%, transparent)",
           border: done
-            ? "1px solid rgba(34,197,94,0.18)"
-            : "1px solid rgba(245,158,11,0.2)",
+            ? "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)"
+            : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
         }}
       >
         {/* Card ID + title row */}
@@ -116,14 +116,14 @@ export default function Drill() {
             <div className="flex items-center gap-2 mb-1">
               <span
                 className="text-[10px] font-bold tracking-widest uppercase"
-                style={{ color: done ? "rgba(34,197,94,0.7)" : "rgba(245,158,11,0.7)" }}
+                style={{ color: done ? "color-mix(in srgb, var(--accent-green) 70%, transparent)" : "color-mix(in srgb, var(--brand-text) 70%, transparent)" }}
               >
                 {cardId}
               </span>
               {done && (
                 <span
                   className="flex items-center gap-1 text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full"
-                  style={{ background: "rgba(34,197,94,0.12)", color: "var(--accent-green)" }}
+                  style={{ background: "color-mix(in srgb, var(--accent-green) 12%, transparent)", color: "var(--accent-green)" }}
                 >
                   <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
                   Done
@@ -139,19 +139,19 @@ export default function Drill() {
           <div
             className="flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 rounded-xl"
             style={{
-              background: done ? "rgba(34,197,94,0.12)" : "rgba(245,158,11,0.12)",
-              border: done ? "1px solid rgba(34,197,94,0.2)" : "1px solid rgba(245,158,11,0.2)",
+              background: done ? "color-mix(in srgb, var(--accent-green) 12%, transparent)" : "color-mix(in srgb, var(--brand) 12%, transparent)",
+              border: done ? "1px solid color-mix(in srgb, var(--accent-green) 20%, transparent)" : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
             }}
           >
             <span
               className="text-[18px] font-extrabold leading-none"
-              style={{ color: done ? "var(--accent-green)" : "#f59e0b" }}
+              style={{ color: done ? "var(--accent-green)" : "var(--brand-text)" }}
             >
               {dayNum}
             </span>
             <span
               className="text-[8px] font-semibold tracking-wide uppercase mt-0.5"
-              style={{ color: done ? "rgba(34,197,94,0.6)" : "rgba(245,158,11,0.6)" }}
+              style={{ color: done ? "color-mix(in srgb, var(--accent-green) 60%, transparent)" : "color-mix(in srgb, var(--brand-text) 60%, transparent)" }}
             >
               / 7
             </span>
@@ -171,7 +171,7 @@ export default function Drill() {
                   background: isPast
                     ? "var(--accent-green)"
                     : isCurrent
-                    ? "#f59e0b"
+                    ? "var(--brand)"
                     : "var(--fg-08)",
                 }}
                 aria-hidden="true"
@@ -204,8 +204,8 @@ export default function Drill() {
         <div
           className="rounded-2xl p-4 flex items-center gap-3"
           style={{
-            background: "rgba(34,197,94,0.06)",
-            border: "1px solid rgba(34,197,94,0.13)",
+            background: "color-mix(in srgb, var(--accent-green) 6%, transparent)",
+            border: "1px solid color-mix(in srgb, var(--accent-green) 13%, transparent)",
           }}
         >
           <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: "var(--accent-green)" }} aria-hidden="true" />
@@ -227,8 +227,8 @@ export default function Drill() {
           className="w-full flex items-center justify-center gap-2 rounded-2xl font-bold text-[14px] transition-all duration-150 active:scale-[0.98]"
           style={{
             minHeight: 52,
-            background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-            color: "#0f1724",
+            background: "linear-gradient(135deg, var(--brand), var(--brand-bright))",
+            color: "var(--brand-contrast)",
           }}
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLElement).style.opacity = "0.92";
@@ -274,15 +274,15 @@ export default function Drill() {
         <div
           className="flex items-center gap-3 rounded-2xl px-4 py-3"
           style={{
-            background: "rgba(245,158,11,0.06)",
-            border: "1px solid rgba(245,158,11,0.13)",
+            background: "color-mix(in srgb, var(--brand) 6%, transparent)",
+            border: "1px solid color-mix(in srgb, var(--brand) 13%, transparent)",
           }}
         >
-          <ArrowRight className="w-4 h-4 flex-shrink-0" style={{ color: "#f59e0b" }} aria-hidden="true" />
+          <ArrowRight className="w-4 h-4 flex-shrink-0" style={{ color: "var(--brand-text)" }} aria-hidden="true" />
           <p className="text-[12px] font-medium" style={{ color: "var(--fg-50)" }}>
             You finished all 7 days on{" "}
-            <span style={{ color: "#f59e0b" }}>{cardTitle}</span>. Tomorrow starts{" "}
-            <span style={{ color: "#f59e0b" }}>{nextCardTitle}</span>.
+            <span style={{ color: "var(--brand-text)" }}>{cardTitle}</span>. Tomorrow starts{" "}
+            <span style={{ color: "var(--brand-text)" }}>{nextCardTitle}</span>.
           </p>
         </div>
       )}
@@ -297,7 +297,7 @@ export default function Drill() {
           }}
         >
           <div className="flex items-center gap-2 mb-1">
-            <Dumbbell className="w-3.5 h-3.5" style={{ color: "rgba(245,158,11,0.5)" }} aria-hidden="true" />
+            <Dumbbell className="w-3.5 h-3.5" style={{ color: "color-mix(in srgb, var(--brand-text) 50%, transparent)" }} aria-hidden="true" />
             <p className="text-[10px] font-semibold tracking-wide uppercase" style={{ color: "var(--fg-28)" }}>
               How it works
             </p>
