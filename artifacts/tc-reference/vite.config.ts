@@ -58,6 +58,8 @@ export default defineConfig({
             handler: "NetworkFirst",
             options: {
               cacheName: "card-downloads",
+              // Fall back to the cached copy quickly if the network hangs
+              networkTimeoutSeconds: 5,
               expiration: { maxEntries: 60, maxAgeSeconds: 60 * 60 * 24 * 90 },
             },
           },
