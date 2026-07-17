@@ -51,8 +51,11 @@ export default defineConfig({
         navigateFallbackDenylist: [/\/cards\//],
         runtimeCaching: [
           {
+            // NetworkFirst, not CacheFirst: card PDFs live at stable URLs but
+            // are regenerated on every build, so prefer fresh copies online
+            // and fall back to the cache offline
             urlPattern: /\/cards\/.*\.(pdf|csv|docx|png)$/,
-            handler: "CacheFirst",
+            handler: "NetworkFirst",
             options: {
               cacheName: "card-downloads",
               expiration: { maxEntries: 60, maxAgeSeconds: 60 * 60 * 24 * 90 },

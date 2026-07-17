@@ -241,6 +241,13 @@ export default function CardDetail() {
   useEffect(() => {
     // Reset to overview-only on every card change; restore below may expand more
     setOpenSections(new Set<CardSection>(["overview"]));
+    // Card-scoped UI state must not leak into the next card (wouter re-renders
+    // this page without remounting on cardId change): stale checklist ticks
+    // would appear pre-checked at the same indices on the new card
+    setCheckedItems(new Set());
+    setExpandedPhraseGroup(null);
+    setWhyOpen(false);
+    setNotForOpen(false);
     const saved = cardSectionMemory.get(cardId);
     let timer: ReturnType<typeof setTimeout> | undefined;
     if (saved && saved.section !== "overview") {

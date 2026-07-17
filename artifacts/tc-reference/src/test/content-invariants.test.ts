@@ -51,8 +51,17 @@ describe("card content invariants", () => {
   });
 
   it("keeps stage directions out of the aggregated phrase pool", () => {
+    // Assert the bracketed format directly rather than via isSpeakablePhrase,
+    // so a regression in the predicate itself can't hide leaked entries
     for (const phrase of getAllAggregatedPhrases()) {
-      expect(isSpeakablePhrase(phrase.text), phrase.text).toBe(true);
+      expect(phrase.text, phrase.text).not.toMatch(/^\[[\s\S]*\]$/);
     }
+  });
+
+  it("classifies bracketed stage directions as non-speakable", () => {
+    expect(isSpeakablePhrase("[Plant feet. Pause. Continue.]")).toBe(false);
+    expect(isSpeakablePhrase("What happened next?")).toBe(true);
+    // A bracketed cue prefix on a real line is still speakable
+    expect(isSpeakablePhrase("[Pause] So what would good look like?")).toBe(true);
   });
 });

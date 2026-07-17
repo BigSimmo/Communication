@@ -32,7 +32,8 @@ export function ChecklistSection({
         <div className="flex-1 h-2 rounded-full overflow-hidden ml-2" style={{ background: "var(--fg-05)" }}>
           <div
             className="h-full bg-primary rounded-full transition-all duration-300"
-            style={{ width: `${(checkedItems.size / cardData.checklist.length) * 100}%` }}
+            // Guard the divide: an empty checklist must render 0%, not NaN%
+            style={{ width: cardData.checklist.length > 0 ? `${(checkedItems.size / cardData.checklist.length) * 100}%` : "0%" }}
           />
         </div>
         <span className="text-[11px] font-bold text-primary px-2">{checkedItems.size} / {cardData.checklist.length}</span>
