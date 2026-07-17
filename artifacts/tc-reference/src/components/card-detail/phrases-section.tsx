@@ -93,7 +93,7 @@ export function PhrasesSection({
               <div style={{ borderTop: "1px solid var(--fg-05)" }}>
                 {group.phrases.map((phrase, i) => (
                   <div
-                    key={i}
+                    key={phrase}
                     className="w-full flex items-center justify-between px-5 py-3 text-left"
                     style={{
                       background: copiedPhrase === phrase ? "color-mix(in srgb, var(--brand) 7%, transparent)" : "transparent",

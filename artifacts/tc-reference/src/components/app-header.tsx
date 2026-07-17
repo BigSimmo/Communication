@@ -133,12 +133,17 @@ export function AppHeader({
       raf = window.requestAnimationFrame(update);
     };
 
-    document.documentElement.style.setProperty("--app-header-height", `${headerHeight}px`);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
       if (raf) window.cancelAnimationFrame(raf);
     };
+    // Subscribe once — the CSS-var write below tracks headerHeight separately,
+    // so compact toggles no longer tear down and re-add the scroll listener
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--app-header-height", `${headerHeight}px`);
   }, [headerHeight]);
 
   return (

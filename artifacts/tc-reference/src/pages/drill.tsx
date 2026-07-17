@@ -224,17 +224,11 @@ export default function Drill() {
         <button
           onClick={handleComplete}
           data-testid="drill-mark-complete"
-          className="w-full flex items-center justify-center gap-2 rounded-2xl font-bold text-[14px] transition-all duration-150 active:scale-[0.98]"
+          className="w-full flex items-center justify-center gap-2 rounded-2xl font-bold text-[14px] transition-all duration-150 active:scale-[0.98] hover:opacity-[0.92]"
           style={{
             minHeight: 52,
             background: "linear-gradient(135deg, var(--brand), var(--brand-bright))",
             color: "var(--brand-contrast)",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.opacity = "0.92";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.opacity = "1";
           }}
         >
           <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
@@ -246,16 +240,9 @@ export default function Drill() {
       <button
         onClick={() => setLocation(`/card/${cardId}`)}
         data-testid="drill-view-card"
-        className="w-full flex items-center justify-between px-4 py-3.5 rounded-2xl transition-all duration-150 text-left"
+        className="w-full flex items-center justify-between px-4 py-3.5 rounded-2xl transition-all duration-150 text-left bg-[var(--fg-03)] hover:bg-[var(--fg-05)]"
         style={{
-          background: "var(--fg-03)",
           border: "1px solid var(--fg-07)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.background = "var(--fg-05)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.background = "var(--fg-03)";
         }}
       >
         <div>

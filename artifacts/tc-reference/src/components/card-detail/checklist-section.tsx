@@ -46,19 +46,14 @@ export function ChecklistSection({
             aria-checked={checkedItems.has(i)}
             role="checkbox"
             data-testid={`checklist-item-${i}`}
-            className="w-full flex gap-4 p-4 text-left transition-all"
+            className={`w-full flex gap-4 p-4 text-left transition-all ${
+              checkedItems.has(i)
+                ? "bg-[color-mix(in_srgb,var(--brand)_4%,transparent)]"
+                : "bg-transparent hover:bg-[var(--fg-02)]"
+            }`}
             style={{
-              background: checkedItems.has(i) ? "color-mix(in srgb, var(--brand) 4%, transparent)" : "transparent",
               borderBottom: i < cardData.checklist.length - 1 ? "1px solid var(--fg-03)" : "none",
               minHeight: 52,
-            }}
-            onMouseEnter={(e) => {
-              if (!checkedItems.has(i))
-                (e.currentTarget as HTMLElement).style.background = "var(--fg-02)";
-            }}
-            onMouseLeave={(e) => {
-              if (!checkedItems.has(i))
-                (e.currentTarget as HTMLElement).style.background = "transparent";
             }}
           >
             <div

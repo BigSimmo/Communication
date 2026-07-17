@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useLocation } from "wouter";
 import {
   Home,
@@ -73,7 +73,9 @@ export function AppLayout({ children }: AppLayoutProps) {
   const isOnCard = location.startsWith("/card/");
 
   const { totalCount: favCount } = useFavourites();
-  const drillState = loadDrillState();
+  // Re-read from localStorage only on navigation — drill completion always
+  // involves a route change, so per-render reads/parses gain nothing
+  const drillState = useMemo(() => loadDrillState(), [location]);
   const drillDone = isCompletedToday(drillState);
   const drillStreakActive = isStreakActive(drillState) && drillState.streak > 0;
 
