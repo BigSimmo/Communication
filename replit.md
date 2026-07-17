@@ -24,7 +24,7 @@ A mobile-first reference app for 31 communication techniques (TC001–TC031) —
 - `artifacts/tc-reference/src/lib/phrases-data.ts` — phrase aggregation for the Phrases browser
 - `artifacts/tc-reference/src/index.css` — theme tokens (`--fg-*`, `--impact-*`, `--accent-*`, z-index scale), light/dark values
 - `artifacts/tc-reference/src/lib/design-tokens.ts` — shared impact-badge styling used by Library and Card Detail
-- `artifacts/tc-reference/public/cards/<id>/` — downloadable PDFs per card (TC001 has designed assets; other cards have generated `<id>_Reference.pdf` files plus `<id>_Phrase_Bank.csv` and `<id>_Anki_Flashcards.csv` — all regenerated automatically during `build`, or manually via the `generate:card-pdfs` / `generate:card-csvs` scripts)
+- `artifacts/tc-reference/public/cards/<id>/` — downloadable assets per card (TC001 has designed assets; other cards have a generated compact `<id>_Reference.pdf`, a full `<id>_Detailed_Guide.pdf` rendering all enriched sections, plus `<id>_Phrase_Bank.csv` and `<id>_Anki_Flashcards.csv` — all regenerated automatically during `build`, or manually via the `generate:card-pdfs` / `generate:card-csvs` / `generate:card-guides` scripts)
 
 ## Architecture decisions
 

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 127.0.0.1",
-    "build": "pnpm --filter @workspace/scripts run generate:card-pdfs && pnpm --filter @workspace/scripts run generate:card-csvs && vite build --config vite.config.ts",
+    "build": "pnpm --filter @workspace/scripts run generate:card-pdfs && pnpm --filter @workspace/scripts run generate:card-csvs && pnpm --filter @workspace/scripts run generate:card-guides && vite build --config vite.config.ts",
     "serve": "vite preview --config vite.config.ts --host 127.0.0.1",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --config vitest.config.ts"

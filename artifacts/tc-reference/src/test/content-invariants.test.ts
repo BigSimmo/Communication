@@ -74,6 +74,18 @@ describe("card content invariants", () => {
     }
   });
 
+  it("ships a Detailed Guide PDF for every card except TC001", () => {
+    // TC001 has its own designed guide; every other card must carry the
+    // generated one so the downloadable content never lags the in-app card.
+    for (const [id, card] of Object.entries(CARD_DATA)) {
+      if (id === "TC001") continue;
+      const hasGuide = (card.resources ?? []).some(
+        (r) => r.href === `cards/${id}/${id}_Detailed_Guide.pdf` && r.group === "Written Guides",
+      );
+      expect(hasGuide, `${id} missing Detailed Guide resource`).toBe(true);
+    }
+  });
+
   it("classifies bracketed stage directions as non-speakable", () => {
     expect(isSpeakablePhrase("[Plant feet. Pause. Continue.]")).toBe(false);
     expect(isSpeakablePhrase("What happened next?")).toBe(true);
