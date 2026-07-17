@@ -7,7 +7,8 @@
     "generate:card-pdfs": "tsx ./src/generate-card-pdfs.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "generate:card-csvs": "tsx ./src/generate-card-csvs.ts",
-    "generate:card-guides": "tsx ./src/generate-card-guides.ts"
+    "generate:card-guides": "tsx ./src/generate-card-guides.ts",
+    "generate:card-quickcards": "tsx ./src/generate-card-quickcards.ts"
   },
   "devDependencies": {
     "@types/node": "catalog:",
