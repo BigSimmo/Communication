@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { X, Check, Copy, Heart } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-import { CARD_DATA } from "@/lib/cards";
+import { CARD_DATA, isSpeakablePhrase } from "@/lib/cards";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
@@ -45,6 +45,7 @@ const ALL_QUICK_GROUPS: QuickGroup[] = (() => {
       }
       const targetGroup = groupsMap.get(group.id)!;
       for (const phraseText of group.phrases) {
+        if (!isSpeakablePhrase(phraseText)) continue;
         targetGroup.phrases.push({
           text: phraseText,
           cardId,
@@ -53,7 +54,8 @@ const ALL_QUICK_GROUPS: QuickGroup[] = (() => {
       }
     }
   }
-  return Array.from(groupsMap.values());
+  // Groups whose entries were all stage directions have nothing speakable to offer
+  return Array.from(groupsMap.values()).filter((g) => g.phrases.length > 0);
 })();
 
 export function QuickModeOverlay() {

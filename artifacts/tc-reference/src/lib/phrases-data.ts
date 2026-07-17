@@ -1,4 +1,4 @@
-import { CARD_DATA, CANONICAL_TONES } from "./cards";
+import { CARD_DATA, CANONICAL_TONES, isSpeakablePhrase } from "./cards";
 import type { CanonicalTone } from "./cards";
 import { LIBRARY_CATEGORIES } from "./data";
 
@@ -27,6 +27,7 @@ export function getAllAggregatedPhrases(): AggregatedPhrase[] {
     const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
     for (const group of card.phraseBank) {
       for (const text of group.phrases) {
+        if (!isSpeakablePhrase(text)) continue;
         result.push({ text, groupId: group.id, groupLabel: group.label, groupTag: group.tag, tone: group.tone, cardId, cardTitle });
       }
     }
