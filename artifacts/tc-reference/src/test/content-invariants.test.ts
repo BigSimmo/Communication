@@ -74,6 +74,23 @@ describe("card content invariants", () => {
     }
   });
 
+  it("ships the generated download pack for every card except TC001", () => {
+    // TC001 has its own designed assets; every other card must carry the
+    // generated ones so the downloadable content never lags the in-app card.
+    const expected = [
+      { suffix: "_Quick_Card.pdf", group: "Visual Cards" },
+      { suffix: "_Detailed_Guide.pdf", group: "Written Guides" },
+    ] as const;
+    for (const [id, card] of Object.entries(CARD_DATA)) {
+      if (id === "TC001") continue;
+      const resources = card.resources ?? [];
+      for (const { suffix, group } of expected) {
+        const has = resources.some((r) => r.href === `cards/${id}/${id}${suffix}` && r.group === group);
+        expect(has, `${id} missing ${suffix} (${group}) resource`).toBe(true);
+      }
+    }
+  });
+
   it("classifies bracketed stage directions as non-speakable", () => {
     expect(isSpeakablePhrase("[Plant feet. Pause. Continue.]")).toBe(false);
     expect(isSpeakablePhrase("What happened next?")).toBe(true);
