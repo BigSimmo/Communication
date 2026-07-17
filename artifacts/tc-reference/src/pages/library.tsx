@@ -2,15 +2,16 @@ import { useState, useCallback } from "react";
 import { useLocation } from "wouter";
 import { ChevronRight, SearchX, Heart, Search, X, Shuffle, ArrowUpDown } from "lucide-react";
 import { LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
-import { CARD_DATA } from "@/lib/cards";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
 import { IMPACT_STYLES } from "@/lib/design-tokens";
 
-// Derived at module level — no re-computation on every render
+// Derived at module level — no re-computation on every render. Sourced from the
+// light data.ts metadata (not the heavy card content) so the Library route
+// stays off the card-data chunk; a content invariant keeps difficulty in sync.
 const CARD_DIFFICULTY: Record<string, string> = Object.fromEntries(
-  Object.entries(CARD_DATA).map(([id, card]) => [id, card.overview.difficulty])
+  Object.values(LIBRARY_CATEGORIES).flat().map((c) => [c.id, c.difficulty])
 );
 
 const DIFFICULTY_ORDER: Record<string, number> = {

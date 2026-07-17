@@ -55,6 +55,15 @@ describe("card content invariants", () => {
     }
   });
 
+  it("matches overview.difficulty against the library difficulty for every card", () => {
+    // data.ts duplicates difficulty so the Library can filter/sort without
+    // importing the heavy card content — this keeps the copy honest.
+    for (const libCard of LIBRARY_CARDS) {
+      const difficulty = CARD_DATA[libCard.id]?.overview.difficulty;
+      expect(difficulty, libCard.id).toBe(libCard.difficulty);
+    }
+  });
+
   it("keeps stage directions out of the aggregated phrase pool", () => {
     // Assert the bracketed format directly rather than via isSpeakablePhrase,
     // so a regression in the predicate itself can't hide leaked entries
