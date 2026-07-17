@@ -22,14 +22,14 @@ A mobile-first reference app for 31 communication techniques, built with React, 
 
 | Layer | Technology |
 |---|---|
-| Framework | React 19 + Vite 7 |
+| Framework | React 19.1 + Vite 7 |
 | Language | TypeScript 5.9 |
 | Styling | Tailwind CSS v4 (CSS-first config) |
 | Components | shadcn/ui (Radix UI primitives) |
 | Routing | Wouter v3 |
 | Testing | Vitest + @testing-library/react |
 | Package manager | pnpm workspaces (pnpm 11, pinned via `packageManager`) |
-| Node runtime | Node.js 22+ (Replit deployment runs Node 24) |
+| Node runtime | Node.js 22.12+ (Replit deployment runs Node 24) |
 
 ---
 
@@ -85,7 +85,7 @@ workspace/
 ## Getting Started
 
 ### Prerequisites
-- Node.js 22+
+- Node.js 22.12+ (Vite 7 requires `^20.19.0 || >=22.12.0`)
 - pnpm 11 (the repo pins `pnpm@11.1.1` via the `packageManager` field — Corepack picks this up automatically)
 
 ### Install dependencies
