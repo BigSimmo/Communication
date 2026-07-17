@@ -913,6 +913,47 @@ export const CARD_DATA: Record<string, CardData> = {
           "Three bullet points behind that if it helps.",
         ],
       },
+      {
+        id: "bluf-quick",
+        label: "Everyday BLUF",
+        tag: "Fast answers in casual moments",
+        tone: "Quick",
+        phrases: [
+          "Short answer: yes.",
+          "Short answer: no. Long answer available.",
+          "Quick version: it worked.",
+          "Headline first: we got it.",
+          "One-liner: it is done, two small caveats.",
+        ],
+      },
+      {
+        id: "bluf-written",
+        label: "Written BLUF",
+        tag: "First lines for emails and messages",
+        tone: "Professional",
+        phrases: [
+          "Decision needed: X or Y, by Friday.",
+          "Action for you: review section two by Thursday.",
+          "FYI only — no action needed: the launch moved to Monday.",
+          "Requesting sign-off on the attached. Deadline is Wednesday.",
+          "Summary up front: we are on track, one risk flagged below.",
+          "This email asks one question: can we move the deadline?",
+        ],
+      },
+      {
+        id: "bluf-pressure",
+        label: "On-the-Spot BLUF",
+        tag: "When a senior person asks you cold",
+        tone: "High-stakes",
+        phrases: [
+          "My answer is yes — with one condition I want to flag.",
+          "The one thing you need to know is this.",
+          "Bottom line first, then I will take questions.",
+          "If you only take one thing from this: X.",
+          "My position in one sentence: we should proceed.",
+          "I will give you the headline now and the detail in writing.",
+        ],
+      },
     ],
     decisionTree: [
       { condition: "You are about to explain a long context before the point", action: "Stop. State the point first. Then offer the context.", phrase: "The short answer is X. The context behind that is..." },
@@ -981,6 +1022,127 @@ export const CARD_DATA: Record<string, CardData> = {
       "In high-stakes persuasion where building context first changes how the audience receives your point.",
       "When the audience genuinely needs background to evaluate the bottom line — give the bottom line, then immediately offer the context.",
     ],
+    whatItIsNot: [
+      "Not bluntness for its own sake — the conclusion still needs a reason attached.",
+      "Not skipping context — it is re-ordering context so it supports rather than buries the point.",
+      "It is respect for the listener's attention: give them the destination before the journey.",
+    ],
+    influencePayoff: {
+      feeling: "They never waste my time — I always know where they stand.",
+      principle: "People trust communicators whose point arrives before their patience runs out.",
+      gains: [
+        "Perceived clarity of thought",
+        "Faster decisions in your favour",
+        "Senior-level credibility",
+        "Quicker replies to your messages",
+        "A reputation for being easy to work with",
+      ],
+      whyMostFail: [
+        "They narrate their thinking process in the order they did it.",
+        "They fear the conclusion sounds weak without the build-up.",
+        "They confuse thoroughness with usefulness.",
+        "They never decide what the single takeaway actually is.",
+      ],
+    },
+    fieldTip: {
+      headline: "Write the last sentence first.",
+      body: "Draft your message or answer as normal, then find the sentence you ended on — it is almost always the real point. Move it to the top and cut half of what came before it.",
+      example: "A four-paragraph email ending with '...so could you approve the budget?'",
+      dont: "Send it as written and hope they read to the end.",
+      do: "'Requesting budget approval by Friday. Context below.'",
+    },
+    method: [
+      {
+        step: "State",
+        title: "State the conclusion first",
+        body: "Open with the decision, recommendation, or answer in one sentence. If you cannot say it in one sentence, you have not finished thinking yet.",
+        examples: [
+          { label: "Weak", text: "'So there are a few things going on with the supplier situation...'" },
+          { label: "BLUF", text: "'We should switch suppliers. Cost is the main driver.'" },
+        ],
+      },
+      {
+        step: "Reason",
+        title: "Give one reason",
+        body: "Attach the single strongest reason — not all of them. One good reason lands; five compete with each other for attention.",
+        examples: [
+          { label: "Cluttered", text: "'...because of cost, and also lead times, and the account manager left, and...'" },
+          { label: "Clean", text: "'The main reason is a thirty per cent cost saving.'" },
+        ],
+      },
+      {
+        step: "Offer",
+        title: "Offer the context, don't force it",
+        body: "Close by making the detail available rather than delivering it. The listener chooses the depth — that choice is what makes BLUF feel respectful instead of abrupt.",
+        examples: [
+          { label: "Offer", text: "'Want the detail, or is the headline enough?'" },
+          { label: "Written", text: "'Full comparison attached if useful.'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "Narrating your thinking in chronological order",
+        soundsLike: "'So first we looked at... then we considered... and eventually...'",
+        better: "'We landed on Option B. Here is the one-line reason.'",
+      },
+      {
+        mistake: "Hedging before the conclusion",
+        soundsLike: "'Well, it is complicated, and it sort of depends...'",
+        better: "'Broadly yes. The one dependency is X.'",
+      },
+      {
+        mistake: "Stacking every supporting reason",
+        soundsLike: "'...and a fourth reason is...'",
+        better: "'The main reason is X. There are three smaller ones if you want them.'",
+      },
+      {
+        mistake: "Forcing the full context after the headline",
+        soundsLike: "'The answer is yes. Now let me walk you through all the background anyway...'",
+        better: "'The answer is yes. Happy to walk through the background if useful.'",
+      },
+      {
+        mistake: "Using BLUF to deliver bad news cold",
+        soundsLike: "'Bottom line: you did not get the role. So anyway...'",
+        better: "Prepare the ground first — BLUF is for clarity, not for skipping care.",
+      },
+    ],
+    recoveryPhrases: [
+      "Let me start again with the headline.",
+      "I am burying the point — the short version is this.",
+      "You asked a direct question and I gave you a tour. The answer is X.",
+      "Let me give you the one-sentence version.",
+      "The bottom line, which I should have led with, is X.",
+      "That was the long way round. Here is the short way.",
+    ],
+    bestRecoveryLine: "'I am burying the point — the short version is this.'",
+    chains: [
+      {
+        label: "Decision chain",
+        sequence: "BLUF → one reason → offer context → next-step close",
+        example: [
+          "My recommendation is Option B.",
+          "The main reason is lower delivery risk.",
+          "I can walk through the comparison if useful.",
+          "If you agree, I will confirm with the vendor by Friday.",
+        ],
+      },
+      {
+        label: "Update chain",
+        sequence: "Status headline → risk flag → ask → stop",
+        example: [
+          "We are on track for the March release.",
+          "One risk: the API migration is running a week behind.",
+          "I need a decision on whether to add contract cover.",
+          "That is everything from me.",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC024", reason: "Lead With the Ask is BLUF applied specifically to requests — the ask is the bottom line." },
+      { id: "TC018", reason: "Crisp Brevity keeps the sentences short once BLUF has put them in the right order." },
+      { id: "TC011", reason: "PREP gives you a full structure — point, reason, example, point — when one sentence is not enough." },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -1032,6 +1194,46 @@ export const CARD_DATA: Record<string, CardData> = {
           "I made it harder than it needed to be.",
           "I am not saying all of it was me — I am saying my part contributed.",
           "I am sorry for the way I said it, not necessarily what I said.",
+        ],
+      },
+      {
+        id: "repair-reconnect",
+        label: "Door Openers",
+        tag: "Inviting the relationship forward",
+        tone: "Warm",
+        phrases: [
+          "I would like us to be all right again.",
+          "Can we come back to it when you are ready?",
+          "I care more about us than about being right on this one.",
+          "No rush — I just did not want to leave it unsaid.",
+          "Whenever you want to talk about it, I am up for it.",
+          "I would rather fix this than win it.",
+        ],
+      },
+      {
+        id: "repair-work",
+        label: "Workplace Repair",
+        tag: "Clearing the air professionally",
+        tone: "Professional",
+        phrases: [
+          "Before we move on to today's agenda, I want to clear the air about last week.",
+          "I did not think our last exchange was up to the standard we usually work at.",
+          "I want to reset how that discussion ended so it does not affect the project.",
+          "Can I take two minutes on something from Tuesday's meeting?",
+          "I value how we work together, and I did not want that conversation to dent it.",
+        ],
+      },
+      {
+        id: "repair-serious",
+        label: "Serious Ruptures",
+        tag: "When the damage is real",
+        tone: "High-stakes",
+        phrases: [
+          "I know an apology does not undo it. I want to say it anyway.",
+          "I have thought hard about this, and I was wrong.",
+          "You do not have to respond to this now. I just needed you to know I see it.",
+          "I understand if it takes time. I am not asking you to be fine.",
+          "What I did is not who I want to be, and I want to talk about how I make it right.",
         ],
       },
     ],
@@ -1102,6 +1304,127 @@ export const CARD_DATA: Record<string, CardData> = {
       "When you have no genuine ownership to take — empty apologies make ruptures worse.",
       "When the friction was minor and naming it formally elevates it unnecessarily.",
     ],
+    whatItIsNot: [
+      "Not grovelling — over-apologising shifts the burden onto them to reassure you.",
+      "Not re-litigating the original argument — the repair opens the door; it does not restage the fight.",
+      "It is naming the rupture plainly and taking your specific part, so the silence stops doing damage.",
+    ],
+    influencePayoff: {
+      feeling: "They come back when it matters — I can trust this relationship under strain.",
+      principle: "Relationships are defined less by their conflicts than by how reliably they are repaired.",
+      gains: [
+        "Deeper trust after conflict than before it",
+        "A reputation for maturity under friction",
+        "Shorter, less damaging arguments over time",
+        "Colleagues and partners who raise issues early",
+        "Less background dread between conversations",
+      ],
+      whyMostFail: [
+        "They wait for the other person to go first.",
+        "They pretend it did not happen and hope time fixes it.",
+        "They apologise vaguely for everything instead of specifically for their part.",
+        "They reopen the argument in the middle of the apology.",
+      ],
+    },
+    fieldTip: {
+      headline: "Repair the way it was said before what was said.",
+      body: "Most ruptures are eighty per cent tone and twenty per cent content. Owning your delivery is usually honest, costs you nothing on the substance, and softens the ground for the real disagreement.",
+      example: "You still think you were right, but the exchange got sharp.",
+      dont: "'Fine, I am sorry, whatever you want.'",
+      do: "'I stand by my concern, but not the way I raised it. That is the part I am sorry for.'",
+    },
+    method: [
+      {
+        step: "Name",
+        title: "Name the rupture lightly",
+        body: "Say plainly that the last exchange was not right — one sentence, no drama, no forensic replay. Naming it is the move; detailing it reopens it.",
+        examples: [
+          { label: "Too heavy", text: "'We need to have a serious talk about everything that happened on Tuesday.'" },
+          { label: "Light", text: "'Tuesday was harder than I wanted it to be.'" },
+        ],
+      },
+      {
+        step: "Own",
+        title: "Take your part, specifically",
+        body: "Own one concrete thing you actually did — tone, timing, defensiveness, not listening. Specific ownership is credible; blanket apology is noise.",
+        examples: [
+          { label: "Vague", text: "'I am sorry about all of it.'" },
+          { label: "Specific", text: "'I came in too hot and talked over you. That is on me.'" },
+        ],
+      },
+      {
+        step: "Reopen",
+        title: "Reopen the door and stop",
+        body: "Invite the relationship forward, then leave space. The invitation only works if they are free to take their time with it.",
+        examples: [
+          { label: "Pressuring", text: "'So are we good now? Can we just move past it?'" },
+          { label: "Open", text: "'I would like to come back to it whenever suits you.'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "Waiting for them to go first",
+        soundsLike: "(Days of polite, careful silence)",
+        better: "'I did not want to leave it where it ended.'",
+      },
+      {
+        mistake: "The non-apology",
+        soundsLike: "'I am sorry you took it that way.'",
+        better: "'I am sorry for how I said it — it came out sharper than I meant.'",
+      },
+      {
+        mistake: "Owning everything",
+        soundsLike: "'You are right, it was all my fault, I am a nightmare.'",
+        better: "'My part was interrupting you. I can own that piece properly.'",
+      },
+      {
+        mistake: "Restaging the fight inside the repair",
+        soundsLike: "'I am sorry I shouted — but you have to admit you started it.'",
+        better: "Own your part cleanly and leave their part for them.",
+      },
+      {
+        mistake: "Repairing before they can hear it",
+        soundsLike: "Chasing them down the corridor mid-anger",
+        better: "'No need to respond now — I just did not want to leave it unsaid.'",
+      },
+    ],
+    recoveryPhrases: [
+      "That apology came out defensive. Let me try again.",
+      "I am doing the thing where I explain instead of owning it.",
+      "I did not mean to reopen the argument — I wanted to close it.",
+      "I hear that it is too soon. I can wait.",
+      "That was a worse apology than you deserved. Take two.",
+      "I am fumbling this, but the intent is real: I want us to be all right.",
+    ],
+    bestRecoveryLine: "'I did not mean to reopen the argument — I wanted to close it.'",
+    chains: [
+      {
+        label: "Full repair chain",
+        sequence: "Name the rupture → own your part → validate theirs → reopen the door",
+        example: [
+          "Last night was rough, and I have been thinking about it.",
+          "I came in sharp and did not really listen.",
+          "It makes sense that you shut down at that point.",
+          "I would like to try that conversation again, properly.",
+        ],
+      },
+      {
+        label: "Workplace reset chain",
+        sequence: "Clear the air → own delivery → restate shared goal → return to work",
+        example: [
+          "Before we start — I want to clear the air about Thursday.",
+          "I pushed my point harder than the moment needed.",
+          "We both want this launch to go well.",
+          "With that said properly, shall we get into the plan?",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC016", reason: "Validation Without Agreement lets you honour their experience of the rupture without conceding the original point." },
+      { id: "TC007", reason: "Disagreement Without Contempt prevents the next disagreement from needing a repair at all." },
+      { id: "TC014", reason: "Validate the Concern is the receiving side — how to respond well when someone brings a rupture to you." },
+    ],
   },
 
   /* ──────────────────────────────────────────────
@@ -1152,6 +1475,46 @@ export const CARD_DATA: Record<string, CardData> = {
           "Flag me if that timeline does not work.",
           "Does anything in that ask need clarification?",
           "I want to make sure that lands clearly — any questions?",
+        ],
+      },
+      {
+        id: "request-micro",
+        label: "Micro-Requests",
+        tag: "Small asks, zero ambiguity",
+        tone: "Quick",
+        phrases: [
+          "Two minutes of your time before 3?",
+          "One favour: send me the link when you get a second.",
+          "Quick one — can you confirm yes or no by lunch?",
+          "Can you glance at this today? One paragraph.",
+          "When you are next at your desk, can you forward me the file?",
+        ],
+      },
+      {
+        id: "request-delegation",
+        label: "Delegation Requests",
+        tag: "Handing work over cleanly",
+        tone: "Professional",
+        phrases: [
+          "I would like you to own this end to end — scope is X, deadline is Friday.",
+          "The outcome I need is X. How you get there is your call.",
+          "Success looks like: the client signs off without a second round.",
+          "You have the full decision on everything except budget — that comes back to me.",
+          "Check in with me at the halfway point, otherwise it is yours.",
+          "If you hit a blocker, bring it to me within a day rather than sitting on it.",
+        ],
+      },
+      {
+        id: "request-personal",
+        label: "Personal Asks",
+        tag: "Clean requests in close relationships",
+        tone: "Warm",
+        phrases: [
+          "It would mean a lot if you could be there on Saturday.",
+          "Can I ask you for a proper favour, and you can absolutely say no?",
+          "What would really help me this week is one evening without plans.",
+          "I need a hand with something — is Sunday morning any good?",
+          "Would you read this and tell me honestly what you think?",
         ],
       },
     ],
@@ -1220,6 +1583,136 @@ export const CARD_DATA: Record<string, CardData> = {
       "When the relationship is such that a formal request would feel clinical or cold.",
       "In brainstorming contexts where you want open-ended input rather than a specific deliverable.",
       "When you genuinely do not know what you need — clarify that first, then make the request.",
+    ],
+    whatItIsNot: [
+      "Not bossiness — a clean request is easier to decline than a vague one, which is what makes it fair.",
+      "Not a demand dressed up in politeness — the other person keeps a real choice.",
+      "It is removing the guesswork: what, by when, and why it matters, in one breath.",
+    ],
+    influencePayoff: {
+      feeling: "I always know exactly what they need from me — helping them is easy.",
+      principle: "People say yes more often, and resent it less, when the ask is specific enough to evaluate.",
+      gains: [
+        "Fewer rounds of clarifying back-and-forth",
+        "Higher-quality results delivered first time",
+        "A reputation for being easy to help",
+        "Less chasing and fewer missed expectations",
+        "More honest nos — which protects the relationship",
+      ],
+      whyMostFail: [
+        "They hint instead of asking, then feel resentful when the hint is missed.",
+        "They soften the ask until the deadline disappears.",
+        "They bundle three requests into one and get none of them.",
+        "They mistake vagueness for politeness.",
+      ],
+    },
+    fieldTip: {
+      headline: "The kindest request is the clearest one.",
+      body: "Vague asks feel polite to make but are expensive to receive — the other person has to reconstruct what you actually need. Precision is a gift: it lets them succeed on the first attempt.",
+      example: "You need a colleague's review before a client call.",
+      dont: "'If you get a chance, could you maybe look at the deck at some point?'",
+      do: "'Can you review slides 3-8 by 2 pm? The client call is at 3.'",
+    },
+    method: [
+      {
+        step: "Specify",
+        title: "Say exactly what you need",
+        body: "Name the deliverable concretely enough that they could hand it to you without another question. 'Look at this' is not a request; 'check the numbers in the summary table' is.",
+        examples: [
+          { label: "Vague", text: "'Can you take a look at the report?'" },
+          { label: "Specific", text: "'Can you sanity-check the revenue figures on page 2?'" },
+        ],
+      },
+      {
+        step: "Anchor",
+        title: "Attach the deadline",
+        body: "A request without a time is a wish. Give a real deadline — and if it is genuinely flexible, say what 'soon' actually means.",
+        examples: [
+          { label: "Wish", text: "'Whenever you get a chance.'" },
+          { label: "Anchored", text: "'By Thursday morning, so I can include it in the pack.'" },
+        ],
+      },
+      {
+        step: "Motivate",
+        title: "Give the one-line why",
+        body: "One sentence on why it matters converts the request from an order into a shared goal. More than one sentence and you are justifying, not motivating.",
+        examples: [
+          { label: "Why", text: "'It feeds straight into the board pack.'" },
+          { label: "Why", text: "'I cannot book the venue until I have your yes.'" },
+        ],
+      },
+      {
+        step: "Stop",
+        title: "One ask — then silence",
+        body: "Make the single most important request and stop talking. Stacked asks compete; the pause gives them room to say yes, no, or 'not by then' honestly.",
+        examples: [
+          { label: "Stacked", text: "'...and while you are in there, could you also update the...'" },
+          { label: "Clean", text: "'That is the one thing I need. Anything unclear?'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "Hinting instead of asking",
+        soundsLike: "'It would be great if someone could deal with the invoices...'",
+        better: "'Sam, can you process the invoices by Friday?'",
+      },
+      {
+        mistake: "The vanishing deadline",
+        soundsLike: "'No rush at all, whenever suits.'",
+        better: "'Genuinely not urgent — any time before the end of the month.'",
+      },
+      {
+        mistake: "Bundling requests",
+        soundsLike: "'Can you do X, and also Y, and maybe Z if there is time?'",
+        better: "'The priority is X by Friday. I will come back to the rest separately.'",
+      },
+      {
+        mistake: "Justifying at length",
+        soundsLike: "Three paragraphs of background before the ask",
+        better: "'One-line why, then the ask — context available on request.'",
+      },
+      {
+        mistake: "Asking without an owner",
+        soundsLike: "'Can someone pick this up?' (to a group)",
+        better: "'Alex — can you own this one?'",
+      },
+    ],
+    recoveryPhrases: [
+      "That was vaguer than I meant. The specific ask is this.",
+      "I should have been clearer — what I actually need is X by Y.",
+      "Let me re-ask that properly.",
+      "I realise I never gave you a deadline. It is Thursday.",
+      "I stacked three asks there. The one that matters is the first.",
+      "My ask was unclear, so the miss is on me. Can we reset it?",
+    ],
+    bestRecoveryLine: "'I should have been clearer — what I actually need is X by Y.'",
+    chains: [
+      {
+        label: "Delegation chain",
+        sequence: "Clean request → why it matters → check for blockers → confirm ownership",
+        example: [
+          "I need the client summary drafted by Wednesday noon.",
+          "It goes straight into Thursday's pitch.",
+          "Any blockers I should know about now?",
+          "Great — it is yours. Flag me if anything shifts.",
+        ],
+      },
+      {
+        label: "Favour chain",
+        sequence: "Permission → clean ask → genuine opt-out → thanks",
+        example: [
+          "Can I ask you a real favour?",
+          "I need a lift to the airport on Sunday at 7.",
+          "It is completely fine to say no — I have a backup.",
+          "You are a legend. I owe you one.",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC003", reason: "BLUF puts the request in the first sentence of a longer message — the ask is the bottom line." },
+      { id: "TC015", reason: "Next-Step Close is the meeting-level version: one owner, one action, one deadline." },
+      { id: "TC012", reason: "Boundary Without Blame is the mirror image — how to answer someone else's request with a clean no." },
     ],
   },
 
@@ -1391,6 +1884,46 @@ export const CARD_DATA: Record<string, CardData> = {
           "I want to understand your reasoning before I push back harder.",
         ],
       },
+      {
+        id: "disagreement-upward",
+        label: "Disagreeing Upward",
+        tag: "Pushing back on someone senior",
+        tone: "High-stakes",
+        phrases: [
+          "Can I offer a different read before we lock this in?",
+          "I want to flag a risk in this plan while there is still time to adjust.",
+          "You may well see something I do not — from where I sit, X looks like a problem.",
+          "I would not be doing my job if I did not raise this.",
+          "If we go this route, I want my concern on the record — then I am fully behind the decision.",
+          "May I push back on one part of that?",
+        ],
+      },
+      {
+        id: "disagreement-meetings",
+        label: "Meeting Disagreement",
+        tag: "Dissent that keeps the room working",
+        tone: "Professional",
+        phrases: [
+          "I want to offer a counter-view so we pressure-test this properly.",
+          "Before we converge — can I argue the other side for two minutes?",
+          "I agree with the goal and disagree with the route.",
+          "There is a version of this I could support — it differs in one key way.",
+          "Let me steelman the proposal first, then say where I part ways.",
+        ],
+      },
+      {
+        id: "disagreement-cooldown",
+        label: "Heat Reducers",
+        tag: "When the disagreement got sharp",
+        tone: "Repair",
+        phrases: [
+          "That came out harder than I intended. The disagreement stands; the edge does not.",
+          "We have drifted from the issue to each other. Can we come back to the issue?",
+          "I am arguing to win instead of to understand. Let me reset.",
+          "We clearly both care about this. That is a good starting point.",
+          "Can we take five and come back to it? I want to disagree better than this.",
+        ],
+      },
     ],
     decisionTree: [
       { condition: "You disagree strongly and feel contempt rising", action: "Pause. Separate the idea from the person. Then respond.", phrase: "I want to be direct about this without being dismissive." },
@@ -1458,6 +1991,132 @@ export const CARD_DATA: Record<string, CardData> = {
       "When the other person's position is genuinely harmful and requires sharp, unambiguous challenge — softness can imply tacit endorsement.",
       "In high-stakes negotiations where tactical firmness is operationally necessary.",
       "When you have already tried respectful disagreement repeatedly and the priority is clarity over tone.",
+    ],
+    whatItIsNot: [
+      "Not agreeing to keep the peace — the disagreement itself stays fully intact.",
+      "Not sandwiching criticism in compliments — people see through padding.",
+      "It is removing the sneer: challenging the idea at full strength while signalling the person still has your respect.",
+    ],
+    influencePayoff: {
+      feeling: "I can bring them my half-formed ideas — they will challenge the thinking, not me.",
+      principle: "People can absorb almost any disagreement about their ideas, and almost none about their worth.",
+      gains: [
+        "Disagreements that make decisions better instead of relationships worse",
+        "A reputation for being safe to think out loud with",
+        "Influence that survives being on the losing side of an argument",
+        "Earlier warnings — people bring you problems while they are still small",
+        "Less defensiveness aimed back at you",
+      ],
+      whyMostFail: [
+        "Their words disagree with the idea while their face dismisses the person.",
+        "They reach for sarcasm when they feel most certain.",
+        "They treat being right as licence to be harsh.",
+        "They save disagreement until it has fermented into resentment.",
+      ],
+    },
+    fieldTip: {
+      headline: "Contempt leaks through the channel you are not watching.",
+      body: "You can script perfect words and still lose the exchange through a sigh, a smirk, an eye-roll, or the word 'obviously'. Before disagreeing, check the non-verbal channel first — it is the one they believe.",
+      example: "A colleague proposes something you think is clearly wrong.",
+      dont: "(Sigh) 'Right. Okay. Sure. Let's examine that.'",
+      do: "'I see it differently — walk me through your thinking and then I will give you mine.'",
+    },
+    method: [
+      {
+        step: "Strip",
+        title: "Strip the dismissal signals",
+        body: "Clear tone, face, and body language of contempt before you speak: no sighs, eye-rolls, sarcasm, or 'obviously'. The content of your disagreement never gets a hearing if the delivery sneers.",
+        examples: [
+          { label: "Leaks contempt", text: "'Obviously that would never work.'" },
+          { label: "Clean", text: "'I do not think that works, and I can say exactly why.'" },
+        ],
+      },
+      {
+        step: "Target",
+        title: "Disagree with the idea, not the person",
+        body: "Aim every sentence at the position, the plan, or the data — never at competence or character. The sharper your disagreement, the more precisely it should be targeted.",
+        examples: [
+          { label: "At the person", text: "'You clearly have not thought this through.'" },
+          { label: "At the idea", text: "'This plan assumes demand stays flat — I think that assumption fails.'" },
+        ],
+      },
+      {
+        step: "Stay",
+        title: "Stay genuinely curious",
+        body: "Hold the possibility that you are missing something, and ask like you mean it. Curiosity is not a softener — it is how you find out whether your disagreement survives contact with their reasoning.",
+        examples: [
+          { label: "Fake curiosity", text: "'Enlighten me. How could that possibly work?'" },
+          { label: "Real curiosity", text: "'What am I not seeing that makes you confident here?'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "Contempt through the back channel",
+        soundsLike: "Polite words, rolled eyes",
+        better: "Match your non-verbals to your words — or say nothing yet.",
+      },
+      {
+        mistake: "Sarcasm as disagreement",
+        soundsLike: "'Oh brilliant, another reorg. That always goes well.'",
+        better: "'I am sceptical — the last two reorgs cost more than they returned.'",
+      },
+      {
+        mistake: "Character verdicts",
+        soundsLike: "'That is naive.'",
+        better: "'I think that underestimates the supplier risk.'",
+      },
+      {
+        mistake: "The fake question",
+        soundsLike: "'Do you really think that is a good idea?'",
+        better: "'I do not think it is the right call — here is my reasoning.'",
+      },
+      {
+        mistake: "Winning the exchange, losing the person",
+        soundsLike: "Pressing every advantage until they go quiet",
+        better: "'We disagree on the route and agree on the destination. Let us work from there.'",
+      },
+      {
+        mistake: "Told-you-so energy when proven right",
+        soundsLike: "'As I said at the time...'",
+        better: "'The data backs the earlier concern. How do we adjust?'",
+      },
+    ],
+    recoveryPhrases: [
+      "That came out with more edge than the point needed.",
+      "I dismissed that too fast. Say it again — I will actually listen.",
+      "I was scoring points instead of making one. Let me restate it properly.",
+      "My tone just undercut my own argument. The argument is still worth hearing.",
+      "I disagree with the idea, and I realise it just sounded like I disagreed with you.",
+      "Let me take the sarcasm out and say it straight.",
+    ],
+    bestRecoveryLine: "'I disagree with the idea, and I realise it just sounded like I disagreed with you.'",
+    chains: [
+      {
+        label: "Pushback chain",
+        sequence: "Acknowledge the goal → state the disagreement → give the reason → invite the counter",
+        example: [
+          "We both want this shipped by March.",
+          "I disagree that cutting testing gets us there.",
+          "The last release we rushed cost us three weeks in fixes.",
+          "What am I missing that makes the risk acceptable this time?",
+        ],
+      },
+      {
+        label: "De-escalation chain",
+        sequence: "Name the heat → separate issue from person → restate both positions → resume",
+        example: [
+          "This has got sharper than it needs to be.",
+          "The question is the budget, not either of us.",
+          "You think we underspend on brand; I think the funnel leaks first.",
+          "Can we test which assumption is right?",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC017", reason: "Agreement Before Disagreement finds the shared ground first, so the pushback lands on a foundation." },
+      { id: "TC016", reason: "Validation Without Agreement lets you honour their reasoning fully before dismantling the conclusion." },
+      { id: "TC004", reason: "Repair Opening is the recovery move when a disagreement has already turned into a rupture." },
     ],
   },
 
@@ -1981,6 +2640,46 @@ export const CARD_DATA: Record<string, CardData> = {
           "The version I could commit to is...",
         ],
       },
+      {
+        id: "boundary-personal",
+        label: "Personal Boundaries",
+        tag: "Close relationships, kept warm",
+        tone: "Warm",
+        phrases: [
+          "I love that you thought of me, and I need to sit this one out.",
+          "I want to be there for you, and I also need tonight to recharge.",
+          "I care about this friendship, which is why I am being honest instead of vague.",
+          "That topic is off-limits for me — happily talk about anything else.",
+          "I need us to find a different way to handle this, because the current way wears me down.",
+        ],
+      },
+      {
+        id: "boundary-workload",
+        label: "Workload Boundaries",
+        tag: "Protecting capacity professionally",
+        tone: "Professional",
+        phrases: [
+          "My plate is full — if this is the new priority, something needs to come off.",
+          "I can take this on from Monday, not before.",
+          "I finish at six today; I will pick this up first thing tomorrow.",
+          "For quality reasons I cap myself at two of these per week.",
+          "I do not check messages on leave — Jordan is covering anything urgent.",
+          "Happy to help scope it, but I cannot be the owner.",
+        ],
+      },
+      {
+        id: "boundary-hold",
+        label: "Holding Under Pressure",
+        tag: "When the pushback comes",
+        tone: "High-stakes",
+        phrases: [
+          "I have heard everything you said, and the answer is still no.",
+          "Asking again will not change it — I do not want this to strain us.",
+          "I am not going to argue the boundary. It is just where I stand.",
+          "You do not have to agree with it. I do need you to respect it.",
+          "The guilt is mine to manage. The answer stays the same.",
+        ],
+      },
     ],
     decisionTree: [
       { condition: "Someone is making a request that crosses a limit", action: "Name the limit as a need. Offer an alternative if one exists.", phrase: "I am not able to take that on. I can do X instead." },
@@ -2048,6 +2747,141 @@ export const CARD_DATA: Record<string, CardData> = {
       "When the behaviour is so serious that a firm objection — not a politely framed boundary — is the right response.",
       "In safety-critical situations requiring immediate compliance rather than a collaborative conversation.",
       "In significant power imbalances where a boundary will be ignored or punished — escalation through other channels may be needed.",
+    ],
+    whatItIsNot: [
+      "Not an ultimatum — a boundary states what you will do, not what they must do.",
+      "Not a verdict on their behaviour — the moment it becomes an accusation, it invites a defence.",
+      "It is a clean statement of your limit, held steadily, with the relationship kept warm around it.",
+    ],
+    influencePayoff: {
+      feeling: "Their yes means something, because their no is real.",
+      principle: "People trust — and stop testing — those whose limits are clear, consistent, and blame-free.",
+      gains: [
+        "Yeses that are genuine instead of resentful",
+        "Fewer boundary tests over time",
+        "Respect from the very people who push hardest",
+        "Energy protected for the commitments that matter",
+        "Closer relationships — resentment stops accumulating silently",
+      ],
+      whyMostFail: [
+        "They wrap the boundary in blame, which starts a fight about the framing.",
+        "They over-explain until the no sounds negotiable.",
+        "They set the boundary but abandon it at the first pushback.",
+        "They say yes for months, then detonate over something small.",
+      ],
+    },
+    fieldTip: {
+      headline: "Say it as your need, not their fault.",
+      body: "The same limit can be an attack or a fact depending on the subject of the sentence. Start from 'I need' rather than 'you always', and the listener has nothing to defend against.",
+      example: "A colleague keeps messaging you late at night.",
+      dont: "'You have no respect for anyone's evenings.'",
+      do: "'I switch off at seven. Anything after that, I will pick up in the morning.'",
+    },
+    method: [
+      {
+        step: "Locate",
+        title: "Find the actual limit",
+        body: "Before speaking, know precisely what you can and cannot sustain. A boundary you have not defined for yourself will wobble the moment it is questioned.",
+        examples: [
+          { label: "Undefined", text: "'I am just really stretched at the moment...'" },
+          { label: "Located", text: "'I can do the analysis. I cannot also present it on Friday.'" },
+        ],
+      },
+      {
+        step: "State",
+        title: "State it as your need",
+        body: "One sentence, first person, no charge sheet. Describe the limit you are keeping, not the behaviour you are prosecuting.",
+        examples: [
+          { label: "Blame", text: "'You always dump things on me last minute.'" },
+          { label: "Need", text: "'I need two days' notice to do this properly.'" },
+        ],
+      },
+      {
+        step: "Offer",
+        title: "Invite the alternative",
+        body: "Where one honestly exists, offer what you can do — it shows the no is about the limit, not the person. If there is no alternative, do not invent one.",
+        examples: [
+          { label: "Offer", text: "'I cannot take the full project. I could review the final draft.'" },
+          { label: "No offer", text: "'This one is a clean no from me.'" },
+        ],
+      },
+      {
+        step: "Hold",
+        title: "Hold without escalating",
+        body: "If they push, do not add new reasons — repetition, calm and unchanged, is the answer. Every fresh justification reopens the negotiation.",
+        examples: [
+          { label: "Wobbling", text: "'Well... I suppose if it is really urgent I could maybe...'" },
+          { label: "Holding", text: "'I understand it is inconvenient. My answer is still no.'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "Boundary wrapped in blame",
+        soundsLike: "'You clearly think my time is worthless.'",
+        better: "'I need my evenings offline. I will reply first thing.'",
+      },
+      {
+        mistake: "The negotiable no",
+        soundsLike: "'I probably can't... I mean, unless it is really important?'",
+        better: "'I cannot this week. If it can wait until Monday, I am in.'",
+      },
+      {
+        mistake: "Over-explaining",
+        soundsLike: "Five reasons, each inviting a rebuttal",
+        better: "'That does not work for me.' — and stop.",
+      },
+      {
+        mistake: "Boundary as punishment",
+        soundsLike: "Announcing it mid-argument as a weapon",
+        better: "Set it in a calm moment, as information rather than retaliation.",
+      },
+      {
+        mistake: "The silent boundary",
+        soundsLike: "Saying yes and quietly seething",
+        better: "'I need to be honest — I cannot keep doing this at short notice.'",
+      },
+      {
+        mistake: "Collapsing at guilt",
+        soundsLike: "'Fine, fine, I will do it, do not look at me like that.'",
+        better: "'I feel bad saying no. I am still saying no.'",
+      },
+    ],
+    recoveryPhrases: [
+      "That came out as an accusation — I meant it as a limit. Let me re-say it.",
+      "I am over-explaining. The short version: I cannot do it.",
+      "I said yes yesterday and it was not honest. I need to change my answer.",
+      "The boundary stands, but the tone was off. That part I will own.",
+      "I let this slide so long that it might surprise you now — that is on me.",
+      "I do not need you to like the boundary. I would like us to still be fine.",
+    ],
+    bestRecoveryLine: "'That came out as an accusation — I meant it as a limit. Let me re-say it.'",
+    chains: [
+      {
+        label: "Clean no chain",
+        sequence: "Appreciate the ask → state the limit → offer the alternative → hold",
+        example: [
+          "Thanks for thinking of me for this.",
+          "I cannot take it on this month.",
+          "What I can do is an hour to help you plan the approach.",
+          "Beyond that, it has to be a no.",
+        ],
+      },
+      {
+        label: "Pattern change chain",
+        sequence: "Name the pattern neutrally → state the need → agree the new normal → appreciate",
+        example: [
+          "The late-Friday requests have become a regular thing.",
+          "I need those to reach me by Wednesday to do them well.",
+          "Can we make Wednesday the standing cut-off?",
+          "Thanks — that makes a real difference to my weekends.",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC008", reason: "No-Overexplaining Discipline is the muscle that keeps a boundary from dissolving into justifications." },
+      { id: "TC023", reason: "Bounded Deferment buys thinking time so you never set a boundary — or make a promise — under pressure." },
+      { id: "TC004", reason: "Repair Opening mends the relationship if a boundary conversation lands badly." },
     ],
   },
 
