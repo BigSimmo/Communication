@@ -2168,6 +2168,45 @@ export const CARD_DATA: Record<string, CardData> = {
           "Let me cut that down: ...",
         ],
       },
+      {
+        id: "stopping-work",
+        label: "Professional Full Stops",
+        tag: "Ending cleanly in work settings",
+        tone: "Professional",
+        phrases: [
+          "That is the update. Questions welcome.",
+          "Nothing further from me unless you want detail.",
+          "I will pause there — where would you like to go deeper?",
+          "That covers the decision. The appendix has the rest.",
+          "I have one point and I have made it.",
+        ],
+      },
+      {
+        id: "stopping-pressure",
+        label: "Holding the Stop",
+        tag: "When scrutiny tempts you to keep talking",
+        tone: "High-stakes",
+        phrases: [
+          "That is my answer. I am comfortable with it.",
+          "I have given you my reasoning. I will let it stand.",
+          "I do not have more to add — not because I am unsure, but because that is the whole point.",
+          "I would rather leave a clear point than bury it in defence.",
+          "If there is a specific gap, ask me — otherwise that is my position.",
+        ],
+      },
+      {
+        id: "stopping-soft",
+        label: "Warm Stops",
+        tag: "Brevity that stays kind",
+        tone: "Warm",
+        phrases: [
+          "That is the honest answer, short as it is.",
+          "I will leave it there — tell me if you want the longer story.",
+          "Short answer, said with love: no.",
+          "That is all I meant — nothing hidden behind it.",
+          "I am keeping it brief because it is simple, not because I do not care.",
+        ],
+      },
     ],
     decisionTree: [
       { condition: "You have made your point and feel the urge to add more", action: "Notice the urge. Pause. Say nothing. See if they respond.", phrase: "" },
@@ -2234,6 +2273,135 @@ export const CARD_DATA: Record<string, CardData> = {
       "When the audience genuinely needs context to evaluate your position — brevity without context can feel dismissive.",
       "In teaching situations where the explanation is the entire value.",
       "When legal, medical, or safety contexts require thorough disclosure regardless of length.",
+    ],
+    whatItIsNot: [
+      "Not withholding information — the detail stays available; it just waits to be asked for.",
+      "Not the same as brevity of wording — this is about stopping after the point, however long the point took.",
+      "It is trusting your own point enough to let it stand without scaffolding.",
+    ],
+    influencePayoff: {
+      feeling: "When they say something, they mean it — there is no anxious padding to wade through.",
+      principle: "Confidence is inferred less from what you say than from what you can leave unsaid.",
+      gains: [
+        "Points that land at full strength",
+        "Fewer challenges — padding is what invites them",
+        "Conversations that become two-way sooner",
+        "An air of composure under scrutiny",
+        "Answers people can actually remember",
+      ],
+      whyMostFail: [
+        "Silence after a point feels like danger, so they fill it.",
+        "They mistake the listener's thinking pause for disagreement.",
+        "Nerves convert into extra sentences.",
+        "Each added justification quietly weakens the previous one.",
+      ],
+    },
+    fieldTip: {
+      headline: "The silence after your point belongs to them, not you.",
+      body: "The urge to keep talking peaks in the three seconds after you finish — which is exactly when the other person is processing. Fill that gap and you interrupt your own point. Count to five before adding anything.",
+      example: "You have just given your recommendation and the room is quiet.",
+      dont: "'...and I mean, there are other options too, it is honestly not a big deal either way...'",
+      do: "(Hold the silence. Let them respond first.)",
+    },
+    method: [
+      {
+        step: "Point",
+        title: "Make the point once",
+        body: "Say the thing, complete and clear, a single time. One version, chosen in advance — not three drafts of it out loud.",
+        examples: [
+          { label: "Three drafts", text: "'It is too risky. I mean, the risk profile is wrong. What I am saying is the downside is too big.'" },
+          { label: "Once", text: "'The downside is too big for me to back it.'" },
+        ],
+      },
+      {
+        step: "Stop",
+        title: "Stop and hold",
+        body: "End with a full stop, not a trailing clause. Body language finishes too — settled posture, steady eye contact, no reflexive 'so, yeah'.",
+        examples: [
+          { label: "Trailing", text: "'...so, yeah, I do not know, that is kind of where I am at, I guess.'" },
+          { label: "Stopped", text: "'That is where I stand.'" },
+        ],
+      },
+      {
+        step: "Wait",
+        title: "Let them respond first",
+        body: "Give the silence to the other person. Their reply tells you whether more is wanted — guessing in advance is how monologues start.",
+        examples: [
+          { label: "Filling", text: "'...and another reason, in case that was not convincing...'" },
+          { label: "Waiting", text: "(Silence, until they speak.)" },
+        ],
+      },
+      {
+        step: "Add",
+        title: "Add one sentence only if pressed",
+        body: "When they ask for more, give exactly one sentence — then stop again. Detail delivered on request is persuasive; detail delivered pre-emptively is noise.",
+        examples: [
+          { label: "Flood", text: "'Well, since you ask, there are six factors...'" },
+          { label: "Measured", text: "'The main factor is supplier risk. Want the others?'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "Re-answering a question you already answered",
+        soundsLike: "'...so as I say, and just to reiterate the point again...'",
+        better: "Trust the first answer. Silence is not a request for a second one.",
+      },
+      {
+        mistake: "Stacking justifications",
+        soundsLike: "'...and also, and another thing, and to be fair...'",
+        better: "'That is my main reason. The rest is detail I can give you if useful.'",
+      },
+      {
+        mistake: "Diluting with qualifiers",
+        soundsLike: "'I sort of think, maybe, it could possibly be worth considering...'",
+        better: "'I think we should do it. There is one caveat worth knowing.'",
+      },
+      {
+        mistake: "Explaining the explanation",
+        soundsLike: "'What I meant when I said that was... and the reason I phrased it that way...'",
+        better: "'The point stands as I said it. Which part can I clarify?'",
+      },
+      {
+        mistake: "Treating a thinking pause as disagreement",
+        soundsLike: "(They pause; you immediately soften your position)",
+        better: "Hold. A pause is processing, not a verdict.",
+      },
+    ],
+    recoveryPhrases: [
+      "I am over-explaining. The point is simply this.",
+      "Let me stop rescuing that sentence — the answer is X.",
+      "I have said the same thing three ways. The first way was right.",
+      "I will stop there. I was adding noise, not signal.",
+      "You had my answer a minute ago — everything since was nerves.",
+      "Let me give you the short version I should have led with.",
+    ],
+    bestRecoveryLine: "'I have said the same thing three ways. The first way was right.'",
+    chains: [
+      {
+        label: "Scrutiny chain",
+        sequence: "Answer once → stop → absorb the pause → one sentence if pressed",
+        example: [
+          "I recommend we pass on this deal.",
+          "(Silence.)",
+          "The economics only work if renewals double, and I do not believe they will.",
+        ],
+      },
+      {
+        label: "Boundary chain",
+        sequence: "State the no → stop → resist the justification pull → hold",
+        example: [
+          "I cannot take this on this quarter.",
+          "(Pause — no reasons added.)",
+          "I understand it is not what you hoped to hear.",
+          "The answer is still no.",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC018", reason: "Crisp Brevity shortens the sentences; this discipline stops you adding more of them." },
+      { id: "TC029", reason: "Strategic Silence is the positive use of the pause you are learning not to fill." },
+      { id: "TC012", reason: "Boundary Without Blame depends on this muscle — a no survives only if it is not buried in justifications." },
     ],
   },
 
@@ -2522,6 +2690,45 @@ export const CARD_DATA: Record<string, CardData> = {
           "That showed up clearly when...",
         ],
       },
+      {
+        id: "prep-mini",
+        label: "Mini-PREP",
+        tag: "The structure at conversational size",
+        tone: "Quick",
+        phrases: [
+          "Yes — because it saves us a week. We saw that on the last sprint. So yes.",
+          "I would skip it. Low turnout last time. Skip it.",
+          "Worth doing: cheap, fast, and it worked in March. So do it.",
+          "No — the numbers do not support it. They did not in Q2 either. Still no.",
+          "My take: go early. Early worked for the pilot. Go early.",
+        ],
+      },
+      {
+        id: "prep-highstakes",
+        label: "PREP Under Pressure",
+        tag: "Interviews, vivas and put-on-the-spot moments",
+        tone: "High-stakes",
+        phrases: [
+          "Let me answer that directly, then give you my evidence.",
+          "My position has three parts: the claim, the reason, and what I saw that convinced me.",
+          "I will give you my conclusion first and then defend it.",
+          "That is a fair challenge — my answer is X, and here is the strongest case for it.",
+          "Give me ten seconds to structure this properly, because it deserves a clear answer.",
+        ],
+      },
+      {
+        id: "prep-closers",
+        label: "Point Restaters",
+        tag: "Closing the loop",
+        tone: "Direct",
+        phrases: [
+          "So, coming back to where I started: X.",
+          "Which is exactly why I say X.",
+          "All of that points the same way: X.",
+          "So my answer stands: X.",
+          "That is the evidence — and it is why I hold the view.",
+        ],
+      },
     ],
     decisionTree: [
       { condition: "You are asked an open-ended question with no structure", action: "Use PREP. State your point first.", phrase: "My view is... The reason I say that is..." },
@@ -2588,6 +2795,136 @@ export const CARD_DATA: Record<string, CardData> = {
       "In deeply emotional conversations where structure feels cold and clinical.",
       "In creative or brainstorming sessions where open-ended flow is more valuable than structured argument.",
       "When the relationship and context call for natural conversation rather than presentation mode.",
+    ],
+    whatItIsNot: [
+      "Not a script to recite — it is a spine to hang natural language on.",
+      "Not a way to sound clever — the structure serves the listener, not your image.",
+      "It is a complete logical arc — point, reason, evidence, point — small enough to hold under pressure.",
+    ],
+    influencePayoff: {
+      feeling: "Ask them anything and you get an answer you can act on.",
+      principle: "A structured answer is judged more competent than an unstructured one, even with identical content.",
+      gains: [
+        "Answers that survive interviews, vivas and boardrooms",
+        "A reputation for clear thinking",
+        "Less rambling under nerves — the structure carries you",
+        "Arguments that are easy to repeat to others",
+        "A calm start to hard questions: you always know sentence one",
+      ],
+      whyMostFail: [
+        "They start with background and hope a point emerges.",
+        "They give three weak reasons instead of one strong one.",
+        "Their examples are hypothetical instead of lived.",
+        "They forget the final restatement, so the answer trails off.",
+      ],
+    },
+    fieldTip: {
+      headline: "When your mind goes blank, PREP is the exit.",
+      body: "The structure is most valuable at the exact moment you feel least able to use it. Blanking on a hard question? Say your point — any defensible point — and the reason and example will queue up behind it.",
+      example: "Interviewer asks a question you did not prepare for.",
+      dont: "'Um, that is a really good question, I suppose there are lots of angles...'",
+      do: "'My honest answer is X. The reason I land there is Y. I saw it play out when Z.'",
+    },
+    method: [
+      {
+        step: "Point",
+        title: "State the point first",
+        body: "Open with your actual position in one sentence. If you cannot name your point, you are not ready to answer — buy time honestly instead.",
+        examples: [
+          { label: "Buried", text: "'Well, there is a lot of context to this...'" },
+          { label: "Led", text: "'I think we should ship in March.'" },
+        ],
+      },
+      {
+        step: "Reason",
+        title: "Give the one strongest reason",
+        body: "Pick your best reason and give it alone. A single strong reason invites agreement; a list invites the listener to attack the weakest.",
+        examples: [
+          { label: "List", text: "'...because of cost, and morale, and also competitors, and...'" },
+          { label: "One", text: "'The main reason: every month of delay costs us the January buyers.'" },
+        ],
+      },
+      {
+        step: "Example",
+        title: "Anchor it in something real",
+        body: "Use a specific, lived instance — named project, real numbers, actual outcome. Hypotheticals prove you can imagine; examples prove you have seen.",
+        examples: [
+          { label: "Hypothetical", text: "'Imagine if a customer churned because of this...'" },
+          { label: "Real", text: "'This is exactly why we lost the Hartley account in June.'" },
+        ],
+      },
+      {
+        step: "Point",
+        title: "Close the loop",
+        body: "Restate the point in fresh words. The restatement tells the listener the answer is complete — and it is the sentence they will remember.",
+        examples: [
+          { label: "Trailing off", text: "'...so, yeah, that is kind of the situation.'" },
+          { label: "Closed", text: "'Which is why March is the right call.'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "Evidence before point",
+        soundsLike: "'So last quarter this thing happened, and then another thing...'",
+        better: "'My conclusion is X. Last quarter is the evidence — here it is.'",
+      },
+      {
+        mistake: "Reason-stacking",
+        soundsLike: "'There are seven reasons...'",
+        better: "'One reason above all: X. The others are supporting detail.'",
+      },
+      {
+        mistake: "The vague example",
+        soundsLike: "'This kind of thing often happens in projects generally.'",
+        better: "'On the Meridian project, this exact failure cost us three weeks.'",
+      },
+      {
+        mistake: "No closing restatement",
+        soundsLike: "An answer that fades out after the example",
+        better: "'So: delay the launch. That is where the evidence points.'",
+      },
+      {
+        mistake: "PREP for everything",
+        soundsLike: "Structuring 'where shall we get lunch?' like a viva answer",
+        better: "Save the full arc for questions that carry weight.",
+      },
+    ],
+    recoveryPhrases: [
+      "I am rambling — let me come back to the point, which is X.",
+      "Let me restart that answer with the conclusion first.",
+      "I gave you the example before the point. The point is X.",
+      "That was three weak reasons. The strong one is this.",
+      "Let me close the loop properly: my answer is X.",
+      "I lost my own thread — the question deserves a cleaner answer. Here it is.",
+    ],
+    bestRecoveryLine: "'I am rambling — let me come back to the point, which is X.'",
+    chains: [
+      {
+        label: "Interview chain",
+        sequence: "PREP the answer → stop → invite the follow-up → PREP the follow-up",
+        example: [
+          "My biggest strength is turning ambiguity into a plan. I have done it on every project that mattered — most recently the platform migration, where I turned a vague mandate into a six-week roadmap. That is the thing I reliably bring.",
+          "(Stop. Wait.)",
+          "Happy to go deeper on the migration if useful.",
+          "The short version: three workstreams, one owner each, shipped a week early.",
+        ],
+      },
+      {
+        label: "Recommendation chain",
+        sequence: "PREP the case → invite challenge → answer the challenge → next-step close",
+        example: [
+          "We should consolidate the two tools. It halves the licence cost, and the Bristol team already proved the workflow works. Consolidation is the move.",
+          "What would need to be true for you to disagree?",
+          "Fair point on migration risk — the Bristol rollout gives us the playbook for it.",
+          "If you are comfortable, I will scope the migration next week.",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC003", reason: "BLUF is the first quarter of PREP — when one sentence is enough, stop there." },
+      { id: "TC008", reason: "No-Overexplaining Discipline is what keeps the structure from sprouting extra reasons." },
+      { id: "TC026", reason: "Decision Frame structures the decision itself, where PREP structures your argument within it." },
     ],
   },
 
@@ -3052,6 +3389,45 @@ export const CARD_DATA: Record<string, CardData> = {
           "I want to understand the concern fully before I try to address it.",
         ],
       },
+      {
+        id: "validation-work",
+        label: "Stakeholder Validation",
+        tag: "Clients, sponsors and senior audiences",
+        tone: "Professional",
+        phrases: [
+          "You are right to press on this — it is the part of the plan with the most risk.",
+          "That question is exactly the one we asked ourselves. Here is where we landed.",
+          "If I were funding this, I would want the same reassurance.",
+          "The concern is legitimate, and it deserves a proper answer rather than a quick one.",
+          "Let me play the concern back to check I have it: you are worried that X. Is that the core?",
+        ],
+      },
+      {
+        id: "validation-heat",
+        label: "Validation Under Fire",
+        tag: "When they are angry, not just worried",
+        tone: "High-stakes",
+        phrases: [
+          "You are angry, and given what happened, that is fair.",
+          "I am not going to defend this until I have properly heard it.",
+          "If that had happened to me, I would be in this office too.",
+          "Say the whole thing — I am not going anywhere.",
+          "This clearly is not a small thing to you, so I am not going to treat it like one.",
+        ],
+      },
+      {
+        id: "validation-bridge",
+        label: "Bridge to Response",
+        tag: "Moving from heard to answered",
+        tone: "Direct",
+        phrases: [
+          "Now that I understand it, here is what I can do about it.",
+          "You have been heard — let me tell you what happens next.",
+          "That is the concern. Here is my answer to each part of it.",
+          "I have the full picture now. My response is this.",
+          "Given everything you have said, here is where I land.",
+        ],
+      },
     ],
     decisionTree: [
       { condition: "Someone raises a concern before you have responded", action: "Validate the concern before answering.", phrase: "That concern is valid. Let me make sure I have understood it before I respond." },
@@ -3118,6 +3494,127 @@ export const CARD_DATA: Record<string, CardData> = {
       "When the concern is unfounded and validating it would reinforce a false belief.",
       "In situations requiring urgent action where pausing to validate delays a critical response.",
       "When someone is using the concern manipulatively to avoid accountability.",
+    ],
+    whatItIsNot: [
+      "Not agreeing that the concern is correct — validating is receiving it, not conceding it.",
+      "Not a stalling tactic before delivering the answer you already had.",
+      "It is proving the concern arrived intact before you respond — so your response lands on open ears.",
+    ],
+    influencePayoff: {
+      feeling: "I can bring them a problem and it will be taken seriously, not batted away.",
+      principle: "People cannot hear your answer while they are still trying to make you hear their concern.",
+      gains: [
+        "De-escalation without concession",
+        "Concerns raised early, while they are still cheap to fix",
+        "Responses that land because they are targeted at the real worry",
+        "Fewer repeated complaints — being heard once is usually enough",
+        "Trust from clients and reports that survives bad news",
+      ],
+      whyMostFail: [
+        "They hear the first sentence of the concern and start composing the rebuttal.",
+        "Their validation is a formality: 'I hear you, BUT...'",
+        "They answer the stated concern and miss the real one underneath.",
+        "They validate and then never actually respond, which reads as evasion.",
+      ],
+    },
+    fieldTip: {
+      headline: "Validate the concern they meant, not the sentence they said.",
+      body: "Stated concerns are often proxies — 'the deadline worries me' can mean 'I do not want to be blamed'. Play back what you heard and ask if it is the core. The correction you get is the real concern.",
+      example: "A report says the new process 'seems complicated'.",
+      dont: "'It is actually quite simple — look at the flowchart.'",
+      do: "'Complicated how — hard to learn, or risky when it goes wrong?'",
+    },
+    method: [
+      {
+        step: "Receive",
+        title: "Let the whole concern land",
+        body: "Hear it out without composing your reply. The discipline is internal: while they are talking, your only job is understanding, not rebuttal.",
+        examples: [
+          { label: "Composing", text: "(Nodding while mentally drafting the defence)" },
+          { label: "Receiving", text: "'Go on — I want the full version.'" },
+        ],
+      },
+      {
+        step: "Reflect",
+        title: "Say it back in your own words",
+        body: "Paraphrase the concern and check the paraphrase. Getting it slightly wrong and being corrected is a feature — the correction is where the real concern lives.",
+        examples: [
+          { label: "Parroting", text: "'So you are saying the deadline is a problem.'" },
+          { label: "Reflecting", text: "'So the worry is less the date, more that quality slips quietly to hit it. Right?'" },
+        ],
+      },
+      {
+        step: "Respond",
+        title: "Answer the validated concern",
+        body: "Now respond — specifically, to the concern as confirmed. Validation without a real response is worse than none; it teaches people that being heard changes nothing.",
+        examples: [
+          { label: "Generic", text: "'Anyway, I think it will be fine.'" },
+          { label: "Targeted", text: "'On the quality risk: we are adding a review gate at week two. That is the safeguard.'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "The 'but' that deletes the validation",
+        soundsLike: "'That is a fair concern, but...'",
+        better: "'That is a fair concern. Here is how I think about it.'",
+      },
+      {
+        mistake: "Rebuttal-composing while they talk",
+        soundsLike: "Interrupting with 'Right, but actually—'",
+        better: "'Finish the thought — I want all of it before I respond.'",
+      },
+      {
+        mistake: "Validating the surface, missing the core",
+        soundsLike: "'I know the timeline is tight.' (when they fear the blame, not the date)",
+        better: "'Is the worry the date itself, or what happens to whoever misses it?'",
+      },
+      {
+        mistake: "Validation as a stalling ritual",
+        soundsLike: "'I hear you, I really do...' followed by the pre-written answer",
+        better: "Let what they said visibly shape what you say next.",
+      },
+      {
+        mistake: "Hearing without responding",
+        soundsLike: "'Thanks for raising that.' (end of scene)",
+        better: "'You raised X. Here is what I am doing about it, and when.'",
+      },
+    ],
+    recoveryPhrases: [
+      "I jumped to defending before I had actually heard you. Start again?",
+      "I answered the wrong worry. Tell me the real one once more.",
+      "That 'but' undid everything before it — let me say it without the but.",
+      "I have been talking you out of the concern instead of listening to it.",
+      "You have said this twice now, which tells me I did not really hear it the first time.",
+      "Let me check I have actually got it before I respond this time.",
+    ],
+    bestRecoveryLine: "'You have said this twice now, which tells me I did not really hear it the first time.'",
+    chains: [
+      {
+        label: "Objection chain",
+        sequence: "Validate → reflect back → check the core → answer that core",
+        example: [
+          "You are right to push on the budget — it is the weakest part of the proposal.",
+          "The worry as I hear it: we commit, costs balloon, and there is no exit.",
+          "Is that the core of it?",
+          "Then here is the answer: staged funding with a kill-switch at month three.",
+        ],
+      },
+      {
+        label: "Upset-report chain",
+        sequence: "Receive the heat → validate the experience → find the need → commit to a step",
+        example: [
+          "Say the whole thing — I am not going anywhere.",
+          "Given how the rollout landed on your team, the frustration is fair.",
+          "What would have made the difference — earlier warning, or more say in the plan?",
+          "Then from now on you see the plan before it ships. That is a commitment.",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC016", reason: "Validation Without Agreement is the harder sibling — for when you must validate a feeling while disputing the claim attached to it." },
+      { id: "TC010", reason: "Curiosity Question supplies the probes that find the real concern under the stated one." },
+      { id: "TC004", reason: "Repair Opening applies when the concern is about you — and it arrived late because they did not feel safe raising it." },
     ],
   },
 
@@ -3287,6 +3784,45 @@ export const CARD_DATA: Record<string, CardData> = {
           "The feeling is valid. The conclusion I would draw from it is different.",
         ],
       },
+      {
+        id: "vwa-close",
+        label: "Close Relationships",
+        tag: "Partners, family and friends",
+        tone: "Warm",
+        phrases: [
+          "It matters to me that it hurt, even though I would do the same again.",
+          "I love you, I believe you about the feeling, and I remember it differently.",
+          "You do not have to convince me it was hard for you — I can see that part.",
+          "I want to take care of the feeling first and argue about the facts later.",
+          "We can disagree about what happened and still be on the same side.",
+        ],
+      },
+      {
+        id: "vwa-work",
+        label: "Workplace Version",
+        tag: "Feedback, decisions and reviews",
+        tone: "Professional",
+        phrases: [
+          "Your reading of the situation is understandable from where you sat. Mine differs, and I want to show you why.",
+          "I take the impact seriously, and I stand by the decision.",
+          "The experience you are describing is real. The intent you are inferring is not what happened.",
+          "I can acknowledge how the process felt without agreeing it was unfair.",
+          "Two things are true: the communication was poor, and the call itself was right.",
+        ],
+      },
+      {
+        id: "vwa-heat",
+        label: "Holding in the Heat",
+        tag: "When agreeing would end the conflict — dishonestly",
+        tone: "High-stakes",
+        phrases: [
+          "I am not going to pretend to agree just to end this — you would see through it anyway.",
+          "I can keep hearing the anger, and it will not change my answer.",
+          "Do not mistake my calm for concession.",
+          "I respect the strength of feeling. I am not persuaded by it.",
+          "If I caved now, you would not trust my agreement next time either.",
+        ],
+      },
     ],
     decisionTree: [
       { condition: "Someone is upset and making a claim you disagree with", action: "Validate the emotion first. Separate it from the factual claim.", phrase: "I can see this is really frustrating. My read of what happened is different." },
@@ -3353,6 +3889,127 @@ export const CARD_DATA: Record<string, CardData> = {
       "When validation is impossible to offer genuinely — offering it dishonestly will be detected.",
       "When urgency means you need to express your view immediately and pausing to validate would delay a critical decision.",
       "When the person's position is based on factual errors that your validation might inadvertently reinforce.",
+    ],
+    whatItIsNot: [
+      "Not a softer way of agreeing — the disagreement survives, at full strength.",
+      "Not 'I hear you' as a formality before steamrolling — the acknowledgement has to be real.",
+      "It is holding two truths at once: their experience is real, and your reading is different.",
+    ],
+    influencePayoff: {
+      feeling: "I can be completely upset with them and still feel respected by them.",
+      principle: "People fight hardest when their reality is denied — validate the experience and the fight loses most of its fuel.",
+      gains: [
+        "Conflicts that cool without you conceding anything",
+        "A reputation for fairness even among people who disagree with you",
+        "Positions that hold under emotional pressure",
+        "Relationships that survive genuine disagreement",
+        "Fewer arguments about whether feelings are 'allowed'",
+      ],
+      whyMostFail: [
+        "They treat validating the feeling as losing the argument.",
+        "They cave on the substance to stop the discomfort, then resent it.",
+        "Their validation arrives with a 'but' that cancels it.",
+        "Under heat, they defend the facts and trample the feeling.",
+      ],
+    },
+    fieldTip: {
+      headline: "Separate the two sentences and say both.",
+      body: "The move fails when the validation and the disagreement blur into one hedge. Give each its own full sentence: the feeling, honoured; the position, held. The order matters — feeling first.",
+      example: "Your partner says you embarrassed them at dinner.",
+      dont: "'Well I am sorry IF it felt that way, but honestly nobody even noticed.'",
+      do: "'It clearly stung, and I take that seriously. I genuinely do not think it read that way to the table — can I say why?'",
+    },
+    method: [
+      {
+        step: "Acknowledge",
+        title: "Honour the experience first",
+        body: "Name their feeling as real and understandable — fully, without a qualifying clause. This is the sentence they are listening for; until it lands, nothing else you say gets in.",
+        examples: [
+          { label: "Hedged", text: "'I suppose that could be frustrating for some people.'" },
+          { label: "Full", text: "'That clearly landed badly, and the frustration makes sense.'" },
+        ],
+      },
+      {
+        step: "Distinguish",
+        title: "Mark the boundary",
+        body: "Make explicit that hearing the feeling is not agreeing with the claim. Without this line, validation is heard as concession — and retracting it later is expensive.",
+        examples: [
+          { label: "Blurred", text: "'Yeah, no, totally, I mean, you are probably right...'" },
+          { label: "Marked", text: "'And at the same time, I read the situation differently.'" },
+        ],
+      },
+      {
+        step: "Hold",
+        title: "Keep both true under pressure",
+        body: "When they push — and they will — repeat both halves rather than sacrificing one. Dropping the validation turns you cold; dropping the position turns you dishonest.",
+        examples: [
+          { label: "Sacrificing", text: "'Fine, fine, you are right, forget I said anything.'" },
+          { label: "Holding", text: "'I still believe both things: it hurt, and I made the right call.'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "The cancelling 'but'",
+        soundsLike: "'I understand you are upset, but...'",
+        better: "'I understand you are upset. And I see the facts differently.'",
+      },
+      {
+        mistake: "The conditional apology",
+        soundsLike: "'I am sorry IF you were offended.'",
+        better: "'It clearly hurt. That part I take seriously, whatever we decide about the rest.'",
+      },
+      {
+        mistake: "Conceding to end the discomfort",
+        soundsLike: "'Okay, okay, you are right, I am sorry.'",
+        better: "'I am not going to agree just to close this down — you deserve a real answer.'",
+      },
+      {
+        mistake: "Litigating the feeling",
+        soundsLike: "'You should not feel that way — that is irrational.'",
+        better: "'The feeling is yours and it is real. The claim attached to it is what I want to talk about.'",
+      },
+      {
+        mistake: "Validation with a courtroom tone",
+        soundsLike: "'Your emotional response is noted.'",
+        better: "Say it like a human: 'That obviously hurt. I get it.'",
+      },
+    ],
+    recoveryPhrases: [
+      "That 'but' cancelled the first half of my sentence. Both halves were true.",
+      "I started arguing with your feelings instead of hearing them. The feelings were never the dispute.",
+      "I went cold there — holding my position does not require that.",
+      "I agreed with you a minute ago just to end it, and it was not honest. Can I try again?",
+      "Let me redo that: first the part where I hear you, properly, and then my view.",
+      "I dismissed the experience while disputing the claim. Only one of those was fair.",
+    ],
+    bestRecoveryLine: "'I started arguing with your feelings instead of hearing them. The feelings were never the dispute.'",
+    chains: [
+      {
+        label: "Hold-the-line chain",
+        sequence: "Validate the feeling → mark the boundary → state the position → reopen warmth",
+        example: [
+          "I can see how much this decision hurt, and I am not brushing that off.",
+          "Hearing that is not the same as agreeing it was wrong.",
+          "I still believe it was the right call, and I will show you the reasoning whenever you want it.",
+          "Whatever you think of the decision, I want us to be all right.",
+        ],
+      },
+      {
+        label: "Feedback chain",
+        sequence: "Validate their reading → distinguish intent from impact → own the impact → hold the substance",
+        example: [
+          "From where you sat, I can see how it looked like I went around you.",
+          "That was not the intent — and impact counts, so let me own that part.",
+          "The way it was communicated was poor, and that is on me.",
+          "The decision itself I stand behind, and I am happy to walk through it.",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC014", reason: "Validate the Concern is the everyday version — for concerns you can largely accept rather than claims you must dispute." },
+      { id: "TC007", reason: "Disagreement Without Contempt governs the second sentence — how to hold your position without a sneer." },
+      { id: "TC017", reason: "Agreement Before Disagreement finds the true common ground first, which makes the 'different reading' easier to hear." },
     ],
   },
 
@@ -3521,6 +4178,46 @@ export const CARD_DATA: Record<string, CardData> = {
           "I will spare the context and say: ...",
         ],
       },
+      {
+        id: "brevity-instant",
+        label: "Instant Answers",
+        tag: "Complete in five words or fewer",
+        tone: "Quick",
+        phrases: [
+          "Done.",
+          "Yes — by Thursday.",
+          "No blockers.",
+          "Agreed. Proceed.",
+          "On it.",
+          "Fixed. Deploying now.",
+        ],
+      },
+      {
+        id: "brevity-email",
+        label: "Email Compression",
+        tag: "Lines that replace paragraphs",
+        tone: "Professional",
+        phrases: [
+          "Decision needed by Friday: option A or B. My recommendation: A.",
+          "Three updates, one line each, below.",
+          "TL;DR at the top; detail underneath for anyone who wants it.",
+          "No reply needed — this is just so you are not surprised later.",
+          "Everything below this line is optional reading.",
+        ],
+      },
+      {
+        id: "brevity-kind",
+        label: "Brief but Warm",
+        tag: "Short without sounding cold",
+        tone: "Warm",
+        phrases: [
+          "Short reply, warm intent: yes, gladly.",
+          "Keeping this brief because I know your day — the answer is yes.",
+          "Quick note just to say: you did well today.",
+          "One line before I run: thank you, properly.",
+          "Brevity is the schedule, not the sentiment.",
+        ],
+      },
     ],
     decisionTree: [
       { condition: "You are about to write a long email", action: "Ask: can I say this in one paragraph? One sentence? Cut accordingly.", phrase: "" },
@@ -3587,6 +4284,127 @@ export const CARD_DATA: Record<string, CardData> = {
       "In relationship-building contexts where brevity reads as cold or dismissive.",
       "When explaining complex technical topics to non-experts — completeness matters more than brevity.",
       "In emotional conversations where being concise can feel uncaring.",
+    ],
+    whatItIsNot: [
+      "Not terseness — the goal is density of meaning, not fewness of words for its own sake.",
+      "Not skipping the warmth — a brief message can still carry care; it just carries it efficiently.",
+      "It is respect for attention: saying what matters in the fewest words that still say it fully.",
+    ],
+    influencePayoff: {
+      feeling: "Reading their messages never feels like work.",
+      principle: "Every unnecessary word taxes the reader — and the reader silently bills you for it.",
+      gains: [
+        "Faster replies to everything you send",
+        "Points that land at full strength, unburied",
+        "More perceived confidence — length reads as doubt",
+        "Time back, for you and everyone you write to",
+        "Messages that get read instead of skimmed",
+      ],
+      whyMostFail: [
+        "They mistake word count for effort, and effort for respect.",
+        "They soften every sentence until the point dissolves.",
+        "They write to think, then send the thinking instead of the conclusion.",
+        "They fear brevity will read as rude, so they pad — and bury the point instead.",
+      ],
+    },
+    fieldTip: {
+      headline: "Draft long, send short.",
+      body: "Writing long is fine — it is how you find out what you think. The discipline is deleting the scaffolding before sending: cut the first paragraph, cut the qualifiers, and see if the message survives. It almost always does.",
+      example: "A five-paragraph email asking for a deadline extension.",
+      dont: "Send all five paragraphs because deleting them feels wasteful.",
+      do: "'Requesting a one-week extension — the supplier data arrived late. New date: 14th. OK?'",
+    },
+    method: [
+      {
+        step: "Cut",
+        title: "Cut words in half",
+        body: "Take the draft — written or about to be spoken — and halve it. Remove throat-clearing, qualifiers, and the second version of every point. What survives is the message.",
+        examples: [
+          { label: "Padded", text: "'I just wanted to quickly reach out to see if perhaps you might have had a chance to look at...'" },
+          { label: "Cut", text: "'Have you had a chance to review the doc?'" },
+        ],
+      },
+      {
+        step: "Lead",
+        title: "Lead with the point",
+        body: "Put the most important sentence first — the ask, the answer, the decision. Everything else exists to support that sentence and follows it.",
+        examples: [
+          { label: "Buried", text: "'Some background before I get to my question...'" },
+          { label: "Led", text: "'My question: can we move the launch? Background below.'" },
+        ],
+      },
+      {
+        step: "Earn",
+        title: "Make elaboration opt-in",
+        body: "Offer the detail rather than delivering it. 'Happy to expand' costs one line; expanding uninvited costs the whole message its edge.",
+        examples: [
+          { label: "Forced", text: "Three paragraphs of methodology nobody requested" },
+          { label: "Earned", text: "'Detail available if you want it — the headline stands alone.'" },
+        ],
+      },
+    ],
+    commonMistakes: [
+      {
+        mistake: "Throat-clearing openers",
+        soundsLike: "'I hope this finds you well. I just wanted to touch base to...'",
+        better: "'Quick question about Friday's deadline:'",
+      },
+      {
+        mistake: "Qualifier fog",
+        soundsLike: "'I sort of think we should maybe possibly consider...'",
+        better: "'I think we should do X.'",
+      },
+      {
+        mistake: "Sending the thinking, not the conclusion",
+        soundsLike: "A message that wanders to its point the way you wandered to it",
+        better: "Write it all, then send only the destination.",
+      },
+      {
+        mistake: "Brevity without hierarchy",
+        soundsLike: "Ten short lines with no signal of which one matters",
+        better: "'The key line is the first one. The rest is supporting.'",
+      },
+      {
+        mistake: "Cutting the warmth with the words",
+        soundsLike: "'No.' (to a friend's heartfelt ask)",
+        better: "'Short answer with love: no — and I will explain tonight.'",
+      },
+    ],
+    recoveryPhrases: [
+      "Let me say that again in half the words.",
+      "I buried the question — it is this.",
+      "Ignore my last three sentences; the first one was the point.",
+      "That was my thinking out loud. The conclusion: X.",
+      "Too many words. Short version: X.",
+      "Brevity failed me there — let me try honesty at speed: X.",
+    ],
+    bestRecoveryLine: "'Ignore my last three sentences; the first one was the point.'",
+    chains: [
+      {
+        label: "Busy-executive chain",
+        sequence: "Headline → one supporting fact → clear ask → stop",
+        example: [
+          "The migration is done, a day early.",
+          "Zero data loss — checksums verified on all 41 tables.",
+          "One ask: approve the DNS switch for tonight.",
+          "That is everything.",
+        ],
+      },
+      {
+        label: "Warm-brief chain",
+        sequence: "Name the brevity → deliver the point → keep the warmth → exit",
+        example: [
+          "Thirty-second reply because I am between meetings.",
+          "Yes to Saturday, and yes I will bring the good coffee.",
+          "Longer catch-up soon — I have not forgotten.",
+          "Go smash today.",
+        ],
+      },
+    ],
+    relatedTechniques: [
+      { id: "TC003", reason: "BLUF decides what comes first; Crisp Brevity decides how little of it there is." },
+      { id: "TC008", reason: "No-Overexplaining Discipline guards the ending — brevity is wasted if you keep adding after the stop." },
+      { id: "TC024", reason: "Lead With the Ask is the request-shaped application of the same compression." },
     ],
   },
 
