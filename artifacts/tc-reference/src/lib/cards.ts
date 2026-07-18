@@ -1,8 +1,53 @@
+export type CanonicalTone = "Quick" | "Warm" | "Professional" | "Direct" | "Repair" | "High-stakes";
+
+export const CANONICAL_TONES: CanonicalTone[] = [
+  "Quick",
+  "Warm",
+  "Professional",
+  "Direct",
+  "Repair",
+  "High-stakes",
+];
+
 export interface PhraseGroup {
   id: string;
   label: string;
   tag: string;
+  tone?: CanonicalTone;
   phrases: string[];
+}
+
+/**
+ * A few phrase groups contain bracketed stage directions rather than lines to
+ * say out loud, e.g. "[Plant feet. Pause. Continue.]". Those are reserved for
+ * coach-side practice and should not appear in the spoken phrase browser.
+ */
+export function isSpeakablePhrase(text: string): boolean {
+  return !(text.startsWith("[") && text.endsWith("]"));
+}
+
+/**
+ * Resolve a tone from the current group metadata. New card content can now
+ * omit explicit tone values; this keeps legacy filters stable during content
+ * rewrites while enforcing canonical tone output.
+ */
+export function inferPhraseTone(group: PhraseGroup): CanonicalTone {
+  if (group.tone && CANONICAL_TONES.includes(group.tone)) return group.tone;
+
+  const signal = `${group.id} ${group.label} ${group.tag}`.toLowerCase();
+
+  if (/\bprofessional\b|work|meeting|document|decision|mail|email|report|client|office|status/i.test(signal))
+    return "Professional";
+  if (/\brepair\b|soften|soothe|sorry|apolog|conflict|boundary|tone|no\b|decline|reject|pressur|escalat|defens/i.test(signal))
+    return "Repair";
+  if (/\bquick\b|starter|one-option|two-option|short|text|sms|dm\b/i.test(signal))
+    return "Quick";
+  if (/\bdirect\b|ask|clarif|limit|firm|clear|decide|request|say no|refuse|stop/i.test(signal))
+    return "Direct";
+  if (/\bwarm\b|support|validation|praise|gratitude|connection|rapport|encourage|positive|appreci/i.test(signal))
+    return "Warm";
+
+  return "Professional";
 }
 
 export interface DecisionNode {
