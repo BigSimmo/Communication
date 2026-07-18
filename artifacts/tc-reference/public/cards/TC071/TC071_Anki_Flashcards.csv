@@ -1,0 +1,13 @@
+front,back
+TC071: What is the minimum viable move?,You were saying [X] before we got interrupted - want to pick that back up?
+TC071: What is the core sequence?,"We got interrupted. You were saying [the specific thread]. Want to pick that back up? -> Minimum: ""You were saying [X] - want to continue?"" -> High-care: ""We got interrupted right as you got to [X]. I do not want to lose that if it still feels useful - want to come back to it?"" -> Group: ""Before we moved on, [Name] was making a point about [X]. [Name], do you want to finish that?"" -> Release: ""Or we can leave it there if the moment has passed.""."
+TC071: What is the field tip?,Do not ask people to rebuild a thread you can restore for them.
+"TC071: What is the strong version of: ""Anyway, what were you saying?""?","""We got interrupted right as you said the dinner got awkward. Want to tell me what happened?"""
+"TC071: What is the strong version of: ""Let's get back on track.""?","""Before the fire drill, Sam was explaining the data-quality risk. Sam, do you want to finish that thought?"""
+"TC071: What is the strong version of: ""Sorry, continue.""?","""The call dropped right after you said the deadline depends on legal review. Can you pick up there?"""
+"TC071: What is better than: ""Where were we?""?","""You were saying the handover got messy - want to pick that up?"""
+"TC071: What is better than: ""So, to recap the last ten minutes...""?","Name only the last thread, in one line."
+"TC071: What is better than: ""No, finish what you were saying.""?","""Want to come back to it, or leave it there?"""
+TC071: What are signs it is working?,"They say 'yes', 'right', or 'exactly' and re-engage. They add detail immediately. Their posture turns back toward you or the group. They show relief that the thread was remembered. The group quiets and gives them space. They correct your anchor and keep going - that is engagement, not rejection."
+TC071: When should you avoid this technique?,Physical safety or an immediate emergency takes priority. The other person clearly changed the subject to protect themselves.
+TC071: What is the best recovery line?,No pressure to continue - I only wanted to make sure it was not lost.

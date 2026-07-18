@@ -1,32 +1,49 @@
 category,phrase
-BLUF Openers,Bottom line: I recommend...
-BLUF Openers,The short answer is...
-BLUF Openers,My conclusion is... — I can explain why if useful.
-BLUF Openers,The decision is...
-BLUF Openers,Up front: ...
-BLUF Openers,"The answer is yes, with one condition."
-BLUF Openers,"The answer is no, and here is the reason."
-BLUF Openers,My recommendation: ...
-Context Offers,I can give you the background if you need it.
-Context Offers,That is the headline — want the detail?
-Context Offers,Short version or longer version?
-Context Offers,The reasoning is straightforward — want me to walk through it?
-Context Offers,Happy to elaborate on any of that.
-Context Offers,Three bullet points behind that if it helps.
-Everyday BLUF,Short answer: yes.
-Everyday BLUF,Short answer: no. Long answer available.
-Everyday BLUF,Quick version: it worked.
-Everyday BLUF,Headline first: we got it.
-Everyday BLUF,"One-liner: it is done, two small caveats."
-Written BLUF,"Decision needed: X or Y, by Friday."
-Written BLUF,Action for you: review section two by Thursday.
-Written BLUF,FYI only — no action needed: the launch moved to Monday.
-Written BLUF,Requesting sign-off on the attached. Deadline is Wednesday.
-Written BLUF,"Summary up front: we are on track, one risk flagged below."
-Written BLUF,This email asks one question: can we move the deadline?
-On-the-Spot BLUF,My answer is yes — with one condition I want to flag.
-On-the-Spot BLUF,The one thing you need to know is this.
-On-the-Spot BLUF,"Bottom line first, then I will take questions."
-On-the-Spot BLUF,If you only take one thing from this: X.
-On-the-Spot BLUF,My position in one sentence: we should proceed.
-On-the-Spot BLUF,I will give you the headline now and the detail in writing.
+Quick openers,That's a big shift. What changed?
+Quick openers,Makes sense. What tipped it?
+Quick openers,Big call. How come?
+Quick openers,That's interesting. Why that one?
+Quick openers,Sounds full-on. What was the hardest part?
+Quick openers,That's a lot. What happened next?
+Quick openers,Fair enough. What made it click?
+Quick openers,Nice. What got you into it?
+Social & rapport,That sounds like a big shift. What changed for you?
+Social & rapport,That's a strange spot to be in. How did you handle it?
+Social & rapport,I can see why that stuck with you. What happened next?
+Social & rapport,That sounds like it mattered. What made it feel that way?
+Social & rapport,You lit up talking about that. What do you love about it?
+Social & rapport,That sounds like a lot to sit with. What was the best part?
+Social & rapport,I like that you went for it. What made you take the leap?
+Social & rapport,That's a good story. What's the bit you usually leave out?
+Work & discovery,That's useful context. What was the main constraint?
+Work & discovery,That sounds like a major transition. What drove it?
+Work & discovery,That's a meaningful trade-off. How did you land on it?
+Work & discovery,That's a helpful way to frame it. What would good look like from here?
+Work & discovery,Sounds like the timeline was the pressure. What gave first?
+Work & discovery,That's a fair concern. What would need to change to fix it?
+Work & discovery,That's a big call for the team. What was the deciding factor?
+Work & discovery,Good to know the history. What's the part you'd do differently?
+Getting to the specifics,That's the crux of it. What exactly are you asking me to decide?
+Getting to the specifics,"That's clear enough. What do you need from me, and by when?"
+Getting to the specifics,That's a big claim. What's the evidence you're leaning on?
+Getting to the specifics,Fair point. What specifically would you change first?
+Getting to the specifics,That matters. What's the one thing that has to be true for this to work?
+Getting to the specifics,Understood. Which option are you actually leaning towards?
+Getting to the specifics,That's the sticking point. What's stopping you deciding today?
+Getting to the specifics,"Right, that's the real issue. What outcome do you want here?"
+Softening & sensitive ground,That sounds like it wasn't easy to talk about. Can I ask what the turning point was?
+Softening & sensitive ground,I don't want to poke a sore spot. Is it okay to ask what happened?
+Softening & sensitive ground,That clearly landed hard. What did you need at the time?
+Softening & sensitive ground,I might be reading this wrong. What did you actually mean by that?
+Softening & sensitive ground,That came out blunter than I intended. What's the part I'm missing?
+Softening & sensitive ground,"No pressure at all. If you're up for it, what changed things?"
+Softening & sensitive ground,I can tell this is delicate. Where would you rather I didn't push?
+Softening & sensitive ground,Take your time. What feels most important for me to understand?
+Conflict & pressure,I can see this really frustrated you. What did it cost you on your end?
+Conflict & pressure,That clearly hit a nerve. What would make this feel fairer to you?
+Conflict & pressure,We're both wound up. What's the thing you most need me to get?
+Conflict & pressure,This has been sitting between us a while. What do you want to be different?
+Conflict & pressure,I hear how serious this is for you. What's the impact I'm not seeing?
+Conflict & pressure,"That's a strong reaction, and probably a fair one. What set it off?"
+Conflict & pressure,Something in that clearly stung. What crossed a line for you?
+Conflict & pressure,I don't want to make this worse. What would actually help right now?

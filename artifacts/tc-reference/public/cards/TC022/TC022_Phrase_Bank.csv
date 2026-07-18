@@ -1,31 +1,57 @@
 category,phrase
-Exit Signals,I want to wrap up shortly — 
-Exit Signals,Before I go —
-Exit Signals,"I have to be somewhere in a few minutes, but —"
-Exit Signals,One last thing before I head off —
-Exit Signals,"I am going to let you go, but —"
-Exit Signals,I need to move on shortly — 
-Exit Signals,I want to close this conversation well —
-Warm Exit Phrases,This was a really useful conversation — thank you.
-Warm Exit Phrases,I want to come back to this — can we set a time?
-Warm Exit Phrases,I am glad we had the chance to talk.
-Warm Exit Phrases,I want to think about what you said — I will follow up.
-Warm Exit Phrases,Thanks for making time for this.
-Warm Exit Phrases,I will leave it there — but I am glad we talked.
-Meeting Exits,I have a hard stop at three — I want to use the last five minutes on next steps.
-Meeting Exits,I need to drop off — send me the actions and I will confirm mine by end of day.
-Meeting Exits,Let us close there — I will circulate a summary this afternoon.
-Meeting Exits,I am going to leave you both to it — you do not need me for this part.
-Meeting Exits,"Before I go: my one takeaway is X, and my one action is Y."
-Meeting Exits,That covers what you needed from me — shall I drop off so you can keep going?
-Naming the Exit,I am going to head off now.
-Naming the Exit,"I need to stop here — I have run out of time, not interest."
-Naming the Exit,I am going to end the call there.
-Naming the Exit,That is my cue to go.
-Naming the Exit,I have to leave it there for today.
-Naming the Exit,I am off — let us pick this up next week.
-Leaving Tense Conversations,I do not want to leave this on a sour note — thank you for being straight with me.
-Leaving Tense Conversations,"We have not solved it, but I am glad we talked. Can we come back to it Thursday?"
-Leaving Tense Conversations,I need to stop before I say something I do not mean. Let us pause here.
-Leaving Tense Conversations,Before I go — I value this relationship more than this disagreement.
-Leaving Tense Conversations,"I am leaving the conversation, not the issue. I will come back to it properly."
+Quick credit,That was a good call.
+Quick credit,You handled that well.
+Quick credit,That made the decision clearer.
+Quick credit,I liked how you approached that.
+Quick credit,That was a useful way to frame it.
+Quick credit,You saw the important part early.
+Specific appreciation,The way you simplified that made it much easier to act on.
+Specific appreciation,I appreciated how direct you were without making it harsh.
+Specific appreciation,You asked the question everyone was avoiding.
+Specific appreciation,That was a good example of restraint — you did not overcomplicate it.
+Specific appreciation,You made a messy thing feel manageable.
+Status-giving questions,What would you look for here?
+Status-giving questions,You know this area well — what is your read?
+Status-giving questions,What would you do if you were judging this?
+Status-giving questions,What am I missing from your perspective?
+Status-giving questions,What is the part you would pay attention to first?
+Professional / leadership,I want to give you credit for that part of the solution.
+Professional / leadership,Your read on the constraint was right.
+Professional / leadership,You kept the group focused when it could have drifted.
+Professional / leadership,That was a strong piece of judgement under pressure.
+Professional / leadership,The value you added was making the trade-off visible.
+Social / dating chemistry,"That is very you, in a good way."
+Social / dating chemistry,You are good at noticing the practical bit people miss.
+Social / dating chemistry,That was a better call than I would have made.
+Social / dating chemistry,I like that you actually thought that through.
+Social / dating chemistry,You were calmer about that than most people would be.
+Social / dating chemistry,I like how you think about that.
+Social / dating chemistry,That is a good instinct.
+Social / dating chemistry,You have good taste with that kind of thing.
+Social / dating chemistry,That was a quietly confident move.
+Social / dating chemistry,You are more observant than you let on.
+Conflict / repair,The part I think you are right about is X.
+Conflict / repair,I should give you credit for raising that concern early.
+Conflict / repair,"Even though I see the decision differently, I think your concern about X is fair."
+Conflict / repair,You were protecting something important there.
+Conflict / repair,"That is a valid point, and I do not want to skip past it."
+Conflict / repair,That sounded more flattering than I meant — I meant the specific point about X.
+Conflict / repair,Let me say that less dramatically: your call on X helped.
+Conflict / repair,I am not trying to overdo the praise. I just wanted to credit that part.
+Conflict / repair,That came out a bit much. The simple version is: that was useful.
+Conflict / repair,I do not want that to sound transactional — I genuinely appreciated X.
+Digital / text,That was a helpful catch — thanks.
+Digital / text,Your summary made this easier to act on.
+Digital / text,Good call on simplifying it.
+Digital / text,Credit where it is due: that was your idea and it helped.
+Digital / text,Appreciate the judgement here — it saved time.
+High-status or guarded,That is the part I wanted your judgement on.
+High-status or guarded,Your read on this would be useful because you have seen more versions of it.
+High-status or guarded,I thought your point about X was the deciding factor.
+High-status or guarded,That distinction was helpful.
+High-status or guarded,I can see why people come to you for this.
+High-status or guarded,"That was helpful, by the way."
+High-status or guarded,I liked that point you made earlier.
+High-status or guarded,That was a useful way to see it.
+High-status or guarded,"You do not need to make a big thing of it, but that helped."
+High-status or guarded,That was a good catch.

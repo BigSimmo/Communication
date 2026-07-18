@@ -1,32 +1,47 @@
 category,phrase
-Repair Openers,Last time was harder than I wanted it to be.
-Repair Openers,I have been thinking about our last conversation.
-Repair Openers,I do not think that went how either of us wanted.
-Repair Openers,I want to come back to something from last time.
-Repair Openers,I think I handled that differently than I should have.
-Repair Openers,I am not sure I said what I meant last time.
-Repair Openers,There was something unfinished from our last conversation.
-Repair Openers,I did not want to leave it there.
-Ownership Phrases,The part I can own is that I came in too hot.
-Ownership Phrases,I could have said that more clearly.
-Ownership Phrases,I was more defensive than the situation called for.
-Ownership Phrases,I did not listen as well as I could have.
-Ownership Phrases,I made it harder than it needed to be.
-Ownership Phrases,I am not saying all of it was me — I am saying my part contributed.
-Ownership Phrases,"I am sorry for the way I said it, not necessarily what I said."
-Door Openers,I would like us to be all right again.
-Door Openers,Can we come back to it when you are ready?
-Door Openers,I care more about us than about being right on this one.
-Door Openers,No rush — I just did not want to leave it unsaid.
-Door Openers,"Whenever you want to talk about it, I am up for it."
-Door Openers,I would rather fix this than win it.
-Workplace Repair,"Before we move on to today's agenda, I want to clear the air about last week."
-Workplace Repair,I did not think our last exchange was up to the standard we usually work at.
-Workplace Repair,I want to reset how that discussion ended so it does not affect the project.
-Workplace Repair,Can I take two minutes on something from Tuesday's meeting?
-Workplace Repair,"I value how we work together, and I did not want that conversation to dent it."
-Serious Ruptures,I know an apology does not undo it. I want to say it anyway.
-Serious Ruptures,"I have thought hard about this, and I was wrong."
-Serious Ruptures,You do not have to respond to this now. I just needed you to know I see it.
-Serious Ruptures,I understand if it takes time. I am not asking you to be fine.
-Serious Ruptures,"What I did is not who I want to be, and I want to talk about how I make it right."
+Quick openers,So the main thing is...
+Quick openers,Sounds like the hard part was...
+Quick openers,"So you wanted X, and got Y."
+Quick openers,So the real issue is...
+Quick openers,It sounds like what mattered most was...
+Quick openers,"So, underneath it, this is about..."
+Quick openers,The bit that stung was...
+Warm / supporting,"So the hard part wasn't just what happened, but how alone it felt."
+Warm / supporting,It sounds like you were carrying a lot of uncertainty.
+Warm / supporting,"So you wanted support, not someone solving it instantly."
+Warm / supporting,It sounds like that really knocked you about.
+Warm / supporting,"So more than anything, you just wanted to be heard."
+Warm / supporting,It sounds like you've been holding this on your own for a while.
+Warm / supporting,So the part that's staying with you is the way it ended.
+Professional,"So the main concern is the decision process, not just the outcome."
+Professional,It sounds like the bottleneck is clarity of ownership.
+Professional,The issue is less the deadline and more the repeated change in scope.
+Professional,So what you need before you commit is a clear owner.
+Professional,"It sounds like we're aligned on the timeline, but you want to revisit the budget."
+Professional,So the risk you're flagging is that the scope keeps moving.
+Professional,It sounds like the sticking point is who signs it off.
+Checking understanding,"Let me check I've got this: the problem is the change, not the work itself."
+Checking understanding,"So, in one line, this is about being reorganised without warning?"
+Checking understanding,Have I got the main thing right?
+Checking understanding,"So the ask is more notice, not less change — is that fair?"
+Checking understanding,Tell me if I'm off: the frustrating part is the unpredictability.
+Checking understanding,So the decision you actually want made is who owns it.
+Checking understanding,Is the core of it that you can't plan around them?
+Tentative / course-correcting,"I might have this wrong, but it sounds like the timing is the real issue."
+Tentative / course-correcting,Correct me if I'm off — it seems the hard part was being left out.
+Tentative / course-correcting,Maybe the better way to say it is that you felt overlooked.
+Tentative / course-correcting,"I don't want to put words in your mouth, but this sounds bigger than one meeting."
+Tentative / course-correcting,"So, if I'm reading you right, it's less about the task and more about the trust."
+Tentative / course-correcting,Let me try that again — it sounds more like disappointment than anger.
+Disagreement / pressure,"Before I respond, let me make sure I've understood your concern."
+Disagreement / pressure,So the part you feel I'm missing is how much this has already cost you.
+Disagreement / pressure,It sounds like this isn't really about the roster — it's about being able to plan your life.
+Disagreement / pressure,"So what you need me to get, before we go on, is that this keeps happening."
+Disagreement / pressure,It sounds like you feel this has happened too many times to let slide.
+Disagreement / pressure,So the thing that has to change for this to feel fair is the notice.
+Digital / text,Sounds like the frustrating part was the lack of warning.
+Digital / text,So it felt like a sudden shift.
+Digital / text,That reads like uncertainty more than disagreement.
+Digital / text,So the main thing is the timing caught you off guard?
+Digital / text,Reading back — the hard bit was being left out of the call.
+Digital / text,"So, short version: you needed a heads-up you didn't get."

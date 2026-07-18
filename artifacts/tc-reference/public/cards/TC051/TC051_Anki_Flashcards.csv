@@ -1,0 +1,13 @@
+front,back
+TC051: What is the minimum viable move?,"Silently run the four steps, then say one line that reflects the core point back and asks a single useful question — without ever naming the framework."
+TC051: What is the core sequence?,"Receive → Appreciate → Summarise → Ask -> Receive: give full attention and take in what they actually said. -> Appreciate: acknowledge the contribution or feeling with a small, genuine signal. -> Summarise: reflect the core meaning back in one line. -> Ask: follow with one useful question that moves it forward. -> Field rule: use the structure to organise thought, then speak like a person.."
+TC051: What is the field tip?,"Scaffolding, not the conversation."
+TC051: What is the strong version of: Using RASA as a visible script and sounding rehearsed.?,"Using RASA flexibly, then checking whether the person is clearer, more heard, or better able to respond."
+TC051: What is the strong version of: Announcing the framework and forcing every sentence into the four steps.?,Noticing when a different move is needed and adapting without defending the structure.
+TC051: What is the strong version of: Jumping to your summary before they've finished talking.?,"Receiving, appreciating and summarising so accurately that they say ""exactly""."
+"TC051: What is better than: ""Let me receive, appreciate, summarise and ask here.""?","""That sounds exhausting. So the real problem is X — what would help?"""
+TC051: What is better than: Forcing every sentence into a step even after they're already clear.?,Dropping the structure the moment it stops helping.
+TC051: What is better than: Adding three more paragraphs of context once the point has landed.?,Stopping at the summary and asking one question.
+TC051: What are signs it is working?,"They become clearer and more specific. They ask a sharper, more focused question back. They summarise the point accurately themselves. They're able to choose a next step. They say ""exactly"" or ""that's it"" — the summary landed. They relax and keep talking, rather than correcting you."
+TC051: When should you avoid this technique?,"Urgent instruction, where people need to act rather than be summarised Legalistic correction or fixed procedure"
+TC051: What is the best recovery line?,I made that too structured — let me say it more simply.

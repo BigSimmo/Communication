@@ -1,13 +1,13 @@
 front,back
-TC022: What is the minimum viable move?,"Signal your exit before you actually leave. Give one brief, honest reason. End the conversation cleanly rather than trailing off."
-TC022: What is the core sequence?,Signal the close -> Give a warm and honest reason -> End clean.
-TC022: What is the field tip?,Signal first — the exit itself should never be a surprise.
-TC022: What is the strong version of: Trailing off and slowly backing away?,I need to head off in a moment — but I wanted to say it was good to connect.
-"TC022: What is the strong version of: Abrupt exit: 'Sorry I have to go, bye'?",Signal → brief warm close → clean end. Thirty seconds total.
-TC022: What is the strong version of: Fake reason to leave?,"Honest reason, briefly stated. Or simply: 'I am going to head off.'"
-TC022: What is better than: 'I should probably get going...' — said twenty minutes ago?,"Say it once, then go. The signal only works if the departure follows it."
-TC022: What is better than: (Quietly disappearing while they fetch a drink)?,"'I am going to head off — thank you for a great evening.' Twenty seconds, properly said."
-TC022: What is better than: 'I have to take this call — so sorry.'?,'I am going to keep moving — this was a genuinely good conversation.'
-TC022: What are signs it is working?,"People feel you left properly rather than escaped. There is no awkward hovering or trailing off. The person you left feels valued, not dismissed. You leave feeling clear rather than guilty."
-TC022: When should you avoid this technique?,When the other person is in distress and leaving would feel like abandonment. When there is unfinished critical business that genuinely needs resolution before the conversation closes.
-TC022: What is the best recovery line?,'I dashed off earlier without a proper goodbye — I did not want to leave that hanging.'
+TC022: What is the minimum viable move?,"Spot one real contribution and name it specifically: ""That was a good call because X."""
+TC022: What is the core sequence?,"Behaviour + effect: ""You did X, which helped Y."" -> Judgement + reason: ""That was a good call because X."" -> Expertise invitation: ""You would be the right person to ask about X."" -> Credit + specificity: ""That idea was yours, and it made the decision clearer."" -> Constraint empathy: ""You handled that with very little time and imperfect information.""."
+TC022: What is the field tip?,"Give status like a secure person: specific, honest, brief, and without waiting to be praised back."
+"TC022: What is the strong version of: ""You are amazing.""?","""The way you simplified that made the next step obvious."""
+"TC022: What is the strong version of: ""You are the smartest person here.""?","""Your point about timing changed how I am seeing the decision."""
+"TC022: What is the strong version of: ""Can you help me? You are so good at this.""?","""You have good judgement on this kind of issue. Could I get your read on one specific part?"""
+"TC022: What is better than: ""You are amazing.""?",Name the exact behaviour and its effect.
+"TC022: What is better than: ""You are the only person who understands this.""?",Keep it proportionate to what actually happened.
+"TC022: What is better than: ""You are so good at this. Can you do it for me?""?",Separate the appreciation from the request.
+TC022: What are signs it is working?,"They relax, smile, or become a little more open. They contribute more because their judgement feels valued. They accept the credit without deflecting or getting defensive. They build on the point rather than brushing it off. The interaction feels warmer but not performative. They seem respected rather than managed."
+TC022: When should you avoid this technique?,"You do not genuinely mean it, or cannot make it specific. You are tempted to flatter because you want approval, access or reassurance."
+TC022: What is the best recovery line?,No need to make a big thing of it — I just wanted to give you credit for that.

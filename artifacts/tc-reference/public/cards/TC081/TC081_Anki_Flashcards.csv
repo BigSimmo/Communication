@@ -1,0 +1,13 @@
+front,back
+TC081: What is the minimum viable move?,"In [context], I noticed [behaviour]. The impact was [effect]. Next time, can we [specific next step]?"
+TC081: What is the core sequence?,"COIN = Context -> Observation -> Impact -> Next step. -> Context: ""In yesterday's client handoff..."" -> Observation: ""...the risk note was missing from the summary..."" -> Impact: ""...so the next person had to reconstruct the issue under time pressure..."" -> Next step: ""...next time, please add the risk note before sending the handoff."" -> Compact: ""In [moment], I noticed [observable behaviour]. The impact was [specific effect]. Next time, could we [workable next step]?""."
+TC081: What is the field tip?,"Name the moment, not the person."
+"TC081: What is the strong version of: ""You are unreliable and your updates are always messy."" Labels character, exaggerates and offers no repair path.?","""In yesterday's handoff, the status and owner fields were blank. The impact was that triage took an extra ten minutes and the next owner was unclear. Next time, can you fill both fields before closing the handoff?"""
+"TC081: What is the strong version of: ""You were dismissive in there."" An interpretation dressed as a fact — easy to deny.?","""In the risk discussion, I got spoken over before I finished, so the risk didn't get logged. Next time, can we let each point land before responding?"""
+"TC081: What is the strong version of: ""You made everyone miserable on Friday."" Turns impact into guilt and mind-reads the room.?","""In Friday's call, the decision was reopened after we'd closed it. The impact was an extra hour for six people. Next time, can we confirm everyone's a yes before we move on?"""
+"TC081: What is better than: ""Last week, yesterday and the month before...""?","Pick the single cleanest example: ""In yesterday's handoff..."""
+"TC081: What is better than: ""You were dismissive.""?","""You spoke over the last two sentences before I finished."""
+"TC081: What is better than: ""You made everyone miserable.""?","""The decision had to be reopened after the meeting."""
+TC081: What are signs it is working?,They ask about the next step instead of defending themselves. They acknowledge the specific behaviour without argument. They add relevant context you were missing. They can repeat back what should change. Both of you can name the next behaviour without debating their character. The temperature stays level — no spike in defensiveness.
+TC081: When should you avoid this technique?,"They are flooded, ashamed, panicking or grieving They are unsafe, intoxicated or unable to process feedback"
+TC081: What is the best recovery line?,I made that sound like a character judgement. Let me narrow it to the behaviour.

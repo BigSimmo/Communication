@@ -53,7 +53,7 @@ scripts/
 
 ## Product
 
-- 31 technique cards with detail screens
+- 98 technique cards with detail screens
 - Card discovery by category, impact, and difficulty filters
 - Phrase browser (grouped by tone, searchable)
 - Daily drill flow with streak tracking

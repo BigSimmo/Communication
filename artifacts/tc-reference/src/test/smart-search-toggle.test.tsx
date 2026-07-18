@@ -84,7 +84,9 @@ describe("Library smart search toggle", () => {
     fireEvent.click(input);
 
     expect(input).toHaveAttribute("aria-expanded", "true");
-    expect(await screen.findByTestId("search-modal")).toBeInTheDocument();
+    // The search modal is lazy-loaded; allow extra time so a slow/loaded CI box
+    // doesn't flake on the default 1000ms find timeout.
+    expect(await screen.findByTestId("search-modal", undefined, { timeout: 5000 })).toBeInTheDocument();
     expect(screen.getByText("Smart starts")).toBeInTheDocument();
   });
 

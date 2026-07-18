@@ -1,13 +1,13 @@
 front,back
-TC015: What is the minimum viable move?,"Before ending any meeting or important conversation, name one specific next action with an owner and a date. Confirm it aloud."
-TC015: What is the core sequence?,Name the next action -> Who owns it -> By when -> Confirm aloud.
-TC015: What is the field tip?,The last ninety seconds decide whether the meeting happened.
-TC015: What is the strong version of: Ending with: 'Great chat — let us stay in touch'?,"The next step is X, [Name] owns it, deadline is Y. Sound right?"
-TC015: What is the strong version of: Vague action: 'Someone needs to look into that'?,"Specific owner, specific deliverable, specific date — confirmed by the owner in the room."
-TC015: What is the strong version of: Meeting notes without confirmed commitments?,Confirm next steps aloud in the meeting before anyone leaves.
-TC015: What is better than: 'Great energy today — let's keep this going!'?,'Loved this. Before we go: who is doing what by when?'
-TC015: What is better than: 'We should get the data cleaned up.'?,"'Dan owns the data clean-up. Dan, by when?'"
-TC015: What is better than: 'I'll get to it in the next little while.'?,'Can we put a date on that? Even a rough one beats none.'
-TC015: What are signs it is working?,Things actually happen after conversations rather than drifting. People leave meetings knowing exactly what they are doing next. Follow-up conversations start with clear context. You need fewer chasing messages.
-TC015: When should you avoid this technique?,In open exploratory conversations where closing too early cuts off valuable thinking. When the next step is not yet clear — forcing one prematurely creates false closure.
-TC015: What is the best recovery line?,'We are about to leave without a next step — can I take two minutes to fix that?'
+TC015: What is the minimum viable move?,"Reflect once, then ask: ""Do you want ideas, or do you want me to just hear you out for a minute?"""
+TC015: What is the core sequence?,"Reflect first -> mode check -> permissioned suggestion -> fit check. -> ""That sounds [hard part]. Do you want me to listen, help think it through, or suggest options?"" -> ""I have one thought, but I do not want to steamroll you. Useful, or not yet?"" -> Operating rhythm: notice -> small move -> pause -> calibrate -> follow or release.."
+TC015: What is the field tip?,Earn the right to advise by showing you understand first.
+"TC015: What is the strong version of: ""You should just...""?","""That sounds like the kind of day where advice too fast would be annoying. Do you want solutions, solidarity, or a bit of both?"""
+"TC015: What is the strong version of: ""Have you tried...""?","""Before I suggest the obvious, what have you already tried and what felt useless?"""
+"TC015: What is the strong version of: ""At least...""?","""I can see why that would get under your skin. It sounds less like workload and more like being taken for granted."""
+"TC015: What is better than: ""You should just...""?","""Before I jump in, what's the hardest part?"""
+"TC015: What is better than: ""Do you want me to listen or give advice?"" (every time, robotically)?","""That sounds rough. Do you want to think it through, or just get it off your chest?"""
+TC015: What is better than: a paragraph of reflecting before they can get a word in?,"One short reflection, then a pause."
+TC015: What are signs it is working?,"They relax, continue, or give more detail. They clarify what kind of support they want. They say ""exactly"" or ""that is the issue"". They ask for your view after feeling heard. They consider advice rather than pushing it away. They correct you comfortably and become clearer, not managed."
+TC015: When should you avoid this technique?,"Physical safety or an immediate emergency, where you act rather than reflect They have clearly and explicitly asked for advice"
+TC015: What is the best recovery line?,"I jumped into fixing too quickly. Sorry, what do I need to understand first?"

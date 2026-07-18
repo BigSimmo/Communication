@@ -1,73 +1,45 @@
 category,phrase
-Reset Openers,Let me think for a second.
-Reset Openers,Give me one moment to answer that properly.
-Reset Openers,I want to answer that directly.
-Reset Openers,Let me slow down and be clear.
-Reset Openers,The short version is...
-Reset Openers,My honest answer is...
-Reset Openers,"I may be missing something, but my read is..."
-Reset Openers,I do not want to rush the wrong answer.
-Professional Challenge,I see the concern. My view is...
-Professional Challenge,That is a fair challenge. The reason I would still do it this way is...
-Professional Challenge,The part I agree with is... The part I see differently is...
-Professional Challenge,Let me separate the issue from the noise.
-Professional Challenge,Bottom line: I think the best next step is...
-Professional Challenge,I can answer that in two parts.
-Professional Challenge,The decision point is simpler than the background.
-Professional Challenge,I do not have that number in front of me. I can check and come back with the exact figure.
-Conflict / Resistance,Let us slow this down. I do want to understand the actual concern.
-Conflict / Resistance,I hear that this landed badly. My intention was...
-Conflict / Resistance,I can see why that sounded frustrating.
-Conflict / Resistance,I do not want to talk over you. The point I am trying to make is...
-Conflict / Resistance,The part I can own is...
-Conflict / Resistance,I am not trying to win the point. I am trying to get this right.
-Conflict / Resistance,"I need to say this plainly, not sharply."
-Conflict / Resistance,I think we are moving fast past the real issue.
-Social Pressure,Fair question.
-Social Pressure,The honest answer is...
-Social Pressure,I am going to give the non-polished answer.
-Social Pressure,That is a better question than it sounds.
-Social Pressure,I will take that seriously for a second.
-Social Pressure,I have a short answer and a longer answer.
-Social Pressure,I can see why you would ask that.
-Social Pressure,Let me not over-answer it.
-High Status / Busy Person,I will keep it concise.
-High Status / Busy Person,Bottom line first...
-High Status / Busy Person,My recommendation is...
-High Status / Busy Person,The key trade-off is...
-High Status / Busy Person,I can give you the short answer now and the detail after.
-High Status / Busy Person,The risk I would not ignore is...
-High Status / Busy Person,I do not want to speculate. The reliable answer is...
-High Status / Busy Person,"If you need a decision now, I would choose..."
-Shy / Guarded Person,No pressure to answer quickly.
-Shy / Guarded Person,Take a second if you need.
-Shy / Guarded Person,A rough answer is fine.
-Shy / Guarded Person,We can keep this simple.
-Shy / Guarded Person,No need to make it polished.
-Shy / Guarded Person,I am not trying to put you on the spot.
-Shy / Guarded Person,We can come back to it if now is awkward.
-Shy / Guarded Person,The low-pressure version is...
-Digital / Text / Audio,Let me answer this without over-explaining.
-Digital / Text / Audio,"Short version: yes, with one caveat."
-Digital / Text / Audio,"I might be reading the tone wrong, so I will keep this plain."
-Digital / Text / Audio,"Rather than reply too fast, I have thought about it and my answer is..."
-Digital / Text / Audio,I do not want this to sound defensive over text. My point is...
-Digital / Text / Audio,The clean version is...
-Digital / Text / Audio,Voice note because tone matters here.
-Digital / Text / Audio,I will send the concise answer now and can add detail if useful.
-Boundaries / Defer,I cannot answer that properly on the spot.
-Boundaries / Defer,I can give you a considered answer by tomorrow.
-Boundaries / Defer,I am not comfortable deciding that without checking the detail.
-Boundaries / Defer,"I can respond to the concern, but not to the personal jab."
-Boundaries / Defer,"I am happy to discuss it, just not while we are rushing."
-Boundaries / Defer,The answer is no for now. I can explain the reason briefly.
-Boundaries / Defer,I need a minute before I commit to that.
-Boundaries / Defer,I am going to pause there rather than over-explain.
-Recovery,I sped up there. Let me say it more clearly.
-Recovery,That sounded more defensive than I meant.
-Recovery,I paused too long there. The simple answer is...
-Recovery,That came across colder than intended.
-Recovery,Let me reset. I do want to answer the question.
-Recovery,I over-explained that. The actual point is...
-Recovery,I sounded sharper than I meant. Try again.
-Recovery,"I was buying time, not trying to avoid the question."
+Quick,Let me slow that down.
+Quick,One thing at a time.
+Quick,Give me a beat.
+Quick,Let me get this right.
+Quick,Hang on — one sec.
+Quick,Let me answer that properly.
+Quick,Short version first.
+Warm,I want to answer that carefully.
+Warm,Let me think about that for a second.
+Warm,That's a fair question — give me a moment.
+Warm,I'd rather get this right than get it fast.
+Warm,Bear with me a second.
+Warm,Let me take that in properly.
+Professional,The main point is…
+Professional,The simple version is…
+Professional,Let me take these one at a time.
+Professional,"Before I answer, let me make sure I've got the question."
+Professional,I'll give you a clear answer in a moment.
+Professional,Let me separate the two things you asked.
+Professional,Here's where I've landed.
+Direct,Here's the short answer.
+Direct,The main thing is this.
+Direct,Let me be clear and brief.
+Direct,"One point, then I'll stop."
+Direct,Straight answer: here it is.
+Direct,I'll say the important part first.
+Repair,Let me say that more simply.
+Repair,I may be reading this wrong.
+Repair,Let me back up and slow this down.
+Repair,That came out faster than I meant.
+Repair,We can stay with this or move on — your call.
+Repair,Ignore that if it doesn't fit.
+High-stakes,I hear the urgency. Give me one beat.
+High-stakes,"I want to get this right, not just quick."
+High-stakes,Let me slow us both down for a second.
+High-stakes,I'm not dodging — I want to answer it properly.
+High-stakes,Let me take a breath and answer plainly.
+High-stakes,"One thing at a time, even now."
+Digital / text,Give me a bit to answer this properly.
+Digital / text,"Short version now, fuller version later if useful."
+Digital / text,"I may be reading this wrong, but this seems like the relevant thread."
+Digital / text,We can stay with this or move on — your call.
+Digital / text,One thing at a time — let me take the first.
+Digital / text,Let me come back to this clearly rather than fire off a quick reply.

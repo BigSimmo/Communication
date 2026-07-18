@@ -1,31 +1,51 @@
 category,phrase
-Disagreement Openers,I see this differently — my view is...
-Disagreement Openers,"I do not think that is quite right, and here is why."
-Disagreement Openers,I want to push back on one specific part of that.
-Disagreement Openers,"I disagree, and I want to explain my reasoning."
-Disagreement Openers,That is not how I read the situation — here is my read.
-Disagreement Openers,I would reach a different conclusion from the same data.
-Disagreement Openers,"I think there is a better option, and I want to explain why."
-Disagreement Openers,"I have a different view on this, and I think it matters."
-Curiosity Phrases,Help me understand how you got there.
-Curiosity Phrases,I want to make sure I am disagreeing with what you actually said.
-Curiosity Phrases,Is there something I am missing that would change my view?
-Curiosity Phrases,Walk me through the part I am not seeing.
-Curiosity Phrases,I might be wrong — what would change your position?
-Curiosity Phrases,I want to understand your reasoning before I push back harder.
-Disagreeing Upward,Can I offer a different read before we lock this in?
-Disagreeing Upward,I want to flag a risk in this plan while there is still time to adjust.
-Disagreeing Upward,"You may well see something I do not — from where I sit, X looks like a problem."
-Disagreeing Upward,I would not be doing my job if I did not raise this.
-Disagreeing Upward,"If we go this route, I want my concern on the record — then I am fully behind the decision."
-Disagreeing Upward,May I push back on one part of that?
-Meeting Disagreement,I want to offer a counter-view so we pressure-test this properly.
-Meeting Disagreement,Before we converge — can I argue the other side for two minutes?
-Meeting Disagreement,I agree with the goal and disagree with the route.
-Meeting Disagreement,There is a version of this I could support — it differs in one key way.
-Meeting Disagreement,"Let me steelman the proposal first, then say where I part ways."
-Heat Reducers,That came out harder than I intended. The disagreement stands; the edge does not.
-Heat Reducers,We have drifted from the issue to each other. Can we come back to the issue?
-Heat Reducers,I am arguing to win instead of to understand. Let me reset.
-Heat Reducers,We clearly both care about this. That is a good starting point.
-Heat Reducers,Can we take five and come back to it? I want to disagree better than this.
+Default support responses,That sounds like a big moment. What was the best part?
+Default support responses,There's more in that than the headline. What happened next?
+Default support responses,That sounds like it mattered. What made it important?
+Default support responses,I want to hear your version properly. How did it play out?
+Default support responses,That's interesting. What was the turning point?
+Default support responses,What did you make of it at the time?
+"When tempted to say ""me too""","I've had a version of that, but yours sounds more interesting. What happened next?"
+"When tempted to say ""me too""","That resonates, but I don't want to make it about me. What was it like for you?"
+"When tempted to say ""me too""","I'm tempted to tell my similar story, but first: what was the hardest part of yours?"
+"When tempted to say ""me too""",I can relate to the feeling. What did you do after that?
+"When tempted to say ""me too""","I've been in the neighbourhood of that, but not exactly. What made yours different?"
+"When tempted to say ""me too""","Before I tell my version, I want to hear how yours ended."
+Responding to a win,That's a proper win. When did it sink in?
+Responding to a win,You should actually enjoy that one. What part took the most work?
+Responding to a win,That's not a small thing. What made it happen?
+Responding to a win,"What was the moment where you thought, ""this is actually working""?"
+Responding to a win,Who was the first person you told?
+Responding to a win,What did you do differently that made it come together?
+Responding to hardship,That sounds heavy. What made it hardest?
+Responding to hardship,That sounds like a lot to carry. What helped you get through it?
+Responding to hardship,I can see why that stayed with you. What part still sticks?
+Responding to hardship,That sounds less annoying and more draining. Is that right?
+Responding to hardship,What did people miss about how hard that was?
+Responding to hardship,What would have helped at the time?
+"Professional, leadership & groups",That probably took more coordination than it looks. What was the key move?
+"Professional, leadership & groups","You made that sound simple, but I'm guessing it wasn't. What was the constraint?"
+"Professional, leadership & groups",That's a useful insight. What led you to that read?
+"Professional, leadership & groups",Good call. What did you notice that others missed?
+"Professional, leadership & groups",That's your win. What should we learn from it?
+"Professional, leadership & groups","I want to come back to what Sam just said, because that was the useful part."
+"Professional, leadership & groups","Before I add my view, I think Priya's point deserves a second."
+"Professional, leadership & groups",Can we stay with that for a moment? There's a good lesson in it.
+Social / dating,"Wait, that's your story. I want the director's cut."
+Social / dating,You can't drop that and let me hijack it. What happened?
+Social / dating,"I have a related story, but yours has priority. Continue."
+Social / dating,That sounds like the actual interesting part. Go on.
+Social / dating,"I'm resisting the urge to make this about me, which is very mature of me. What happened next?"
+Social / dating,"That deserves more than a polite ""nice"". What was the best bit?"
+Digital / text,That's a big deal. What happened after?
+Digital / text,I'm not going to make this about my similar story — tell me the full version.
+Digital / text,That sounds like it took more than people would realise.
+Digital / text,What was the best part of that?
+Digital / text,"I can relate, but I want to understand your version first."
+Digital / text,That sounds intense. What made it hardest?
+Repair / reset,I just made that about me. Sorry — go back.
+Repair / reset,That came out as a one-up. Not what I meant.
+Repair / reset,I jumped in too fast. What I should have asked is...
+Repair / reset,Let me rewind. Your point was the important one.
+Repair / reset,I think I hijacked the thread. Continue from where you were.
+Repair / reset,I answered with my story before I understood yours. My bad.

@@ -1,0 +1,13 @@
+front,back
+TC068: What is the minimum viable move?,"Ask for one specific action on one specific object, with one clear output."
+TC068: What is the core sequence?,"Context in one line -> specific action -> specific object -> specific output -> boundary or opt-out. -> Full: ""Because [context], could you [action] [object] and send me [output] by [time]? No problem if that is not feasible."" -> Minimum: ""Could you [action] [object] and tell me [output]?"" -> Pressure-safe: ""Would it be reasonable to ask you to [action] [object] by [time]? If not, I can adjust the ask.""."
+TC068: What is the field tip?,Find the verb before you ask.
+TC068: What is the strong version of: Can you help me with this??,Could you review the two highlighted paragraphs and tell me whether the tone is too direct by Thursday afternoon? No line edits needed.
+TC068: What is the strong version of: What do you think??,"Could you tell me the biggest risk you see in option A, in one or two bullets?"
+TC068: What is the strong version of: Can we talk??,Could we take ten minutes today to decide whether the launch date moves or stays?
+"TC068: What is better than: ""Could you review this? Whenever you get a chance.""?","""Could you review this and send me the one risk by Thursday?"""
+"TC068: What is better than: ""Just a quick look at the whole deck?""?","""This is a proper read, maybe an hour. No problem if that's a no."""
+"TC068: What is better than: ""Any thoughts on this?""?","""Could you approve this, or tell me the one thing blocking approval?"""
+TC068: What are signs it is working?,They answer the exact question you asked. They give a clean yes or no. They ask one narrow clarifying question. They name a constraint or suggest a better owner. They look visibly relieved by the bounded scope. They come back faster than usual.
+TC068: When should you avoid this technique?,The other person is upset and needs to feel heard before anything is asked of them The relationship needs empathy or repair before action
+TC068: What is the best recovery line?,I made that too broad. The specific ask is just this one thing.

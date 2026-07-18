@@ -1,31 +1,56 @@
 category,phrase
-Next-Step Close Phrases,Before we close — who is doing what and by when?
-Next-Step Close Phrases,Let us confirm the next action: [who] will do [what] by [when].
-Next-Step Close Phrases,"The next step is X, and [Name] owns it by [date]."
-Next-Step Close Phrases,To make this concrete: I will do X by Thursday.
-Next-Step Close Phrases,Can we name the one thing that needs to happen before we next meet?
-Next-Step Close Phrases,Who is taking the first action from this conversation?
-Next-Step Close Phrases,I want to close with a clear next step — is that [X]?
-Confirmation Phrases,Does everyone agree that is the next step?
-Confirmation Phrases,Are you comfortable committing to that timeline?
-Confirmation Phrases,Any blockers to making that happen?
-Confirmation Phrases,Should I send a summary of that so it is in writing?
-Confirmation Phrases,Does that feel like a reasonable next step?
-Quick Closes,So — who does what by when?
-Quick Closes,Next step?
-Quick Closes,Who owns this one?
-Quick Closes,What date shall we put on that?
-Quick Closes,First action: mine or yours?
-Quick Closes,"What happens next, and who makes it happen?"
-Pinning the Owner,This needs one owner — who is it?
-Pinning the Owner,"I need a name against that action, not a 'we'."
-Pinning the Owner,"A date, please — 'soon' has let us down before."
-Pinning the Owner,"If nobody owns this by the end of the call, it will not happen."
-Pinning the Owner,I will take it — and I need your draft by Tuesday to do it.
-Pinning the Owner,Let us not leave until that has an owner and a deadline.
-Warm Follow-Through,I do not want this to become one of those 'we must catch up' promises — shall we pick a date now?
-Warm Follow-Through,"Let us make it real: dinner, Thursday, ours?"
-Warm Follow-Through,I loved this — can we book the next one before we forget?
-Warm Follow-Through,You mentioned needing help with the move — name a day and I am there.
-Warm Follow-Through,"Rather than 'sometime soon', how about Saturday?"
-Warm Follow-Through,I will text you tomorrow to lock it in — that way we actually do it.
+Quick restraint,"Before I try to solve it, that sounds really frustrating."
+Quick restraint,I'm going to resist advice-mode for a second.
+Quick restraint,Let me make sure I understand the hard part first.
+Quick restraint,I do not want to fix too fast and miss the point.
+Quick restraint,That sounds like a lot. Do you want a sounding board or suggestions?
+Quick restraint,That sounds rough. Do you want advice or just a sympathetic witness?
+Quick restraint,Before I give suggestions: what is the part that is most annoying?
+Quick restraint,"I have a thought if you want it, but no pressure."
+Quick restraint,"Want me to help draft a reply, or are you just venting?"
+Quick restraint,I will not jump straight to fixing unless it is useful.
+Mode check,"Do you want me to listen, help think it through, or suggest options?"
+Mode check,"Are you wanting advice, or do you mostly need to vent this one out?"
+Mode check,"Do you want comfort, clarity, or a plan?"
+Mode check,"Would problem-solving help, or would that be annoying right now?"
+Mode check,"Do you want my honest read, or just space to talk it through first?"
+Reflect before advice,The hard part sounds less like the task and more like feeling unsupported.
+Reflect before advice,It sounds like you are not short on ideas; you are tired of carrying it.
+Reflect before advice,That sounds frustrating because it was avoidable.
+Reflect before advice,It sounds like the unfairness is the part that is sticking.
+Reflect before advice,So this is less about what happened and more about what it meant.
+Permissioned advice,"I have one thought, but only if you want suggestions."
+Permissioned advice,Would it help if I offered a possible next step?
+Permissioned advice,"Can I give you a practical option, or would that be too soon?"
+Permissioned advice,"My instinct is one thing, but I want to check you want advice first."
+Permissioned advice,"I can give you the short version of what I would try, if useful."
+Permissioned advice,"Okay, if we are in problem-solving mode, I would start small."
+Permissioned advice,"Given what you have said, I would not try to fix the whole thing today."
+Permissioned advice,The move I would consider is one small change first.
+Permissioned advice,"The lowest-friction next step might be to name the pattern, not the incident."
+Permissioned advice,"The part I would protect first is your standing, not the deadline."
+Social / friendship,That sounds awful. Do you want solutions or solidarity?
+Social / friendship,I can be useful or just be outraged with you. Your call.
+Social / friendship,Do you want me in advice mode or friend mode?
+Social / friendship,"I can help solve it, but I also get if you just need to be annoyed for a minute."
+Social / friendship,That sounds miserable. I will not try to silver-line it.
+Professional / leadership,"Before I suggest fixes, I want to understand the constraint."
+Professional / leadership,"Is this a moment for advice, or do you want me to help map the problem first?"
+Professional / leadership,What outcome are you trying to protect here?
+Professional / leadership,"Would a recommendation be useful now, or should we clarify the issue first?"
+Professional / leadership,"If you want options, I can give two possible paths."
+Professional / leadership,"Before I recommend, what constraint matters most?"
+Professional / leadership,Do you want a quick read or a few options?
+Professional / leadership,I will hold advice until I know the outcome you are after.
+Professional / leadership,What are you optimising for here?
+Professional / leadership,"My concise suggestion, if useful, is to solve one part and revisit the rest."
+Conflict-safe,I might be moving too quickly to solution mode. What do I need to understand first?
+Conflict-safe,I do not want to talk you out of the feeling. What part matters most?
+Conflict-safe,"Before I respond, I want to separate what happened from what it meant."
+Conflict-safe,I can see why advice might feel dismissive right now.
+Conflict-safe,Let me slow down and hear the concern properly.
+Shy or guarded,No need to solve it right now. I am happy just to listen.
+Shy or guarded,We can keep this simple. Do you want ideas or just space?
+Shy or guarded,I will not push advice unless you want it.
+Shy or guarded,It makes sense to take a moment before deciding.
+Shy or guarded,"Would a small next step feel useful, or not yet?"

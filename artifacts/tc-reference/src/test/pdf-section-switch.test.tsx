@@ -150,9 +150,10 @@ describe("CardDetail PDF availability contract", () => {
       );
     });
 
-    // Cards without a designed PDF ship a generated reference PDF
+    // Every card now surfaces its designed two-card (combined) visual card as
+    // the primary in-app PDF, extracted from the source technique package.
     expect(screen.getByTestId("pdf-url").textContent).toMatch(
-      /cards\/TC002\/TC002_Reference\.pdf$/
+      /cards\/TC002\/TC002_TwoCard_Combined\.pdf$/
     );
   });
 });

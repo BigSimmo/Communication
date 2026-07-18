@@ -1,29 +1,44 @@
 category,phrase
-Brevity Openers,Short version: ...
-Brevity Openers,In one sentence: ...
-Brevity Openers,The headline is...
-Brevity Openers,Two things: ...
-Brevity Openers,I will keep this brief: ...
-Brevity Openers,The core of it is...
-Brevity Openers,Bottom line: ...
-Cut Phrases,Actually — let me say that more simply.
-Cut Phrases,I am over-explaining. The point is: ...
-Cut Phrases,Shorter version: ...
-Cut Phrases,Let me get to the point faster.
-Cut Phrases,I will spare the context and say: ...
-Instant Answers,Done.
-Instant Answers,Yes — by Thursday.
-Instant Answers,No blockers.
-Instant Answers,Agreed. Proceed.
-Instant Answers,On it.
-Instant Answers,Fixed. Deploying now.
-Email Compression,Decision needed by Friday: option A or B. My recommendation: A.
-Email Compression,"Three updates, one line each, below."
-Email Compression,TL;DR at the top; detail underneath for anyone who wants it.
-Email Compression,No reply needed — this is just so you are not surprised later.
-Email Compression,Everything below this line is optional reading.
-Brief but Warm,"Short reply, warm intent: yes, gladly."
-Brief but Warm,Keeping this brief because I know your day — the answer is yes.
-Brief but Warm,Quick note just to say: you did well today.
-Brief but Warm,"One line before I run: thank you, properly."
-Brief but Warm,"Brevity is the schedule, not the sentiment."
+Quick,That bit where you flagged the risk early was really helpful.
+Quick,Thanks for catching that; it saved us a step.
+Quick,The way you laid that out made it easy to follow.
+Quick,Good call on the order of those points.
+Quick,That was a clean summary; cheers.
+Quick,"Nicely handled, you kept it moving."
+Quick,That one detail you added made the difference.
+Warm,"I noticed how patiently you talked them through it, and it mattered."
+Warm,The way you checked in on me last week stuck with me.
+Warm,"You didn't have to stay back and help, and it made a real difference."
+Warm,I appreciate how steady you were while everyone else was rattled.
+Warm,That was generous; you gave them your full attention.
+Warm,"You made a hard conversation feel easy, so thank you."
+Warm,The care you put into that really showed.
+Professional,I appreciated how you grouped the actions; it saved everyone re-reading the thread.
+Professional,The way you clarified the plan at the end meant we all left knowing the next step.
+Professional,You handled that client question well; naming the trade-off kept it honest.
+Professional,"Good structure on the deck, decisions first and detail second."
+Professional,You spotted the gap in the timeline before it cost us; that was sharp.
+Professional,Thanks for running that meeting to time; it respected everyone's day.
+Professional,The way you documented that decision will save the next person a lot of guessing.
+Naming the effect,Here's the concrete thing that helped: you made the next step clear.
+Naming the effect,"One specific bit, your timing on that email stopped it escalating."
+Naming the effect,The useful part was the example you gave; it made it land.
+Naming the effect,"What worked was that you named the real problem, not the symptom."
+Naming the effect,To be exact: grouping the questions at the end saved us a second call.
+Naming the effect,The thing that mattered was you followed up without being asked.
+Digital / text,Just want to name it: the way you framed that message was spot on.
+Digital / text,That reply was clear and kind; good balance.
+Digital / text,Thanks for the tidy handover notes; I picked it up in minutes.
+Digital / text,Your one-line summary at the top saved me scrolling; appreciated.
+Digital / text,"Quick note, the checklist you added is going to help everyone."
+Guarded / high-status,I'll keep this brief because I know you'd rather not make a thing of it: that was well judged.
+Guarded / high-status,"No need to respond, I just wanted you to know the fix you pushed held up."
+Guarded / high-status,"Quietly, the way you defused that meeting took real skill."
+Guarded / high-status,"I won't labour it, but calling that risk early was the right move."
+Guarded / high-status,"If it's useful to hear, you read that room better than anyone."
+Repair,I may have read that wrong; what actually helped from your side?
+Repair,Let me put that more simply.
+Repair,That came out more polished than I meant; I just wanted to say thanks.
+Repair,No need to make anything of it if it isn't useful.
+Repair,I jumped ahead there; what I meant was the specific bit that helped.
+Repair,Tell me the more accurate way to say it.

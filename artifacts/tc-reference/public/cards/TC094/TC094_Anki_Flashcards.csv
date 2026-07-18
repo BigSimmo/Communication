@@ -1,0 +1,13 @@
+front,back
+TC094: What is the minimum viable move?,"Ask for one specific action, add one honest boundary, and leave an honest no-or-adjust route."
+TC094: What is the core sequence?,"Could you [specific action] within [scope / time / effort] by [when]? If not, [release or smaller alternative]. -> Could you review just the final paragraph by noon? No full edit needed. -> Could you reply with a yes or no by tomorrow? No explanation needed. -> Could you decide A or B today? We do not need to reopen the whole plan. -> Could I have ten minutes tonight where you just listen, not solve?."
+TC094: What is the field tip?,Make the cost visible before you ask for the yes.
+"TC094: What is the strong version of: ""Can you help me with this?"" — the action, effort and time cost are all undefined.?","""Could you review only the two-page summary by Friday and flag factual errors? No wording edit needed."" — action, scope, deadline and effort are all explicit."
+"TC094: What is the strong version of: ""Can we talk later?"" — open-ended and potentially heavy.?","""Could I have ten minutes tonight to talk through one decision? I am not asking you to solve it."" — bounded by time, topic and role."
+"TC094: What is the strong version of: ""Can you do this for me?"" — the cost is hidden, so it can trigger resistance.?","""Could you update slides four to six with the new numbers only? I can handle design and wording."" — separates requested from non-requested effort."
+"TC094: What is better than: ""This will only take a minute"" — when it plainly will not.?","""This is about a twenty-minute job. Is that doable this week?"""
+"TC094: What is better than: ""Just the intro, only facts, by three, but no rush, unless you would rather do the summary...""?","""Could you fact-check the intro by three? That is the whole ask."""
+"TC094: What is better than: ""No worries if not"" — then sulking when they decline.?","""A no is genuinely fine"" — and then meaning it."
+TC094: What are signs it is working?,"They answer quickly with a specific yes, no or maybe. They repeat the boundary back accurately. Their tone lightens after you narrow the request. They offer a smaller version themselves, without defensiveness. They stop asking clarifying questions. They commit to the exact slice you named, not more."
+TC094: When should you avoid this technique?,"The situation is urgent and a tidy boundary would hide the real seriousness The request affects safety, consent, medical or legal decisions, or employment rights"
+TC094: What is the best recovery line?,"I hear the timing does not work. Would a smaller version help, or should I leave it?"

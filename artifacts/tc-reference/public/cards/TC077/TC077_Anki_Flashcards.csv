@@ -1,0 +1,13 @@
+front,back
+TC077: What is the minimum viable move?,"Before you say ""I disagree,"" name one real point of agreement in a single sentence."
+TC077: What is the core sequence?,"Base: ""I agree with [true part]. Where I see it differently is [specific disagreement]. My reason is [brief reason]. I'd suggest [next step]."" -> Short: ""I agree with the goal. I disagree with the method."" -> Boundary: ""I understand why that feels urgent. I'm not comfortable doing it that way."" -> Feedback: ""You're right that speed matters. The part I'd challenge is the idea that speed means skipping review."" -> Digital: ""Agreed on the problem. I see a different cause. Could we test that before deciding?""."
+TC077: What is the field tip?,"Say the agreement as if it matters, then the disagreement as if it's bounded."
+"TC077: What is the strong version of: ""I disagree."" Clear but broad — it makes the other person defend their whole position.?","""I agree with the goal: we need this resolved today. Where I differ is shipping without review — a 30-minute review protects the deadline better than a rollback tomorrow."""
+"TC077: What is the strong version of: ""That's not true.""?","""The part I agree with is that the handoff was unclear. The part I would not accept is that the whole delay sits with one person."""
+"TC077: What is the strong version of: ""Your draft needs work.""?","""I agree the draft has real energy. The one thing I'd rework is the structure, so the point lands sooner."""
+"TC077: What is better than: ""I totally agree, but…"" then a full rejection.?","""I agree the goal is right. The one thing I'd change is the method."""
+TC077: What is better than: Conceding points you don't actually believe.?,"""I can agree with the deadline. I can't agree that we drop the review."""
+"TC077: What is better than: ""I hear you.""?","""I agree that the handoff was genuinely unclear."""
+TC077: What are signs it is working?,"They nod, slow down, or soften. They ask about your reason instead of defending everything. They refine or narrow their own claim. They acknowledge the distinction you drew. The conversation moves to the one contested point rather than the whole position. They offer a next step or a test of their own."
+TC077: When should you avoid this technique?,"The agreement would be false — you don't actually accept any part. A boundary has already been crossed, or someone is unsafe."
+TC077: What is the best recovery line?,That sounded like a token yes before a no. Let me say the agreement more clearly.

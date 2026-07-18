@@ -29,7 +29,7 @@ export default defineConfig({
         name: "TC Reference Tool",
         short_name: "TC Reference",
         description:
-          "A mobile-first reference library of 31 communication techniques — phrase banks, decision trees, scenarios and daily practice drills.",
+          "A mobile-first reference library of 98 communication techniques — phrase banks, decision trees, scenarios and daily practice drills.",
         theme_color: "#0f1724",
         background_color: "#0f1724",
         display: "standalone",
@@ -41,12 +41,15 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // App shell (JS/CSS/HTML/fonts/icons) is precached; the 31 card PDFs
+        // App shell (JS/CSS/HTML/fonts/icons) is precached; the per-card PDFs
         // and other downloads are cached on demand instead — precaching every
         // PDF would bloat the initial install for documents most users never
         // open.
         globPatterns: ["**/*.{js,css,html,svg,png,woff2}"],
         globIgnores: ["**/cards/**"],
+        // The card-data chunk holds all 98 techniques (~2.1 MB) and is core to
+        // the app offline, so precache it — the 2 MiB default would drop it.
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         navigateFallback: "index.html",
         navigateFallbackDenylist: [/\/cards\//],
         runtimeCaching: [
@@ -97,7 +100,10 @@ export default defineConfig({
         // bundle — better caching, chunks stay under 500 kB, and no per-package
         // allow-list to maintain as dependencies change.
         manualChunks(id: string) {
-          if (id.includes("src/lib/cards.ts")) return "card-data";
+          // Card content lives in the barrel (src/lib/cards.ts), the per-card
+          // modules (src/lib/cards/*.ts) and the shared types (card-types.ts).
+          if (id.includes("src/lib/cards") || id.includes("src/lib/card-types"))
+            return "card-data";
           if (id.includes("node_modules")) {
             return id.includes("lucide-react") ? "icons" : "vendor";
           }

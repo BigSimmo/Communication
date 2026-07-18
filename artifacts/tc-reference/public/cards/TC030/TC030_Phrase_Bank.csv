@@ -1,28 +1,44 @@
 category,phrase
-Grounding Phrases,Let me say this plainly.
-Grounding Phrases,I want to be direct about this.
-Grounding Phrases,The straightforward answer is...
-Grounding Phrases,"My view, simply: ..."
-Grounding Phrases,To be clear: ...
-Grounding Phrases,The bottom line is...
-Recovery Phrases,[Plant feet. Pause. Continue.]
-Recovery Phrases,[Still hands. Look at the person. Finish the sentence.]
-Recovery Phrases,[Slow the pace. Stop moving. Speak from here.]
-Spoken Anchors,"I am going to stay right here for this part, because it matters."
-Spoken Anchors,Let me put everything down and give you the headline.
-Spoken Anchors,"Before I move on, I want to let that point stand for a moment."
-Spoken Anchors,I will take the next section from just here.
-Spoken Anchors,Let me stop walking and say this plainly.
-Spoken Anchors,This is the slide I want us to sit with for a minute.
-Stillness as Attention,Let me put my phone away — you have my full attention.
-Stillness as Attention,I am in no hurry. Take whatever time you need.
-Stillness as Attention,I am going to sit back and just listen for a while.
-Stillness as Attention,Nothing about this needs rushing — go on.
-Stillness as Attention,I am not going anywhere. Start wherever feels right.
-Stillness as Attention,Let me close the laptop; this deserves better than half of me.
-Reading the Room Back In,"I know I have gone very still — that is me concentrating, not switching off."
-Reading the Room Back In,"My pacing was nerves, not impatience. Let me stand still and try that again."
-Reading the Room Back In,"If I looked restless just then, it was energy, not disinterest."
-Reading the Room Back In,"I realise I was talking to the whiteboard, not to you. Let me turn around and say it properly."
-Reading the Room Back In,That stillness was not coldness — I wanted the words to carry the weight.
-Reading the Room Back In,I fidget when I am thinking hard. Ignore the pen; hear the point.
+Quick defaults,How so?
+Quick defaults,In what way?
+Quick defaults,"What part, exactly?"
+Quick defaults,What do you mean by that?
+Quick defaults,What happened there?
+Quick defaults,Say more about that word?
+Warm and natural,That word sounds important. What made it feel that way?
+Warm and natural,You said 'draining'. What part was draining?
+Warm and natural,That sounds like the real bit. What happened there?
+Warm and natural,You used the word 'stuck'. Stuck how?
+Warm and natural,That sounds more complicated than the short version.
+Warm and natural,'A lot' sounds loaded. A lot how?
+Charismatic / social,Chaotic in a fun way or a why-am-I-here way?
+Charismatic / social,Unexpectedly good? That needs the story.
+Charismatic / social,Weirdly satisfying - weirdly how?
+Charismatic / social,That phrase is doing a lot of work. Explain.
+Charismatic / social,Good-intense or bad-intense?
+Professional / workplace,"When you say 'risk', what risk specifically?"
+Professional / workplace,"By 'not sustainable', what are you seeing?"
+Professional / workplace,What does 'done properly' mean here?
+Professional / workplace,You mentioned 'alignment'. Alignment around what?
+Professional / workplace,"When you say 'priority', what should we optimise for?"
+Professional / workplace,'Blocked' - blocked by what?
+High-status / senior person,"When you say 'priority', what specifically should we optimise for?"
+High-status / senior person,"By 'concise', do you mean one page or just the decision points?"
+High-status / senior person,"When you say 'too slow', where is the bottleneck?"
+High-status / senior person,What does 'good enough' look like here?
+High-status / senior person,What is the key constraint?
+Conflict / resistance,You said 'unfair'. What would have felt fair?
+Conflict / resistance,Dismissed - what made it land that way?
+Conflict / resistance,Stuck - is that about the decision or how it was handled?
+Conflict / resistance,Rushed - what part felt rushed?
+Conflict / resistance,Not heard - what do you need me to understand first?
+Digital / text,Messy how?
+Digital / text,Complicated in what way?
+Digital / text,Good-intense or bad-intense?
+Digital / text,What's the 'political' bit?
+Digital / text,What part is the real issue?
+Shy or guarded person,"No need to go into it, but when you say 'odd', what kind of odd?"
+Shy or guarded person,"If you are comfortable saying, what made it feel off?"
+Shy or guarded person,You mentioned it was a bit much. Was that the people side or the task side?
+Shy or guarded person,"We can leave it there, but 'weird' sounds like the key word."
+Shy or guarded person,Was it more awkward or more stressful?

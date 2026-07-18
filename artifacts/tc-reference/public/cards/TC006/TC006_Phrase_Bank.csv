@@ -1,33 +1,43 @@
 category,phrase
-Specific Praise,The way you handled that question in the meeting was sharp.
-Specific Praise,That document was really well-structured — easy to follow.
-Specific Praise,I noticed how calm you stayed under pressure today.
-Specific Praise,The way you explained that to the client was exactly right.
-Specific Praise,You spotted something in the data that nobody else caught.
-Specific Praise,That was a good call — and I do not think it was easy to make.
-Specific Praise,The edit you made to that paragraph made it much clearer.
-Specific Praise,You handled that pushback with real composure.
-Impact Phrases,It made the difference in how the meeting landed.
-Impact Phrases,That kind of thing does not go unnoticed.
-Impact Phrases,I wanted to say it because I meant it.
-Impact Phrases,I have been thinking about that since yesterday.
-Impact Phrases,That is not a small thing — it takes skill.
-Impact Phrases,That made my job easier and I wanted to acknowledge it.
-Quick Compliments,Good catch on that error.
-Quick Compliments,That subject line did all the work.
-Quick Compliments,Nice framing in that email.
-Quick Compliments,That was the right call at the right moment.
-Quick Compliments,Clean handover — nothing missing.
-Quick Compliments,You made that look easier than it was.
-Professional Praise,Your analysis changed my mind on the timeline — I came in believing the opposite.
-Professional Praise,"The rollout went smoothly because of the preparation, and I want that noted."
-Professional Praise,The way you structured that document saved the meeting twenty minutes.
-Professional Praise,That risk you flagged in March is exactly what just happened. Well called.
-Professional Praise,Your summary was the clearest statement of the problem I have heard so far.
-Professional Praise,The client asked who wrote the proposal. I made sure they knew.
-Praise Under Pressure,Before I push back on the plan: the thinking behind it is genuinely strong.
-Praise Under Pressure,You are arguing against me and doing it well — that last point in particular lands.
-Praise Under Pressure,"I want to be clear in front of this room: that decision was theirs, and it was the right one."
-Praise Under Pressure,"I disagreed with you at the time. You were right, and the way you held your ground was impressive."
-Praise Under Pressure,That was a hard message to deliver and you did it without flinching.
-Praise Under Pressure,"Credit where it is due, even though it weakens my case: your numbers are better than mine."
+Quick labels,That sounds frustrating.
+Quick labels,That sounds like a lot.
+Quick labels,That sounds disappointing.
+Quick labels,That sounds exhausting.
+Quick labels,That sounds pretty intense.
+Quick labels,That sounds like it caught you off guard.
+Soft / tentative,"I might be reading this wrong, but it sounds like..."
+Soft / tentative,Part of this seems to be...
+Soft / tentative,It sounds like there is some...
+Soft / tentative,"I may be off, but that seems..."
+Soft / tentative,Not angry exactly - more worn down?
+Two-emotion labels,Exciting and unsettling?
+Two-emotion labels,"Relieved, but still annoyed?"
+Two-emotion labels,Proud and exhausted?
+Two-emotion labels,"Angry, but also hurt?"
+Two-emotion labels,"Interested, but cautious?"
+Two-emotion labels,"Hopeful, but not fully convinced?"
+Warm / connecting,That sounds like it hit harder than expected.
+Warm / connecting,No wonder you were cautious after that.
+Warm / connecting,That sounds like the kind of thing that stays with you.
+Warm / connecting,That sounds less like inconvenience and more like feeling let down.
+Warm / connecting,I can see why that would feel heavy.
+Professional,It sounds like the main frustration is uncertainty.
+Professional,It seems the concern is reliability.
+Professional,Sounds like the issue is less the workload and more the lack of clarity.
+Professional,It sounds like timing is the pressure point.
+Professional,There seems to be a trust piece here.
+Conflict-softening,It sounds like that felt unfair.
+Conflict-softening,I can hear why that landed badly.
+Conflict-softening,It sounds like the hard part was not being consulted.
+Conflict-softening,There seems to be a respect piece here.
+Conflict-softening,It sounds like this felt dismissive from your side.
+Social / dating,You sound genuinely excited about that.
+Social / dating,That sounds like it mattered more than you are making it sound.
+Social / dating,"There is a bit of pride in that, no?"
+Social / dating,That sounds like a good kind of nervous.
+Social / dating,You sound like you are still deciding how you feel about it.
+Digital / text,That sounds like a draining day.
+Digital / text,"Oof, that sounds frustrating."
+Digital / text,That sounds exciting but a bit much.
+Digital / text,Sounds like you are over it.
+Digital / text,That seems like it landed badly.
