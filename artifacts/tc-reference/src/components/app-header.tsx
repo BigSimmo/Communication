@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "wouter";
 import {
   Search,
@@ -17,7 +17,11 @@ import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useTheme } from "@/lib/theme";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-import { SearchModal } from "@/components/search-modal";
+// Lazily loaded — global search builds an index over the heavy card content,
+// so the search chunk (and `card-data`) only load the first time search opens.
+const SearchModal = lazy(() =>
+  import("@/components/search-modal").then((m) => ({ default: m.SearchModal })),
+);
 
 const CARD_META: Record<string, { cardTitle: string; cardCategory: string }> = {};
 for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
@@ -388,13 +392,15 @@ export function AppHeader({
         </div>
       </div>
 
-      {/* Search modal rendered as portal */}
+      {/* Search modal rendered as portal; lazy chunk loads on first open */}
       {searchOpen && (
-        <SearchModal
-          query={searchQuery}
-          setQuery={setSearchQuery}
-          onClose={closeSearch}
-        />
+        <Suspense fallback={null}>
+          <SearchModal
+            query={searchQuery}
+            setQuery={setSearchQuery}
+            onClose={closeSearch}
+          />
+        </Suspense>
       )}
     </>
   );

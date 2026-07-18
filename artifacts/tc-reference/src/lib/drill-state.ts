@@ -1,6 +1,11 @@
-import { CARD_DATA } from "./cards";
+import { LIBRARY_CATEGORIES } from "./data";
 
-export const CARD_IDS = Object.keys(CARD_DATA).sort();
+// Sourced from the light data.ts metadata (not the heavy card content) so the
+// drill badge in the app shell doesn't pull the card-data chunk on first paint.
+export const CARD_IDS = Object.values(LIBRARY_CATEGORIES)
+  .flat()
+  .map((c) => c.id)
+  .sort();
 
 export interface DrillState {
   cardIndex: number;
