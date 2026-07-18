@@ -12,7 +12,6 @@ import {
   X,
   ExternalLink,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { copyToClipboard } from "@/lib/utils";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { CARD_DATA } from "@/lib/cards";
@@ -603,11 +602,13 @@ export default function CardDetail() {
               }
             }}
           >
-            <motion.div
+            <div
               className="w-full h-full relative"
-              style={{ transformStyle: "preserve-3d" }}
-              animate={{ rotateY: isFlipped ? 180 : 0 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
+              style={{
+                transformStyle: "preserve-3d",
+                transform: `rotateY(${isFlipped ? 180 : 0}deg)`,
+                transition: "transform 600ms ease-in-out",
+              }}
             >
               {/* Front Side */}
               <div
@@ -694,7 +695,7 @@ export default function CardDetail() {
                   Click to Flip &amp; view Overview ↺
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 

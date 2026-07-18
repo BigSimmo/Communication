@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it, expect } from "vitest";
-import { CARD_DATA, CANONICAL_TONES, isSpeakablePhrase } from "@/lib/cards";
+import { CANONICAL_TONES, CARD_DATA, inferPhraseTone, isSpeakablePhrase } from "@/lib/cards";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { getAllAggregatedPhrases } from "@/lib/phrases-data";
 
@@ -33,7 +33,8 @@ describe("card content invariants", () => {
     for (const [id, card] of Object.entries(CARD_DATA)) {
       const seen = new Set<string>();
       for (const group of card.phraseBank) {
-        expect(CANONICAL_TONES, `${id}/${group.id} tone`).toContain(group.tone);
+        const tone = inferPhraseTone(group);
+        expect(CANONICAL_TONES, `${id}/${group.id} tone`).toContain(tone);
         expect(seen.has(group.id), `${id} duplicate group id ${group.id}`).toBe(false);
         seen.add(group.id);
       }
