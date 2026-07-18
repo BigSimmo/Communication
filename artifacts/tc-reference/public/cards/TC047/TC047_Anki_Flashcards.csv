@@ -1,0 +1,13 @@
+front,back
+TC047: What is the minimum viable move?,"Silently order your example as Situation, Task, Action, Result, then say it in plain language — keep the scene to a sentence and never name the framework out loud."
+TC047: What is the core sequence?,"Situation -> Task -> Action -> Result -> Situation: what was going on. ""Two weeks from launch, our main supplier pulled out."" -> Task: what you were responsible for. ""I owned delivery, so it was on me to hold the date."" -> Action: what you actually did. ""I called three vendors, negotiated a rush order, and re-sequenced the build."" -> Result: what changed. ""We shipped on time and the client renewed.""."
+TC047: What is the field tip?,"Scaffolding, not the conversation."
+TC047: What is the strong version of: Recites STAR as a visible script and sounds rehearsed.?,"Uses STAR flexibly, then checks the listener is clearer, more heard and better able to respond."
+TC047: What is the strong version of: Front-loads endless situation and background.?,"Spends most of the airtime on action and result, where the value is."
+TC047: What is the strong version of: Forces a structured story into an emotional moment.?,"Validates first, then offers structure only if it still helps."
+"TC047: What is better than: ""Situation. Task. Action. Result."" announced like headings.?",Tell the story in that order without labelling any of it.
+TC047: What is better than: A minute of background before anything actually happens.?,"One or two sentences of scene, then move to what you did."
+"TC047: What is better than: ""...and that's basically what I did.""?","""...and the result was we shipped on time and kept the client."""
+TC047: What are signs it is working?,"They become clearer and ask a more specific question. They summarise your point back accurately. They can choose a next step. They follow along without needing you to repeat. They pick up a detail you gave and build on it. They react to the content of the example, not to your delivery."
+TC047: When should you avoid this technique?,"Live conflict, where a tidy structure can feel cold Vulnerable disclosure that needs listening, not a framework"
+TC047: What is the best recovery line?,I made that too structured — let me say it more simply.

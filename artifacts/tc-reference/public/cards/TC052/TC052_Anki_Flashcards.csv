@@ -1,0 +1,13 @@
+front,back
+TC052: What is the minimum viable move?,"Name one specific situation, the observable behaviour you actually saw, and the concrete impact it had — then stop and listen."
+TC052: What is the core sequence?,"Situation → Behaviour → Impact. -> In situation X, I noticed behaviour Y. The impact was Z. -> In this morning's client call, you answered before Priya finished. The client looked unsure who to follow. -> In the review, you flagged the risk early. It saved us a fortnight. -> Best field rule: use the structure to organise thought, then speak like a person.."
+TC052: What is the field tip?,"Scaffolding, not the conversation"
+"TC052: What is the strong version of: Using SBI as a visible script, announcing each step and sounding rehearsed.?","Using SBI flexibly, then checking whether the listener is clearer, more heard, and better able to respond."
+"TC052: What is the strong version of: Naming character or motive: ""you were careless"".?","Naming behaviour and impact together: ""the figures weren't checked, so we sent the wrong total""."
+"TC052: What is the strong version of: Leaving the impact vague: ""it wasn't great"".?","Naming the impact, then pausing to let them respond before you fill the silence."
+"TC052: What is better than: ""You were careless in that report.""?","""The report went out with last month's figures."""
+"TC052: What is better than: ""You clearly didn't care about the deadline.""?","""The draft came in two days after the deadline."""
+"TC052: What is better than: ""It just wasn't great.""?","""It meant we had to re-send the whole thing to the client."""
+TC052: What are signs it is working?,"They become clearer and ask a more specific question. They summarise your point back accurately. They move straight to a next step. Their manner opens — they nod, lean in, or start taking notes. They add their own side of the situation without getting defensive. The conversation gets shorter, not longer."
+TC052: When should you avoid this technique?,Fresh conflict where emotion is still running high Shame-heavy conversations that need warmth before structure
+TC052: What is the best recovery line?,I made that too structured — let me say it more simply.

@@ -1,0 +1,13 @@
+front,back
+TC063: What is the minimum viable move?,"Name one real domain where they have more context than you, then ask one small, answerable question: ""You know this better than I do - what should I notice first?"""
+TC063: What is the core sequence?,"You have [real basis]. What [small, concrete question] should I check first? -> You know this better than I do - what should I notice first? -> You have worked with these customers. What usually matters most? -> I have a tentative view, but you are closer to it. What would you challenge in my read? -> You are closest to the facts. What should we not miss before we act? -> Respectful close: ""That helps - I had not separated those two issues.""."
+TC063: What is the field tip?,Make the expert role smaller than the person.
+"TC063: What is the strong version of: ""You are the expert, so tell me what to do.""?","""You have worked with this customer type for years. What would you check before we decide?"""
+"TC063: What is the strong version of: ""Wow, you are a genius at this.""?","""Your read on these trade-offs is usually sharp. What is the risk I might be underweighting?"""
+"TC063: What is the strong version of: ""Explain this whole field to me.""?","""What is the one distinction beginners usually miss?"""
+"TC063: What is better than: ""You are amazing at this.""?","""You know the pricing history here. What did we try before?"""
+"TC063: What is better than: ""Teach me everything about this.""?","""What is the one thing I should check first?"""
+"TC063: What is better than: ""Could you write up your thinking on the whole strategy?""?","""One caution from your side would really help - what is it?"""
+TC063: What are signs it is working?,"They answer with more detail than the question required. Their face or tone warms after being asked. They correct a misconception without getting defensive. They add nuance, examples, exceptions, or practical cautions. They ask what you are trying to do - they are engaging with the problem. They offer a principle, not just a fact."
+TC063: When should you avoid this technique?,"Their expertise is not actually relevant here They are rushed, overloaded, or already on the hook for too much"
+TC063: What is the best recovery line?,I may have put you on the spot. You do not have to answer that.

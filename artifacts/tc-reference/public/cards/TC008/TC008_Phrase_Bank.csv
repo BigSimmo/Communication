@@ -1,28 +1,49 @@
 category,phrase
-Stopping Phrases,That is my position.
-Stopping Phrases,I will leave it there.
-Stopping Phrases,Happy to expand if that would help.
-Stopping Phrases,That is the short version.
-Stopping Phrases,I could say more — I think that is the main point though.
-Stopping Phrases,Let me stop there and see if you have questions.
-Stopping Phrases,That is it.
-Recovery Stops,Actually — I am over-explaining. The point is simply: ...
-Recovery Stops,Let me stop there. I was adding too much.
-Recovery Stops,I have made the point. Let me leave it.
-Recovery Stops,I tend to add too much. The actual point is: ...
-Recovery Stops,Let me cut that down: ...
-Professional Full Stops,That is the update. Questions welcome.
-Professional Full Stops,Nothing further from me unless you want detail.
-Professional Full Stops,I will pause there — where would you like to go deeper?
-Professional Full Stops,That covers the decision. The appendix has the rest.
-Professional Full Stops,I have one point and I have made it.
-Holding the Stop,That is my answer. I am comfortable with it.
-Holding the Stop,I have given you my reasoning. I will let it stand.
-Holding the Stop,"I do not have more to add — not because I am unsure, but because that is the whole point."
-Holding the Stop,I would rather leave a clear point than bury it in defence.
-Holding the Stop,"If there is a specific gap, ask me — otherwise that is my position."
-Warm Stops,"That is the honest answer, short as it is."
-Warm Stops,I will leave it there — tell me if you want the longer story.
-Warm Stops,"Short answer, said with love: no."
-Warm Stops,That is all I meant — nothing hidden behind it.
-Warm Stops,"I am keeping it brief because it is simple, not because I do not care."
+Concise opinions,"My view is X, mainly because Y."
+Concise opinions,I'd choose X. The reason is pretty simple: Y.
+Concise opinions,The headline is X. The detail is Y.
+Concise opinions,I think X is the better move.
+Concise opinions,I'm leaning X because it solves the main issue.
+Concise opinions,"Honestly, X. That's the whole answer."
+Check instead of continuing,Does that answer the question?
+Check instead of continuing,Do you want the short version or the full version?
+Check instead of continuing,"Is that enough detail, or useful to go deeper?"
+Check instead of continuing,I can unpack that if helpful.
+Check instead of continuing,I'll pause there.
+Check instead of continuing,That's the gist - want more?
+Boundaries / saying no,"I can't do that, but I can do this."
+Boundaries / saying no,I'm not available for that.
+Boundaries / saying no,That won't work for me.
+Boundaries / saying no,I'm going to say no to that.
+Boundaries / saying no,"I don't want to overcommit, so I'll leave it there."
+Boundaries / saying no,"No, but thank you for asking."
+Work / leadership,Bottom line: I recommend X.
+Work / leadership,The decision I'd make is X.
+Work / leadership,The main risk is Y.
+Work / leadership,The next step is X by Friday.
+Work / leadership,My recommendation is X; the trade-off is Y.
+Work / leadership,Headline first: we're on track. Detail if you want it.
+Social / dating,Simple answer: yes.
+Social / dating,I liked it. Not because it was perfect - because it felt easy.
+Social / dating,I'll spare you the essay: I'm into it.
+Social / dating,Short version: I had a good time.
+Social / dating,"I could overanalyse it, but the honest answer is X."
+Social / dating,"Yeah, I'd like to see you again. That simple."
+Conflict / disagreement,The part I disagree with is X.
+Conflict / disagreement,My concern is Y.
+Conflict / disagreement,"I see it differently, mainly because X."
+Conflict / disagreement,I don't want to over-argue it. My view is X.
+Conflict / disagreement,I'll say the key point and stop: X.
+Conflict / disagreement,"Here's my one concern, then I'll listen."
+Digital / text,Quick answer: yes.
+Digital / text,Short version: I can do Thursday.
+Digital / text,"I'm out this week, but keen another time."
+Digital / text,Main thought: choose option B.
+Digital / text,No long explanation - I just don't think that works for me.
+Digital / text,On it - done by Thursday.
+Recovery / reset,I'm overexplaining. Short version: X.
+Recovery / reset,Let me make that cleaner.
+Recovery / reset,I'm giving too much detail. The point is X.
+Recovery / reset,I'll stop there before I turn this into a TED Talk.
+Recovery / reset,Simple version: X. Happy to expand if useful.
+Recovery / reset,Ignore the ramble - the point is X.

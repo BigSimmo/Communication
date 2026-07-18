@@ -1,0 +1,13 @@
+front,back
+TC065: What is the minimum viable move?,"Name the point and say when you will come back: ""Bookmarking the timeline issue — I want to return to it after this example."""
+TC065: What is the core sequence?,"Marker + Value + Return path + Continue. -> Marker: ""I want to bookmark that."" -> Value: ""...because it may change the decision / because I do not want to lose it."" -> Return path: ""...after this point / before we close / in the next message."" -> Continue: ""For now, keep going with what happened next."" -> Full example: ""I want to bookmark the budget concern because it may change the decision. After the customer example, let us come back to it — for now, keep going.""."
+TC065: What is the field tip?,A bookmark is only as trustworthy as your return.
+"TC065: What is the strong version of: ""Anyway, we will get back to that."" Vague, dismissive, and easy to forget.?","""I want to bookmark the staffing concern because it may affect the whole plan. After the timeline, let us return to it before we decide."""
+"TC065: What is the strong version of: ""Will circle back."" No anchor, disappears in the scroll.?","""Bookmarking your overload point here so it does not get buried — timeline first, then overload in its own paragraph."""
+"TC065: What is the strong version of: Bookmark, then never mention it again.?","Return within the window you promised, unprompted: ""Earlier I bookmarked staffing — let us take it now."""
+"TC065: What is better than: ""Good point, we'll park it."" (no return path)?","""I want to bookmark that because it may change the decision — let us return to it before we close."""
+TC065: What is better than: five saved threads and a cluttered agenda?,"""We have three saved threads — let us choose which matters most before we add more."""
+TC065: What is better than: the bookmark is never mentioned again?,"Return within the promised window, unprompted: ""Earlier I bookmarked staffing — let us take it now."""
+TC065: What are signs it is working?,"They nod, relax, and keep speaking on the current thread. They add helpful detail instead of circling back to the saved point. Their tone eases — they trust the point is held, not lost. The group keeps moving without the side issue derailing it. When you reopen the bookmark later, they recognise it and pick it straight up. No one has to re-raise the saved point to keep it alive."
+TC065: When should you avoid this technique?,"The point is urgent, vulnerable, or safety-related The point is clearly the main issue, not a side-thread"
+TC065: What is the best recovery line?,I bookmarked your point earlier and missed the return. Let me pick it up now.

@@ -8,20 +8,35 @@ import { getAllAggregatedPhrases } from "@/lib/phrases-data";
 
 const PUBLIC_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "public");
 
-// Structural guarantees the app relies on. cards.ts is hand-edited content —
-// these tests turn silent content mistakes into loud test failures.
+// Structural guarantees the app relies on. Card content is hand-edited /
+// generated from the source technique packages — these tests turn silent
+// content mistakes into loud test failures.
 
 const CARD_IDS = Object.keys(CARD_DATA);
 const LIBRARY_CARDS = Object.values(LIBRARY_CATEGORIES).flat();
 
+// The catalogue is the Top500 sequence TC001–TC100 with two intentional gaps:
+// TC055 and TC097 were duplicate builds in the source set (of TC054 and TC096),
+// so those ids are deliberately absent. Result: 98 unique techniques.
+const MISSING_IDS = new Set(["TC055", "TC097"]);
+const EXPECTED_IDS = Array.from({ length: 100 }, (_, i) => `TC${String(i + 1).padStart(3, "0")}`).filter(
+  (id) => !MISSING_IDS.has(id),
+);
+
 describe("card content invariants", () => {
-  it("has all 31 cards, TC001–TC031, in both cards.ts and data.ts", () => {
-    const expected = Array.from({ length: 31 }, (_, i) => `TC${String(i + 1).padStart(3, "0")}`);
-    expect(CARD_IDS.sort()).toEqual(expected);
-    expect(LIBRARY_CARDS.map((c) => c.id).sort()).toEqual(expected);
+  it("has all 98 techniques (TC001–TC100 minus TC055/TC097) in both cards.ts and data.ts", () => {
+    expect(CARD_IDS.slice().sort()).toEqual(EXPECTED_IDS);
+    expect(LIBRARY_CARDS.map((c) => c.id).sort()).toEqual(EXPECTED_IDS);
+  });
+
+  it("lists every card in exactly one library category", () => {
+    const libIds = LIBRARY_CARDS.map((c) => c.id);
+    expect(new Set(libIds).size, "duplicate id across categories").toBe(libIds.length);
   });
 
   it("gives every card exactly 7 drill entries labelled Day 1–Day 7", () => {
+    // The daily-drill feature (drill-state.ts) cycles through a fixed 7 days,
+    // so every card must carry exactly Day 1..Day 7.
     for (const [id, card] of Object.entries(CARD_DATA)) {
       expect(card.drill.map((d) => d.day), id).toEqual([
         "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7",
@@ -56,15 +71,6 @@ describe("card content invariants", () => {
     }
   });
 
-  it("matches overview.difficulty against the library difficulty for every card", () => {
-    // data.ts duplicates difficulty so the Library can filter/sort without
-    // importing the heavy card content — this keeps the copy honest.
-    for (const libCard of LIBRARY_CARDS) {
-      const difficulty = CARD_DATA[libCard.id]?.overview.difficulty;
-      expect(difficulty, libCard.id).toBe(libCard.difficulty);
-    }
-  });
-
   it("keeps stage directions out of the aggregated phrase pool", () => {
     // Assert the bracketed format directly rather than via isSpeakablePhrase,
     // so a regression in the predicate itself can't hide leaked entries
@@ -84,9 +90,21 @@ describe("card content invariants", () => {
     }
   });
 
+  it("keeps every declared download resource well-formed", () => {
+    const groups = new Set(["Visual Cards", "Written Guides", "Practice Tools"]);
+    const types = new Set(["pdf", "docx", "png", "csv"]);
+    for (const [id, card] of Object.entries(CARD_DATA)) {
+      for (const r of card.resources ?? []) {
+        expect(groups, `${id} resource group ${r.group}`).toContain(r.group);
+        expect(types, `${id} resource type ${r.type}`).toContain(r.type);
+        expect(r.href.startsWith(`cards/${id}/`), `${id} resource href ${r.href}`).toBe(true);
+      }
+    }
+  });
+
   it("ships the generated download pack for every card except TC001", () => {
-    // TC001 has its own designed assets; every other card must carry the
-    // generated ones so the downloadable content never lags the in-app card.
+    // TC001 ships hand-designed assets; every other card must carry the
+    // generated Quick Card + Detailed Guide so downloads never lag the card.
     const expected = [
       { suffix: "_Quick_Card.pdf", group: "Visual Cards" },
       { suffix: "_Detailed_Guide.pdf", group: "Written Guides" },

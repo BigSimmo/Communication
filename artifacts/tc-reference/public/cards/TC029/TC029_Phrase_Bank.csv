@@ -1,28 +1,46 @@
 category,phrase
-Silence Bridges,[One breath pause] My honest answer is...
-Silence Bridges,[Pause] The right way to put this is...
-Silence Bridges,[Pause] Let me answer that properly.
-Silence Bridges,[Full second pause] I want to take that seriously.
-Silence Bridges,[Pause] I am going to give you the direct answer.
-Invite to Fill,[Ask question. Pause. Wait fully before adding anything.]
-Invite to Fill,[State your position. Do not add a question. Wait.]
-Invite to Fill,[Make your point. Stop. Do not soften with a follow-up question.]
-Invite to Fill,[Give your view. Hold the silence. See what comes.]
-Beat Buyers,Good question — let me think.
-Beat Buyers,Hmm. Give me a second.
-Beat Buyers,Let me sit with that.
-Beat Buyers,One moment.
-Beat Buyers,That is worth a pause.
-Beat Buyers,Bear with me.
-Considered Pause Framers,I am going to take a moment before I respond to that.
-Considered Pause Framers,"That deserves a considered answer, so bear with me."
-Considered Pause Framers,Let me think about that properly rather than react to it.
-Considered Pause Framers,I would rather pause now than correct myself later.
-Considered Pause Framers,Give me ten seconds — I want to get this right.
-Considered Pause Framers,"Before I answer, I want to weigh what you have just said."
-Naming the Silence,"That silence was me thinking, not disagreeing."
-Naming the Silence,"I went quiet because I was taking it seriously, not because I was cross."
-Naming the Silence,"Sorry — that pause ran long. I was weighing it, not avoiding it."
-Naming the Silence,"My quiet was consideration, not a verdict."
-Naming the Silence,I should have said I needed a minute instead of just going silent.
-Naming the Silence,"The pause was about the problem, not about you."
+Supportive pause openers,Take your time.
+Supportive pause openers,No rush.
+Supportive pause openers,I am with you.
+Supportive pause openers,I am just thinking for a second.
+Supportive pause openers,You do not have to answer immediately.
+Supportive pause openers,Let that sit for a moment.
+After emotion,That sounds like it hit hard.
+After emotion,I do not want to rush past that.
+After emotion,That sounds like it stayed with you.
+After emotion,What part is still sitting with you?
+After emotion,That makes sense that you needed a second.
+After emotion,There is no rush to put words to it.
+After a question,What was the real issue there? [pause]
+After a question,What do you make of that? [pause]
+After a question,What would make this workable? [pause]
+After a question,What are you worried I am not seeing? [pause]
+After a question,What does your instinct say? [pause]
+Professional,I will pause there because that is the key trade-off.
+Professional,I do not want to over-talk the recommendation.
+Professional,I will stop there and hear your concern.
+Professional,Bottom line: I recommend X. [pause]
+Professional,What is your reaction? [pause]
+Professional,Let me put the option on the table and then hear you.
+Conflict / tension,I hear the concern. [pause]
+Conflict / tension,I do not want to respond too quickly and miss the point.
+Conflict / tension,Take a second. What feels most unresolved?
+Conflict / tension,I am not ignoring you — I am trying not to react too fast.
+Conflict / tension,That is a fair thing to pause on.
+Conflict / tension,Let us both take a breath before we carry on.
+High-status / busy,I will keep it brief and pause there.
+High-status / busy,Your read? [pause]
+High-status / busy,What would you challenge? [pause]
+High-status / busy,I will stop there rather than over-explain.
+High-status / busy,Happy to be challenged. [pause]
+Digital / text,No need to reply quickly — worth thinking about.
+Digital / text,Leaving that with you rather than over-explaining.
+Digital / text,Take your time. A short reply is fine.
+Digital / text,I will stop there so this does not become a wall of text.
+Digital / text,Happy to pause there and hear your reaction.
+Recovery,"Sorry, I went quiet because I was thinking, not judging."
+Recovery,That pause probably felt more intense than I meant.
+Recovery,"I did not want to rush past that, but we can move on."
+Recovery,I am not trying to put you on the spot.
+Recovery,"I was giving that space, but I may have overdone it."
+Recovery,No pressure to answer quickly.

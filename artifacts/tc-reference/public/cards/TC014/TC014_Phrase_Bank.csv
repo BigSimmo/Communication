@@ -1,29 +1,45 @@
 category,phrase
-Validation Phrases,I understand why that would be a concern.
-Validation Phrases,That is a reasonable worry to have.
-Validation Phrases,I can see why that would land the way it did.
-Validation Phrases,"If I were in your position, I would have the same concern."
-Validation Phrases,That is a real problem — I am not dismissing it.
-Validation Phrases,I hear you — and I want to make sure I have understood it fully before I respond.
-Validation Phrases,The concern makes sense given what you know.
-Validation Phrases,I would be worried about that too.
-Full Understanding,"Just to make sure I have the full picture — is the concern about X, or also about Y?"
-Full Understanding,Tell me more about what is driving that worry.
-Full Understanding,"What would make this worse, from your perspective?"
-Full Understanding,What would a good outcome look like for you here?
-Full Understanding,I want to understand the concern fully before I try to address it.
-Stakeholder Validation,You are right to press on this — it is the part of the plan with the most risk.
-Stakeholder Validation,That question is exactly the one we asked ourselves. Here is where we landed.
-Stakeholder Validation,"If I were funding this, I would want the same reassurance."
-Stakeholder Validation,"The concern is legitimate, and it deserves a proper answer rather than a quick one."
-Stakeholder Validation,Let me play the concern back to check I have it: you are worried that X. Is that the core?
-Validation Under Fire,"You are angry, and given what happened, that is fair."
-Validation Under Fire,I am not going to defend this until I have properly heard it.
-Validation Under Fire,"If that had happened to me, I would be in this office too."
-Validation Under Fire,Say the whole thing — I am not going anywhere.
-Validation Under Fire,"This clearly is not a small thing to you, so I am not going to treat it like one."
-Bridge to Response,"Now that I understand it, here is what I can do about it."
-Bridge to Response,You have been heard — let me tell you what happens next.
-Bridge to Response,That is the concern. Here is my answer to each part of it.
-Bridge to Response,I have the full picture now. My response is this.
-Bridge to Response,"Given everything you have said, here is where I land."
+Quick validators,That is a fair concern.
+Quick validators,I can see why that would give you pause.
+Quick validators,That part makes sense.
+Quick validators,That is not a silly worry.
+Quick validators,I get why you would be cautious.
+Quick validators,That is a legitimate thing to check.
+Quick validators,That is worth pausing on before we go further.
+Natural and warm,"Given what happened last time, I would be cautious too."
+Natural and warm,I can see why you would not want to rush into this.
+Natural and warm,That sounds less like resistance and more like wanting to be careful.
+Natural and warm,"If I thought this might create more work without payoff, I would hesitate too."
+Natural and warm,That is exactly the kind of thing that can quietly derail a plan.
+Natural and warm,"Honestly, I would be asking the same thing in your position."
+Professional,That is a legitimate risk to consider.
+Professional,"The concern I am hearing is reliability, not the principle."
+Professional,It sounds like the main issue is implementation.
+Professional,I agree that sustainability is the key risk.
+Professional,The worry is not whether the idea is appealing; it is whether the execution is realistic.
+Professional,Let me make sure I have the concern right before I answer it.
+Persuasive / bridge to options,That concern is exactly why I would suggest a smaller first step.
+Persuasive / bridge to options,"If that is the worry, I would not push the full version either."
+Persuasive / bridge to options,Let us design around that constraint rather than ignore it.
+Persuasive / bridge to options,That is the reason I would make this reversible.
+Persuasive / bridge to options,"If we cannot solve that concern, I would not recommend moving ahead."
+Persuasive / bridge to options,"Is the main worry the time, the cost, or whether it will actually work?"
+Conflict-safe,I am not dismissing that.
+Conflict-safe,I can see why it landed that way.
+Conflict-safe,"Before I respond, I want to make sure I understand the concern."
+Conflict-safe,I think there is a fair point in what you are saying.
+Conflict-safe,I see the part where this felt unfair.
+High-status / busy person,That is the right risk to test.
+High-status / busy person,I agree that execution is the constraint.
+High-status / busy person,The concern is valid. My answer is...
+High-status / busy person,"Yes, that is the key trade-off."
+High-status / busy person,I would not ignore that constraint either.
+Digital / text,Fair concern. I think the key issue is...
+Digital / text,I get the hesitation. The way I would reduce the risk is...
+Digital / text,"Is your main worry time, cost, or complexity?"
+Digital / text,That is a reasonable pushback. I would solve it by...
+Digital / text,Agree that follow-through is the risk. My suggestion is...
+Shy / guarded person,That makes sense. No pressure to decide now.
+Shy / guarded person,It is reasonable to want more certainty first.
+Shy / guarded person,I can see why you would want to slow it down.
+Shy / guarded person,We can keep it small if that feels safer.

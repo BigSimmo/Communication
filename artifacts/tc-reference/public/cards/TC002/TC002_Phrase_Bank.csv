@@ -1,33 +1,49 @@
 category,phrase
-Recall Openers,You mentioned earlier that...
-Recall Openers,Going back to what you said about...
-Recall Openers,That thing you said about X — I have been thinking about it.
-Recall Openers,I remembered you said... — how did that go?
-Recall Openers,"Last time we spoke, you mentioned... Any update on that?"
-Recall Openers,You brought up X in passing — I wanted to ask more about it.
-Recall Openers,I did not forget what you said about... I wanted to come back to it.
-Recall Openers,That point you made about X stuck with me.
-Warmth Signals,"I am asking because it sounded important, not just making conversation."
-Warmth Signals,That came up again in my thinking after we spoke.
-Warmth Signals,I thought about that on the way home.
-Warmth Signals,It was a throwaway comment but it actually landed with me.
-Warmth Signals,"I wanted to circle back — not to push, just to hear more."
-Warmth Signals,Only if you want to say more about it.
-Quick Recalls,How did Tuesday go?
-Quick Recalls,Did the flat viewing happen?
-Quick Recalls,Any news on the promotion?
-Quick Recalls,How is your mum doing?
-Quick Recalls,Did the deadline hold in the end?
-Quick Recalls,You were dreading that meeting — how was it?
-Professional Recall,Last sprint you flagged a risk around the integration — is it still live?
-Professional Recall,You mentioned the budget was the sticking point — has that moved?
-Professional Recall,Picking up from last time: you were waiting on sign-off. Where did it land?
-Professional Recall,You said the client seemed hesitant — did that change?
-Professional Recall,Before we start the agenda — you mentioned the hiring freeze last time. Any movement?
-Professional Recall,In our last one-to-one you raised the workload issue. I have not forgotten it.
-Recall Repairs,I should have asked about this sooner — you mentioned it weeks ago.
-Recall Repairs,I know you told me this and it slipped my mind. Tell me again — I want to hold onto it this time.
-Recall Repairs,"I have forgotten the detail, and pretending I remember would be worse. What was it?"
-Recall Repairs,I brought that up clumsily — we can leave it there if you would rather.
-Recall Repairs,"I realise I never asked how that turned out, and I did care. How was it?"
-Recall Repairs,That was mine to remember and I dropped it. I am sorry.
+Quick and digital,What happened next?
+Quick and digital,How did that land?
+Quick and digital,That makes sense.
+Quick and digital,Tell me the key bit.
+Quick and digital,What was that like?
+Quick and digital,Go on — I’m listening.
+Quick and digital,That’s a lot.
+Quick and digital,"Oof, that’s rough — what happened?"
+Quick and digital,Nice one. What made it work?
+Quick and digital,Say more?
+Warmth and acknowledgement,That sounds intense — what was that like?
+Warmth and acknowledgement,That is a big one. What happened next?
+Warmth and acknowledgement,I can see why that stuck with you.
+Warmth and acknowledgement,"Before I jump in with my version, tell me the best part."
+Warmth and acknowledgement,That sounds like a lot to carry.
+Warmth and acknowledgement,No wonder that stayed with you.
+Warmth and acknowledgement,I’m really glad that worked out — what was the best of it?
+Warmth and acknowledgement,That sounds like it mattered to you.
+Warmth and acknowledgement,Take your time. I want to hear it.
+Work and meetings,That sounds like it took real effort. What was the key obstacle?
+Work and meetings,That is useful context. What did you decide from there?
+Work and meetings,"Before I add my experience, what mattered most in your case?"
+Work and meetings,That’s a real result. What made the difference?
+Work and meetings,Sounds like a tough call — what tipped it?
+Work and meetings,"I’ve seen something similar, but I’d rather hear your read first."
+Work and meetings,That’s helpful background. What did you weigh up?
+Invite one more detail,What part went wrong?
+Invite one more detail,What was the hardest bit?
+Invite one more detail,What made it work?
+Invite one more detail,What was the turning point?
+Invite one more detail,What mattered most to you in that?
+Invite one more detail,What happened after that?
+Invite one more detail,What are you making of it now?
+Invite one more detail,What’s the part you’re still turning over?
+Hand the floor back,"Actually, your bit is the important one here."
+Hand the floor back,Let me stay with your point for a second.
+Hand the floor back,"Before I jump in with mine, tell me the rest."
+Hand the floor back,I’ll tell my version later — what happened with yours?
+Hand the floor back,"Sorry, that was me taking over. Go on."
+Hand the floor back,I don’t want to bulldoze your story. Keep going.
+Hand the floor back,"I meant to relate, not take over."
+When it’s tense or raw,That sounds genuinely hard. I’m here — what do you need right now?
+When it’s tense or raw,Let’s stay with what happened to you first.
+When it’s tense or raw,I’m not going to make this about me. Go on.
+When it’s tense or raw,That’s a lot to hold. Take your time.
+When it’s tense or raw,You don’t have to rush it. What happened?
+When it’s tense or raw,I hear how much this got to you.
+When it’s tense or raw,Whatever I’ve been through can wait — this is about you.

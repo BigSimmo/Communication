@@ -1098,7 +1098,7 @@ export default function CardDetail() {
                   <p className="text-[15px] font-bold text-foreground/90 mb-1.5 leading-snug">
                     {cardData.fieldTip.headline}
                   </p>
-                  <p className="text-[13px] leading-relaxed text-foreground/65">
+                  <p className="text-[13px] leading-relaxed text-foreground/65 whitespace-pre-line">
                     {cardData.fieldTip.body}
                   </p>
                   {cardData.fieldTip.example && (
@@ -1179,7 +1179,7 @@ export default function CardDetail() {
                           {m.title}
                         </p>
                       </div>
-                      <p className="text-[13px] text-foreground/65 leading-relaxed mb-3">
+                      <p className="text-[13px] text-foreground/65 leading-relaxed mb-3 whitespace-pre-line">
                         {m.body}
                       </p>
                       {m.examples && m.examples.length > 0 && (
