@@ -1,0 +1,51 @@
+From 793eb4d04dd10cc2de3dd0a15e9140b2153ddd40 Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Sat, 18 Jul 2026 09:24:00 +0000
+Subject: [PATCH] fix(workflow): classify ranking changes as clinical risk
+
+Ensure ranking-only diffs require production-readiness approval, matching
+AGENTS.md guidance for search/ranking changes.
+---
+ scripts/productivity-core.mjs       |  2 +-
+ tests/productivity-workflow.test.ts | 12 ++++++++++++
+ 2 files changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/scripts/productivity-core.mjs b/scripts/productivity-core.mjs
+index 43f634bd..630fcb15 100644
+--- a/scripts/productivity-core.mjs
++++ b/scripts/productivity-core.mjs
+@@ -27,7 +27,7 @@ const RISK_PATTERNS = {
+   ],
+   clinical: [
+     /^src\/app\/api\/(?:answer|differentials|documents|ingestion|medications|registry|search)/,
+-    /^src\/lib\/(?:rag|retrieval|clinical|answer|citation|evidence|source|owner-scope|query-privacy)/,
++    /^src\/lib\/(?:rag|retrieval|ranking|clinical|answer|citation|evidence|source|owner-scope|query-privacy)/,
+     /^supabase\//,
+     /^docs\/(?:clinical-governance|privacy-impact|samd-|source-governance)/,
+   ],
+diff --git a/tests/productivity-workflow.test.ts b/tests/productivity-workflow.test.ts
+index 219a1c5c..13423ddf 100644
+--- a/tests/productivity-workflow.test.ts
++++ b/tests/productivity-workflow.test.ts
+@@ -35,6 +35,18 @@ describe("productivity workflow planning", () => {
+     expect(risks.privacy).toBe(true);
+   });
+ 
++  it("classifies ranking paths as clinical so production-readiness stays gated", () => {
++    const files = ["src/lib/ranking.ts", "src/lib/ranking-utils.ts"];
++    const risks = classifyRisks(files);
++    const plan = buildWorkflowPlan("flightplan", files);
++
++    expect(risks.clinical).toBe(true);
++    expect(risks.retrieval).toBe(true);
++    expect(plan.approvalRequired.map((item: { command: string }) => item.command)).toContain(
++      "npm run check:production-readiness",
++    );
++  });
++
+   it("never places provider commands in the executable local plan", () => {
+     const plan = buildWorkflowPlan("flightplan", [
+       "src/app/api/answer/route.ts",
+-- 
+2.43.0
+
