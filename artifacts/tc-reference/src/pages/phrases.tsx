@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useLocation } from "wouter";
 import { Check, Copy, Heart, Search, X, MessagesSquare } from "lucide-react";
 import { getAllAggregatedPhrases, getAllTones, AggregatedPhrase } from "@/lib/phrases-data";
@@ -17,6 +17,10 @@ for (const p of ALL_PHRASES) {
 export default function Phrases() {
   const [toneFilter, setToneFilter] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  // The full bank is thousands of phrases; render a window and grow it on demand
+  // so the page mounts and scrolls smoothly on a phone.
+  const PAGE_SIZE = 120;
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const { copied: copiedPhrase, copy: handleCopy } = useCopyFeedback(1800);
   const [, setLocation] = useLocation();
   const { togglePhrase, isPhrasesFav } = useFavourites();
@@ -39,6 +43,14 @@ export default function Phrases() {
     }
     return result;
   }, [toneFilter, searchQuery]);
+
+  // Reset the render window whenever the result set changes.
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [toneFilter, searchQuery]);
+
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = filtered.length > visibleCount;
 
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
@@ -263,7 +275,7 @@ export default function Phrases() {
             </button>
           </div>
         ) : (
-          filtered.map((phrase, i) => (
+          visible.map((phrase, i) => (
             <PhraseRow
               key={`${phrase.cardId}-${phrase.groupId}-${phrase.text}-${i}`}
               phrase={phrase}
@@ -281,6 +293,21 @@ export default function Phrases() {
               onCardClick={() => setLocation(`/card/${phrase.cardId}`)}
             />
           ))
+        )}
+
+        {hasMore && (
+          <button
+            onClick={() => setVisibleCount((c) => c + PAGE_SIZE * 3)}
+            data-testid="phrases-show-more"
+            className="w-full mt-1 rounded-2xl py-3 text-[12px] font-bold transition-all active:scale-[0.99]"
+            style={{
+              background: "color-mix(in srgb, var(--brand) 9%, transparent)",
+              border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+              color: "var(--brand-text)",
+            }}
+          >
+            Show more · {visible.length} of {filtered.length}
+          </button>
         )}
       </div>
     </div>
@@ -306,6 +333,9 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
         border: copied
           ? "1px solid color-mix(in srgb, var(--brand) 25%, transparent)"
           : "1px solid var(--fg-05)",
+        // Skip painting off-screen rows — the bank runs to thousands of phrases.
+        contentVisibility: "auto",
+        containIntrinsicSize: "auto 84px",
       }}
     >
       {/* Phrase text — tappable to copy */}
