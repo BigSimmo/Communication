@@ -490,6 +490,8 @@
 
   * {
     @apply border-border;
+    /* Kill the grey/blue flash when tapping any control on mobile. */
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* html must carry the background too: with viewport-fit=cover, iOS Safari
@@ -497,11 +499,41 @@
      root element's background — without this it shows as a black band. */
   html {
     @apply bg-background;
+    /* Don't let iOS auto-inflate text on orientation change. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* No pull-to-refresh / rubber-band chaining — keeps scrolling app-like and
+       stops overscroll from fighting the hide-on-scroll header. */
+    overscroll-behavior-y: none;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
     overflow-x: clip;
+    overscroll-behavior-y: none;
+  }
+
+  /* Snappier taps (no lingering 300ms delay) on the things people press. */
+  button,
+  a,
+  [role="button"],
+  [role="tab"],
+  [role="option"],
+  [role="checkbox"],
+  label,
+  summary {
+    touch-action: manipulation;
+  }
+
+  /* iOS Safari zooms the whole page in when you focus an input whose font is
+     smaller than 16px. Force 16px on touch devices only, so tapping a search
+     field never yanks the viewport — desktop keeps its compact type scale. */
+  @media (pointer: coarse) {
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
   }
 
   button:focus-visible,
