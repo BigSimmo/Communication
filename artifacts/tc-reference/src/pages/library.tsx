@@ -399,7 +399,12 @@ export default function Library() {
       </div>
 
       {/* ── Card list ── */}
-      <div className="px-4 md:px-6 pb-6 pt-4 space-y-6">
+      {/* Bottom padding clears the floating action button (and the home-indicator
+          safe area) so the last card is never hidden behind it. */}
+      <div
+        className="px-4 md:px-6 pt-4 space-y-6"
+        style={{ paddingBottom: "calc(6.5rem + env(safe-area-inset-bottom, 0px))" }}
+      >
         {hasResults ? (
           Object.entries(filteredLibrary).map(([cat, cards]) => (
             <div
@@ -445,6 +450,11 @@ export default function Library() {
                         opacity: card.loaded ? 1 : 0.55,
                         cursor: card.loaded ? "pointer" : "default",
                         minHeight: 64,
+                        // Skip painting off-screen rows so scrolling the full
+                        // 98-card list stays smooth; `auto` remembers each row's
+                        // real height so the scrollbar doesn't jump.
+                        contentVisibility: "auto",
+                        containIntrinsicSize: "auto 72px",
                       }}
                       onMouseEnter={(e) => {
                         if (card.loaded)
