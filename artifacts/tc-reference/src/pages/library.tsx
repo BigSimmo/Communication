@@ -182,7 +182,7 @@ function FilterDropdown({
           role="listbox"
           aria-label={label}
           onKeyDown={moveFocus}
-          className={`absolute top-full mt-1.5 z-50 w-max min-w-full max-w-[calc(100vw-24px)] rounded-xl p-1 ${
+          className={`absolute top-full mt-1.5 z-50 w-max min-w-full max-w-[calc(100vw-24px)] max-h-[60vh] overflow-y-auto rounded-xl p-1 ${
             align === "right" ? "right-0" : "left-0"
           }`}
           style={{
@@ -203,6 +203,7 @@ function FilterDropdown({
                 key={option.value ?? "__all__"}
                 role="option"
                 aria-selected={selected}
+                tabIndex={-1}
                 onClick={() => select(option.value)}
                 data-testid={`${testId}-option-${slug}`}
                 className="w-full flex items-center justify-between gap-3 rounded-lg px-2.5 py-2 text-left text-[11.5px] font-medium transition-colors whitespace-nowrap"
