@@ -1,11 +1,13 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import {
   ChevronRight,
+  ChevronDown,
   SearchX,
   Heart,
   Search,
   X,
+  Check,
   Shuffle,
   ArrowUpDown,
 } from "lucide-react";
@@ -44,6 +46,191 @@ const DIFFICULTY_LEVELS = ["Easy", "Easy-Medium", "Medium", "Hard"] as const;
 const ALL_LOADED_CARDS = Object.values(LIBRARY_CATEGORIES)
   .flat()
   .filter((c) => c.loaded);
+
+// Shared style for compact filter/sort controls
+const chipStyle = (active: boolean): React.CSSProperties => ({
+  background: active
+    ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+    : "var(--fg-05)",
+  color: active ? "#0f1724" : "var(--fg-60)",
+  border: active ? "1px solid rgba(245,158,11,0.6)" : "1px solid var(--fg-08)",
+  boxShadow: active ? "0 2px 8px rgba(245,158,11,0.28)" : "none",
+});
+
+interface DropdownOption {
+  value: string;
+  label: string;
+}
+
+interface FilterDropdownProps {
+  label: string;
+  defaultLabel: string;
+  options: DropdownOption[];
+  value: string | null;
+  onChange: (value: string | null) => void;
+  testId: string;
+  icon?: React.ReactNode;
+  align?: "left" | "right";
+}
+
+// Compact dropdown: a single chip-sized trigger that opens a listbox popover.
+// Closes on outside pointer-down, Escape, or selection; supports arrow-key
+// navigation between options.
+function FilterDropdown({
+  label,
+  defaultLabel,
+  options,
+  value,
+  onChange,
+  testId,
+  icon,
+  align = "left",
+}: FilterDropdownProps) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    // Close when keyboard focus (e.g. Tab) leaves the dropdown entirely
+    const onFocusOut = (e: FocusEvent) => {
+      if (!rootRef.current?.contains(e.relatedTarget as Node)) setOpen(false);
+    };
+    const rootEl = rootRef.current;
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    rootEl?.addEventListener("focusout", onFocusOut);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+      rootEl?.removeEventListener("focusout", onFocusOut);
+    };
+  }, [open]);
+
+  // Focus the selected option (or the first) when the menu opens
+  useEffect(() => {
+    if (!open || !listRef.current) return;
+    const selected = listRef.current.querySelector<HTMLButtonElement>(
+      '[aria-selected="true"]',
+    );
+    (
+      selected ?? listRef.current.querySelector<HTMLButtonElement>("button")
+    )?.focus();
+  }, [open]);
+
+  const moveFocus = (e: React.KeyboardEvent) => {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    e.preventDefault();
+    const items = Array.from(
+      listRef.current?.querySelectorAll<HTMLButtonElement>("button") ?? [],
+    );
+    const idx = items.indexOf(document.activeElement as HTMLButtonElement);
+    const next =
+      e.key === "ArrowDown"
+        ? items[(idx + 1) % items.length]
+        : items[(idx - 1 + items.length) % items.length];
+    next?.focus();
+  };
+
+  const active = value !== null;
+  const currentLabel = active
+    ? (options.find((o) => o.value === value)?.label ?? label)
+    : label;
+
+  const select = (next: string | null) => {
+    onChange(next);
+    setOpen(false);
+    triggerRef.current?.focus();
+  };
+
+  return (
+    <div ref={rootRef} className="relative min-w-0">
+      <button
+        ref={triggerRef}
+        onClick={() => setOpen((prev) => !prev)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={`${label} filter${active ? `: ${currentLabel}` : ""}`}
+        data-testid={testId}
+        className="w-full inline-flex h-8 min-w-0 items-center justify-between gap-1 rounded-xl pl-2.5 pr-2 text-[11px] font-semibold transition-all"
+        style={chipStyle(active)}
+      >
+        <span className="inline-flex min-w-0 items-center gap-1.5">
+          {icon}
+          <span className="truncate">{currentLabel}</span>
+        </span>
+        <ChevronDown
+          className="w-3 h-3 flex-shrink-0 transition-transform"
+          style={{ transform: open ? "rotate(180deg)" : undefined }}
+          aria-hidden="true"
+        />
+      </button>
+
+      {open && (
+        <div
+          ref={listRef}
+          role="listbox"
+          aria-label={label}
+          onKeyDown={moveFocus}
+          className={`absolute top-full mt-1.5 z-50 w-max min-w-full max-w-[calc(100vw-24px)] max-h-[60vh] overflow-y-auto rounded-xl p-1 ${
+            align === "right" ? "right-0" : "left-0"
+          }`}
+          style={{
+            background: "var(--surface-dd)",
+            border: "1px solid var(--fg-09)",
+            boxShadow: "0 10px 32px rgba(0,0,0,0.35)",
+          }}
+        >
+          {[{ value: null as string | null, label: defaultLabel }].concat(
+            options.map((o) => ({ value: o.value as string | null, label: o.label })),
+          ).map((option) => {
+            const selected = value === option.value;
+            const slug = (option.value ?? "all")
+              .toLowerCase()
+              .replace(/[\s/]+/g, "-");
+            return (
+              <button
+                key={option.value ?? "__all__"}
+                role="option"
+                aria-selected={selected}
+                tabIndex={-1}
+                onClick={() => select(option.value)}
+                data-testid={`${testId}-option-${slug}`}
+                className="w-full flex items-center justify-between gap-3 rounded-lg px-2.5 py-2 text-left text-[11.5px] font-medium transition-colors whitespace-nowrap"
+                style={{
+                  color: selected ? "#f59e0b" : "var(--fg-60)",
+                  background: selected ? "rgba(245,158,11,0.10)" : "transparent",
+                }}
+                onMouseEnter={(e) => {
+                  if (!selected)
+                    e.currentTarget.style.background = "var(--fg-05)";
+                }}
+                onMouseLeave={(e) => {
+                  if (!selected) e.currentTarget.style.background = "transparent";
+                }}
+              >
+                {option.label}
+                {selected && (
+                  <Check className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
+                )}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Library() {
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
@@ -94,17 +281,6 @@ export default function Library() {
     setLocation(`/card/${pick.id}`);
   }, [setLocation]);
 
-  // Cycle sort: default → impact (high first) → difficulty (easy first) → default
-  const cycleSortBy = useCallback(() => {
-    setSortBy((prev) =>
-      prev === "default"
-        ? "impact"
-        : prev === "impact"
-          ? "difficulty"
-          : "default",
-    );
-  }, []);
-
   // Apply all active filters and sort within each category group
   const filteredLibrary = Object.entries(LIBRARY_CATEGORIES).reduce<
     Record<string, (typeof LIBRARY_CATEGORIES)[string]>
@@ -147,26 +323,6 @@ export default function Library() {
 
   const hasResults = Object.keys(filteredLibrary).length > 0;
 
-  // Shared style for compact filter/sort chips
-  const chipStyle = (active: boolean): React.CSSProperties => ({
-    minHeight: 28,
-    background: active
-      ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
-      : "var(--fg-05)",
-    color: active ? "#0f1724" : "var(--fg-60)",
-    border: active
-      ? "1px solid rgba(245,158,11,0.6)"
-      : "1px solid var(--fg-08)",
-    boxShadow: active ? "0 2px 8px rgba(245,158,11,0.28)" : "none",
-  });
-
-  const groupStyle: React.CSSProperties = {
-    background: "var(--fg-03)",
-    border: "1px solid var(--fg-07)",
-    borderRadius: 14,
-    padding: 4,
-  };
-
   return (
     <div className="flex flex-col bg-background w-full max-w-full min-w-0 overflow-x-clip sm:max-w-2xl sm:mx-auto">
       <div
@@ -182,9 +338,11 @@ export default function Library() {
           borderBottom: showHeaderDetails
             ? "1px solid var(--fg-07)"
             : "1px solid transparent",
-          maxHeight: showHeaderDetails ? 260 : 0,
+          maxHeight: showHeaderDetails ? 200 : 0,
           opacity: showHeaderDetails ? 1 : 0,
-          overflow: "hidden",
+          // Visible when open so the filter dropdown popovers can extend
+          // below the collapsible header without being clipped
+          overflow: showHeaderDetails ? "visible" : "hidden",
           paddingTop: showHeaderDetails ? 8 : 0,
           paddingBottom: showHeaderDetails ? 8 : 0,
           transform: "translateZ(0)",
@@ -248,6 +406,21 @@ export default function Library() {
               )}
             </div>
 
+            <button
+              onClick={surpriseMe}
+              aria-label="Open a random card"
+              title="Open a random card"
+              data-testid="surprise-me"
+              className="h-9 w-9 flex-shrink-0 inline-flex items-center justify-center rounded-xl transition-all active:scale-95"
+              style={{
+                background: "var(--fg-05)",
+                color: "var(--fg-60)",
+                border: "1px solid var(--fg-08)",
+              }}
+            >
+              <Shuffle className="w-3.5 h-3.5" aria-hidden="true" />
+            </button>
+
             {hasFiltersActive && (
               <button
                 onClick={clearAllFilters}
@@ -274,126 +447,61 @@ export default function Library() {
           </div>
 
           <div
-            className="grid min-w-0 grid-cols-2 sm:grid-cols-3 gap-1.5"
+            className="grid min-w-0 grid-cols-2 gap-1.5 sm:grid-cols-4"
             role="toolbar"
-            aria-label="Filter by technique family"
+            aria-label="Filter and sort techniques"
           >
-            <button
-              onClick={() => setCategoryFilter(null)}
-              aria-pressed={!categoryFilter}
-              data-testid="filter-all"
-              className="inline-flex h-8 items-center justify-center rounded-xl px-2 text-[11px] font-semibold transition-all"
-              style={chipStyle(!categoryFilter)}
-            >
-              All
-            </button>
-
-            {Object.keys(LIBRARY_CATEGORIES).map((cat) => {
-              const active = categoryFilter === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setCategoryFilter(active ? null : cat)}
-                  aria-pressed={active}
-                  data-testid={`filter-${cat.toLowerCase().replace(/[\s/]+/g, "-")}`}
-                  className="inline-flex h-8 min-w-0 items-center justify-center rounded-xl px-2 text-[10.5px] font-semibold leading-tight transition-all"
-                  style={chipStyle(active)}
-                >
-                  <span className="truncate">{cat}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-wrap items-center gap-1.5">
-            <div
-              className="flex items-center gap-1"
-              style={groupStyle}
-              role="toolbar"
-              aria-label="Filter by impact"
-            >
-              {(["high", "medium", "low"] as CardImpact[]).map((impact) => {
-                const active = impactFilter === impact;
-                const label: Record<CardImpact, string> = {
-                  high: "High",
-                  medium: "Med",
-                  low: "Low",
-                };
-                return (
-                  <button
-                    key={impact}
-                    onClick={() => setImpactFilter(active ? null : impact)}
-                    aria-pressed={active}
-                    data-testid={`filter-impact-${impact}`}
-                    className="inline-flex h-7 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
-                    style={chipStyle(active)}
-                  >
-                    {label[impact]}
-                  </button>
-                );
-              })}
-            </div>
-
-            <div
-              className="flex items-center gap-1"
-              style={groupStyle}
-              role="toolbar"
-              aria-label="Filter by difficulty"
-            >
-              {DIFFICULTY_LEVELS.map((diff) => {
-                const active = difficultyFilter === diff;
-                const shortLabel = diff === "Easy-Medium" ? "E-Med" : diff;
-                return (
-                  <button
-                    key={diff}
-                    onClick={() => setDifficultyFilter(active ? null : diff)}
-                    aria-pressed={active}
-                    aria-label={`Filter by ${diff} difficulty`}
-                    data-testid={`filter-difficulty-${diff.toLowerCase().replace(/-/g, "")}`}
-                    className="inline-flex h-7 items-center justify-center rounded-lg px-2.5 text-[10px] font-bold transition-all whitespace-nowrap"
-                    style={chipStyle(active)}
-                  >
-                    {shortLabel}
-                  </button>
-                );
-              })}
-            </div>
-
-            <button
-              onClick={cycleSortBy}
-              aria-label={
-                sortBy === "default"
-                  ? "Sort by: default order"
-                  : sortBy === "impact"
-                    ? "Sort by: impact high to low (click to change)"
-                    : "Sort by: difficulty easy to hard (click to change)"
+            <FilterDropdown
+              label="Category"
+              defaultLabel="All categories"
+              options={Object.keys(LIBRARY_CATEGORIES).map((cat) => ({
+                value: cat,
+                label: cat,
+              }))}
+              value={categoryFilter}
+              onChange={setCategoryFilter}
+              testId="filter-category"
+            />
+            <FilterDropdown
+              label="Impact"
+              defaultLabel="Any impact"
+              options={(["high", "medium", "low"] as CardImpact[]).map(
+                (impact) => ({
+                  value: impact,
+                  label: IMPACT_BADGE[impact].label,
+                }),
+              )}
+              value={impactFilter}
+              onChange={(v) => setImpactFilter(v as CardImpact | null)}
+              testId="filter-impact"
+              align="right"
+            />
+            <FilterDropdown
+              label="Difficulty"
+              defaultLabel="Any difficulty"
+              options={DIFFICULTY_LEVELS.map((diff) => ({
+                value: diff,
+                label: diff,
+              }))}
+              value={difficultyFilter}
+              onChange={setDifficultyFilter}
+              testId="filter-difficulty"
+            />
+            <FilterDropdown
+              label="Sort"
+              defaultLabel="Default order"
+              options={[
+                { value: "impact", label: "Impact · high first" },
+                { value: "difficulty", label: "Difficulty · easy first" },
+              ]}
+              value={sortBy === "default" ? null : sortBy}
+              onChange={(v) =>
+                setSortBy((v as "impact" | "difficulty" | null) ?? "default")
               }
-              data-testid="sort-control"
-              className="inline-flex h-9 items-center gap-1.5 rounded-xl px-3 text-[10px] font-bold transition-all whitespace-nowrap"
-              style={chipStyle(sortBy !== "default")}
-            >
-              <ArrowUpDown className="w-3 h-3" aria-hidden="true" />
-              {sortBy === "default"
-                ? "Sort"
-                : sortBy === "impact"
-                  ? "Impact"
-                  : "Difficulty"}
-            </button>
-
-            <button
-              onClick={surpriseMe}
-              aria-label="Open a random card"
-              data-testid="surprise-me"
-              className="inline-flex h-9 items-center gap-1.5 rounded-xl px-3 text-[10px] font-bold transition-all whitespace-nowrap active:scale-95"
-              style={{
-                background: "var(--fg-05)",
-                color: "var(--fg-60)",
-                border: "1px solid var(--fg-08)",
-              }}
-            >
-              <Shuffle className="w-3 h-3" aria-hidden="true" />
-              Surprise
-            </button>
+              testId="sort-control"
+              icon={<ArrowUpDown className="w-3 h-3 flex-shrink-0" aria-hidden="true" />}
+              align="right"
+            />
           </div>
         </div>
       </div>
