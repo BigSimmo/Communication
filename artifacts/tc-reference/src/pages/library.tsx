@@ -102,11 +102,18 @@ function FilterDropdown({
         triggerRef.current?.focus();
       }
     };
+    // Close when keyboard focus (e.g. Tab) leaves the dropdown entirely
+    const onFocusOut = (e: FocusEvent) => {
+      if (!rootRef.current?.contains(e.relatedTarget as Node)) setOpen(false);
+    };
+    const rootEl = rootRef.current;
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("keydown", onKeyDown);
+    rootEl?.addEventListener("focusout", onFocusOut);
     return () => {
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
+      rootEl?.removeEventListener("focusout", onFocusOut);
     };
   }, [open]);
 
