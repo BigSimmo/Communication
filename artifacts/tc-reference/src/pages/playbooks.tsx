@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import {
   BookOpen,
   Plus,
+  Check,
   Trash2,
   Edit2,
   Play,
@@ -54,6 +55,16 @@ export default function Playbooks() {
     setIsEditing(false);
   };
 
+  const handleDelete = (pb: Playbook) => {
+    if (
+      window.confirm(
+        `Delete "${pb.name}"? This can't be undone.`,
+      )
+    ) {
+      deletePlaybook(pb.id);
+    }
+  };
+
   const handleToggleCardSelection = (cardId: string) => {
     setSelectedCards((prev) =>
       prev.includes(cardId)
@@ -79,8 +90,9 @@ export default function Playbooks() {
         {!isEditing && (
           <button
             onClick={handleOpenCreate}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[12px] font-bold transition-all shadow-sm"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[12px] font-bold transition-all shadow-sm active:scale-95"
             style={{
+              minHeight: 36,
               background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
               color: "#fff",
             }}
@@ -110,7 +122,9 @@ export default function Playbooks() {
             </h3>
             <button
               onClick={() => setIsEditing(false)}
-              style={{ color: "var(--fg-30)" }}
+              aria-label="Close editor"
+              className="flex items-center justify-center -mr-1.5 rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
+              style={{ width: 36, height: 36, color: "var(--fg-30)" }}
             >
               <X className="w-5 h-5" />
             </button>
@@ -169,6 +183,8 @@ export default function Playbooks() {
               style={{
                 background: "var(--fg-03)",
                 borderColor: "var(--fg-05)",
+                overscrollBehavior: "contain",
+                WebkitOverflowScrolling: "touch",
               }}
             >
               {ALL_CARDS.map((card) => {
@@ -177,8 +193,10 @@ export default function Playbooks() {
                   <button
                     key={card.id}
                     onClick={() => handleToggleCardSelection(card.id)}
-                    className="flex items-center justify-between text-left px-3 py-2 rounded-lg text-[12px] transition-colors"
+                    aria-pressed={isSel}
+                    className="flex items-center justify-between gap-2 text-left px-3 py-2 rounded-lg text-[12px] transition-colors"
                     style={{
+                      minHeight: 40,
                       background: isSel
                         ? "rgba(245,158,11,0.08)"
                         : "transparent",
@@ -200,14 +218,14 @@ export default function Playbooks() {
                       </span>
                     </div>
                     <div
-                      className="w-4 h-4 rounded flex items-center justify-center border transition-colors"
+                      className="w-4 h-4 flex-shrink-0 rounded flex items-center justify-center border transition-colors"
                       style={{
                         borderColor: isSel ? "#f59e0b" : "var(--fg-20)",
                         background: isSel ? "#f59e0b" : "transparent",
                       }}
                     >
                       {isSel && (
-                        <Plus className="w-3 h-3 text-white stroke-[3px]" />
+                        <Check className="w-3 h-3 text-white stroke-[3px]" />
                       )}
                     </div>
                   </button>
@@ -293,11 +311,12 @@ export default function Playbooks() {
                       </p>
                     )}
                   </div>
-                  <div className="flex gap-2.5">
+                  <div className="flex gap-1 -mr-1.5 flex-shrink-0">
                     <button
                       onClick={() => handleOpenEdit(pb)}
                       aria-label="Edit Playbook"
-                      className="p-1.5 rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+                      className="flex items-center justify-center rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
+                      style={{ width: 36, height: 36 }}
                     >
                       <Edit2
                         className="w-4 h-4"
@@ -305,9 +324,10 @@ export default function Playbooks() {
                       />
                     </button>
                     <button
-                      onClick={() => deletePlaybook(pb.id)}
+                      onClick={() => handleDelete(pb)}
                       aria-label="Delete Playbook"
-                      className="p-1.5 rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+                      className="flex items-center justify-center rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
+                      style={{ width: 36, height: 36 }}
                     >
                       <Trash2
                         className="w-4 h-4"
