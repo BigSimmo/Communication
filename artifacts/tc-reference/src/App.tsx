@@ -1,11 +1,14 @@
+import { Suspense, lazy } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import NotFound from "@/pages/not-found";
 import Library from "@/pages/library";
-import CardDetail from "@/pages/card-detail";
-import Drill from "@/pages/drill";
-import Favourites from "@/pages/favourites";
-import Phrases from "@/pages/phrases";
-import Playbooks from "@/pages/playbooks";
+// Non-landing routes are lazy so the heavy card content (the `card-data` chunk)
+// loads on first navigation/use, not on first paint of the Library.
+const CardDetail = lazy(() => import("@/pages/card-detail"));
+const Drill = lazy(() => import("@/pages/drill"));
+const Favourites = lazy(() => import("@/pages/favourites"));
+const Phrases = lazy(() => import("@/pages/phrases"));
+const Playbooks = lazy(() => import("@/pages/playbooks"));
 import { FavouritesProvider } from "@/lib/favourites-context";
 import { PlaybookProvider } from "@/lib/playbook-context";
 import { NavProvider } from "@/lib/nav-context";
@@ -14,17 +17,37 @@ import { ThemeProvider } from "@/lib/theme";
 import { PdfProvider } from "@/lib/pdf-context";
 import { AppLayout } from "@/components/app-layout";
 
+function RouteFallback() {
+  return (
+    <div
+      className="flex items-center justify-center py-24"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+    >
+      <span
+        className="w-6 h-6 rounded-full border-2 animate-spin"
+        style={{ borderColor: "var(--fg-15)", borderTopColor: "var(--brand)" }}
+        aria-hidden="true"
+      />
+      <span className="sr-only">Loading…</span>
+    </div>
+  );
+}
+
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Library} />
-      <Route path="/card/:cardId" component={CardDetail} />
-      <Route path="/drill" component={Drill} />
-      <Route path="/favourites" component={Favourites} />
-      <Route path="/phrases" component={Phrases} />
-      <Route path="/playbooks" component={Playbooks} />
-      <Route component={NotFound} />
-    </Switch>
+    <Suspense fallback={<RouteFallback />}>
+      <Switch>
+        <Route path="/" component={Library} />
+        <Route path="/card/:cardId" component={CardDetail} />
+        <Route path="/drill" component={Drill} />
+        <Route path="/favourites" component={Favourites} />
+        <Route path="/phrases" component={Phrases} />
+        <Route path="/playbooks" component={Playbooks} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   );
 }
 
@@ -36,7 +59,9 @@ function App() {
           <FavouritesProvider>
             <PlaybookProvider>
               <PdfProvider>
-                <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+                <WouterRouter
+                  base={import.meta.env.BASE_URL.replace(/\/$/, "")}
+                >
                   <AppLayout>
                     <Router />
                   </AppLayout>
