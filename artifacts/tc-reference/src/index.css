@@ -525,17 +525,6 @@
     touch-action: manipulation;
   }
 
-  /* iOS Safari zooms the whole page in when you focus an input whose font is
-     smaller than 16px. Force 16px on touch devices only, so tapping a search
-     field never yanks the viewport — desktop keeps its compact type scale. */
-  @media (pointer: coarse) {
-    input,
-    textarea,
-    select {
-      font-size: 16px;
-    }
-  }
-
   button:focus-visible,
   a:focus-visible,
   input:focus-visible,
@@ -545,6 +534,21 @@
   [role="option"]:focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
+  }
+}
+
+/* iOS Safari zooms the whole page in when you focus an input whose font is
+   smaller than 16px. Force 16px on touch devices only, so tapping a search
+   field never yanks the viewport — desktop keeps its compact type scale.
+
+   This must stay OUTSIDE @layer base: Tailwind's utilities layer outranks the
+   base layer, so inside it the rule loses to the `text-[12px]`/`text-[13px]`
+   utilities on our inputs and the zoom comes back. Unlayered beats layered. */
+@media (pointer: coarse) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
   }
 }
 
