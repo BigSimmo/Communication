@@ -16,6 +16,19 @@ if (Number.isNaN(port) || port <= 0) {
 const basePath = process.env.BASE_PATH ?? "/";
 const host = process.env.HOST ?? "127.0.0.1";
 
+// Hosts the dev/preview server will answer for. Vite rejects unknown Host
+// headers, so a deployed instance has to allow the domain it is served on:
+// Railway injects RAILWAY_PUBLIC_DOMAIN, and ALLOWED_HOSTS covers anything else
+// (custom domains, other platforms) as a comma-separated list.
+const allowedHosts = [
+  host,
+  "localhost",
+  process.env.RAILWAY_PUBLIC_DOMAIN,
+  ...(process.env.ALLOWED_HOSTS ?? "").split(","),
+]
+  .map((entry) => entry?.trim())
+  .filter((entry): entry is string => Boolean(entry));
+
 export default defineConfig({
   base: basePath,
   plugins: [
@@ -116,7 +129,7 @@ export default defineConfig({
     port,
     strictPort: true,
     host,
-    allowedHosts: [host, "localhost"],
+    allowedHosts,
     fs: {
       strict: true,
     },
@@ -124,6 +137,6 @@ export default defineConfig({
   preview: {
     port,
     host,
-    allowedHosts: [host, "localhost"],
+    allowedHosts,
   },
 });
