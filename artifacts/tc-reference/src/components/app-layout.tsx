@@ -1,4 +1,11 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  lazy,
+  Suspense,
+} from "react";
 import { useLocation } from "wouter";
 import {
   Home,
@@ -16,7 +23,11 @@ import {
 } from "lucide-react";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useNav } from "@/lib/nav-context";
-import { QuickModeOverlay } from "./quick-mode-overlay";
+// Lazy — the overlay aggregates the heavy card content, so it (and the
+// `card-data` chunk) only load the first time Quick Lookup is opened.
+const QuickModeOverlay = lazy(() =>
+  import("./quick-mode-overlay").then((m) => ({ default: m.QuickModeOverlay })),
+);
 import { AppHeader } from "./app-header";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import {
@@ -984,8 +995,13 @@ export function AppLayout({ children }: AppLayoutProps) {
         );
       })()}
 
-      {/* Quick Mode overlay rendered once at app level */}
-      <QuickModeOverlay />
+      {/* Quick Mode overlay: mounted only while open so its lazy chunk (and the
+          heavy card content it needs) loads on first use, not on first paint */}
+      {isOpen && (
+        <Suspense fallback={null}>
+          <QuickModeOverlay />
+        </Suspense>
+      )}
     </div>
   );
 }

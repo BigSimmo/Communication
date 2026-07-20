@@ -12,7 +12,6 @@ import {
   ArrowUpDown,
 } from "lucide-react";
 import { LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
-import { CARD_DATA } from "@/lib/cards";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
@@ -26,9 +25,13 @@ const IMPACT_BADGE: Record<
   low: { label: "Low", bg: "var(--fg-06)", color: "var(--fg-38)" },
 };
 
-// Derived at module level — no re-computation on every render
+// Derived at module level from the light data.ts metadata (NOT the heavy card
+// content) so the Library route stays off the card-data chunk; a content
+// invariant keeps difficulty in sync with cards.ts.
 const CARD_DIFFICULTY: Record<string, string> = Object.fromEntries(
-  Object.entries(CARD_DATA).map(([id, card]) => [id, card.overview.difficulty]),
+  Object.values(LIBRARY_CATEGORIES)
+    .flat()
+    .map((c) => [c.id, c.difficulty]),
 );
 
 const DIFFICULTY_ORDER: Record<string, number> = {
@@ -191,41 +194,52 @@ function FilterDropdown({
             boxShadow: "0 10px 32px rgba(0,0,0,0.35)",
           }}
         >
-          {[{ value: null as string | null, label: defaultLabel }].concat(
-            options.map((o) => ({ value: o.value as string | null, label: o.label })),
-          ).map((option) => {
-            const selected = value === option.value;
-            const slug = (option.value ?? "all")
-              .toLowerCase()
-              .replace(/[\s/]+/g, "-");
-            return (
-              <button
-                key={option.value ?? "__all__"}
-                role="option"
-                aria-selected={selected}
-                tabIndex={-1}
-                onClick={() => select(option.value)}
-                data-testid={`${testId}-option-${slug}`}
-                className="w-full flex items-center justify-between gap-3 rounded-lg px-2.5 py-2 text-left text-[11.5px] font-medium transition-colors whitespace-nowrap"
-                style={{
-                  color: selected ? "#f59e0b" : "var(--fg-60)",
-                  background: selected ? "rgba(245,158,11,0.10)" : "transparent",
-                }}
-                onMouseEnter={(e) => {
-                  if (!selected)
-                    e.currentTarget.style.background = "var(--fg-05)";
-                }}
-                onMouseLeave={(e) => {
-                  if (!selected) e.currentTarget.style.background = "transparent";
-                }}
-              >
-                {option.label}
-                {selected && (
-                  <Check className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
-                )}
-              </button>
-            );
-          })}
+          {[{ value: null as string | null, label: defaultLabel }]
+            .concat(
+              options.map((o) => ({
+                value: o.value as string | null,
+                label: o.label,
+              })),
+            )
+            .map((option) => {
+              const selected = value === option.value;
+              const slug = (option.value ?? "all")
+                .toLowerCase()
+                .replace(/[\s/]+/g, "-");
+              return (
+                <button
+                  key={option.value ?? "__all__"}
+                  role="option"
+                  aria-selected={selected}
+                  tabIndex={-1}
+                  onClick={() => select(option.value)}
+                  data-testid={`${testId}-option-${slug}`}
+                  className="w-full flex items-center justify-between gap-3 rounded-lg px-2.5 py-2 text-left text-[11.5px] font-medium transition-colors whitespace-nowrap"
+                  style={{
+                    color: selected ? "#f59e0b" : "var(--fg-60)",
+                    background: selected
+                      ? "rgba(245,158,11,0.10)"
+                      : "transparent",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!selected)
+                      e.currentTarget.style.background = "var(--fg-05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!selected)
+                      e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  {option.label}
+                  {selected && (
+                    <Check
+                      className="w-3.5 h-3.5 flex-shrink-0"
+                      aria-hidden="true"
+                    />
+                  )}
+                </button>
+              );
+            })}
         </div>
       )}
     </div>
@@ -499,7 +513,12 @@ export default function Library() {
                 setSortBy((v as "impact" | "difficulty" | null) ?? "default")
               }
               testId="sort-control"
-              icon={<ArrowUpDown className="w-3 h-3 flex-shrink-0" aria-hidden="true" />}
+              icon={
+                <ArrowUpDown
+                  className="w-3 h-3 flex-shrink-0"
+                  aria-hidden="true"
+                />
+              }
               align="right"
             />
           </div>
@@ -511,7 +530,9 @@ export default function Library() {
           safe area) so the last card is never hidden behind it. */}
       <div
         className="px-4 md:px-6 pt-4 space-y-6"
-        style={{ paddingBottom: "calc(6.5rem + env(safe-area-inset-bottom, 0px))" }}
+        style={{
+          paddingBottom: "calc(6.5rem + env(safe-area-inset-bottom, 0px))",
+        }}
       >
         {hasResults ? (
           Object.entries(filteredLibrary).map(([cat, cards]) => (
