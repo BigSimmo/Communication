@@ -345,8 +345,9 @@ export default function Playbooks() {
                       <div key={cid} className="flex items-center gap-1">
                         <button
                           onClick={() => setLocation(`/card/${cid}`)}
-                          className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors"
+                          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-colors active:scale-95"
                           style={{
+                            minHeight: 32,
                             background: "var(--fg-05)",
                             border: "1px solid var(--fg-08)",
                             color: "var(--fg-65)",
