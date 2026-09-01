@@ -254,7 +254,7 @@ export function QuickModeOverlay() {
                       <button
                         onClick={() => togglePhrase({ cardId: phrase.cardId, cardTitle: phrase.cardTitle, groupLabel: group.label, text: phrase.text })}
                         aria-label={isFav ? "Remove from favourites" : "Save phrase"}
-                        className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        className="quick-phrase-favourite w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                         style={{ background: isFav ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "transparent" }}
                       >
                         <Heart className="w-3.5 h-3.5" style={{ color: isFav ? "var(--brand-text)" : "var(--fg-20)" }} fill={isFav ? "var(--brand-text)" : "none"} />

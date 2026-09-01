@@ -1,5 +1,5 @@
 import { useEffect, useState, lazy, Suspense } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   Search,
   ChevronLeft,
@@ -88,7 +88,7 @@ export function AppHeader({
   menuOpen = false,
   onToggleMenu,
 }: AppHeaderProps) {
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
   const {
     searchOpen,
     closeSearch,
@@ -182,15 +182,15 @@ export function AppHeader({
           {/* ── CARD MODE ── */}
           {mode === "card" && (
             <>
-              <button
-                onClick={() => setLocation("/")}
+              <Link
+                href="/"
                 aria-label="Back to Library"
                 data-testid="button-back"
                 className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                 style={{ background: "var(--fg-05)" }}
               >
                 <ChevronLeft className="w-5 h-5" style={{ color: "var(--fg-70)" }} />
-              </button>
+              </Link>
               <div className="flex-1 min-w-0 flex items-center gap-2">
                 <span
                   className="text-[9px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"

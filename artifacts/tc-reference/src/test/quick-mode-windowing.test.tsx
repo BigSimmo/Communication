@@ -30,7 +30,9 @@ describe("Quick Lookup rendering", () => {
     const initialRows = screen.getAllByTestId(/^quick-copy-/);
     expect(initialRows).toHaveLength(120);
     expect(initialRows[0].tagName).toBe("BUTTON");
-    expect(within(initialRows[0].parentElement!).getByRole("button", { name: /save phrase/i })).toBeInTheDocument();
+    expect(
+      within(initialRows[0].parentElement!).getByRole("button", { name: /save phrase/i }),
+    ).toHaveClass("quick-phrase-favourite");
 
     fireEvent.click(screen.getByRole("button", { name: /show more phrases/i }));
     expect(screen.getAllByTestId(/^quick-copy-/)).toHaveLength(240);
