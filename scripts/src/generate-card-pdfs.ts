@@ -14,7 +14,9 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { PDFDocument, PDFFont, PDFPage, StandardFonts, rgb } from "pdf-lib";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
-const OUT_BASE = path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
+const OUT_BASE = process.env.CARD_DOWNLOADS_OUT_DIR
+  ? path.resolve(process.env.CARD_DOWNLOADS_OUT_DIR)
+  : path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
 
 // Minimal shapes of the tc-reference card data this script consumes.
 // Loaded dynamically (tsx resolves the .ts modules at runtime) so the

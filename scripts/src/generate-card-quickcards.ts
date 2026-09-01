@@ -13,7 +13,7 @@
  *
  * Content is curated straight from CARD_DATA in
  * artifacts/tc-reference/src/lib/cards.ts, so output is deterministic —
- * re-run after content edits (the tc-reference build does this automatically).
+ * run generate:card-downloads after content edits.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -21,7 +21,9 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { PDFDocument, PDFFont, PDFPage, StandardFonts, rgb } from "pdf-lib";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
-const OUT_BASE = path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
+const OUT_BASE = process.env.CARD_DOWNLOADS_OUT_DIR
+  ? path.resolve(process.env.CARD_DOWNLOADS_OUT_DIR)
+  : path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
 
 interface CardData {
   overview: {

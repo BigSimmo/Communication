@@ -10,14 +10,16 @@
  *
  * Content derives entirely from CARD_DATA in
  * artifacts/tc-reference/src/lib/cards.ts, so output is deterministic —
- * re-run after content edits (the tc-reference build does this automatically).
+ * run generate:card-downloads after content edits.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
-const OUT_BASE = path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
+const OUT_BASE = process.env.CARD_DOWNLOADS_OUT_DIR
+  ? path.resolve(process.env.CARD_DOWNLOADS_OUT_DIR)
+  : path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
 
 // Minimal shapes of the tc-reference card data this script consumes.
 interface CardData {
