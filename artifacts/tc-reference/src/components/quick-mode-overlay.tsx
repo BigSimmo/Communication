@@ -58,10 +58,13 @@ const ALL_QUICK_GROUPS: QuickGroup[] = (() => {
   return Array.from(groupsMap.values()).filter((g) => g.phrases.length > 0);
 })();
 
+const QUICK_PAGE_SIZE = 120;
+
 export function QuickModeOverlay() {
   const { isOpen, setIsOpen } = useQuickMode();
   const { isPhrasesFav, togglePhrase } = useFavourites();
   const [quickFilter, setQuickFilter] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(QUICK_PAGE_SIZE);
   const { copied: copiedPhrase, copy: handleCopy, reset: resetCopied } = useCopyFeedback();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -76,6 +79,10 @@ export function QuickModeOverlay() {
       resetCopied();
     }
   }, [isOpen, resetCopied]);
+
+  useEffect(() => {
+    setVisibleCount(QUICK_PAGE_SIZE);
+  }, [isOpen, quickFilter]);
 
   // Escape key dismissal
   useEffect(() => {
@@ -92,6 +99,17 @@ export function QuickModeOverlay() {
   const filteredGroups = quickFilter
     ? ALL_QUICK_GROUPS.filter((g) => g.id === quickFilter)
     : ALL_QUICK_GROUPS;
+  const totalPhraseCount = filteredGroups.reduce(
+    (count, group) => count + group.phrases.length,
+    0,
+  );
+  let remainingRows = visibleCount;
+  const visibleGroups = filteredGroups.flatMap((group) => {
+    const phrases = group.phrases.slice(0, remainingRows);
+    remainingRows -= phrases.length;
+    return phrases.length > 0 ? [{ ...group, phrases }] : [];
+  });
+  const remainingPhraseCount = totalPhraseCount - Math.min(visibleCount, totalPhraseCount);
 
   return (
     <div
@@ -189,7 +207,7 @@ export function QuickModeOverlay() {
             </button>
           </div>
         )}
-        {filteredGroups.map((group) => (
+        {visibleGroups.map((group) => (
           <div key={group.id} data-testid={`quick-group-${group.id}`}>
             <div className="flex items-baseline gap-2 mb-2.5 ml-1">
               <p className="text-[13px] font-bold" style={{ color: "var(--fg-80)" }}>
@@ -211,21 +229,7 @@ export function QuickModeOverlay() {
                 return (
                   <div
                     key={i}
-                    onClick={() => handleCopy(phrase.text)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      // Only respond when the row itself is focused — let the
-                      // nested favourite button handle its own keys
-                      if (e.target !== e.currentTarget) return;
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleCopy(phrase.text);
-                      }
-                    }}
-                    aria-label={`Copy phrase: ${phrase.text}`}
-                    data-testid={`quick-copy-${group.id}-${i}`}
-                    className={`w-full flex items-center justify-between text-left cursor-pointer transition-all active:scale-[0.99] ${
+                    className={`w-full flex items-center text-left transition-all ${
                       copiedPhrase === phrase.text
                         ? "bg-[color-mix(in_srgb,var(--brand)_8%,transparent)]"
                         : "bg-transparent hover:bg-[var(--fg-03)]"
@@ -233,35 +237,27 @@ export function QuickModeOverlay() {
                     style={{
                       borderBottom: i < group.phrases.length - 1 ? "1px solid var(--fg-04)" : "none",
                       minHeight: 56,
-                      padding: "14px 20px",
                     }}
                   >
-                    <p
-                      className="text-[14px] leading-relaxed pr-3 flex-1"
-                      style={{ color: copiedPhrase === phrase.text ? "var(--brand-text)" : "var(--fg-85)" }}
+                    <button
+                      onClick={() => handleCopy(phrase.text)}
+                      aria-label={`Copy phrase: ${phrase.text}`}
+                      data-testid={`quick-copy-${group.id}-${i}`}
+                      className="flex-1 min-w-0 px-5 py-3.5 text-left active:scale-[0.99]"
                     >
-                      {phrase.text}
-                    </p>
-                    <div
-                      className="flex items-center gap-1.5 flex-shrink-0"
-                      onClick={e => e.stopPropagation()}
-                    >
-                      {copiedPhrase === phrase.text ? (
-                        <Check className="w-4 h-4" style={{ color: "var(--brand-text)" }} />
-                      ) : (
-                        <Copy className="w-4 h-4 flex-shrink-0" style={{ color: "var(--fg-18)" }} />
-                      )}
+                      <span className="text-[14px] leading-relaxed" style={{ color: copiedPhrase === phrase.text ? "var(--brand-text)" : "var(--fg-85)" }}>
+                        {phrase.text}
+                      </span>
+                    </button>
+                    <div className="flex items-center gap-1.5 pr-3 flex-shrink-0">
+                      {copiedPhrase === phrase.text ? <Check className="w-4 h-4" style={{ color: "var(--brand-text)" }} /> : <Copy className="w-4 h-4" style={{ color: "var(--fg-18)" }} />}
                       <button
                         onClick={() => togglePhrase({ cardId: phrase.cardId, cardTitle: phrase.cardTitle, groupLabel: group.label, text: phrase.text })}
                         aria-label={isFav ? "Remove from favourites" : "Save phrase"}
                         className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                         style={{ background: isFav ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "transparent" }}
                       >
-                        <Heart
-                          className="w-3.5 h-3.5"
-                          style={{ color: isFav ? "var(--brand-text)" : "var(--fg-20)" }}
-                          fill={isFav ? "var(--brand-text)" : "none"}
-                        />
+                        <Heart className="w-3.5 h-3.5" style={{ color: isFav ? "var(--brand-text)" : "var(--fg-20)" }} fill={isFav ? "var(--brand-text)" : "none"} />
                       </button>
                     </div>
                   </div>
@@ -270,6 +266,16 @@ export function QuickModeOverlay() {
             </div>
           </div>
         ))}
+        {remainingPhraseCount > 0 && (
+          <button
+            onClick={() => setVisibleCount((count) => count + QUICK_PAGE_SIZE)}
+            aria-label={`Show more phrases (${remainingPhraseCount} remaining)`}
+            className="w-full min-h-11 rounded-xl px-4 py-3 text-[12px] font-semibold transition-all active:scale-[0.99]"
+            style={{ background: "var(--fg-05)", border: "1px solid var(--fg-08)", color: "var(--brand-text)" }}
+          >
+            Show more phrases · {remainingPhraseCount} remaining
+          </button>
+        )}
         <div className="h-10" />
       </div>
     </div>

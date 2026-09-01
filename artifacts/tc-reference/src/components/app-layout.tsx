@@ -6,7 +6,7 @@ import {
   lazy,
   Suspense,
 } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   Home,
   Zap,
@@ -61,6 +61,51 @@ interface AppLayoutProps {
   children: React.ReactNode;
 }
 
+interface NavigationControlProps {
+  href?: string;
+  action: () => void;
+  children: React.ReactNode;
+  className: string;
+  style: React.CSSProperties;
+  ariaLabel: string;
+  ariaCurrent?: "page";
+  dataSearchToggle?: boolean;
+  dataTestId: string;
+  tabIndex?: number;
+  onClick?: () => void;
+}
+
+function NavigationControl({
+  href,
+  action,
+  children,
+  className,
+  style,
+  ariaLabel,
+  ariaCurrent,
+  dataSearchToggle,
+  dataTestId,
+  tabIndex,
+  onClick,
+}: NavigationControlProps) {
+  const sharedProps = {
+    className,
+    style,
+    "aria-label": ariaLabel,
+    "aria-current": ariaCurrent,
+    "data-search-toggle": dataSearchToggle ? "true" : undefined,
+    "data-testid": dataTestId,
+    tabIndex,
+    onClick,
+  };
+
+  return href ? (
+    <Link href={href} {...sharedProps}>{children}</Link>
+  ) : (
+    <button type="button" {...sharedProps} onClick={onClick ?? action}>{children}</button>
+  );
+}
+
 export function AppLayout({ children }: AppLayoutProps) {
   const [location, setLocation] = useLocation();
   const { isOpen, setIsOpen } = useQuickMode();
@@ -72,6 +117,29 @@ export function AppLayout({ children }: AppLayoutProps) {
   const isFavourites = location === "/favourites";
   const isPhrases = location === "/phrases";
   const isOnCard = location.startsWith("/card/");
+
+  useEffect(() => {
+    const cardId = isOnCard ? location.split("/")[2] : null;
+    const card = cardId
+      ? Object.values(LIBRARY_CATEGORIES).flat().find((entry) => entry.id === cardId)
+      : null;
+    const title = card
+      ? card.title
+      : location === "/"
+        ? "Library"
+        : location === "/drill"
+          ? "Daily Drill"
+          : location === "/favourites"
+            ? "Favourites"
+            : location === "/phrases"
+              ? "Phrase Bank"
+              : location === "/playbooks"
+                ? "Playbooks"
+                : isOnCard
+                  ? "Card not found"
+                  : "Page not found";
+    document.title = `${title} · TC Reference Tool`;
+  }, [isOnCard, location]);
 
   const { totalCount: favCount } = useFavourites();
   const drillState = loadDrillState();
@@ -197,7 +265,7 @@ export function AppLayout({ children }: AppLayoutProps) {
     if (!fabOpen) return;
     requestAnimationFrame(() => {
       const first = navRef.current?.querySelector(
-        "button",
+        "a[href], button",
       ) as HTMLElement | null;
       first?.focus();
     });
@@ -221,7 +289,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       const nav = navRef.current;
       if (!nav) return;
       const buttons = Array.from(
-        nav.querySelectorAll("button"),
+        nav.querySelectorAll("a[href], button"),
       ) as HTMLElement[];
       if (buttons.length === 0) return;
       const first = buttons[0];
@@ -257,6 +325,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       icon: Home,
       active: isLibrary && !isOpen && !searchOpen,
       action: () => setLocation("/"),
+      href: "/",
       testIdDesktop: "nav-sidebar-library",
       testIdMobile: "nav-tab-library",
       badge: null as string | null,
@@ -267,6 +336,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       icon: BookOpen,
       active: location === "/playbooks" && !isOpen,
       action: () => setLocation("/playbooks"),
+      href: "/playbooks",
       testIdDesktop: "nav-sidebar-playbooks",
       testIdMobile: "nav-tab-playbooks",
       badge: null as string | null,
@@ -277,6 +347,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       icon: MessagesSquare,
       active: isPhrases && !isOpen,
       action: () => setLocation("/phrases"),
+      href: "/phrases",
       testIdDesktop: "nav-sidebar-phrases",
       testIdMobile: "nav-tab-phrases",
       badge: null as string | null,
@@ -287,6 +358,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       icon: Heart,
       active: isFavourites && !isOpen,
       action: () => setLocation("/favourites"),
+      href: "/favourites",
       testIdDesktop: "nav-sidebar-favourites",
       testIdMobile: "nav-tab-favourites",
       badge: favCount > 0 ? String(favCount) : (null as string | null),
@@ -297,6 +369,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       icon: Dumbbell,
       active: isDrill && !isOpen,
       action: () => setLocation("/drill"),
+      href: "/drill",
       testIdDesktop: "nav-sidebar-drill",
       testIdMobile: "nav-tab-drill",
       badge: drillStreakActive
@@ -311,6 +384,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       icon: Zap,
       active: isOpen,
       action: () => setIsOpen(true),
+      href: undefined,
       testIdDesktop: "nav-sidebar-quick",
       testIdMobile: "nav-tab-quick",
       badge: null as string | null,
@@ -321,6 +395,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       icon: Search,
       active: searchOpen,
       action: handleSearchTab,
+      href: undefined,
       testIdDesktop: "nav-sidebar-search",
       testIdMobile: "nav-tab-search",
       badge: null as string | null,
@@ -333,6 +408,7 @@ export function AppLayout({ children }: AppLayoutProps) {
     icon: FileText,
     active: pdfOpen,
     action: () => setPdfOpen(true),
+    href: undefined,
     testIdDesktop: "nav-sidebar-pdf",
     testIdMobile: "nav-tab-pdf",
     badge: null as string | null,
@@ -363,12 +439,12 @@ export function AppLayout({ children }: AppLayoutProps) {
           >
             Technique Cards
           </p>
-          <h1
+          <p
             className="text-[18px] font-bold leading-tight mt-0.5"
             style={{ color: "var(--fg-90)" }}
           >
             TC Library
-          </h1>
+          </p>
         </div>
 
         <div className="w-full h-px" style={{ background: "var(--fg-06)" }} />
@@ -376,14 +452,15 @@ export function AppLayout({ children }: AppLayoutProps) {
         {/* Nav items */}
         <nav className="flex-1 px-3 pt-3 space-y-0.5" aria-label="Navigation">
           {navItems.map((item) => (
-            <button
+            <NavigationControl
               key={item.id}
-              onClick={item.action}
-              aria-label={item.label}
-              aria-current={item.active ? "page" : undefined}
-              data-search-toggle={item.id === "search" ? "true" : undefined}
-              data-testid={item.testIdDesktop}
-              className="w-full flex items-center gap-2.5 rounded-xl transition-all duration-200 text-left active:scale-[0.98]"
+              href={item.href}
+              action={item.action}
+              ariaLabel={item.label}
+              ariaCurrent={item.active ? "page" : undefined}
+              dataSearchToggle={item.id === "search"}
+              dataTestId={item.testIdDesktop}
+              className="w-full flex items-center gap-2.5 rounded-xl transition-all duration-200 text-left active:scale-[0.98] hover:bg-[var(--fg-05)]"
               style={{
                 minHeight: 44,
                 paddingTop: 8,
@@ -396,16 +473,6 @@ export function AppLayout({ children }: AppLayoutProps) {
                 borderLeft: item.active
                   ? "2px solid rgba(245,158,11,0.65)"
                   : "2px solid transparent",
-              }}
-              onMouseEnter={(e) => {
-                if (!item.active)
-                  (e.currentTarget as HTMLElement).style.background =
-                    "var(--fg-05)";
-              }}
-              onMouseLeave={(e) => {
-                if (!item.active)
-                  (e.currentTarget as HTMLElement).style.background =
-                    "transparent";
               }}
             >
               {/* Icon chip — circular, amber gradient when active */}
@@ -456,7 +523,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               >
                 {item.label}
               </span>
-            </button>
+            </NavigationControl>
           ))}
         </nav>
 
@@ -565,17 +632,19 @@ export function AppLayout({ children }: AppLayoutProps) {
             const labelDelay = fabOpen ? enterDelay + 55 : exitDelay;
             const chipSize = isShortScreen ? 24 : 28;
             return (
-              <button
+              <NavigationControl
                 key={item.id}
+                href={item.href}
+                action={item.action}
                 onClick={() => {
                   triggerHaptic(8);
-                  item.action();
+                  if (!item.href) item.action();
                   closeFab(false);
                 }}
-                aria-label={item.label}
-                aria-current={item.active ? "page" : undefined}
-                data-search-toggle={item.id === "search" ? "true" : undefined}
-                data-testid={item.testIdMobile}
+                ariaLabel={item.label}
+                ariaCurrent={item.active ? "page" : undefined}
+                dataSearchToggle={item.id === "search"}
+                dataTestId={item.testIdMobile}
                 tabIndex={fabOpen ? 0 : -1}
                 className="fab-pill flex items-center rounded-full active:scale-95"
                 style={{
@@ -662,7 +731,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                 >
                   {item.label}
                 </span>
-              </button>
+              </NavigationControl>
             );
           })}
         </nav>
@@ -719,17 +788,19 @@ export function AppLayout({ children }: AppLayoutProps) {
                 ? `opacity 220ms ease ${labelEnterDelay}ms`
                 : "opacity 350ms ease 0ms";
             return (
-              <button
+              <NavigationControl
                 key={item.id}
+                href={item.href}
+                action={item.action}
                 onClick={() => {
                   triggerHaptic(8);
-                  item.action();
+                  if (!item.href) item.action();
                   closeFab(false);
                 }}
-                aria-label={item.label}
-                aria-current={item.active ? "page" : undefined}
-                data-search-toggle={item.id === "search" ? "true" : undefined}
-                data-testid={item.testIdMobile}
+                ariaLabel={item.label}
+                ariaCurrent={item.active ? "page" : undefined}
+                dataSearchToggle={item.id === "search"}
+                dataTestId={item.testIdMobile}
                 tabIndex={fabOpen ? 0 : -1}
                 className="fab-fan-item active:scale-95"
                 style={
@@ -832,7 +903,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                 >
                   {item.label}
                 </span>
-              </button>
+              </NavigationControl>
             );
           })}
         </nav>
