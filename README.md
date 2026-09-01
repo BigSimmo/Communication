@@ -112,6 +112,13 @@ pnpm run typecheck
 pnpm --filter @workspace/tc-reference run build
 ```
 
+The build verifies that the committed card downloads match the card source. After
+editing card content, regenerate them explicitly and then re-run the build:
+
+```bash
+pnpm --filter @workspace/scripts run generate:card-downloads
+```
+
 ---
 
 ## Routes
