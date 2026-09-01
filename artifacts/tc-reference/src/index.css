@@ -415,7 +415,8 @@
   }
 
   .library-card-favourite,
-  .card-header-action {
+  .card-header-action,
+  .quick-phrase-favourite {
     min-width: 44px;
     min-height: 44px;
   }

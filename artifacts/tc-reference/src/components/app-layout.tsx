@@ -161,10 +161,19 @@ export function AppLayout({ children }: AppLayoutProps) {
 
   // Short-screen / landscape phone detection
   const [isShortScreen, setIsShortScreen] = useState(false);
+  const [isCoarsePointer, setIsCoarsePointer] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia("(max-height: 580px)");
     setIsShortScreen(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsShortScreen(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer: coarse)");
+    setIsCoarsePointer(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsCoarsePointer(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
@@ -648,7 +657,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                 tabIndex={fabOpen ? 0 : -1}
                 className="fab-pill flex items-center rounded-full active:scale-95"
                 style={{
-                  height: isShortScreen ? 36 : 44,
+                  height: isCoarsePointer ? 44 : isShortScreen ? 36 : 44,
                   paddingLeft: isShortScreen ? 5 : 6,
                   paddingRight: isShortScreen ? 13 : 16,
                   gap: isShortScreen ? 7 : 9,
@@ -774,7 +783,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             const enterDelay = fabOpen ? i * 45 : (n - 1 - i) * 22;
             // Labels follow chip with a beat
             const labelEnterDelay = fabOpen ? i * 45 + 60 : 0;
-            const chipSize = isShortScreen ? 36 : 40;
+            const chipSize = isCoarsePointer ? 44 : isShortScreen ? 36 : 40;
             // Labels: always visible for active item; for others fade in for 1.6s then out
             const labelOpacity = fabOpen
               ? item.active
