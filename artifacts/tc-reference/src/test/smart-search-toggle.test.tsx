@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it, beforeEach, vi } from "vitest";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { describe, expect, it, beforeAll, beforeEach, vi } from "vitest";
 import { useLocation } from "wouter";
 import { AppHeader } from "../components/app-header";
 import Library from "../pages/library";
@@ -9,6 +9,12 @@ import { QuickModeProvider } from "../lib/quick-mode";
 import { ThemeProvider } from "../lib/theme";
 
 vi.mock("wouter");
+
+beforeAll(async () => {
+  // Warm the lazy search module once so this interaction test measures the
+  // behavior rather than filesystem/module-loader contention from the suite.
+  await import("../components/search-modal");
+});
 
 function Wrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -84,10 +90,46 @@ describe("Library smart search toggle", () => {
     fireEvent.click(input);
 
     expect(input).toHaveAttribute("aria-expanded", "true");
-    // The search modal is lazy-loaded; allow extra time so a slow/loaded CI box
-    // doesn't flake on the default 1000ms find timeout.
-    expect(await screen.findByTestId("search-modal", undefined, { timeout: 5000 })).toBeInTheDocument();
+    expect(await screen.findByTestId("search-modal")).toBeInTheDocument();
     expect(screen.getByText("Smart starts")).toBeInTheDocument();
+  });
+
+  it("closes with Escape without reopening from restored focus", async () => {
+    render(
+      <Wrapper>
+        <AppHeader />
+        <Library />
+      </Wrapper>
+    );
+
+    const input = screen.getByTestId("library-search-input");
+    fireEvent.click(input);
+    await screen.findByTestId("search-modal");
+
+    fireEvent.keyDown(window, { key: "Escape" });
+
+    await waitFor(() => {
+      expect(screen.queryByTestId("search-modal")).not.toBeInTheDocument();
+      expect(input).toHaveAttribute("aria-expanded", "false");
+    });
+    expect(document.activeElement).toBe(input);
+  });
+
+  it("consumes the one-shot suppression marker before opening search", () => {
+    render(
+      <Wrapper>
+        <AppHeader />
+        <Library />
+      </Wrapper>
+    );
+
+    const input = screen.getByTestId("library-search-input");
+    input.setAttribute("data-suppress-search-open", "true");
+
+    fireEvent.focus(input);
+
+    expect(screen.queryByTestId("search-modal")).not.toBeInTheDocument();
+    expect(input).not.toHaveAttribute("data-suppress-search-open");
   });
 
   it("keeps only the organized menu trigger in the header", () => {

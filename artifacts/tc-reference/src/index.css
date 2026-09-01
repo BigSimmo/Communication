@@ -409,6 +409,18 @@
   .fab-badge-dot { animation: none !important; }
 }
 
+@media (pointer: coarse) {
+  .library-filter-control {
+    min-height: 44px;
+  }
+
+  .library-card-favourite,
+  .card-header-action {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
 /* Print: hide FAB entirely and remove the bottom padding gap */
 @media print {
   .fab-button,

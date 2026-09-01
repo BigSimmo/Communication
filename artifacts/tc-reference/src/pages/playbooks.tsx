@@ -74,7 +74,7 @@ export default function Playbooks() {
   };
 
   return (
-    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 py-6 gap-6">
+    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom,0px))] md:pb-6 gap-6">
       <div className="flex items-center justify-between">
         <div>
           <h1
@@ -132,12 +132,14 @@ export default function Playbooks() {
 
           <div className="flex flex-col gap-1.5">
             <label
+              htmlFor="playbook-name"
               className="text-[11px] font-bold tracking-wider uppercase"
               style={{ color: "var(--fg-38)" }}
             >
               Name
             </label>
             <input
+              id="playbook-name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -153,12 +155,14 @@ export default function Playbooks() {
 
           <div className="flex flex-col gap-1.5">
             <label
+              htmlFor="playbook-description"
               className="text-[11px] font-bold tracking-wider uppercase"
               style={{ color: "var(--fg-38)" }}
             >
               Description
             </label>
             <textarea
+              id="playbook-description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Brief purpose of this playbook..."

@@ -69,7 +69,7 @@ function HeaderIconButton({
       aria-controls={controls}
       data-search-toggle={searchToggle ? "true" : undefined}
       data-testid={testId}
-      className={`h-9 w-9 flex-shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-95 ${className}`}
+      className={`card-header-action h-9 w-9 flex-shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-95 ${className}`}
       style={{
         background: active
           ? "var(--gradient-active)"
@@ -186,7 +186,7 @@ export function AppHeader({
                 onClick={() => setLocation("/")}
                 aria-label="Back to Library"
                 data-testid="button-back"
-                className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
+                className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                 style={{ background: "var(--fg-05)" }}
               >
                 <ChevronLeft className="w-5 h-5" style={{ color: "var(--fg-70)" }} />
@@ -211,7 +211,7 @@ export function AppHeader({
                   onClick={() => toggleCard(cardId)}
                   aria-label={isCardFav(cardId) ? "Remove from favourites" : "Save to favourites"}
                   data-testid="button-fav-card"
-                  className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
+                  className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                   style={{
                     background: isCardFav(cardId) ? "color-mix(in srgb, var(--brand) 12%, transparent)" : "var(--fg-05)",
                     border: isCardFav(cardId) ? "none" : "1px solid var(--fg-08)"
@@ -263,7 +263,7 @@ export function AppHeader({
                 onClick={() => setIsOpen(true)}
                 aria-label="Open Quick Lookup"
                 data-testid="button-quick"
-                className="flex items-center gap-1.5 text-[11px] font-bold px-2.5 md:px-3.5 py-2 rounded-full active:scale-95 transition-transform flex-shrink-0"
+                className="card-header-action flex items-center gap-1.5 text-[11px] font-bold px-2.5 md:px-3.5 py-2 rounded-full active:scale-95 transition-transform flex-shrink-0"
                 style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
               >
                 <Zap className="w-3.5 h-3.5" />

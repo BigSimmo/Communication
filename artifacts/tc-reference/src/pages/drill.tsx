@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import {
   Flame,
@@ -35,6 +35,15 @@ export default function Drill() {
   const [dueCount, setDueCount] = useState(() => getDueCardsCount());
 
   const done = isCompletedToday(state);
+  const completionRef = useRef<HTMLDivElement>(null);
+  const wasDoneRef = useRef(done);
+
+  useEffect(() => {
+    if (done && !wasDoneRef.current) {
+      requestAnimationFrame(() => completionRef.current?.focus());
+    }
+    wasDoneRef.current = done;
+  }, [done]);
   const streakActive = isStreakActive(state);
 
   const activeCardIndex =
@@ -68,6 +77,7 @@ export default function Drill() {
 
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-10 gap-5">
+      <h1 className="sr-only">Daily Drill</h1>
       {/* ── Streak + overall progress row ── */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -244,6 +254,10 @@ export default function Drill() {
       {/* ── CTA or Done state ── */}
       {done ? (
         <div
+          ref={completionRef}
+          role="status"
+          aria-live="polite"
+          tabIndex={-1}
           className="rounded-2xl p-4 flex items-center gap-3"
           style={{
             background: "rgba(34,197,94,0.06)",

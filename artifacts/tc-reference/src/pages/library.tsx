@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   ChevronRight,
   ChevronDown,
@@ -15,14 +15,15 @@ import { LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
+import { IMPACT_STYLES } from "@/lib/design-tokens";
 
 const IMPACT_BADGE: Record<
   CardImpact,
   { label: string; bg: string; color: string }
 > = {
-  high: { label: "High", bg: "rgba(245,158,11,0.14)", color: "#f59e0b" },
-  medium: { label: "Medium", bg: "rgba(96,165,250,0.12)", color: "#60a5fa" },
-  low: { label: "Low", bg: "var(--fg-06)", color: "var(--fg-38)" },
+  high: IMPACT_STYLES.high,
+  medium: IMPACT_STYLES.medium,
+  low: IMPACT_STYLES.low,
 };
 
 // Derived at module level from the light data.ts metadata (NOT the heavy card
@@ -165,7 +166,7 @@ function FilterDropdown({
         aria-expanded={open}
         aria-label={`${label} filter${active ? `: ${currentLabel}` : ""}`}
         data-testid={testId}
-        className="w-full inline-flex h-8 min-w-0 items-center justify-between gap-1 rounded-xl pl-2.5 pr-2 text-[11px] font-semibold transition-all"
+        className="library-filter-control w-full inline-flex h-8 min-w-0 items-center justify-between gap-1 rounded-xl pl-2.5 pr-2 text-[12px] font-semibold transition-all"
         style={chipStyle(active)}
       >
         <span className="inline-flex min-w-0 items-center gap-1.5">
@@ -382,8 +383,9 @@ export default function Library() {
                 aria-expanded={searchOpen}
                 aria-controls="search-popout-panel"
                 data-search-toggle="true"
+                data-search-open-on-focus="true"
                 data-testid="library-search-input"
-                className="w-full h-9 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-30)]"
+                className="w-full min-w-0 h-9 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-30)]"
                 style={{
                   background: "var(--fg-05)",
                   border: "1px solid var(--fg-08)",
@@ -391,12 +393,21 @@ export default function Library() {
                   padding: "0 34px 0 34px",
                 }}
                 onFocus={(e) => {
+                  if (e.currentTarget.hasAttribute("data-suppress-search-open")) {
+                    e.currentTarget.removeAttribute("data-suppress-search-open");
+                    return;
+                  }
                   openSearch();
                   e.currentTarget.style.borderColor = "rgba(245,158,11,0.45)";
                   e.currentTarget.style.boxShadow =
                     "0 0 0 3px rgba(245,158,11,0.12)";
                 }}
-                onClick={() => {
+                onClick={(e) => {
+                  e.currentTarget.focus();
+                  if (e.currentTarget.hasAttribute("data-suppress-search-open")) {
+                    e.currentTarget.removeAttribute("data-suppress-search-open");
+                    return;
+                  }
                   if (!searchOpen) openSearch();
                 }}
                 onBlur={(e) => {
@@ -549,55 +560,8 @@ export default function Library() {
               <div className="space-y-2">
                 {cards.map((card) => {
                   const badge = IMPACT_BADGE[card.impact];
-                  return (
-                    <div
-                      key={card.id}
-                      onClick={() =>
-                        card.loaded
-                          ? setLocation(`/card/${card.id}`)
-                          : undefined
-                      }
-                      role={card.loaded ? "button" : undefined}
-                      tabIndex={card.loaded ? 0 : undefined}
-                      onKeyDown={
-                        card.loaded
-                          ? (e) =>
-                              e.key === "Enter" &&
-                              setLocation(`/card/${card.id}`)
-                          : undefined
-                      }
-                      aria-label={`${card.title} (${card.id})${!card.loaded ? " — coming soon" : ""}`}
-                      data-testid={`card-link-${card.id}`}
-                      className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 rounded-2xl transition-all duration-150 text-left overflow-hidden"
-                      style={{
-                        background: card.loaded
-                          ? "rgba(245,158,11,0.08)"
-                          : "var(--fg-02)",
-                        border: card.loaded
-                          ? "1px solid rgba(245,158,11,0.18)"
-                          : "1px solid var(--fg-04)",
-                        opacity: card.loaded ? 1 : 0.55,
-                        cursor: card.loaded ? "pointer" : "default",
-                        minHeight: 64,
-                        // Skip painting off-screen rows so scrolling the full
-                        // 98-card list stays smooth; `auto` remembers each row's
-                        // real height so the scrollbar doesn't jump.
-                        contentVisibility: "auto",
-                        containIntrinsicSize: "auto 72px",
-                      }}
-                      onMouseEnter={(e) => {
-                        if (card.loaded)
-                          (e.currentTarget as HTMLElement).style.background =
-                            "rgba(245,158,11,0.12)";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLElement).style.background =
-                          card.loaded
-                            ? "rgba(245,158,11,0.08)"
-                            : "var(--fg-02)";
-                      }}
-                    >
-                      {/* Number badge */}
+                  const cardContent = (
+                    <>
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
                         style={{
@@ -607,82 +571,89 @@ export default function Library() {
                       >
                         {card.id.slice(2)}
                       </div>
-
-                      {/* Title + meta */}
                       <div className="flex-1 text-left min-w-0">
                         <p
                           className="text-[14px] font-semibold leading-tight"
-                          style={{
-                            color: card.loaded
-                              ? "var(--fg-90)"
-                              : "var(--fg-40)",
-                          }}
+                          style={{ color: card.loaded ? "var(--fg-90)" : "var(--fg-40)" }}
                         >
                           {card.title}
                         </p>
                         <p
-                          className="text-[11px] mt-0.5"
-                          style={{
-                            color: card.loaded
-                              ? "rgba(245,158,11,0.7)"
-                              : "var(--fg-20)",
-                          }}
+                          className="text-[12px] mt-0.5"
+                          style={{ color: card.loaded ? "var(--brand-text)" : "var(--fg-40)" }}
                         >
                           {card.id} · {cat}
                         </p>
                       </div>
-
-                      {/* Impact badge + fav + chevron — or "Soon" label */}
                       <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
                         <span
-                          className="text-[9px] font-bold tracking-wide px-2.5 py-0.5 rounded-full uppercase"
+                          className="text-[12px] font-bold tracking-wide px-2.5 py-0.5 rounded-full uppercase"
                           style={{ background: badge.bg, color: badge.color }}
                         >
                           {badge.label}
                         </span>
                         {card.loaded ? (
-                          <div className="flex items-center gap-1">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                toggleCard(card.id);
-                              }}
-                              aria-label={
-                                isCardFav(card.id)
-                                  ? "Remove from favourites"
-                                  : "Save to favourites"
-                              }
-                              className="w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95"
-                              style={{
-                                background: isCardFav(card.id)
-                                  ? "rgba(245,158,11,0.12)"
-                                  : "var(--fg-05)",
-                              }}
-                            >
-                              <Heart
-                                className="w-3.5 h-3.5"
-                                style={{
-                                  color: isCardFav(card.id)
-                                    ? "#f59e0b"
-                                    : "var(--fg-30)",
-                                }}
-                                fill={isCardFav(card.id) ? "#f59e0b" : "none"}
-                              />
-                            </button>
-                            <ChevronRight
-                              className="w-4 h-4"
-                              style={{ color: "var(--fg-22)" }}
-                            />
-                          </div>
+                          <ChevronRight className="w-4 h-4" style={{ color: "var(--fg-22)" }} />
                         ) : (
-                          <span
-                            className="text-[9px] font-medium tracking-wide uppercase"
-                            style={{ color: "var(--fg-20)" }}
-                          >
+                          <span className="text-[12px] font-medium tracking-wide uppercase" style={{ color: "var(--fg-40)" }}>
                             Soon
                           </span>
                         )}
                       </div>
+                    </>
+                  );
+                  return (
+                    <div
+                      key={card.id}
+                      className="relative max-w-full min-w-0"
+                    >
+                      {card.loaded ? (
+                        <Link
+                          href={`/card/${card.id}`}
+                          aria-label={`${card.title} (${card.id})`}
+                          data-testid={`card-link-${card.id}`}
+                          className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 pr-14 rounded-2xl transition-all duration-150 text-left overflow-hidden hover:bg-[rgba(245,158,11,0.12)]"
+                          style={{
+                            background: "rgba(245,158,11,0.08)",
+                            border: "1px solid rgba(245,158,11,0.18)",
+                            minHeight: 64,
+                            contentVisibility: "auto",
+                            containIntrinsicSize: "auto 72px",
+                          }}
+                        >
+                          {cardContent}
+                        </Link>
+                      ) : (
+                        <div
+                          aria-label={`${card.title} (${card.id}) — coming soon`}
+                          data-testid={`card-link-${card.id}`}
+                          className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-left overflow-hidden"
+                          style={{
+                            background: "var(--fg-02)",
+                            border: "1px solid var(--fg-04)",
+                            opacity: 0.55,
+                            minHeight: 64,
+                            contentVisibility: "auto",
+                            containIntrinsicSize: "auto 72px",
+                          }}
+                        >
+                          {cardContent}
+                        </div>
+                      )}
+                      {card.loaded && (
+                        <button
+                          onClick={() => toggleCard(card.id)}
+                          aria-label={isCardFav(card.id) ? "Remove from favourites" : "Save to favourites"}
+                          className="library-card-favourite absolute right-3 bottom-3 w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95"
+                          style={{ background: isCardFav(card.id) ? "rgba(245,158,11,0.12)" : "var(--fg-05)" }}
+                        >
+                          <Heart
+                            className="w-3.5 h-3.5"
+                            style={{ color: isCardFav(card.id) ? "var(--brand-text)" : "var(--fg-30)" }}
+                            fill={isCardFav(card.id) ? "var(--brand-text)" : "none"}
+                          />
+                        </button>
+                      )}
                     </div>
                   );
                 })}
