@@ -14,7 +14,8 @@ import {
 } from "lucide-react";
 import { copyToClipboard } from "@/lib/utils";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-import { CARD_DATA } from "@/lib/cards";
+import { loadCard } from "@/lib/card-loader";
+import type { CardData } from "@/lib/card-types";
 import { useFavourites } from "@/lib/favourites-context";
 import { usePdf } from "@/lib/pdf-context";
 
@@ -26,11 +27,11 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
 const PLACEHOLDER_PDF = "https://www.w3.org/WAI/WCAG21/wcag21.pdf";
 const CARD_PDF_URLS: Record<string, string> = {};
 
-function getCardPdfUrl(cardId: string): {
+function getCardPdfUrl(cardId: string, cardData: CardData): {
   url: string;
   isPlaceholder: boolean;
 } {
-  const localPath = CARD_DATA[cardId]?.pdfUrl;
+  const localPath = cardData.pdfUrl;
   if (localPath) {
     return {
       url: `${import.meta.env.BASE_URL}${localPath}`,
@@ -111,7 +112,12 @@ export default function CardDetail() {
   const cardId = params?.cardId ?? "";
   const isKnownCard = ALL_CARD_IDS.has(cardId);
   const isLoaded = LOADED_CARD_IDS.has(cardId);
-  const cardData = CARD_DATA[cardId] ?? CARD_DATA["TC031"];
+  const [loadedCard, setLoadedCard] = useState<{
+    cardId: string;
+    data: CardData | null;
+  } | null>(null);
+  const [loadFailedCardId, setLoadFailedCardId] = useState<string | null>(null);
+  const cardData = loadedCard?.cardId === cardId ? loadedCard.data : null;
   const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
 
   const [activeSection, setActiveSection] = useState<CardSection>(
@@ -144,6 +150,25 @@ export default function CardDetail() {
   const { isPhrasesFav, togglePhrase } = useFavourites();
   const { pdfOpen, setPdfOpen, setPdfUrl } = usePdf();
 
+  useEffect(() => {
+    if (!isKnownCard || !isLoaded) return;
+    let active = true;
+    setLoadFailedCardId(null);
+    loadCard(cardId).then(
+      (data) => {
+        if (!active) return;
+        setLoadedCard({ cardId, data });
+        if (!data) setLoadFailedCardId(cardId);
+      },
+      () => {
+        if (active) setLoadFailedCardId(cardId);
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [cardId, isKnownCard, isLoaded]);
+
   // Prev/next navigation follows LIBRARY_CATEGORIES order
   const loadedCardIdx = LOADED_CARDS_NAV.findIndex((c) => c.id === cardId);
   const prevCard =
@@ -157,6 +182,7 @@ export default function CardDetail() {
 
   // Optional sections only render (and only show a nav pill) when the card has data for them.
   const sectionAvailable = (id: CardSection): boolean => {
+    if (!cardData) return false;
     switch (id) {
       case "why":
         return !!cardData.influencePayoff;
@@ -282,7 +308,7 @@ export default function CardDetail() {
     });
 
     return () => observer.disconnect();
-  }, [cardId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [cardId, cardData]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Keep scrollYRef in sync so the cleanup below can read the latest value
   useEffect(() => {
@@ -347,14 +373,19 @@ export default function CardDetail() {
   }, [cardId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const { url } = getCardPdfUrl(cardId);
+    if (!cardData) {
+      setPdfUrl(null);
+      setPdfOpen(false);
+      return;
+    }
+    const { url } = getCardPdfUrl(cardId, cardData);
     setPdfUrl(url);
     setPdfOpen(false);
     return () => {
       setPdfUrl(null);
       setPdfOpen(false);
     };
-  }, [cardId]);
+  }, [cardId, cardData, setPdfOpen, setPdfUrl]);
 
   useEffect(() => {
     if (!pdfOpen) return;
@@ -532,6 +563,21 @@ export default function CardDetail() {
           <ChevronLeft className="w-4 h-4" />
           Back to Library
         </button>
+      </div>
+    );
+  }
+
+  if (!cardData) {
+    return (
+      <div
+        className="flex items-center justify-center min-h-[60vh] px-8 text-center"
+        role="status"
+        aria-live="polite"
+        aria-busy={loadFailedCardId !== cardId}
+      >
+        {loadFailedCardId === cardId
+          ? "Card content is unavailable right now."
+          : "Loading card…"}
       </div>
     );
   }
@@ -2562,7 +2608,7 @@ export default function CardDetail() {
       {/* ── PDF Viewer Modal / Bottom Sheet ── */}
       {pdfOpen &&
         (() => {
-          const { url, isPlaceholder } = getCardPdfUrl(cardId);
+          const { url, isPlaceholder } = getCardPdfUrl(cardId, cardData);
           return (
             <>
               {/* Backdrop */}

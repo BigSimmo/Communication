@@ -1,5 +1,5 @@
 import { ChevronRight, ChevronDown } from "lucide-react";
-import type { CardData } from "@/lib/cards";
+import type { CardData } from "@/lib/card-types";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { SectionAccordion, type CardSection } from "./section-accordion";
 

@@ -60,8 +60,8 @@ export default defineConfig({
         // open.
         globPatterns: ["**/*.{js,css,html,svg,png,woff2}"],
         globIgnores: ["**/cards/**"],
-        // The card-data chunk holds all 98 techniques (~2.1 MB) and is core to
-        // the app offline, so precache it — the 2 MiB default would drop it.
+        // Keep enough headroom for non-card app-shell chunks. Individual card
+        // scripts are excluded above and cached only after a card is visited.
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         navigateFallback: "index.html",
         navigateFallbackDenylist: [/\/cards\//],
@@ -77,6 +77,17 @@ export default defineConfig({
               // Fall back to the cached copy quickly if the network hangs
               networkTimeoutSeconds: 5,
               expiration: { maxEntries: 60, maxAgeSeconds: 60 * 60 * 24 * 90 },
+            },
+          },
+          {
+            // Card modules are content-hashed immutable assets. Cache only
+            // cards the user visits; never inflate the initial PWA install
+            // with all 98 technique payloads.
+            urlPattern: /\/assets\/cards\/TC\d{3}-[^/]+\.js$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "card-scripts",
+              expiration: { maxEntries: 98, maxAgeSeconds: 60 * 60 * 24 * 365 },
             },
           },
         ],
@@ -107,16 +118,19 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    manifest: true,
     rollupOptions: {
       output: {
-        // Split the static card content and third-party code out of the main
-        // bundle — better caching, chunks stay under 500 kB, and no per-package
-        // allow-list to maintain as dependencies change.
+        chunkFileNames(chunkInfo) {
+          const facadeId = chunkInfo.facadeModuleId?.replaceAll("\\", "/");
+          if (facadeId && /\/src\/lib\/cards\/TC\d{3}\.ts$/.test(facadeId)) {
+            return "assets/cards/[name]-[hash].js";
+          }
+          return "assets/[name]-[hash].js";
+        },
+        // Keep third-party code stable without merging card modules back into
+        // a monolithic chunk. Each import.meta.glob card remains independent.
         manualChunks(id: string) {
-          // Card content lives in the barrel (src/lib/cards.ts), the per-card
-          // modules (src/lib/cards/*.ts) and the shared types (card-types.ts).
-          if (id.includes("src/lib/cards") || id.includes("src/lib/card-types"))
-            return "card-data";
           if (id.includes("node_modules")) {
             return id.includes("lucide-react") ? "icons" : "vendor";
           }

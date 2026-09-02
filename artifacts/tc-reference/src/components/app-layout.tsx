@@ -23,8 +23,8 @@ import {
 } from "lucide-react";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useNav } from "@/lib/nav-context";
-// Lazy — the overlay aggregates the heavy card content, so it (and the
-// `card-data` chunk) only load the first time Quick Lookup is opened.
+// Lazy — the overlay loads and aggregates card content only when Quick Lookup
+// is first opened.
 const QuickModeOverlay = lazy(() =>
   import("./quick-mode-overlay").then((m) => ({ default: m.QuickModeOverlay })),
 );
