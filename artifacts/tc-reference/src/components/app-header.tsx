@@ -17,8 +17,8 @@ import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useTheme } from "@/lib/theme";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-// Lazily loaded — global search builds an index over the heavy card content,
-// so the search chunk (and `card-data`) only load the first time search opens.
+// Lazily loaded — global search builds its cached aggregate index only after a
+// user enters a query.
 const SearchModal = lazy(() =>
   import("@/components/search-modal").then((m) => ({ default: m.SearchModal })),
 );

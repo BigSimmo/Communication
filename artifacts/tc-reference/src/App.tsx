@@ -2,8 +2,8 @@ import { Suspense, lazy } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import NotFound from "@/pages/not-found";
 import Library from "@/pages/library";
-// Non-landing routes are lazy so the heavy card content (the `card-data` chunk)
-// loads on first navigation/use, not on first paint of the Library.
+// Non-landing routes stay lazy so route UI loads only when first visited. Card
+// content is split again inside those routes by the per-card loader.
 const CardDetail = lazy(() => import("@/pages/card-detail"));
 const Drill = lazy(() => import("@/pages/drill"));
 const Favourites = lazy(() => import("@/pages/favourites"));

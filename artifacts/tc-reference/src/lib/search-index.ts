@@ -1,4 +1,5 @@
-import { CARD_DATA, inferPhraseTone } from "./cards";
+import { inferPhraseTone } from "./card-types";
+import { loadAllCards } from "./card-loader";
 import { LIBRARY_CATEGORIES } from "./data";
 
 export interface RankedResult {
@@ -29,26 +30,44 @@ interface SearchCorpusEntry {
   whyItWorksText: string;
 }
 
-const SEARCH_CORPUS: SearchCorpusEntry[] = Object.entries(CARD_DATA).map(([id, card]) => {
-  const meta = CARD_META[id];
-  return {
-    id,
-    titleLower: (meta?.title ?? id).toLowerCase(),
-    idLower: id.toLowerCase(),
-    categoryLower: (meta?.category ?? "").toLowerCase(),
-    bestForText: card.overview.bestFor.join(" ").toLowerCase(),
-    coreFormulaText: card.overview.coreFormula.join(" ").toLowerCase(),
-    phraseBankText: card.phraseBank
-      .flatMap((g) => [g.label, g.tag, inferPhraseTone(g), ...g.phrases])
-      .join(" ")
-      .toLowerCase(),
-    scenariosText: card.scenarios
-      .map((s) => `${s.situation} ${s.move} ${s.phrase}`)
-      .join(" ")
-      .toLowerCase(),
-    whyItWorksText: card.whyItWorks.toLowerCase(),
-  };
-});
+let searchCorpusPromise: Promise<ReadonlyArray<SearchCorpusEntry>> | null = null;
+
+function loadSearchCorpus(): Promise<ReadonlyArray<SearchCorpusEntry>> {
+  if (!searchCorpusPromise) {
+    searchCorpusPromise = loadAllCards().then((cards) =>
+      Object.freeze(
+        Object.entries(cards).map(([id, card]) => {
+          const meta = CARD_META[id];
+          return {
+            id,
+            titleLower: (meta?.title ?? id).toLowerCase(),
+            idLower: id.toLowerCase(),
+            categoryLower: (meta?.category ?? "").toLowerCase(),
+            bestForText: card.overview.bestFor.join(" ").toLowerCase(),
+            coreFormulaText: card.overview.coreFormula.join(" ").toLowerCase(),
+            phraseBankText: card.phraseBank
+              .flatMap((group) => [
+                group.label,
+                group.tag,
+                inferPhraseTone(group),
+                ...group.phrases,
+              ])
+              .join(" ")
+              .toLowerCase(),
+            scenariosText: card.scenarios
+              .map((scenario) =>
+                `${scenario.situation} ${scenario.move} ${scenario.phrase}`,
+              )
+              .join(" ")
+              .toLowerCase(),
+            whyItWorksText: card.whyItWorks.toLowerCase(),
+          };
+        }),
+      ),
+    );
+  }
+  return searchCorpusPromise;
+}
 
 const FIELD_WEIGHTS: Array<{ key: keyof SearchCorpusEntry; label: string; exact: number; prefix: number; contains: number }> = [
   { key: "idLower",         label: "id",          exact: 100, prefix: 80,  contains: 80  },
@@ -120,13 +139,14 @@ function scoreEntry(entry: SearchCorpusEntry, q: string): { score: number; match
   return { score: 0, matchedIn: "" };
 }
 
-export function searchCards(query: string): RankedResult[] {
+export async function searchCards(query: string): Promise<RankedResult[]> {
   const q = query.trim();
   if (!q) return [];
 
+  const searchCorpus = await loadSearchCorpus();
   const results: RankedResult[] = [];
 
-  for (const entry of SEARCH_CORPUS) {
+  for (const entry of searchCorpus) {
     const { score, matchedIn } = scoreEntry(entry, q);
     if (score > 0) {
       const meta = CARD_META[entry.id];

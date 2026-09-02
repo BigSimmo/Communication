@@ -1,5 +1,10 @@
-import { CANONICAL_TONES, CARD_DATA, isSpeakablePhrase, inferPhraseTone } from "./cards";
-import type { CanonicalTone } from "./cards";
+import {
+  CANONICAL_TONES,
+  isSpeakablePhrase,
+  inferPhraseTone,
+} from "./card-types";
+import type { CanonicalTone } from "./card-types";
+import { loadAllCards } from "./card-loader";
 import { LIBRARY_CATEGORIES } from "./data";
 
 export interface AggregatedPhrase {
@@ -17,37 +22,39 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
   for (const c of cards) CARD_TITLE_MAP[c.id] = c.title;
 }
 
-let _phrasesCache: AggregatedPhrase[] | null = null;
-let _tonesCache: CanonicalTone[] | null = null;
+let phrasesPromise: Promise<ReadonlyArray<AggregatedPhrase>> | null = null;
 
-export function getAllAggregatedPhrases(): AggregatedPhrase[] {
-  if (_phrasesCache) return _phrasesCache;
-  const result: AggregatedPhrase[] = [];
-  for (const [cardId, card] of Object.entries(CARD_DATA)) {
-    const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
-    for (const group of card.phraseBank) {
-      for (const text of group.phrases) {
-        if (!isSpeakablePhrase(text)) continue;
-        result.push({
-          text,
-          groupId: group.id,
-          groupLabel: group.label,
-          groupTag: group.tag,
-          tone: inferPhraseTone(group),
-          cardId,
-          cardTitle,
-        });
+export function loadAllAggregatedPhrases(): Promise<ReadonlyArray<AggregatedPhrase>> {
+  if (!phrasesPromise) {
+    phrasesPromise = loadAllCards().then((cards) => {
+      const result: AggregatedPhrase[] = [];
+      for (const [cardId, card] of Object.entries(cards)) {
+        const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
+        for (const group of card.phraseBank) {
+          for (const text of group.phrases) {
+            if (!isSpeakablePhrase(text)) continue;
+            result.push({
+              text,
+              groupId: group.id,
+              groupLabel: group.label,
+              groupTag: group.tag,
+              tone: inferPhraseTone(group),
+              cardId,
+              cardTitle,
+            });
+          }
+        }
       }
-    }
+      return Object.freeze(result);
+    });
   }
-  _phrasesCache = result;
-  return result;
+  return phrasesPromise;
 }
 
-export function getAllTones(): CanonicalTone[] {
-  if (_tonesCache) return _tonesCache;
-  const present = new Set(getAllAggregatedPhrases().map((p) => p.tone));
+export function getAllTones(
+  phrases: ReadonlyArray<AggregatedPhrase>,
+): CanonicalTone[] {
+  const present = new Set(phrases.map((phrase) => phrase.tone));
   // Fixed canonical order — not alphabetical
-  _tonesCache = CANONICAL_TONES.filter((t) => present.has(t));
-  return _tonesCache;
+  return CANONICAL_TONES.filter((tone) => present.has(tone));
 }

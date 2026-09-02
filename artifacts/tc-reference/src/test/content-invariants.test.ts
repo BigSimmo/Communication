@@ -9,7 +9,7 @@ import {
   isSpeakablePhrase,
 } from "@/lib/cards";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-import { getAllAggregatedPhrases } from "@/lib/phrases-data";
+import { loadAllAggregatedPhrases } from "@/lib/phrases-data";
 
 const PUBLIC_DIR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -106,10 +106,10 @@ describe("card content invariants", () => {
     }
   });
 
-  it("keeps stage directions out of the aggregated phrase pool", () => {
+  it("keeps stage directions out of the aggregated phrase pool", async () => {
     // Assert the bracketed format directly rather than via isSpeakablePhrase,
     // so a regression in the predicate itself can't hide leaked entries
-    for (const phrase of getAllAggregatedPhrases()) {
+    for (const phrase of await loadAllAggregatedPhrases()) {
       expect(phrase.text, phrase.text).not.toMatch(/^\[[\s\S]*\]$/);
     }
   });

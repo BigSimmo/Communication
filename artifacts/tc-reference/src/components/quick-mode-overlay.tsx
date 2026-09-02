@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { X, Check, Copy, Heart } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-import { CARD_DATA, isSpeakablePhrase } from "@/lib/cards";
+import { isSpeakablePhrase } from "@/lib/card-types";
+import type { CardData } from "@/lib/card-types";
+import { loadAllCards } from "@/lib/card-loader";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
@@ -25,10 +27,12 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
   for (const c of cards) CARD_TITLE_MAP_QM[c.id] = c.title;
 }
 
-const ALL_QUICK_GROUPS: QuickGroup[] = (() => {
+function buildQuickGroups(
+  cards: Readonly<Record<string, CardData>>,
+): QuickGroup[] {
   const groupsMap = new Map<string, QuickGroup>();
 
-  for (const [cardId, card] of Object.entries(CARD_DATA)) {
+  for (const [cardId, card] of Object.entries(cards)) {
     const cardMeta = Object.values(LIBRARY_CATEGORIES)
       .flat()
       .find((c) => c.id === cardId);
@@ -56,7 +60,18 @@ const ALL_QUICK_GROUPS: QuickGroup[] = (() => {
   }
   // Groups whose entries were all stage directions have nothing speakable to offer
   return Array.from(groupsMap.values()).filter((g) => g.phrases.length > 0);
-})();
+}
+
+let quickGroupsPromise: Promise<ReadonlyArray<QuickGroup>> | null = null;
+
+function loadQuickGroups(): Promise<ReadonlyArray<QuickGroup>> {
+  if (!quickGroupsPromise) {
+    quickGroupsPromise = loadAllCards().then((cards) =>
+      Object.freeze(buildQuickGroups(cards)),
+    );
+  }
+  return quickGroupsPromise;
+}
 
 const QUICK_PAGE_SIZE = 120;
 
@@ -65,6 +80,10 @@ export function QuickModeOverlay() {
   const { isPhrasesFav, togglePhrase } = useFavourites();
   const [quickFilter, setQuickFilter] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(QUICK_PAGE_SIZE);
+  const [quickGroups, setQuickGroups] = useState<ReadonlyArray<QuickGroup> | null>(
+    null,
+  );
+  const [loadFailed, setLoadFailed] = useState(false);
   const { copied: copiedPhrase, copy: handleCopy, reset: resetCopied } = useCopyFeedback();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -84,6 +103,23 @@ export function QuickModeOverlay() {
     setVisibleCount(QUICK_PAGE_SIZE);
   }, [isOpen, quickFilter]);
 
+  useEffect(() => {
+    if (!isOpen || quickGroups) return;
+    let active = true;
+    setLoadFailed(false);
+    loadQuickGroups().then(
+      (groups) => {
+        if (active) setQuickGroups(groups);
+      },
+      () => {
+        if (active) setLoadFailed(true);
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [isOpen, quickGroups]);
+
   // Escape key dismissal
   useEffect(() => {
     if (!isOpen) return;
@@ -96,9 +132,10 @@ export function QuickModeOverlay() {
 
   if (!isOpen) return null;
 
+  const allQuickGroups = quickGroups ?? [];
   const filteredGroups = quickFilter
-    ? ALL_QUICK_GROUPS.filter((g) => g.id === quickFilter)
-    : ALL_QUICK_GROUPS;
+    ? allQuickGroups.filter((g) => g.id === quickFilter)
+    : allQuickGroups;
   const totalPhraseCount = filteredGroups.reduce(
     (count, group) => count + group.phrases.length,
     0,
@@ -165,7 +202,7 @@ export function QuickModeOverlay() {
           >
             All
           </button>
-          {ALL_QUICK_GROUPS.map((g) => (
+          {allQuickGroups.map((g) => (
             <button
               key={g.id}
               onClick={() => setQuickFilter(quickFilter === g.id ? null : g.id)}
@@ -186,7 +223,21 @@ export function QuickModeOverlay() {
 
       {/* ── Phrase list ── */}
       <div className="flex-1 overflow-y-auto px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] space-y-5">
-        {filteredGroups.length === 0 && (
+        {!quickGroups && !loadFailed && (
+          <div role="status" aria-live="polite" className="py-14 text-center">
+            <p className="text-[14px] font-semibold" style={{ color: "var(--fg-55)" }}>
+              Loading phrases…
+            </p>
+          </div>
+        )}
+        {loadFailed && (
+          <div role="status" className="py-14 text-center">
+            <p className="text-[14px] font-semibold" style={{ color: "var(--fg-55)" }}>
+              Phrases are unavailable right now.
+            </p>
+          </div>
+        )}
+        {quickGroups && filteredGroups.length === 0 && (
           <div className="flex flex-col items-center py-14 text-center">
             <p className="text-[15px] font-semibold mb-1.5" style={{ color: "var(--fg-50)" }}>
               No phrases in this group

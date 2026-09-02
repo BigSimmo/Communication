@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useLocation } from "wouter";
 import { Search, X, Clock, ArrowRight, Sparkles } from "lucide-react";
-import { searchCards, highlightMatch, RankedResult } from "@/lib/search-index";
+import {
+  searchCards,
+  highlightMatch,
+  type RankedResult,
+} from "@/lib/search-index";
 import { useRecentSearches } from "@/lib/use-recent-searches";
 import { useTheme } from "@/lib/theme";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
@@ -59,15 +63,42 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [visible, setVisible] = useState(false);
+  const [results, setResults] = useState<RankedResult[]>([]);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [searchFailed, setSearchFailed] = useState(false);
 
-  // Memoised: a stable array identity keeps the keydown effect from
-  // re-subscribing on unrelated re-renders (hover, selection changes)
-  const results: RankedResult[] = useMemo(
-    () => (query.trim().length >= 1 ? searchCards(query) : []),
-    [query],
-  );
   const showRecents = query.trim().length === 0 && recents.length > 0;
   const showSmartStart = query.trim().length === 0;
+
+  useEffect(() => {
+    const trimmedQuery = query.trim();
+    if (!trimmedQuery) {
+      setResults([]);
+      setSearchLoading(false);
+      setSearchFailed(false);
+      return;
+    }
+
+    let active = true;
+    setSearchLoading(true);
+    setSearchFailed(false);
+    searchCards(trimmedQuery).then(
+      (nextResults) => {
+        if (!active) return;
+        setResults(nextResults);
+        setSearchLoading(false);
+      },
+      () => {
+        if (!active) return;
+        setResults([]);
+        setSearchLoading(false);
+        setSearchFailed(true);
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [query]);
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => setVisible(true));
@@ -332,7 +363,23 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           )}
 
           {/* Results list */}
-          {results.length > 0 && (
+          {searchLoading && (
+            <div role="status" aria-live="polite" className="py-10 px-6 text-center">
+              <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
+                Loading search index…
+              </p>
+            </div>
+          )}
+
+          {searchFailed && (
+            <div role="status" className="py-10 px-6 text-center">
+              <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
+                Search is unavailable right now.
+              </p>
+            </div>
+          )}
+
+          {!searchLoading && !searchFailed && results.length > 0 && (
             <div>
               <p
                 className="text-[10px] font-semibold tracking-widest uppercase px-4 pt-3 pb-1.5"
@@ -417,8 +464,8 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           )}
 
           {/* No results */}
-          {query.trim().length >= 1 && results.length === 0 && (
-            <div className="flex flex-col items-center py-10 px-6 text-center">
+          {!searchLoading && !searchFailed && query.trim().length >= 1 && results.length === 0 && (
+            <div role="status" className="flex flex-col items-center py-10 px-6 text-center">
               <p className="text-[15px] font-semibold mb-1.5" style={{ color: "var(--fg-50)" }}>
                 No results for "{query}"
               </p>

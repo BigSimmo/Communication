@@ -1,5 +1,5 @@
 import { FileText } from "lucide-react";
-import type { CardResource } from "@/lib/cards";
+import type { CardResource } from "@/lib/card-types";
 import { SectionAccordion, type CardSection } from "./section-accordion";
 
 export function ResourcesSection({

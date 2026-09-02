@@ -203,7 +203,7 @@ describe("core accessibility contracts", () => {
     render(<Drill />);
 
     expect(screen.getByRole("heading", { level: 1, name: "Daily Drill" })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Hard (Soon)" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Hard (Soon)" }));
 
     const completion = screen.getByRole("status");
     expect(completion).toHaveTextContent(
@@ -212,7 +212,7 @@ describe("core accessibility contracts", () => {
     await waitFor(() => expect(document.activeElement).toBe(completion));
   });
 
-  it("renders exactly one H1 on every non-library route", () => {
+  it("renders exactly one H1 on every non-library route", async () => {
     const routes = [
       ["/favourites", <Favourites />],
       ["/phrases", <Phrases />],
@@ -232,6 +232,12 @@ describe("core accessibility contracts", () => {
           <AppLayout>{page}</AppLayout>
         </AppProviders>,
       );
+
+      if (location === "/card/TC001") {
+        await waitFor(() =>
+          expect(screen.queryByRole("status")).not.toBeInTheDocument(),
+        );
+      }
 
       expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
       view.unmount();

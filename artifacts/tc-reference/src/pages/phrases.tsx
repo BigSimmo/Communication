@@ -1,20 +1,20 @@
 import { useState, useMemo, useEffect } from "react";
 import { useLocation } from "wouter";
 import { Check, Copy, Heart, Search, X, MessagesSquare } from "lucide-react";
-import { getAllAggregatedPhrases, getAllTones, AggregatedPhrase } from "@/lib/phrases-data";
+import {
+  loadAllAggregatedPhrases,
+  getAllTones,
+  type AggregatedPhrase,
+} from "@/lib/phrases-data";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 
-const ALL_PHRASES = getAllAggregatedPhrases();
-const ALL_TONES = getAllTones();
-
-const TONE_COUNTS: Record<string, number> = {};
-for (const p of ALL_PHRASES) {
-  TONE_COUNTS[p.tone] = (TONE_COUNTS[p.tone] ?? 0) + 1;
-}
-
 export default function Phrases() {
+  const [allPhrases, setAllPhrases] = useState<ReadonlyArray<AggregatedPhrase> | null>(
+    null,
+  );
+  const [loadFailed, setLoadFailed] = useState(false);
   const [toneFilter, setToneFilter] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   // The full bank is thousands of phrases; render a window and grow it on demand
@@ -26,11 +26,38 @@ export default function Phrases() {
   const { togglePhrase, isPhrasesFav } = useFavourites();
   const scrollDirection = useScrollDirection(60);
 
+  useEffect(() => {
+    let active = true;
+    loadAllAggregatedPhrases().then(
+      (phrases) => {
+        if (active) setAllPhrases(phrases);
+      },
+      () => {
+        if (active) setLoadFailed(true);
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const allTones = useMemo(
+    () => (allPhrases ? getAllTones(allPhrases) : []),
+    [allPhrases],
+  );
+  const toneCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const phrase of allPhrases ?? []) {
+      counts[phrase.tone] = (counts[phrase.tone] ?? 0) + 1;
+    }
+    return counts;
+  }, [allPhrases]);
+
   const hasActive = !!toneFilter || !!searchQuery;
   const filterHidden = scrollDirection === "down" && !hasActive;
 
   const filtered = useMemo(() => {
-    let result = ALL_PHRASES;
+    let result = allPhrases ?? [];
     if (toneFilter) result = result.filter((p) => p.tone === toneFilter);
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
@@ -42,7 +69,7 @@ export default function Phrases() {
       );
     }
     return result;
-  }, [toneFilter, searchQuery]);
+  }, [allPhrases, toneFilter, searchQuery]);
 
   // Reset the render window whenever the result set changes.
   useEffect(() => {
@@ -51,6 +78,19 @@ export default function Phrases() {
 
   const visible = filtered.slice(0, visibleCount);
   const hasMore = filtered.length > visibleCount;
+
+  if (!allPhrases) {
+    return (
+      <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6">
+        <h1 className="text-[20px] font-bold leading-tight" style={{ color: "var(--fg-90)" }}>
+          Phrase Bank
+        </h1>
+        <div role="status" aria-live="polite" className="py-16 text-center">
+          {loadFailed ? "Phrase Bank is unavailable right now." : "Loading phrases…"}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
@@ -72,7 +112,7 @@ export default function Phrases() {
           </h1>
         </div>
         <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-55)" }}>
-          Every phrase from all {ALL_PHRASES.length} entries across {Object.keys(TONE_COUNTS).length} tones — filter by tone or search to find the right words.
+          Every phrase from all {allPhrases.length} entries across {Object.keys(toneCounts).length} tones — filter by tone or search to find the right words.
         </p>
       </div>
 
@@ -129,12 +169,12 @@ export default function Phrases() {
                   color: !toneFilter ? "var(--brand-contrast)" : "var(--fg-40)",
                 }}
               >
-                {ALL_PHRASES.length}
+                {allPhrases.length}
               </span>
             </button>
-            {ALL_TONES.map((tone) => {
+            {allTones.map((tone) => {
               const active = toneFilter === tone;
-              const count = TONE_COUNTS[tone] ?? 0;
+              const count = toneCounts[tone] ?? 0;
               return (
                 <button
                   key={tone}
@@ -251,6 +291,7 @@ export default function Phrases() {
           <div
             className="flex flex-col items-center gap-3 py-14 text-center"
             data-testid="phrases-empty"
+            role="status"
           >
             <div
               className="w-12 h-12 rounded-2xl flex items-center justify-center"
