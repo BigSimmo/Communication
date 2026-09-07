@@ -162,6 +162,10 @@ export function AppLayout({ children }: AppLayoutProps) {
   // Short-screen / landscape phone detection
   const [isShortScreen, setIsShortScreen] = useState(false);
   const [isCoarsePointer, setIsCoarsePointer] = useState(false);
+  // The compact arc cannot space 44px touch targets safely. Keep the user's
+  // fan preference, but use nonshrinking, scrollable pills on short screens.
+  const requiresStack = isShortScreen && isCoarsePointer;
+  const presentedLayout = requiresStack ? "stack" : layoutMode;
   useEffect(() => {
     const mq = window.matchMedia("(max-height: 580px)");
     setIsShortScreen(mq.matches);
@@ -282,14 +286,14 @@ export function AppLayout({ children }: AppLayoutProps) {
 
   // Fan layout — brief label reveal: show all labels for 1.6s after opening, then fade
   useEffect(() => {
-    if (!fabOpen || layoutMode !== "fan") {
+    if (!fabOpen || presentedLayout !== "fan") {
       setFanLabelsVisible(false);
       return;
     }
     setFanLabelsVisible(true);
     const t = setTimeout(() => setFanLabelsVisible(false), 1600);
     return () => clearTimeout(t);
-  }, [fabOpen, layoutMode]);
+  }, [fabOpen, presentedLayout]);
 
   // Focus trap: Tab/Shift+Tab cycles within the open nav, wrapping at boundaries
   const handleNavKeyDown = useCallback(
@@ -615,7 +619,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       />
 
       {/* ── Stack nav (vertical pills, default) ── */}
-      {layoutMode === "stack" && (
+      {presentedLayout === "stack" && (
         <nav
           id="mobile-organized-menu"
           ref={navRef}
@@ -658,6 +662,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                 className="fab-pill flex items-center rounded-full active:scale-95"
                 style={{
                   height: isCoarsePointer ? 44 : isShortScreen ? 36 : 44,
+                  flexShrink: 0,
                   paddingLeft: isShortScreen ? 5 : 6,
                   paddingRight: isShortScreen ? 13 : 16,
                   gap: isShortScreen ? 7 : 9,
@@ -747,7 +752,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       )}
 
       {/* ── Fan nav (radial arc chips) ── */}
-      {layoutMode === "fan" && (
+      {presentedLayout === "fan" && (
         <nav
           id="mobile-organized-menu"
           ref={navRef}
@@ -921,11 +926,14 @@ export function AppLayout({ children }: AppLayoutProps) {
       {/* Layout mode toggle — available beside the FAB only while the menu is open */}
       <button
         aria-label={
-          layoutMode === "fan"
-            ? "Switch to list layout"
-            : "Switch to fan layout"
+          requiresStack
+            ? "List layout for short touch screens"
+            : presentedLayout === "fan"
+              ? "Switch to list layout"
+              : "Switch to fan layout"
         }
         onClick={toggleLayoutMode}
+        disabled={requiresStack}
         data-testid="button-fab-layout-toggle"
         className="md:hidden fixed z-[41] flex items-center justify-center"
         style={{
@@ -949,7 +957,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           cursor: "pointer",
         }}
       >
-        {layoutMode === "fan" ? (
+        {presentedLayout === "fan" || requiresStack ? (
           <LayoutList
             className="w-3.5 h-3.5"
             style={{ color: "var(--fg-55)" }}

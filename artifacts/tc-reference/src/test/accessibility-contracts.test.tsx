@@ -1,10 +1,12 @@
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation, useRoute } from "wouter";
 import { AppLayout } from "../components/app-layout";
 import { FavouritesProvider } from "../lib/favourites-context";
 import { NavProvider } from "../lib/nav-context";
-import { PdfProvider } from "../lib/pdf-context";
+import { PdfProvider, usePdf } from "../lib/pdf-context";
+import { useEffect } from "react";
+import { loadCard } from "../lib/card-loader";
 import { PlaybookProvider } from "../lib/playbook-context";
 import { QuickModeProvider, useQuickMode } from "../lib/quick-mode";
 import { ThemeProvider } from "../lib/theme";
@@ -45,7 +47,17 @@ function QuickModeState() {
   return <output>{isOpen ? "Quick is open" : "Quick is closed"}</output>;
 }
 
+function CardPdf() {
+  const { setPdfUrl } = usePdf();
+  useEffect(
+    () => setPdfUrl("cards/TC001/TC001_TwoCard_Combined.pdf"),
+    [setPdfUrl],
+  );
+  return null;
+}
+
 beforeEach(() => {
+  Object.defineProperty(window, "innerHeight", { configurable: true, value: 768 });
   localStorage.clear();
   vi.mocked(useLocation).mockReturnValue(["/", vi.fn()]);
   vi.mocked(useRoute).mockReturnValue([false, null]);
@@ -129,32 +141,88 @@ describe("core accessibility contracts", () => {
     expect(await screen.findByText("Quick is open")).toBeInTheDocument();
   });
 
-  it("keeps mobile navigation controls at 44 px for coarse pointers", () => {
-    Object.defineProperty(window, "matchMedia", {
-      writable: true,
-      value: vi.fn().mockImplementation((query: string) => ({
-        matches: query === "(pointer: coarse)" || query === "(max-height: 580px)",
-        media: query,
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-      })),
-    });
+  it.each([7, 8])(
+    "keeps all %i coarse-pointer targets independently reachable on a short screen",
+    (count) => {
+      Object.defineProperty(window, "innerHeight", {
+        configurable: true,
+        value: 320,
+      });
+      if (count === 8)
+        vi.mocked(useLocation).mockReturnValue(["/card/TC001", vi.fn()]);
+      let pointerChange!: (event: { matches: boolean }) => void;
+      Object.defineProperty(window, "matchMedia", {
+        writable: true,
+        value: vi.fn().mockImplementation((query: string) => ({
+          matches: query === "(max-height: 580px)",
+          media: query,
+          addEventListener: (_type: string, listener: typeof pointerChange) => {
+            if (query === "(pointer: coarse)") pointerChange = listener;
+          },
+          removeEventListener: vi.fn(),
+        })),
+      });
 
-    render(
-      <AppProviders>
-        <AppLayout><Library /></AppLayout>
-      </AppProviders>,
-    );
+      render(
+        <AppProviders>
+          <AppLayout>{count === 8 ? <CardPdf /> : <div />}</AppLayout>
+        </AppProviders>,
+      );
 
-    fireEvent.click(screen.getByTestId("button-header-menu"));
-    expect(screen.getByTestId("nav-tab-quick")).toHaveStyle({ height: "44px" });
-
-    fireEvent.click(screen.getByTestId("button-fab-layout-toggle"));
-    expect(screen.getByTestId("nav-tab-quick")).toHaveStyle({
-      width: "44px",
-      height: "44px",
-    });
-  });
+      fireEvent.click(screen.getByTestId("nav-fab"));
+      fireEvent.click(screen.getByTestId("button-fab-layout-toggle"));
+      expect(screen.getByTestId("nav-tab-quick")).toHaveClass("fab-fan-item");
+      expect(screen.getByTestId("nav-tab-quick")).toHaveStyle({
+        width: "36px",
+        height: "36px",
+      });
+      act(() => pointerChange({ matches: true }));
+      const menu = document.getElementById("mobile-organized-menu")!;
+      expect(menu).toHaveClass("flex", "flex-col");
+      expect(menu).toHaveStyle({
+        overflowY: "auto",
+        maxHeight: "calc(100dvh - 120px)",
+      });
+      const targets = Array.from(
+        menu.querySelectorAll<HTMLElement>("a, button"),
+      );
+      expect(targets).toHaveLength(count);
+      const gap = parseFloat(menu.style.gap);
+      let top = 0;
+      const centers: number[] = [];
+      for (const target of targets) {
+        // Nonshrinking normal-flow pills cannot cover adjacent centers. The
+        // bounded scroll container makes offscreen rows reachable even at 320px.
+        expect(target).toHaveClass("fab-pill");
+        expect(target).toHaveStyle({ height: "44px", flexShrink: "0" });
+        expect(target).toHaveAttribute("tabindex", "0");
+        expect(target.style.position).not.toBe("absolute");
+        const height = parseFloat(target.style.height);
+        centers.push(top + height / 2);
+        top += height + gap;
+      }
+      for (let i = 1; i < centers.length; i++)
+        expect(centers[i] - centers[i - 1]).toBeGreaterThanOrEqual(44);
+      expect(top - gap).toBeGreaterThan(window.innerHeight - 120);
+      expect(screen.getByTestId("nav-tab-library")).toHaveAttribute(
+        "href",
+        "/",
+      );
+      expect(screen.getByTestId("nav-tab-quick").tagName).toBe("BUTTON");
+      if (count === 7)
+        expect(screen.getByTestId("nav-tab-library")).toHaveAttribute(
+          "aria-current",
+          "page",
+        );
+      expect(screen.getByTestId("button-fab-layout-toggle")).toBeDisabled();
+      act(() => pointerChange({ matches: false }));
+      expect(screen.getByTestId("nav-tab-quick")).toHaveClass("fab-fan-item");
+      expect(screen.getByTestId("nav-tab-quick")).toHaveStyle({
+        width: "36px",
+        height: "36px",
+      });
+    },
+  );
 
   it("uses a semantic back link from a card route", () => {
     vi.mocked(useLocation).mockReturnValue(["/card/TC001", vi.fn()]);
@@ -200,6 +268,8 @@ describe("core accessibility contracts", () => {
   });
 
   it("announces drill completion and exposes a page heading", async () => {
+    // This is a completion/focus test; loading transitions have separate coverage.
+    await loadCard("TC001");
     render(<Drill />);
 
     expect(screen.getByRole("heading", { level: 1, name: "Daily Drill" })).toBeInTheDocument();

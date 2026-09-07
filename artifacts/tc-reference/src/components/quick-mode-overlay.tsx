@@ -66,9 +66,13 @@ let quickGroupsPromise: Promise<ReadonlyArray<QuickGroup>> | null = null;
 
 function loadQuickGroups(): Promise<ReadonlyArray<QuickGroup>> {
   if (!quickGroupsPromise) {
-    quickGroupsPromise = loadAllCards().then((cards) =>
-      Object.freeze(buildQuickGroups(cards)),
-    );
+    const pending = loadAllCards()
+      .then((cards) => Object.freeze(buildQuickGroups(cards)))
+      .catch((error: unknown) => {
+        if (quickGroupsPromise === pending) quickGroupsPromise = null;
+        throw error;
+      });
+    quickGroupsPromise = pending;
   }
   return quickGroupsPromise;
 }

@@ -34,37 +34,46 @@ let searchCorpusPromise: Promise<ReadonlyArray<SearchCorpusEntry>> | null = null
 
 function loadSearchCorpus(): Promise<ReadonlyArray<SearchCorpusEntry>> {
   if (!searchCorpusPromise) {
-    searchCorpusPromise = loadAllCards().then((cards) =>
-      Object.freeze(
-        Object.entries(cards).map(([id, card]) => {
-          const meta = CARD_META[id];
-          return {
-            id,
-            titleLower: (meta?.title ?? id).toLowerCase(),
-            idLower: id.toLowerCase(),
-            categoryLower: (meta?.category ?? "").toLowerCase(),
-            bestForText: card.overview.bestFor.join(" ").toLowerCase(),
-            coreFormulaText: card.overview.coreFormula.join(" ").toLowerCase(),
-            phraseBankText: card.phraseBank
-              .flatMap((group) => [
-                group.label,
-                group.tag,
-                inferPhraseTone(group),
-                ...group.phrases,
-              ])
-              .join(" ")
-              .toLowerCase(),
-            scenariosText: card.scenarios
-              .map((scenario) =>
-                `${scenario.situation} ${scenario.move} ${scenario.phrase}`,
-              )
-              .join(" ")
-              .toLowerCase(),
-            whyItWorksText: card.whyItWorks.toLowerCase(),
-          };
-        }),
-      ),
-    );
+    const pending = loadAllCards()
+      .then((cards) =>
+        Object.freeze(
+          Object.entries(cards).map(([id, card]) => {
+            const meta = CARD_META[id];
+            return {
+              id,
+              titleLower: (meta?.title ?? id).toLowerCase(),
+              idLower: id.toLowerCase(),
+              categoryLower: (meta?.category ?? "").toLowerCase(),
+              bestForText: card.overview.bestFor.join(" ").toLowerCase(),
+              coreFormulaText: card.overview.coreFormula
+                .join(" ")
+                .toLowerCase(),
+              phraseBankText: card.phraseBank
+                .flatMap((group) => [
+                  group.label,
+                  group.tag,
+                  inferPhraseTone(group),
+                  ...group.phrases,
+                ])
+                .join(" ")
+                .toLowerCase(),
+              scenariosText: card.scenarios
+                .map(
+                  (scenario) =>
+                    `${scenario.situation} ${scenario.move} ${scenario.phrase}`,
+                )
+                .join(" ")
+                .toLowerCase(),
+              whyItWorksText: card.whyItWorks.toLowerCase(),
+            };
+          }),
+        ),
+      )
+      .catch((error: unknown) => {
+        if (searchCorpusPromise === pending) searchCorpusPromise = null;
+        throw error;
+      });
+    searchCorpusPromise = pending;
   }
   return searchCorpusPromise;
 }

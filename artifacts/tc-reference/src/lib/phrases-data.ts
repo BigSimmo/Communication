@@ -24,29 +24,37 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
 
 let phrasesPromise: Promise<ReadonlyArray<AggregatedPhrase>> | null = null;
 
-export function loadAllAggregatedPhrases(): Promise<ReadonlyArray<AggregatedPhrase>> {
+export function loadAllAggregatedPhrases(): Promise<
+  ReadonlyArray<AggregatedPhrase>
+> {
   if (!phrasesPromise) {
-    phrasesPromise = loadAllCards().then((cards) => {
-      const result: AggregatedPhrase[] = [];
-      for (const [cardId, card] of Object.entries(cards)) {
-        const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
-        for (const group of card.phraseBank) {
-          for (const text of group.phrases) {
-            if (!isSpeakablePhrase(text)) continue;
-            result.push({
-              text,
-              groupId: group.id,
-              groupLabel: group.label,
-              groupTag: group.tag,
-              tone: inferPhraseTone(group),
-              cardId,
-              cardTitle,
-            });
+    const pending = loadAllCards()
+      .then((cards) => {
+        const result: AggregatedPhrase[] = [];
+        for (const [cardId, card] of Object.entries(cards)) {
+          const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
+          for (const group of card.phraseBank) {
+            for (const text of group.phrases) {
+              if (!isSpeakablePhrase(text)) continue;
+              result.push({
+                text,
+                groupId: group.id,
+                groupLabel: group.label,
+                groupTag: group.tag,
+                tone: inferPhraseTone(group),
+                cardId,
+                cardTitle,
+              });
+            }
           }
         }
-      }
-      return Object.freeze(result);
-    });
+        return Object.freeze(result);
+      })
+      .catch((error: unknown) => {
+        if (phrasesPromise === pending) phrasesPromise = null;
+        throw error;
+      });
+    phrasesPromise = pending;
   }
   return phrasesPromise;
 }

@@ -205,7 +205,7 @@
   /* ── Semantic metric colours (impact / difficulty / misuse badges) ── */
   --impact-high: #f59e0b;
   --impact-medium: #60a5fa;
-  --impact-low: var(--fg-45);
+  --impact-low: var(--fg-65);
 
   /* ── Accent palette — section markers, ladder tiers, calibration.
      Dark theme uses the -400 shades; light theme overrides with -600
@@ -336,9 +336,9 @@
   --brand-text: #b45309;
 
   /* Semantic metric colours — darkened for contrast on light surfaces */
-  --impact-high: #d97706;
-  --impact-medium: #2563eb;
-  --impact-low: var(--fg-45);
+  --impact-high: #92400e;
+  --impact-medium: #1d4ed8;
+  --impact-low: var(--fg-65);
 
   /* Accent palette — -600 shades for light-theme contrast */
   --accent-purple: #7c3aed;

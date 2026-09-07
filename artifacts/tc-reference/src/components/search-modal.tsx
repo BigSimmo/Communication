@@ -278,7 +278,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 : undefined
             }
             data-testid="search-modal-input"
-            className="flex-1 text-[15px] bg-transparent outline-none"
+            className="flex-1 min-w-0 text-[15px] bg-transparent outline-none"
             style={{ color: "var(--fg-90)" }}
           />
           {query && (
