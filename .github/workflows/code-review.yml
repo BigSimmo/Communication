@@ -37,5 +37,8 @@ jobs:
       - name: Test
         run: pnpm -r --if-present run test
 
+      - name: Build production app
+        run: pnpm --filter @workspace/tc-reference build
+
       - name: Run Automated Code Reviewer
         run: pnpm run code-review
