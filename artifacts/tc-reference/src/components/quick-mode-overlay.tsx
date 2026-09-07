@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { X, Check, Copy, Heart } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-import { CARD_DATA, isSpeakablePhrase } from "@/lib/cards";
+import { isSpeakablePhrase } from "@/lib/card-types";
+import type { CardData } from "@/lib/card-types";
+import { loadAllCards } from "@/lib/card-loader";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
@@ -25,10 +27,12 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
   for (const c of cards) CARD_TITLE_MAP_QM[c.id] = c.title;
 }
 
-const ALL_QUICK_GROUPS: QuickGroup[] = (() => {
+function buildQuickGroups(
+  cards: Readonly<Record<string, CardData>>,
+): QuickGroup[] {
   const groupsMap = new Map<string, QuickGroup>();
 
-  for (const [cardId, card] of Object.entries(CARD_DATA)) {
+  for (const [cardId, card] of Object.entries(cards)) {
     const cardMeta = Object.values(LIBRARY_CATEGORIES)
       .flat()
       .find((c) => c.id === cardId);
@@ -56,12 +60,34 @@ const ALL_QUICK_GROUPS: QuickGroup[] = (() => {
   }
   // Groups whose entries were all stage directions have nothing speakable to offer
   return Array.from(groupsMap.values()).filter((g) => g.phrases.length > 0);
-})();
+}
+
+let quickGroupsPromise: Promise<ReadonlyArray<QuickGroup>> | null = null;
+
+function loadQuickGroups(): Promise<ReadonlyArray<QuickGroup>> {
+  if (!quickGroupsPromise) {
+    const pending = loadAllCards()
+      .then((cards) => Object.freeze(buildQuickGroups(cards)))
+      .catch((error: unknown) => {
+        if (quickGroupsPromise === pending) quickGroupsPromise = null;
+        throw error;
+      });
+    quickGroupsPromise = pending;
+  }
+  return quickGroupsPromise;
+}
+
+const QUICK_PAGE_SIZE = 120;
 
 export function QuickModeOverlay() {
   const { isOpen, setIsOpen } = useQuickMode();
   const { isPhrasesFav, togglePhrase } = useFavourites();
   const [quickFilter, setQuickFilter] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(QUICK_PAGE_SIZE);
+  const [quickGroups, setQuickGroups] = useState<ReadonlyArray<QuickGroup> | null>(
+    null,
+  );
+  const [loadFailed, setLoadFailed] = useState(false);
   const { copied: copiedPhrase, copy: handleCopy, reset: resetCopied } = useCopyFeedback();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -77,6 +103,27 @@ export function QuickModeOverlay() {
     }
   }, [isOpen, resetCopied]);
 
+  useEffect(() => {
+    setVisibleCount(QUICK_PAGE_SIZE);
+  }, [isOpen, quickFilter]);
+
+  useEffect(() => {
+    if (!isOpen || quickGroups) return;
+    let active = true;
+    setLoadFailed(false);
+    loadQuickGroups().then(
+      (groups) => {
+        if (active) setQuickGroups(groups);
+      },
+      () => {
+        if (active) setLoadFailed(true);
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [isOpen, quickGroups]);
+
   // Escape key dismissal
   useEffect(() => {
     if (!isOpen) return;
@@ -89,9 +136,21 @@ export function QuickModeOverlay() {
 
   if (!isOpen) return null;
 
+  const allQuickGroups = quickGroups ?? [];
   const filteredGroups = quickFilter
-    ? ALL_QUICK_GROUPS.filter((g) => g.id === quickFilter)
-    : ALL_QUICK_GROUPS;
+    ? allQuickGroups.filter((g) => g.id === quickFilter)
+    : allQuickGroups;
+  const totalPhraseCount = filteredGroups.reduce(
+    (count, group) => count + group.phrases.length,
+    0,
+  );
+  let remainingRows = visibleCount;
+  const visibleGroups = filteredGroups.flatMap((group) => {
+    const phrases = group.phrases.slice(0, remainingRows);
+    remainingRows -= phrases.length;
+    return phrases.length > 0 ? [{ ...group, phrases }] : [];
+  });
+  const remainingPhraseCount = totalPhraseCount - Math.min(visibleCount, totalPhraseCount);
 
   return (
     <div
@@ -147,7 +206,7 @@ export function QuickModeOverlay() {
           >
             All
           </button>
-          {ALL_QUICK_GROUPS.map((g) => (
+          {allQuickGroups.map((g) => (
             <button
               key={g.id}
               onClick={() => setQuickFilter(quickFilter === g.id ? null : g.id)}
@@ -168,7 +227,21 @@ export function QuickModeOverlay() {
 
       {/* ── Phrase list ── */}
       <div className="flex-1 overflow-y-auto px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] space-y-5">
-        {filteredGroups.length === 0 && (
+        {!quickGroups && !loadFailed && (
+          <div role="status" aria-live="polite" className="py-14 text-center">
+            <p className="text-[14px] font-semibold" style={{ color: "var(--fg-55)" }}>
+              Loading phrases…
+            </p>
+          </div>
+        )}
+        {loadFailed && (
+          <div role="status" className="py-14 text-center">
+            <p className="text-[14px] font-semibold" style={{ color: "var(--fg-55)" }}>
+              Phrases are unavailable right now.
+            </p>
+          </div>
+        )}
+        {quickGroups && filteredGroups.length === 0 && (
           <div className="flex flex-col items-center py-14 text-center">
             <p className="text-[15px] font-semibold mb-1.5" style={{ color: "var(--fg-50)" }}>
               No phrases in this group
@@ -189,7 +262,7 @@ export function QuickModeOverlay() {
             </button>
           </div>
         )}
-        {filteredGroups.map((group) => (
+        {visibleGroups.map((group) => (
           <div key={group.id} data-testid={`quick-group-${group.id}`}>
             <div className="flex items-baseline gap-2 mb-2.5 ml-1">
               <p className="text-[13px] font-bold" style={{ color: "var(--fg-80)" }}>
@@ -211,21 +284,7 @@ export function QuickModeOverlay() {
                 return (
                   <div
                     key={i}
-                    onClick={() => handleCopy(phrase.text)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      // Only respond when the row itself is focused — let the
-                      // nested favourite button handle its own keys
-                      if (e.target !== e.currentTarget) return;
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleCopy(phrase.text);
-                      }
-                    }}
-                    aria-label={`Copy phrase: ${phrase.text}`}
-                    data-testid={`quick-copy-${group.id}-${i}`}
-                    className={`w-full flex items-center justify-between text-left cursor-pointer transition-all active:scale-[0.99] ${
+                    className={`w-full flex items-center text-left transition-all ${
                       copiedPhrase === phrase.text
                         ? "bg-[color-mix(in_srgb,var(--brand)_8%,transparent)]"
                         : "bg-transparent hover:bg-[var(--fg-03)]"
@@ -233,35 +292,27 @@ export function QuickModeOverlay() {
                     style={{
                       borderBottom: i < group.phrases.length - 1 ? "1px solid var(--fg-04)" : "none",
                       minHeight: 56,
-                      padding: "14px 20px",
                     }}
                   >
-                    <p
-                      className="text-[14px] leading-relaxed pr-3 flex-1"
-                      style={{ color: copiedPhrase === phrase.text ? "var(--brand-text)" : "var(--fg-85)" }}
+                    <button
+                      onClick={() => handleCopy(phrase.text)}
+                      aria-label={`Copy phrase: ${phrase.text}`}
+                      data-testid={`quick-copy-${group.id}-${i}`}
+                      className="flex-1 min-w-0 px-5 py-3.5 text-left active:scale-[0.99]"
                     >
-                      {phrase.text}
-                    </p>
-                    <div
-                      className="flex items-center gap-1.5 flex-shrink-0"
-                      onClick={e => e.stopPropagation()}
-                    >
-                      {copiedPhrase === phrase.text ? (
-                        <Check className="w-4 h-4" style={{ color: "var(--brand-text)" }} />
-                      ) : (
-                        <Copy className="w-4 h-4 flex-shrink-0" style={{ color: "var(--fg-18)" }} />
-                      )}
+                      <span className="text-[14px] leading-relaxed" style={{ color: copiedPhrase === phrase.text ? "var(--brand-text)" : "var(--fg-85)" }}>
+                        {phrase.text}
+                      </span>
+                    </button>
+                    <div className="flex items-center gap-1.5 pr-3 flex-shrink-0">
+                      {copiedPhrase === phrase.text ? <Check className="w-4 h-4" style={{ color: "var(--brand-text)" }} /> : <Copy className="w-4 h-4" style={{ color: "var(--fg-18)" }} />}
                       <button
                         onClick={() => togglePhrase({ cardId: phrase.cardId, cardTitle: phrase.cardTitle, groupLabel: group.label, text: phrase.text })}
                         aria-label={isFav ? "Remove from favourites" : "Save phrase"}
-                        className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        className="quick-phrase-favourite w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                         style={{ background: isFav ? "color-mix(in srgb, var(--brand) 10%, transparent)" : "transparent" }}
                       >
-                        <Heart
-                          className="w-3.5 h-3.5"
-                          style={{ color: isFav ? "var(--brand-text)" : "var(--fg-20)" }}
-                          fill={isFav ? "var(--brand-text)" : "none"}
-                        />
+                        <Heart className="w-3.5 h-3.5" style={{ color: isFav ? "var(--brand-text)" : "var(--fg-20)" }} fill={isFav ? "var(--brand-text)" : "none"} />
                       </button>
                     </div>
                   </div>
@@ -270,6 +321,16 @@ export function QuickModeOverlay() {
             </div>
           </div>
         ))}
+        {remainingPhraseCount > 0 && (
+          <button
+            onClick={() => setVisibleCount((count) => count + QUICK_PAGE_SIZE)}
+            aria-label={`Show more phrases (${remainingPhraseCount} remaining)`}
+            className="w-full min-h-11 rounded-xl px-4 py-3 text-[12px] font-semibold transition-all active:scale-[0.99]"
+            style={{ background: "var(--fg-05)", border: "1px solid var(--fg-08)", color: "var(--brand-text)" }}
+          >
+            Show more phrases · {remainingPhraseCount} remaining
+          </button>
+        )}
         <div className="h-10" />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, act } from "@testing-library/react";
+import { render, screen, fireEvent, act, waitFor } from "@testing-library/react";
 import { useRoute, useLocation } from "wouter";
 import CardDetail from "../pages/card-detail";
 import { PdfProvider, usePdf } from "../lib/pdf-context";
@@ -54,7 +54,7 @@ beforeEach(() => {
 });
 
 describe("CardDetail PDF viewer — section switching regression", () => {
-  it("keeps PDF open when switching section tabs within the same card", () => {
+  it("keeps PDF open when switching section tabs within the same card", async () => {
     render(
       <Wrapper>
         <OpenPdfButton />
@@ -63,6 +63,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
       </Wrapper>
     );
 
+    await screen.findByTestId("nav-phrases");
     fireEvent.click(screen.getByTestId("open-pdf"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
@@ -79,7 +80,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
   });
 
-  it("closes PDF when navigating to a different card", () => {
+  it("closes PDF when navigating to a different card", async () => {
     const { rerender } = render(
       <Wrapper>
         <OpenPdfButton />
@@ -88,6 +89,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
       </Wrapper>
     );
 
+    await screen.findByTestId("nav-phrases");
     fireEvent.click(screen.getByTestId("open-pdf"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
@@ -103,10 +105,12 @@ describe("CardDetail PDF viewer — section switching regression", () => {
       );
     });
 
-    expect(screen.getByTestId("pdf-status").textContent).toBe("closed");
+    await waitFor(() =>
+      expect(screen.getByTestId("pdf-status").textContent).toBe("closed"),
+    );
   });
 
-  it("switching multiple sections rapidly keeps PDF open throughout", () => {
+  it("switching multiple sections rapidly keeps PDF open throughout", async () => {
     render(
       <Wrapper>
         <OpenPdfButton />
@@ -115,6 +119,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
       </Wrapper>
     );
 
+    await screen.findByTestId("nav-phrases");
     fireEvent.click(screen.getByTestId("open-pdf"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
@@ -127,7 +132,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
 });
 
 describe("CardDetail PDF availability contract", () => {
-  it("exposes each card's own bundled PDF URL", () => {
+  it("exposes each card's own bundled PDF URL", async () => {
     const { rerender } = render(
       <Wrapper>
         <PdfUrlDisplay />
@@ -135,8 +140,10 @@ describe("CardDetail PDF availability contract", () => {
       </Wrapper>
     );
 
-    expect(screen.getByTestId("pdf-url").textContent).toMatch(
-      /cards\/TC001\/TC001_TwoCard_Combined\.pdf$/
+    await waitFor(() =>
+      expect(screen.getByTestId("pdf-url").textContent).toMatch(
+        /cards\/TC001\/TC001_TwoCard_Combined\.pdf$/,
+      ),
     );
 
     mockCard("TC002");
@@ -152,8 +159,10 @@ describe("CardDetail PDF availability contract", () => {
 
     // Every card now surfaces its designed two-card (combined) visual card as
     // the primary in-app PDF, extracted from the source technique package.
-    expect(screen.getByTestId("pdf-url").textContent).toMatch(
-      /cards\/TC002\/TC002_TwoCard_Combined\.pdf$/
+    await waitFor(() =>
+      expect(screen.getByTestId("pdf-url").textContent).toMatch(
+        /cards\/TC002\/TC002_TwoCard_Combined\.pdf$/,
+      ),
     );
   });
 });

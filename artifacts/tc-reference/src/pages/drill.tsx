@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import {
   Flame,
@@ -8,7 +8,8 @@ import {
   Dumbbell,
   Sparkles,
 } from "lucide-react";
-import { CARD_DATA } from "@/lib/cards";
+import { loadCard } from "@/lib/card-loader";
+import type { CardData } from "@/lib/card-types";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import {
   CARD_IDS,
@@ -33,8 +34,26 @@ export default function Drill() {
   const [, setLocation] = useLocation();
   const [state, setState] = useState<DrillState>(() => loadDrillState());
   const [dueCount, setDueCount] = useState(() => getDueCardsCount());
+  const [activeCard, setActiveCard] = useState<{
+    cardId: string;
+    data: CardData | null;
+  } | null>(null);
+  const [nextCard, setNextCard] = useState<{
+    cardId: string;
+    data: CardData | null;
+  } | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
 
   const done = isCompletedToday(state);
+  const completionRef = useRef<HTMLDivElement>(null);
+  const wasDoneRef = useRef(done);
+
+  useEffect(() => {
+    if (done && !wasDoneRef.current) {
+      requestAnimationFrame(() => completionRef.current?.focus());
+    }
+    wasDoneRef.current = done;
+  }, [done]);
   const streakActive = isStreakActive(state);
 
   const activeCardIndex =
@@ -43,13 +62,50 @@ export default function Drill() {
     done && state.prevDayIndex >= 0 ? state.prevDayIndex : state.dayIndex;
 
   const cardId = CARD_IDS[activeCardIndex] ?? CARD_IDS[0];
-  const cardData = CARD_DATA[cardId];
+  const cardData = activeCard?.cardId === cardId ? activeCard.data : null;
   const drillEntry = cardData?.drill[activeDayIndex];
   const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
 
   const nextCardId = CARD_IDS[state.cardIndex] ?? CARD_IDS[0];
   const nextCardTitle = CARD_TITLE_MAP[nextCardId] ?? nextCardId;
-  const nextDrillEntry = CARD_DATA[nextCardId]?.drill[state.dayIndex];
+  const nextDrillEntry =
+    nextCard?.cardId === nextCardId
+      ? nextCard.data?.drill[state.dayIndex]
+      : undefined;
+
+  useEffect(() => {
+    let active = true;
+    setLoadFailed(false);
+    loadCard(cardId).then(
+      (data) => {
+        if (!active) return;
+        setActiveCard({ cardId, data });
+        if (!data) setLoadFailed(true);
+      },
+      () => {
+        if (active) setLoadFailed(true);
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [cardId]);
+
+  useEffect(() => {
+    if (!done) return;
+    let active = true;
+    loadCard(nextCardId).then(
+      (data) => {
+        if (active) setNextCard({ cardId: nextCardId, data });
+      },
+      () => {
+        if (active) setNextCard({ cardId: nextCardId, data: null });
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [done, nextCardId]);
 
   const dayNum = activeDayIndex + 1;
 
@@ -66,8 +122,23 @@ export default function Drill() {
     setDueCount(getDueCardsCount());
   };
 
+  if (!cardData) {
+    return (
+      <div
+        className="flex items-center justify-center min-h-[60vh] px-8 text-center"
+        role="status"
+        aria-live="polite"
+        aria-busy={!loadFailed}
+      >
+        <h1 className="sr-only">Daily Drill</h1>
+        {loadFailed ? "Drill content is unavailable right now." : "Loading drill…"}
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-10 gap-5">
+      <h1 className="sr-only">Daily Drill</h1>
       {/* ── Streak + overall progress row ── */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -244,6 +315,10 @@ export default function Drill() {
       {/* ── CTA or Done state ── */}
       {done ? (
         <div
+          ref={completionRef}
+          role="status"
+          aria-live="polite"
+          tabIndex={-1}
           className="rounded-2xl p-4 flex items-center gap-3"
           style={{
             background: "rgba(34,197,94,0.06)",

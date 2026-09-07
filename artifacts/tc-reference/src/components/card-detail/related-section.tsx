@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import type { CardData } from "@/lib/cards";
+import type { CardData } from "@/lib/card-types";
 import { SectionAccordion, type CardSection } from "./section-accordion";
 import { CARD_TITLE_MAP } from "./card-title-map";
 

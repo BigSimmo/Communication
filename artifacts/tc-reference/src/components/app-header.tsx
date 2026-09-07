@@ -1,5 +1,5 @@
 import { useEffect, useState, lazy, Suspense } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   Search,
   ChevronLeft,
@@ -17,8 +17,8 @@ import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useTheme } from "@/lib/theme";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
-// Lazily loaded — global search builds an index over the heavy card content,
-// so the search chunk (and `card-data`) only load the first time search opens.
+// Lazily loaded — global search builds its cached aggregate index only after a
+// user enters a query.
 const SearchModal = lazy(() =>
   import("@/components/search-modal").then((m) => ({ default: m.SearchModal })),
 );
@@ -69,7 +69,7 @@ function HeaderIconButton({
       aria-controls={controls}
       data-search-toggle={searchToggle ? "true" : undefined}
       data-testid={testId}
-      className={`h-9 w-9 flex-shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-95 ${className}`}
+      className={`card-header-action h-9 w-9 flex-shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-95 ${className}`}
       style={{
         background: active
           ? "var(--gradient-active)"
@@ -88,7 +88,7 @@ export function AppHeader({
   menuOpen = false,
   onToggleMenu,
 }: AppHeaderProps) {
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
   const {
     searchOpen,
     closeSearch,
@@ -182,15 +182,15 @@ export function AppHeader({
           {/* ── CARD MODE ── */}
           {mode === "card" && (
             <>
-              <button
-                onClick={() => setLocation("/")}
+              <Link
+                href="/"
                 aria-label="Back to Library"
                 data-testid="button-back"
-                className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
+                className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                 style={{ background: "var(--fg-05)" }}
               >
                 <ChevronLeft className="w-5 h-5" style={{ color: "var(--fg-70)" }} />
-              </button>
+              </Link>
               <div className="flex-1 min-w-0 flex items-center gap-2">
                 <span
                   className="text-[9px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
@@ -211,7 +211,7 @@ export function AppHeader({
                   onClick={() => toggleCard(cardId)}
                   aria-label={isCardFav(cardId) ? "Remove from favourites" : "Save to favourites"}
                   data-testid="button-fav-card"
-                  className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
+                  className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                   style={{
                     background: isCardFav(cardId) ? "color-mix(in srgb, var(--brand) 12%, transparent)" : "var(--fg-05)",
                     border: isCardFav(cardId) ? "none" : "1px solid var(--fg-08)"
@@ -263,7 +263,7 @@ export function AppHeader({
                 onClick={() => setIsOpen(true)}
                 aria-label="Open Quick Lookup"
                 data-testid="button-quick"
-                className="flex items-center gap-1.5 text-[11px] font-bold px-2.5 md:px-3.5 py-2 rounded-full active:scale-95 transition-transform flex-shrink-0"
+                className="card-header-action flex items-center gap-1.5 text-[11px] font-bold px-2.5 md:px-3.5 py-2 rounded-full active:scale-95 transition-transform flex-shrink-0"
                 style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
               >
                 <Zap className="w-3.5 h-3.5" />

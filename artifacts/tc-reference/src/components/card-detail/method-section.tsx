@@ -1,5 +1,5 @@
 import { Check, Copy } from "lucide-react";
-import type { CardData } from "@/lib/cards";
+import type { CardData } from "@/lib/card-types";
 import { SectionAccordion, type CardSection } from "./section-accordion";
 
 export function MethodSection({
