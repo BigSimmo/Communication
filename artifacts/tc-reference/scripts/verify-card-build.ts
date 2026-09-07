@@ -19,15 +19,33 @@ export interface CardBuildProof {
   runtimeCache: string;
 }
 
+export type BuildFileContents = Record<string, string | Uint8Array | undefined>;
+
+const MAX_STATIC_CARD_AGGREGATE_BYTES = 500 * 1024;
+
+const CARD_SCRIPT_CACHE_FIRST_ROUTE =
+  /registerRoute\(\s*\/\\\/assets\\\/cards\\\/TC\\d\{3\}-\[\^\/]\+\\\.js\$\/\s*,\s*new\s+[\w$.]+\.CacheFirst\(\s*\{[^}]*\bcacheName\s*:\s*["']card-scripts["']/;
+
+const CARD_SCRIPT_CACHE_FIRST =
+  /new\s+[\w$.]+\.CacheFirst\(\s*\{[^}]*\bcacheName\s*:\s*["']card-scripts["']/;
+
+function byteLength(source: string | Uint8Array): number {
+  return typeof source === "string"
+    ? Buffer.byteLength(source)
+    : source.byteLength;
+}
+
 export function verifyCardBuildContract(
   manifest: ViteManifest,
   serviceWorkerSource: string,
   expectedCardCount = 98,
+  buildFiles?: BuildFileContents,
 ): CardBuildProof {
   const cardDetailKey = Object.keys(manifest).find((key) =>
     key.endsWith("src/pages/card-detail.tsx"),
   );
-  if (!cardDetailKey) throw new Error("Card Detail is missing from the Vite manifest");
+  if (!cardDetailKey)
+    throw new Error("Card Detail is missing from the Vite manifest");
 
   const requiredKeys = new Set<string>();
   const visitRequiredImport = (key: string) => {
@@ -39,9 +57,21 @@ export function verifyCardBuildContract(
   };
   visitRequiredImport(cardDetailKey);
 
-  const cardDetailRequiredFiles = Array.from(requiredKeys, (key) => manifest[key].file).sort();
-  if (cardDetailRequiredFiles.some((file) => /card-data/i.test(file))) {
-    throw new Error("Card Detail still requires the monolithic card-data chunk");
+  const cardDetailRequiredFiles = Array.from(
+    requiredKeys,
+    (key) => manifest[key].file,
+  ).sort();
+  const oversizedStaticAggregate = cardDetailRequiredFiles.find((file) => {
+    const source = buildFiles?.[file];
+    return (
+      source !== undefined &&
+      byteLength(source) > MAX_STATIC_CARD_AGGREGATE_BYTES
+    );
+  });
+  if (oversizedStaticAggregate) {
+    throw new Error(
+      `Card Detail requires production-reachable static aggregate ${oversizedStaticAggregate} above ${MAX_STATIC_CARD_AGGREGATE_BYTES} decoded bytes`,
+    );
   }
 
   const cardChunkFiles = Object.entries(manifest)
@@ -62,7 +92,9 @@ export function verifyCardBuildContract(
     throw new Error("Card chunks must use hashed assets/cards/TCxxx filenames");
   }
   if (new Set(cardChunkFiles).size !== cardChunkFiles.length) {
-    throw new Error("Card modules were not emitted as unique individual chunks");
+    throw new Error(
+      "Card modules were not emitted as unique individual chunks",
+    );
   }
 
   const reachableDynamicCardKeys = new Set(
@@ -86,8 +118,15 @@ export function verifyCardBuildContract(
       `Individual card chunks must not be in the initial precache: ${precachedCardFiles[0]}`,
     );
   }
-  if (!serviceWorkerSource.includes("card-scripts")) {
-    throw new Error("Service worker is missing the card-scripts runtime cache");
+  if (!CARD_SCRIPT_CACHE_FIRST.test(serviceWorkerSource)) {
+    throw new Error(
+      "Service worker must use CacheFirst for the card-scripts runtime cache",
+    );
+  }
+  if (!CARD_SCRIPT_CACHE_FIRST_ROUTE.test(serviceWorkerSource)) {
+    throw new Error(
+      "Service worker card-scripts CacheFirst route must use the individual card asset URL matcher",
+    );
   }
 
   return {
@@ -107,14 +146,28 @@ async function main() {
     readFile(path.join(outputDir, ".vite/manifest.json"), "utf8"),
     readFile(path.join(outputDir, "sw.js"), "utf8"),
   ]);
+  const manifest = JSON.parse(manifestSource) as ViteManifest;
+  const buildFiles = Object.fromEntries(
+    await Promise.all(
+      Array.from(
+        new Set(Object.values(manifest).map((entry) => entry.file)),
+        async (file) =>
+          [file, await readFile(path.join(outputDir, file))] as const,
+      ),
+    ),
+  );
   const proof = verifyCardBuildContract(
-    JSON.parse(manifestSource) as ViteManifest,
+    manifest,
     serviceWorkerSource,
+    98,
+    buildFiles,
   );
   process.stdout.write(`CARD_BUILD_CONTRACT ${JSON.stringify(proof)}\n`);
 }
 
-const invokedPath = process.argv[1] ? pathToFileURL(path.resolve(process.argv[1])).href : "";
+const invokedPath = process.argv[1]
+  ? pathToFileURL(path.resolve(process.argv[1])).href
+  : "";
 if (import.meta.url === invokedPath) {
   await main();
 }

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 127.0.0.1",
-    "build": "pnpm --filter @workspace/scripts run verify:card-downloads && vite build --config vite.config.ts",
+    "build": "pnpm --filter @workspace/scripts run verify:card-downloads && vite build --config vite.config.ts && pnpm --filter @workspace/scripts exec tsx ../artifacts/tc-reference/scripts/verify-card-build.ts",
     "serve": "vite preview --config vite.config.ts --host 127.0.0.1",
     "start": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
