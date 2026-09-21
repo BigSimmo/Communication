@@ -131,14 +131,48 @@ export default function Drill() {
         aria-busy={!loadFailed}
       >
         <h1 className="sr-only">Daily Drill</h1>
-        {loadFailed ? "Drill content is unavailable right now." : "Loading drill…"}
+        {loadFailed
+          ? "Drill content is unavailable right now."
+          : "Loading drill…"}
       </div>
     );
   }
 
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-10 gap-5">
-      <h1 className="sr-only">Daily Drill</h1>
+      {/* ── Page header ── */}
+      <div>
+        <div className="flex items-center gap-3 mb-1.5">
+          <div
+            className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+            style={{
+              background:
+                "linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, transparent) 0%, color-mix(in srgb, var(--brand) 8%, transparent) 100%)",
+              border:
+                "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+            }}
+          >
+            <Dumbbell
+              className="w-4 h-4"
+              style={{ color: "var(--brand-text)" }}
+              aria-hidden="true"
+            />
+          </div>
+          <h1
+            className="text-[20px] font-bold leading-tight"
+            style={{ color: "var(--fg-90)" }}
+          >
+            Daily Drill
+          </h1>
+        </div>
+        <p
+          className="text-[12px] leading-relaxed"
+          style={{ color: "var(--fg-55)" }}
+        >
+          Reinforce communication techniques with quick daily scenario drills.
+        </p>
+      </div>
+
       {/* ── Streak + overall progress row ── */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -146,7 +180,9 @@ export default function Drill() {
             className="w-5 h-5"
             style={{
               color:
-                streakActive && state.streak > 0 ? "#f59e0b" : "var(--fg-22)",
+                streakActive && state.streak > 0
+                  ? "var(--brand-text)"
+                  : "var(--fg-22)",
             }}
             aria-hidden="true"
           />
@@ -154,7 +190,9 @@ export default function Drill() {
             className="text-[13px] font-bold"
             style={{
               color:
-                streakActive && state.streak > 0 ? "#f59e0b" : "var(--fg-30)",
+                streakActive && state.streak > 0
+                  ? "var(--brand-text)"
+                  : "var(--fg-30)",
             }}
           >
             {streakActive && state.streak > 0
@@ -166,7 +204,10 @@ export default function Drill() {
           {dueCount > 0 && (
             <span
               className="text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-0.5"
-              style={{ background: "rgba(245,158,11,0.14)", color: "#f59e0b" }}
+              style={{
+                background: "color-mix(in srgb, var(--brand) 14%, transparent)",
+                color: "var(--brand-text)",
+              }}
             >
               <Sparkles className="w-3 h-3" /> {dueCount} due
             </span>
@@ -216,7 +257,9 @@ export default function Drill() {
               <span
                 className="text-[10px] font-bold tracking-widest uppercase"
                 style={{
-                  color: done ? "rgba(34,197,94,0.7)" : "rgba(245,158,11,0.7)",
+                  color: done
+                    ? "rgba(34,197,94,0.7)"
+                    : "color-mix(in srgb, var(--brand-text) 70%, transparent)",
                 }}
               >
                 {cardId}
@@ -248,22 +291,24 @@ export default function Drill() {
             style={{
               background: done
                 ? "rgba(34,197,94,0.12)"
-                : "rgba(245,158,11,0.12)",
+                : "color-mix(in srgb, var(--brand) 12%, transparent)",
               border: done
                 ? "1px solid rgba(34,197,94,0.2)"
-                : "1px solid rgba(245,158,11,0.2)",
+                : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
             }}
           >
             <span
               className="text-[18px] font-black leading-none"
-              style={{ color: done ? "#22c55e" : "#f59e0b" }}
+              style={{ color: done ? "#22c55e" : "var(--brand-text)" }}
             >
               {dayNum}
             </span>
             <span
               className="text-[8px] font-semibold tracking-wide uppercase mt-0.5"
               style={{
-                color: done ? "rgba(34,197,94,0.6)" : "rgba(245,158,11,0.6)",
+                color: done
+                  ? "rgba(34,197,94,0.6)"
+                  : "color-mix(in srgb, var(--brand-text) 60%, transparent)",
               }}
             >
               / 7
@@ -284,7 +329,7 @@ export default function Drill() {
                   background: isPast
                     ? "#22c55e"
                     : isCurrent
-                      ? "#f59e0b"
+                      ? "var(--brand)"
                       : "var(--fg-08)",
                 }}
                 aria-hidden="true"
@@ -433,13 +478,14 @@ export default function Drill() {
         <div
           className="flex items-center gap-3 rounded-2xl px-4 py-3"
           style={{
-            background: "rgba(245,158,11,0.06)",
-            border: "1px solid rgba(245,158,11,0.13)",
+            background: "color-mix(in srgb, var(--brand) 6%, transparent)",
+            border:
+              "1px solid color-mix(in srgb, var(--brand) 13%, transparent)",
           }}
         >
           <ArrowRight
             className="w-4 h-4 flex-shrink-0"
-            style={{ color: "#f59e0b" }}
+            style={{ color: "var(--brand-text)" }}
             aria-hidden="true"
           />
           <p
@@ -447,8 +493,9 @@ export default function Drill() {
             style={{ color: "var(--fg-50)" }}
           >
             You finished all 7 days on{" "}
-            <span style={{ color: "#f59e0b" }}>{cardTitle}</span>. Tomorrow
-            starts <span style={{ color: "#f59e0b" }}>{nextCardTitle}</span>.
+            <span style={{ color: "var(--brand-text)" }}>{cardTitle}</span>.
+            Tomorrow starts{" "}
+            <span style={{ color: "var(--brand-text)" }}>{nextCardTitle}</span>.
           </p>
         </div>
       )}
@@ -465,7 +512,9 @@ export default function Drill() {
           <div className="flex items-center gap-2 mb-1">
             <Dumbbell
               className="w-3.5 h-3.5"
-              style={{ color: "rgba(245,158,11,0.5)" }}
+              style={{
+                color: "color-mix(in srgb, var(--brand-text) 50%, transparent)",
+              }}
               aria-hidden="true"
             />
             <p

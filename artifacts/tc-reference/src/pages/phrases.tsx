@@ -11,9 +11,8 @@ import { useScrollDirection } from "@/hooks/use-scroll-direction";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 
 export default function Phrases() {
-  const [allPhrases, setAllPhrases] = useState<ReadonlyArray<AggregatedPhrase> | null>(
-    null,
-  );
+  const [allPhrases, setAllPhrases] =
+    useState<ReadonlyArray<AggregatedPhrase> | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
   const [toneFilter, setToneFilter] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -65,7 +64,7 @@ export default function Phrases() {
         (p) =>
           p.text.toLowerCase().includes(q) ||
           p.cardTitle.toLowerCase().includes(q) ||
-          p.cardId.toLowerCase().includes(q)
+          p.cardId.toLowerCase().includes(q),
       );
     }
     return result;
@@ -82,11 +81,16 @@ export default function Phrases() {
   if (!allPhrases) {
     return (
       <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6">
-        <h1 className="text-[20px] font-bold leading-tight" style={{ color: "var(--fg-90)" }}>
+        <h1
+          className="text-[20px] font-bold leading-tight"
+          style={{ color: "var(--fg-90)" }}
+        >
           Phrase Bank
         </h1>
         <div role="status" aria-live="polite" className="py-16 text-center">
-          {loadFailed ? "Phrase Bank is unavailable right now." : "Loading phrases…"}
+          {loadFailed
+            ? "Phrase Bank is unavailable right now."
+            : "Loading phrases…"}
         </div>
       </div>
     );
@@ -94,25 +98,37 @@ export default function Phrases() {
 
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
-
       {/* ── Page header ── */}
       <div className="px-4 md:px-6 pt-6 pb-4">
         <div className="flex items-center gap-3 mb-1.5">
           <div
             className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
             style={{
-              background: "linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, transparent) 0%, color-mix(in srgb, var(--brand) 8%, transparent) 100%)",
-              border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+              background:
+                "linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, transparent) 0%, color-mix(in srgb, var(--brand) 8%, transparent) 100%)",
+              border:
+                "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
             }}
           >
-            <MessagesSquare className="w-4 h-4" style={{ color: "var(--brand-text)" }} aria-hidden="true" />
+            <MessagesSquare
+              className="w-4 h-4"
+              style={{ color: "var(--brand-text)" }}
+              aria-hidden="true"
+            />
           </div>
-          <h1 className="text-[20px] font-bold leading-tight" style={{ color: "var(--fg-90)" }}>
+          <h1
+            className="text-[20px] font-bold leading-tight"
+            style={{ color: "var(--fg-90)" }}
+          >
             Phrase Bank
           </h1>
         </div>
-        <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-55)" }}>
-          Every phrase from all {allPhrases.length} entries across {Object.keys(toneCounts).length} tones — filter by tone or search to find the right words.
+        <p
+          className="text-[12px] leading-relaxed"
+          style={{ color: "var(--fg-55)" }}
+        >
+          Comprehensive Phrase Bank — browse and study all communication phrases
+          across tones.
         </p>
       </div>
 
@@ -158,14 +174,18 @@ export default function Phrases() {
                 border: !toneFilter
                   ? "1px solid color-mix(in srgb, var(--brand) 60%, transparent)"
                   : "1px solid var(--fg-08)",
-                boxShadow: !toneFilter ? "0 2px 10px color-mix(in srgb, var(--brand) 32%, transparent)" : "none",
+                boxShadow: !toneFilter
+                  ? "0 2px 10px color-mix(in srgb, var(--brand) 32%, transparent)"
+                  : "none",
               }}
             >
               All
               <span
                 className="text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none"
                 style={{
-                  background: !toneFilter ? "rgba(15,23,36,0.18)" : "var(--fg-08)",
+                  background: !toneFilter
+                    ? "rgba(15,23,36,0.18)"
+                    : "var(--fg-08)",
                   color: !toneFilter ? "var(--brand-contrast)" : "var(--fg-40)",
                 }}
               >
@@ -191,14 +211,18 @@ export default function Phrases() {
                     border: active
                       ? "1px solid color-mix(in srgb, var(--brand) 60%, transparent)"
                       : "1px solid var(--fg-08)",
-                    boxShadow: active ? "0 2px 10px color-mix(in srgb, var(--brand) 32%, transparent)" : "none",
+                    boxShadow: active
+                      ? "0 2px 10px color-mix(in srgb, var(--brand) 32%, transparent)"
+                      : "none",
                   }}
                 >
                   {tone}
                   <span
                     className="text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none"
                     style={{
-                      background: active ? "rgba(15,23,36,0.18)" : "var(--fg-08)",
+                      background: active
+                        ? "rgba(15,23,36,0.18)"
+                        : "var(--fg-08)",
                       color: active ? "var(--brand-contrast)" : "var(--fg-40)",
                     }}
                   >
@@ -235,8 +259,10 @@ export default function Phrases() {
                   padding: "7px 32px 7px 32px",
                 }}
                 onFocus={(e) => {
-                  e.currentTarget.style.borderColor = "color-mix(in srgb, var(--brand) 45%, transparent)";
-                  e.currentTarget.style.boxShadow = "0 0 0 3px color-mix(in srgb, var(--brand) 10%, transparent)";
+                  e.currentTarget.style.borderColor =
+                    "color-mix(in srgb, var(--brand) 45%, transparent)";
+                  e.currentTarget.style.boxShadow =
+                    "0 0 0 3px color-mix(in srgb, var(--brand) 10%, transparent)";
                 }}
                 onBlur={(e) => {
                   e.currentTarget.style.borderColor = "var(--fg-07)";
@@ -261,21 +287,27 @@ export default function Phrases() {
 
       {/* ── Count bar ── */}
       <div className="px-4 md:px-6 pt-3 pb-2 flex items-center justify-between">
-        <p className="text-[11px] font-semibold" style={{ color: "var(--fg-55)" }}>
-          {filtered.length}{" "}
-          {filtered.length === 1 ? "phrase" : "phrases"}
+        <p
+          className="text-[11px] font-semibold"
+          style={{ color: "var(--fg-55)" }}
+        >
+          {filtered.length} {filtered.length === 1 ? "phrase" : "phrases"}
           {toneFilter ? ` · ${toneFilter}` : ""}
         </p>
         {hasActive && (
           <button
-            onClick={() => { setToneFilter(null); setSearchQuery(""); }}
+            onClick={() => {
+              setToneFilter(null);
+              setSearchQuery("");
+            }}
             aria-label="Clear all filters"
             data-testid="phrases-reset"
             className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 rounded-full transition-all active:scale-95 whitespace-nowrap"
             style={{
               minHeight: 36,
               background: "color-mix(in srgb, var(--brand) 10%, transparent)",
-              border: "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
+              border:
+                "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
               color: "var(--brand-text)",
             }}
           >
@@ -297,10 +329,16 @@ export default function Phrases() {
               className="w-12 h-12 rounded-2xl flex items-center justify-center"
               style={{ background: "var(--fg-05)" }}
             >
-              <MessagesSquare className="w-6 h-6" style={{ color: "var(--fg-22)" }} />
+              <MessagesSquare
+                className="w-6 h-6"
+                style={{ color: "var(--fg-22)" }}
+              />
             </div>
             <div>
-              <p className="text-[15px] font-semibold" style={{ color: "var(--fg-60)" }}>
+              <p
+                className="text-[15px] font-semibold"
+                style={{ color: "var(--fg-60)" }}
+              >
                 No phrases found
               </p>
               <p className="text-[12px] mt-1" style={{ color: "var(--fg-32)" }}>
@@ -308,9 +346,15 @@ export default function Phrases() {
               </p>
             </div>
             <button
-              onClick={() => { setToneFilter(null); setSearchQuery(""); }}
+              onClick={() => {
+                setToneFilter(null);
+                setSearchQuery("");
+              }}
               className="text-[12px] font-semibold px-4 py-2 rounded-full transition-all active:scale-95"
-              style={{ background: "color-mix(in srgb, var(--brand) 10%, transparent)", color: "var(--brand-text)" }}
+              style={{
+                background: "color-mix(in srgb, var(--brand) 10%, transparent)",
+                color: "var(--brand-text)",
+              }}
             >
               Clear filters
             </button>
@@ -343,7 +387,8 @@ export default function Phrases() {
             className="w-full mt-1 rounded-2xl py-3 text-[12px] font-bold transition-all active:scale-[0.99]"
             style={{
               background: "color-mix(in srgb, var(--brand) 9%, transparent)",
-              border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+              border:
+                "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
               color: "var(--brand-text)",
             }}
           >
@@ -364,13 +409,22 @@ interface PhraseRowProps {
   onCardClick: () => void;
 }
 
-function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: PhraseRowProps) {
+function PhraseRow({
+  phrase,
+  copied,
+  faved,
+  onCopy,
+  onFav,
+  onCardClick,
+}: PhraseRowProps) {
   return (
     <div
       data-testid={`phrase-row-${phrase.cardId}`}
       className="w-full rounded-2xl px-4 py-3 transition-all duration-150"
       style={{
-        background: copied ? "color-mix(in srgb, var(--brand) 9%, transparent)" : "var(--fg-03)",
+        background: copied
+          ? "color-mix(in srgb, var(--brand) 9%, transparent)"
+          : "var(--fg-03)",
         border: copied
           ? "1px solid color-mix(in srgb, var(--brand) 25%, transparent)"
           : "1px solid var(--fg-05)",
@@ -397,8 +451,9 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
           className="text-[9px] font-bold tracking-wide px-2 py-0.5 rounded-full uppercase flex-shrink-0"
           style={{
             background: "color-mix(in srgb, var(--brand) 10%, transparent)",
-            color: "color-mix(in srgb, var(--brand-text) 75%, transparent)",
-            border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+            color: "var(--brand-text)",
+            border:
+              "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
           }}
         >
           {phrase.groupLabel}
@@ -413,12 +468,15 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
           style={{
             background: "var(--fg-05)",
             border: "1px solid var(--fg-08)",
-            color: "var(--fg-50)",
+            color: "var(--fg-65)",
           }}
         >
           <span
             className="text-[8px] font-bold px-1 py-0.5 rounded"
-            style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
+            style={{
+              background: "var(--brand)",
+              color: "var(--brand-contrast)",
+            }}
           >
             {phrase.cardId}
           </span>
@@ -433,12 +491,16 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
           onClick={onFav}
           aria-label={faved ? "Remove from favourites" : "Save phrase"}
           data-testid={`phrase-fav-btn`}
-          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
-          style={{ background: faved ? "color-mix(in srgb, var(--brand) 12%, transparent)" : "transparent" }}
+          className="w-10 h-10 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          style={{
+            background: faved
+              ? "color-mix(in srgb, var(--brand) 12%, transparent)"
+              : "transparent",
+          }}
         >
           <Heart
             className="w-3.5 h-3.5"
-            style={{ color: faved ? "var(--brand-text)" : "var(--fg-28)" }}
+            style={{ color: faved ? "var(--brand-text)" : "var(--fg-38)" }}
             fill={faved ? "var(--brand-text)" : "none"}
           />
         </button>
@@ -448,16 +510,21 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav, onCardClick }: Phrase
           onClick={onCopy}
           aria-label={copied ? "Copied!" : `Copy phrase`}
           data-testid={`phrase-copy-icon-btn`}
-          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          className="w-10 h-10 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
           style={{
-            background: copied ? "color-mix(in srgb, var(--brand) 12%, transparent)" : "var(--fg-05)",
+            background: copied
+              ? "color-mix(in srgb, var(--brand) 12%, transparent)"
+              : "var(--fg-05)",
             border: "1px solid var(--fg-07)",
           }}
         >
           {copied ? (
-            <Check className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} />
+            <Check
+              className="w-3.5 h-3.5"
+              style={{ color: "var(--brand-text)" }}
+            />
           ) : (
-            <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-40)" }} />
+            <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-45)" }} />
           )}
         </button>
       </div>

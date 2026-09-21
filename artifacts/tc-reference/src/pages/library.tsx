@@ -217,9 +217,9 @@ function FilterDropdown({
                   data-testid={`${testId}-option-${slug}`}
                   className="w-full flex items-center justify-between gap-3 rounded-lg px-2.5 py-2 text-left text-[11.5px] font-medium transition-colors whitespace-nowrap"
                   style={{
-                    color: selected ? "#f59e0b" : "var(--fg-60)",
+                    color: selected ? "var(--brand-text)" : "var(--fg-60)",
                     background: selected
-                      ? "rgba(245,158,11,0.10)"
+                      ? "color-mix(in srgb, var(--brand) 10%, transparent)"
                       : "transparent",
                   }}
                   onMouseEnter={(e) => {
@@ -393,8 +393,12 @@ export default function Library() {
                   padding: "0 34px 0 34px",
                 }}
                 onFocus={(e) => {
-                  if (e.currentTarget.hasAttribute("data-suppress-search-open")) {
-                    e.currentTarget.removeAttribute("data-suppress-search-open");
+                  if (
+                    e.currentTarget.hasAttribute("data-suppress-search-open")
+                  ) {
+                    e.currentTarget.removeAttribute(
+                      "data-suppress-search-open",
+                    );
                     return;
                   }
                   openSearch();
@@ -404,8 +408,12 @@ export default function Library() {
                 }}
                 onClick={(e) => {
                   e.currentTarget.focus();
-                  if (e.currentTarget.hasAttribute("data-suppress-search-open")) {
-                    e.currentTarget.removeAttribute("data-suppress-search-open");
+                  if (
+                    e.currentTarget.hasAttribute("data-suppress-search-open")
+                  ) {
+                    e.currentTarget.removeAttribute(
+                      "data-suppress-search-open",
+                    );
                     return;
                   }
                   if (!searchOpen) openSearch();
@@ -453,9 +461,11 @@ export default function Library() {
                 data-testid="reset-filters"
                 className="h-9 flex-shrink-0 inline-flex items-center gap-1.5 rounded-xl px-2.5 text-[10px] font-bold transition-all active:scale-95 whitespace-nowrap"
                 style={{
-                  background: "rgba(245,158,11,0.10)",
-                  border: "1px solid rgba(245,158,11,0.35)",
-                  color: "#f59e0b",
+                  background:
+                    "color-mix(in srgb, var(--brand) 10%, transparent)",
+                  border:
+                    "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
+                  color: "var(--brand-text)",
                   minWidth: 0,
                 }}
               >
@@ -463,7 +473,10 @@ export default function Library() {
                 Reset
                 <span
                   className="ml-0.5 rounded-full px-1.5 py-0.5 text-[9px] leading-none"
-                  style={{ background: "rgba(245,158,11,0.16)" }}
+                  style={{
+                    background:
+                      "color-mix(in srgb, var(--brand) 16%, transparent)",
+                  }}
                 >
                   {activeFilterCount}
                 </span>
@@ -565,8 +578,12 @@ export default function Library() {
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
                         style={{
-                          background: card.loaded ? "#f59e0b" : "var(--fg-07)",
-                          color: card.loaded ? "#0f1724" : "var(--fg-28)",
+                          background: card.loaded
+                            ? "var(--brand)"
+                            : "var(--fg-07)",
+                          color: card.loaded
+                            ? "var(--brand-contrast)"
+                            : "var(--fg-28)",
                         }}
                       >
                         {card.id.slice(2)}
@@ -574,13 +591,21 @@ export default function Library() {
                       <div className="flex-1 text-left min-w-0">
                         <p
                           className="text-[14px] font-semibold leading-tight"
-                          style={{ color: card.loaded ? "var(--fg-90)" : "var(--fg-40)" }}
+                          style={{
+                            color: card.loaded
+                              ? "var(--fg-90)"
+                              : "var(--fg-40)",
+                          }}
                         >
                           {card.title}
                         </p>
                         <p
                           className="text-[12px] mt-0.5"
-                          style={{ color: card.loaded ? "var(--brand-text)" : "var(--fg-40)" }}
+                          style={{
+                            color: card.loaded
+                              ? "var(--brand-text)"
+                              : "var(--fg-40)",
+                          }}
                         >
                           {card.id} · {cat}
                         </p>
@@ -588,14 +613,24 @@ export default function Library() {
                       <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
                         <span
                           className="text-[12px] font-bold tracking-wide px-2.5 py-0.5 rounded-full uppercase"
-                          style={{ background: badge.bg, color: badge.color }}
+                          style={{
+                            background: badge.bg,
+                            color: badge.color,
+                            border: `1px solid color-mix(in srgb, ${badge.color} 25%, transparent)`,
+                          }}
                         >
                           {badge.label}
                         </span>
                         {card.loaded ? (
-                          <ChevronRight className="w-4 h-4" style={{ color: "var(--fg-22)" }} />
+                          <ChevronRight
+                            className="w-4 h-4"
+                            style={{ color: "var(--fg-22)" }}
+                          />
                         ) : (
-                          <span className="text-[12px] font-medium tracking-wide uppercase" style={{ color: "var(--fg-40)" }}>
+                          <span
+                            className="text-[12px] font-medium tracking-wide uppercase"
+                            style={{ color: "var(--fg-40)" }}
+                          >
                             Soon
                           </span>
                         )}
@@ -603,19 +638,16 @@ export default function Library() {
                     </>
                   );
                   return (
-                    <div
-                      key={card.id}
-                      className="relative max-w-full min-w-0"
-                    >
+                    <div key={card.id} className="relative max-w-full min-w-0">
                       {card.loaded ? (
                         <Link
                           href={`/card/${card.id}`}
                           aria-label={`${card.title} (${card.id})`}
                           data-testid={`card-link-${card.id}`}
-                          className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 pr-14 rounded-2xl transition-all duration-150 text-left overflow-hidden hover:bg-[rgba(245,158,11,0.12)]"
+                          className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 pr-14 rounded-2xl transition-all duration-150 text-left overflow-hidden hover:bg-[var(--fg-05)]"
                           style={{
-                            background: "rgba(245,158,11,0.08)",
-                            border: "1px solid rgba(245,158,11,0.18)",
+                            background: "var(--fg-03)",
+                            border: "1px solid var(--fg-07)",
                             minHeight: 64,
                             contentVisibility: "auto",
                             containIntrinsicSize: "auto 72px",
@@ -643,14 +675,28 @@ export default function Library() {
                       {card.loaded && (
                         <button
                           onClick={() => toggleCard(card.id)}
-                          aria-label={isCardFav(card.id) ? "Remove from favourites" : "Save to favourites"}
+                          aria-label={
+                            isCardFav(card.id)
+                              ? "Remove from favourites"
+                              : "Save to favourites"
+                          }
                           className="library-card-favourite absolute right-3 bottom-3 w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95"
-                          style={{ background: isCardFav(card.id) ? "rgba(245,158,11,0.12)" : "var(--fg-05)" }}
+                          style={{
+                            background: isCardFav(card.id)
+                              ? "color-mix(in srgb, var(--brand) 12%, transparent)"
+                              : "var(--fg-05)",
+                          }}
                         >
                           <Heart
                             className="w-3.5 h-3.5"
-                            style={{ color: isCardFav(card.id) ? "var(--brand-text)" : "var(--fg-30)" }}
-                            fill={isCardFav(card.id) ? "var(--brand-text)" : "none"}
+                            style={{
+                              color: isCardFav(card.id)
+                                ? "var(--brand-text)"
+                                : "var(--fg-30)",
+                            }}
+                            fill={
+                              isCardFav(card.id) ? "var(--brand-text)" : "none"
+                            }
                           />
                         </button>
                       )}
@@ -689,9 +735,10 @@ export default function Library() {
               data-testid="clear-all-filters"
               className="text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
               style={{
-                background: "rgba(245,158,11,0.12)",
-                border: "1px solid rgba(245,158,11,0.25)",
-                color: "#f59e0b",
+                background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+                border:
+                  "1px solid color-mix(in srgb, var(--brand) 25%, transparent)",
+                color: "var(--brand-text)",
               }}
             >
               Clear all filters
