@@ -1,10 +1,22 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "buildCommand": "pnpm --filter @workspace/tc-reference build"
+    "buildCommand": "pnpm --filter @workspace/tc-reference build",
+    "watchPatterns": [
+      "/artifacts/tc-reference/**",
+      "/lib/**",
+      "/package.json",
+      "/pnpm-lock.yaml",
+      "/pnpm-workspace.yaml",
+      "/railway.json",
+      "/tsconfig.json",
+      "/tsconfig.base.json",
+      "/.npmrc"
+    ]
   },
   "deploy": {
     "startCommand": "pnpm --filter @workspace/tc-reference start",
+    "healthcheckPath": "/",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 3
   }
