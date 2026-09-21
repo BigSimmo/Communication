@@ -86,10 +86,10 @@ describe("Library impact badge contrast", () => {
   // Read the actual Library card fill; the badge tint and text also come from
   // production tokens. Composite page -> card -> badge -> text in sRGB.
   const cardFill = librarySource.match(
-    /background: "(rgba\(245,158,11,0\.08\))"/,
+    /background:\s*"(var\(--fg-03\)|rgba\(245,158,11,0\.08\))"/,
   )![1];
   const hoverFill = librarySource.match(
-    /hover:bg-\[(rgba\(245,158,11,0\.12\))\]/,
+    /hover:bg-\[(var\(--fg-05\)|rgba\(245,158,11,0\.12\))\]/,
   )![1];
 
   it.each(["dark", "light"])(

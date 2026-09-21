@@ -100,9 +100,13 @@ function NavigationControl({
   };
 
   return href ? (
-    <Link href={href} {...sharedProps}>{children}</Link>
+    <Link href={href} {...sharedProps}>
+      {children}
+    </Link>
   ) : (
-    <button type="button" {...sharedProps} onClick={onClick ?? action}>{children}</button>
+    <button type="button" {...sharedProps} onClick={onClick ?? action}>
+      {children}
+    </button>
   );
 }
 
@@ -121,7 +125,9 @@ export function AppLayout({ children }: AppLayoutProps) {
   useEffect(() => {
     const cardId = isOnCard ? location.split("/")[2] : null;
     const card = cardId
-      ? Object.values(LIBRARY_CATEGORIES).flat().find((entry) => entry.id === cardId)
+      ? Object.values(LIBRARY_CATEGORIES)
+          .flat()
+          .find((entry) => entry.id === cardId)
       : null;
     const title = card
       ? card.title
@@ -519,8 +525,12 @@ export function AppLayout({ children }: AppLayoutProps) {
                       height: 13,
                       paddingLeft: 2,
                       paddingRight: 2,
-                      background: item.active ? "#0f1724" : "#f59e0b",
-                      color: item.active ? "#f59e0b" : "#0f1724",
+                      background: item.active
+                        ? "var(--brand-contrast)"
+                        : "var(--brand)",
+                      color: item.active
+                        ? "var(--brand-bright)"
+                        : "var(--brand-contrast)",
                       border: "1.5px solid var(--surface-sidebar)",
                       boxShadow: "0 1px 3px rgba(0,0,0,0.25)",
                     }}
@@ -532,7 +542,9 @@ export function AppLayout({ children }: AppLayoutProps) {
 
               <span
                 className="text-[13px] font-semibold"
-                style={{ color: item.active ? "#f59e0b" : "var(--fg-55)" }}
+                style={{
+                  color: item.active ? "var(--brand-text)" : "var(--fg-55)",
+                }}
               >
                 {item.label}
               </span>
@@ -558,11 +570,17 @@ export function AppLayout({ children }: AppLayoutProps) {
               </p>
               <BookOpen
                 className="w-3.5 h-3.5"
-                style={{ color: "rgba(245,158,11,0.45)" }}
+                style={{
+                  color:
+                    "color-mix(in srgb, var(--brand-text) 45%, transparent)",
+                }}
                 aria-hidden="true"
               />
             </div>
-            <p className="text-[22px] font-bold" style={{ color: "#f59e0b" }}>
+            <p
+              className="text-[22px] font-bold"
+              style={{ color: "var(--brand-text)" }}
+            >
               {LOADED_CARDS}
               <span
                 className="text-[13px] font-normal ml-1"
@@ -717,8 +735,12 @@ export function AppLayout({ children }: AppLayoutProps) {
                         height: 14,
                         paddingLeft: 3,
                         paddingRight: 3,
-                        background: item.active ? "#0f1724" : "#f59e0b",
-                        color: item.active ? "#f59e0b" : "#0f1724",
+                        background: item.active
+                          ? "var(--brand-contrast)"
+                          : "var(--brand)",
+                        color: item.active
+                          ? "var(--brand-bright)"
+                          : "var(--brand-contrast)",
                         border: "1.5px solid var(--surface-float)",
                         boxShadow: "0 1px 3px rgba(0,0,0,0.30)",
                         opacity: fabOpen ? 1 : 0,
@@ -735,7 +757,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                 <span
                   className="font-semibold whitespace-nowrap"
                   style={{
-                    color: item.active ? "#f59e0b" : "var(--fg-78)",
+                    color: item.active ? "var(--brand-text)" : "var(--fg-78)",
                     opacity: fabOpen ? 1 : 0,
                     transform: fabOpen ? "translateX(0)" : "translateX(-4px)",
                     transition:
@@ -870,8 +892,12 @@ export function AppLayout({ children }: AppLayoutProps) {
                       height: 13,
                       paddingLeft: 2,
                       paddingRight: 2,
-                      background: item.active ? "#0f1724" : "#f59e0b",
-                      color: item.active ? "#f59e0b" : "#0f1724",
+                      background: item.active
+                        ? "var(--brand-contrast)"
+                        : "var(--brand)",
+                      color: item.active
+                        ? "var(--brand-bright)"
+                        : "var(--brand-contrast)",
                       border: "1.5px solid var(--surface-float)",
                       boxShadow: "0 1px 3px rgba(0,0,0,0.30)",
                       opacity: fabOpen ? 1 : 0,
@@ -906,9 +932,9 @@ export function AppLayout({ children }: AppLayoutProps) {
                     backdropFilter: "blur(14px)",
                     WebkitBackdropFilter: "blur(14px)",
                     border: item.active
-                      ? "1px solid rgba(245,158,11,0.32)"
+                      ? "1px solid color-mix(in srgb, var(--brand) 32%, transparent)"
                       : "1px solid var(--fg-07)",
-                    color: item.active ? "#f59e0b" : "var(--fg-75)",
+                    color: item.active ? "var(--brand-text)" : "var(--fg-75)",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.18)",
                     pointerEvents: "none",
                     opacity: labelOpacity,
@@ -1055,7 +1081,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               <X
                 className="absolute w-[18px] h-[18px] fab-icon-close transition-all duration-200"
                 style={{
-                  color: "#f59e0b",
+                  color: "var(--brand-text)",
                   opacity: fabOpen ? 1 : 0,
                   transform: fabOpen
                     ? "rotate(0deg) scale(1)"
@@ -1074,7 +1100,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                   right: 7,
                   width: 9,
                   height: 9,
-                  background: "#f59e0b",
+                  background: "var(--brand)",
                   border: "2px solid hsl(var(--background))",
                 }}
               />

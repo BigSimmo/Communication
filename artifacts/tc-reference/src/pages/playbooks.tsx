@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useLocation } from "wouter";
 import {
   BookOpen,
@@ -11,9 +11,11 @@ import {
   X,
   Sparkles,
   FolderHeart,
+  AlertTriangle,
 } from "lucide-react";
 import { usePlaybooks, Playbook } from "@/lib/playbook-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
 
 const ALL_CARDS = Object.values(LIBRARY_CATEGORIES).flat();
 const CARD_MAP = Object.fromEntries(ALL_CARDS.map((c) => [c.id, c]));
@@ -28,6 +30,27 @@ export default function Playbooks() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [selectedCards, setSelectedCards] = useState<string[]>([]);
+  const [deletingPlaybook, setDeletingPlaybook] = useState<Playbook | null>(
+    null,
+  );
+
+  const deleteModalRef = useRef<HTMLDivElement>(null);
+  const cancelDeleteButtonRef = useRef<HTMLButtonElement>(null);
+
+  useFocusTrap(!!deletingPlaybook, deleteModalRef, {
+    initialFocusRef: cancelDeleteButtonRef,
+  });
+
+  useEffect(() => {
+    if (!deletingPlaybook) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setDeletingPlaybook(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [deletingPlaybook]);
 
   const handleOpenCreate = () => {
     setName("");
@@ -56,13 +79,13 @@ export default function Playbooks() {
   };
 
   const handleDelete = (pb: Playbook) => {
-    if (
-      window.confirm(
-        `Delete "${pb.name}"? This can't be undone.`,
-      )
-    ) {
-      deletePlaybook(pb.id);
-    }
+    setDeletingPlaybook(pb);
+  };
+
+  const handleConfirmDelete = () => {
+    if (!deletingPlaybook) return;
+    deletePlaybook(deletingPlaybook.id);
+    setDeletingPlaybook(null);
   };
 
   const handleToggleCardSelection = (cardId: string) => {
@@ -94,7 +117,7 @@ export default function Playbooks() {
             style={{
               minHeight: 36,
               background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-              color: "#fff",
+              color: "var(--brand-contrast)",
             }}
           >
             <Plus className="w-4 h-4" /> Create
@@ -202,14 +225,16 @@ export default function Playbooks() {
                     style={{
                       minHeight: 40,
                       background: isSel
-                        ? "rgba(245,158,11,0.08)"
+                        ? "color-mix(in srgb, var(--brand) 8%, transparent)"
                         : "transparent",
                     }}
                   >
                     <div>
                       <span
                         className="font-bold mr-1.5"
-                        style={{ color: isSel ? "#f59e0b" : "var(--fg-40)" }}
+                        style={{
+                          color: isSel ? "var(--brand-text)" : "var(--fg-40)",
+                        }}
                       >
                         {card.id}
                       </span>
@@ -224,12 +249,15 @@ export default function Playbooks() {
                     <div
                       className="w-4 h-4 flex-shrink-0 rounded flex items-center justify-center border transition-colors"
                       style={{
-                        borderColor: isSel ? "#f59e0b" : "var(--fg-20)",
-                        background: isSel ? "#f59e0b" : "transparent",
+                        borderColor: isSel ? "var(--brand)" : "var(--fg-20)",
+                        background: isSel ? "var(--brand)" : "transparent",
                       }}
                     >
                       {isSel && (
-                        <Check className="w-3 h-3 text-white stroke-[3px]" />
+                        <Check
+                          className="w-3 h-3 stroke-[3px]"
+                          style={{ color: "var(--brand-contrast)" }}
+                        />
                       )}
                     </div>
                   </button>
@@ -241,9 +269,11 @@ export default function Playbooks() {
           <button
             onClick={handleSave}
             disabled={!name.trim()}
-            className="w-full py-2.5 rounded-xl text-[13px] font-bold transition-all text-white mt-2 disabled:opacity-50"
+            className="w-full py-2.5 rounded-xl text-[13px] font-bold transition-all mt-2 disabled:opacity-50 active:scale-95"
             style={{
+              minHeight: 36,
               background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+              color: "var(--brand-contrast)",
             }}
           >
             Save Playbook
@@ -280,9 +310,11 @@ export default function Playbooks() {
               </div>
               <button
                 onClick={handleOpenCreate}
-                className="mt-2 px-4 py-2 rounded-xl text-[12px] font-bold text-white transition-all shadow-sm"
+                className="mt-2 px-4 py-2 rounded-xl text-[12px] font-bold transition-all shadow-sm active:scale-95"
                 style={{
+                  minHeight: 36,
                   background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                  color: "var(--brand-contrast)",
                 }}
               >
                 Create Playbook
@@ -359,7 +391,7 @@ export default function Playbooks() {
                         >
                           <span
                             className="font-bold"
-                            style={{ color: "#f59e0b" }}
+                            style={{ color: "var(--brand-text)" }}
                           >
                             {cid}
                           </span>
@@ -378,6 +410,89 @@ export default function Playbooks() {
               </div>
             ))
           )}
+        </div>
+      )}
+
+      {deletingPlaybook && (
+        <div
+          className="fixed inset-0 flex items-center justify-center p-4"
+          style={{
+            zIndex: "var(--z-modal)" as unknown as number,
+            background: "rgba(0, 0, 0, 0.45)",
+            backdropFilter: "blur(4px)",
+            WebkitBackdropFilter: "blur(4px)",
+          }}
+          onClick={() => setDeletingPlaybook(null)}
+        >
+          <div
+            ref={deleteModalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="delete-dialog-title"
+            aria-describedby="delete-dialog-desc"
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-sm rounded-2xl p-5 border flex flex-col gap-4 shadow-xl animate-in fade-in zoom-in-95 duration-150"
+            style={{
+              background: "var(--surface-dd)",
+              borderColor: "var(--fg-10)",
+              color: "var(--fg-90)",
+            }}
+          >
+            <div className="flex items-start gap-3.5">
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{
+                  background: "rgba(239, 68, 68, 0.12)",
+                  color: "#ef4444",
+                }}
+              >
+                <AlertTriangle className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <div className="flex flex-col gap-1">
+                <h3
+                  id="delete-dialog-title"
+                  className="font-bold text-[15px] leading-tight"
+                  style={{ color: "var(--fg-90)" }}
+                >
+                  Delete Playbook?
+                </h3>
+                <p
+                  id="delete-dialog-desc"
+                  className="text-[12px] leading-relaxed"
+                  style={{ color: "var(--fg-55)" }}
+                >
+                  Are you sure you want to delete{" "}
+                  <strong style={{ color: "var(--fg-85)" }}>
+                    &ldquo;{deletingPlaybook.name}&rdquo;
+                  </strong>
+                  ? This action cannot be undone.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-2.5 mt-2">
+              <button
+                ref={cancelDeleteButtonRef}
+                onClick={() => setDeletingPlaybook(null)}
+                className="px-4 py-2 rounded-xl text-[12px] font-semibold transition-all active:scale-95"
+                style={{
+                  minHeight: 44,
+                  background: "var(--fg-05)",
+                  border: "1px solid var(--fg-08)",
+                  color: "var(--fg-70)",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleConfirmDelete}
+                className="px-4 py-2 rounded-xl text-[12px] font-bold text-white bg-red-600 hover:bg-red-700 transition-all shadow-sm active:scale-95"
+                style={{ minHeight: 44 }}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

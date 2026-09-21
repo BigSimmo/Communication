@@ -1,4 +1,11 @@
-import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation, useRoute } from "wouter";
 import { AppLayout } from "../components/app-layout";
@@ -17,12 +24,20 @@ import NotFound from "../pages/not-found";
 import Playbooks from "../pages/playbooks";
 import Phrases from "../pages/phrases";
 import CardDetail from "../pages/card-detail";
+import { QuickModeOverlay } from "../components/quick-mode-overlay";
+import { loadAllAggregatedPhrases } from "../lib/phrases-data";
 
 vi.mock("wouter", () => ({
   useLocation: vi.fn(),
   useRoute: vi.fn(),
-  Link: ({ href, children, ...props }: React.ComponentProps<"a"> & { href: string }) => (
-    <a href={href} {...props}>{children}</a>
+  Link: ({
+    href,
+    children,
+    ...props
+  }: React.ComponentProps<"a"> & { href: string }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
   ),
 }));
 
@@ -57,7 +72,10 @@ function CardPdf() {
 }
 
 beforeEach(() => {
-  Object.defineProperty(window, "innerHeight", { configurable: true, value: 768 });
+  Object.defineProperty(window, "innerHeight", {
+    configurable: true,
+    value: 768,
+  });
   localStorage.clear();
   vi.mocked(useLocation).mockReturnValue(["/", vi.fn()]);
   vi.mocked(useRoute).mockReturnValue([false, null]);
@@ -81,7 +99,9 @@ describe("core accessibility contracts", () => {
   it("uses semantic links for route navigation", () => {
     render(
       <AppProviders>
-        <AppLayout><Library /></AppLayout>
+        <AppLayout>
+          <Library />
+        </AppLayout>
       </AppProviders>,
     );
 
@@ -118,7 +138,9 @@ describe("core accessibility contracts", () => {
 
     render(
       <AppProviders>
-        <AppLayout><div /></AppLayout>
+        <AppLayout>
+          <div />
+        </AppLayout>
       </AppProviders>,
     );
 
@@ -128,7 +150,9 @@ describe("core accessibility contracts", () => {
   it("keeps Quick as a button that opens from the mobile menu", async () => {
     render(
       <AppProviders>
-        <AppLayout><Library /></AppLayout>
+        <AppLayout>
+          <Library />
+        </AppLayout>
         <QuickModeState />
       </AppProviders>,
     );
@@ -229,7 +253,9 @@ describe("core accessibility contracts", () => {
 
     render(
       <AppProviders>
-        <AppLayout><div /></AppLayout>
+        <AppLayout>
+          <div />
+        </AppLayout>
       </AppProviders>,
     );
 
@@ -267,18 +293,122 @@ describe("core accessibility contracts", () => {
     expect(screen.getByLabelText("Description").tagName).toBe("TEXTAREA");
   });
 
+  it("enforces Create button contrast and accessible custom delete dialog in Playbooks", () => {
+    localStorage.setItem(
+      "tc_playbooks",
+      JSON.stringify([
+        {
+          id: "pb_test_1",
+          name: "High Stakes Meeting",
+          description: "Techniques for tense negotiations",
+          cardIds: ["TC001"],
+        },
+      ]),
+    );
+
+    render(
+      <PlaybookProvider>
+        <Playbooks />
+      </PlaybookProvider>,
+    );
+
+    const createBtn = screen.getByRole("button", { name: "Create" });
+    expect(createBtn).toHaveStyle({ color: "var(--brand-contrast)" });
+
+    const deleteBtn = screen.getByLabelText("Delete Playbook");
+    fireEvent.click(deleteBtn);
+
+    const dialog = screen.getByRole("dialog");
+    expect(dialog).toBeInTheDocument();
+    expect(
+      within(dialog).getByRole("heading", { name: "Delete Playbook?" }),
+    ).toBeInTheDocument();
+    expect(within(dialog).getByText(/High Stakes Meeting/)).toBeInTheDocument();
+
+    const cancelBtn = within(dialog).getByRole("button", { name: "Cancel" });
+    const confirmDeleteBtn = within(dialog).getByRole("button", {
+      name: "Delete",
+    });
+    expect(confirmDeleteBtn).toHaveClass("bg-red-600");
+
+    // Cancel closes dialog without deleting
+    fireEvent.click(cancelBtn);
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    expect(screen.getByText("High Stakes Meeting")).toBeInTheDocument();
+
+    // Escape closes dialog
+    fireEvent.click(deleteBtn);
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+
+    // Reopen and confirm delete
+    fireEvent.click(deleteBtn);
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    fireEvent.click(
+      within(screen.getByRole("dialog")).getByRole("button", {
+        name: "Delete",
+      }),
+    );
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    expect(screen.queryByText("High Stakes Meeting")).not.toBeInTheDocument();
+  });
+
+  it("clarifies tool positioning and subtitles for Quick Lookup and Phrase Bank", async () => {
+    await loadAllAggregatedPhrases();
+
+    const view = render(
+      <AppProviders>
+        <Phrases />
+      </AppProviders>,
+    );
+
+    expect(
+      await screen.findByText(
+        "Comprehensive Phrase Bank — browse and study all communication phrases across tones.",
+        undefined,
+        { timeout: 5000 },
+      ),
+    ).toBeInTheDocument();
+
+    view.unmount();
+
+    function TestQuick() {
+      const { setIsOpen } = useQuickMode();
+      useEffect(() => {
+        setIsOpen(true);
+      }, [setIsOpen]);
+      return <QuickModeOverlay />;
+    }
+
+    render(
+      <AppProviders>
+        <TestQuick />
+      </AppProviders>,
+    );
+
+    expect(
+      await screen.findByRole("dialog", { name: "Quick Lookup" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "In-conversation phrase cheat-sheet — instant copyable lines grouped by situation.",
+      ),
+    ).toBeInTheDocument();
+  });
+
   it("announces drill completion and exposes a page heading", async () => {
     // This is a completion/focus test; loading transitions have separate coverage.
     await loadCard("TC001");
     render(<Drill />);
 
-    expect(screen.getByRole("heading", { level: 1, name: "Daily Drill" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 1, name: "Daily Drill" }),
+    ).toBeInTheDocument();
     fireEvent.click(await screen.findByRole("button", { name: "Hard (Soon)" }));
 
     const completion = screen.getByRole("status");
-    expect(completion).toHaveTextContent(
-      "Great work — come back tomorrow",
-    );
+    expect(completion).toHaveTextContent("Great work — come back tomorrow");
     await waitFor(() => expect(document.activeElement).toBe(completion));
   });
 

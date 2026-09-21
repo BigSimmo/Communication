@@ -18,6 +18,7 @@ import { loadCard } from "@/lib/card-loader";
 import type { CardData } from "@/lib/card-types";
 import { useFavourites } from "@/lib/favourites-context";
 import { usePdf } from "@/lib/pdf-context";
+import { impactStyleFor } from "@/lib/design-tokens";
 
 const CARD_TITLE_MAP: Record<string, string> = {};
 for (const cards of Object.values(LIBRARY_CATEGORIES)) {
@@ -27,7 +28,10 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
 const PLACEHOLDER_PDF = "https://www.w3.org/WAI/WCAG21/wcag21.pdf";
 const CARD_PDF_URLS: Record<string, string> = {};
 
-function getCardPdfUrl(cardId: string, cardData: CardData): {
+function getCardPdfUrl(
+  cardId: string,
+  cardData: CardData,
+): {
   url: string;
   isPlaceholder: boolean;
 } {
@@ -79,6 +83,35 @@ const SECTIONS: { id: CardSection; label: string }[] = [
   { id: "resources", label: "Downloads" },
 ];
 
+interface SectionCluster {
+  id: string;
+  label: string;
+  sectionIds: CardSection[];
+}
+
+const SECTION_CLUSTERS: SectionCluster[] = [
+  {
+    id: "core",
+    label: "Core Method",
+    sectionIds: ["overview", "why", "method"],
+  },
+  {
+    id: "phrases-practice",
+    label: "Phrases & Practice",
+    sectionIds: ["phrases", "ladder", "inpractice", "tree"],
+  },
+  {
+    id: "scenarios-troubleshooting",
+    label: "Scenarios & Troubleshooting",
+    sectionIds: ["scenarios", "chains", "calibration", "mistakes", "recovery"],
+  },
+  {
+    id: "review-downloads",
+    label: "Review & Downloads",
+    sectionIds: ["practice", "checklist", "related", "resources"],
+  },
+];
+
 // In-session memory: remembers which section and scroll position the user last viewed per card
 const cardSectionMemory = new Map<
   string,
@@ -108,7 +141,6 @@ const LOADED_CARDS_NAV = Object.values(LIBRARY_CATEGORIES)
 export default function CardDetail() {
   const [, params] = useRoute("/card/:cardId");
   const [, setLocation] = useLocation();
-  const [isFlipped, setIsFlipped] = useState(false);
   const cardId = params?.cardId ?? "";
   const isKnownCard = ALL_CARD_IDS.has(cardId);
   const isLoaded = LOADED_CARD_IDS.has(cardId);
@@ -332,7 +364,6 @@ export default function CardDetail() {
 
   // Restore the saved section (and scroll position) when the viewed card changes
   useEffect(() => {
-    setIsFlipped(false);
     // Reset to overview-only on every card change; restore below may expand more
     setOpenSections(new Set<CardSection>(["overview"]));
     const saved = cardSectionMemory.get(cardId);
@@ -372,20 +403,30 @@ export default function CardDetail() {
     };
   }, [cardId]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Close PDF when navigating between cards or unmounting
+  const prevCardIdRef = useRef(cardId);
+  useEffect(() => {
+    if (prevCardIdRef.current !== cardId) {
+      prevCardIdRef.current = cardId;
+      setPdfOpen(false);
+    }
+    return () => {
+      setPdfOpen(false);
+    };
+  }, [cardId, setPdfOpen]);
+
+  // Update PDF URL when cardData is available
   useEffect(() => {
     if (!cardData) {
       setPdfUrl(null);
-      setPdfOpen(false);
       return;
     }
     const { url } = getCardPdfUrl(cardId, cardData);
     setPdfUrl(url);
-    setPdfOpen(false);
     return () => {
       setPdfUrl(null);
-      setPdfOpen(false);
     };
-  }, [cardId, cardData, setPdfOpen, setPdfUrl]);
+  }, [cardId, cardData, setPdfUrl]);
 
   useEffect(() => {
     if (!pdfOpen) return;
@@ -445,7 +486,9 @@ export default function CardDetail() {
             aria-hidden="true"
           />
           <div className="flex-1 min-w-0">
-            <p className="text-[14px] font-bold text-foreground/85">{label}</p>
+            <h3 className="text-[14px] font-bold text-foreground/85">
+              {label}
+            </h3>
             {subtitle && (
               <p
                 className="text-[11px] mt-0.5 leading-snug"
@@ -513,7 +556,7 @@ export default function CardDetail() {
           style={{
             background: "rgba(245,158,11,0.12)",
             border: "1px solid rgba(245,158,11,0.22)",
-            color: "#f59e0b",
+            color: "var(--brand-text)",
           }}
         >
           <ChevronLeft className="w-4 h-4" />
@@ -557,7 +600,7 @@ export default function CardDetail() {
           style={{
             background: "rgba(245,158,11,0.12)",
             border: "1px solid rgba(245,158,11,0.22)",
-            color: "#f59e0b",
+            color: "var(--brand-text)",
           }}
         >
           <ChevronLeft className="w-4 h-4" />
@@ -632,116 +675,152 @@ export default function CardDetail() {
         <ChevronRight className="w-4 h-4" style={{ color: "var(--fg-70)" }} />
       </button>
       <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
-        {/* 3D Flip Card Highlight */}
-        <div className="px-3 md:px-4 pt-4 flex flex-col items-center select-none">
+        {/* ── Technique Brief Header ── */}
+        <div className="px-3 md:px-4 pt-4">
           <div
-            className="relative w-full cursor-pointer h-44"
-            style={{ perspective: 1000 }}
-            onClick={() => setIsFlipped(!isFlipped)}
-            role="button"
-            tabIndex={0}
-            aria-label="Flip card for summary/phrases"
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                setIsFlipped(!isFlipped);
-              }
+            className="rounded-2xl p-5 border"
+            style={{
+              background: "linear-gradient(135deg, var(--fg-02), var(--fg-03))",
+              borderColor: "var(--fg-08)",
             }}
           >
-            <div
-              className="w-full h-full relative"
-              style={{
-                transformStyle: "preserve-3d",
-                transform: `rotateY(${isFlipped ? 180 : 0}deg)`,
-                transition: "transform 600ms ease-in-out",
-              }}
-            >
-              {/* Front Side */}
-              <div
-                className="absolute w-full h-full rounded-2xl p-5 flex flex-col justify-between border"
+            <div className="flex justify-between items-center">
+              <span
+                className="text-[11px] font-bold tracking-widest uppercase font-mono px-2 py-0.5 rounded-md"
                 style={{
-                  background:
-                    "linear-gradient(135deg, var(--fg-02), var(--fg-03))",
-                  borderColor: "rgba(245,158,11,0.25)",
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden",
+                  background: "var(--fg-04)",
+                  color: "var(--brand-text)",
+                  border: "1px solid var(--fg-06)",
                 }}
               >
-                <div>
-                  <div className="flex justify-between items-start">
-                    <span
-                      className="text-[10px] font-bold tracking-widest uppercase"
-                      style={{ color: "#f59e0b" }}
-                    >
-                      {cardId}
-                    </span>
-                    <span
-                      className="text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full"
-                      style={{
-                        background: "var(--fg-06)",
-                        color: "var(--fg-38)",
-                      }}
-                    >
-                      {cardData.overview.difficulty}
-                    </span>
-                  </div>
-                  <h2 className="text-[17px] font-extrabold text-foreground mt-1">
-                    {CARD_TITLE_MAP[cardId] ?? cardId}
-                  </h2>
-                  <p className="text-[12px] text-foreground/70 mt-1.5 line-clamp-2 leading-relaxed">
-                    {cardData.overview.minimumViableMove}
-                  </p>
-                </div>
-                <div
-                  className="text-[9px] font-bold uppercase tracking-wider text-right"
-                  style={{ color: "rgba(245,158,11,0.7)" }}
+                {cardId}
+              </span>
+              <div className="flex items-center gap-2">
+                <span
+                  className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
+                  style={{
+                    background: "var(--fg-06)",
+                    color: "var(--fg-60)",
+                  }}
                 >
-                  Click to Flip &amp; view Core Ladder ↺
-                </div>
-              </div>
-
-              {/* Back Side */}
-              <div
-                className="absolute w-full h-full rounded-2xl p-5 flex flex-col justify-between border"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(245,158,11,0.06), var(--fg-03))",
-                  borderColor: "rgba(245,158,11,0.35)",
-                  transform: "rotateY(180deg)",
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden",
-                }}
-              >
-                <div>
-                  <span
-                    className="text-[10px] font-bold tracking-widest uppercase"
-                    style={{ color: "#f59e0b" }}
-                  >
-                    Quick Phrases
-                  </span>
-                  <div className="mt-2.5 flex flex-col gap-1.5">
-                    <p className="text-[11px] font-bold text-red-400">
-                      Weak:{" "}
-                      <span className="font-normal text-foreground/75">
-                        {cardData.ladder?.[0]?.weak || "..."}
+                  {cardData.overview.difficulty}
+                </span>
+                {cardData.overview.impact &&
+                  (() => {
+                    const impactStyle = impactStyleFor(
+                      cardData.overview.impact,
+                    );
+                    return (
+                      <span
+                        className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
+                        style={{
+                          background: impactStyle.bg,
+                          color: impactStyle.color,
+                        }}
+                      >
+                        {cardData.overview.impact} Impact
                       </span>
-                    </p>
-                    <p className="text-[11px] font-bold text-green-400">
-                      Best:{" "}
-                      <span className="font-normal text-foreground/90">
-                        {cardData.ladder?.[0]?.best || "..."}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <div
-                  className="text-[9px] font-bold uppercase tracking-wider text-right"
-                  style={{ color: "rgba(245,158,11,0.7)" }}
-                >
-                  Click to Flip &amp; view Overview ↺
-                </div>
+                    );
+                  })()}
               </div>
             </div>
+
+            <h2 className="text-[18px] font-bold text-foreground mt-1">
+              {CARD_TITLE_MAP[cardId] ?? cardId}
+            </h2>
+
+            <p className="text-[13px] text-foreground/80 mt-2 leading-relaxed">
+              {cardData.overview.minimumViableMove}
+            </p>
+
+            {/* Compact preview of Core Formula & Quick Ladder Phrase */}
+            {(cardData.overview.coreFormula?.length > 0 ||
+              cardData.ladder?.[0]?.best) && (
+              <div
+                className="mt-3.5 pt-3 flex flex-col gap-2.5 border-t"
+                style={{ borderColor: "var(--fg-06)" }}
+              >
+                {cardData.overview.coreFormula?.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
+                    <span
+                      className="text-[10px] font-bold uppercase tracking-wider mr-1"
+                      style={{ color: "var(--fg-45)" }}
+                    >
+                      Formula
+                    </span>
+                    {cardData.overview.coreFormula.map((step, idx, arr) => (
+                      <span
+                        key={step}
+                        className="inline-flex items-center gap-1.5"
+                      >
+                        <span
+                          className="font-medium px-2 py-0.5 rounded-md"
+                          style={{
+                            background: "var(--fg-04)",
+                            border: "1px solid var(--fg-06)",
+                            color: "var(--fg-85)",
+                          }}
+                        >
+                          {step}
+                        </span>
+                        {idx < arr.length - 1 && (
+                          <ChevronRight
+                            className="w-3 h-3 flex-shrink-0"
+                            style={{ color: "var(--fg-35)" }}
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                {cardData.ladder?.[0] && (
+                  <div
+                    className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 px-3 py-2 rounded-xl text-[12px]"
+                    style={{
+                      background: "var(--fg-03)",
+                      border: "1px solid var(--fg-05)",
+                    }}
+                  >
+                    <span
+                      className="text-[10px] font-bold uppercase tracking-wider flex-shrink-0"
+                      style={{ color: "var(--brand-text)" }}
+                    >
+                      Quick Ladder
+                    </span>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 flex-1 min-w-0">
+                      {cardData.ladder[0].weak && (
+                        <span className="text-[11px] text-foreground/50 truncate">
+                          <span
+                            className="font-semibold mr-1"
+                            style={{ color: "var(--accent-red)" }}
+                          >
+                            Weak:
+                          </span>
+                          "{cardData.ladder[0].weak}"
+                        </span>
+                      )}
+                      {cardData.ladder[0].weak && cardData.ladder[0].best && (
+                        <span className="hidden sm:inline text-[11px] text-foreground/30">
+                          →
+                        </span>
+                      )}
+                      {cardData.ladder[0].best && (
+                        <span className="text-[11px] text-foreground/90 font-medium truncate">
+                          <span
+                            className="font-semibold mr-1"
+                            style={{ color: "var(--accent-green)" }}
+                          >
+                            Best:
+                          </span>
+                          "{cardData.ladder[0].best}"
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
@@ -756,33 +835,105 @@ export default function CardDetail() {
             borderBottom: "1px solid var(--fg-06)",
           }}
         >
+          {/* Category Clusters Quick Jump */}
+          <div
+            className="flex items-center gap-1.5 px-4 md:px-6 pt-2 pb-1 overflow-x-auto"
+            style={{ scrollbarWidth: "none" }}
+            role="region"
+            aria-label="Section categories"
+          >
+            {SECTION_CLUSTERS.map((cluster) => {
+              const availableSections = cluster.sectionIds.filter((id) =>
+                sectionAvailable(id),
+              );
+              if (availableSections.length === 0) return null;
+              const isClusterActive =
+                cluster.sectionIds.includes(activeSection);
+              return (
+                <button
+                  key={cluster.id}
+                  type="button"
+                  onClick={() => {
+                    const targetSection = cluster.sectionIds.includes(
+                      activeSection,
+                    )
+                      ? activeSection
+                      : availableSections[0];
+                    scrollSectionIntoView(targetSection);
+                  }}
+                  className="text-[11px] font-semibold px-2.5 py-1 rounded-lg transition-all flex-shrink-0"
+                  style={{
+                    background: isClusterActive
+                      ? "var(--fg-08)"
+                      : "var(--fg-02)",
+                    color: isClusterActive
+                      ? "var(--brand-text)"
+                      : "var(--fg-50)",
+                    border: isClusterActive
+                      ? "1px solid var(--fg-12)"
+                      : "1px solid var(--fg-05)",
+                  }}
+                >
+                  {cluster.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* All Section Tabs grouped by cluster */}
           <div className="flex items-center gap-0">
             <div
-              className="flex gap-1.5 py-2 px-4 md:px-6 overflow-x-auto flex-1"
+              className="flex items-center gap-1.5 py-2 px-4 md:px-6 overflow-x-auto flex-1"
               style={{ scrollbarWidth: "none" }}
               role="tablist"
               aria-label="Card sections"
             >
-              {SECTIONS.filter((s) => sectionAvailable(s.id)).map((s) => (
-                <button
-                  key={s.id}
-                  id={`nav-${s.id}`}
-                  role="tab"
-                  aria-selected={activeSection === s.id}
-                  aria-controls={`section-${s.id}`}
-                  onClick={() => scrollSectionIntoView(s.id)}
-                  data-testid={`nav-${s.id}`}
-                  className="text-[11px] font-semibold px-3 rounded-full transition-all flex-shrink-0"
-                  style={{
-                    minHeight: 36,
-                    background:
-                      activeSection === s.id ? "#f59e0b" : "var(--fg-05)",
-                    color: activeSection === s.id ? "#0f1724" : "var(--fg-55)",
-                  }}
-                >
-                  {s.label}
-                </button>
-              ))}
+              {SECTION_CLUSTERS.map((cluster, clusterIdx) => {
+                const clusterSections = cluster.sectionIds
+                  .map((id) => SECTIONS.find((s) => s.id === id)!)
+                  .filter((s) => s && sectionAvailable(s.id));
+                if (clusterSections.length === 0) return null;
+
+                return (
+                  <div
+                    key={cluster.id}
+                    className="flex items-center gap-1.5 flex-shrink-0"
+                  >
+                    {clusterIdx > 0 && (
+                      <div
+                        className="w-px h-4 mx-1 flex-shrink-0"
+                        style={{ background: "var(--fg-10)" }}
+                        aria-hidden="true"
+                      />
+                    )}
+                    {clusterSections.map((s) => (
+                      <button
+                        key={s.id}
+                        id={`nav-${s.id}`}
+                        role="tab"
+                        aria-selected={activeSection === s.id}
+                        aria-controls={`section-${s.id}`}
+                        onClick={() => scrollSectionIntoView(s.id)}
+                        data-testid={`nav-${s.id}`}
+                        className="text-[11px] font-semibold px-3 rounded-full transition-all flex-shrink-0"
+                        style={{
+                          minHeight: 34,
+                          background:
+                            activeSection === s.id
+                              ? "var(--brand)"
+                              : "var(--fg-05)",
+                          color:
+                            activeSection === s.id
+                              ? "var(--brand-contrast)"
+                              : "var(--fg-55)",
+                        }}
+                      >
+                        {s.label}
+                      </button>
+                    ))}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -793,7 +944,7 @@ export default function CardDetail() {
           <SectionAccordion
             id="overview"
             label="Overview"
-            color="#f59e0b"
+            color="var(--brand)"
             subtitle="Core formula, quick stats & when not to use"
           >
             <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 mb-4">
@@ -879,14 +1030,18 @@ export default function CardDetail() {
                   [
                     "Impact",
                     cardData.overview.impact,
-                    cardData.overview.impact === "High"
-                      ? "#22c55e"
-                      : cardData.overview.impact === "Medium"
-                        ? "#f59e0b"
-                        : "#60a5fa",
+                    impactStyleFor(cardData.overview.impact).color,
                   ],
-                  ["Difficulty", cardData.overview.difficulty, "#60a5fa"],
-                  ["Misuse risk", cardData.overview.misuse, "#f59e0b"],
+                  [
+                    "Difficulty",
+                    cardData.overview.difficulty,
+                    "var(--impact-medium)",
+                  ],
+                  [
+                    "Misuse risk",
+                    cardData.overview.misuse,
+                    "var(--brand-text)",
+                  ],
                 ] as [string, string, string][]
               ).map(([k, v, c]) => (
                 <div
@@ -1124,7 +1279,7 @@ export default function CardDetail() {
             <SectionAccordion
               id="method"
               label="The Method"
-              color="#f59e0b"
+              color="var(--brand)"
               subtitle={`${cardData.method?.length ?? 0}-step execution guide`}
             >
               {cardData.fieldTip && (
@@ -1199,7 +1354,10 @@ export default function CardDetail() {
                   <div key={m.step} className="relative">
                     <div
                       className="absolute -left-7 top-3 w-6 h-6 rounded-full flex items-center justify-center z-10"
-                      style={{ background: "#f59e0b", color: "#0f1724" }}
+                      style={{
+                        background: "var(--brand)",
+                        color: "var(--brand-contrast)",
+                      }}
                       aria-hidden="true"
                     >
                       <span className="text-[11px] font-bold">{i + 1}</span>
@@ -1216,7 +1374,7 @@ export default function CardDetail() {
                           className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
                           style={{
                             background: "rgba(245,158,11,0.12)",
-                            color: "#f59e0b",
+                            color: "var(--brand-text)",
                           }}
                         >
                           {m.step}
@@ -1343,7 +1501,7 @@ export default function CardDetail() {
                             style={{
                               color:
                                 copiedPhrase === row.phrase
-                                  ? "#f59e0b"
+                                  ? "var(--brand-text)"
                                   : "var(--fg-78)",
                             }}
                           >
@@ -1352,7 +1510,7 @@ export default function CardDetail() {
                           {copiedPhrase === row.phrase ? (
                             <Check
                               className="w-3.5 h-3.5 flex-shrink-0"
-                              style={{ color: "#f59e0b" }}
+                              style={{ color: "var(--brand-text)" }}
                             />
                           ) : (
                             <Copy
@@ -1397,9 +1555,13 @@ export default function CardDetail() {
                   style={{
                     minHeight: 44,
                     background:
-                      expandedPhraseGroup === null ? "#f59e0b" : "var(--fg-06)",
+                      expandedPhraseGroup === null
+                        ? "var(--brand)"
+                        : "var(--fg-06)",
                     color:
-                      expandedPhraseGroup === null ? "#0f1724" : "var(--fg-60)",
+                      expandedPhraseGroup === null
+                        ? "var(--brand-contrast)"
+                        : "var(--fg-60)",
                   }}
                 >
                   All groups
@@ -1418,11 +1580,11 @@ export default function CardDetail() {
                       minHeight: 44,
                       background:
                         expandedPhraseGroup === g.id
-                          ? "#f59e0b"
+                          ? "var(--brand)"
                           : "var(--fg-06)",
                       color:
                         expandedPhraseGroup === g.id
-                          ? "#0f1724"
+                          ? "var(--brand-contrast)"
                           : "var(--fg-60)",
                     }}
                   >
@@ -1513,7 +1675,7 @@ export default function CardDetail() {
                               style={{
                                 color:
                                   copiedPhrase === phrase
-                                    ? "#f59e0b"
+                                    ? "var(--brand-text)"
                                     : "var(--fg-78)",
                               }}
                             >
@@ -1546,12 +1708,12 @@ export default function CardDetail() {
                                   className="w-3.5 h-3.5"
                                   style={{
                                     color: isPhrasesFav(cardId, phrase)
-                                      ? "#f59e0b"
+                                      ? "var(--brand-text)"
                                       : "var(--fg-20)",
                                   }}
                                   fill={
                                     isPhrasesFav(cardId, phrase)
-                                      ? "#f59e0b"
+                                      ? "var(--brand-text)"
                                       : "none"
                                   }
                                 />
@@ -1565,7 +1727,7 @@ export default function CardDetail() {
                                 {copiedPhrase === phrase ? (
                                   <Check
                                     className="w-3.5 h-3.5"
-                                    style={{ color: "#f59e0b" }}
+                                    style={{ color: "var(--brand-text)" }}
                                   />
                                 ) : (
                                   <Copy
@@ -1661,12 +1823,12 @@ export default function CardDetail() {
                             className="w-3.5 h-3.5"
                             style={{
                               color: isPhrasesFav(cardId, row.best)
-                                ? "#f59e0b"
+                                ? "var(--brand-text)"
                                 : "var(--fg-25)",
                             }}
                             fill={
                               isPhrasesFav(cardId, row.best)
-                                ? "#f59e0b"
+                                ? "var(--brand-text)"
                                 : "none"
                             }
                           />
@@ -1679,7 +1841,7 @@ export default function CardDetail() {
                           {copiedPhrase === row.best ? (
                             <Check
                               className="w-3.5 h-3.5"
-                              style={{ color: "#f59e0b" }}
+                              style={{ color: "var(--brand-text)" }}
                             />
                           ) : (
                             <Copy
@@ -1833,7 +1995,7 @@ export default function CardDetail() {
                             copiedPhrase === item.phrase
                               ? "1px solid rgba(245,158,11,0.35)"
                               : "1px solid rgba(245,158,11,0.15)",
-                          color: "#f59e0b",
+                          color: "var(--brand-text)",
                           minHeight: 44,
                         }}
                       >
@@ -1886,7 +2048,7 @@ export default function CardDetail() {
                           copiedPhrase === s.phrase
                             ? "1px solid rgba(245,158,11,0.4)"
                             : "1px solid rgba(245,158,11,0.18)",
-                        color: "#f59e0b",
+                        color: "var(--brand-text)",
                         minHeight: 44,
                       }}
                     >
@@ -1922,11 +2084,13 @@ export default function CardDetail() {
                         className="w-4 h-4"
                         style={{
                           color: isPhrasesFav(cardId, s.phrase)
-                            ? "#f59e0b"
+                            ? "var(--brand-text)"
                             : "var(--fg-30)",
                         }}
                         fill={
-                          isPhrasesFav(cardId, s.phrase) ? "#f59e0b" : "none"
+                          isPhrasesFav(cardId, s.phrase)
+                            ? "var(--brand-text)"
+                            : "none"
                         }
                       />
                     </button>
@@ -2116,7 +2280,7 @@ export default function CardDetail() {
                             {copiedPhrase === m.better ? (
                               <Check
                                 className="w-3.5 h-3.5"
-                                style={{ color: "#f59e0b" }}
+                                style={{ color: "var(--brand-text)" }}
                               />
                             ) : (
                               <Copy
@@ -2209,7 +2373,9 @@ export default function CardDetail() {
                       className="text-[13px] leading-snug pr-3 flex-1"
                       style={{
                         color:
-                          copiedPhrase === phrase ? "#f59e0b" : "var(--fg-78)",
+                          copiedPhrase === phrase
+                            ? "var(--brand-text)"
+                            : "var(--fg-78)",
                       }}
                     >
                       {phrase}
@@ -2240,11 +2406,13 @@ export default function CardDetail() {
                           className="w-3.5 h-3.5"
                           style={{
                             color: isPhrasesFav(cardId, phrase)
-                              ? "#f59e0b"
+                              ? "var(--brand-text)"
                               : "var(--fg-20)",
                           }}
                           fill={
-                            isPhrasesFav(cardId, phrase) ? "#f59e0b" : "none"
+                            isPhrasesFav(cardId, phrase)
+                              ? "var(--brand-text)"
+                              : "none"
                           }
                         />
                       </button>
@@ -2256,7 +2424,7 @@ export default function CardDetail() {
                         {copiedPhrase === phrase ? (
                           <Check
                             className="w-3.5 h-3.5"
-                            style={{ color: "#f59e0b" }}
+                            style={{ color: "var(--brand-text)" }}
                           />
                         ) : (
                           <Copy
@@ -2388,7 +2556,7 @@ export default function CardDetail() {
                     className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors"
                     style={{
                       background: checkedItems.has(i)
-                        ? "#f59e0b"
+                        ? "var(--brand)"
                         : "var(--fg-05)",
                       border: checkedItems.has(i)
                         ? "none"
@@ -2399,7 +2567,7 @@ export default function CardDetail() {
                     {checkedItems.has(i) && (
                       <Check
                         className="w-3.5 h-3.5"
-                        style={{ color: "#0f1724" }}
+                        style={{ color: "var(--brand-contrast)" }}
                       />
                     )}
                   </div>
@@ -2640,7 +2808,7 @@ export default function CardDetail() {
                     <FileText
                       className="w-4 h-4"
                       style={{
-                        color: "#f59e0b",
+                        color: "var(--brand-text)",
                         opacity: isPlaceholder ? 0.5 : 1,
                       }}
                     />
@@ -2728,7 +2896,7 @@ export default function CardDetail() {
                         minHeight: 44,
                         background: "rgba(245,158,11,0.12)",
                         border: "1px solid rgba(245,158,11,0.22)",
-                        color: "#f59e0b",
+                        color: "var(--brand-text)",
                       }}
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -2743,7 +2911,7 @@ export default function CardDetail() {
                           className="w-8 h-8 rounded-full border-2 animate-spin"
                           style={{
                             borderColor: "var(--fg-10)",
-                            borderTopColor: "#f59e0b",
+                            borderTopColor: "var(--brand)",
                           }}
                           aria-hidden="true"
                         />
