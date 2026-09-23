@@ -270,7 +270,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search techniques, phrases, situations…"
+            placeholder="Techniques, phrases, situations…"
             role="combobox"
             aria-label="Search techniques"
             aria-autocomplete="list"

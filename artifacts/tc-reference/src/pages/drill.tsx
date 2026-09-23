@@ -444,7 +444,7 @@ export default function Drill() {
             >
               <span className="block">Easy</span>
               <span className="block text-[11px] font-semibold opacity-80 mt-0.5">
-                Review much later
+                Much later
               </span>
             </button>
           </div>
