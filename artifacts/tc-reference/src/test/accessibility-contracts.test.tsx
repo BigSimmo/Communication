@@ -315,13 +315,13 @@ describe("core accessibility contracts", () => {
     const createBtn = screen.getByRole("button", { name: "Create" });
     expect(createBtn).toHaveStyle({ color: "var(--brand-contrast)" });
 
-    const deleteBtn = screen.getByLabelText("Delete Playbook");
+    const deleteBtn = screen.getByLabelText("Delete playbook");
     fireEvent.click(deleteBtn);
 
     const dialog = screen.getByRole("dialog");
     expect(dialog).toBeInTheDocument();
     expect(
-      within(dialog).getByRole("heading", { name: "Delete Playbook?" }),
+      within(dialog).getByRole("heading", { name: "Delete playbook?" }),
     ).toBeInTheDocument();
     expect(within(dialog).getByText(/High Stakes Meeting/)).toBeInTheDocument();
 
@@ -365,7 +365,7 @@ describe("core accessibility contracts", () => {
 
     expect(
       await screen.findByText(
-        "Comprehensive Phrase Bank — browse and study all communication phrases across tones.",
+        "Browse and study every phrase from every card, filtered by tone.",
         undefined,
         { timeout: 5000 },
       ),
@@ -405,7 +405,7 @@ describe("core accessibility contracts", () => {
     expect(
       screen.getByRole("heading", { level: 1, name: "Daily Drill" }),
     ).toBeInTheDocument();
-    fireEvent.click(await screen.findByRole("button", { name: "Hard (Soon)" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Hard — review soon" }));
 
     const completion = screen.getByRole("status");
     expect(completion).toHaveTextContent("Great work — come back tomorrow");

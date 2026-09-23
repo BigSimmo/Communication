@@ -7,6 +7,7 @@ import { loadAllCards } from "@/lib/card-loader";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
+import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 
 interface QuickPhrase {
@@ -97,6 +98,7 @@ export function QuickModeOverlay() {
 
   // Trap focus inside the overlay while open (initial focus on close button)
   useFocusTrap(isOpen, overlayRef, { initialFocusRef: closeButtonRef });
+  useBodyScrollLock(isOpen);
 
   // Reset transient state when the overlay closes
   useEffect(() => {
@@ -171,12 +173,15 @@ export function QuickModeOverlay() {
         className="flex-shrink-0 px-4 pt-[calc(1.25rem+env(safe-area-inset-top,0px))] pb-3"
         style={{ borderBottom: "1px solid var(--fg-07)" }}
       >
-        <div className="flex items-center justify-between mb-4">
-          <div>
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <div className="min-w-0">
             <h2 className="text-[20px] font-bold text-foreground">
               Quick Lookup
             </h2>
-            <p className="text-[12px]" style={{ color: "var(--fg-55)" }}>
+            <p
+              className="hidden sm:block text-[12px]"
+              style={{ color: "var(--fg-55)" }}
+            >
               In-conversation phrase cheat-sheet — instant copyable lines
               grouped by situation.
             </p>
@@ -186,10 +191,10 @@ export function QuickModeOverlay() {
             onClick={() => setIsOpen(false)}
             aria-label="Close Quick Lookup"
             data-testid="button-quick-close"
-            className="w-11 h-11 flex items-center justify-center rounded-full transition-all active:scale-95"
+            className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full transition-all active:scale-95"
             style={{ background: "var(--fg-05)" }}
           >
-            <X className="w-5 h-5" style={{ color: "var(--fg-65)" }} />
+            <X className="w-5 h-5" style={{ color: "var(--fg-65)" }} aria-hidden="true" />
           </button>
         </div>
 
@@ -204,7 +209,7 @@ export function QuickModeOverlay() {
             onClick={() => setQuickFilter(null)}
             aria-pressed={!quickFilter}
             data-testid="quick-filter-all"
-            className="flex-shrink-0 text-[11px] font-semibold px-4 rounded-full transition-all whitespace-nowrap"
+            className="flex-shrink-0 text-[12px] font-semibold px-4 rounded-full transition-all whitespace-nowrap"
             style={{
               background: !quickFilter ? "var(--brand)" : "var(--fg-06)",
               color: !quickFilter ? "var(--brand-contrast)" : "var(--fg-60)",
@@ -219,7 +224,7 @@ export function QuickModeOverlay() {
               onClick={() => setQuickFilter(quickFilter === g.id ? null : g.id)}
               aria-pressed={quickFilter === g.id}
               data-testid={`quick-filter-${g.id}`}
-              className="flex-shrink-0 text-[11px] font-semibold px-4 rounded-full transition-all whitespace-nowrap"
+              className="flex-shrink-0 text-[12px] font-semibold px-4 rounded-full transition-all whitespace-nowrap"
               style={{
                 background:
                   quickFilter === g.id ? "var(--brand)" : "var(--fg-06)",
@@ -237,7 +242,7 @@ export function QuickModeOverlay() {
       </div>
 
       {/* ── Phrase list ── */}
-      <div className="flex-1 overflow-y-auto px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] space-y-5">
+      <div className="flex-1 overflow-y-auto overscroll-contain px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] space-y-5">
         {!quickGroups && !loadFailed && (
           <div role="status" aria-live="polite" className="py-14 text-center">
             <p
@@ -344,11 +349,13 @@ export function QuickModeOverlay() {
                         <Check
                           className="w-4 h-4"
                           style={{ color: "var(--brand-text)" }}
+                          aria-hidden="true"
                         />
                       ) : (
                         <Copy
                           className="w-4 h-4"
-                          style={{ color: "var(--fg-35)" }}
+                          style={{ color: "var(--fg-50)" }}
+                          aria-hidden="true"
                         />
                       )}
                       <button
@@ -361,7 +368,7 @@ export function QuickModeOverlay() {
                           })
                         }
                         aria-label={
-                          isFav ? "Remove from favourites" : "Save phrase"
+                          isFav ? "Remove from favourites" : "Save to favourites"
                         }
                         className="quick-phrase-favourite w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                         style={{
@@ -373,9 +380,10 @@ export function QuickModeOverlay() {
                         <Heart
                           className="w-3.5 h-3.5"
                           style={{
-                            color: isFav ? "var(--brand-text)" : "var(--fg-35)",
+                            color: isFav ? "var(--brand-text)" : "var(--fg-50)",
                           }}
                           fill={isFav ? "var(--brand-text)" : "none"}
+                          aria-hidden="true"
                         />
                       </button>
                     </div>

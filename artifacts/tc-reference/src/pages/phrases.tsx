@@ -127,8 +127,7 @@ export default function Phrases() {
           className="text-[12px] leading-relaxed"
           style={{ color: "var(--fg-55)" }}
         >
-          Comprehensive Phrase Bank — browse and study all communication phrases
-          across tones.
+          Browse and study every phrase from every card, filtered by tone.
         </p>
       </div>
 
@@ -181,7 +180,7 @@ export default function Phrases() {
             >
               All
               <span
-                className="text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none"
+                className="text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none"
                 style={{
                   background: !toneFilter
                     ? "rgba(15,23,36,0.18)"
@@ -218,7 +217,7 @@ export default function Phrases() {
                 >
                   {tone}
                   <span
-                    className="text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none"
+                    className="text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none"
                     style={{
                       background: active
                         ? "rgba(15,23,36,0.18)"
@@ -274,10 +273,14 @@ export default function Phrases() {
                   onClick={() => setSearchQuery("")}
                   aria-label="Clear search"
                   data-testid="phrases-search-clear"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full transition-all active:scale-90"
-                  style={{ background: "var(--fg-08)" }}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
                 >
-                  <X className="w-3 h-3" style={{ color: "var(--fg-50)" }} />
+                  <span
+                    className="w-5 h-5 flex items-center justify-center rounded-full"
+                    style={{ background: "var(--fg-08)" }}
+                  >
+                    <X className="w-3 h-3" style={{ color: "var(--fg-50)" }} aria-hidden="true" />
+                  </span>
                 </button>
               )}
             </div>
@@ -302,7 +305,7 @@ export default function Phrases() {
             }}
             aria-label="Clear all filters"
             data-testid="phrases-reset"
-            className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 rounded-full transition-all active:scale-95 whitespace-nowrap"
+            className="tap-target-y inline-flex items-center gap-1 text-[12px] font-bold px-3 rounded-full transition-all active:scale-95 whitespace-nowrap"
             style={{
               minHeight: 36,
               background: "color-mix(in srgb, var(--brand) 10%, transparent)",
@@ -331,7 +334,8 @@ export default function Phrases() {
             >
               <MessagesSquare
                 className="w-6 h-6"
-                style={{ color: "var(--fg-22)" }}
+                style={{ color: "var(--fg-40)" }}
+                aria-hidden="true"
               />
             </div>
             <div>
@@ -341,8 +345,8 @@ export default function Phrases() {
               >
                 No phrases found
               </p>
-              <p className="text-[12px] mt-1" style={{ color: "var(--fg-32)" }}>
-                Try a different tone or search term
+              <p className="text-[13px] mt-1" style={{ color: "var(--fg-55)" }}>
+                Try a different tone or search term.
               </p>
             </div>
             <button
@@ -448,7 +452,7 @@ function PhraseRow({
       <div className="flex items-center gap-2">
         {/* Tone badge */}
         <span
-          className="text-[9px] font-bold tracking-wide px-2 py-0.5 rounded-full uppercase flex-shrink-0"
+          className="text-[10px] font-bold tracking-wide px-2 py-0.5 rounded-full uppercase flex-shrink-0 max-w-[40%] truncate"
           style={{
             background: "color-mix(in srgb, var(--brand) 10%, transparent)",
             color: "var(--brand-text)",
@@ -464,7 +468,7 @@ function PhraseRow({
           onClick={onCardClick}
           aria-label={`View card ${phrase.cardId}: ${phrase.cardTitle}`}
           data-testid={`phrase-card-link-${phrase.cardId}`}
-          className="flex items-center gap-1.5 text-[10px] font-semibold rounded-full px-2 py-0.5 transition-all active:scale-95 flex-shrink-0"
+          className="flex items-center gap-1.5 text-[12px] font-semibold rounded-full pl-1 pr-2.5 min-h-8 min-w-0 flex-1 transition-all active:scale-95"
           style={{
             background: "var(--fg-05)",
             border: "1px solid var(--fg-08)",
@@ -472,7 +476,7 @@ function PhraseRow({
           }}
         >
           <span
-            className="text-[8px] font-bold px-1 py-0.5 rounded"
+            className="text-[10px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
             style={{
               background: "var(--brand)",
               color: "var(--brand-contrast)",
@@ -480,18 +484,15 @@ function PhraseRow({
           >
             {phrase.cardId}
           </span>
-          <span className="truncate max-w-[110px]">{phrase.cardTitle}</span>
+          <span className="truncate min-w-0">{phrase.cardTitle}</span>
         </button>
-
-        {/* Spacer */}
-        <div className="flex-1" />
 
         {/* Fav button */}
         <button
           onClick={onFav}
-          aria-label={faved ? "Remove from favourites" : "Save phrase"}
+          aria-label={faved ? "Remove from favourites" : "Save to favourites"}
           data-testid={`phrase-fav-btn`}
-          className="w-10 h-10 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          className="tap-target w-10 h-10 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
           style={{
             background: faved
               ? "color-mix(in srgb, var(--brand) 12%, transparent)"
@@ -500,7 +501,7 @@ function PhraseRow({
         >
           <Heart
             className="w-3.5 h-3.5"
-            style={{ color: faved ? "var(--brand-text)" : "var(--fg-38)" }}
+            style={{ color: faved ? "var(--brand-text)" : "var(--fg-50)" }}
             fill={faved ? "var(--brand-text)" : "none"}
           />
         </button>
@@ -510,7 +511,7 @@ function PhraseRow({
           onClick={onCopy}
           aria-label={copied ? "Copied!" : `Copy phrase`}
           data-testid={`phrase-copy-icon-btn`}
-          className="w-10 h-10 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          className="tap-target w-10 h-10 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
           style={{
             background: copied
               ? "color-mix(in srgb, var(--brand) 12%, transparent)"

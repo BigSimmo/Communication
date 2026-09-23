@@ -215,20 +215,12 @@ function FilterDropdown({
                   tabIndex={-1}
                   onClick={() => select(option.value)}
                   data-testid={`${testId}-option-${slug}`}
-                  className="w-full flex items-center justify-between gap-3 rounded-lg px-2.5 py-2 text-left text-[11.5px] font-medium transition-colors whitespace-nowrap"
+                  className="tap-target-y w-full flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-[13px] font-medium transition-colors whitespace-nowrap hover:bg-[var(--fg-05)]"
                   style={{
                     color: selected ? "var(--brand-text)" : "var(--fg-60)",
                     background: selected
                       ? "color-mix(in srgb, var(--brand) 10%, transparent)"
                       : "transparent",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!selected)
-                      e.currentTarget.style.background = "var(--fg-05)";
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!selected)
-                      e.currentTarget.style.background = "transparent";
                   }}
                 >
                   {option.label}
@@ -378,7 +370,7 @@ export default function Library() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search techniques..."
+                placeholder="Search techniques…"
                 aria-label="Search techniques"
                 aria-expanded={searchOpen}
                 aria-controls="search-popout-panel"
@@ -428,13 +420,18 @@ export default function Library() {
                   onClick={() => setSearchQuery("")}
                   aria-label="Clear search"
                   data-testid="library-search-clear"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full transition-all active:scale-90"
-                  style={{ background: "var(--fg-08)" }}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
                 >
-                  <X
-                    className="w-3.5 h-3.5"
-                    style={{ color: "var(--fg-50)" }}
-                  />
+                  <span
+                    className="w-6 h-6 flex items-center justify-center rounded-full"
+                    style={{ background: "var(--fg-08)" }}
+                  >
+                    <X
+                      className="w-3.5 h-3.5"
+                      style={{ color: "var(--fg-50)" }}
+                      aria-hidden="true"
+                    />
+                  </span>
                 </button>
               )}
             </div>
@@ -444,7 +441,7 @@ export default function Library() {
               aria-label="Open a random card"
               title="Open a random card"
               data-testid="surprise-me"
-              className="h-9 w-9 flex-shrink-0 inline-flex items-center justify-center rounded-xl transition-all active:scale-95"
+              className="tap-target h-9 w-9 flex-shrink-0 inline-flex items-center justify-center rounded-xl transition-all active:scale-95"
               style={{
                 background: "var(--fg-05)",
                 color: "var(--fg-60)",
@@ -459,7 +456,7 @@ export default function Library() {
                 onClick={clearAllFilters}
                 aria-label="Clear all active filters"
                 data-testid="reset-filters"
-                className="h-9 flex-shrink-0 inline-flex items-center gap-1.5 rounded-xl px-2.5 text-[10px] font-bold transition-all active:scale-95 whitespace-nowrap"
+                className="tap-target-y h-9 flex-shrink-0 inline-flex items-center gap-1.5 rounded-xl px-2.5 text-[11px] font-bold transition-all active:scale-95 whitespace-nowrap"
                 style={{
                   background:
                     "color-mix(in srgb, var(--brand) 10%, transparent)",
@@ -472,7 +469,7 @@ export default function Library() {
                 <X className="w-3 h-3" aria-hidden="true" />
                 Reset
                 <span
-                  className="ml-0.5 rounded-full px-1.5 py-0.5 text-[9px] leading-none"
+                  className="ml-0.5 rounded-full px-1.5 py-0.5 text-[10px] leading-none"
                   style={{
                     background:
                       "color-mix(in srgb, var(--brand) 16%, transparent)",
@@ -624,7 +621,8 @@ export default function Library() {
                         {card.loaded ? (
                           <ChevronRight
                             className="w-4 h-4"
-                            style={{ color: "var(--fg-22)" }}
+                            style={{ color: "var(--fg-40)" }}
+                            aria-hidden="true"
                           />
                         ) : (
                           <span
@@ -692,7 +690,7 @@ export default function Library() {
                             style={{
                               color: isCardFav(card.id)
                                 ? "var(--brand-text)"
-                                : "var(--fg-30)",
+                                : "var(--fg-50)",
                             }}
                             fill={
                               isCardFav(card.id) ? "var(--brand-text)" : "none"
@@ -716,7 +714,7 @@ export default function Library() {
                 border: "1px solid var(--fg-07)",
               }}
             >
-              <SearchX className="w-6 h-6" style={{ color: "var(--fg-25)" }} />
+              <SearchX className="w-6 h-6" style={{ color: "var(--fg-40)" }} aria-hidden="true" />
             </div>
             <p
               className="text-[16px] font-semibold mb-1.5"
@@ -726,14 +724,14 @@ export default function Library() {
             </p>
             <p
               className="text-[13px] leading-relaxed mb-6 max-w-[240px]"
-              style={{ color: "var(--fg-30)" }}
+              style={{ color: "var(--fg-55)" }}
             >
               Try a different combination of filters, or start fresh.
             </p>
             <button
               onClick={clearAllFilters}
               data-testid="clear-all-filters"
-              className="text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
+              className="text-[13px] font-semibold px-5 min-h-11 rounded-full transition-all active:scale-95"
               style={{
                 background: "color-mix(in srgb, var(--brand) 12%, transparent)",
                 border:

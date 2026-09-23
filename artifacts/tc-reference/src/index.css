@@ -416,9 +416,20 @@
 
   .library-card-favourite,
   .card-header-action,
-  .quick-phrase-favourite {
+  .quick-phrase-favourite,
+  .tap-target {
     min-width: 44px;
     min-height: 44px;
+  }
+
+  /* Text-style controls (chips, "Clear", "Reset") grow vertically only */
+  .tap-target-y {
+    min-height: 44px;
+  }
+
+  /* Keyboard-only hints are noise on phones */
+  .keyboard-hint {
+    display: none !important;
   }
 }
 

@@ -119,7 +119,7 @@ describe("lazy card consumer transitions", () => {
 
     render(<Drill />);
 
-    fireEvent.click(await screen.findByRole("button", { name: "Good (Medium)" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Good — review later" }));
 
     expect(await screen.findByText("Great work — come back tomorrow")).toBeInTheDocument();
   });
