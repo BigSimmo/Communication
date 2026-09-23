@@ -160,7 +160,7 @@ export const TC034: CardData = {
     },
     {
       "condition": "They ask for advice",
-      "action": "Switch to Permission-Based Advice (TC027).",
+      "action": "Switch to Permission-based advice (TC027).",
       "phrase": "\"Want my take, or just a sounding board?\""
     },
     {
@@ -424,7 +424,7 @@ export const TC034: CardData = {
   "chains": [
     {
       "label": "Clarify then explore",
-      "sequence": "Two-Option Question → Summary Check (TC011) → Live-Thread Follow-Up (TC001)",
+      "sequence": "Two-Option Question → Summary check (TC011) → Live-Thread Follow-Up (TC001)",
       "example": [
         "\"Is it more timing or workload?\"",
         "\"So it's mainly the timing.\"",
@@ -433,7 +433,7 @@ export const TC034: CardData = {
     },
     {
       "label": "Reassure then release",
-      "sequence": "Validation Without Agreement (TC005) → Two-Option Question → Autonomy Release (TC021)",
+      "sequence": "Validation without agreement (TC005) → Two-Option Question → Autonomy release (TC021)",
       "example": [
         "\"I can see why that's stressful.\"",
         "\"Do you want to decide today, or revisit tomorrow?\"",
@@ -442,7 +442,7 @@ export const TC034: CardData = {
     },
     {
       "label": "Steady then narrow",
-      "sequence": "Slow Down Under Pressure (TC031) → Two-Option Question → Meaning Reflection (TC040)",
+      "sequence": "Slow down under pressure (TC031) → Two-Option Question → Meaning reflection (TC040)",
       "example": [
         "\"Let's take this a step at a time.\"",
         "\"Is the sticking point the plan, or the people?\"",
@@ -453,23 +453,23 @@ export const TC034: CardData = {
   "relatedTechniques": [
     {
       "id": "TC013",
-      "reason": "Clean Request asks for an action; a two-option question makes answering easier. Use TC013 when you need a thing done, TC034 when you need a decision made."
+      "reason": "Clean request asks for an action; a two-option question makes answering easier. Use TC013 when you need a thing done, TC034 when you need a decision made."
     },
     {
       "id": "TC019",
-      "reason": "Small Ask reduces the scope of the action; a two-option question reduces the scope of the response. Reach for TC019 to shrink the task, TC034 to shrink the answer."
+      "reason": "Small ask reduces the scope of the action; a two-option question reduces the scope of the response. Reach for TC019 to shrink the task, TC034 to shrink the answer."
     },
     {
       "id": "TC020",
-      "reason": "Low-Friction Ask reduces the burden of saying yes; a two-option question reduces the ambiguity of how to answer."
+      "reason": "Low-friction ask reduces the burden of saying yes; a two-option question reduces the ambiguity of how to answer."
     },
     {
       "id": "TC003",
-      "reason": "Comment-Before-Question warms the question; a two-option question structures the answer. They combine well — comment first, then offer the pair."
+      "reason": "Comment-before-question warms the question; a two-option question structures the answer. They combine well — comment first, then offer the pair."
     },
     {
       "id": "TC027",
-      "reason": "Permission-Based Advice is where you hand off when the two options surface a request for advice rather than a decision."
+      "reason": "Permission-based advice is where you hand off when the two options surface a request for advice rather than a decision."
     }
   ]
 };

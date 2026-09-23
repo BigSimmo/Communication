@@ -333,7 +333,7 @@ export const TC049: CardData = {
   chains: [
     {
       label: "Clarity chain",
-      sequence: "CARL -> Summary Check",
+      sequence: "CARL -> Summary check",
       example: [
         "\"...and the learning was to agree scope up front.\"",
         "\"Does that match what you were expecting to hear?\"",
@@ -341,7 +341,7 @@ export const TC049: CardData = {
     },
     {
       label: "Action chain",
-      sequence: "CARL -> Clean Request",
+      sequence: "CARL -> Clean request",
       example: [
         "\"...so the fix is a scope check at kickoff.\"",
         "\"Could you add that to next week's agenda?\"",
@@ -349,7 +349,7 @@ export const TC049: CardData = {
     },
     {
       label: "Autonomy chain",
-      sequence: "CARL -> Autonomy Release",
+      sequence: "CARL -> Autonomy release",
       example: [
         "\"That's what I'd take from it.\"",
         "\"But it's your call how you'd handle it.\"",
@@ -357,7 +357,7 @@ export const TC049: CardData = {
     },
     {
       label: "Emotion-first chain",
-      sequence: "Validate the Concern -> CARL",
+      sequence: "Validate the concern -> CARL",
       example: [
         "\"That deadline sounded genuinely stressful.\"",
         "\"Here's what happened and what I'd change...\"",
@@ -477,7 +477,7 @@ export const TC049: CardData = {
     {
       id: "TC050",
       reason:
-        "What? So What? Now What? is a lighter three-beat reflection. Use it for a quick debrief; use CARL when you also need the concrete action and result in between.",
+        "What? So what? Now what? is a lighter three-beat reflection. Use it for a quick debrief; use CARL when you also need the concrete action and result in between.",
     },
     {
       id: "TC042",
@@ -487,7 +487,7 @@ export const TC049: CardData = {
     {
       id: "TC040",
       reason:
-        "Meaning Reflection mirrors the meaning behind what someone else said. Use CARL to structure your own account; use Meaning Reflection when the move is to reflect their point back.",
+        "Meaning reflection mirrors the meaning behind what someone else said. Use CARL to structure your own account; use Meaning reflection when the move is to reflect their point back.",
     },
     {
       id: "TC048",

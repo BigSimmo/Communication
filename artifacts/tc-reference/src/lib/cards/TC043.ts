@@ -481,7 +481,7 @@ export const TC043: CardData = {
   "chains": [
     {
       "label": "Structure then check",
-      "sequence": "OARS -> Summary Check (TC011)",
+      "sequence": "OARS -> Summary check (TC011)",
       "example": [
         "Move through the moves, then confirm you both heard the same thing.",
         "\"So the main point is the timeline slipping. Is that how you'd put it too?\""
@@ -489,7 +489,7 @@ export const TC043: CardData = {
     },
     {
       "label": "Structure then ask",
-      "sequence": "OARS -> Clean Request (TC013)",
+      "sequence": "OARS -> Clean request (TC013)",
       "example": [
         "Once the issue is clear, make the next ask specific.",
         "\"Given all that — could you send me the revised dates by Thursday?\""
@@ -497,7 +497,7 @@ export const TC043: CardData = {
     },
     {
       "label": "Structure then release",
-      "sequence": "OARS -> Autonomy Release (TC021)",
+      "sequence": "OARS -> Autonomy release (TC021)",
       "example": [
         "After summarising, hand the choice back.",
         "\"That's how it looks to me — but it's genuinely your call.\""
@@ -505,7 +505,7 @@ export const TC043: CardData = {
     },
     {
       "label": "Validate then structure",
-      "sequence": "Validate the Concern (TC014) -> OARS",
+      "sequence": "Validate the concern (TC014) -> OARS",
       "example": [
         "If emotion is high, acknowledge it first, then organise the thinking.",
         "\"That's a lot to carry. When you're ready — what matters most to sort out first?\""
@@ -515,23 +515,23 @@ export const TC043: CardData = {
   "relatedTechniques": [
     {
       "id": "TC004",
-      "reason": "Reflective Listening is the R in OARS on its own. Reach for OARS when you want the full open-affirm-reflect-summarise loop; use plain reflective listening when a single reflection is all the moment needs."
+      "reason": "Reflective listening is the R in OARS on its own. Reach for OARS when you want the full open-affirm-reflect-summarise loop; use plain reflective listening when a single reflection is all the moment needs."
     },
     {
       "id": "TC011",
-      "reason": "Summary Check is the S in OARS as a standalone move. Use OARS to work through the whole conversation; use a summary check when you only need to confirm you both heard the same thing."
+      "reason": "Summary check is the S in OARS as a standalone move. Use OARS to work through the whole conversation; use a summary check when you only need to confirm you both heard the same thing."
     },
     {
       "id": "TC006",
-      "reason": "Emotional Labelling names the feeling directly. Use OARS to organise thinking; label the emotion first when the feeling is the thing that needs naming before anything else."
+      "reason": "Emotional labelling names the feeling directly. Use OARS to organise thinking; label the emotion first when the feeling is the thing that needs naming before anything else."
     },
     {
       "id": "TC033",
-      "reason": "Minimal Encouragers are the lightest possible O — \"go on\", \"say more\". Use OARS when you are actively shaping the conversation; use minimal encouragers when you just need to keep them talking."
+      "reason": "Minimal encouragers are the lightest possible O — \"go on\", \"say more\". Use OARS when you are actively shaping the conversation; use minimal encouragers when you just need to keep them talking."
     },
     {
       "id": "TC046",
-      "reason": "Elicit-Provide-Elicit is for when you do need to give information. OARS keeps you in listening mode; EPE is the disciplined way to slot advice in without lecturing — ask, offer, then ask again."
+      "reason": "Elicit-provide-elicit is for when you do need to give information. OARS keeps you in listening mode; EPE is the disciplined way to slot advice in without lecturing — ask, offer, then ask again."
     }
   ]
 };

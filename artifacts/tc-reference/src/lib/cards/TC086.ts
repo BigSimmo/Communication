@@ -50,7 +50,7 @@ export const TC086: CardData = {
     "You are using the method to hide pressure, sales intent, or coercion",
     "You cannot find any honest point of agreement",
     "You are too activated to listen without contempt",
-    "The situation needs formal investigation, legal process, or medical judgment",
+    "The situation needs formal investigation, legal process, or medical judgement",
     "The other person has clearly withdrawn consent to keep talking",
   ],
   phraseBank: [
@@ -493,7 +493,7 @@ export const TC086: CardData = {
     },
     {
       label: "High emotion, information later",
-      sequence: "Emotional labelling -> LEAP -> Elicit-Provide-Elicit",
+      sequence: "Emotional labelling -> LEAP -> Elicit-provide-elicit",
       example: [
         "Use when feeling is high but facts may help once it settles.",
         "Name the emotion, run LEAP, then offer information only once they invite it.",
@@ -532,7 +532,7 @@ export const TC086: CardData = {
     {
       id: "TC046",
       reason:
-        "Elicit-Provide-Elicit shares information once someone is open to it. If they're still defensive, run LEAP first; if they're already asking for information, use EPE.",
+        "Elicit-provide-elicit shares information once someone is open to it. If they're still defensive, run LEAP first; if they're already asking for information, use EPE.",
     },
     {
       id: "TC085",

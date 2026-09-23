@@ -503,27 +503,27 @@ export const TC036: CardData = {
   "relatedTechniques": [
     {
       "id": "TC039",
-      "reason": "Both build common ground, but TC036 starts from the shared situation in front of you, while TC039 Common-Ground Discovery searches for shared identity, background or interests."
+      "reason": "Both build common ground, but TC036 starts from the shared situation in front of you, while TC039 Common-ground discovery searches for shared identity, background or interests."
     },
     {
       "id": "TC024",
-      "reason": "TC024 Warm Opening leads with warmth and ease; TC036 leads with the shared context of the moment. Use TC024 when the relationship, not the situation, is the natural bridge."
+      "reason": "TC024 Warm opening leads with warmth and ease; TC036 leads with the shared context of the moment. Use TC024 when the relationship, not the situation, is the natural bridge."
     },
     {
       "id": "TC003",
-      "reason": "TC003 Comment-Before-Question softens a single question with a preceding comment; TC036 opens a whole interaction by naming the shared situation first."
+      "reason": "TC003 Comment-before-question softens a single question with a preceding comment; TC036 opens a whole interaction by naming the shared situation first."
     },
     {
       "id": "TC038",
-      "reason": "TC036 gets the conversation started; once they respond with a live detail, switch to TC038 Conversation Threading to follow the thread they choose."
+      "reason": "TC036 gets the conversation started; once they respond with a live detail, switch to TC038 Conversation threading to follow the thread they choose."
     },
     {
       "id": "TC032",
-      "reason": "For re-entry, TC032 Name and Detail Memory supplies the remembered name or detail that makes a contextual opener land, such as \"Last time Friday was the pressure point.\""
+      "reason": "For re-entry, TC032 Name and detail memory supplies the remembered name or detail that makes a contextual opener land, such as \"Last time Friday was the pressure point.\""
     },
     {
       "id": "TC034",
-      "reason": "When an opener gets a short answer, TC034 Two-Option Questions offers an easy two-option follow-up to lower the effort of replying."
+      "reason": "When an opener gets a short answer, TC034 Two-option questions offers an easy two-option follow-up to lower the effort of replying."
     }
   ]
 };

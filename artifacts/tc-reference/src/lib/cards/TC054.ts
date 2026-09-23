@@ -507,32 +507,32 @@ export const TC054: CardData = {
     {
       id: "TC039",
       reason:
-        "Common-Ground Discovery is the searching move; Similarity signalling is the naming move. If you are still hunting for a shared concern, value, or constraint, use TC039. Once you already hear one real overlap and just need to name it lightly, use TC054.",
+        "Common-ground discovery is the searching move; Similarity signalling is the naming move. If you are still hunting for a shared concern, value, or constraint, use TC039. Once you already hear one real overlap and just need to name it lightly, use TC054.",
     },
     {
       id: "TC041",
       reason:
-        "Topic Energy Tracking follows the thread where their energy rises or drops. If the cue is energy, use TC041. If the cue is a genuine overlap, name it with TC054 - do not mistake enthusiasm for similarity.",
+        "Topic energy tracking follows the thread where their energy rises or drops. If the cue is energy, use TC041. If the cue is a genuine overlap, name it with TC054 - do not mistake enthusiasm for similarity.",
     },
     {
       id: "TC010",
       reason:
-        "Warm Presence offers steady attention without adding content. When words would crowd them, use TC010. Reach for TC054 only when a brief verbal overlap would actually reduce distance.",
+        "Warm presence offers steady attention without adding content. When words would crowd them, use TC010. Reach for TC054 only when a brief verbal overlap would actually reduce distance.",
     },
     {
       id: "TC024",
       reason:
-        "Warm Opening begins an interaction with brief, genuine warmth. In the first five to fifteen seconds, open with TC024; use TC054 when a similarity surfaces after the conversation is under way, so it is not an opening gimmick.",
+        "Warm opening begins an interaction with brief, genuine warmth. In the first five to fifteen seconds, open with TC024; use TC054 when a similarity surfaces after the conversation is under way, so it is not an opening gimmick.",
     },
     {
       id: "TC022",
       reason:
-        "Status Generosity bridges through respect - 'you have judgement, effort, or standing here.' Similarity signalling bridges through affiliation - 'we share this point.' If the point is their contribution, use TC022; if it is an overlap, use TC054.",
+        "Status generosity bridges through respect - 'you have judgement, effort, or standing here.' Similarity signalling bridges through affiliation - 'we share this point.' If the point is their contribution, use TC022; if it is an overlap, use TC054.",
     },
     {
       id: "TC018",
       reason:
-        "Specific Appreciation names a behaviour, effort, or quality worth valuing. If the line starts 'I appreciated...', that is TC018. If it starts 'I recognise...' or 'I share...', that is TC054.",
+        "Specific appreciation names a behaviour, effort, or quality worth valuing. If the line starts 'I appreciated...', that is TC018. If it starts 'I recognise...' or 'I share...', that is TC054.",
     },
   ],
 };

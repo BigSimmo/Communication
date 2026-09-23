@@ -150,7 +150,6 @@ export const TC081: CardData = {
       tone: "Repair",
       phrases: [
         "I made that sound broader than I meant. I'm talking about one moment, not your character.",
-        "That's how I saw the impact. What am I missing?",
         "I don't want to push this if now is the wrong moment — we can pause and come back to it.",
         "You may have context I don't. I'd like to hear that before we settle the next step.",
         "Let me narrow that to the behaviour rather than a judgement about you.",
@@ -286,7 +285,7 @@ export const TC081: CardData = {
     {
       day: "Day 6",
       title: "Choose the right tool",
-      task: "For five situations (someone distressed, a twice-missed field, unsure if advice is welcome, expressing a need without blame, plain behaviour feedback), decide whether COIN, NURSE, Ask-Tell-Ask, NVC or validation fits, and why.",
+      task: "For five situations (someone distressed, a twice-missed field, unsure if advice is welcome, expressing a need without blame, plain behaviour feedback), decide whether COIN, NURSE, Ask-tell-ask, NVC or validation fits, and why.",
     },
     {
       day: "Day 7",
@@ -530,7 +529,7 @@ export const TC081: CardData = {
     {
       id: "TC045",
       reason:
-        "Ask-Tell-Ask secures consent and checks understanding around the feedback. If permission is uncertain, open with Ask-Tell-Ask, then deliver the COIN note.",
+        "Ask-tell-ask secures consent and checks understanding around the feedback. If permission is uncertain, open with Ask-tell-ask, then deliver the COIN note.",
     },
     {
       id: "TC014",

@@ -689,7 +689,7 @@ export default function CardDetail() {
           }}
         >
           <ChevronLeft className="w-4 h-4" />
-          Back to library
+          Back to Library
         </button>
       </div>
     );
@@ -733,7 +733,7 @@ export default function CardDetail() {
           }}
         >
           <ChevronLeft className="w-4 h-4" />
-          Back to library
+          Back to Library
         </button>
       </div>
     );

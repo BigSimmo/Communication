@@ -544,19 +544,19 @@ export const TC006: CardData = {
   "relatedTechniques": [
     {
       "id": "TC004",
-      "reason": "Reflective Listening reflects the content or meaning back accurately. Reach for it instead when the person mainly needs to feel heard and clarified, not to have a feeling named."
+      "reason": "Reflective listening reflects the content or meaning back accurately. Reach for it instead when the person mainly needs to feel heard and clarified, not to have a feeling named."
     },
     {
       "id": "TC033",
-      "reason": "Minimal Encouragers are small continuers - a nod, 'go on', 'mm'. Use them instead when the person just needs space to keep talking, not a label placed on the feeling."
+      "reason": "Minimal encouragers are small continuers - a nod, 'go on', 'mm'. Use them instead when the person just needs space to keep talking, not a label placed on the feeling."
     },
     {
       "id": "TC037",
-      "reason": "Double-Sided Reflection holds both sides of an inner conflict fairly. Use it instead when they are genuinely torn between two competing wants or values."
+      "reason": "Double-sided reflection holds both sides of an inner conflict fairly. Use it instead when they are genuinely torn between two competing wants or values."
     },
     {
       "id": "TC040",
-      "reason": "Meaning Reflection names what the event means for identity, trust, autonomy or belonging. Use it instead when the facts keep repeating because the significance, not the emotion, has gone unheard."
+      "reason": "Meaning reflection names what the event means for identity, trust, autonomy or belonging. Use it instead when the facts keep repeating because the significance, not the emotion, has gone unheard."
     },
     {
       "id": "TC058",

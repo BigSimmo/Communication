@@ -541,19 +541,19 @@ export const TC027: CardData = {
   "relatedTechniques": [
     {
       "id": "TC015",
-      "reason": "Premature Advice Restraint is the holding-back move. Reach for TC027 when you do have something useful and want to offer it well; reach for TC015 when the right move is not to advise yet at all."
+      "reason": "Premature advice restraint is the holding-back move. Reach for TC027 when you do have something useful and want to offer it well; reach for TC015 when the right move is not to advise yet at all."
     },
     {
       "id": "TC021",
-      "reason": "Autonomy Release is the 'it's your call' hand-back. It's the closing beat of TC027; use TC021 on its own whenever a decision simply needs to be visibly left with the other person."
+      "reason": "Autonomy release is the 'it's your call' hand-back. It's the closing beat of TC027; use TC021 on its own whenever a decision simply needs to be visibly left with the other person."
     },
     {
       "id": "TC034",
-      "reason": "Two-Option Questions offer a choice between two clear options. TC027 often uses one to check mode ('listen, or suggest?'); use TC034 wherever a clean binary makes any question easier to answer."
+      "reason": "Two-option questions offer a choice between two clear options. TC027 often uses one to check mode ('listen, or suggest?'); use TC034 wherever a clean binary makes any question easier to answer."
     },
     {
       "id": "TC020",
-      "reason": "Low-Friction Ask shapes a request so it's easy to say yes to. TC027 asks permission to give advice; TC020 lowers the cost of an ask you are making of them."
+      "reason": "Low-friction ask shapes a request so it's easy to say yes to. TC027 asks permission to give advice; TC020 lowers the cost of an ask you are making of them."
     }
   ]
 };

@@ -12,7 +12,7 @@ export const TC045: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC045/TC045_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC045",
-  "whyItWorks": "Ask-Tell-Ask is a three-part information-sharing move: ask for the person's starting point, tell them the key information concisely, then ask what they make of it. It works because you learn what they already know before you speak, so your telling lands on the real gap rather than over their head or beneath them - and the closing ask turns a monologue into shared understanding instead of a broadcast.",
+  "whyItWorks": "Ask-tell-ask is a three-part information-sharing move: ask for the person's starting point, tell them the key information concisely, then ask what they make of it. It works because you learn what they already know before you speak, so your telling lands on the real gap rather than over their head or beneath them - and the closing ask turns a monologue into shared understanding instead of a broadcast.",
   "whatItIsNot": [
     "It is not a script to recite mechanically - naming the framework out loud usually breaks it.",
     "It is not a way to avoid listening or to compress emotion into a template.",
@@ -171,8 +171,8 @@ export const TC045: CardData = {
   ],
   "ladder": [
     {
-      "weak": "Using Ask-Tell-Ask as a visible script, naming each step and sounding rehearsed.",
-      "better": "Using Ask-Tell-Ask silently to organise a concise response.",
+      "weak": "Using Ask-tell-ask as a visible script, naming each step and sounding rehearsed.",
+      "better": "Using Ask-tell-ask silently to organise a concise response.",
       "best": "Using it flexibly, then checking whether the listener is clearer, more heard, or better able to respond."
     },
     {
@@ -275,7 +275,7 @@ export const TC045: CardData = {
     }
   ],
   "checklist": [
-    "Did I use Ask-Tell-Ask to serve the listener, or to sound polished?",
+    "Did I use Ask-tell-ask to serve the listener, or to sound polished?",
     "Did I find out what they already knew before I told them?",
     "Was the core point clear and short?",
     "Did the final ask actually invite a response?",
@@ -330,7 +330,7 @@ export const TC045: CardData = {
   },
   "fieldTip": {
     "headline": "Scaffolding, not the conversation.",
-    "body": "Use Ask-Tell-Ask to organise your thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. If they can tell you're running a framework, you've made the structure louder than the point.",
+    "body": "Use Ask-tell-ask to organise your thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. If they can tell you're running a framework, you've made the structure louder than the point.",
     "example": "\"What's your sense of this so far? Here's the key point. How does that land?\"",
     "dont": "\"I'm going to ask you something, then tell you, then ask again.\"",
     "do": "Ask, say the one thing that matters, and genuinely ask what they make of it."
@@ -339,7 +339,7 @@ export const TC045: CardData = {
     {
       "step": "1",
       "title": "Decide it fits, silently",
-      "body": "Choose Ask-Tell-Ask only when it serves the moment - someone needs information, feedback or an explanation. Then use it silently. Naming the framework out loud is the fastest way to make it sound rehearsed.",
+      "body": "Choose Ask-tell-ask only when it serves the moment - someone needs information, feedback or an explanation. Then use it silently. Naming the framework out loud is the fastest way to make it sound rehearsed.",
       "examples": [
         { "label": "Don't", "text": "\"I'm going to ask, then tell, then ask.\"" },
         { "label": "Do", "text": "Just start with a genuine question." }
@@ -451,7 +451,7 @@ export const TC045: CardData = {
   "chains": [
     {
       "label": "Clarity chain",
-      "sequence": "Ask-Tell-Ask -> Summary Check",
+      "sequence": "Ask-tell-ask -> Summary check",
       "example": [
         "\"So before I explain - what's your read?\"",
         "\"Here's the key point.\"",
@@ -461,7 +461,7 @@ export const TC045: CardData = {
     },
     {
       "label": "Request chain",
-      "sequence": "Ask-Tell-Ask -> Clean Request",
+      "sequence": "Ask-tell-ask -> Clean request",
       "example": [
         "\"What's your sense of the blocker?\"",
         "\"The main issue is the sign-off is running late.\"",
@@ -471,7 +471,7 @@ export const TC045: CardData = {
     },
     {
       "label": "Autonomy chain",
-      "sequence": "Ask-Tell-Ask -> Autonomy Release",
+      "sequence": "Ask-tell-ask -> Autonomy release",
       "example": [
         "\"Where are you leaning already?\"",
         "\"Here's what I'd weigh up.\"",
@@ -481,7 +481,7 @@ export const TC045: CardData = {
     },
     {
       "label": "Emotion-first chain",
-      "sequence": "Validate -> Ask-Tell-Ask",
+      "sequence": "Validate -> Ask-tell-ask",
       "example": [
         "\"That sounds like a hard week.\"",
         "\"When you're ready - what's your sense of where things stand?\"",
@@ -493,27 +493,27 @@ export const TC045: CardData = {
   "relatedTechniques": [
     {
       "id": "TC046",
-      "reason": "Elicit-Provide-Elicit is the motivational-interviewing sibling. Use Ask-Tell-Ask for teaching and explaining; use Elicit-Provide-Elicit when the goal is drawing out the person's own motivation to change."
+      "reason": "Elicit-provide-elicit is the motivational-interviewing sibling. Use Ask-tell-ask for teaching and explaining; use Elicit-provide-elicit when the goal is drawing out the person's own motivation to change."
     },
     {
       "id": "TC027",
-      "reason": "Permission-Based Advice: use Ask-Tell-Ask when the structure of the information is the main need; use Permission-Based Advice when you should ask leave before giving advice at all."
+      "reason": "Permission-based advice: use Ask-tell-ask when the structure of the information is the main need; use Permission-based advice when you should ask leave before giving advice at all."
     },
     {
       "id": "TC013",
-      "reason": "Clean Request: use Ask-Tell-Ask to build shared understanding; use Clean Request when what's needed is a single clear ask, not an explanation."
+      "reason": "Clean request: use Ask-tell-ask to build shared understanding; use Clean request when what's needed is a single clear ask, not an explanation."
     },
     {
       "id": "TC043",
-      "reason": "OARS is the broader listening toolkit. Use Ask-Tell-Ask for a specific piece of information; use OARS to keep a whole conversation open."
+      "reason": "OARS is the broader listening toolkit. Use Ask-tell-ask for a specific piece of information; use OARS to keep a whole conversation open."
     },
     {
       "id": "TC044",
-      "reason": "BLUF: use it when the listener needs the bottom line first with no back-and-forth; use Ask-Tell-Ask when you want to check their starting point and their reaction."
+      "reason": "BLUF: use it when the listener needs the bottom line first with no back-and-forth; use Ask-tell-ask when you want to check their starting point and their reaction."
     },
     {
       "id": "TC011",
-      "reason": "Summary Check is a natural partner for the closing Ask: after they respond, confirm you both heard the same thing."
+      "reason": "Summary check is a natural partner for the closing Ask: after they respond, confirm you both heard the same thing."
     }
   ]
 };

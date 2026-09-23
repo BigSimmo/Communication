@@ -55,9 +55,10 @@ scripts/
 
 - 98 technique cards with detail screens
 - Card discovery by category, impact, and difficulty filters
-- Phrase browser (grouped by tone, searchable)
+- Phrase Bank (4,000+ phrases, grouped by tone, searchable)
 - Daily drill flow with streak tracking
 - Favourites and quick phrase lookup overlays
+- Playbooks: user-built chains of techniques, stored locally
 - Global command/search modal and mobile-first navigation patterns
 
 ## Pointers

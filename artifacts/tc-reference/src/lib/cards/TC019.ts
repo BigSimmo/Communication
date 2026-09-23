@@ -12,7 +12,7 @@ export const TC019: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC019/TC019_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC019",
-  "whyItWorks": "Small Ask is one deliberate move: reduce a request to a small, concrete next action that is easy to understand and reasonable to answer. Instead of handing someone a whole problem, you name the single smallest useful step and make the boundary of the ask honest. It works because a small, clear, bounded action is a cheap yes — the other person does not have to guess what you want, weigh a large commitment, or negotiate scope before anything can happen. A clean small yes also builds the trust that makes the next ask easier.",
+  "whyItWorks": "Small ask is one deliberate move: reduce a request to a small, concrete next action that is easy to understand and reasonable to answer. Instead of handing someone a whole problem, you name the single smallest useful step and make the boundary of the ask honest. It works because a small, clear, bounded action is a cheap yes — the other person does not have to guess what you want, weigh a large commitment, or negotiate scope before anything can happen. A clean small yes also builds the trust that makes the next ask easier.",
   "whatItIsNot": [
     "It is not hiding a large commitment inside a tiny request, or bait-and-switching so a small yes quietly becomes a large one.",
     "It is not pretending something is small when it is not.",
@@ -472,7 +472,7 @@ export const TC019: CardData = {
   "chains": [
     {
       "label": "Attention → ask → check",
-      "sequence": "TC012 Full-Attention Signal → TC019 Small Ask → TC011 Summary Check",
+      "sequence": "TC012 Full-attention signal → TC019 Small ask → TC011 Summary check",
       "example": [
         "\"I'm with you on this.\"",
         "\"Could you decide just the next step today?\"",
@@ -481,7 +481,7 @@ export const TC019: CardData = {
     },
     {
       "label": "Listen → ask → advise",
-      "sequence": "TC004 Reflective Listening → TC019 Small Ask → TC027 Permission-Based Advice",
+      "sequence": "TC004 Reflective listening → TC019 Small ask → TC027 Permission-based advice",
       "example": [
         "\"So the whole thing feels overwhelming right now.\"",
         "\"Could we just pick the one part to start with?\"",
@@ -490,7 +490,7 @@ export const TC019: CardData = {
     },
     {
       "label": "Ask → release pressure",
-      "sequence": "TC019 Small Ask → TC021 Autonomy Release",
+      "sequence": "TC019 Small ask → TC021 Autonomy release",
       "example": [
         "\"Could you look at just the first paragraph?\"",
         "\"But genuinely, no pressure — it's entirely your call.\""
@@ -498,7 +498,7 @@ export const TC019: CardData = {
     },
     {
       "label": "Clarify → shrink",
-      "sequence": "TC013 Clean Request → TC019 Small Ask",
+      "sequence": "TC013 Clean request → TC019 Small ask",
       "example": [
         "\"Here's exactly what I need.\"",
         "\"And if that's a lot, even just the first step would help.\""
@@ -508,15 +508,15 @@ export const TC019: CardData = {
   "relatedTechniques": [
     {
       "id": "TC013",
-      "reason": "Clean Request makes the ask clear. Reach for TC019 when the main problem is the size of the ask, not its clarity."
+      "reason": "Clean request makes the ask clear. Reach for TC019 when the main problem is the size of the ask, not its clarity."
     },
     {
       "id": "TC020",
-      "reason": "Low-Friction Ask makes the ask easier to accept. Use TC019 to reduce scope; use TC020 to reduce effort or social cost."
+      "reason": "Low-friction ask makes the ask easier to accept. Use TC019 to reduce scope; use TC020 to reduce effort or social cost."
     },
     {
       "id": "TC034",
-      "reason": "Two-Option Questions offer two paths. Use TC019 when the next step should be one small action, not a choice."
+      "reason": "Two-option questions offer two paths. Use TC019 when the next step should be one small action, not a choice."
     },
     {
       "id": "TC094",
@@ -528,7 +528,7 @@ export const TC019: CardData = {
     },
     {
       "id": "TC021",
-      "reason": "Autonomy Release hands the choice back. Pair it with TC019 when even a small ask risks feeling like pressure."
+      "reason": "Autonomy release hands the choice back. Pair it with TC019 when even a small ask risks feeling like pressure."
     }
   ]
 };

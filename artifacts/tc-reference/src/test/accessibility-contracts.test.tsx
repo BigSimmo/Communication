@@ -130,7 +130,7 @@ describe("core accessibility contracts", () => {
     ["/favourites", "Favourites"],
     ["/phrases", "Phrase Bank"],
     ["/playbooks", "Playbooks"],
-    ["/card/TC001", "Live Thread Follow-Ups"],
+    ["/card/TC001", "Live thread follow-ups"],
     ["/card/not-a-card", "Card not found"],
     ["/not-a-route", "Page not found"],
   ])("sets the route-aware document title for %s", (location, title) => {

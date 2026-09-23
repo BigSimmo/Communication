@@ -444,7 +444,7 @@ export const TC042: CardData = {
   "chains": [
     {
       "label": "Clarity check",
-      "sequence": "PREP -> Summary Check",
+      "sequence": "PREP -> Summary check",
       "example": [
         "Make the point cleanly.",
         "\"Just so we're aligned — what did you take from that?\"",
@@ -453,7 +453,7 @@ export const TC042: CardData = {
     },
     {
       "label": "Point into ask",
-      "sequence": "PREP -> Clean Request",
+      "sequence": "PREP -> Clean request",
       "example": [
         "\"I'd move the launch a week — testing's behind.\"",
         "\"So, concretely: can you push the announce date to the 14th?\"",
@@ -461,7 +461,7 @@ export const TC042: CardData = {
     },
     {
       "label": "Point then room",
-      "sequence": "PREP -> Autonomy Release",
+      "sequence": "PREP -> Autonomy release",
       "example": [
         "Make the point and give the reason.",
         "\"That's my read, but it's your call.\"",
@@ -509,7 +509,7 @@ export const TC042: CardData = {
     {
       "id": "TC013",
       "reason":
-        "Clean Request: use PREP when making and supporting a point is the need; use Clean Request when the moment really calls for a single specific ask.",
+        "Clean request: use PREP when making and supporting a point is the need; use Clean request when the moment really calls for a single specific ask.",
     },
   ],
 };

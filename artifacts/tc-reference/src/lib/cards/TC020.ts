@@ -476,7 +476,7 @@ export const TC020: CardData = {
   chains: [
     {
       label: "Understand, then ask",
-      sequence: "Full-Attention Signal → Low-Friction Ask → Summary Check",
+      sequence: "Full-attention signal → Low-friction ask → Summary check",
       example: [
         "Give them your full attention and let them finish.",
         "\"If it's easy, could you send the figures? If not, I'll pull them.\"",
@@ -485,7 +485,7 @@ export const TC020: CardData = {
     },
     {
       label: "Listen, then offer",
-      sequence: "Reflective Listening → Low-Friction Ask → Permission-Based Advice",
+      sequence: "Reflective listening → Low-friction ask → Permission-based advice",
       example: [
         "\"Sounds like the timing is the tricky part.\"",
         "\"Want me to take a first pass? Only if that's genuinely helpful.\"",
@@ -494,7 +494,7 @@ export const TC020: CardData = {
     },
     {
       label: "Release the pressure",
-      sequence: "Low-Friction Ask → Autonomy Release",
+      sequence: "Low-friction ask → Autonomy release",
       example: [
         "\"If you've got a spare ten minutes this week, could you look it over?\"",
         "\"Honestly, no obligation — a no won't cause me any problem.\"",
@@ -505,32 +505,32 @@ export const TC020: CardData = {
     {
       id: "TC019",
       reason:
-        "Small Ask reduces the scope of the request. Use Low-Friction Ask when the ask is already small but still needs to be easy to answer.",
+        "Small ask reduces the scope of the request. Use Low-friction ask when the ask is already small but still needs to be easy to answer.",
     },
     {
       id: "TC013",
       reason:
-        "Clean Request clarifies the action. Use Low-Friction Ask when clarity is already there and friction is the real barrier.",
+        "Clean request clarifies the action. Use Low-friction ask when clarity is already there and friction is the real barrier.",
     },
     {
       id: "TC021",
       reason:
-        "Autonomy Release explicitly releases pressure. Pair it with Low-Friction Ask when power, guilt or obligation may be present.",
+        "Autonomy release explicitly releases pressure. Pair it with Low-friction ask when power, guilt or obligation may be present.",
     },
     {
       id: "TC094",
       reason:
-        "Bounded Request puts firm limits on time or scope. Use Low-Friction Ask when the point is easing effort, not fencing the boundaries.",
+        "Bounded Request puts firm limits on time or scope. Use Low-friction ask when the point is easing effort, not fencing the boundaries.",
     },
     {
       id: "TC072",
       reason:
-        "Low-Pressure Invitation opens a door without expecting a yes. Use Low-Friction Ask when you do want a specific action, just made cheap to give.",
+        "Low-Pressure Invitation opens a door without expecting a yes. Use Low-friction ask when you do want a specific action, just made cheap to give.",
     },
     {
       id: "TC088",
       reason:
-        "One-Screen Message keeps a written request short enough to answer at a glance. Use Low-Friction Ask when the friction is the cost of replying, not the length.",
+        "One-Screen Message keeps a written request short enough to answer at a glance. Use Low-friction ask when the friction is the cost of replying, not the length.",
     },
   ],
 };

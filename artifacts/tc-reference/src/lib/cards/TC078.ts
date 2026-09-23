@@ -477,7 +477,7 @@ export const TC078: CardData = {
     {
       "id": "TC001",
       "reason":
-        "Live Thread Follow-Ups catch the thread that is alive right now; the callback bridge returns to one that was missed earlier. If the cue is current, follow live; if it is earlier, bridge back.",
+        "Live thread follow-ups catch the thread that is alive right now; the callback bridge returns to one that was missed earlier. If the cue is current, follow live; if it is earlier, bridge back.",
     },
     {
       "id": "TC065",
@@ -497,12 +497,12 @@ export const TC078: CardData = {
     {
       "id": "TC025",
       "reason":
-        "Exact Word Pickup reuses the person's precise word as the doorway; the callback bridge returns because of timing and meaning, even if you paraphrase. Wording as the cue means pickup; the return itself as the cue means bridge.",
+        "Exact word pickup reuses the person's precise word as the doorway; the callback bridge returns because of timing and meaning, even if you paraphrase. Wording as the cue means pickup; the return itself as the cue means bridge.",
     },
     {
       "id": "TC041",
       "reason":
-        "Topic Energy Tracking is still testing where energy rises or drops; the callback bridge is used once you already know an earlier point mattered enough to revisit.",
+        "Topic energy tracking is still testing where energy rises or drops; the callback bridge is used once you already know an earlier point mattered enough to revisit.",
     },
   ],
 };

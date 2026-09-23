@@ -13,7 +13,7 @@ export const TC038: CardData = {
   ],
   "id": "TC038",
   "whyItWorks":
-    "Conversation Threading is the practice of noticing a thread someone opened earlier — a topic, a feeling, or an unfinished point — and reopening it cleanly, without derailing the conversation you are currently in. It works because it changes the interaction at the level of timing, attention and response choice rather than adding a complicated script: the other person feels genuinely heard, the exchange stays on the thread that actually matters, and nothing important gets quietly dropped.",
+    "Conversation threading is the practice of noticing a thread someone opened earlier — a topic, a feeling, or an unfinished point — and reopening it cleanly, without derailing the conversation you are currently in. It works because it changes the interaction at the level of timing, attention and response choice rather than adding a complicated script: the other person feels genuinely heard, the exchange stays on the thread that actually matters, and nothing important gets quietly dropped.",
   "whatItIsNot": [
     "It is not a trick, a performance, a dominance move, or a shortcut around consent.",
     "It is not a way to extract more than the other person wants to give.",
@@ -165,7 +165,7 @@ export const TC038: CardData = {
     },
     {
       "condition": "They ask for advice",
-      "action": "Switch to Permission-Based Advice (TC027).",
+      "action": "Switch to Permission-based advice (TC027).",
       "phrase": "Want my take, or just a sounding board?"
     },
     {
@@ -444,7 +444,7 @@ export const TC038: CardData = {
   "chains": [
     {
       "label": "Notice, thread, confirm",
-      "sequence": "Live-Thread Follow-Ups (TC001) → Conversation Threading (TC038) → Summary Check (TC011)",
+      "sequence": "Live-Thread Follow-Ups (TC001) → Conversation threading (TC038) → Summary check (TC011)",
       "example": [
         "They mention several things; you follow the live one in the moment (TC001).",
         "Later you reopen the thread that still matters (TC038).",
@@ -453,7 +453,7 @@ export const TC038: CardData = {
     },
     {
       "label": "Energy, thread, deepen",
-      "sequence": "Topic Energy Tracking (TC041) → Conversation Threading (TC038) → Echo Plus Question (TC030)",
+      "sequence": "Topic energy tracking (TC041) → Conversation threading (TC038) → Echo plus question (TC030)",
       "example": [
         "You notice which topic has the most energy (TC041).",
         "You return to it deliberately once the moment is right (TC038).",
@@ -462,7 +462,7 @@ export const TC038: CardData = {
     },
     {
       "label": "Their word, thread, meaning",
-      "sequence": "Exact-Word Pickup (TC025) → Conversation Threading (TC038) → Meaning Reflection (TC040)",
+      "sequence": "Exact-Word Pickup (TC025) → Conversation threading (TC038) → Meaning reflection (TC040)",
       "example": [
         "You pick up the exact word they loaded with feeling (TC025).",
         "You reopen that thread when it will not add pressure (TC038).",
@@ -473,27 +473,27 @@ export const TC038: CardData = {
   "relatedTechniques": [
     {
       "id": "TC001",
-      "reason": "Live-Thread Follow-Ups follow the immediate, current thread; Conversation Threading reopens or organises threads across time."
+      "reason": "Live-Thread Follow-Ups follow the immediate, current thread; Conversation threading reopens or organises threads across time."
     },
     {
       "id": "TC041",
-      "reason": "Topic Energy Tracking notices which thread has energy; Conversation Threading chooses and reopens a thread deliberately."
+      "reason": "Topic energy tracking notices which thread has energy; Conversation threading chooses and reopens a thread deliberately."
     },
     {
       "id": "TC030",
-      "reason": "Echo Plus Question deepens the current phrase; Conversation Threading returns to a prior topic."
+      "reason": "Echo plus question deepens the current phrase; Conversation threading returns to a prior topic."
     },
     {
       "id": "TC011",
-      "reason": "Summary Check confirms understanding; Conversation Threading manages which topic line to continue."
+      "reason": "Summary check confirms understanding; Conversation threading manages which topic line to continue."
     },
     {
       "id": "TC025",
-      "reason": "Exact-Word Pickup reuses their precise word in the moment; Conversation Threading returns to the topic that word belonged to."
+      "reason": "Exact-Word Pickup reuses their precise word in the moment; Conversation threading returns to the topic that word belonged to."
     },
     {
       "id": "TC040",
-      "reason": "Meaning Reflection names what something meant; Conversation Threading is how you get back to the thread worth reflecting on."
+      "reason": "Meaning reflection names what something meant; Conversation threading is how you get back to the thread worth reflecting on."
     }
   ]
 };

@@ -442,7 +442,7 @@ export const TC098: CardData = {
       "sequence": "TC006 -> TC098 -> TC005",
       "example": [
         "When they are upset and some of the story is wrong.",
-        "Name the emotion (Emotional Labelling), put emotion before facts, then validate without agreeing to the false detail.",
+        "Name the emotion (Emotional labelling), put emotion before facts, then validate without agreeing to the false detail.",
         "\"That sounds humiliating. That makes sense - and I do not have to sign off on every detail to take the feeling seriously.\""
       ]
     },
@@ -477,19 +477,19 @@ export const TC098: CardData = {
   "relatedTechniques": [
     {
       "id": "TC006",
-      "reason": "Emotional Labelling names the feeling accurately; TC098 decides the sequence - emotion first, then facts. Ask: am I naming the feeling, or choosing what comes before the correction?"
+      "reason": "Emotional labelling names the feeling accurately; TC098 decides the sequence - emotion first, then facts. Ask: am I naming the feeling, or choosing what comes before the correction?"
     },
     {
       "id": "TC005",
-      "reason": "Both separate feeling from accuracy. Use TC005 (Validation Without Agreement) when the risk is sounding like you endorse a claim; use TC098 when the risk is that facts arrive too early and sound dismissive."
+      "reason": "Both separate feeling from accuracy. Use TC005 (Validation without agreement) when the risk is sounding like you endorse a claim; use TC098 when the risk is that facts arrive too early and sound dismissive."
     },
     {
       "id": "TC004",
-      "reason": "TC098 is the gate that stops you leading with details; TC004 (Reflective Listening) is the fuller pattern of mirroring content and feeling once you are through the gate."
+      "reason": "TC098 is the gate that stops you leading with details; TC004 (Reflective listening) is the fuller pattern of mirroring content and feeling once you are through the gate."
     },
     {
       "id": "TC040",
-      "reason": "Use TC040 (Meaning Reflection) for \"what did this mean to you?\"; use TC098 for \"what should come before the facts?\" TC098 handles impact; TC040 handles significance."
+      "reason": "Use TC040 (Meaning reflection) for \"what did this mean to you?\"; use TC098 for \"what should come before the facts?\" TC098 handles impact; TC040 handles significance."
     },
     {
       "id": "TC053",

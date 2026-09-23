@@ -69,7 +69,7 @@ describe("lazy card consumer transitions", () => {
 
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
-      "Live Thread Follow-Ups",
+      "Live thread follow-ups",
     );
   });
 

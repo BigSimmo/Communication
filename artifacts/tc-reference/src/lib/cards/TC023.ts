@@ -497,27 +497,27 @@ export const TC023: CardData = {
   "relatedTechniques": [
     {
       "id": "TC001",
-      "reason": "Live Thread Follow-Ups follows the most alive part of the whole utterance, not one word. Use it when continuity matters more than a single charged word."
+      "reason": "Live thread follow-ups follows the most alive part of the whole utterance, not one word. Use it when continuity matters more than a single charged word."
     },
     {
       "id": "TC025",
-      "reason": "Exact Word Pickup reuses the person's precise word to show you caught it. Use it when their specific wording matters more than your paraphrase."
+      "reason": "Exact word pickup reuses the person's precise word to show you caught it. Use it when their specific wording matters more than your paraphrase."
     },
     {
       "id": "TC026",
-      "reason": "Tactical Mirroring repeats one to three key words and pauses. Use it when you want more detail with the least possible steering."
+      "reason": "Tactical mirroring repeats one to three key words and pauses. Use it when you want more detail with the least possible steering."
     },
     {
       "id": "TC030",
-      "reason": "Echo Plus Question echoes a key phrase and adds one clean forward question. Use it when you need both acknowledgement and movement."
+      "reason": "Echo plus question echoes a key phrase and adds one clean forward question. Use it when you need both acknowledgement and movement."
     },
     {
       "id": "TC038",
-      "reason": "Conversation Threading tracks and returns to the important thread across turns. Use it when the conversation has several branches to manage."
+      "reason": "Conversation threading tracks and returns to the important thread across turns. Use it when the conversation has several branches to manage."
     },
     {
       "id": "TC040",
-      "reason": "Meaning Reflection mirrors back the meaning beneath the words rather than asking about one word. Use it when you already grasp what they mean and want to confirm it."
+      "reason": "Meaning reflection mirrors back the meaning beneath the words rather than asking about one word. Use it when you already grasp what they mean and want to confirm it."
     }
   ]
 };

@@ -12,7 +12,7 @@ export const TC039: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC039/TC039_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC039",
-  "whyItWorks": "Common-Ground Discovery means finding one real shared point — a concern, value, experience, goal or constraint — and naming it lightly, without pretending sameness or forcing agreement. It works because it changes the conversation at the level of timing, attention and response choice rather than adding a script: the other person feels genuinely heard, friction drops, and a stuck exchange gets one honest overlap to build from.",
+  "whyItWorks": "Common-ground discovery means finding one real shared point — a concern, value, experience, goal or constraint — and naming it lightly, without pretending sameness or forcing agreement. It works because it changes the conversation at the level of timing, attention and response choice rather than adding a script: the other person feels genuinely heard, friction drops, and a stuck exchange gets one honest overlap to build from.",
   "whatItIsNot": [
     "It is not a trick, a performance, a dominance move, or a shortcut around consent.",
     "It is not a way to extract more than the other person wants to give.",
@@ -161,7 +161,7 @@ export const TC039: CardData = {
     },
     {
       "condition": "They ask for advice",
-      "action": "Switch to Permission-Based Advice rather than pressing the overlap.",
+      "action": "Switch to Permission-based advice rather than pressing the overlap.",
       "phrase": "Want my take, or just a sounding board?"
     },
     {
@@ -463,7 +463,7 @@ export const TC039: CardData = {
   "chains": [
     {
       "label": "Repair to request",
-      "sequence": "TC005 Validation Without Agreement → TC039 Common-Ground Discovery → TC013 Clean Request",
+      "sequence": "TC005 Validation without agreement → TC039 Common-ground discovery → TC013 Clean request",
       "example": [
         "\"That's a fair worry, and I'm not going to pretend it isn't.\" (validate)",
         "\"We both want a process people can trust.\" (common ground)",
@@ -472,7 +472,7 @@ export const TC039: CardData = {
     },
     {
       "label": "Concern to ask",
-      "sequence": "TC014 Validate the Concern → TC039 Common-Ground Discovery → TC020 Low-Friction Ask",
+      "sequence": "TC014 Validate the concern → TC039 Common-ground discovery → TC020 Low-friction ask",
       "example": [
         "\"I get why the timing feels risky.\" (validate the concern)",
         "\"Neither of us wants a rushed launch.\" (common ground)",
@@ -481,7 +481,7 @@ export const TC039: CardData = {
     },
     {
       "label": "Status to summary",
-      "sequence": "TC022 Status Generosity → TC039 Common-Ground Discovery → TC011 Summary Check",
+      "sequence": "TC022 Status generosity → TC039 Common-ground discovery → TC011 Summary check",
       "example": [
         "\"You've carried most of this, and it shows.\" (status generosity)",
         "\"We both want it to land well.\" (common ground)",

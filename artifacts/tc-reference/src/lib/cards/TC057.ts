@@ -505,7 +505,7 @@ export const TC057: CardData = {
     },
     {
       "id": "TC022",
-      "reason": "Status generosity elevates the other person's judgment or effort. Use TC022 to give credit or respect; use TC057 to name mutual belonging or shared purpose."
+      "reason": "Status generosity elevates the other person's judgement or effort. Use TC022 to give credit or respect; use TC057 to name mutual belonging or shared purpose."
     },
     {
       "id": "TC018",

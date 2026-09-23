@@ -12,7 +12,7 @@ export const TC016: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC016/TC016_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC016",
-  "whyItWorks": "Active-Constructive Responding means meeting someone's good news with visible interest, a specific note of what is good about it, and one follow-up that helps them relive or expand the moment - treating good news as a thread to join, not a cue to change the subject. It works because how you respond to a person's wins shapes the relationship as much as how you respond to their setbacks. When you actively share their positive emotion, they feel seen, the good moment lasts longer, and the bond gets stronger. A flat \"nice\" or a quick pivot to your own story quietly tells them their news did not really matter to you.",
+  "whyItWorks": "Active-constructive responding means meeting someone's good news with visible interest, a specific note of what is good about it, and one follow-up that helps them relive or expand the moment - treating good news as a thread to join, not a cue to change the subject. It works because how you respond to a person's wins shapes the relationship as much as how you respond to their setbacks. When you actively share their positive emotion, they feel seen, the good moment lasts longer, and the bond gets stronger. A flat \"nice\" or a quick pivot to your own story quietly tells them their news did not really matter to you.",
   "whatItIsNot": [
     "It is not generic praise or a flat \"nice\" before moving on.",
     "It is not stealing the spotlight or turning their news into your own story.",
@@ -440,7 +440,7 @@ export const TC016: CardData = {
   "chains": [
     {
       "label": "Full celebration",
-      "sequence": "Full-Attention Signal -> Active-Constructive Responding -> Summary Check",
+      "sequence": "Full-attention signal -> Active-constructive responding -> Summary check",
       "example": [
         "Put your phone down and turn toward them.",
         "\"That's a real win - what was the best part of finding out?\"",
@@ -449,7 +449,7 @@ export const TC016: CardData = {
     },
     {
       "label": "Celebrate before advising",
-      "sequence": "Reflective Listening -> Active-Constructive Responding -> Permission-Based Advice",
+      "sequence": "Reflective listening -> Active-constructive responding -> Permission-based advice",
       "example": [
         "\"So you weren't sure it would come through, and now it has.\"",
         "\"That's brilliant - you earned that. What are you most pleased about?\"",
@@ -458,7 +458,7 @@ export const TC016: CardData = {
     },
     {
       "label": "Low-pressure celebration",
-      "sequence": "Active-Constructive Responding -> Autonomy Release",
+      "sequence": "Active-constructive responding -> Autonomy release",
       "example": [
         "\"That's genuinely good news - what made it land for you?\"",
         "\"No pressure to make a thing of it - I'm just really glad for you.\""
@@ -468,7 +468,7 @@ export const TC016: CardData = {
   "relatedTechniques": [
     {
       "id": "TC002",
-      "reason": "Support Response over Shift Response is the parent discipline: choosing to support rather than shift the focus to yourself. TC016 is the active, enthusiastic version aimed specifically at someone's good news."
+      "reason": "Support response over shift response is the parent discipline: choosing to support rather than shift the focus to yourself. TC016 is the active, enthusiastic version aimed specifically at someone's good news."
     },
     {
       "id": "TC096",
@@ -476,15 +476,15 @@ export const TC016: CardData = {
     },
     {
       "id": "TC018",
-      "reason": "Specific Appreciation names what is valued about a person or their behaviour. Use TC016 when you are responding to their good news in real time rather than praising a trait."
+      "reason": "Specific appreciation names what is valued about a person or their behaviour. Use TC016 when you are responding to their good news in real time rather than praising a trait."
     },
     {
       "id": "TC022",
-      "reason": "Status Generosity gives dignifying credit or status. Use TC016 when the person is sharing a win and needs active celebration rather than a boost to their standing."
+      "reason": "Status generosity gives dignifying credit or status. Use TC016 when the person is sharing a win and needs active celebration rather than a boost to their standing."
     },
     {
       "id": "TC007",
-      "reason": "No One-Upping Discipline prevents you stealing the spotlight with your own story. Use TC016 as the positive move that fills the space one-upping would have taken."
+      "reason": "No one-upping discipline prevents you stealing the spotlight with your own story. Use TC016 as the positive move that fills the space one-upping would have taken."
     }
   ]
 };

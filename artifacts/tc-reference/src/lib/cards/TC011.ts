@@ -13,7 +13,7 @@ export const TC011: CardData = {
   ],
   "id": "TC011",
   "whyItWorks":
-    "Summary Check is the deliberate move of briefly saying back what you heard and checking whether you have got it right. It works because people become more receptive once they feel understood: a short, accurate recap proves you were actually listening, surfaces misunderstandings before they poison the next step, and hands the other person the pen to correct you. That willingness to be corrected builds trust and lets any advice, request or disagreement land on what they genuinely care about rather than on what you assumed.",
+    "Summary check is the deliberate move of briefly saying back what you heard and checking whether you have got it right. It works because people become more receptive once they feel understood: a short, accurate recap proves you were actually listening, surfaces misunderstandings before they poison the next step, and hands the other person the pen to correct you. That willingness to be corrected builds trust and lets any advice, request or disagreement land on what they genuinely care about rather than on what you assumed.",
   "whatItIsNot": [
     "It is not a courtroom recap, a lecture, or a way to prove you were right all along.",
     "It is not \"So basically...\" followed by your own agenda.",
@@ -487,23 +487,23 @@ export const TC011: CardData = {
   "relatedTechniques": [
     {
       "id": "TC004",
-      "reason": "Reflective Listening mirrors the feeling in the moment; Summary Check pulls the whole thing together and asks you to confirm it. Reach for TC004 for ongoing warmth, TC011 just before you respond, decide or advise."
+      "reason": "Reflective listening mirrors the feeling in the moment; Summary check pulls the whole thing together and asks you to confirm it. Reach for TC004 for ongoing warmth, TC011 just before you respond, decide or advise."
     },
     {
       "id": "TC003",
-      "reason": "Comment-Before-Question softens a single question with a brief comment; Summary Check recaps the whole message and checks it. Use TC003 for one exchange, TC011 after a long or tangled share."
+      "reason": "Comment-before-question softens a single question with a brief comment; Summary check recaps the whole message and checks it. Use TC003 for one exchange, TC011 after a long or tangled share."
     },
     {
       "id": "TC038",
-      "reason": "Conversation Threading tracks and returns to open threads across a chat; Summary Check compresses what's been said into one checkable statement. Thread when there's more to explore, summarise when it's time to converge."
+      "reason": "Conversation threading tracks and returns to open threads across a chat; Summary check compresses what's been said into one checkable statement. Thread when there's more to explore, summarise when it's time to converge."
     },
     {
       "id": "TC030",
-      "reason": "Echo Plus Question echoes a word or phrase then asks; Summary Check restates the meaning of the whole and invites correction. Echo to keep them talking, summarise to make sure you've actually got it."
+      "reason": "Echo plus question echoes a word or phrase then asks; Summary check restates the meaning of the whole and invites correction. Echo to keep them talking, summarise to make sure you've actually got it."
     },
     {
       "id": "TC037",
-      "reason": "Double-Sided Reflection names both sides of a tension they're feeling; Summary Check confirms your overall read is right. Use TC037 for ambivalence, TC011 to check before acting."
+      "reason": "Double-sided reflection names both sides of a tension they're feeling; Summary check confirms your overall read is right. Use TC037 for ambivalence, TC011 to check before acting."
     }
   ]
 };

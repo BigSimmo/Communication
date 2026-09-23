@@ -8,13 +8,15 @@ A mobile-first reference app for 98 communication techniques, built in a workspa
 
 - 98 technique cards (voice/presence, influence/framing, clarity/direction, connection/warmth, resilience/recovery)
 - Library with category chips, impact/difficulty filters, and sort controls
-- Phrases browser (hundreds of phrases, grouped by tone and full-text searchable)
-- Daily drill with streak tracking
+- Phrase Bank (4,000+ phrases, filterable by tone and full-text searchable)
+- Daily drill with streak tracking and spaced-repetition review
+- Playbooks: chain techniques into your own step-by-step guides
 - Favourites for cards and phrases via localStorage persistence
-- Quick lookup overlay for fast phrase recall
+- Quick Lookup overlay for fast in-conversation phrase recall
 - Keyboard-accessible global search (`Cmd+K` / `Ctrl+K`)
 - Light/dark theme persistence
-- Mobile-first navigation with floating action patterns
+- Mobile-first navigation with a floating menu button, 44px touch targets and safe-area (notch) support
+- Installable PWA that works offline
 
 ---
 
@@ -130,7 +132,7 @@ pnpm --filter @workspace/scripts run generate:card-downloads
 | `/phrases`      | Phrase browser                           |
 | `/drill`        | Daily drill screen                       |
 | `/favourites`   | Saved cards and phrases                  |
-| `/playbooks`    | Curated communication playbooks          |
+| `/playbooks`    | Your saved technique playbooks           |
 
 ---
 
@@ -138,8 +140,8 @@ pnpm --filter @workspace/scripts run generate:card-downloads
 
 TC Reference is a mostly static SPA:
 
-- Core card, phrase, drill, and playbook data lives in `artifacts/tc-reference/src/lib`
-- App state uses `localStorage` (favourites, drill progress, theme)
+- Core card, phrase and drill data lives in `artifacts/tc-reference/src/lib`
+- User state uses `localStorage` (favourites, drill progress, playbooks under `tc_playbooks`, theme)
 - No backend credentials are required for normal development
 
 The `api-server` package is available for backend-backed use-cases and uses:

@@ -12,7 +12,7 @@ export const TC030: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC030/TC030_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC030",
-  "whyItWorks": "Echo Plus Question is a conversation-flow move: you repeat a distinctive word or short phrase the other person just used, then attach one small, natural question that helps them expand it. A pure mirror only repeats and pauses; Echo Plus Question repeats the useful phrase and gives the conversation a gentle direction - it quietly says, \"I heard that bit; help me understand it.\" It works because your curiosity is tied to their actual words rather than a generic script, which makes people feel precisely heard, lowers the effort of deciding what to say next, and keeps the thread coherent - attention shown without stealing the spotlight.",
+  "whyItWorks": "Echo plus question is a conversation-flow move: you repeat a distinctive word or short phrase the other person just used, then attach one small, natural question that helps them expand it. A pure mirror only repeats and pauses; Echo plus question repeats the useful phrase and gives the conversation a gentle direction - it quietly says, \"I heard that bit; help me understand it.\" It works because your curiosity is tied to their actual words rather than a generic script, which makes people feel precisely heard, lowers the effort of deciding what to say next, and keeps the thread coherent - attention shown without stealing the spotlight.",
   "whatItIsNot": [
     "It is not parroting every sentence back - that turns into an echo chamber.",
     "It is not mocking or exaggerating their wording for effect.",
@@ -142,7 +142,6 @@ export const TC030: CardData = {
       "phrases": [
         "Messy how?",
         "Complicated in what way?",
-        "Good-intense or bad-intense?",
         "What's the 'political' bit?",
         "What part is the real issue?"
       ]
@@ -533,11 +532,11 @@ export const TC030: CardData = {
     },
     {
       "id": "TC026",
-      "reason": "TC026 Tactical Mirroring repeats the last few words and pauses - a pure mirror; TC030 adds a small question so they know which thread to open. Use TC026 when silence alone will draw them out."
+      "reason": "TC026 Tactical mirroring repeats the last few words and pauses - a pure mirror; TC030 adds a small question so they know which thread to open. Use TC026 when silence alone will draw them out."
     },
     {
       "id": "TC038",
-      "reason": "TC038 Conversation Threading tracks and returns to several threads across a whole conversation; TC030 works one phrase in the moment. Use TC038 when you need to weave multiple topics together over time."
+      "reason": "TC038 Conversation threading tracks and returns to several threads across a whole conversation; TC030 works one phrase in the moment. Use TC038 when you need to weave multiple topics together over time."
     }
   ]
 };

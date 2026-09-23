@@ -525,19 +525,19 @@ export const TC029: CardData = {
   "relatedTechniques": [
     {
       "id": "TC035",
-      "reason": "The closest neighbour. TC035 Strategic Pause is the micro-pause for emphasis or timing within your own delivery; TC029 is the fuller silence you leave for the other person to think, feel, or continue.",
+      "reason": "The closest neighbour. TC035 Strategic pause is the micro-pause for emphasis or timing within your own delivery; TC029 is the fuller silence you leave for the other person to think, feel, or continue.",
     },
     {
       "id": "TC031",
-      "reason": "Both create space. Use TC029 to leave a warm gap after a meaningful point; use TC031 Slow Down Under Pressure when your own pace is the problem and you need to deliberately slow while under pressure.",
+      "reason": "Both create space. Use TC029 to leave a warm gap after a meaningful point; use TC031 Slow down under pressure when your own pace is the problem and you need to deliberately slow while under pressure.",
     },
     {
       "id": "TC033",
-      "reason": "Use TC029 to give full silence; use TC033 Minimal Encouragers when a small \"mm\", \"go on\", or nod keeps them talking better than complete quiet would.",
+      "reason": "Use TC029 to give full silence; use TC033 Minimal encouragers when a small \"mm\", \"go on\", or nod keeps them talking better than complete quiet would.",
     },
     {
       "id": "TC004",
-      "reason": "Often paired. Use TC004 Reflective Listening to say back what you heard; use TC029 for the pause right after, so the reflection has room to land.",
+      "reason": "Often paired. Use TC004 Reflective listening to say back what you heard; use TC029 for the pause right after, so the reflection has room to land.",
     },
     {
       "id": "TC090",

@@ -13,7 +13,7 @@ export const TC041: CardData = {
   ],
   "id": "TC041",
   "whyItWorks":
-    "Topic Energy Tracking means noticing where another person's conversational energy rises, drops, or shifts, then following the more alive thread with one light, low-pressure move. You listen not only to what they say but to how they respond as different topics appear — extra detail, a faster answer, specific examples, questions back, a warmer tone, humour, or returning to the same topic without being pushed. It works because you are not trying to make a topic interesting; you are following what is already more alive for them, so the conversation feels relevant, less forced, and easier to continue.",
+    "Topic energy tracking means noticing where another person's conversational energy rises, drops, or shifts, then following the more alive thread with one light, low-pressure move. You listen not only to what they say but to how they respond as different topics appear — extra detail, a faster answer, specific examples, questions back, a warmer tone, humour, or returning to the same topic without being pushed. It works because you are not trying to make a topic interesting; you are following what is already more alive for them, so the conversation feels relevant, less forced, and easier to continue.",
   "whatItIsNot": [
     "It is not mind-reading, vibe-policing, or interrogation.",
     "It is not repeatedly saying \"you lit up\" or telling someone what they feel.",
@@ -472,7 +472,7 @@ export const TC041: CardData = {
       "label": "Comment, then track",
       "sequence": "TC003 → TC041",
       "example": [
-        "TC003 Comment-Before-Question softens the ask.",
+        "TC003 Comment-before-question softens the ask.",
         "TC041 then picks the question based on the topic with more energy.",
         "\"That sounds like a big shift — and you had more to say about the new team. What's good about it?\""
       ]
@@ -482,7 +482,7 @@ export const TC041: CardData = {
       "sequence": "TC041 → TC001",
       "example": [
         "TC041 notices which thread is live.",
-        "TC001 Live Thread Follow-Ups follows it with a natural next move.",
+        "TC001 Live thread follow-ups follows it with a natural next move.",
         "\"Faster testing seems to be the live bit — what does that let you do now?\""
       ]
     },
@@ -491,7 +491,7 @@ export const TC041: CardData = {
       "sequence": "TC041 → TC030",
       "example": [
         "TC041 identifies the higher-energy topic.",
-        "TC030 Echo Plus Question echoes a short phrase, then asks one question.",
+        "TC030 Echo plus question echoes a short phrase, then asks one question.",
         "\"'Weird but good' — what's the good part?\""
       ]
     },
@@ -500,7 +500,7 @@ export const TC041: CardData = {
       "sequence": "TC041 → TC034",
       "example": [
         "TC041 spots several possible threads.",
-        "TC034 Two-Option Questions offers a choice plus an escape hatch.",
+        "TC034 Two-option questions offers a choice plus an escape hatch.",
         "\"Sounds like it's either the people or the pace — or something else entirely?\""
       ]
     }
@@ -508,27 +508,27 @@ export const TC041: CardData = {
   "relatedTechniques": [
     {
       "id": "TC001",
-      "reason": "Live Thread Follow-Ups follows what the person just offered. TC041 decides which offered thread to follow by watching live energy."
+      "reason": "Live thread follow-ups follows what the person just offered. TC041 decides which offered thread to follow by watching live energy."
     },
     {
       "id": "TC023",
-      "reason": "Loaded Word Follow-Up follows one charged word. TC041 follows broader topic-energy shifts, including plain interest, relevance, or momentum."
+      "reason": "Loaded word follow-up follows one charged word. TC041 follows broader topic-energy shifts, including plain interest, relevance, or momentum."
     },
     {
       "id": "TC025",
-      "reason": "Exact Word Pickup reuses their exact wording. TC041 may quote a word, but the target is energy, not lexical precision."
+      "reason": "Exact word pickup reuses their exact wording. TC041 may quote a word, but the target is energy, not lexical precision."
     },
     {
       "id": "TC030",
-      "reason": "Echo Plus Question echoes then asks one forward question. TC041 selects which topic to use that form on."
+      "reason": "Echo plus question echoes then asks one forward question. TC041 selects which topic to use that form on."
     },
     {
       "id": "TC038",
-      "reason": "Conversation Threading reopens or links earlier threads. TC041 detects which thread currently has energy."
+      "reason": "Conversation threading reopens or links earlier threads. TC041 detects which thread currently has energy."
     },
     {
       "id": "TC040",
-      "reason": "Meaning Reflection reflects significance. TC041 decides whether a meaning thread has enough live energy to deepen."
+      "reason": "Meaning reflection reflects significance. TC041 decides whether a meaning thread has enough live energy to deepen."
     }
   ]
 };

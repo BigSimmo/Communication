@@ -146,7 +146,6 @@ export const TC026: CardData = {
       "phrases": [
         "Too soon?",
         "Worth doing?",
-        "The timing?",
         "That part?",
         "What changed?",
         "Still deciding?"
@@ -522,11 +521,11 @@ export const TC026: CardData = {
     },
     {
       "id": "TC030",
-      "reason": "TC030 Echo Plus Question echoes and adds a question in the same breath. TC026 echoes and stops - the pause does the work. Use TC030 when a bare mirror would feel too clipped."
+      "reason": "TC030 Echo plus question echoes and adds a question in the same breath. TC026 echoes and stops - the pause does the work. Use TC030 when a bare mirror would feel too clipped."
     },
     {
       "id": "TC038",
-      "reason": "TC038 Conversation Threading tracks and returns to threads across a longer conversation. TC026 is a single in-the-moment echo. Use TC038 to manage several threads; TC026 to open the one in front of you."
+      "reason": "TC038 Conversation threading tracks and returns to threads across a longer conversation. TC026 is a single in-the-moment echo. Use TC038 to manage several threads; TC026 to open the one in front of you."
     }
   ]
 };

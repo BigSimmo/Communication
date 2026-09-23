@@ -477,7 +477,7 @@ export const TC053: CardData = {
   "chains": [
     {
       "label": "Validate first, then structure",
-      "sequence": "Validate the Concern -> NVC / OFNR",
+      "sequence": "Validate the concern -> NVC / OFNR",
       "example": [
         "\"That sounds genuinely rough.\"",
         "\"So — when the deadline moved, I felt caught out, and I need earlier warning. Could we flag changes sooner?\""
@@ -485,7 +485,7 @@ export const TC053: CardData = {
     },
     {
       "label": "Structure, then check",
-      "sequence": "NVC / OFNR -> Summary Check",
+      "sequence": "NVC / OFNR -> Summary check",
       "example": [
         "\"When X happened I felt Y; I need Z. Would you do A?\"",
         "\"Have I got that right from your side?\""
@@ -493,7 +493,7 @@ export const TC053: CardData = {
     },
     {
       "label": "Structure, then release",
-      "sequence": "NVC / OFNR -> Autonomy Release",
+      "sequence": "NVC / OFNR -> Autonomy release",
       "example": [
         "\"…would you be willing to do A?\"",
         "\"It's genuinely your call — I just wanted to ask straight.\""
@@ -501,7 +501,7 @@ export const TC053: CardData = {
     },
     {
       "label": "Structure, then a clean ask",
-      "sequence": "NVC / OFNR -> Clean Request",
+      "sequence": "NVC / OFNR -> Clean request",
       "example": [
         "\"…because I need a bit more notice.\"",
         "\"So the ask is: a text by six if it shifts.\""
@@ -511,23 +511,23 @@ export const TC053: CardData = {
   "relatedTechniques": [
     {
       "id": "TC005",
-      "reason": "Validation Without Agreement: validate first when emotion is high; reach for OFNR once they're ready to problem-solve rather than just be heard."
+      "reason": "Validation without agreement: validate first when emotion is high; reach for OFNR once they're ready to problem-solve rather than just be heard."
     },
     {
       "id": "TC014",
-      "reason": "Validate the Concern: when they're upset before you've said anything, acknowledge the concern before you structure the observation and request."
+      "reason": "Validate the concern: when they're upset before you've said anything, acknowledge the concern before you structure the observation and request."
     },
     {
       "id": "TC013",
-      "reason": "Clean Request: OFNR builds the whole case; Clean Request is just the doable ask — use it alone when no feeling or need needs airing."
+      "reason": "Clean request: OFNR builds the whole case; Clean request is just the doable ask — use it alone when no feeling or need needs airing."
     },
     {
       "id": "TC021",
-      "reason": "Autonomy Release: follow the request with an autonomy release so it stays an ask, not a demand."
+      "reason": "Autonomy release: follow the request with an autonomy release so it stays an ask, not a demand."
     },
     {
       "id": "TC040",
-      "reason": "Meaning Reflection: use Meaning Reflection to draw out their need; use OFNR to state your own clearly."
+      "reason": "Meaning reflection: use Meaning reflection to draw out their need; use OFNR to state your own clearly."
     },
     {
       "id": "TC074",

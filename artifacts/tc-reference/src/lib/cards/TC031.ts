@@ -13,7 +13,7 @@ export const TC031: CardData = {
   ],
   "id": "TC031",
   "whyItWorks":
-    "Slow Down Under Pressure is a deliberate voice move: the moment you feel pressure rising, you drop your speaking pace by a notch and answer with a shorter, calmer first sentence. It is a specific, observable action, not a personality trait. It works because pressure makes almost everyone speed up — and speed reads as anxiety, defensiveness or aggression. A slower first sentence signals control, buys your own thinking time to catch up, and lowers the temperature for the other person, who tends to match the pace you set.",
+    "Slow down under pressure is a deliberate voice move: the moment you feel pressure rising, you drop your speaking pace by a notch and answer with a shorter, calmer first sentence. It is a specific, observable action, not a personality trait. It works because pressure makes almost everyone speed up — and speed reads as anxiety, defensiveness or aggression. A slower first sentence signals control, buys your own thinking time to catch up, and lowers the temperature for the other person, who tends to match the pace you set.",
   "whatItIsNot": [
     "It is not a trick, a dominance move or a way to unsettle the other person.",
     "It is not stalling, going quiet or dodging the question — you still answer, just more slowly.",
@@ -145,7 +145,6 @@ export const TC031: CardData = {
         "Give me a bit to answer this properly.",
         "Short version now, fuller version later if useful.",
         "I may be reading this wrong, but this seems like the relevant thread.",
-        "We can stay with this or move on — your call.",
         "One thing at a time — let me take the first.",
         "Let me come back to this clearly rather than fire off a quick reply.",
       ],
@@ -169,7 +168,7 @@ export const TC031: CardData = {
     },
     {
       "condition": "They ask for advice",
-      "action": "Switch to Permission-Based Advice.",
+      "action": "Switch to Permission-based advice.",
       "phrase": "Want my take, or just a sounding board?",
     },
     {
@@ -436,7 +435,7 @@ export const TC031: CardData = {
   "chains": [
     {
       "label": "Steady then clarify",
-      "sequence": "Slow Down Under Pressure → Summary Check → Live-Thread Follow-Ups",
+      "sequence": "Slow down under pressure → Summary check → Live-Thread Follow-Ups",
       "example": [
         "\"Let me slow that down. The main issue is the timeline.\"",
         "\"So the timeline is the sticking point, not the budget?\"",
@@ -445,7 +444,7 @@ export const TC031: CardData = {
     },
     {
       "label": "Validate then release",
-      "sequence": "Validation Without Agreement → Slow Down Under Pressure → Autonomy Release",
+      "sequence": "Validation without agreement → Slow down under pressure → Autonomy release",
       "example": [
         "\"I can see why this is frustrating.\"",
         "\"Let me take it one thing at a time. The core point is this.\"",
@@ -454,7 +453,7 @@ export const TC031: CardData = {
     },
     {
       "label": "Steady then go deeper",
-      "sequence": "Slow Down Under Pressure → Meaning Reflection",
+      "sequence": "Slow down under pressure → Meaning reflection",
       "example": [
         "\"Give me a beat. The main thing I'm hearing is you feel rushed on this.\"",
         "\"It sounds like what matters to you is having enough time to do it well.\"",
@@ -464,23 +463,23 @@ export const TC031: CardData = {
   "relatedTechniques": [
     {
       "id": "TC029",
-      "reason": "Strategic Silence gives the other person space; slowing down steadies your own delivery.",
+      "reason": "Strategic silence gives the other person space; slowing down steadies your own delivery.",
     },
     {
       "id": "TC035",
-      "reason": "Strategic Pause punctuates a single point; slowing down adjusts the pace of the whole response.",
+      "reason": "Strategic pause punctuates a single point; slowing down adjusts the pace of the whole response.",
     },
     {
       "id": "TC028",
-      "reason": "Warm Vocal Baseline is your default tone; slowing down is the pressure-time correction to it.",
+      "reason": "Warm vocal baseline is your default tone; slowing down is the pressure-time correction to it.",
     },
     {
       "id": "TC011",
-      "reason": "Summary Check comes after slowing down, when complexity still remains.",
+      "reason": "Summary check comes after slowing down, when complexity still remains.",
     },
     {
       "id": "TC027",
-      "reason": "Permission-Based Advice is where to switch if, once things are calm, they actually want your advice.",
+      "reason": "Permission-based advice is where to switch if, once things are calm, they actually want your advice.",
     },
   ],
 };

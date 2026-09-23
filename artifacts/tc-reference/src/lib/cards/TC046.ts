@@ -12,7 +12,7 @@ export const TC046: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC046/TC046_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC046",
-  "whyItWorks": "Elicit-Provide-Elicit is a three-part way to share information or advice: first you draw out what the person already knows, wants or will allow (elicit), then you offer one clear point briefly (provide), then you ask what they make of it (elicit). It works because people absorb and act on information far better when it lands on ground they helped prepare. The opening elicit earns permission and shows you where to pitch the point; the brief provide respects their attention; the closing elicit hands the meaning back to them rather than imposing it. Its influence comes from clarity and respect, not from pressure.",
+  "whyItWorks": "Elicit-provide-elicit is a three-part way to share information or advice: first you draw out what the person already knows, wants or will allow (elicit), then you offer one clear point briefly (provide), then you ask what they make of it (elicit). It works because people absorb and act on information far better when it lands on ground they helped prepare. The opening elicit earns permission and shows you where to pitch the point; the brief provide respects their attention; the closing elicit hands the meaning back to them rather than imposing it. Its influence comes from clarity and respect, not from pressure.",
   "whatItIsNot": [
     "It is not a script to recite mechanically — naming the steps out loud, or forcing every sentence into the pattern, defeats it.",
     "It is not a way to avoid listening, or to compress someone's emotion into a template.",
@@ -285,7 +285,7 @@ export const TC046: CardData = {
   "example": {
     "without": [
       "Colleague: \"I'm stuck on how to open the client presentation.\"",
-      "You: \"Okay, I'm going to use Elicit-Provide-Elicit here. First, elicit: what do you know about openings?\"",
+      "You: \"Okay, I'm going to use Elicit-provide-elicit here. First, elicit: what do you know about openings?\"",
       "Colleague: \"A bit, I suppose.\"",
       "You: \"Right, now the provide step. Start with a strong hook, then a roadmap, then your first point, and here's why each one matters...\"",
       "Colleague: \"...okay.\"",
@@ -332,7 +332,7 @@ export const TC046: CardData = {
   },
   "fieldTip": {
     "headline": "Scaffolding, not the conversation.",
-    "body": "Use Elicit-Provide-Elicit to organise your own thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. The clearest sign you're doing it well is that they never notice you did anything at all.",
+    "body": "Use Elicit-provide-elicit to organise your own thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. The clearest sign you're doing it well is that they never notice you did anything at all.",
     "example": "\"Would it help to hear one option? ... It's X. ... What do you make of that?\" — three moves, no labels.",
     "dont": "Don't announce the steps, and don't ask questions you don't actually want answered.",
     "do": "Do let the closing question genuinely change what happens next."
@@ -404,7 +404,7 @@ export const TC046: CardData = {
   "commonMistakes": [
     {
       "mistake": "Announcing the framework",
-      "soundsLike": "\"I'm going to use Elicit-Provide-Elicit here.\"",
+      "soundsLike": "\"I'm going to use Elicit-provide-elicit here.\"",
       "better": "Just doing it, quietly — the person should feel clarity, not method."
     },
     {
@@ -447,28 +447,28 @@ export const TC046: CardData = {
   "chains": [
     {
       "label": "Check it landed",
-      "sequence": "Elicit-Provide-Elicit -> Summary Check",
+      "sequence": "Elicit-provide-elicit -> Summary check",
       "example": [
         "Run the loop, then: \"Just so we're on the same page — what did you take from that?\""
       ]
     },
     {
       "label": "Turn it into action",
-      "sequence": "Elicit-Provide-Elicit -> Clean Request",
+      "sequence": "Elicit-provide-elicit -> Clean request",
       "example": [
         "Once the option is clear: \"So, specifically — could you send me the draft by Thursday?\""
       ]
     },
     {
       "label": "Hand back the choice",
-      "sequence": "Elicit-Provide-Elicit -> Autonomy Release",
+      "sequence": "Elicit-provide-elicit -> Autonomy release",
       "example": [
         "After your point: \"That's just one option, though — it's genuinely your call.\""
       ]
     },
     {
       "label": "Emotion first",
-      "sequence": "Validate the Concern -> Elicit-Provide-Elicit",
+      "sequence": "Validate the concern -> Elicit-provide-elicit",
       "example": [
         "\"That's a lot to carry. When you're ready — would it help to talk through one option?\""
       ]
@@ -477,7 +477,7 @@ export const TC046: CardData = {
   "relatedTechniques": [
     {
       "id": "TC045",
-      "reason": "The closest cousin. Ask-Tell-Ask is the same three-beat shape aimed at teaching or feedback; reach for Elicit-Provide-Elicit when drawing out permission and meaning matters more than the 'tell'."
+      "reason": "The closest cousin. Ask-tell-ask is the same three-beat shape aimed at teaching or feedback; reach for Elicit-provide-elicit when drawing out permission and meaning matters more than the 'tell'."
     },
     {
       "id": "TC027",
@@ -485,7 +485,7 @@ export const TC046: CardData = {
     },
     {
       "id": "TC043",
-      "reason": "The broader motivational-interviewing toolkit (open questions, affirmations, reflections, summaries). Elicit-Provide-Elicit is the information-sharing move within that family; use OARS when the work is drawing out, not providing."
+      "reason": "The broader motivational-interviewing toolkit (open questions, affirmations, reflections, summaries). Elicit-provide-elicit is the information-sharing move within that family; use OARS when the work is drawing out, not providing."
     },
     {
       "id": "TC021",

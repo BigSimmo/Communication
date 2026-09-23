@@ -123,7 +123,7 @@ export const TC089: CardData = {
         "I do not want this to become a blame conversation. Could we look at the risk we are each trying to avoid?",
         "I am not asking you to move past it. I would like one chance to understand the impact, and then you can decide what you want next.",
         "I am not asking you to agree with me or move past it. Could I hear what impact it had, and then we can decide whether to continue?",
-        "I want to discuss one behaviour and its impact, not make a broad judgment about you.",
+        "I want to discuss one behaviour and its impact, not make a broad judgement about you.",
         "You do not have to agree with my read. I want to understand what feels off before we choose a path.",
       ],
     },
@@ -355,8 +355,8 @@ export const TC089: CardData = {
     },
     {
       situation: "Feedback",
-      move: "They fear a character judgment — narrow it to one behaviour and its impact.",
-      phrase: "I want to discuss one behaviour and its impact, not make a broad judgment about you.",
+      move: "They fear a character judgement — narrow it to one behaviour and its impact.",
+      phrase: "I want to discuss one behaviour and its impact, not make a broad judgement about you.",
     },
     {
       situation: "Conflict repair",
@@ -457,7 +457,7 @@ export const TC089: CardData = {
       sequence: "SBI -> Risk reduction -> Recovery phrase",
       example: [
         "\"In Monday's meeting, the direction changed after the interruption.\"",
-        "\"I want to raise it as one example, not a character judgment.\"",
+        "\"I want to raise it as one example, not a character judgement.\"",
         "\"If I have read it wrong, tell me — I would rather know.\"",
       ],
     },

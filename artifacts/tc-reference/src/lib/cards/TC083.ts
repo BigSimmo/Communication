@@ -12,7 +12,7 @@ export const TC083: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC083/TC083_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC083",
-  "whyItWorks": "It is a collaborative feasibility question for moments when a request, plan, feedback point, or boundary meets friction. Instead of arguing for your version, you invite the other person to name the conditions, limits, changes, or supports that would make the next step viable. It works because it treats resistance as information about real constraints — timing, risk, workload, fairness, trust, authority, emotional load, or missing support — rather than as obstruction. Vague pushback becomes concrete conditions you can actually work with, and the person keeps the agency to say \"nothing\" or \"not now.\"",
+  "whyItWorks": "Asking what would make it workable is a collaborative feasibility question for moments when a request, plan, feedback point, or boundary meets friction. Instead of arguing for your version, you invite the other person to name the conditions, limits, changes, or supports that would make the next step viable. It works because it treats resistance as information about real constraints — timing, risk, workload, fairness, trust, authority, emotional load, or missing support — rather than as obstruction. Vague pushback becomes concrete conditions you can actually work with, and the person keeps the agency to say \"nothing\" or \"not now.\"",
   "whatItIsNot": [
     "Not a disguised way to ask, \"How can I make you say yes?\"",
     "Not a replacement for accepting a clear boundary or a final no.",
@@ -492,19 +492,19 @@ export const TC083: CardData = {
   "relatedTechniques": [
     {
       "id": "TC014",
-      "reason": "Validate the Concern comes first when emotion is high — recognise the worry before asking for conditions. Use TC083 once they can think with you and you need constraints, not just acknowledgement."
+      "reason": "Validate the concern comes first when emotion is high — recognise the worry before asking for conditions. Use TC083 once they can think with you and you need constraints, not just acknowledgement."
     },
     {
       "id": "TC013",
-      "reason": "Clean Request makes the clear ask. Use TC083 after that ask hits friction and you need the other person to name what would make it viable."
+      "reason": "Clean request makes the clear ask. Use TC083 after that ask hits friction and you need the other person to name what would make it viable."
     },
     {
       "id": "TC020",
-      "reason": "Low-Friction Ask offers the smallest version when you already know what lowers the barrier. Use TC083 when you don't yet know the barrier and need them to name it."
+      "reason": "Low-friction ask offers the smallest version when you already know what lowers the barrier. Use TC083 when you don't yet know the barrier and need them to name it."
     },
     {
       "id": "TC021",
-      "reason": "Autonomy Release gives explicit freedom to decline. Attach it to TC083 — especially under power or high stakes — so the question doesn't tip into pressure."
+      "reason": "Autonomy release gives explicit freedom to decline. Attach it to TC083 — especially under power or high stakes — so the question doesn't tip into pressure."
     },
     {
       "id": "TC089",
@@ -512,7 +512,7 @@ export const TC083: CardData = {
     },
     {
       "id": "TC034",
-      "reason": "Two-Option Questions work once two respectful options are clear. Discover the real constraint with TC083 first, then convert to TC034 if options emerge."
+      "reason": "Two-option questions work once two respectful options are clear. Discover the real constraint with TC083 first, then convert to TC034 if options emerge."
     }
   ]
 };

@@ -18,7 +18,7 @@ export const TC001: CardData = {
     "It is not simply \"ask more questions\" - too many questions can feel like an interview.",
     "It is not therapy-speak or clinical probing.",
     "It is not interrogation, or a trick to steer the person.",
-    "It is socially intelligent responsiveness, not a tactic.",
+    "It is not a tactic - it is socially intelligent responsiveness.",
   ],
   overview: {
     coreFormula: [
@@ -531,27 +531,27 @@ export const TC001: CardData = {
     {
       id: "TC023",
       reason:
-        "TC001 follows the most alive part of the whole utterance; use TC023 Loaded Word Follow-Up when the energy sits in one specific loaded word.",
+        "TC001 follows the most alive part of the whole utterance; use TC023 Loaded word follow-up when the energy sits in one specific loaded word.",
     },
     {
       id: "TC025",
       reason:
-        "Use TC025 Exact Word Pickup when the move is to reuse their exact word, rather than follow the broader thread.",
+        "Use TC025 Exact word pickup when the move is to reuse their exact word, rather than follow the broader thread.",
     },
     {
       id: "TC026",
       reason:
-        "Use TC026 Tactical Mirroring when repeating a short phrase back does the job without adding a question.",
+        "Use TC026 Tactical mirroring when repeating a short phrase back does the job without adding a question.",
     },
     {
       id: "TC030",
       reason:
-        "Use TC030 Echo Plus Question when you want to echo their words first and then ask - a tighter, more structured cousin.",
+        "Use TC030 Echo plus question when you want to echo their words first and then ask - a tighter, more structured cousin.",
     },
     {
       id: "TC038",
       reason:
-        "Use TC038 Conversation Threading when several threads are open and the real skill is choosing which one to follow deliberately.",
+        "Use TC038 Conversation threading when several threads are open and the real skill is choosing which one to follow deliberately.",
     },
   ],
 };

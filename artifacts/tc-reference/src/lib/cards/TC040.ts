@@ -13,7 +13,7 @@ export const TC040: CardData = {
   ],
   "id": "TC040",
   "whyItWorks":
-    "Meaning Reflection names the personal significance beneath what someone said — tentatively and respectfully — so the conversation touches what a detail meant to them, not only what happened. It works because people feel genuinely understood when you land on meaning rather than facts, and because tentative phrasing lets them accept, correct, or decline your read without being cornered.",
+    "Meaning reflection names the personal significance beneath what someone said — tentatively and respectfully — so the conversation touches what a detail meant to them, not only what happened. It works because people feel genuinely understood when you land on meaning rather than facts, and because tentative phrasing lets them accept, correct, or decline your read without being cornered.",
   "whatItIsNot": [
     "It is not a trick, a performance, or a dominance move — it names meaning, it does not manufacture it.",
     "It is not a way to extract more than the other person wants to give.",
@@ -446,7 +446,7 @@ export const TC040: CardData = {
   "chains": [
     {
       "label": "Reflect → deepen → hold",
-      "sequence": "TC004 Reflective Listening → TC040 Meaning Reflection → TC029 Strategic Silence",
+      "sequence": "TC004 Reflective listening → TC040 Meaning reflection → TC029 Strategic silence",
       "example": [
         "\"So it all landed at once.\" (reflect)",
         "\"It sounds like the hard part was being left with it.\" (meaning)",
@@ -455,7 +455,7 @@ export const TC040: CardData = {
     },
     {
       "label": "Word → meaning → check",
-      "sequence": "TC023 Loaded-Word Follow-Up → TC040 Meaning Reflection → TC011 Summary Check",
+      "sequence": "TC023 Loaded-Word Follow-Up → TC040 Meaning reflection → TC011 Summary check",
       "example": [
         "\"You said 'dumped on'. Dumped on how?\" (loaded word)",
         "\"It sounds like it meant you weren't trusted to be kept in the loop.\" (meaning)",
@@ -464,7 +464,7 @@ export const TC040: CardData = {
     },
     {
       "label": "Both sides → meaning → release",
-      "sequence": "TC037 Double-Sided Reflection → TC040 Meaning Reflection → TC021 Autonomy Release",
+      "sequence": "TC037 Double-sided reflection → TC040 Meaning reflection → TC021 Autonomy release",
       "example": [
         "\"Part of you gets why it happened, part of you is still stung.\" (both sides)",
         "\"It sounds like the sting is about respect, not the decision itself.\" (meaning)",

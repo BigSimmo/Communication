@@ -13,7 +13,7 @@ export const TC028: CardData = {
   ],
   "id": "TC028",
   "whyItWorks":
-    "Warm Vocal Baseline is your default speaking tone when you want to be approachable — relaxed, clear, interested, unhurried and emotionally congruent. The warmth is not mainly in the words; it is in how the first few seconds of your voice make the other person feel: safe, respected and not pressured. That felt-safety registers before they have analysed a single word, which is why a warm baseline makes almost everything else you say easier to receive.",
+    "Warm vocal baseline is your default speaking tone when you want to be approachable — relaxed, clear, interested, unhurried and emotionally congruent. The warmth is not mainly in the words; it is in how the first few seconds of your voice make the other person feel: safe, respected and not pressured. That felt-safety registers before they have analysed a single word, which is why a warm baseline makes almost everything else you say easier to receive.",
   "whatItIsNot": [
     "It is not a customer-service voice or forced cheerfulness.",
     "It is not a flirting tone, a therapy voice or a stage whisper.",
@@ -502,23 +502,23 @@ export const TC028: CardData = {
   "relatedTechniques": [
     {
       "id": "TC010",
-      "reason": "Both create felt safety. TC028 is specifically your default vocal tone — how the first seconds sound. TC010 Warm Presence is the fuller package (body, attention, manner), of which voice is one part. Reach for TC028 when the fix is purely how you sound."
+      "reason": "Both create felt safety. TC028 is specifically your default vocal tone — how the first seconds sound. TC010 Warm presence is the fuller package (body, attention, manner), of which voice is one part. Reach for TC028 when the fix is purely how you sound."
     },
     {
       "id": "TC024",
-      "reason": "TC024 Warm Opening is a one-off warm way to start a specific conversation. TC028 is the steady tone you carry through all of it. Use TC024 for the first line; keep TC028 running underneath the whole exchange."
+      "reason": "TC024 Warm opening is a one-off warm way to start a specific conversation. TC028 is the steady tone you carry through all of it. Use TC024 for the first line; keep TC028 running underneath the whole exchange."
     },
     {
       "id": "TC012",
-      "reason": "TC012 Full-Attention Signal shows you are fully attending — eyes, stillness, no phone. TC028 shapes how your voice lands. Use TC012 when the gap is that they don't feel listened to; use TC028 when the gap is that you sound rushed or cold."
+      "reason": "TC012 Full-attention signal shows you are fully attending — eyes, stillness, no phone. TC028 shapes how your voice lands. Use TC012 when the gap is that they don't feel listened to; use TC028 when the gap is that you sound rushed or cold."
     },
     {
       "id": "TC031",
-      "reason": "TC031 Slow Down Under Pressure is the emergency brake when you're activated — it drops your pace mid-heat. TC028 is the calm default you keep when nothing has gone wrong. Use TC031 to recover; use TC028 to set the baseline."
+      "reason": "TC031 Slow down under pressure is the emergency brake when you're activated — it drops your pace mid-heat. TC028 is the calm default you keep when nothing has gone wrong. Use TC031 to recover; use TC028 to set the baseline."
     },
     {
       "id": "TC035",
-      "reason": "TC035 Strategic Pause is a deliberate silence placed for effect or to let something land. TC028 uses small pauses only to keep warmth grounded. Use TC035 when the pause itself is the move; use TC028 when tone is."
+      "reason": "TC035 Strategic pause is a deliberate silence placed for effect or to let something land. TC028 uses small pauses only to keep warmth grounded. Use TC035 when the pause itself is the move; use TC028 when tone is."
     }
   ],
   "drill": [

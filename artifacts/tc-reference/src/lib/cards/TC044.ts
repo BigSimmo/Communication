@@ -460,7 +460,7 @@ export const TC044: CardData = {
   "chains": [
     {
       "label": "Clarity chain",
-      "sequence": "BLUF -> Summary Check",
+      "sequence": "BLUF -> Summary check",
       "example": [
         "\"Bottom line: I recommend we pause the rollout, mainly because of the security gap.\"",
         "\"Before I go on — is that the read you were expecting, or does it surprise you?\""
@@ -468,7 +468,7 @@ export const TC044: CardData = {
     },
     {
       "label": "Action chain",
-      "sequence": "BLUF -> Clean Request",
+      "sequence": "BLUF -> Clean request",
       "example": [
         "\"The headline is we're two weeks behind.\"",
         "\"So the ask is: can you free up one developer until the 20th?\""
@@ -476,7 +476,7 @@ export const TC044: CardData = {
     },
     {
       "label": "Respect chain",
-      "sequence": "BLUF -> Autonomy Release",
+      "sequence": "BLUF -> Autonomy release",
       "example": [
         "\"My recommendation is option B, because it's lower risk.\"",
         "\"But it's your call — you're closer to the client than I am.\""
@@ -502,11 +502,11 @@ export const TC044: CardData = {
     },
     {
       "id": "TC013",
-      "reason": "A Clean Request is a single, specific ask. Use BLUF to structure a whole recommendation or briefing; drop to a Clean Request when all you need is one clear action."
+      "reason": "A Clean request is a single, specific ask. Use BLUF to structure a whole recommendation or briefing; drop to a Clean request when all you need is one clear action."
     },
     {
       "id": "TC011",
-      "reason": "A Summary Check confirms you and the listener heard the same thing. Use BLUF to deliver the point, then follow with a Summary Check to make sure it actually landed."
+      "reason": "A Summary check confirms you and the listener heard the same thing. Use BLUF to deliver the point, then follow with a Summary check to make sure it actually landed."
     },
     {
       "id": "TC047",

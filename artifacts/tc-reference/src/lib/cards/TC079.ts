@@ -91,8 +91,7 @@ export const TC079: CardData = {
         "I think we are aligned on outcome, not yet on method.",
         "Can I name one risk before we sign this off?",
         "I support the direction. The piece I would press on is the sequencing.",
-        "Before we lock this, can I offer one counterpoint?",
-        "Can I test another angle before we decide?"
+        "Before we lock this, can I offer one counterpoint?"
       ]
     },
     {

@@ -463,7 +463,7 @@ export const TC088: CardData = {
     },
     {
       "id": "TC045",
-      "reason": "Ask-Tell-Ask sequences advice with permission and a comprehension check; one-screen message is for compact usability. Use Ask-Tell-Ask when you're giving information that needs consent, not just a short reply."
+      "reason": "Ask-tell-ask sequences advice with permission and a comprehension check; one-screen message is for compact usability. Use Ask-tell-ask when you're giving information that needs consent, not just a short reply."
     },
     {
       "id": "TC048",
