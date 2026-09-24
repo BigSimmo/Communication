@@ -13,7 +13,7 @@ export const TC003: CardData = {
   ],
   id: "TC003",
   whyItWorks:
-    "Comment-Before-Question is the habit of adding one short, honest reaction to what someone just said before you ask your next question, so they feel met rather than interrogated. It is a timing and attention move: you notice the live moment, respond to it in plain language, then ask one thing and stop, which keeps the other person oriented and unpressured. Because they can tell you took in what they already said, the question lands as interest instead of a demand, and they answer more openly.",
+    "Comment-before-question is the habit of adding one short, honest reaction to what someone just said before you ask your next question, so they feel met rather than interrogated. It is a timing and attention move: you notice the live moment, respond to it in plain language, then ask one thing and stop, which keeps the other person oriented and unpressured. Because they can tell you took in what they already said, the question lands as interest instead of a demand, and they answer more openly.",
   whatItIsNot: [
     "It is not padding, flattery, therapy-speak, fake intimacy or a trick to earn a question. The comment must be true, brief and connected.",
     "It is not manipulation, performance, emotional extraction or a way to force intimacy.",
@@ -214,7 +214,7 @@ export const TC003: CardData = {
     },
     {
       situation: "Conflict or tension",
-      move: "Offer a neutral observation before asking about impact — keep any judgment out of the comment.",
+      move: "Offer a neutral observation before asking about impact — keep any judgement out of the comment.",
       phrase: "\"I can see this really got to you. What did it cost you on your side?\"",
     },
     {
@@ -289,7 +289,7 @@ export const TC003: CardData = {
     "Did I catch the right moment to comment, or force one?",
     "Was my comment true, or just padding to soften the question?",
     "Did I keep it to one comment and one question?",
-    "Did I leave their autonomy intact — no disguised judgment or pressure?",
+    "Did I leave their autonomy intact — no disguised judgement or pressure?",
     "Did I stop after one move instead of overusing it?",
     "Did the exchange feel easier, or more self-conscious?",
   ],
@@ -335,7 +335,7 @@ export const TC003: CardData = {
       "They add a fake or overlong comment that feels like a scripted preamble before interrogation.",
       "They stack two or three questions after the comment, so it stops feeling like listening.",
       "They lean on generic filler like \"that's interesting\" until it means nothing.",
-      "They slip a judgment into the comment, so it lands as criticism, not interest.",
+      "They slip a judgement into the comment, so it lands as criticism, not interest.",
     ],
   },
   fieldTip: {
@@ -450,7 +450,7 @@ export const TC003: CardData = {
       better: "Hold it loosely: \"Sounds like it wore you down. Is that fair?\"",
     },
     {
-      mistake: "Sneaking a judgment into the comment",
+      mistake: "Sneaking a judgement into the comment",
       soundsLike: "\"That was a risky move. Why'd you do it?\"",
       better: "Keep the comment neutral: \"That was a bold call. What made it feel right?\"",
     },
@@ -520,27 +520,27 @@ export const TC003: CardData = {
     {
       id: "TC033",
       reason:
-        "TC033 Minimal Encouragers uses tiny signals (\"mm\", \"go on\") to keep them talking; TC003 adds one substantive comment before a question. Use TC033 to sustain, TC003 to open.",
+        "TC033 Minimal encouragers uses tiny signals (\"mm\", \"go on\") to keep them talking; TC003 adds one substantive comment before a question. Use TC033 to sustain, TC003 to open.",
     },
     {
       id: "TC034",
       reason:
-        "TC034 Two-Option Questions narrows the answer to two choices; TC003 warms the question before you ask it. Chain them when someone is vague.",
+        "TC034 Two-option questions narrows the answer to two choices; TC003 warms the question before you ask it. Chain them when someone is vague.",
     },
     {
       id: "TC038",
       reason:
-        "TC038 Conversation Threading reopens or links earlier threads; TC003 makes the question that reopens a thread feel less abrupt.",
+        "TC038 Conversation threading reopens or links earlier threads; TC003 makes the question that reopens a thread feel less abrupt.",
     },
     {
       id: "TC011",
       reason:
-        "TC011 Summary Check reflects back a summary to confirm you've understood; TC003 is the lighter opener that earns the question. Comment, ask, then confirm with TC011.",
+        "TC011 Summary check reflects back a summary to confirm you've understood; TC003 is the lighter opener that earns the question. Comment, ask, then confirm with TC011.",
     },
     {
       id: "TC040",
       reason:
-        "TC040 Meaning Reflection reflects the deeper meaning back; TC003 is the everyday version that softens a single question. Reach for TC040 once the conversation has deepened.",
+        "TC040 Meaning reflection reflects the deeper meaning back; TC003 is the everyday version that softens a single question. Reach for TC040 once the conversation has deepened.",
     },
   ],
 };

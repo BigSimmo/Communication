@@ -12,7 +12,7 @@ export const TC012: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC012/TC012_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC012",
-  "whyItWorks": "Full-Attention Signal is the deliberate move of showing someone they have your attention by removing the things competing for it - the phone, the laptop, the room, your next sentence - and orienting visibly toward them. It works because most people are used to being half-listened to, so the moment you put something down and turn toward them they feel safe enough to say the real thing. It is a small, respectful move in the moment, not a performance of listening.",
+  "whyItWorks": "Full-attention signal is the deliberate move of showing someone they have your attention by removing the things competing for it - the phone, the laptop, the room, your next sentence - and orienting visibly toward them. It works because most people are used to being half-listened to, so the moment you put something down and turn toward them they feel safe enough to say the real thing. It is a small, respectful move in the moment, not a performance of listening.",
   "whatItIsNot": [
     "It is not staring, performing deep listening, freezing your body, or saying \"I'm listening\" while still checking your phone, laptop, the room, or your next thought.",
     "It is not a script for pressure, extraction or control.",
@@ -278,7 +278,7 @@ export const TC012: CardData = {
     {
       "day": "Day 3",
       "title": "One readiness line",
-      "task": "Write your own minimum viable version of Full-Attention Signal for three ordinary comments, then say each out loud once in a normal voice. Cut any line that sounds clever, therapeutic or corporate."
+      "task": "Write your own minimum viable version of Full-attention signal for three ordinary comments, then say each out loud once in a normal voice. Cut any line that sounds clever, therapeutic or corporate."
     },
     {
       "day": "Day 4",
@@ -370,7 +370,7 @@ export const TC012: CardData = {
     {
       "step": "1",
       "title": "Notice the cue",
-      "body": "Full-Attention Signal earns its place when someone shifts from small talk into something that matters - they lower their voice, hesitate, check your face, or start on something meaningful, vulnerable, exciting or frustrating. That shift is the cue. Don't run the move on autopilot; run it when the moment asks for it."
+      "body": "Full-attention signal earns its place when someone shifts from small talk into something that matters - they lower their voice, hesitate, check your face, or start on something meaningful, vulnerable, exciting or frustrating. That shift is the cue. Don't run the move on autopilot; run it when the moment asks for it."
     },
     {
       "step": "2",
@@ -523,23 +523,23 @@ export const TC012: CardData = {
   "relatedTechniques": [
     {
       "id": "TC010",
-      "reason": "TC010 Warm Presence keeps a warm overall presence across a whole interaction; TC012 is the single, explicit move that shows someone they have your focus right now."
+      "reason": "TC010 Warm presence keeps a warm overall presence across a whole interaction; TC012 is the single, explicit move that shows someone they have your focus right now."
     },
     {
       "id": "TC024",
-      "reason": "TC024 Warm Opening begins the exchange with warmth and ease; TC012 is what you do once it is underway and someone starts telling you something that matters."
+      "reason": "TC024 Warm opening begins the exchange with warmth and ease; TC012 is what you do once it is underway and someone starts telling you something that matters."
     },
     {
       "id": "TC036",
-      "reason": "TC036 Contextual Opener opens from shared context rather than a generic line; reach for it instead of TC012 when you are starting the conversation, not deepening it."
+      "reason": "TC036 Contextual opener opens from shared context rather than a generic line; reach for it instead of TC012 when you are starting the conversation, not deepening it."
     },
     {
       "id": "TC033",
-      "reason": "TC033 Minimal Encouragers keep someone talking with small \"mm, go on\" signals; TC012 is the bigger, one-off move of visibly clearing your attention. Use the encouragers to sustain, the signal to begin."
+      "reason": "TC033 Minimal encouragers keep someone talking with small \"mm, go on\" signals; TC012 is the bigger, one-off move of visibly clearing your attention. Use the encouragers to sustain, the signal to begin."
     },
     {
       "id": "TC004",
-      "reason": "TC004 Reflective Listening is the next move once they are talking - reflecting the meaning back; TC012 buys the attentive state that makes the reflection land."
+      "reason": "TC004 Reflective listening is the next move once they are talking - reflecting the meaning back; TC012 buys the attentive state that makes the reflection land."
     }
   ]
 };

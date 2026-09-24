@@ -69,7 +69,7 @@ describe("lazy card consumer transitions", () => {
 
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
-      "Live Thread Follow-Ups",
+      "Live thread follow-ups",
     );
   });
 
@@ -119,7 +119,7 @@ describe("lazy card consumer transitions", () => {
 
     render(<Drill />);
 
-    fireEvent.click(await screen.findByRole("button", { name: "Good (Medium)" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Good — review later" }));
 
     expect(await screen.findByText("Great work — come back tomorrow")).toBeInTheDocument();
   });

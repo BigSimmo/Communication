@@ -12,7 +12,7 @@ export const TC050: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC050/TC050_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC050",
-  "whyItWorks": "What? So What? Now What? is a reflective framework that sorts an experience or a point into three moves: what actually happened, what it means, and what you will do next. Keeping observation, meaning and action apart stops them blurring into a vague sense that \"something happened\", so reflection becomes usable. It works because it arrives in the order the mind needs — facts first, then significance, then the next step — which lowers the listener's cognitive load and makes the point easy to follow and easy to act on.",
+  "whyItWorks": "What? So what? Now what? is a reflective framework that sorts an experience or a point into three moves: what actually happened, what it means, and what you will do next. Keeping observation, meaning and action apart stops them blurring into a vague sense that \"something happened\", so reflection becomes usable. It works because it arrives in the order the mind needs — facts first, then significance, then the next step — which lowers the listener's cognitive load and makes the point easy to follow and easy to act on.",
   "whatItIsNot": [
     "It is not a script to recite mechanically, word for word.",
     "It is not a way to avoid listening, compress emotion into a template, or force the other person into your structure.",
@@ -183,7 +183,7 @@ export const TC050: CardData = {
   ],
   "ladder": [
     {
-      "weak": "Uses What? So What? Now What? as a visible script and sounds rehearsed.",
+      "weak": "Uses What? So what? Now what? as a visible script and sounds rehearsed.",
       "better": "Uses the framework silently to organise a concise response.",
       "best": "Uses it flexibly, then checks whether the listener is clearer, more heard, or better able to respond."
     },
@@ -257,7 +257,7 @@ export const TC050: CardData = {
     {
       "day": "Day 2",
       "title": "Write a 60-second version",
-      "task": "Turn a recent situation into a 60-second spoken response using What? So What? Now What?, said out loud."
+      "task": "Turn a recent situation into a 60-second spoken response using What? So what? Now what?, said out loud."
     },
     {
       "day": "Day 3",
@@ -341,7 +341,7 @@ export const TC050: CardData = {
   },
   "fieldTip": {
     "headline": "Scaffolding, not the conversation.",
-    "body": "Use What? So What? Now What? to organise your own thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. The moment you name the framework out loud, it stops working.",
+    "body": "Use What? So what? Now what? to organise your own thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. The moment you name the framework out loud, it stops working.",
     "example": "Instead of \"Let me do a What-So What-Now What here,\" just say: \"Sign-ups were fine but setup wasn't — so the problem's onboarding, not demand. I'd fix the first run before spending more on ads.\"",
     "dont": "Don't jump to \"Now What?\" before the meaning is understood.",
     "do": "Do linger on \"So What?\" — it's the step that makes the next one obvious."
@@ -457,7 +457,7 @@ export const TC050: CardData = {
   "chains": [
     {
       "label": "Confirm it landed",
-      "sequence": "What? So What? Now What? -> Summary Check (TC011)",
+      "sequence": "What? So what? Now what? -> Summary check (TC011)",
       "example": [
         "\"So: setup is the drop-off, not demand, and the fix is onboarding.\"",
         "\"Before we move — is that how you'd put it too?\""
@@ -465,7 +465,7 @@ export const TC050: CardData = {
     },
     {
       "label": "Turn it into an ask",
-      "sequence": "What? So What? Now What? -> Clean Request (TC013)",
+      "sequence": "What? So what? Now what? -> Clean request (TC013)",
       "example": [
         "\"...so onboarding is the problem to solve.\"",
         "\"Could you own the first-run redesign and share a draft by Friday?\""
@@ -473,7 +473,7 @@ export const TC050: CardData = {
     },
     {
       "label": "Give them room",
-      "sequence": "What? So What? Now What? -> Autonomy Release (TC021)",
+      "sequence": "What? So what? Now what? -> Autonomy release (TC021)",
       "example": [
         "\"That's how I read it, and what I'd suggest.\"",
         "\"But it's your call — you're closer to it than I am.\""
@@ -481,7 +481,7 @@ export const TC050: CardData = {
     },
     {
       "label": "Feelings first, then structure",
-      "sequence": "Validate the Concern (TC014) -> What? So What? Now What?",
+      "sequence": "Validate the concern (TC014) -> What? So what? Now what?",
       "example": [
         "\"I can see why that landed badly — that's fair.\"",
         "\"When you're ready, let's sort out what happened, what it means, and what we do next.\""
@@ -491,19 +491,19 @@ export const TC050: CardData = {
   "relatedTechniques": [
     {
       "id": "TC049",
-      "reason": "Both organise reflection. Use What? So What? Now What? for a quick three-move sort; use CARL (Context, Action, Result, Learning) when you need a fuller, example-led account of a whole episode."
+      "reason": "Both organise reflection. Use What? So what? Now what? for a quick three-move sort; use CARL (Context, Action, Result, Learning) when you need a fuller, example-led account of a whole episode."
     },
     {
       "id": "TC040",
-      "reason": "Meaning Reflection draws out what something meant to the other person. Use it when the \"So What?\" belongs to them; use this framework when you are organising and delivering a point of your own."
+      "reason": "Meaning reflection draws out what something meant to the other person. Use it when the \"So What?\" belongs to them; use this framework when you are organising and delivering a point of your own."
     },
     {
       "id": "TC048",
-      "reason": "SCQA (Situation, Complication, Question, Answer) frames a pitch or written argument. Use What? So What? Now What? for reflective debriefs; use SCQA to set up a persuasive case."
+      "reason": "SCQA (Situation, Complication, Question, Answer) frames a pitch or written argument. Use What? So what? Now what? for reflective debriefs; use SCQA to set up a persuasive case."
     },
     {
       "id": "TC011",
-      "reason": "Summary Check confirms you both heard the same thing. Use this framework to structure the point; use Summary Check to verify it landed."
+      "reason": "Summary check confirms you both heard the same thing. Use this framework to structure the point; use Summary check to verify it landed."
     },
     {
       "id": "TC047",
@@ -511,7 +511,7 @@ export const TC050: CardData = {
     },
     {
       "id": "TC044",
-      "reason": "BLUF (Bottom Line Up Front) leads with the conclusion. Use BLUF when they only need the answer fast; use What? So What? Now What? when the meaning and the next step both matter."
+      "reason": "BLUF (Bottom Line Up Front) leads with the conclusion. Use BLUF when they only need the answer fast; use What? So what? Now what? when the meaning and the next step both matter."
     }
   ]
 };

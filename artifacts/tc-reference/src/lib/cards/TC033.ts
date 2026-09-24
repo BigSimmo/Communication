@@ -179,7 +179,7 @@ export const TC033: CardData = {
     },
     {
       "condition": "They ask for advice",
-      "action": "Switch to Permission-Based Advice (TC027).",
+      "action": "Switch to Permission-based advice (TC027).",
       "phrase": "Want my honest read, or just a sounding board?"
     },
     {
@@ -467,7 +467,7 @@ export const TC033: CardData = {
   "chains": [
     {
       "label": "Draw out, then check",
-      "sequence": "Minimal Encouragers → Summary Check (TC011) → Live-Thread Follow-Ups (TC001)",
+      "sequence": "Minimal encouragers → Summary check (TC011) → Live-Thread Follow-Ups (TC001)",
       "example": [
         "Person talks it out while you signal: \"Mm… go on.\"",
         "You: \"So the sticking point is really the timing.\"",
@@ -476,7 +476,7 @@ export const TC033: CardData = {
     },
     {
       "label": "Steady an upset person",
-      "sequence": "Validation Without Agreement (TC005) → Minimal Encouragers → Autonomy Release (TC021)",
+      "sequence": "Validation without agreement (TC005) → Minimal encouragers → Autonomy release (TC021)",
       "example": [
         "\"That'd frustrate anyone.\"",
         "\"Mm. Go on.\"",
@@ -485,7 +485,7 @@ export const TC033: CardData = {
     },
     {
       "label": "Slow a heated moment",
-      "sequence": "Slow Down Under Pressure (TC031) → Minimal Encouragers → Meaning Reflection (TC040)",
+      "sequence": "Slow down under pressure (TC031) → Minimal encouragers → Meaning reflection (TC040)",
       "example": [
         "\"Let's take this slowly.\"",
         "\"Okay. Keep going.\"",
@@ -496,27 +496,27 @@ export const TC033: CardData = {
   "relatedTechniques": [
     {
       "id": "TC004",
-      "reason": "Reflective Listening reflects the content back; minimal encouragers add no content and just keep the floor open."
+      "reason": "Reflective listening reflects the content back; minimal encouragers add no content and just keep the floor open."
     },
     {
       "id": "TC026",
-      "reason": "Tactical Mirroring repeats a phrase to draw out more; encouragers add nothing to repeat — only presence."
+      "reason": "Tactical mirroring repeats a phrase to draw out more; encouragers add nothing to repeat — only presence."
     },
     {
       "id": "TC029",
-      "reason": "Strategic Silence gives the person full empty space; an encourager fills a sliver of it to signal you're still there."
+      "reason": "Strategic silence gives the person full empty space; an encourager fills a sliver of it to signal you're still there."
     },
     {
       "id": "TC030",
-      "reason": "Echo Plus Question echoes then moves the thread forward; encouragers simply sustain the thread they're already on."
+      "reason": "Echo plus question echoes then moves the thread forward; encouragers simply sustain the thread they're already on."
     },
     {
       "id": "TC027",
-      "reason": "Permission-Based Advice is where you switch when they stop thinking aloud and actually ask what to do."
+      "reason": "Permission-based advice is where you switch when they stop thinking aloud and actually ask what to do."
     },
     {
       "id": "TC012",
-      "reason": "Full-Attention Signal is the non-verbal bedrock — posture and eye contact; minimal encouragers are its audible counterpart."
+      "reason": "Full-attention signal is the non-verbal bedrock — posture and eye contact; minimal encouragers are its audible counterpart."
     }
   ]
 };

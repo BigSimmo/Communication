@@ -357,7 +357,7 @@ export const TC048: CardData = {
   chains: [
     {
       label: "Structure then confirm",
-      sequence: "SCQA → Summary Check",
+      sequence: "SCQA → Summary check",
       example: [
         "Give the four-beat frame, then check it landed.",
         "\"Before we move on — what did you take as the main point?\"",
@@ -365,7 +365,7 @@ export const TC048: CardData = {
     },
     {
       label: "Structure then ask",
-      sequence: "SCQA → Clean Request",
+      sequence: "SCQA → Clean request",
       example: [
         "Once the frame has made the problem clear, make the next step concrete.",
         "\"So — can you approve the scope cut by Thursday?\"",
@@ -373,7 +373,7 @@ export const TC048: CardData = {
     },
     {
       label: "Structure then release",
-      sequence: "SCQA → Autonomy Release",
+      sequence: "SCQA → Autonomy release",
       example: [
         "Offer the answer, then hand the choice back.",
         "\"That's my recommendation, but it's genuinely your call.\"",
@@ -381,7 +381,7 @@ export const TC048: CardData = {
     },
     {
       label: "Validate then structure",
-      sequence: "Validate the Concern → SCQA",
+      sequence: "Validate the concern → SCQA",
       example: [
         "When emotion is present, acknowledge it before you organise anything.",
         "\"I know this deadline's been brutal. Can I lay out where we are and what I'd do?\"",
@@ -505,7 +505,7 @@ export const TC048: CardData = {
     {
       id: "TC013",
       reason:
-        "Clean Request makes a single clear ask; SCQA builds the case that leads to one. Use Clean Request when the context is shared; use SCQA when you must first establish why the ask matters.",
+        "Clean request makes a single clear ask; SCQA builds the case that leads to one. Use Clean request when the context is shared; use SCQA when you must first establish why the ask matters.",
     },
     {
       id: "TC049",

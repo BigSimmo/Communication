@@ -527,27 +527,27 @@ export const TC024: CardData = {
   "relatedTechniques": [
     {
       "id": "TC010",
-      "reason": "Warm Presence keeps warmth running across the whole interaction through attention, tone and timing; Warm Opening is only the first 5-15 seconds. Use TC010 when the issue is your overall manner, not the entry."
+      "reason": "Warm presence keeps warmth running across the whole interaction through attention, tone and timing; Warm opening is only the first 5-15 seconds. Use TC010 when the issue is your overall manner, not the entry."
     },
     {
       "id": "TC012",
-      "reason": "Full-Attention Signal explicitly shows the person they have your focus; Warm Opening recognises them and then bridges to purpose. Use TC012 when the point is to prove you're listening, not to open."
+      "reason": "Full-attention signal explicitly shows the person they have your focus; Warm opening recognises them and then bridges to purpose. Use TC012 when the point is to prove you're listening, not to open."
     },
     {
       "id": "TC036",
-      "reason": "Contextual Opener starts from the shared situation or something specific in front of you; Warm Opening can be a simple recognition. Use TC036 when a generic warm line would feel flat and the context gives you a better way in."
+      "reason": "Contextual opener starts from the shared situation or something specific in front of you; Warm opening can be a simple recognition. Use TC036 when a generic warm line would feel flat and the context gives you a better way in."
     },
     {
       "id": "TC032",
-      "reason": "Name and Detail Memory recalls something specific about the person; Warm Opening needn't. Use TC032 when remembering a detail is itself the warm signal."
+      "reason": "Name and detail memory recalls something specific about the person; Warm opening needn't. Use TC032 when remembering a detail is itself the warm signal."
     },
     {
       "id": "TC044",
-      "reason": "BLUF leads with the bottom line and no warm-up; Warm Opening spends a few seconds on recognition first. Use TC044 when they're rushed or warmth would only delay the point."
+      "reason": "BLUF leads with the bottom line and no warm-up; Warm opening spends a few seconds on recognition first. Use TC044 when they're rushed or warmth would only delay the point."
     },
     {
       "id": "TC013",
-      "reason": "Clean Request is the ask a Warm Opening bridges into: the opening warms the entry, the request states the ask plainly. Use TC013 for the ask itself once you've opened."
+      "reason": "Clean request is the ask a Warm opening bridges into: the opening warms the entry, the request states the ask plainly. Use TC013 for the ask itself once you've opened."
     }
   ]
 };

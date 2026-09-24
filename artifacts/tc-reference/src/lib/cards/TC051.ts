@@ -428,7 +428,7 @@ export const TC051: CardData = {
   "chains": [
     {
       "label": "Clarify then confirm",
-      "sequence": "RASA → Summary Check",
+      "sequence": "RASA → Summary check",
       "example": [
         "Run the four steps to reflect the core point.",
         "\"So the key point is X. Have I understood that the way you meant it?\""
@@ -436,7 +436,7 @@ export const TC051: CardData = {
     },
     {
       "label": "Clarify then ask",
-      "sequence": "RASA → Clean Request",
+      "sequence": "RASA → Clean request",
       "example": [
         "Use the structure to surface the real issue.",
         "\"Now that's clear — could you send me the figures by Thursday?\""
@@ -444,7 +444,7 @@ export const TC051: CardData = {
     },
     {
       "label": "Clarify then release",
-      "sequence": "RASA → Autonomy Release",
+      "sequence": "RASA → Autonomy release",
       "example": [
         "Reflect the point, then hand the choice back.",
         "\"That's my read of it. But it's genuinely your call.\""
@@ -452,7 +452,7 @@ export const TC051: CardData = {
     },
     {
       "label": "Validate then structure",
-      "sequence": "Validate the Concern → RASA",
+      "sequence": "Validate the concern → RASA",
       "example": [
         "If emotion is present, validate before you organise anything.",
         "\"It's completely fair to be frustrated. Can I reflect back what I'm hearing?\""
@@ -462,11 +462,11 @@ export const TC051: CardData = {
   "relatedTechniques": [
     {
       "id": "TC004",
-      "reason": "Reflective Listening reflects meaning back without the appreciate-and-ask scaffolding; reach for RASA when you also want to acknowledge and move the conversation forward with one question."
+      "reason": "Reflective listening reflects meaning back without the appreciate-and-ask scaffolding; reach for RASA when you also want to acknowledge and move the conversation forward with one question."
     },
     {
       "id": "TC011",
-      "reason": "Summary Check is the 'Summarise' step run on its own to confirm understanding; RASA wraps that same check inside receiving, appreciating and asking."
+      "reason": "Summary check is the 'Summarise' step run on its own to confirm understanding; RASA wraps that same check inside receiving, appreciating and asking."
     },
     {
       "id": "TC043",
@@ -474,11 +474,11 @@ export const TC051: CardData = {
     },
     {
       "id": "TC033",
-      "reason": "Minimal Encouragers are the small 'mm', 'go on' signals that power the Receive and Appreciate steps; use them alone when the person just needs room to keep talking."
+      "reason": "Minimal encouragers are the small 'mm', 'go on' signals that power the Receive and Appreciate steps; use them alone when the person just needs room to keep talking."
     },
     {
       "id": "TC012",
-      "reason": "The Full-Attention Signal is the 'Receive' step made visible; use it on its own when presence matters more than reflecting anything back."
+      "reason": "The Full-attention signal is the 'Receive' step made visible; use it on its own when presence matters more than reflecting anything back."
     },
     {
       "id": "TC047",

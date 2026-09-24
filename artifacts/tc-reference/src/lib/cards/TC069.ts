@@ -481,7 +481,7 @@ export const TC069: CardData = {
   "chains": [
     {
       "label": "Clarify then acknowledge",
-      "sequence": "Clarify objection -> Validate the Concern (TC014) -> BLUF",
+      "sequence": "Clarify objection -> Validate the concern (TC014) -> BLUF",
       "example": [
         "\"What part feels least workable?\"",
         "\"The timeline — not by Friday.\"",
@@ -491,7 +491,7 @@ export const TC069: CardData = {
     },
     {
       "label": "Clarify then hold your line",
-      "sequence": "Clarify objection -> Validation Without Agreement (TC005) -> Specific ask (TC068)",
+      "sequence": "Clarify objection -> Validation without agreement (TC005) -> Specific ask (TC068)",
       "example": [
         "\"Is the worry the cost, or the timing?\"",
         "\"The cost.\"",

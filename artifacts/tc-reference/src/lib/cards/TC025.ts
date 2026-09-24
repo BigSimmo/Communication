@@ -12,7 +12,7 @@ export const TC025: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC025/TC025_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC025",
-  "whyItWorks": "Exact Word Pickup means noticing the exact word or phrase someone chose — usually a vivid adjective, metaphor, label, contrast or repeated phrase — and reusing that wording back to them instead of swapping in your own paraphrase. It works because a person's own word usually carries the meaning they care about most; reflecting it back tells them you were listening to them specifically, not just to the gist. Keeping their word intact preserves the nuance and hands you the next natural thread, so the conversation deepens without turning into an interview.",
+  "whyItWorks": "Exact word pickup means noticing the exact word or phrase someone chose — usually a vivid adjective, metaphor, label, contrast or repeated phrase — and reusing that wording back to them instead of swapping in your own paraphrase. It works because a person's own word usually carries the meaning they care about most; reflecting it back tells them you were listening to them specifically, not just to the gist. Keeping their word intact preserves the nuance and hands you the next natural thread, so the conversation deepens without turning into an interview.",
   "whatItIsNot": [
     "It is not mechanical parroting.",
     "It is not correcting their word choice.",
@@ -524,23 +524,23 @@ export const TC025: CardData = {
   "relatedTechniques": [
     {
       "id": "TC001",
-      "reason": "Live Thread Follow-Ups follows the most alive part of a whole utterance. Reach for it when continuity matters more than reusing one exact word."
+      "reason": "Live thread follow-ups follows the most alive part of a whole utterance. Reach for it when continuity matters more than reusing one exact word."
     },
     {
       "id": "TC023",
-      "reason": "Loaded Word Follow-Up picks up an emotionally charged word and asks what it carries. Use it when a charged word reveals the real issue, not just a vivid one."
+      "reason": "Loaded word follow-up picks up an emotionally charged word and asks what it carries. Use it when a charged word reveals the real issue, not just a vivid one."
     },
     {
       "id": "TC026",
-      "reason": "Tactical Mirroring mirrors one to three key words and then pauses. Use it when you want to invite more with minimal steering, rather than adding a question."
+      "reason": "Tactical mirroring mirrors one to three key words and then pauses. Use it when you want to invite more with minimal steering, rather than adding a question."
     },
     {
       "id": "TC030",
-      "reason": "Echo Plus Question echoes a key phrase and adds one clean forward question. Use it when you need both acknowledgement and movement in the same beat."
+      "reason": "Echo plus question echoes a key phrase and adds one clean forward question. Use it when you need both acknowledgement and movement in the same beat."
     },
     {
       "id": "TC038",
-      "reason": "Conversation Threading tracks and returns to the important thread across turns. Use it when the conversation has several branches to hold, not just one word."
+      "reason": "Conversation threading tracks and returns to the important thread across turns. Use it when the conversation has several branches to hold, not just one word."
     }
   ]
 };

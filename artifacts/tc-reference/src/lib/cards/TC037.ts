@@ -12,7 +12,7 @@ export const TC037: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC037/TC037_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC037",
-  "whyItWorks": "Double-Sided Reflection is naming the two live sides of someone's mixed position in one balanced sentence, so they feel accurately understood without being pushed to choose. It works because it changes the conversation at the level of timing, attention and response choice rather than adding a script: once a person feels both halves of their ambivalence have been heard, the pressure to defend either half drops and they can think out loud instead of bracing.",
+  "whyItWorks": "Double-sided reflection is naming the two live sides of someone's mixed position in one balanced sentence, so they feel accurately understood without being pushed to choose. It works because it changes the conversation at the level of timing, attention and response choice rather than adding a script: once a person feels both halves of their ambivalence have been heard, the pressure to defend either half drops and they can think out loud instead of bracing.",
   "whatItIsNot": [
     "It is not a trick, a performance, or a dominance move, and it is not a shortcut around consent.",
     "It is not a way to extract more than the other person wants to give.",
@@ -247,7 +247,7 @@ export const TC037: CardData = {
     {
       "day": "Day 2",
       "title": "Write five lines",
-      "task": "Write five realistic situations where Double-Sided Reflection would help, capturing one sentence of what the person said in each."
+      "task": "Write five realistic situations where Double-sided reflection would help, capturing one sentence of what the person said in each."
     },
     {
       "day": "Day 3",
@@ -431,7 +431,7 @@ export const TC037: CardData = {
   "chains": [
     {
       "label": "Hear it, then hold the silence",
-      "sequence": "TC004 Reflective Listening -> TC037 Double-Sided Reflection -> TC029 Strategic Silence",
+      "sequence": "TC004 Reflective listening -> TC037 Double-sided reflection -> TC029 Strategic silence",
       "example": [
         "\"So it really knocked you.\"",
         "\"Part of you wants to push on, and part of you needs a break first.\"",
@@ -440,7 +440,7 @@ export const TC037: CardData = {
     },
     {
       "label": "Both sides, then hand it back",
-      "sequence": "TC005 Validation Without Agreement -> TC037 Double-Sided Reflection -> TC021 Autonomy Release",
+      "sequence": "TC005 Validation without agreement -> TC037 Double-sided reflection -> TC021 Autonomy release",
       "example": [
         "\"It makes sense you'd be wary.\"",
         "\"You want to trust it, and you're not there yet.\"",
@@ -449,7 +449,7 @@ export const TC037: CardData = {
     },
     {
       "label": "Meaning first, then confirm",
-      "sequence": "TC040 Meaning Reflection -> TC037 Double-Sided Reflection -> TC011 Summary Check",
+      "sequence": "TC040 Meaning reflection -> TC037 Double-sided reflection -> TC011 Summary check",
       "example": [
         "\"Sounds like it was about respect, not the money.\"",
         "\"You want the apology, and you're not sure it would land.\"",
@@ -460,27 +460,27 @@ export const TC037: CardData = {
   "relatedTechniques": [
     {
       "id": "TC004",
-      "reason": "Reflective Listening mirrors one clear meaning; use Double-Sided Reflection when two live sides are both present."
+      "reason": "Reflective listening mirrors one clear meaning; use Double-sided reflection when two live sides are both present."
     },
     {
       "id": "TC040",
-      "reason": "Meaning Reflection captures why something matters; Double-Sided Reflection captures the ambivalence or tension between two pulls."
+      "reason": "Meaning reflection captures why something matters; Double-sided reflection captures the ambivalence or tension between two pulls."
     },
     {
       "id": "TC005",
-      "reason": "Validation Without Agreement supports a concern without endorsing it; Double-Sided Reflection maps both halves of a mixed position."
+      "reason": "Validation without agreement supports a concern without endorsing it; Double-sided reflection maps both halves of a mixed position."
     },
     {
       "id": "TC011",
-      "reason": "Summary Check confirms the broad understanding; Double-Sided Reflection names one specific internal conflict."
+      "reason": "Summary check confirms the broad understanding; Double-sided reflection names one specific internal conflict."
     },
     {
       "id": "TC027",
-      "reason": "When the reflection lands and they ask what to do, switch to Permission-Based Advice before offering anything."
+      "reason": "When the reflection lands and they ask what to do, switch to Permission-based advice before offering anything."
     },
     {
       "id": "TC058",
-      "reason": "Feeling-plus-need reflection names one feeling and the need under it; Double-Sided Reflection names two competing pulls at once."
+      "reason": "Feeling-plus-need reflection names one feeling and the need under it; Double-sided reflection names two competing pulls at once."
     }
   ]
 };

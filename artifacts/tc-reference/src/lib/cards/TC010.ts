@@ -552,32 +552,32 @@ export const TC010: CardData = {
     {
       "id": "TC012",
       "reason":
-        "Reach for this when the person mainly needs to know they have your focus. Full-Attention Signal makes attention explicit; Warm Presence sets the overall safe, low-pressure tone."
+        "Reach for this when the person mainly needs to know they have your focus. Full-attention signal makes attention explicit; Warm presence sets the overall safe, low-pressure tone."
     },
     {
       "id": "TC024",
       "reason":
-        "Use Warm Opening when the job is simply to begin the exchange with ease. Warm Presence is the sustained tone you hold throughout, not only the first line."
+        "Use Warm opening when the job is simply to begin the exchange with ease. Warm presence is the sustained tone you hold throughout, not only the first line."
     },
     {
       "id": "TC028",
       "reason":
-        "Use this when the fix is specifically in your voice - pace, pitch, and steadiness. Warm Presence is broader: face, body, timing, and words together."
+        "Use this when the fix is specifically in your voice - pace, pitch, and steadiness. Warm presence is broader: face, body, timing, and words together."
     },
     {
       "id": "TC036",
       "reason":
-        "Use Contextual Opener when you want to start from the shared situation rather than a generic greeting. Warm Presence is the underlying warmth any opener rides on."
+        "Use Contextual opener when you want to start from the shared situation rather than a generic greeting. Warm presence is the underlying warmth any opener rides on."
     },
     {
       "id": "TC004",
       "reason":
-        "Once they are talking, Reflective Listening keeps the warmth alive by showing you have tracked what they said. Warm Presence gets them talking; reflection keeps them going."
+        "Once they are talking, Reflective listening keeps the warmth alive by showing you have tracked what they said. Warm presence gets them talking; reflection keeps them going."
     },
     {
       "id": "TC072",
       "reason":
-        "When someone is guarded, a Low-pressure invitation is the specific move that lowers the stakes of answering. Warm Presence is the overall climate that makes the invitation land."
+        "When someone is guarded, a Low-pressure invitation is the specific move that lowers the stakes of answering. Warm presence is the overall climate that makes the invitation land."
     }
   ]
 };

@@ -448,7 +448,7 @@ export const TC059: CardData = {
   "chains": [
     {
       "label": "Read then move",
-      "sequence": "TC041 Topic Energy Tracking -> TC059 Energy-based topic switching -> TC038 Conversation threading",
+      "sequence": "TC041 Topic energy tracking -> TC059 Energy-based topic switching -> TC038 Conversation threading",
       "example": [
         "Notice where energy is rising and falling, switch to the better thread, then keep continuity as it develops.",
         "\"The energy picked up around delivery - shall we follow that? ... Good, so the real question there is timing.\""
@@ -472,7 +472,7 @@ export const TC059: CardData = {
     },
     {
       "label": "Slow, switch, state",
-      "sequence": "TC031 Slow Down Under Pressure -> TC059 Energy-based topic switching -> TC044 BLUF",
+      "sequence": "TC031 Slow down under pressure -> TC059 Energy-based topic switching -> TC044 BLUF",
       "example": [
         "Slow the pace, switch from circling context to the useful issue, then state the decision point clearly.",
         "\"Let's take a breath. The live issue is timeline, not background. Bottom line: we need a date by Friday.\""
@@ -482,7 +482,7 @@ export const TC059: CardData = {
   "relatedTechniques": [
     {
       "id": "TC041",
-      "reason": "Topic Energy Tracking notices and names where energy is rising or falling. Track first with TC041; reach for TC059 once you have enough of a read to actually move the conversation."
+      "reason": "Topic energy tracking notices and names where energy is rising or falling. Track first with TC041; reach for TC059 once you have enough of a read to actually move the conversation."
     },
     {
       "id": "TC038",

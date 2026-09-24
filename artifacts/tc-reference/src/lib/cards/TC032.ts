@@ -12,7 +12,7 @@ export const TC032: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC032/TC032_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC032",
-  "whyItWorks": "Name and Detail Memory is recalling one accurate thing about someone — their name, or a specific detail they shared earlier — and reusing it at the right moment so they feel recognised rather than processed. It is a specific, observable conversation move, not a general good memory. It works because being remembered is a quiet signal that someone mattered enough to be held in mind: it tells the other person you were actually listening, and that the relationship has continuity beyond this single exchange.",
+  "whyItWorks": "Name and detail memory is recalling one accurate thing about someone — their name, or a specific detail they shared earlier — and reusing it at the right moment so they feel recognised rather than processed. It is a specific, observable conversation move, not a general good memory. It works because being remembered is a quiet signal that someone mattered enough to be held in mind: it tells the other person you were actually listening, and that the relationship has continuity beyond this single exchange.",
   "whatItIsNot": [
     "It is not a trick, a dominance move, a script, or a way to push someone past their boundary.",
     "It is not flattery or a way to soften someone up before an ask.",
@@ -459,7 +459,7 @@ export const TC032: CardData = {
   "chains": [
     {
       "label": "Reconnect and open up",
-      "sequence": "Name and Detail Memory → Summary Check → Live-Thread Follow-Up",
+      "sequence": "Name and detail memory → Summary check → Live-Thread Follow-Up",
       "example": [
         "\"Good to see you, Sam — you were mid-house-hunt last time.\"",
         "\"So it sounds like the search is still on, but you've narrowed the area?\"",
@@ -468,7 +468,7 @@ export const TC032: CardData = {
     },
     {
       "label": "Recognise without agreeing",
-      "sequence": "Validation Without Agreement → Name and Detail Memory → Autonomy Release",
+      "sequence": "Validation without agreement → Name and detail memory → Autonomy release",
       "example": [
         "\"I get why you'd want to push the deadline.\"",
         "\"You said last week the team was already stretched.\"",
@@ -477,7 +477,7 @@ export const TC032: CardData = {
     },
     {
       "label": "Steady a tense moment",
-      "sequence": "Slow Down Under Pressure → Name and Detail Memory → Meaning Reflection",
+      "sequence": "Slow down under pressure → Name and detail memory → Meaning reflection",
       "example": [
         "\"Let's not rush this one.\"",
         "\"You've told me before this project means a lot to you.\"",
@@ -488,23 +488,23 @@ export const TC032: CardData = {
   "relatedTechniques": [
     {
       "id": "TC024",
-      "reason": "Warm Opening starts the interaction; Name and Detail Memory adds continuity by carrying a detail forward from last time."
+      "reason": "Warm opening starts the interaction; Name and detail memory adds continuity by carrying a detail forward from last time."
     },
     {
       "id": "TC018",
-      "reason": "Specific Appreciation names present value; Name and Detail Memory recalls prior context they shared earlier."
+      "reason": "Specific appreciation names present value; Name and detail memory recalls prior context they shared earlier."
     },
     {
       "id": "TC010",
-      "reason": "Warm Presence is the ongoing feel; Name and Detail Memory is one concrete signal of it."
+      "reason": "Warm presence is the ongoing feel; Name and detail memory is one concrete signal of it."
     },
     {
       "id": "TC036",
-      "reason": "Contextual Opener uses the current situation; Name and Detail Memory uses a detail from a previous conversation."
+      "reason": "Contextual opener uses the current situation; Name and detail memory uses a detail from a previous conversation."
     },
     {
       "id": "TC011",
-      "reason": "Summary Check plays back the gist of what was just said; Name and Detail Memory brings back a single detail from further back."
+      "reason": "Summary check plays back the gist of what was just said; Name and detail memory brings back a single detail from further back."
     }
   ]
 };

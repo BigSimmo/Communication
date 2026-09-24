@@ -12,7 +12,7 @@ export const TC017: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC017/TC017_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC017",
-  "whyItWorks": "Values-Based Framing means connecting a choice, request or interpretation to a value the person has already shown or stated, so the frame feels self-consistent rather than imposed. It works because people move towards a decision more readily when it fits who they already are than when it is pushed on them from outside. The move keeps the exchange accurate, respectful and easy to follow: the other person does not have to guess whether you understood them or what you are asking. The rule that keeps it honest is simple - use values the person owns, and do not lend them values for your convenience.",
+  "whyItWorks": "Values-based framing means connecting a choice, request or interpretation to a value the person has already shown or stated, so the frame feels self-consistent rather than imposed. It works because people move towards a decision more readily when it fits who they already are than when it is pushed on them from outside. The move keeps the exchange accurate, respectful and easy to follow: the other person does not have to guess whether you understood them or what you are asking. The rule that keeps it honest is simple - use values the person owns, and do not lend them values for your convenience.",
   "whatItIsNot": [
     "It is not projecting values onto someone, moralising, or reaching for buzzwords to sound principled.",
     "It is not \"as someone who cares about X...\" when X has not actually been shown or stated.",
@@ -471,7 +471,7 @@ export const TC017: CardData = {
   "chains": [
     {
       "label": "Understand then frame",
-      "sequence": "TC012 Full-Attention Signal -> TC017 Values-Based Framing -> TC011 Summary Check",
+      "sequence": "TC012 Full-attention signal -> TC017 Values-based framing -> TC011 Summary check",
       "example": [
         "Give them your full attention while they lay out the problem.",
         "\"The value I keep hearing is trust - does the earlier option fit that better?\"",
@@ -480,7 +480,7 @@ export const TC017: CardData = {
     },
     {
       "label": "Reflect then advise",
-      "sequence": "TC004 Reflective Listening -> TC017 Values-Based Framing -> TC027 Permission-Based Advice",
+      "sequence": "TC004 Reflective listening -> TC017 Values-based framing -> TC027 Permission-based advice",
       "example": [
         "\"So you are torn between telling them now and waiting.\"",
         "\"You have said being straight with people matters to you - does that lean you one way?\"",
@@ -489,7 +489,7 @@ export const TC017: CardData = {
     },
     {
       "label": "Frame without pressure",
-      "sequence": "TC017 Values-Based Framing -> TC021 Autonomy Release",
+      "sequence": "TC017 Values-based framing -> TC021 Autonomy release",
       "example": [
         "\"If fairness is the priority, hearing both sides first probably fits.\"",
         "\"But it is genuinely your call - I am only naming what you said mattered.\""
@@ -503,19 +503,19 @@ export const TC017: CardData = {
     },
     {
       "id": "TC040",
-      "reason": "TC040 Meaning Reflection reflects why something matters. Use TC017 when you need to frame a decision or request through that value, not just mirror it."
+      "reason": "TC040 Meaning reflection reflects why something matters. Use TC017 when you need to frame a decision or request through that value, not just mirror it."
     },
     {
       "id": "TC021",
-      "reason": "TC021 Autonomy Release removes pressure from an option. Pair it with TC017 to keep a values frame from tipping into coercion."
+      "reason": "TC021 Autonomy release removes pressure from an option. Pair it with TC017 to keep a values frame from tipping into coercion."
     },
     {
       "id": "TC005",
-      "reason": "TC005 Validation Without Agreement acknowledges without endorsing. Use TC005 first when the person needs to feel heard before any values frame."
+      "reason": "TC005 Validation without agreement acknowledges without endorsing. Use TC005 first when the person needs to feel heard before any values frame."
     },
     {
       "id": "TC027",
-      "reason": "TC027 Permission-Based Advice asks before advising. Follow a values frame with TC027 so the next step is invited, not pushed."
+      "reason": "TC027 Permission-based advice asks before advising. Follow a values frame with TC027 so the next step is invited, not pushed."
     }
   ]
 };

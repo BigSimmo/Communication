@@ -459,7 +459,7 @@ export const TC100: CardData = {
       "label": "Energy tracking -> meaning question -> permission-based advice",
       "sequence": "TC041 -> TC100 -> TC027",
       "example": [
-        "TC041 Topic Energy Tracking: notice they light up about one part of the story.",
+        "TC041 Topic energy tracking: notice they light up about one part of the story.",
         "TC100: \"That part seems to stand out. What did you make of it?\"",
         "TC027 Permission-based advice: \"Would it help to think through a response?\""
       ]

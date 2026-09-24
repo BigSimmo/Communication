@@ -13,7 +13,7 @@ export const TC014: CardData = {
   ],
   "id": "TC014",
   "whyItWorks":
-    "Validate the Concern is the deliberate move of acknowledging that a worry is legitimate before you answer or reframe it. You validate the concern, not the conclusion — you are not agreeing that they are right, only that the worry is reasonable. It works because people become far less defensive once they feel their concern has genuinely been heard: resistance stops being something they must defend and becomes information you can both work with, and you stay warm and credible instead of steamrolling their point.",
+    "Validate the concern is the deliberate move of acknowledging that a worry is legitimate before you answer or reframe it. You validate the concern, not the conclusion — you are not agreeing that they are right, only that the worry is reasonable. It works because people become far less defensive once they feel their concern has genuinely been heard: resistance stops being something they must defend and becomes information you can both work with, and you stay warm and credible instead of steamrolling their point.",
   "whatItIsNot": [
     "It is not agreeing their conclusion is right, pretending to share their view, or flattering resistance.",
     "You validate the concern, not necessarily the conclusion — and never a false fact.",
@@ -499,27 +499,27 @@ export const TC014: CardData = {
   "relatedTechniques": [
     {
       "id": "TC005",
-      "reason": "Validation Without Agreement validates the person's emotion, context or logic. Validate the Concern validates a specific objection before you answer it — use it when resistance needs respect before a response."
+      "reason": "Validation without agreement validates the person's emotion, context or logic. Validate the concern validates a specific objection before you answer it — use it when resistance needs respect before a response."
     },
     {
       "id": "TC069",
-      "reason": "Clarify objection digs into what the objection actually is. Validate the Concern first grants that the worry is fair, then clarifies — reach for TC069 when the objection is vague rather than resisted."
+      "reason": "Clarify objection digs into what the objection actually is. Validate the concern first grants that the worry is fair, then clarifies — reach for TC069 when the objection is vague rather than resisted."
     },
     {
       "id": "TC073",
-      "reason": "Resistance-as-information treats pushback as data about needs. Validate the Concern is the acknowledgement that makes the person willing to share that data."
+      "reason": "Resistance-as-information treats pushback as data about needs. Validate the concern is the acknowledgement that makes the person willing to share that data."
     },
     {
       "id": "TC077",
-      "reason": "Agreement before disagreement leads with a genuine point of agreement. Validate the Concern leads with the legitimacy of the worry — use TC077 when you can honestly agree with part of their position."
+      "reason": "Agreement before disagreement leads with a genuine point of agreement. Validate the concern leads with the legitimacy of the worry — use TC077 when you can honestly agree with part of their position."
     },
     {
       "id": "TC083",
-      "reason": "Ask what would make it workable converts an objection into criteria for a solution. Validate the Concern is the step before it: make the worry feel heard, then ask what would make it workable."
+      "reason": "Ask what would make it workable converts an objection into criteria for a solution. Validate the concern is the step before it: make the worry feel heard, then ask what would make it workable."
     },
     {
       "id": "TC021",
-      "reason": "Autonomy Release hands the decision back (\"it is your call\"). Validate the Concern earns the right to be heard first — pair them, but use TC021 when the person mainly needs to feel unpressured."
+      "reason": "Autonomy release hands the decision back (\"it is your call\"). Validate the concern earns the right to be heard first — pair them, but use TC021 when the person mainly needs to feel unpressured."
     }
   ]
 };

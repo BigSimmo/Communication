@@ -522,27 +522,27 @@ export const TC067: CardData = {
   "relatedTechniques": [
     {
       "id": "TC027",
-      "reason": "Both are about advice, so direction decides. Asking for their advice is TC067; offering yours, with consent first, is TC027 (Permission-Based Advice)."
+      "reason": "Both are about advice, so direction decides. Asking for their advice is TC067; offering yours, with consent first, is TC027 (Permission-based advice)."
     },
     {
       "id": "TC013",
-      "reason": "\"What should I do?\" can hide an action request. If you want guidance, use TC067; if you want a specific action or deliverable, use TC013 (Clean Request)."
+      "reason": "\"What should I do?\" can hide an action request. If you want guidance, use TC067; if you want a specific action or deliverable, use TC013 (Clean request)."
     },
     {
       "id": "TC015",
-      "reason": "Asking for advice can slide into giving it. If your impulse is to fix them, use TC015 (Premature Advice Restraint); if you genuinely want their view, use TC067."
+      "reason": "Asking for advice can slide into giving it. If your impulse is to fix them, use TC015 (Premature advice restraint); if you genuinely want their view, use TC067."
     },
     {
       "id": "TC022",
-      "reason": "An advice request can look like status generosity. If there is a real question, use TC067; if it is pure credit or standing with no ask attached, use TC022 (Status Generosity)."
+      "reason": "An advice request can look like status generosity. If there is a real question, use TC067; if it is pure credit or standing with no ask attached, use TC022 (Status generosity)."
     },
     {
       "id": "TC020",
-      "reason": "\"A quick instinct is enough\" is low-friction wording. If the central move is asking for advice, use TC067; if it is removing effort from any request, use TC020 (Low-Friction Ask)."
+      "reason": "\"A quick instinct is enough\" is low-friction wording. If the central move is asking for advice, use TC067; if it is removing effort from any request, use TC020 (Low-friction ask)."
     },
     {
       "id": "TC018",
-      "reason": "\"You're good at this\" may be appreciation or a setup. If it ends in an advice question, use TC067; if it ends in acknowledgement, use TC018 (Specific Appreciation)."
+      "reason": "\"You're good at this\" may be appreciation or a setup. If it ends in an advice question, use TC067; if it ends in acknowledgement, use TC018 (Specific appreciation)."
     }
   ]
 };

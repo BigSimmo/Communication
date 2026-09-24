@@ -11,6 +11,7 @@ import { useRecentSearches } from "@/lib/use-recent-searches";
 import { useTheme } from "@/lib/theme";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
+import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
 
 interface SearchModalProps {
   query: string;
@@ -109,6 +110,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
   // on the input). Focus restore is handled manually below — restoring into
   // an element that opens search on focus would immediately reopen the modal.
   useFocusTrap(true, panelRef, { initialFocusRef: inputRef, restoreFocus: false });
+  useBodyScrollLock(true);
 
   useEffect(() => {
     const opener = document.activeElement as HTMLElement | null;
@@ -216,7 +218,8 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
       : "0 18px 52px rgba(0,0,0,0.48)",
     width: "100%",
     maxWidth: 520,
-    maxHeight: "min(76vh, 560px)",
+    // dvh tracks the on-screen keyboard on iOS/Android so results stay visible
+    maxHeight: "min(76dvh, 560px)",
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
@@ -232,7 +235,8 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-end",
-    padding: "64px 12px 12px",
+    padding:
+      "calc(var(--app-header-height, 48px) + 8px) max(12px, env(safe-area-inset-right, 0px)) 12px max(12px, env(safe-area-inset-left, 0px))",
     background: theme === "light" ? "rgba(248,249,251,0.30)" : "rgba(3,7,18,0.24)",
     backdropFilter: prefersReducedMotion ? "none" : "blur(2px)",
     WebkitBackdropFilter: prefersReducedMotion ? "none" : "blur(2px)",
@@ -266,7 +270,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search techniques, phrases, situations…"
+            placeholder="Techniques, phrases, situations…"
             role="combobox"
             aria-label="Search techniques"
             aria-autocomplete="list"
@@ -285,20 +289,21 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             <button
               onClick={() => setQuery("")}
               aria-label="Clear search"
-              className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+              className="tap-target flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
               style={{ background: "var(--fg-07)" }}
             >
-              <X className="w-3.5 h-3.5" style={{ color: "var(--fg-50)" }} />
+              <X className="w-3.5 h-3.5" style={{ color: "var(--fg-50)" }} aria-hidden="true" />
             </button>
           )}
           <button
             onClick={handleClose}
             aria-label="Close search"
             data-testid="button-search-modal-close"
-            className="flex-shrink-0 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg transition-all active:scale-95"
-            style={{ background: "var(--fg-06)", color: "var(--fg-45)", border: "1px solid var(--fg-09)" }}
+            className="tap-target flex-shrink-0 h-9 min-w-9 px-2 flex items-center justify-center gap-1 rounded-lg transition-all active:scale-95"
+            style={{ background: "var(--fg-06)", color: "var(--fg-55)", border: "1px solid var(--fg-09)" }}
           >
-            Esc
+            <X className="w-4 h-4 [@media(pointer:fine)]:hidden" aria-hidden="true" />
+            <span className="hidden [@media(pointer:fine)]:inline text-[11px] font-semibold">Esc</span>
           </button>
         </div>
 
@@ -321,8 +326,8 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
               <div className="flex items-center gap-2 mb-2">
                 <Sparkles className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} aria-hidden="true" />
                 <p
-                  className="text-[10px] font-semibold tracking-widest uppercase"
-                  style={{ color: "var(--fg-30)" }}
+                  className="text-[11px] font-semibold tracking-widest uppercase"
+                  style={{ color: "var(--fg-55)" }}
                 >
                   Smart starts
                 </p>
@@ -332,7 +337,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                   <button
                     key={term}
                     onClick={() => applyRecent(term)}
-                    className="rounded-full px-2.5 py-1.5 text-[11px] font-semibold transition-all active:scale-95"
+                    className="tap-target-y rounded-full px-3 py-1.5 text-[12px] font-semibold transition-all active:scale-95"
                     style={{
                       background: "var(--fg-05)",
                       border: "1px solid var(--fg-08)",
@@ -348,7 +353,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                   <button
                     key={term}
                     onClick={() => applyRecent(term)}
-                    className="rounded-full px-2.5 py-1.5 text-[10.5px] font-semibold transition-all active:scale-95"
+                    className="tap-target-y rounded-full px-3 py-1.5 text-[12px] font-semibold transition-all active:scale-95"
                     style={{
                       background: "color-mix(in srgb, var(--brand) 8%, transparent)",
                       border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
@@ -382,8 +387,8 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           {!searchLoading && !searchFailed && results.length > 0 && (
             <div>
               <p
-                className="text-[10px] font-semibold tracking-widest uppercase px-4 pt-3 pb-1.5"
-                style={{ color: "var(--fg-28)" }}
+                className="text-[11px] font-semibold tracking-widest uppercase px-4 pt-3 pb-1.5"
+                style={{ color: "var(--fg-55)" }}
               >
                 Results
               </p>
@@ -406,8 +411,13 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                       opacity: result.loaded ? 1 : 0.45,
                       cursor: result.loaded ? "pointer" : "default",
                     }}
-                    onMouseEnter={() => setSelectedIndex(i)}
-                    onMouseLeave={() => setSelectedIndex(-1)}
+                    onPointerEnter={(e) => {
+                      // Mouse only — a tap would otherwise leave the row stuck highlighted
+                      if (e.pointerType === "mouse") setSelectedIndex(i);
+                    }}
+                    onPointerLeave={(e) => {
+                      if (e.pointerType === "mouse") setSelectedIndex(-1);
+                    }}
                   >
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
@@ -435,12 +445,13 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                     {result.loaded ? (
                       <ArrowRight
                         className="w-4 h-4 flex-shrink-0"
-                        style={{ color: isSelected ? "var(--brand-text)" : "var(--fg-22)" }}
+                        style={{ color: isSelected ? "var(--brand-text)" : "var(--fg-40)" }}
+                        aria-hidden="true"
                       />
                     ) : (
                       <span
-                        className="text-[9px] font-medium px-2 py-0.5 rounded-full flex-shrink-0"
-                        style={{ background: "var(--fg-05)", color: "var(--fg-25)" }}
+                        className="text-[10px] font-medium px-2 py-0.5 rounded-full flex-shrink-0"
+                        style={{ background: "var(--fg-05)", color: "var(--fg-55)" }}
                       >
                         Soon
                       </span>
@@ -453,10 +464,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 className="px-4 py-2.5 flex items-center justify-between"
                 style={{ borderTop: "1px solid var(--fg-05)" }}
               >
-                <p className="text-[10px]" style={{ color: "var(--fg-55)" }}>
+                <p className="text-[11px]" style={{ color: "var(--fg-55)" }}>
                   {results.length} result{results.length !== 1 ? "s" : ""}
                 </p>
-                <p className="text-[10px]" style={{ color: "var(--fg-55)" }}>
+                <p className="keyboard-hint text-[11px]" style={{ color: "var(--fg-55)" }}>
                   ↑↓ navigate · Enter open
                 </p>
               </div>
@@ -480,15 +491,15 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             <div>
               <div className="flex items-center justify-between px-4 pt-3 pb-1.5">
                 <p
-                  className="text-[10px] font-semibold tracking-widest uppercase"
-                  style={{ color: "var(--fg-28)" }}
+                  className="text-[11px] font-semibold tracking-widest uppercase"
+                  style={{ color: "var(--fg-55)" }}
                 >
                   Recent
                 </p>
                 <button
                   onClick={clearRecents}
-                  className="text-[10px] font-medium transition-colors"
-                  style={{ color: "var(--fg-55)", minHeight: 32, paddingInline: 6 }}
+                  className="tap-target-y text-[12px] font-medium transition-colors"
+                  style={{ color: "var(--fg-55)", minHeight: 36, paddingInline: 8 }}
                 >
                   Clear
                 </button>
@@ -497,10 +508,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 <button
                   key={term}
                   onClick={() => applyRecent(term)}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors duration-100 hover:bg-[var(--fg-04)] focus-visible:bg-[var(--fg-04)]"
+                  className="w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-100 hover:bg-[var(--fg-04)] focus-visible:bg-[var(--fg-04)]"
                   style={{ color: "var(--fg-60)" }}
                 >
-                  <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--fg-28)" }} />
+                  <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--fg-45)" }} aria-hidden="true" />
                   <span className="text-[13px]">{term}</span>
                 </button>
               ))}
@@ -511,7 +522,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           {!showRecents && query.trim().length === 0 && (
             <div className="flex flex-col items-center py-10 px-6 text-center">
               <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
-                Search across all techniques, phrases, and scenarios
+                Search across all techniques, phrases and scenarios.
               </p>
             </div>
           )}

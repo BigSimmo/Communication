@@ -111,7 +111,8 @@ export function AppHeader({
   const cardMeta = cardId ? CARD_META[cardId] ?? null : null;
 
   const totalCards = allCards.length;
-  const headerHeight = compact ? 42 : 48;
+  // Compact still clears the 44px touch targets used on coarse pointers.
+  const headerHeight = compact ? 46 : 48;
 
   useEffect(() => {
     let lastY = Math.max(0, window.scrollY);
@@ -177,7 +178,14 @@ export function AppHeader({
         data-testid="app-header"
         data-compact={compact}
       >
-        <div className="flex items-center h-full px-3 sm:px-4 md:px-6 gap-2.5 md:gap-3 min-w-0">
+        <div
+          className="flex items-center h-full [--hdr-px:12px] sm:[--hdr-px:16px] md:[--hdr-px:24px] gap-2.5 md:gap-3 min-w-0"
+          style={{
+            // Clear the notch in landscape (viewport-fit=cover)
+            paddingLeft: "max(var(--hdr-px), env(safe-area-inset-left, 0px))",
+            paddingRight: "max(var(--hdr-px), env(safe-area-inset-right, 0px))",
+          }}
+        >
 
           {/* ── CARD MODE ── */}
           {mode === "card" && (
@@ -193,7 +201,7 @@ export function AppHeader({
               </Link>
               <div className="flex-1 min-w-0 flex items-center gap-2">
                 <span
-                  className="text-[9px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
+                  className="text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
                   style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
                 >
                   {cardId}
@@ -219,7 +227,7 @@ export function AppHeader({
                 >
                   <Heart
                     className="w-4 h-4"
-                    style={{ color: isCardFav(cardId) ? "var(--brand-text)" : "var(--fg-40)" }}
+                    style={{ color: isCardFav(cardId) ? "var(--brand-text)" : "var(--fg-55)" }}
                     fill={isCardFav(cardId) ? "var(--brand-text)" : "none"}
                   />
                 </button>
@@ -235,19 +243,9 @@ export function AppHeader({
               >
                 <Search className="w-4 h-4" aria-hidden="true" />
               </HeaderIconButton>
-              {onToggleMenu && (
-                <HeaderIconButton
-                  label={menuOpen ? "Close organized menu" : "Open organized menu"}
-                  active={menuOpen}
-                  expanded={menuOpen}
-                  controls="mobile-organized-menu"
-                  testId="button-header-menu-card"
-                  onClick={onToggleMenu}
-                  className="inline-flex md:hidden"
-                >
-                  {menuOpen ? <X className="w-4 h-4" aria-hidden="true" /> : <Menu className="w-4 h-4" aria-hidden="true" />}
-                </HeaderIconButton>
-              )}
+              {/* No header menu button in card mode: on phones the floating
+                  menu button already provides it, and dropping it gives the
+                  card title room at 375px. */}
               <HeaderIconButton
                 label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                 testId="button-theme-toggle-card"
@@ -300,7 +298,7 @@ export function AppHeader({
                 </span>
                 <div className="min-w-0 leading-none">
                   <p
-                    className="text-[8.5px] font-bold tracking-[0.16em] uppercase leading-none"
+                    className="text-[9.5px] font-bold tracking-[0.14em] uppercase leading-none"
                     style={{
                       color: "var(--brand-text)",
                       opacity: compact ? 0 : 0.85,

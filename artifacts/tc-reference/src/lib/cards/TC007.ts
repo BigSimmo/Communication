@@ -12,7 +12,7 @@ export const TC007: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC007/TC007_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC007",
-  "whyItWorks": "No One-Upping Discipline is the practice of resisting the impulse to top, match, correct, or redirect someone's story with your own bigger, worse, better, more dramatic, or more impressive version. It works because it changes who the moment belongs to: when you let their story land before adding yours, they feel respected rather than outshone, and people become more receptive to you once they sense you are not competing with them.",
+  "whyItWorks": "No one-upping discipline is the practice of resisting the impulse to top, match, correct, or redirect someone's story with your own bigger, worse, better, more dramatic, or more impressive version. It works because it changes who the moment belongs to: when you let their story land before adding yours, they feel respected rather than outshone, and people become more receptive to you once they sense you are not competing with them.",
   "whatItIsNot": [
     "It is not never sharing your own experiences.",
     "It is not being passive, bland, or falsely humble.",

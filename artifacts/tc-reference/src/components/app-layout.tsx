@@ -517,12 +517,12 @@ export function AppLayout({ children }: AppLayoutProps) {
                 {/* Badge lives on the chip, matching the mobile pill pattern */}
                 {item.badge && (
                   <span
-                    className="absolute text-[7px] font-black rounded-full leading-none flex items-center justify-center"
+                    className="absolute text-[9px] font-black rounded-full leading-none flex items-center justify-center"
                     style={{
                       top: -2,
                       right: -3,
-                      minWidth: 13,
-                      height: 13,
+                      minWidth: 15,
+                      height: 15,
                       paddingLeft: 2,
                       paddingRight: 2,
                       background: item.active
@@ -584,7 +584,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               {LOADED_CARDS}
               <span
                 className="text-[13px] font-normal ml-1"
-                style={{ color: "var(--fg-22)" }}
+                style={{ color: "var(--fg-45)" }}
               >
                 / {TOTAL_CARDS}
               </span>
@@ -613,7 +613,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       {/* ── Content wrapper (sidebar offset + shared header) ── */}
       <div className="md:pl-[200px] flex flex-col min-h-[100dvh] w-full min-w-0 overflow-x-clip">
         <AppHeader menuOpen={fabOpen} onToggleMenu={toggleFabOpen} />
-        <main className="flex-1 pb-20 md:pb-0 min-w-0 overflow-x-clip">
+        <main className="flex-1 pb-[calc(6rem+env(safe-area-inset-bottom,0px))] md:pb-0 min-w-0 overflow-x-clip">
           {children}
         </main>
       </div>
@@ -727,12 +727,12 @@ export function AppLayout({ children }: AppLayoutProps) {
                   />
                   {item.badge && (
                     <span
-                      className="absolute text-[8px] font-black rounded-full leading-none flex items-center justify-center"
+                      className="absolute text-[9px] font-black rounded-full leading-none flex items-center justify-center"
                       style={{
                         top: -3,
                         right: -4,
-                        minWidth: 14,
-                        height: 14,
+                        minWidth: 16,
+                        height: 16,
                         paddingLeft: 3,
                         paddingRight: 3,
                         background: item.active
@@ -884,12 +884,12 @@ export function AppLayout({ children }: AppLayoutProps) {
                 />
                 {item.badge && (
                   <span
-                    className="absolute text-[7px] font-black rounded-full leading-none flex items-center justify-center"
+                    className="absolute text-[9px] font-black rounded-full leading-none flex items-center justify-center"
                     style={{
                       top: -2,
                       [isRtl ? "left" : "right"]: -3,
-                      minWidth: 13,
-                      height: 13,
+                      minWidth: 15,
+                      height: 15,
                       paddingLeft: 2,
                       paddingRight: 2,
                       background: item.active
@@ -964,9 +964,9 @@ export function AppLayout({ children }: AppLayoutProps) {
         className="md:hidden fixed z-[41] flex items-center justify-center"
         style={{
           bottom: "calc(16px + env(safe-area-inset-bottom, 0px))",
-          [isRtl ? "left" : "right"]: 76,
-          width: 32,
-          height: 32,
+          [isRtl ? "left" : "right"]: 74,
+          width: 44,
+          height: 44,
           borderRadius: "50%",
           background: "var(--surface-float)",
           backdropFilter: "blur(14px)",
@@ -985,13 +985,13 @@ export function AppLayout({ children }: AppLayoutProps) {
       >
         {presentedLayout === "fan" || requiresStack ? (
           <LayoutList
-            className="w-3.5 h-3.5"
+            className="w-4 h-4"
             style={{ color: "var(--fg-55)" }}
             aria-hidden="true"
           />
         ) : (
           <LayoutGrid
-            className="w-3.5 h-3.5"
+            className="w-4 h-4"
             style={{ color: "var(--fg-55)" }}
             aria-hidden="true"
           />
@@ -1015,22 +1015,6 @@ export function AppLayout({ children }: AppLayoutProps) {
         }}
       />
 
-      {/* Transparent swipe zone — extends touch target near the FAB; disabled when menu is open */}
-      <div
-        aria-hidden="true"
-        className="md:hidden fixed z-[37]"
-        style={{
-          bottom: 0,
-          ...(isRtl ? { left: 0 } : { right: 0 }),
-          width: 96,
-          height: 96,
-          touchAction: "none",
-          pointerEvents: fabOpen ? "none" : "auto",
-        }}
-        onTouchStart={handleSwipeTouchStart}
-        onTouchEnd={handleSwipeTouchEnd}
-      />
-
       {/* FAB trigger button */}
       {(() => {
         const anyBadge =
@@ -1042,7 +1026,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             data-open={fabOpen}
             aria-label={fabOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={fabOpen}
-            aria-haspopup="true"
+            aria-controls="mobile-organized-menu"
             onClick={toggleFabOpen}
             onTouchStart={handleSwipeTouchStart}
             onTouchEnd={handleSwipeTouchEnd}

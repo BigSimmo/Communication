@@ -447,7 +447,7 @@ export const TC062: CardData = {
   "chains": [
     {
       "label": "Return then confirm",
-      "sequence": "Topic Energy Tracking -> Thread return -> Summary check",
+      "sequence": "Topic energy tracking -> Thread return -> Summary check",
       "example": [
         "\"You seemed more specific when you mentioned the handover. Can I come back to that?\"",
         "\"So the handover gap is the real constraint.\""
@@ -455,7 +455,7 @@ export const TC062: CardData = {
     },
     {
       "label": "Return then deepen",
-      "sequence": "Thread return -> Echo Plus Question -> Meaning reflection",
+      "sequence": "Thread return -> Echo plus question -> Meaning reflection",
       "example": [
         "\"Can I return to the trust part? You said 'not transparent' - in what way?\"",
         "\"So it is less about the decision and more about being left out of it.\""

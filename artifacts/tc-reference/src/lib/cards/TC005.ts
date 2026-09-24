@@ -13,7 +13,7 @@ export const TC005: CardData = {
   ],
   id: "TC005",
   whyItWorks:
-    "Validation Without Agreement is the habit of acknowledging the understandable feeling, context or concern behind someone's view — without agreeing with the conclusion they have drawn from it. You separate the person's experience, which usually does make sense, from the claim, interpretation or request you may not accept. It works because it lowers defensiveness while keeping the truth, the boundary and the decision intact: people can feel understood without you having to surrender accuracy or cave in to keep the peace.",
+    "Validation without agreement is the habit of acknowledging the understandable feeling, context or concern behind someone's view — without agreeing with the conclusion they have drawn from it. You separate the person's experience, which usually does make sense, from the claim, interpretation or request you may not accept. It works because it lowers defensiveness while keeping the truth, the boundary and the decision intact: people can feel understood without you having to surrender accuracy or cave in to keep the peace.",
   whatItIsNot: [
     "It is not saying they are right, or endorsing inaccurate facts.",
     "It is not soothing someone into compliance, or dodging a boundary that needs to hold.",
@@ -462,7 +462,7 @@ export const TC005: CardData = {
   chains: [
     {
       label: "Reflect, then validate",
-      sequence: "TC004 Reflective Listening -> TC005",
+      sequence: "TC004 Reflective listening -> TC005",
       example: [
         "Them: \"You moved ahead without me.\"",
         "You (reflect): \"So it felt like the decision happened over your head.\"",
@@ -471,7 +471,7 @@ export const TC005: CardData = {
     },
     {
       label: "Validate, then a clean request",
-      sequence: "TC005 -> TC013 Clean Request",
+      sequence: "TC005 -> TC013 Clean request",
       example: [
         "\"I can see why the timeline frustrated you.\"",
         "\"Going forward, could you flag blockers in the standup rather than after?\"",
@@ -479,7 +479,7 @@ export const TC005: CardData = {
     },
     {
       label: "Validate, then release the pressure",
-      sequence: "TC005 -> TC021 Autonomy Release",
+      sequence: "TC005 -> TC021 Autonomy release",
       example: [
         "\"It makes sense that you'd want to decide this now.\"",
         "\"It's genuinely your call — take the time you need.\"",
@@ -487,7 +487,7 @@ export const TC005: CardData = {
     },
     {
       label: "Validate, then ask before advising",
-      sequence: "TC005 -> TC027 Permission-Based Advice",
+      sequence: "TC005 -> TC027 Permission-based advice",
       example: [
         "\"That's a fair thing to be worried about.\"",
         "\"Do you want my take, or just a sounding board right now?\"",
@@ -498,27 +498,27 @@ export const TC005: CardData = {
     {
       id: "TC014",
       reason:
-        "Validate the Concern validates the legitimacy of the concern itself; TC005 acknowledges the experience without agreeing with the whole interpretation.",
+        "Validate the concern validates the legitimacy of the concern itself; TC005 acknowledges the experience without agreeing with the whole interpretation.",
     },
     {
       id: "TC021",
       reason:
-        "Autonomy Release lifts the pressure to choose; TC005 separates understanding from agreement.",
+        "Autonomy release lifts the pressure to choose; TC005 separates understanding from agreement.",
     },
     {
       id: "TC027",
       reason:
-        "Permission-Based Advice asks before advising; TC005 prepares a disagreement or boundary without invalidating the person.",
+        "Permission-based advice asks before advising; TC005 prepares a disagreement or boundary without invalidating the person.",
     },
     {
       id: "TC037",
       reason:
-        "Double-Sided Reflection reflects two sides of one person's ambivalence; TC005 handles a disagreement between you and them.",
+        "Double-sided reflection reflects two sides of one person's ambivalence; TC005 handles a disagreement between you and them.",
     },
     {
       id: "TC004",
       reason:
-        "Reflective Listening plays back what they said; TC005 goes one step further and holds your own differing view alongside the acknowledgement.",
+        "Reflective listening plays back what they said; TC005 goes one step further and holds your own differing view alongside the acknowledgement.",
     },
     {
       id: "TC077",

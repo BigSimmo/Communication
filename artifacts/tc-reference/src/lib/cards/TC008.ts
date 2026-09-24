@@ -534,19 +534,19 @@ export const TC008: CardData = {
   "relatedTechniques": [
     {
       "id": "TC031",
-      "reason": "Slow Down Under Pressure: when the over-talking is driven by nerves, the fix is pace, not word-count - slow down first, then trim."
+      "reason": "Slow down under pressure: when the over-talking is driven by nerves, the fix is pace, not word-count - slow down first, then trim."
     },
     {
       "id": "TC035",
-      "reason": "Strategic Pause: use for a deliberate one-beat pause around your key line, rather than the whole discipline of stopping cleanly."
+      "reason": "Strategic pause: use for a deliberate one-beat pause around your key line, rather than the whole discipline of stopping cleanly."
     },
     {
       "id": "TC013",
-      "reason": "Clean Request: when the job is to make one clear ask, use the clean-request shape rather than trimming an explanation."
+      "reason": "Clean request: when the job is to make one clear ask, use the clean-request shape rather than trimming an explanation."
     },
     {
       "id": "TC014",
-      "reason": "Validate the Concern: when the person needs their worry acknowledged first, a bare short answer will land cold - validate, then shorten."
+      "reason": "Validate the concern: when the person needs their worry acknowledged first, a bare short answer will land cold - validate, then shorten."
     },
     {
       "id": "TC044",
@@ -554,7 +554,7 @@ export const TC008: CardData = {
     },
     {
       "id": "TC029",
-      "reason": "Strategic Silence: when holding the silence, rather than shortening your words, is the actual move."
+      "reason": "Strategic silence: when holding the silence, rather than shortening your words, is the actual move."
     }
   ]
 };

@@ -37,12 +37,16 @@ export default defineConfig({
     runtimeErrorOverlay(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.svg", "apple-touch-icon.png", "robots.txt", "opengraph.jpg"],
+      includeAssets: ["favicon.svg", "apple-touch-icon.png", "pwa-maskable-512.png", "robots.txt", "opengraph.jpg"],
       manifest: {
         name: "TC Reference Tool",
         short_name: "TC Reference",
         description:
           "A mobile-first reference library of 98 communication techniques — phrase banks, decision trees, scenarios and daily practice drills.",
+        id: ".",
+        scope: ".",
+        orientation: "portrait",
+        categories: ["education", "productivity"],
         theme_color: "#0f1724",
         background_color: "#0f1724",
         display: "standalone",
@@ -50,7 +54,9 @@ export default defineConfig({
         icons: [
           { src: "pwa-icon-192.png", sizes: "192x192", type: "image/png" },
           { src: "pwa-icon-512.png", sizes: "512x512", type: "image/png" },
-          { src: "pwa-icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+          // Full-bleed with artwork inside the 80% safe zone so Android masks
+          // never expose transparent corners.
+          { src: "pwa-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
         ],
       },
       workbox: {

@@ -1,4 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  createContext,
+  useContext,
+} from "react";
 import { useRoute, useLocation } from "wouter";
 import {
   Check,
@@ -19,6 +25,15 @@ import type { CardData } from "@/lib/card-types";
 import { useFavourites } from "@/lib/favourites-context";
 import { usePdf } from "@/lib/pdf-context";
 import { impactStyleFor } from "@/lib/design-tokens";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
+import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
+
+// Measured header height (includes the top safe-area inset and compact state)
+// so scroll offsets line up with the sticky header on every device.
+function headerOffset(): number {
+  const header = document.querySelector<HTMLElement>('[data-testid="app-header"]');
+  return header?.getBoundingClientRect().height ?? 48;
+}
 
 const CARD_TITLE_MAP: Record<string, string> = {};
 for (const cards of Object.values(LIBRARY_CATEGORIES)) {
@@ -66,12 +81,12 @@ type CardSection =
 
 const SECTIONS: { id: CardSection; label: string }[] = [
   { id: "overview", label: "Overview" },
-  { id: "why", label: "Why It Works" },
-  { id: "method", label: "The Method" },
+  { id: "why", label: "Why it works" },
+  { id: "method", label: "Method" },
   { id: "phrases", label: "Phrases" },
   { id: "ladder", label: "Ladder" },
-  { id: "inpractice", label: "In Practice" },
-  { id: "tree", label: "Decision Tree" },
+  { id: "inpractice", label: "In practice" },
+  { id: "tree", label: "Decision tree" },
   { id: "scenarios", label: "Scenarios" },
   { id: "chains", label: "Chains" },
   { id: "calibration", label: "Calibration" },
@@ -92,22 +107,22 @@ interface SectionCluster {
 const SECTION_CLUSTERS: SectionCluster[] = [
   {
     id: "core",
-    label: "Core Method",
+    label: "Core method",
     sectionIds: ["overview", "why", "method"],
   },
   {
     id: "phrases-practice",
-    label: "Phrases & Practice",
+    label: "Phrases & practice",
     sectionIds: ["phrases", "ladder", "inpractice", "tree"],
   },
   {
     id: "scenarios-troubleshooting",
-    label: "Scenarios & Troubleshooting",
+    label: "Scenarios & troubleshooting",
     sectionIds: ["scenarios", "chains", "calibration", "mistakes", "recovery"],
   },
   {
     id: "review-downloads",
-    label: "Review & Downloads",
+    label: "Review & downloads",
     sectionIds: ["practice", "checklist", "related", "resources"],
   },
 ];
@@ -137,6 +152,163 @@ const LOADED_CARD_IDS = new Set(
 const LOADED_CARDS_NAV = Object.values(LIBRARY_CATEGORIES)
   .flat()
   .filter((c) => c.loaded);
+
+// ── Worked-example renderer ───────────────────────────────────────────────
+// Example arrays mix dialogue ("Them: …", "You: …") with an optional
+// "Why it falls flat:" / "Why this works:" label followed by short reasons.
+// Render the label as a sub-heading and the reasons as a bulleted list so
+// they read as notes rather than loose fragments.
+const EXAMPLE_LABEL = /^why\b.*:$/i;
+// "You: …", "Person: …", "Alex: …" — a short capitalised label before a colon
+const SPEAKER = /^([A-Z][a-z]{1,13}):\s+/;
+
+function ExampleLines({ lines, color }: { lines: string[]; color: string }) {
+  // Split into a leading dialogue block plus zero or more labelled note lists.
+  const dialogue: string[] = [];
+  const notes: { label: string; items: string[] }[] = [];
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (EXAMPLE_LABEL.test(trimmed)) {
+      notes.push({ label: trimmed.replace(/:$/, ""), items: [] });
+    } else if (notes.length > 0) {
+      notes[notes.length - 1].items.push(trimmed);
+    } else {
+      dialogue.push(line);
+    }
+  }
+  return (
+    <>
+      {dialogue.map((line, i) => {
+        const m = line.match(SPEAKER);
+        return (
+          <p
+            key={i}
+            className="text-[14px] leading-relaxed"
+            style={{ color }}
+          >
+            {m ? (
+              <>
+                <span className="font-semibold text-foreground/85">
+                  {m[1]}:
+                </span>{" "}
+                {line.slice(m[0].length)}
+              </>
+            ) : (
+              line
+            )}
+          </p>
+        );
+      })}
+      {notes.map((note, n) => (
+        <div key={n} className="pt-2">
+          <p className="text-[12px] font-semibold text-foreground/70 mb-1">
+            {note.label}
+          </p>
+          {note.items.length > 0 && (
+            <ul className="list-disc pl-5 space-y-1">
+              {note.items.map((item, i) => (
+                <li
+                  key={i}
+                  className="text-[13px] leading-relaxed"
+                  style={{ color }}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </>
+  );
+}
+
+// ── Accordion section wrapper ─────────────────────────────────────────────
+// Defined at module scope (not inside CardDetail) so that re-renders from
+// copy/favourite/scroll-spy state don't remount open sections and drop focus.
+interface AccordionState {
+  openSections: Set<CardSection>;
+  toggleSection: (id: CardSection) => void;
+}
+const AccordionContext = createContext<AccordionState | null>(null);
+
+function SectionAccordion({
+  id,
+  label,
+  color,
+  subtitle,
+  children,
+}: {
+  id: CardSection;
+  label: string;
+  color: string;
+  subtitle?: string;
+  children: React.ReactNode;
+}) {
+  const ctx = useContext(AccordionContext);
+  const open = ctx?.openSections.has(id) ?? false;
+  return (
+    <section
+      id={`section-${id}`}
+      className="rounded-2xl overflow-hidden"
+      aria-labelledby={`section-${id}-title`}
+      style={{
+        background: "var(--fg-02)",
+        border: "1px solid var(--fg-05)",
+        scrollMarginTop:
+          "calc(var(--app-header-height, 48px) + var(--card-nav-height, 96px) + 8px)",
+      }}
+    >
+      <h3 className="m-0">
+        <button
+          type="button"
+          id={`section-${id}-title`}
+          onClick={() => ctx?.toggleSection(id)}
+          aria-expanded={open}
+          aria-controls={`section-${id}-body`}
+          className="w-full flex items-center gap-3.5 px-4 sm:px-5 py-4 text-left transition-colors active:bg-[var(--fg-03)]"
+          style={{ minHeight: 56 }}
+        >
+          <span
+            className="w-1 h-[18px] rounded-full flex-shrink-0"
+            style={{ background: color }}
+            aria-hidden="true"
+          />
+          <span className="flex-1 min-w-0 block">
+            <span className="block text-[15px] font-bold text-foreground/85">
+              {label}
+            </span>
+            {subtitle && (
+              <span
+                className="block text-[12px] mt-0.5 leading-snug font-normal"
+                style={{ color: "var(--fg-55)" }}
+              >
+                {subtitle}
+              </span>
+            )}
+          </span>
+          <ChevronDown
+            className="w-4 h-4 flex-shrink-0 transition-transform duration-200"
+            style={{
+              color: "var(--fg-50)",
+              transform: open ? "rotate(180deg)" : "none",
+            }}
+            aria-hidden="true"
+          />
+        </button>
+      </h3>
+      {open && (
+        <div
+          id={`section-${id}-body`}
+          className="px-4 sm:px-5 pb-5 pt-4"
+          style={{ borderTop: "1px solid var(--fg-04)" }}
+        >
+          {children}
+        </div>
+      )}
+    </section>
+  );
+}
 
 export default function CardDetail() {
   const [, params] = useRoute("/card/:cardId");
@@ -172,6 +344,25 @@ export default function CardDetail() {
   const [pdfLoaded, setPdfLoaded] = useState(false);
   const pdfLoadedRef = useRef(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const pdfSheetRef = useRef<HTMLDivElement>(null);
+  const isCoarsePointer =
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(pointer: coarse)").matches;
+
+  // Publish the section nav's height so accordion scroll-margin matches it.
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(() => {
+      document.documentElement.style.setProperty(
+        "--card-nav-height",
+        `${el.offsetHeight}px`,
+      );
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  });
   const scrollLockRef = useRef<string | null>(null);
   const intersectingRef = useRef<Set<string>>(new Set());
   // Tracks the latest window.scrollY via a passive listener so the cleanup
@@ -181,6 +372,8 @@ export default function CardDetail() {
   const scrollYRef = useRef(0);
   const { isPhrasesFav, togglePhrase } = useFavourites();
   const { pdfOpen, setPdfOpen, setPdfUrl } = usePdf();
+  useFocusTrap(pdfOpen, pdfSheetRef);
+  useBodyScrollLock(pdfOpen);
 
   useEffect(() => {
     if (!isKnownCard || !isLoaded) return;
@@ -281,7 +474,11 @@ export default function CardDetail() {
       if (el) {
         const navH = navRef.current?.offsetHeight ?? 90;
         const y =
-          el.getBoundingClientRect().top + window.scrollY - 56 - navH - 4;
+          el.getBoundingClientRect().top +
+          window.scrollY -
+          headerOffset() -
+          navH -
+          4;
         scrollLockRef.current = s;
         window.scrollTo({ top: y, behavior: "smooth" });
       }
@@ -326,9 +523,9 @@ export default function CardDetail() {
         }
       },
       {
-        // Exclude the fixed header (56px) + section nav from the top; count a
+        // Exclude the sticky header + section nav from the top; count a
         // section as "active" when it occupies the top 50% of remaining viewport
-        rootMargin: `${-(56 + navH)}px 0px -50% 0px`,
+        rootMargin: `${-Math.round(headerOffset() + navH)}px 0px -50% 0px`,
         threshold: 0,
       },
     );
@@ -451,74 +648,6 @@ export default function CardDetail() {
     return () => clearTimeout(timer);
   }, [pdfOpen]);
 
-  // ── Accordion section wrapper ─────────────────────────────────────────────
-  const SectionAccordion = ({
-    id,
-    label,
-    color,
-    subtitle,
-    children,
-  }: {
-    id: CardSection;
-    label: string;
-    color: string;
-    subtitle?: string;
-    children: React.ReactNode;
-  }) => {
-    const open = openSections.has(id);
-    return (
-      <div
-        id={`section-${id}`}
-        className="scroll-mt-44 rounded-2xl overflow-hidden"
-        role="tabpanel"
-        aria-labelledby={`nav-${id}`}
-        style={{ background: "var(--fg-02)", border: "1px solid var(--fg-05)" }}
-      >
-        <button
-          onClick={() => toggleSection(id)}
-          aria-expanded={open}
-          className="w-full flex items-center gap-3.5 px-5 py-4 text-left transition-colors active:bg-[var(--fg-03)]"
-          style={{ minHeight: 56 }}
-        >
-          <div
-            className="w-1 h-[18px] rounded-full flex-shrink-0"
-            style={{ background: color }}
-            aria-hidden="true"
-          />
-          <div className="flex-1 min-w-0">
-            <h3 className="text-[14px] font-bold text-foreground/85">
-              {label}
-            </h3>
-            {subtitle && (
-              <p
-                className="text-[11px] mt-0.5 leading-snug"
-                style={{ color: "var(--fg-38)" }}
-              >
-                {subtitle}
-              </p>
-            )}
-          </div>
-          <ChevronDown
-            className="w-4 h-4 flex-shrink-0 transition-transform duration-200"
-            style={{
-              color: "var(--fg-35)",
-              transform: open ? "rotate(180deg)" : "none",
-            }}
-            aria-hidden="true"
-          />
-        </button>
-        {open && (
-          <div
-            className="px-5 pb-5 pt-4"
-            style={{ borderTop: "1px solid var(--fg-04)" }}
-          >
-            {children}
-          </div>
-        )}
-      </div>
-    );
-  };
-
   // ── Unknown card ID — not in the library at all ──
   if (!isKnownCard) {
     return (
@@ -552,7 +681,7 @@ export default function CardDetail() {
         </p>
         <button
           onClick={() => setLocation("/")}
-          className="flex items-center gap-2 text-[13px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
+          className="flex items-center gap-2 text-[14px] font-semibold px-5 rounded-full transition-all active:scale-95 min-h-11"
           style={{
             background: "rgba(245,158,11,0.12)",
             border: "1px solid rgba(245,158,11,0.22)",
@@ -596,7 +725,7 @@ export default function CardDetail() {
         </p>
         <button
           onClick={() => setLocation("/")}
-          className="flex items-center gap-2 text-[13px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
+          className="flex items-center gap-2 text-[14px] font-semibold px-5 rounded-full transition-all active:scale-95 min-h-11"
           style={{
             background: "rgba(245,158,11,0.12)",
             border: "1px solid rgba(245,158,11,0.22)",
@@ -626,7 +755,7 @@ export default function CardDetail() {
   }
 
   return (
-    <>
+    <AccordionContext.Provider value={{ openSections, toggleSection }}>
       <button
         onClick={() => {
           window.scrollTo(0, 0);
@@ -634,12 +763,12 @@ export default function CardDetail() {
         }}
         aria-label={`Previous card: ${prevCard.id}`}
         data-testid="button-prev-float"
-        className="fixed z-30 left-0 md:left-[200px] flex items-center justify-center transition-all active:scale-95"
+        className="hidden md:flex fixed z-30 md:left-[200px] items-center justify-center transition-all active:scale-95"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
-          width: 32,
-          height: 64,
+          width: 40,
+          height: 72,
           background: "var(--surface-float)",
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
@@ -657,13 +786,13 @@ export default function CardDetail() {
         }}
         aria-label={`Next card: ${nextCard.id}`}
         data-testid="button-next-float"
-        className="fixed z-30 flex items-center justify-center transition-all active:scale-95"
+        className="hidden md:flex fixed z-30 items-center justify-center transition-all active:scale-95"
         style={{
           right: 0,
           top: "50%",
           transform: "translateY(-50%)",
-          width: 32,
-          height: 64,
+          width: 40,
+          height: 72,
           background: "var(--surface-float)",
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
@@ -786,7 +915,7 @@ export default function CardDetail() {
                       className="text-[10px] font-bold uppercase tracking-wider flex-shrink-0"
                       style={{ color: "var(--brand-text)" }}
                     >
-                      Quick Ladder
+                      Quick ladder
                     </span>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 flex-1 min-w-0">
                       {cardData.ladder[0].weak && (
@@ -824,11 +953,12 @@ export default function CardDetail() {
           </div>
         </div>
 
-        {/* ── Section nav (sticky below shared header at top-14) ── */}
+        {/* ── Section nav (sticky flush below the shared header) ── */}
         <div
           ref={navRef}
-          className="sticky top-14 z-10"
+          className="sticky z-10"
           style={{
+            top: "var(--app-header-height, 48px)",
             background: "var(--surface-header)",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
@@ -861,8 +991,9 @@ export default function CardDetail() {
                       : availableSections[0];
                     scrollSectionIntoView(targetSection);
                   }}
-                  className="text-[11px] font-semibold px-2.5 py-1 rounded-lg transition-all flex-shrink-0"
+                  className="text-[12px] font-semibold px-3 rounded-lg transition-all flex-shrink-0"
                   style={{
+                    minHeight: 32,
                     background: isClusterActive
                       ? "var(--fg-08)"
                       : "var(--fg-02)",
@@ -870,7 +1001,7 @@ export default function CardDetail() {
                       ? "var(--brand-text)"
                       : "var(--fg-50)",
                     border: isClusterActive
-                      ? "1px solid var(--fg-12)"
+                      ? "1px solid var(--fg-15)"
                       : "1px solid var(--fg-05)",
                   }}
                 >
@@ -885,8 +1016,8 @@ export default function CardDetail() {
             <div
               className="flex items-center gap-1.5 py-2 px-4 md:px-6 overflow-x-auto flex-1"
               style={{ scrollbarWidth: "none" }}
-              role="tablist"
-              aria-label="Card sections"
+              role="group"
+              aria-label="Jump to section"
             >
               {SECTION_CLUSTERS.map((cluster, clusterIdx) => {
                 const clusterSections = cluster.sectionIds
@@ -910,14 +1041,14 @@ export default function CardDetail() {
                       <button
                         key={s.id}
                         id={`nav-${s.id}`}
-                        role="tab"
-                        aria-selected={activeSection === s.id}
+                        type="button"
+                        aria-current={activeSection === s.id ? "true" : undefined}
                         aria-controls={`section-${s.id}`}
                         onClick={() => scrollSectionIntoView(s.id)}
                         data-testid={`nav-${s.id}`}
-                        className="text-[11px] font-semibold px-3 rounded-full transition-all flex-shrink-0"
+                        className="text-[12px] font-semibold px-3.5 rounded-full transition-all flex-shrink-0"
                         style={{
-                          minHeight: 34,
+                          minHeight: 40,
                           background:
                             activeSection === s.id
                               ? "var(--brand)"
@@ -948,8 +1079,8 @@ export default function CardDetail() {
             subtitle="Core formula, quick stats & when not to use"
           >
             <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 mb-4">
-              <p className="text-[10px] font-bold tracking-widest text-primary/80 uppercase mb-3">
-                Core Formula
+              <p className="text-[11px] font-bold tracking-widest text-primary/80 uppercase mb-3">
+                Core formula
               </p>
               <div className="flex flex-wrap gap-2 items-center">
                 {cardData.overview.coreFormula.map((step, i, arr) => (
@@ -975,8 +1106,8 @@ export default function CardDetail() {
                 border: "1px solid var(--fg-06)",
               }}
             >
-              <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-2">
-                Minimum Viable Move
+              <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-2">
+                Minimum viable move
               </p>
               <p className="text-[14px] leading-relaxed text-foreground/80">
                 {cardData.overview.minimumViableMove}
@@ -997,10 +1128,10 @@ export default function CardDetail() {
                   aria-expanded={whyOpen}
                 >
                   <p
-                    className="text-[10px] font-bold tracking-widest uppercase"
+                    className="text-[11px] font-bold tracking-widest uppercase"
                     style={{ color: "rgba(167,139,250,0.8)" }}
                   >
-                    Why It Works
+                    Why it works
                   </p>
                   <ChevronDown
                     className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
@@ -1072,7 +1203,7 @@ export default function CardDetail() {
                 border: "1px solid var(--fg-06)",
               }}
             >
-              <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-3">
+              <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-3">
                 Best for
               </p>
               <ul className="space-y-2">
@@ -1103,10 +1234,10 @@ export default function CardDetail() {
                 aria-expanded={notForOpen}
               >
                 <p
-                  className="text-[10px] font-bold tracking-widest uppercase"
+                  className="text-[11px] font-bold tracking-widest uppercase"
                   style={{ color: "rgba(248,113,113,0.8)" }}
                 >
-                  When Not to Use
+                  When not to use
                 </p>
                 <ChevronDown
                   className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
@@ -1145,7 +1276,7 @@ export default function CardDetail() {
           {sectionAvailable("why") && (
             <SectionAccordion
               id="why"
-              label="Why It Works"
+              label="Why it works"
               color="#a78bfa"
               subtitle="Psychological principle & what it builds"
             >
@@ -1157,7 +1288,7 @@ export default function CardDetail() {
                 }}
               >
                 <p
-                  className="text-[10px] font-bold tracking-widest uppercase mb-2"
+                  className="text-[11px] font-bold tracking-widest uppercase mb-2"
                   style={{ color: "rgba(167,139,250,0.85)" }}
                 >
                   What they feel
@@ -1177,7 +1308,7 @@ export default function CardDetail() {
                   border: "1px solid var(--fg-06)",
                 }}
               >
-                <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-2">
+                <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-2">
                   The principle
                 </p>
                 <p className="text-[14px] leading-relaxed text-foreground/80">
@@ -1192,7 +1323,7 @@ export default function CardDetail() {
                   border: "1px solid var(--fg-06)",
                 }}
               >
-                <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-3">
+                <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-3">
                   What it builds
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -1220,7 +1351,7 @@ export default function CardDetail() {
                 }}
               >
                 <p
-                  className="text-[10px] font-bold tracking-widest uppercase mb-3"
+                  className="text-[11px] font-bold tracking-widest uppercase mb-3"
                   style={{ color: "rgba(248,113,113,0.8)" }}
                 >
                   Why most people fail
@@ -1252,7 +1383,7 @@ export default function CardDetail() {
                     border: "1px solid var(--fg-04)",
                   }}
                 >
-                  <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-3">
+                  <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-3">
                     What it is not
                   </p>
                   <ul className="space-y-2.5">
@@ -1260,7 +1391,7 @@ export default function CardDetail() {
                       <li key={item} className="flex gap-2.5 items-start">
                         <X
                           className="w-3.5 h-3.5 mt-0.5 flex-shrink-0"
-                          style={{ color: "var(--fg-30)" }}
+                          style={{ color: "var(--fg-45)" }}
                           aria-hidden="true"
                         />
                         <p className="text-[13px] leading-snug text-foreground/70">
@@ -1278,7 +1409,7 @@ export default function CardDetail() {
           {sectionAvailable("method") && (
             <SectionAccordion
               id="method"
-              label="The Method"
+              label="The method"
               color="var(--brand)"
               subtitle={`${cardData.method?.length ?? 0}-step execution guide`}
             >
@@ -1291,7 +1422,7 @@ export default function CardDetail() {
                   }}
                 >
                   <p
-                    className="text-[10px] font-bold tracking-widest uppercase mb-2"
+                    className="text-[11px] font-bold tracking-widest uppercase mb-2"
                     style={{ color: "rgba(245,158,11,0.85)" }}
                   >
                     Guiding principle
@@ -1371,7 +1502,7 @@ export default function CardDetail() {
                     >
                       <div className="flex items-center gap-2 mb-1.5 flex-wrap">
                         <span
-                          className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
+                          className="text-[11px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
                           style={{
                             background: "rgba(245,158,11,0.12)",
                             color: "var(--brand-text)",
@@ -1397,7 +1528,7 @@ export default function CardDetail() {
                           {m.examples.map((ex, j) => (
                             <div key={j} className="flex items-start gap-2.5">
                               <span
-                                className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                                className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
                                 style={{ color: "var(--fg-38)" }}
                               >
                                 {ex.label}
@@ -1426,7 +1557,7 @@ export default function CardDetail() {
                       border: "1px solid var(--fg-06)",
                     }}
                   >
-                    <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-1">
+                    <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-1">
                       Live-thread clues
                     </p>
                     <p className="text-[12px] text-foreground/50 mb-3">
@@ -1452,7 +1583,7 @@ export default function CardDetail() {
 
               {cardData.depthDial && cardData.depthDial.length > 0 && (
                 <div className="mt-5">
-                  <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-1">
+                  <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-1">
                     The depth dial
                   </p>
                   <p className="text-[12px] text-foreground/50 mb-3">
@@ -1515,17 +1646,13 @@ export default function CardDetail() {
                           ) : (
                             <Copy
                               className="w-3.5 h-3.5 flex-shrink-0"
-                              style={{ color: "var(--fg-25)" }}
+                              style={{ color: "var(--fg-45)" }}
                             />
                           )}
                         </button>
                       </div>
                     ))}
                   </div>
-                  <p className="text-[12px] text-foreground/45 mt-3 italic">
-                    Most everyday charisma lives in the middle — warm and
-                    personal, not overly deep.
-                  </p>
                 </div>
               )}
             </SectionAccordion>
@@ -1534,13 +1661,13 @@ export default function CardDetail() {
           {/* ── Phrase Bank ── */}
           <SectionAccordion
             id="phrases"
-            label="Phrase Bank"
+            label="Phrase bank"
             color="#60a5fa"
             subtitle={`${cardData.phraseBank.reduce((a, g) => a + g.phrases.length, 0)} phrases · ${cardData.phraseBank.length} groups`}
           >
             <div className="mb-4">
-              <p className="text-[11px] text-foreground/50 mb-2">
-                I am in a...
+              <p className="text-[12px] text-foreground/60 mb-2">
+                Filter by situation
               </p>
               <div
                 className="flex gap-2 overflow-x-auto pb-2 -mx-5 px-5"
@@ -1694,10 +1821,10 @@ export default function CardDetail() {
                                 aria-label={
                                   isPhrasesFav(cardId, phrase)
                                     ? "Remove from favourites"
-                                    : "Save phrase"
+                                    : "Save to favourites"
                                 }
                                 data-testid={`phrase-fav-${group.id}-${i}`}
-                                className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                                className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                                 style={{
                                   background: isPhrasesFav(cardId, phrase)
                                     ? "rgba(245,158,11,0.1)"
@@ -1709,7 +1836,7 @@ export default function CardDetail() {
                                   style={{
                                     color: isPhrasesFav(cardId, phrase)
                                       ? "var(--brand-text)"
-                                      : "var(--fg-20)",
+                                      : "var(--fg-45)",
                                   }}
                                   fill={
                                     isPhrasesFav(cardId, phrase)
@@ -1722,7 +1849,7 @@ export default function CardDetail() {
                                 onClick={() => handleCopy(phrase)}
                                 aria-label={`Copy: ${phrase}`}
                                 data-testid={`phrase-copy-${group.id}-${i}`}
-                                className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                                className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                               >
                                 {copiedPhrase === phrase ? (
                                   <Check
@@ -1732,7 +1859,7 @@ export default function CardDetail() {
                                 ) : (
                                   <Copy
                                     className="w-3.5 h-3.5"
-                                    style={{ color: "var(--fg-18)" }}
+                                    style={{ color: "var(--fg-45)" }}
                                   />
                                 )}
                               </button>
@@ -1771,7 +1898,7 @@ export default function CardDetail() {
                       className="flex-1 p-4 bg-red-500/5"
                       style={{ borderRight: "1px solid var(--fg-05)" }}
                     >
-                      <p className="text-[10px] font-bold tracking-widest text-red-400 uppercase mb-2">
+                      <p className="text-[11px] font-bold tracking-widest text-red-400 uppercase mb-2">
                         Weak
                       </p>
                       <p className="text-[12px] text-foreground/60 leading-snug">
@@ -1779,7 +1906,7 @@ export default function CardDetail() {
                       </p>
                     </div>
                     <div className="flex-1 p-4 bg-blue-500/5">
-                      <p className="text-[10px] font-bold tracking-widest text-blue-400 uppercase mb-2">
+                      <p className="text-[11px] font-bold tracking-widest text-blue-400 uppercase mb-2">
                         Better
                       </p>
                       <p className="text-[12px] text-foreground/70 leading-snug">
@@ -1790,7 +1917,7 @@ export default function CardDetail() {
                   <div className="p-4 bg-green-500/5">
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1">
-                        <p className="text-[10px] font-bold tracking-widest text-green-400 uppercase mb-2">
+                        <p className="text-[11px] font-bold tracking-widest text-green-400 uppercase mb-2">
                           Best
                         </p>
                         <p className="text-[13px] font-medium text-foreground/90 leading-snug">
@@ -1810,9 +1937,9 @@ export default function CardDetail() {
                           aria-label={
                             isPhrasesFav(cardId, row.best)
                               ? "Remove from favourites"
-                              : "Save phrase"
+                              : "Save to favourites"
                           }
-                          className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                          className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                           style={{
                             background: isPhrasesFav(cardId, row.best)
                               ? "rgba(245,158,11,0.1)"
@@ -1824,7 +1951,7 @@ export default function CardDetail() {
                             style={{
                               color: isPhrasesFav(cardId, row.best)
                                 ? "var(--brand-text)"
-                                : "var(--fg-25)",
+                                : "var(--fg-45)",
                             }}
                             fill={
                               isPhrasesFav(cardId, row.best)
@@ -1836,7 +1963,7 @@ export default function CardDetail() {
                         <button
                           onClick={() => handleCopy(row.best)}
                           aria-label={`Copy: ${row.best}`}
-                          className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                          className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                         >
                           {copiedPhrase === row.best ? (
                             <Check
@@ -1846,7 +1973,7 @@ export default function CardDetail() {
                           ) : (
                             <Copy
                               className="w-3.5 h-3.5"
-                              style={{ color: "var(--fg-25)" }}
+                              style={{ color: "var(--fg-45)" }}
                             />
                           )}
                         </button>
@@ -1861,7 +1988,7 @@ export default function CardDetail() {
           {/* ── In Practice ── */}
           <SectionAccordion
             id="inpractice"
-            label="In Practice"
+            label="In practice"
             color="#4ade80"
             subtitle="Without vs. with — see the difference"
           >
@@ -1875,7 +2002,7 @@ export default function CardDetail() {
                   style={{ background: "rgba(239,68,68,0.08)" }}
                 >
                   <p
-                    className="text-[10px] font-bold tracking-widest uppercase"
+                    className="text-[11px] font-bold tracking-widest uppercase"
                     style={{ color: "rgba(248,113,113,0.85)" }}
                   >
                     Without this technique
@@ -1885,15 +2012,7 @@ export default function CardDetail() {
                   className="px-4 pb-4 pt-3 space-y-2"
                   style={{ background: "rgba(239,68,68,0.04)" }}
                 >
-                  {cardData.example.without.map((line, i) => (
-                    <p
-                      key={i}
-                      className="text-[13px] leading-relaxed"
-                      style={{ color: "var(--fg-65)" }}
-                    >
-                      {line}
-                    </p>
-                  ))}
+                  <ExampleLines lines={cardData.example.without} color="var(--fg-65)" />
                 </div>
               </div>
 
@@ -1906,7 +2025,7 @@ export default function CardDetail() {
                   style={{ background: "rgba(34,197,94,0.08)" }}
                 >
                   <p
-                    className="text-[10px] font-bold tracking-widest uppercase"
+                    className="text-[11px] font-bold tracking-widest uppercase"
                     style={{ color: "rgba(74,222,128,0.85)" }}
                   >
                     With this technique
@@ -1916,15 +2035,7 @@ export default function CardDetail() {
                   className="px-4 pb-4 pt-3 space-y-2"
                   style={{ background: "rgba(34,197,94,0.04)" }}
                 >
-                  {cardData.example.with.map((line, i) => (
-                    <p
-                      key={i}
-                      className="text-[13px] leading-relaxed"
-                      style={{ color: "var(--fg-78)" }}
-                    >
-                      {line}
-                    </p>
-                  ))}
+                  <ExampleLines lines={cardData.example.with} color="var(--fg-78)" />
                 </div>
               </div>
 
@@ -1950,7 +2061,7 @@ export default function CardDetail() {
           {/* ── Decision Tree ── */}
           <SectionAccordion
             id="tree"
-            label="Decision Tree"
+            label="Decision tree"
             color="#a78bfa"
             subtitle={`${cardData.decisionTree.length} situation → action paths`}
           >
@@ -2014,7 +2125,7 @@ export default function CardDetail() {
           {/* ── Scenarios ── */}
           <SectionAccordion
             id="scenarios"
-            label="Scenario Playbook"
+            label="Scenario playbook"
             color="#2dd4bf"
             subtitle={`${cardData.scenarios.length} real-world entries`}
           >
@@ -2057,7 +2168,7 @@ export default function CardDetail() {
                       ) : (
                         <Copy className="w-3.5 h-3.5" />
                       )}
-                      <span className="truncate max-w-[220px]">{s.phrase}</span>
+                      <span className="min-w-0 break-words text-left">{s.phrase}</span>
                     </button>
                     <button
                       onClick={() =>
@@ -2071,7 +2182,7 @@ export default function CardDetail() {
                       aria-label={
                         isPhrasesFav(cardId, s.phrase)
                           ? "Remove from favourites"
-                          : "Save phrase"
+                          : "Save to favourites"
                       }
                       className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                       style={{
@@ -2085,7 +2196,7 @@ export default function CardDetail() {
                         style={{
                           color: isPhrasesFav(cardId, s.phrase)
                             ? "var(--brand-text)"
-                            : "var(--fg-30)",
+                            : "var(--fg-45)",
                         }}
                         fill={
                           isPhrasesFav(cardId, s.phrase)
@@ -2104,7 +2215,7 @@ export default function CardDetail() {
           {sectionAvailable("chains") && (
             <SectionAccordion
               id="chains"
-              label="Technique Chains"
+              label="Technique chains"
               color="#818cf8"
               subtitle="Combine this move into longer sequences"
             >
@@ -2218,7 +2329,7 @@ export default function CardDetail() {
           {sectionAvailable("mistakes") && (
             <SectionAccordion
               id="mistakes"
-              label="Common Mistakes"
+              label="Common mistakes"
               color="#f87171"
               subtitle={`${cardData.commonMistakes?.length ?? 0} pitfalls + fixes`}
             >
@@ -2246,7 +2357,7 @@ export default function CardDetail() {
                     <div className="p-4 space-y-3">
                       <div className="flex items-start gap-2.5">
                         <span
-                          className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                          className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
                           style={{ color: "rgba(248,113,113,0.85)" }}
                         >
                           Sounds like
@@ -2260,7 +2371,7 @@ export default function CardDetail() {
                       </div>
                       <div className="flex items-start gap-2.5">
                         <span
-                          className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                          className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
                           style={{ color: "rgba(74,222,128,0.9)" }}
                         >
                           Better
@@ -2275,7 +2386,7 @@ export default function CardDetail() {
                           <button
                             onClick={() => handleCopy(m.better)}
                             aria-label={`Copy: ${m.better}`}
-                            className="w-7 h-7 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
+                            className="tap-target w-8 h-8 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                           >
                             {copiedPhrase === m.better ? (
                               <Check
@@ -2285,7 +2396,7 @@ export default function CardDetail() {
                             ) : (
                               <Copy
                                 className="w-3.5 h-3.5"
-                                style={{ color: "var(--fg-20)" }}
+                                style={{ color: "var(--fg-45)" }}
                               />
                             )}
                           </button>
@@ -2315,7 +2426,7 @@ export default function CardDetail() {
                   }}
                 >
                   <p
-                    className="text-[10px] font-bold tracking-widest uppercase mb-2"
+                    className="text-[11px] font-bold tracking-widest uppercase mb-2"
                     style={{ color: "rgba(52,211,153,0.9)" }}
                   >
                     Best all-purpose line
@@ -2327,7 +2438,7 @@ export default function CardDetail() {
                     <button
                       onClick={() => handleCopy(cardData.bestRecoveryLine!)}
                       aria-label={`Copy: ${cardData.bestRecoveryLine}`}
-                      className="w-8 h-8 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
+                      className="tap-target w-8 h-8 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                       style={{ background: "rgba(52,211,153,0.12)" }}
                     >
                       {copiedPhrase === cardData.bestRecoveryLine ? (
@@ -2393,9 +2504,9 @@ export default function CardDetail() {
                         aria-label={
                           isPhrasesFav(cardId, phrase)
                             ? "Remove from favourites"
-                            : "Save phrase"
+                            : "Save to favourites"
                         }
-                        className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                         style={{
                           background: isPhrasesFav(cardId, phrase)
                             ? "rgba(245,158,11,0.1)"
@@ -2407,7 +2518,7 @@ export default function CardDetail() {
                           style={{
                             color: isPhrasesFav(cardId, phrase)
                               ? "var(--brand-text)"
-                              : "var(--fg-20)",
+                              : "var(--fg-45)",
                           }}
                           fill={
                             isPhrasesFav(cardId, phrase)
@@ -2419,7 +2530,7 @@ export default function CardDetail() {
                       <button
                         onClick={() => handleCopy(phrase)}
                         aria-label={`Copy: ${phrase}`}
-                        className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                       >
                         {copiedPhrase === phrase ? (
                           <Check
@@ -2429,7 +2540,7 @@ export default function CardDetail() {
                         ) : (
                           <Copy
                             className="w-3.5 h-3.5"
-                            style={{ color: "var(--fg-18)" }}
+                            style={{ color: "var(--fg-45)" }}
                           />
                         )}
                       </button>
@@ -2443,7 +2554,7 @@ export default function CardDetail() {
           {/* ── Practice Protocol ── */}
           <SectionAccordion
             id="practice"
-            label="Practice Protocol"
+            label="Practice protocol"
             color="#38bdf8"
             subtitle={`${cardData.drill.length}-day program`}
           >
@@ -2485,7 +2596,7 @@ export default function CardDetail() {
           {/* ── After-Action Checklist ── */}
           <SectionAccordion
             id="checklist"
-            label="After-Action Checklist"
+            label="After-action checklist"
             color="#34d399"
             subtitle={`${checkedItems.size} / ${cardData.checklist.length} items checked`}
           >
@@ -2541,16 +2652,6 @@ export default function CardDetail() {
                         : "none",
                     minHeight: 52,
                   }}
-                  onMouseEnter={(e) => {
-                    if (!checkedItems.has(i))
-                      (e.currentTarget as HTMLElement).style.background =
-                        "var(--fg-02)";
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!checkedItems.has(i))
-                      (e.currentTarget as HTMLElement).style.background =
-                        "transparent";
-                  }}
                 >
                   <div
                     className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors"
@@ -2593,7 +2694,7 @@ export default function CardDetail() {
           {sectionAvailable("related") && (
             <SectionAccordion
               id="related"
-              label="Related Techniques"
+              label="Related techniques"
               color="#60a5fa"
               subtitle={`${cardData.relatedTechniques?.length ?? 0} paired techniques`}
             >
@@ -2640,7 +2741,7 @@ export default function CardDetail() {
                     </div>
                     <ChevronRight
                       className="w-4 h-4 flex-shrink-0"
-                      style={{ color: "var(--fg-30)" }}
+                      style={{ color: "var(--fg-45)" }}
                       aria-hidden="true"
                     />
                   </button>
@@ -2707,7 +2808,7 @@ export default function CardDetail() {
                 return (
                   <div key={group} className="mb-5">
                     <p
-                      className="text-[10px] font-bold tracking-widest uppercase mb-3"
+                      className="text-[11px] font-bold tracking-widest uppercase mb-3"
                       style={{ color: "var(--fg-35)" }}
                     >
                       {group}
@@ -2756,7 +2857,7 @@ export default function CardDetail() {
                               </p>
                             </div>
                             <span
-                              className="text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full flex-shrink-0 ml-1"
+                              className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full flex-shrink-0 ml-1"
                               style={{ background: ts.bg, color: ts.color }}
                             >
                               {resource.type}
@@ -2770,6 +2871,59 @@ export default function CardDetail() {
               })}
             </SectionAccordion>
           )}
+
+          {/* ── Prev / next (in-flow so it never covers card text on phones) ── */}
+          <nav
+            aria-label="Card navigation"
+            className="grid grid-cols-2 gap-2 pt-2"
+          >
+            {[
+              { card: prevCard, dir: "Previous", testId: "button-prev" },
+              { card: nextCard, dir: "Next", testId: "button-next" },
+            ].map(({ card, dir, testId }) => (
+              <button
+                key={dir}
+                type="button"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  setLocation(`/card/${card.id}`);
+                }}
+                data-testid={testId}
+                aria-label={`${dir} card: ${card.id} ${CARD_TITLE_MAP[card.id] ?? ""}`}
+                className={`flex items-center gap-2 rounded-2xl px-3.5 py-3 transition-all active:scale-[0.98] min-w-0 ${dir === "Next" ? "flex-row-reverse text-right" : "text-left"}`}
+                style={{
+                  minHeight: 56,
+                  background: "var(--fg-03)",
+                  border: "1px solid var(--fg-07)",
+                }}
+              >
+                {dir === "Next" ? (
+                  <ChevronRight
+                    className="w-4 h-4 flex-shrink-0"
+                    style={{ color: "var(--fg-50)" }}
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <ChevronLeft
+                    className="w-4 h-4 flex-shrink-0"
+                    style={{ color: "var(--fg-50)" }}
+                    aria-hidden="true"
+                  />
+                )}
+                <span className="min-w-0 flex-1" aria-hidden="true">
+                  <span
+                    className="block text-[11px] font-semibold uppercase tracking-wider"
+                    style={{ color: "var(--fg-50)" }}
+                  >
+                    {dir} · {card.id}
+                  </span>
+                  <span className="block text-[13px] font-semibold text-foreground/85 truncate">
+                    {CARD_TITLE_MAP[card.id] ?? card.id}
+                  </span>
+                </span>
+              </button>
+            ))}
+          </nav>
         </div>
       </div>
 
@@ -2781,18 +2935,23 @@ export default function CardDetail() {
             <>
               {/* Backdrop */}
               <div
-                className="fixed inset-0 z-50"
-                style={{ background: "rgba(0,0,0,0.60)" }}
+                className="fixed inset-0"
+                style={{
+                  background: "rgba(0,0,0,0.60)",
+                  zIndex: "var(--z-modal)" as unknown as number,
+                }}
                 onClick={() => setPdfOpen(false)}
                 aria-hidden="true"
               />
               {/* Sheet */}
               <div
+                ref={pdfSheetRef}
                 role="dialog"
                 aria-modal="true"
                 aria-label={`${cardId} Reference PDF`}
-                className="pdf-modal z-50 flex flex-col"
+                className="pdf-modal flex flex-col"
                 style={{
+                  zIndex: "var(--z-modal)" as unknown as number,
                   background: "var(--surface-float)",
                   backdropFilter: "blur(16px)",
                   WebkitBackdropFilter: "blur(16px)",
@@ -2801,7 +2960,7 @@ export default function CardDetail() {
               >
                 {/* Header */}
                 <div
-                  className="flex items-center justify-between px-5 py-3.5 flex-shrink-0"
+                  className="flex items-center justify-between gap-2 pl-5 pr-3 py-2 flex-shrink-0"
                   style={{ borderBottom: "1px solid var(--fg-08)" }}
                 >
                   <div className="flex items-center gap-2.5">
@@ -2834,7 +2993,7 @@ export default function CardDetail() {
                       rel="noopener noreferrer"
                       aria-label="Open PDF in new tab"
                       title="Open PDF in new tab"
-                      className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                      className="w-11 h-11 flex items-center justify-center rounded-full transition-all active:scale-95"
                       style={{ background: "var(--fg-06)" }}
                     >
                       <ExternalLink
@@ -2845,7 +3004,7 @@ export default function CardDetail() {
                     <button
                       onClick={() => setPdfOpen(false)}
                       aria-label="Close PDF viewer"
-                      className="w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                      className="w-11 h-11 flex items-center justify-center rounded-full transition-all active:scale-95"
                       style={{ background: "var(--fg-06)" }}
                     >
                       <X
@@ -2917,7 +3076,7 @@ export default function CardDetail() {
                         />
                         <p
                           className="text-[13px]"
-                          style={{ color: "var(--fg-35)" }}
+                          style={{ color: "var(--fg-55)" }}
                         >
                           Loading PDF…
                         </p>
@@ -2927,8 +3086,8 @@ export default function CardDetail() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-1.5 text-[12px] font-medium rounded-full px-4 transition-all active:scale-95"
                           style={{
-                            minHeight: 36,
-                            color: "var(--fg-42)",
+                            minHeight: 44,
+                            color: "var(--fg-55)",
                             border: "1px solid var(--fg-08)",
                           }}
                         >
@@ -2951,12 +3110,28 @@ export default function CardDetail() {
                       }}
                       onError={() => setPdfError(true)}
                     />
+                    {pdfLoaded && isCoarsePointer && (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 text-[13px] font-semibold flex-shrink-0"
+                        style={{
+                          minHeight: 48,
+                          borderTop: "1px solid var(--fg-08)",
+                          color: "var(--brand-text)",
+                        }}
+                      >
+                        <ExternalLink className="w-4 h-4" aria-hidden="true" />
+                        Open full PDF
+                      </a>
+                    )}
                   </>
                 )}
               </div>
             </>
           );
         })()}
-    </>
+    </AccordionContext.Provider>
   );
 }

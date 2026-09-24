@@ -12,7 +12,7 @@ export const TC022: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC022/TC022_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC022",
-  "whyItWorks": "Status Generosity means noticing a real strength, effort, judgement, contribution or piece of expertise in someone, then giving them credit or standing in a specific, restrained way that asks for nothing back. It is not lowering yourself so the other person can feel big; it is signalling that you can recognise their value without needing to compete with it. Because you are not fighting for every point of status, people relax around you: it lowers status threat, builds trust, and makes them more receptive, because they no longer feel they have to defend their competence or dignity in your company.",
+  "whyItWorks": "Status generosity means noticing a real strength, effort, judgement, contribution or piece of expertise in someone, then giving them credit or standing in a specific, restrained way that asks for nothing back. It is not lowering yourself so the other person can feel big; it is signalling that you can recognise their value without needing to compete with it. Because you are not fighting for every point of status, people relax around you: it lowers status threat, builds trust, and makes them more receptive, because they no longer feel they have to defend their competence or dignity in your company.",
   "whatItIsNot": [
     "It is not generic praise or exaggerated flattery. Vague or inflated status signals read as false.",
     "It is not making yourself small so the other person can feel big. You give status without lowering your own.",
@@ -513,11 +513,11 @@ export const TC022: CardData = {
   "relatedTechniques": [
     {
       "id": "TC018",
-      "reason": "The closest cousin. Both name something real. Use TC018 when you simply want to appreciate a specific action or quality; use Status Generosity when the point is to give the person standing or credit — recognising their competence, not just thanking them."
+      "reason": "The closest cousin. Both name something real. Use TC018 when you simply want to appreciate a specific action or quality; use Status generosity when the point is to give the person standing or credit — recognising their competence, not just thanking them."
     },
     {
       "id": "TC075",
-      "reason": "Use TC075 when what deserves recognition is the effort or work someone put in; Status Generosity is broader, crediting judgement, expertise or authority, not only effort."
+      "reason": "Use TC075 when what deserves recognition is the effort or work someone put in; Status generosity is broader, crediting judgement, expertise or authority, not only effort."
     },
     {
       "id": "TC063",
@@ -525,15 +525,15 @@ export const TC022: CardData = {
     },
     {
       "id": "TC016",
-      "reason": "Use TC016 to respond warmly and enthusiastically to someone's good news; Status Generosity gives credit for something they did well, which is about competence rather than celebrating an event."
+      "reason": "Use TC016 to respond warmly and enthusiastically to someone's good news; Status generosity gives credit for something they did well, which is about competence rather than celebrating an event."
     },
     {
       "id": "TC092",
-      "reason": "Use TC092 when you need to disagree without denting someone's standing; Status Generosity is the positive move of actively giving standing, and the two combine well in conflict."
+      "reason": "Use TC092 when you need to disagree without denting someone's standing; Status generosity is the positive move of actively giving standing, and the two combine well in conflict."
     },
     {
       "id": "TC039",
-      "reason": "Use TC039 to build rapport by finding shared ground; Status Generosity builds rapport instead by recognising the other person's value without competing for it."
+      "reason": "Use TC039 to build rapport by finding shared ground; Status generosity builds rapport instead by recognising the other person's value without competing for it."
     }
   ]
 };

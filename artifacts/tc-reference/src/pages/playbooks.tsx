@@ -106,7 +106,7 @@ export default function Playbooks() {
           >
             Playbooks
           </h1>
-          <p className="text-[13px]" style={{ color: "var(--fg-38)" }}>
+          <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
             Chain communication techniques into custom guides.
           </p>
         </div>
@@ -115,12 +115,12 @@ export default function Playbooks() {
             onClick={handleOpenCreate}
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[12px] font-bold transition-all shadow-sm active:scale-95"
             style={{
-              minHeight: 36,
+              minHeight: 44,
               background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
               color: "var(--brand-contrast)",
             }}
           >
-            <Plus className="w-4 h-4" /> Create
+            <Plus className="w-4 h-4" aria-hidden="true" /> Create
           </button>
         )}
       </div>
@@ -141,15 +141,15 @@ export default function Playbooks() {
               className="font-bold text-[14px]"
               style={{ color: "var(--fg-80)" }}
             >
-              {editingId ? "Edit Playbook" : "New Playbook"}
+              {editingId ? "Edit playbook" : "New playbook"}
             </h3>
             <button
               onClick={() => setIsEditing(false)}
               aria-label="Close editor"
               className="flex items-center justify-center -mr-1.5 rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-              style={{ width: 36, height: 36, color: "var(--fg-30)" }}
+              style={{ width: 44, height: 44, color: "var(--fg-55)" }}
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
 
@@ -157,7 +157,7 @@ export default function Playbooks() {
             <label
               htmlFor="playbook-name"
               className="text-[11px] font-bold tracking-wider uppercase"
-              style={{ color: "var(--fg-38)" }}
+              style={{ color: "var(--fg-55)" }}
             >
               Name
             </label>
@@ -180,7 +180,7 @@ export default function Playbooks() {
             <label
               htmlFor="playbook-description"
               className="text-[11px] font-bold tracking-wider uppercase"
-              style={{ color: "var(--fg-38)" }}
+              style={{ color: "var(--fg-55)" }}
             >
               Description
             </label>
@@ -188,7 +188,7 @@ export default function Playbooks() {
               id="playbook-description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Brief purpose of this playbook..."
+              placeholder="Brief purpose of this playbook…"
               className="w-full text-[13px] px-3.5 py-2.5 rounded-xl outline-none min-h-[70px] resize-none"
               style={{
                 background: "var(--fg-05)",
@@ -201,7 +201,7 @@ export default function Playbooks() {
           <div className="flex flex-col gap-2">
             <label
               className="text-[11px] font-bold tracking-wider uppercase"
-              style={{ color: "var(--fg-38)" }}
+              style={{ color: "var(--fg-55)" }}
             >
               Select Techniques ({selectedCards.length} selected)
             </label>
@@ -271,12 +271,12 @@ export default function Playbooks() {
             disabled={!name.trim()}
             className="w-full py-2.5 rounded-xl text-[13px] font-bold transition-all mt-2 disabled:opacity-50 active:scale-95"
             style={{
-              minHeight: 36,
+              minHeight: 44,
               background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
               color: "var(--brand-contrast)",
             }}
           >
-            Save Playbook
+            Save playbook
           </button>
         </div>
       ) : (
@@ -298,11 +298,11 @@ export default function Playbooks() {
                   className="font-bold text-[14px]"
                   style={{ color: "var(--fg-80)" }}
                 >
-                  No Playbooks Yet
+                  No playbooks yet
                 </p>
                 <p
                   className="text-[12px] max-w-[280px] mx-auto mt-1"
-                  style={{ color: "var(--fg-38)" }}
+                  style={{ color: "var(--fg-55)" }}
                 >
                   Combine multiple communication cards to map out structured
                   dialogues or preparation flows.
@@ -312,12 +312,12 @@ export default function Playbooks() {
                 onClick={handleOpenCreate}
                 className="mt-2 px-4 py-2 rounded-xl text-[12px] font-bold transition-all shadow-sm active:scale-95"
                 style={{
-                  minHeight: 36,
+                  minHeight: 44,
                   background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
                   color: "var(--brand-contrast)",
                 }}
               >
-                Create Playbook
+                Create playbook
               </button>
             </div>
           ) : (
@@ -341,7 +341,7 @@ export default function Playbooks() {
                     {pb.description && (
                       <p
                         className="text-[12px] mt-0.5"
-                        style={{ color: "var(--fg-38)" }}
+                        style={{ color: "var(--fg-55)" }}
                       >
                         {pb.description}
                       </p>
@@ -350,24 +350,24 @@ export default function Playbooks() {
                   <div className="flex gap-1 -mr-1.5 flex-shrink-0">
                     <button
                       onClick={() => handleOpenEdit(pb)}
-                      aria-label="Edit Playbook"
+                      aria-label="Edit playbook"
                       className="flex items-center justify-center rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                      style={{ width: 36, height: 36 }}
+                      style={{ width: 44, height: 44 }}
                     >
                       <Edit2
                         className="w-4 h-4"
-                        style={{ color: "var(--fg-38)" }}
+                        style={{ color: "var(--fg-55)" }}
                       />
                     </button>
                     <button
                       onClick={() => handleDelete(pb)}
-                      aria-label="Delete Playbook"
+                      aria-label="Delete playbook"
                       className="flex items-center justify-center rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                      style={{ width: 36, height: 36 }}
+                      style={{ width: 44, height: 44 }}
                     >
                       <Trash2
                         className="w-4 h-4"
-                        style={{ color: "var(--fg-30)" }}
+                        style={{ color: "var(--fg-50)" }}
                       />
                     </button>
                   </div>
@@ -381,9 +381,9 @@ export default function Playbooks() {
                       <div key={cid} className="flex items-center gap-1">
                         <button
                           onClick={() => setLocation(`/card/${cid}`)}
-                          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-colors active:scale-95"
+                          className="tap-target-y flex items-center gap-1 px-3 py-1.5 rounded-lg text-[12px] font-medium transition-colors active:scale-95"
                           style={{
-                            minHeight: 32,
+                            minHeight: 36,
                             background: "var(--fg-05)",
                             border: "1px solid var(--fg-08)",
                             color: "var(--fg-65)",
@@ -400,7 +400,7 @@ export default function Playbooks() {
                         {i < pb.cardIds.length - 1 && (
                           <ChevronRight
                             className="w-3.5 h-3.5"
-                            style={{ color: "var(--fg-20)" }}
+                            style={{ color: "var(--fg-45)" }}
                           />
                         )}
                       </div>
@@ -454,7 +454,7 @@ export default function Playbooks() {
                   className="font-bold text-[15px] leading-tight"
                   style={{ color: "var(--fg-90)" }}
                 >
-                  Delete Playbook?
+                  Delete playbook?
                 </h3>
                 <p
                   id="delete-dialog-desc"

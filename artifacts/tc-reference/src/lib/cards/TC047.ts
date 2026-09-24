@@ -472,7 +472,7 @@ export const TC047: CardData = {
   chains: [
     {
       label: "Clarity chain",
-      sequence: "STAR -> Summary Check",
+      sequence: "STAR -> Summary check",
       example: [
         '"So that\'s the situation, what I did, and where it landed."',
         '"Does that match what you were asking, or have I missed the point?"',
@@ -480,7 +480,7 @@ export const TC047: CardData = {
     },
     {
       label: "Action chain",
-      sequence: "STAR -> Clean Request",
+      sequence: "STAR -> Clean request",
       example: [
         '"...and that\'s how we shipped on time."',
         '"So my ask is simple: can we keep one backup supplier on the books?"',
@@ -488,7 +488,7 @@ export const TC047: CardData = {
     },
     {
       label: "Autonomy chain",
-      sequence: "STAR -> Autonomy Release",
+      sequence: "STAR -> Autonomy release",
       example: [
         '"That\'s what worked for us last time."',
         '"But you know this context better than I do — your call."',
@@ -522,7 +522,7 @@ export const TC047: CardData = {
     {
       id: "TC050",
       reason:
-        "What? So What? Now What? is a reflection frame for meaning and next steps; STAR recounts a concrete example. Use it when the point is what you learnt, not what you did.",
+        "What? So what? Now what? is a reflection frame for meaning and next steps; STAR recounts a concrete example. Use it when the point is what you learnt, not what you did.",
     },
     {
       id: "TC044",

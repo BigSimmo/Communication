@@ -192,7 +192,7 @@ export default function Drill() {
               color:
                 streakActive && state.streak > 0
                   ? "var(--brand-text)"
-                  : "var(--fg-30)",
+                  : "var(--fg-55)",
             }}
           >
             {streakActive && state.streak > 0
@@ -203,18 +203,18 @@ export default function Drill() {
         <div className="flex items-center gap-2">
           {dueCount > 0 && (
             <span
-              className="text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-0.5"
+              className="text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-0.5"
               style={{
                 background: "color-mix(in srgb, var(--brand) 14%, transparent)",
                 color: "var(--brand-text)",
               }}
             >
-              <Sparkles className="w-3 h-3" /> {dueCount} due
+              <Sparkles className="w-3 h-3" aria-hidden="true" /> {dueCount} due
             </span>
           )}
           <span
-            className="text-[11px] font-medium"
-            style={{ color: "var(--fg-28)" }}
+            className="text-[12px] font-medium"
+            style={{ color: "var(--fg-55)" }}
           >
             Card {activeCardIndex + 1} of {CARD_IDS.length} · Day {dayNum} of 7
           </span>
@@ -255,7 +255,7 @@ export default function Drill() {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span
-                className="text-[10px] font-bold tracking-widest uppercase"
+                className="text-[11px] font-bold tracking-widest uppercase"
                 style={{
                   color: done
                     ? "rgba(34,197,94,0.7)"
@@ -266,7 +266,7 @@ export default function Drill() {
               </span>
               {done && (
                 <span
-                  className="flex items-center gap-1 text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full"
+                  className="flex items-center gap-1 text-[11px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full"
                   style={{
                     background: "rgba(34,197,94,0.12)",
                     color: "#22c55e",
@@ -304,7 +304,7 @@ export default function Drill() {
               {dayNum}
             </span>
             <span
-              className="text-[8px] font-semibold tracking-wide uppercase mt-0.5"
+              className="text-[10px] font-semibold tracking-wide uppercase mt-0.5"
               style={{
                 color: done
                   ? "rgba(34,197,94,0.6)"
@@ -384,8 +384,8 @@ export default function Drill() {
             </p>
             {nextDrillEntry && (
               <p
-                className="text-[11px] mt-0.5 truncate"
-                style={{ color: "var(--fg-30)" }}
+                className="text-[12px] mt-0.5 truncate"
+                style={{ color: "var(--fg-55)" }}
               >
                 Next: {nextCardId} · {nextDrillEntry.day} ·{" "}
                 {nextDrillEntry.title}
@@ -396,14 +396,15 @@ export default function Drill() {
       ) : (
         <div className="flex flex-col gap-2.5">
           <p
-            className="text-[11px] font-bold tracking-wider uppercase text-center"
-            style={{ color: "var(--fg-35)" }}
+            className="text-[12px] font-semibold text-center"
+            style={{ color: "var(--fg-55)" }}
           >
             How confident do you feel with this technique?
           </p>
           <div className="grid grid-cols-3 gap-2">
             <button
               onClick={() => handleComplete("hard")}
+              aria-label={"Hard — review soon"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
                 borderColor: "rgba(239,68,68,0.3)",
@@ -411,10 +412,14 @@ export default function Drill() {
                 color: "#ef4444",
               }}
             >
-              Hard (Soon)
+              <span className="block">Hard</span>
+              <span className="block text-[11px] font-semibold opacity-80 mt-0.5">
+                Review soon
+              </span>
             </button>
             <button
               onClick={() => handleComplete("good")}
+              aria-label={"Good — review later"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
                 borderColor: "rgba(96,165,250,0.3)",
@@ -422,10 +427,14 @@ export default function Drill() {
                 color: "#60a5fa",
               }}
             >
-              Good (Medium)
+              <span className="block">Good</span>
+              <span className="block text-[11px] font-semibold opacity-80 mt-0.5">
+                Review later
+              </span>
             </button>
             <button
               onClick={() => handleComplete("easy")}
+              aria-label={"Easy — review much later"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
                 borderColor: "rgba(34,197,94,0.3)",
@@ -433,7 +442,10 @@ export default function Drill() {
                 color: "#22c55e",
               }}
             >
-              Easy (Later)
+              <span className="block">Easy</span>
+              <span className="block text-[11px] font-semibold opacity-80 mt-0.5">
+                Much later
+              </span>
             </button>
           </div>
         </div>
@@ -448,12 +460,6 @@ export default function Drill() {
           background: "var(--fg-03)",
           border: "1px solid var(--fg-07)",
         }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.background = "var(--fg-05)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.background = "var(--fg-03)";
-        }}
       >
         <div>
           <p
@@ -462,13 +468,13 @@ export default function Drill() {
           >
             View full card
           </p>
-          <p className="text-[11px] mt-0.5" style={{ color: "var(--fg-28)" }}>
+          <p className="text-[12px] mt-0.5" style={{ color: "var(--fg-55)" }}>
             Phrases, decision tree, scenarios &amp; more
           </p>
         </div>
         <ChevronRight
           className="w-4 h-4 flex-shrink-0"
-          style={{ color: "var(--fg-22)" }}
+          style={{ color: "var(--fg-45)" }}
           aria-hidden="true"
         />
       </button>
@@ -518,18 +524,19 @@ export default function Drill() {
               aria-hidden="true"
             />
             <p
-              className="text-[10px] font-semibold tracking-wide uppercase"
-              style={{ color: "var(--fg-28)" }}
+              className="text-[11px] font-semibold tracking-wide uppercase"
+              style={{ color: "var(--fg-55)" }}
             >
               How it works
             </p>
           </div>
           <p
             className="text-[12px] leading-relaxed"
-            style={{ color: "var(--fg-38)" }}
+            style={{ color: "var(--fg-60)" }}
           >
             Each card has a 7-day practice plan. Complete today's task, then
-            come back tomorrow. One technique at a time — done in 98 cards.
+            come back tomorrow — one technique at a time, working through all{" "}
+            {CARD_IDS.length} cards.
           </p>
         </div>
       )}

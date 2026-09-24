@@ -483,7 +483,7 @@ export const TC080: CardData = {
       ]
     },
     {
-      "label": "NURSE -> Ask-Tell-Ask",
+      "label": "NURSE -> Ask-tell-ask",
       "sequence": "Respond to emotion, ask what they already know, give the information, then check what landed.",
       "example": [
         "\"I can see this is worrying.\"",
@@ -523,7 +523,7 @@ export const TC080: CardData = {
     },
     {
       "id": "TC045",
-      "reason": "Use NURSE first when emotion is high; use Ask-Tell-Ask (TC045) when the central task is checking understanding before and after giving information."
+      "reason": "Use NURSE first when emotion is high; use Ask-tell-ask (TC045) when the central task is checking understanding before and after giving information."
     }
   ]
 };

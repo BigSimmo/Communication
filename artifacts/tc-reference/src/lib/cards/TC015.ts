@@ -12,7 +12,7 @@ export const TC015: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC015/TC015_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC015",
-  "whyItWorks": "Premature Advice Restraint is the deliberate move of holding back advice until you understand whether it is wanted, useful and well timed. It works because most people share a problem to feel understood first, not to be fixed: when you solve too fast you answer a question they never asked, and your suggestion arrives as pressure or superiority rather than help. Restraint earns you the right to advise, and it makes the advice you eventually give land better, because it fits the real problem instead of the one you assumed.",
+  "whyItWorks": "Premature advice restraint is the deliberate move of holding back advice until you understand whether it is wanted, useful and well timed. It works because most people share a problem to feel understood first, not to be fixed: when you solve too fast you answer a question they never asked, and your suggestion arrives as pressure or superiority rather than help. Restraint earns you the right to advise, and it makes the advice you eventually give land better, because it fits the real problem instead of the one you assumed.",
   "whatItIsNot": [
     "Not a script, trick, diagnosis, dominance move, interrogation, or shortcut around consent.",
     "Not something to repeat mechanically until every conversation becomes \"do you want advice?\"",
@@ -554,15 +554,15 @@ export const TC015: CardData = {
     },
     {
       "id": "TC027",
-      "reason": "TC027 Permission-Based Advice is the moment you ask to give advice; TC015 is the earlier restraint that holds advice back until the person is actually understood."
+      "reason": "TC027 Permission-based advice is the moment you ask to give advice; TC015 is the earlier restraint that holds advice back until the person is actually understood."
     },
     {
       "id": "TC021",
-      "reason": "TC021 Autonomy Release hands the decision back explicitly (\"it's your call\") after you advise; TC015 is about not advising too soon in the first place."
+      "reason": "TC021 Autonomy release hands the decision back explicitly (\"it's your call\") after you advise; TC015 is about not advising too soon in the first place."
     },
     {
       "id": "TC037",
-      "reason": "TC037 Double-Sided Reflection is the specific reflecting move that buys you time; TC015 is the broader restraint that decides whether to reflect or advise at all."
+      "reason": "TC037 Double-sided reflection is the specific reflecting move that buys you time; TC015 is the broader restraint that decides whether to reflect or advise at all."
     },
     {
       "id": "TC067",

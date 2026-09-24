@@ -537,7 +537,7 @@ export const TC095: CardData = {
     {
       id: "TC045",
       reason:
-        "Ask-Tell-Ask: use it when the objective is to explain and check understanding; use DEAR MAN when the objective is a request, refusal or boundary.",
+        "Ask-tell-ask: use it when the objective is to explain and check understanding; use DEAR MAN when the objective is a request, refusal or boundary.",
     },
     {
       id: "TC027",

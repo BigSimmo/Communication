@@ -65,7 +65,7 @@ describe("Quick Lookup rendering", () => {
     expect(initialRows[0].tagName).toBe("BUTTON");
     expect(
       within(initialRows[0].parentElement!).getByRole("button", {
-        name: /save phrase/i,
+        name: /save to favourites/i,
       }),
     ).toHaveClass("quick-phrase-favourite");
 

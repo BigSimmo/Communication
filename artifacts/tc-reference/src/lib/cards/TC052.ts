@@ -437,7 +437,7 @@ export const TC052: CardData = {
   chains: [
     {
       label: "Feedback then check",
-      sequence: "SBI → Summary Check",
+      sequence: "SBI → Summary check",
       example: [
         "\"In the call, you answered before Priya finished; the client looked unsure.\"",
         "\"What's your read on that?\"",
@@ -446,7 +446,7 @@ export const TC052: CardData = {
     },
     {
       label: "Feedback then ask",
-      sequence: "SBI → Clean Request",
+      sequence: "SBI → Clean request",
       example: [
         "\"The demo overran again and ate into the client's questions.\"",
         "\"Could you cap it at ten minutes next sprint and leave the rest for Q&A?\"",
@@ -454,7 +454,7 @@ export const TC052: CardData = {
     },
     {
       label: "Feedback then hand back control",
-      sequence: "SBI → Autonomy Release",
+      sequence: "SBI → Autonomy release",
       example: [
         "\"When the deadline moved, I heard it from the client, not you — it caught me flat-footed.\"",
         "\"How you keep me looped in is your call; I just need to not be the last to know.\"",
@@ -474,32 +474,32 @@ export const TC052: CardData = {
     {
       id: "TC018",
       reason:
-        "Specific Appreciation: both name a specific behaviour and its effect. Reach for Specific Appreciation when the feedback is purely positive and needs no full situation-behaviour-impact scaffolding.",
+        "Specific appreciation: both name a specific behaviour and its effect. Reach for Specific appreciation when the feedback is purely positive and needs no full situation-behaviour-impact scaffolding.",
     },
     {
       id: "TC005",
       reason:
-        "Validation Without Agreement: when emotion is high, validate first and delay the structure. Use SBI only once the person feels heard.",
+        "Validation without agreement: when emotion is high, validate first and delay the structure. Use SBI only once the person feels heard.",
     },
     {
       id: "TC013",
       reason:
-        "Clean Request: SBI names what happened and why it mattered; Clean Request states what you'd like next. Pair them — feedback, then a specific ask.",
+        "Clean request: SBI names what happened and why it mattered; Clean request states what you'd like next. Pair them — feedback, then a specific ask.",
     },
     {
       id: "TC011",
       reason:
-        "Summary Check: after SBI, confirm the person heard the same point you meant before you move on.",
+        "Summary check: after SBI, confirm the person heard the same point you meant before you move on.",
     },
     {
       id: "TC021",
       reason:
-        "Autonomy Release: after the feedback lands, hand control back so SBI doesn't tip into a verdict.",
+        "Autonomy release: after the feedback lands, hand control back so SBI doesn't tip into a verdict.",
     },
     {
       id: "TC037",
       reason:
-        "Double-Sided Reflection: use it when the situation holds two competing truths at once, rather than one behaviour to name.",
+        "Double-sided reflection: use it when the situation holds two competing truths at once, rather than one behaviour to name.",
     },
   ],
 };

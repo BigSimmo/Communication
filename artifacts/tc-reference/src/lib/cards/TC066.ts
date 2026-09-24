@@ -261,7 +261,7 @@ export const TC066: CardData = {
     },
     {
       condition: "It is a neutral request, not an attack.",
-      action: "Use the technique that fits the task instead: BLUF, a clean request, SBI, or Ask-Tell-Ask.",
+      action: "Use the technique that fits the task instead: BLUF, a clean request, SBI, or Ask-tell-ask.",
       phrase: "",
     },
     {
@@ -533,7 +533,7 @@ export const TC066: CardData = {
     },
     {
       id: "TC014",
-      reason: "Friendly can be mistaken for validation. Validate the Concern when the person needs to feel understood; use BIFF when the thread needs containment, not deeper acknowledgement.",
+      reason: "Friendly can be mistaken for validation. Validate the concern when the person needs to feel understood; use BIFF when the thread needs containment, not deeper acknowledgement.",
     },
     {
       id: "TC052",
@@ -541,7 +541,7 @@ export const TC066: CardData = {
     },
     {
       id: "TC045",
-      reason: "Both can provide information. Use Ask-Tell-Ask when you have consent and want learning; use BIFF when the person is hostile, misinformed, or baiting.",
+      reason: "Both can provide information. Use Ask-tell-ask when you have consent and want learning; use BIFF when the person is hostile, misinformed, or baiting.",
     },
     {
       id: "TC069",

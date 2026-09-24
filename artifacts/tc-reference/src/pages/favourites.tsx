@@ -81,7 +81,7 @@ export default function Favourites() {
           className="text-[12px] leading-relaxed"
           style={{ color: "var(--fg-55)" }}
         >
-          Quick access to your saved technique cards and favorite phrases.
+          Quick access to your saved technique cards and favourite phrases.
         </p>
       </div>
 
@@ -108,7 +108,7 @@ export default function Favourites() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search your favourites..."
+            placeholder="Search your favourites…"
             aria-label="Search favourites"
             className="w-full text-[13px] pl-10 pr-10 py-2.5 rounded-xl outline-none transition-colors"
             style={{
@@ -121,10 +121,14 @@ export default function Favourites() {
             <button
               onClick={() => setSearchQuery("")}
               aria-label="Clear search"
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full"
-              style={{ background: "var(--fg-08)" }}
+              className="absolute right-1 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full"
             >
-              <X className="w-3 h-3" style={{ color: "var(--fg-50)" }} />
+              <span
+                className="w-5 h-5 flex items-center justify-center rounded-full"
+                style={{ background: "var(--fg-08)" }}
+              >
+                <X className="w-3 h-3" style={{ color: "var(--fg-50)" }} aria-hidden="true" />
+              </span>
             </button>
           )}
         </div>
@@ -160,12 +164,12 @@ export default function Favourites() {
               className="text-[13px] leading-relaxed max-w-[260px] mb-6"
               style={{ color: "var(--fg-55)" }}
             >
-              Tap the heart icon on any technique card or phrase to save it here
-              for quick access.
+              Tap the heart on any technique card or phrase to save it here for
+              quick access.
             </p>
             <button
               onClick={() => setLocation("/")}
-              className="text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
+              className="text-[13px] font-semibold px-5 min-h-11 rounded-full transition-all active:scale-95"
               style={{
                 background: "color-mix(in srgb, var(--brand) 12%, transparent)",
                 border:
@@ -222,10 +226,10 @@ export default function Favourites() {
                   border: "1px solid var(--fg-05)",
                 }}
               >
-                <p className="text-[13px]" style={{ color: "var(--fg-28)" }}>
+                <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
                   {q
-                    ? "No matching techniques"
-                    : "Tap ♡ on any card to save it here."}
+                    ? "No matching techniques."
+                    : "Tap the heart on any card to save it here."}
                 </p>
               </div>
             ) : (
@@ -340,10 +344,10 @@ export default function Favourites() {
                   border: "1px solid var(--fg-05)",
                 }}
               >
-                <p className="text-[13px]" style={{ color: "var(--fg-28)" }}>
+                <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
                   {q
-                    ? "No matching phrases"
-                    : "Tap ♡ next to any phrase to save it here."}
+                    ? "No matching phrases."
+                    : "Tap the heart next to any phrase to save it here."}
                 </p>
               </div>
             ) : (
@@ -360,7 +364,7 @@ export default function Favourites() {
                       }}
                     >
                       <button
-                        className="w-full flex items-center gap-3 px-4 py-3 text-left transition-colors"
+                        className="w-full flex items-center gap-3 px-4 py-3 min-h-12 text-left transition-colors"
                         onClick={() => setLocation(`/card/${cardId}`)}
                         aria-label={`Open ${meta?.title ?? cardId}`}
                         style={{ borderBottom: "1px solid var(--fg-05)" }}
@@ -383,8 +387,8 @@ export default function Favourites() {
                           </p>
                           {phrases[0]?.groupLabel && (
                             <p
-                              className="text-[10px] mt-0.5"
-                              style={{ color: "var(--fg-35)" }}
+                              className="text-[11px] mt-0.5"
+                              style={{ color: "var(--fg-55)" }}
                             >
                               {phrases.length} phrase
                               {phrases.length !== 1 ? "s" : ""}
@@ -393,7 +397,8 @@ export default function Favourites() {
                         </div>
                         <ChevronRight
                           className="w-3.5 h-3.5 flex-shrink-0"
-                          style={{ color: "var(--fg-20)" }}
+                          style={{ color: "var(--fg-45)" }}
+                          aria-hidden="true"
                         />
                       </button>
                       <div
@@ -451,13 +456,14 @@ export default function Favourites() {
                               ) : (
                                 <Copy
                                   className="w-3.5 h-3.5"
-                                  style={{ color: "var(--fg-20)" }}
+                                  style={{ color: "var(--fg-45)" }}
+                                  aria-hidden="true"
                                 />
                               )}
                               <button
                                 onClick={() => togglePhrase(p)}
                                 aria-label="Remove from favourites"
-                                className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                                className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                                 style={{
                                   background:
                                     "color-mix(in srgb, var(--brand) 10%, transparent)",

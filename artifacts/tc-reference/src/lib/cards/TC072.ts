@@ -473,7 +473,7 @@ export const TC072: CardData = {
   chains: [
     {
       label: "Warm open",
-      sequence: "TC036 Contextual Opener → TC072 Low-pressure invitation → TC021 Autonomy Release",
+      sequence: "TC036 Contextual opener → TC072 Low-pressure invitation → TC021 Autonomy release",
       example: [
         "Name the shared context.",
         "Invite lightly.",
@@ -482,7 +482,7 @@ export const TC072: CardData = {
     },
     {
       label: "Include and ease",
-      sequence: "TC022 Status Generosity → TC072 Low-pressure invitation → TC020 Low-Friction Ask",
+      sequence: "TC022 Status generosity → TC072 Low-pressure invitation → TC020 Low-friction ask",
       example: [
         "Recognise a real contribution.",
         "Invite optional input.",
@@ -491,7 +491,7 @@ export const TC072: CardData = {
     },
     {
       label: "Connect without assuming",
-      sequence: "TC039 Common-Ground Discovery → TC054 Similarity signalling → TC072 Low-pressure invitation",
+      sequence: "TC039 Common-ground discovery → TC054 Similarity signalling → TC072 Low-pressure invitation",
       example: [
         "Notice a genuine overlap.",
         "Name it modestly.",
@@ -500,7 +500,7 @@ export const TC072: CardData = {
     },
     {
       label: "Re-enter and offer",
-      sequence: "TC071 Conversation re-entry after interruption → TC072 Low-pressure invitation → TC041 Topic Energy Tracking",
+      sequence: "TC071 Conversation re-entry after interruption → TC072 Low-pressure invitation → TC041 Topic energy tracking",
       example: [
         "Return to the interrupted thread.",
         "Make continuing optional.",
@@ -512,27 +512,27 @@ export const TC072: CardData = {
     {
       id: "TC021",
       reason:
-        "Autonomy Release. Invitation opens the door before they engage; autonomy release removes pressure after you've already made an ask or recommendation. Invite first, release after.",
+        "Autonomy release. Invitation opens the door before they engage; autonomy release removes pressure after you've already made an ask or recommendation. Invite first, release after.",
     },
     {
       id: "TC020",
       reason:
-        "Low-Friction Ask. Invitation is about optional entry; the low-friction ask is about shrinking the effort to answer a concrete request. If the next move is yes/no to an ask, use TC020.",
+        "Low-friction ask. Invitation is about optional entry; the low-friction ask is about shrinking the effort to answer a concrete request. If the next move is yes/no to an ask, use TC020.",
     },
     {
       id: "TC019",
       reason:
-        "Small Ask. Use invitation when willingness itself is uncertain; use the small ask when they're already willing and the step just needs to be small. A small ask can still pressure.",
+        "Small ask. Use invitation when willingness itself is uncertain; use the small ask when they're already willing and the step just needs to be small. A small ask can still pressure.",
     },
     {
       id: "TC022",
       reason:
-        "Status Generosity. Invitation opens a door without making value a test; status generosity names real competence or contribution. Warm invitations can look like praise — keep them distinct.",
+        "Status generosity. Invitation opens a door without making value a test; status generosity names real competence or contribution. Warm invitations can look like praise — keep them distinct.",
     },
     {
       id: "TC036",
       reason:
-        "Contextual Opener. The opener gives you the first line from a shared situation; the invitation adds the opt-in/opt-out once the conversation is going. Open with context, then invite.",
+        "Contextual opener. The opener gives you the first line from a shared situation; the invitation adds the opt-in/opt-out once the conversation is going. Open with context, then invite.",
     },
     {
       id: "TC073",

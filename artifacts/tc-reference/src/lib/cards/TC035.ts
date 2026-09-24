@@ -269,8 +269,8 @@ export const TC035: CardData = {
       "Someone asks \"What?\" or \"Why are you looking at me like that?\" — the pause is drawing more attention than the message.",
       "You feel pleased with the effect of the pause rather than focused on the conversation — drop the performance.",
       "You add caveats straight after the key point, or answer your own question — the pause was too short.",
-      "They are already speaking freely — switch to Minimal Encouragers or Strategic Silence.",
-      "The moment has gone cold — return to Warm Presence or a Full-Attention Signal."
+      "They are already speaking freely — switch to Minimal encouragers or Strategic silence.",
+      "The moment has gone cold — return to Warm presence or a Full-attention signal."
     ]
   },
   "drill": [
@@ -520,7 +520,7 @@ export const TC035: CardData = {
   "relatedTechniques": [
     {
       "id": "TC029",
-      "reason": "The closest neighbour. A pause is short punctuation around your own line; Strategic Silence hands the floor over. Use TC029 when the space is for them to deepen, not for your point to land."
+      "reason": "The closest neighbour. A pause is short punctuation around your own line; Strategic silence hands the floor over. Use TC029 when the space is for them to deepen, not for your point to land."
     },
     {
       "id": "TC031",
@@ -528,7 +528,7 @@ export const TC035: CardData = {
     },
     {
       "id": "TC008",
-      "reason": "The pause guards against over-talk; No-Overexplaining Discipline is the broader habit of stopping once the point is made. Use TC008 when the issue is too many words, not too little space."
+      "reason": "The pause guards against over-talk; No-overexplaining discipline is the broader habit of stopping once the point is made. Use TC008 when the issue is too many words, not too little space."
     },
     {
       "id": "TC033",

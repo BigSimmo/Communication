@@ -463,7 +463,7 @@ export const TC090: CardData = {
   "chains": [
     {
       "label": "Support chain",
-      "sequence": "TC012 Full-Attention Signal -> TC090 Do-Not-Fix-Yet -> TC004 Reflective Listening -> TC040 Meaning Reflection -> TC027 Permission-Based Advice",
+      "sequence": "TC012 Full-attention signal -> TC090 Do-Not-Fix-Yet -> TC004 Reflective listening -> TC040 Meaning reflection -> TC027 Permission-based advice",
       "example": [
         "Use when someone brings a vulnerable problem and later wants help.",
         "\"You've got my full attention. I won't try to fix it yet — tell me what happened. …So it's less the task, more feeling unseen. …Want a couple of options now?\""
@@ -471,7 +471,7 @@ export const TC090: CardData = {
     },
     {
       "label": "Conflict chain",
-      "sequence": "TC031 Slow Down Under Pressure -> TC090 Do-Not-Fix-Yet -> TC005 Validation Without Agreement -> TC037 Double-Sided Reflection -> TC013 Clean Request",
+      "sequence": "TC031 Slow down under pressure -> TC090 Do-Not-Fix-Yet -> TC005 Validation without agreement -> TC037 Double-sided reflection -> TC013 Clean request",
       "example": [
         "Use when your impulse is to solve, defend, or correct mid-argument.",
         "\"Let me slow down. I'm not going to fix this on the spot. I get why you saw it that way — and I saw it differently. Can we take one thing at a time?\""
@@ -479,7 +479,7 @@ export const TC090: CardData = {
     },
     {
       "label": "Leadership chain",
-      "sequence": "TC011 Summary Check -> TC090 Do-Not-Fix-Yet -> TC043 OARS -> TC027 Permission-Based Advice -> TC019 Small Ask",
+      "sequence": "TC011 Summary check -> TC090 Do-Not-Fix-Yet -> TC043 OARS -> TC027 Permission-based advice -> TC019 Small ask",
       "example": [
         "Use when a team member is overloaded and you need to move from support to action without rushing them.",
         "\"So the load's been relentless for weeks — have I got that right? I won't leap to fixes. …Ready to pick one small thing to take off your plate?\""
@@ -487,7 +487,7 @@ export const TC090: CardData = {
     },
     {
       "label": "Digital chain",
-      "sequence": "TC024 Warm Opening -> TC090 Do-Not-Fix-Yet -> TC030 Echo Plus Question -> TC041 Topic Energy Tracking -> TC027 Permission-Based Advice",
+      "sequence": "TC024 Warm opening -> TC090 Do-Not-Fix-Yet -> TC030 Echo plus question -> TC041 Topic energy tracking -> TC027 Permission-based advice",
       "example": [
         "Use when replying by text and you want to avoid the coldness of instant problem-solving.",
         "\"Really glad you told me. I won't advice-dump. 'Dismissed in five minutes' — what stung most about that? …Want ideas now or later?\""
@@ -505,15 +505,15 @@ export const TC090: CardData = {
     },
     {
       "id": "TC004",
-      "reason": "Reflective Listening shows you understood the point beneath their words; TC090 is the discipline that stops that reflection from becoming a bridge into advice too soon."
+      "reason": "Reflective listening shows you understood the point beneath their words; TC090 is the discipline that stops that reflection from becoming a bridge into advice too soon."
     },
     {
       "id": "TC005",
-      "reason": "Validation Without Agreement endorses the experience without endorsing the conclusion — reach for it when disagreement is the issue, and TC090 when it's advice timing."
+      "reason": "Validation without agreement endorses the experience without endorsing the conclusion — reach for it when disagreement is the issue, and TC090 when it's advice timing."
     },
     {
       "id": "TC040",
-      "reason": "Meaning Reflection names why a detail matters; use it only once TC090 has held the fix, or naming significance can tip into an implied solution."
+      "reason": "Meaning reflection names why a detail matters; use it only once TC090 has held the fix, or naming significance can tip into an implied solution."
     },
     {
       "id": "TC043",

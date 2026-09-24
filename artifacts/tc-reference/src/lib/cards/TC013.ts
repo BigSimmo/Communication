@@ -363,7 +363,7 @@ export const TC013: CardData = {
     {
       step: "1",
       title: "Notice the cue",
-      body: "Clean Request fits when you genuinely need someone to do something specific and the moment calls for clarity — not when you simply want to look capable. If you have not yet worked out what you want, sort that out before you ask.",
+      body: "Clean request fits when you genuinely need someone to do something specific and the moment calls for clarity — not when you simply want to look capable. If you have not yet worked out what you want, sort that out before you ask.",
     },
     {
       step: "2",
@@ -502,27 +502,27 @@ export const TC013: CardData = {
     {
       id: "TC019",
       reason:
-        "Small Ask shrinks the scope so it is easier to accept; use Clean Request when the ask is the right size but needs to be stated clearly and answerably.",
+        "Small ask shrinks the scope so it is easier to accept; use Clean request when the ask is the right size but needs to be stated clearly and answerably.",
     },
     {
       id: "TC020",
       reason:
-        "Low-Friction Ask removes the effort or ambiguity around responding; Clean Request focuses on naming the exact action and timeframe.",
+        "Low-friction ask removes the effort or ambiguity around responding; Clean request focuses on naming the exact action and timeframe.",
     },
     {
       id: "TC034",
       reason:
-        "Two-Option Questions offer two clear choices when an open-ended ask would stall; use Clean Request when a single specific action is what you need.",
+        "Two-option questions offer two clear choices when an open-ended ask would stall; use Clean request when a single specific action is what you need.",
     },
     {
       id: "TC021",
       reason:
-        "Autonomy Release explicitly hands the choice back so a no stays safe; pair it after a Clean Request to keep the ask free of pressure.",
+        "Autonomy release explicitly hands the choice back so a no stays safe; pair it after a Clean request to keep the ask free of pressure.",
     },
     {
       id: "TC018",
       reason:
-        "Specific Appreciation thanks the person for the exact thing they did; it is the natural close once a clean request is answered.",
+        "Specific appreciation thanks the person for the exact thing they did; it is the natural close once a clean request is answered.",
     },
   ],
 };

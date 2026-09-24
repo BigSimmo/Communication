@@ -12,7 +12,7 @@ export const TC018: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC018/TC018_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC018",
-  "whyItWorks": "Specific Appreciation is one small move: name a particular behaviour, effort, judgement or quality the person showed, and the effect it had, so they know exactly what landed and why it mattered. It works because people trust praise they can verify. A vague \"you're amazing\" gives them nothing to hold on to and can read as flattery; naming the evidence makes the appreciation believable, lowers defensiveness, and quietly reinforces the behaviour you'd like to see again.",
+  "whyItWorks": "Specific appreciation is one small move: name a particular behaviour, effort, judgement or quality the person showed, and the effect it had, so they know exactly what landed and why it mattered. It works because people trust praise they can verify. A vague \"you're amazing\" gives them nothing to hold on to and can read as flattery; naming the evidence makes the appreciation believable, lowers defensiveness, and quietly reinforces the behaviour you'd like to see again.",
   "whatItIsNot": [
     "It is not flattery, generic praise, or vague \"you're amazing\" language with no evidence behind it.",
     "It is not love-bombing or status manipulation dressed up as warmth.",
@@ -456,7 +456,7 @@ export const TC018: CardData = {
   "chains": [
     {
       "label": "Trust-building chain",
-      "sequence": "TC012 Full-Attention Signal -> TC018 Specific Appreciation -> TC011 Summary Check",
+      "sequence": "TC012 Full-attention signal -> TC018 Specific appreciation -> TC011 Summary check",
       "example": [
         "Give them your full attention while they explain.",
         "\"I appreciated how you sequenced that; it made the plan easy to follow.\"",
@@ -465,7 +465,7 @@ export const TC018: CardData = {
     },
     {
       "label": "Support-then-advice chain",
-      "sequence": "TC004 Reflective Listening -> TC018 Specific Appreciation -> TC027 Permission-Based Advice",
+      "sequence": "TC004 Reflective listening -> TC018 Specific appreciation -> TC027 Permission-based advice",
       "example": [
         "\"So the tricky part was getting sign-off from two teams at once.\"",
         "\"The way you kept both of them in the loop stopped it stalling.\"",
@@ -474,7 +474,7 @@ export const TC018: CardData = {
     },
     {
       "label": "Low-pressure chain",
-      "sequence": "TC018 Specific Appreciation -> TC021 Autonomy Release",
+      "sequence": "TC018 Specific appreciation -> TC021 Autonomy release",
       "example": [
         "\"Chasing the supplier twice is why we didn't slip; that mattered.\"",
         "\"No need to do anything with that, I just wanted you to know.\""
@@ -484,15 +484,15 @@ export const TC018: CardData = {
   "relatedTechniques": [
     {
       "id": "TC022",
-      "reason": "Status Generosity gives credit, dignity or standing broadly. Use TC018 when you're naming one specific behaviour or effect rather than raising someone's overall standing."
+      "reason": "Status generosity gives credit, dignity or standing broadly. Use TC018 when you're naming one specific behaviour or effect rather than raising someone's overall standing."
     },
     {
       "id": "TC016",
-      "reason": "Active-Constructive Responding meets good news with genuine energy. Use TC018 when you want to name exactly what you valued, not just react warmly."
+      "reason": "Active-constructive responding meets good news with genuine energy. Use TC018 when you want to name exactly what you valued, not just react warmly."
     },
     {
       "id": "TC024",
-      "reason": "Warm Opening sets a friendly tone at the start. Use TC018 when the warmth needs evidence rather than tone alone."
+      "reason": "Warm opening sets a friendly tone at the start. Use TC018 when the warmth needs evidence rather than tone alone."
     },
     {
       "id": "TC075",

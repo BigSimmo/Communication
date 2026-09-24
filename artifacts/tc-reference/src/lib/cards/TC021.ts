@@ -540,19 +540,19 @@ export const TC021: CardData = {
   "relatedTechniques": [
     {
       "id": "TC020",
-      "reason": "Low-Friction Ask shrinks the size of the request so it is easy to grant; TC021 keeps the request as-is but makes the no genuinely safe. Use TC020 when the ask is too big; use TC021 when the pressure is the problem."
+      "reason": "Low-friction ask shrinks the size of the request so it is easy to grant; TC021 keeps the request as-is but makes the no genuinely safe. Use TC020 when the ask is too big; use TC021 when the pressure is the problem."
     },
     {
       "id": "TC027",
-      "reason": "Permission-Based Advice asks before offering input at all; TC021 releases the choice after you have given a clear suggestion. Use TC027 to open the door; use TC021 to keep it open once you've spoken."
+      "reason": "Permission-based advice asks before offering input at all; TC021 releases the choice after you have given a clear suggestion. Use TC027 to open the door; use TC021 to keep it open once you've spoken."
     },
     {
       "id": "TC005",
-      "reason": "Validation Without Agreement lets you acknowledge a view without endorsing it; TC021 lets you hold your own view while freeing them to disagree. Use TC005 when they need to feel heard; use TC021 when they need to feel unpressured."
+      "reason": "Validation without agreement lets you acknowledge a view without endorsing it; TC021 lets you hold your own view while freeing them to disagree. Use TC005 when they need to feel heard; use TC021 when they need to feel unpressured."
     },
     {
       "id": "TC014",
-      "reason": "Validate the Concern addresses the worry behind resistance; TC021 hands back the decision. Validate first, then release the choice - or use TC014 alone when the block is fear rather than pressure."
+      "reason": "Validate the concern addresses the worry behind resistance; TC021 hands back the decision. Validate first, then release the choice - or use TC014 alone when the block is fear rather than pressure."
     }
   ]
 };

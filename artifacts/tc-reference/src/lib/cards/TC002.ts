@@ -12,7 +12,7 @@ export const TC002: CardData = {
     { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC002/TC002_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
   ],
   "id": "TC002",
-  "whyItWorks": "Support Response over Shift Response is the habit of responding to the other person's experience before shifting to your own related story or idea. When a self-reference comes to mind, you first support their thread with acknowledgement, curiosity or appreciation, and only then decide whether your own point still adds anything. It works because people become receptive to you once they feel heard: a support response keeps their moment intact, while a shift response quietly tells them the floor was never really theirs.",
+  "whyItWorks": "Support response over shift response is the habit of responding to the other person's experience before shifting to your own related story or idea. When a self-reference comes to mind, you first support their thread with acknowledgement, curiosity or appreciation, and only then decide whether your own point still adds anything. It works because people become receptive to you once they feel heard: a support response keeps their moment intact, while a shift response quietly tells them the floor was never really theirs.",
   "whatItIsNot": [
     "It is not never talking about yourself, suppressing reciprocity, or performing endless questions. It is a sequencing discipline: their moment first, your contribution second if it still serves the conversation.",
     "It is not manipulation, performance, emotional extraction or a way to force intimacy.",
@@ -477,7 +477,7 @@ export const TC002: CardData = {
       "label": "Support → summary check",
       "sequence": "TC002 → TC011",
       "example": [
-        "Them vents about a tangled week.",
+        "They vent about a tangled week.",
         "You (support): “That sounds like a lot at once.”",
         "You (summary): “So it’s less the workload and more that no one’s deciding — have I got that right?”"
       ]
@@ -486,7 +486,7 @@ export const TC002: CardData = {
       "label": "Support → specific appreciation",
       "sequence": "TC002 → TC018",
       "example": [
-        "Them shares a win.",
+        "They share a win.",
         "You (support): “What made it click?”",
         "You (appreciation): “The way you kept the client calm is the part I’d not have managed.”"
       ]
@@ -504,23 +504,23 @@ export const TC002: CardData = {
   "relatedTechniques": [
     {
       "id": "TC007",
-      "reason": "No One-Upping Discipline: TC007 stops you topping their story to win; TC002 is the wider habit of sequencing support before any self-reference, competitive or not."
+      "reason": "No one-upping discipline: TC007 stops you topping their story to win; TC002 is the wider habit of sequencing support before any self-reference, competitive or not."
     },
     {
       "id": "TC009",
-      "reason": "Anti-Boomerasking Discipline: TC009 stops fake questions asked only so you can talk about yourself; TC002 handles genuine, relevant self-disclosure by putting it second."
+      "reason": "Anti-boomerasking discipline: TC009 stops fake questions asked only so you can talk about yourself; TC002 handles genuine, relevant self-disclosure by putting it second."
     },
     {
       "id": "TC016",
-      "reason": "Active-Constructive Responding: TC016 is the enthusiastic response to good news specifically; TC002 is broader and applies to any shared experience, good or bad."
+      "reason": "Active-constructive responding: TC016 is the enthusiastic response to good news specifically; TC002 is broader and applies to any shared experience, good or bad."
     },
     {
       "id": "TC018",
-      "reason": "Specific Appreciation: TC018 names the value in what they did; TC002 protects their floor before you shift the focus at all."
+      "reason": "Specific appreciation: TC018 names the value in what they did; TC002 protects their floor before you shift the focus at all."
     },
     {
       "id": "TC003",
-      "reason": "Comment-Before-Question: TC003 warms a single question with a short comment; TC002 governs the larger order of support before self-reference."
+      "reason": "Comment-before-question: TC003 warms a single question with a short comment; TC002 governs the larger order of support before self-reference."
     },
     {
       "id": "TC090",
