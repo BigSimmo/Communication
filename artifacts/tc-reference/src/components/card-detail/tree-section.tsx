@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { SectionAccordion } from "./section-accordion";
+import { quoted } from "@/lib/utils";
 
 // ── Decision Tree ──
 export function TreeSection({
@@ -19,16 +20,17 @@ export function TreeSection({
       color="var(--accent-purple)"
       subtitle={`${cardData.decisionTree.length} situations and the move for each`}
     >
-      <div className="space-y-3 relative pl-6">
+      {/* The rail is decoration; phones give its width back to the text */}
+      <div className="space-y-2.5 sm:space-y-3 relative sm:pl-6">
         <div
-          className="absolute left-2.5 top-6 bottom-6 w-px"
+          className="hidden sm:block absolute left-2.5 top-6 bottom-6 w-px"
           style={{ background: "var(--fg-08)" }}
           aria-hidden="true"
         />
         {cardData.decisionTree.map((item, i) => (
           <div key={i} className="relative">
             <div
-              className="absolute -left-6 top-4 w-4 h-4 rounded-full bg-background border border-primary/40 flex items-center justify-center z-10"
+              className="hidden sm:flex absolute -left-6 top-4 w-4 h-4 rounded-full bg-background border border-primary/40 items-center justify-center z-10"
               aria-hidden="true"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -50,7 +52,7 @@ export function TreeSection({
                 <button
                   onClick={() => handleCopy(item.phrase)}
                   aria-label={`Copy: ${item.phrase}`}
-                  className="inline-flex items-center gap-1.5 text-[12px] font-medium px-3 py-1.5 rounded-full border transition-all"
+                  className="inline-flex items-center gap-1.5 text-[12px] leading-snug text-left font-medium px-3 py-2 rounded-xl border transition-all"
                   style={{
                     background:
                       copiedPhrase === item.phrase
@@ -67,7 +69,7 @@ export function TreeSection({
                   {copiedPhrase === item.phrase && (
                     <Check className="w-3.5 h-3.5" />
                   )}
-                  "{item.phrase}"
+                  {quoted(item.phrase)}
                 </button>
               )}
             </div>

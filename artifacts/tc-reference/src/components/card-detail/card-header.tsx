@@ -18,7 +18,7 @@ export function CardHeader({
         contrast; the full formula lives in Overview directly below. */}
       <div className="px-3 md:px-4 pt-4">
         <div
-          className="rounded-2xl p-5 border relative overflow-hidden"
+          className="rounded-2xl p-4 sm:p-5 border relative overflow-hidden"
           style={{
             background:
               "linear-gradient(160deg, color-mix(in srgb, var(--brand) 9%, transparent) 0%, var(--fg-02) 55%)",

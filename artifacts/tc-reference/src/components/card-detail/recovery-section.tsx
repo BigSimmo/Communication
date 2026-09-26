@@ -26,7 +26,7 @@ export function RecoverySection({
     >
       {cardData.bestRecoveryLine && (
         <div
-          className="rounded-2xl p-5 mb-4"
+          className="rounded-2xl p-4 sm:p-5 mb-4"
           style={{
             background:
               "color-mix(in srgb, var(--accent-emerald) 8%, transparent)",

@@ -31,3 +31,9 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     return false;
   }
 }
+
+// Card data sometimes already carries its own quote marks (e.g. '"Hey." (flat)').
+// Only wrap text that doesn't start with one, so nothing renders as ""Hey."".
+export function quoted(text: string): string {
+  return /^["“‘']/.test(text.trim()) ? text : `"${text}"`;
+}

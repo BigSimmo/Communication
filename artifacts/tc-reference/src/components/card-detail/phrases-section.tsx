@@ -108,16 +108,19 @@ export function PhrasesSection({
                   )
                 }
                 aria-expanded={expandedPhraseGroup === group.id}
-                className="w-full flex items-center justify-between px-5 py-4 transition-colors"
-                style={{ minHeight: 60 }}
+                className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3 transition-colors"
+                style={{ minHeight: 52 }}
               >
-                <div className="text-left">
+                <div className="text-left min-w-0">
                   <p className="text-[14px] font-bold text-foreground/90">
                     {group.label}
                   </p>
-                  <p className="text-[11px] text-foreground/50 mt-1">
-                    {group.tag}
-                  </p>
+                  {/* Many cards reuse the label as the tag; skip the echo */}
+                  {group.tag && group.tag !== group.label && (
+                    <p className="text-[11px] text-foreground/50 mt-0.5">
+                      {group.tag}
+                    </p>
+                  )}
                 </div>
                 <div className="flex items-center gap-3">
                   <span

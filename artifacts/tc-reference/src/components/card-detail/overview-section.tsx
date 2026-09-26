@@ -27,7 +27,7 @@ export function OverviewSection({
       subtitle="Core formula, quick stats and when not to use it"
     >
       <div
-        className="rounded-2xl p-5 mb-4"
+        className="rounded-2xl p-4 sm:p-5 mb-4"
         style={{
           background: "color-mix(in srgb, var(--brand) 7%, transparent)",
           border: "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
@@ -141,19 +141,21 @@ export function OverviewSection({
         ).map(([k, v, c]) => (
           <div
             key={k}
-            className="flex items-center gap-2 rounded-full px-3.5 py-1.5"
+            className="flex items-baseline gap-2 rounded-xl px-3.5 py-1.5"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-06)",
             }}
           >
             <div
-              className="w-2 h-2 rounded-full"
+              className="w-2 h-2 rounded-full flex-shrink-0 self-start mt-[4px]"
               style={{ background: c }}
               aria-hidden="true"
             />
-            <span className="text-[11px] text-foreground/50">{k}</span>
-            <span className="text-[11px] font-semibold text-foreground/90">
+            <span className="text-[11px] text-foreground/50 whitespace-nowrap">
+              {k}
+            </span>
+            <span className="text-[11px] leading-snug font-semibold text-foreground/90 min-w-0">
               {v}
             </span>
           </div>
@@ -161,7 +163,7 @@ export function OverviewSection({
       </div>
 
       <div
-        className="rounded-2xl p-5 mb-4"
+        className="rounded-2xl p-4 sm:p-5 mb-4"
         style={{
           background: "var(--fg-03)",
           border: "1px solid var(--fg-06)",

@@ -3,6 +3,7 @@ import type { CardData } from "@/lib/card-types";
 import { useFavourites } from "@/lib/favourites-context";
 import { CARD_TITLE_MAP } from "./card-sections";
 import { SectionAccordion } from "./section-accordion";
+import { quoted } from "@/lib/utils";
 
 // ── Scenarios ──
 export function ScenariosSection({
@@ -28,7 +29,7 @@ export function ScenariosSection({
         {cardData.scenarios.map((s, i) => (
           <div
             key={i}
-            className="rounded-2xl p-5 shadow-sm"
+            className="rounded-2xl p-4 sm:p-5 shadow-sm"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-06)",
@@ -38,13 +39,14 @@ export function ScenariosSection({
               {s.situation}
             </p>
             <p className="text-[13px] text-foreground/60 mb-3 italic">
-              "{s.move}"
+              {quoted(s.move)}
             </p>
-            <div className="flex items-center gap-2 flex-wrap">
+            {/* Phrase and favourite share one line; the phrase wraps inside */}
+            <div className="flex items-center gap-2">
               <button
                 onClick={() => handleCopy(s.phrase)}
                 aria-label={`Copy: ${s.phrase}`}
-                className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full border transition-all"
+                className="flex-1 sm:flex-initial min-w-0 inline-flex items-center gap-2 text-[12px] leading-snug font-medium px-3.5 py-2 rounded-xl border transition-all"
                 style={{
                   background:
                     copiedPhrase === s.phrase
@@ -59,9 +61,9 @@ export function ScenariosSection({
                 }}
               >
                 {copiedPhrase === s.phrase ? (
-                  <Check className="w-3.5 h-3.5" />
+                  <Check className="w-3.5 h-3.5 flex-shrink-0" />
                 ) : (
-                  <Copy className="w-3.5 h-3.5" />
+                  <Copy className="w-3.5 h-3.5 flex-shrink-0" />
                 )}
                 <span className="min-w-0 break-words text-left">
                   {s.phrase}
@@ -81,7 +83,7 @@ export function ScenariosSection({
                     ? "Remove from favourites"
                     : "Save to favourites"
                 }
-                className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                className="tap-target w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-full transition-all active:scale-95"
                 style={{
                   background: isPhrasesFav(cardId, s.phrase)
                     ? "color-mix(in srgb, var(--brand) 10%, transparent)"

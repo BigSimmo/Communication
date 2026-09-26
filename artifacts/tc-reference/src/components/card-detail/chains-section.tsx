@@ -14,7 +14,7 @@ export function ChainsSection({ cardData }: { cardData: CardData }) {
         {cardData.chains!.map((chain) => (
           <div
             key={chain.label}
-            className="rounded-2xl p-5 shadow-sm"
+            className="rounded-2xl p-4 sm:p-5 shadow-sm"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-06)",

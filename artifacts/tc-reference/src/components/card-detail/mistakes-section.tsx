@@ -42,9 +42,10 @@ export function MistakesSection({
               </p>
             </div>
             <div className="p-4 space-y-3">
-              <div className="flex items-start gap-2.5">
+              {/* Labels sit above the text on phones, beside it on wider screens */}
+              <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2.5">
                 <span
-                  className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                  className="text-[11px] font-bold tracking-wider uppercase sm:mt-1 flex-shrink-0 sm:w-[72px]"
                   style={{ color: "var(--accent-red)" }}
                 >
                   Sounds like
@@ -56,15 +57,18 @@ export function MistakesSection({
                   {m.soundsLike}
                 </p>
               </div>
-              <div className="flex items-start gap-2.5">
+              <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2.5">
                 <span
-                  className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                  className="text-[11px] font-bold tracking-wider uppercase sm:mt-1 flex-shrink-0 sm:w-[72px]"
                   style={{ color: "var(--accent-green)" }}
                 >
                   Better
                 </span>
                 <div className="flex-1 flex items-start justify-between gap-2">
-                  <p className="text-[13px]" style={{ color: "var(--fg-85)" }}>
+                  <p
+                    className="text-[13px] min-w-0"
+                    style={{ color: "var(--fg-85)" }}
+                  >
                     {m.better}
                   </p>
                   <button

@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { SectionAccordion } from "./section-accordion";
+import { quoted } from "@/lib/utils";
 
 // ── Why It Works ──
 export function WhySection({ cardData }: { cardData: CardData }) {
@@ -12,7 +13,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
       subtitle="The principle and what it builds"
     >
       <div
-        className="rounded-2xl p-5 mb-4"
+        className="rounded-2xl p-4 sm:p-5 mb-4"
         style={{
           background:
             "color-mix(in srgb, var(--accent-purple) 8%, transparent)",
@@ -30,12 +31,12 @@ export function WhySection({ cardData }: { cardData: CardData }) {
           className="text-[15px] font-semibold leading-relaxed"
           style={{ color: "var(--fg-90)" }}
         >
-          "{cardData.influencePayoff!.feeling}"
+          {quoted(cardData.influencePayoff!.feeling)}
         </p>
       </div>
 
       <div
-        className="rounded-2xl p-5 mb-4"
+        className="rounded-2xl p-4 sm:p-5 mb-4"
         style={{
           background: "var(--fg-03)",
           border: "1px solid var(--fg-06)",
@@ -50,7 +51,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
       </div>
 
       <div
-        className="rounded-2xl p-5 mb-4"
+        className="rounded-2xl p-4 sm:p-5 mb-4"
         style={{
           background: "var(--fg-03)",
           border: "1px solid var(--fg-06)",
@@ -63,7 +64,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
           {cardData.influencePayoff!.gains.map((g) => (
             <span
               key={g}
-              className="text-[12px] font-medium px-3 py-1.5 rounded-full"
+              className="text-[12px] leading-snug font-medium px-3 py-1.5 rounded-xl"
               style={{
                 background:
                   "color-mix(in srgb, var(--accent-purple) 10%, transparent)",
@@ -79,7 +80,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
       </div>
 
       <div
-        className="rounded-2xl p-5 mb-4"
+        className="rounded-2xl p-4 sm:p-5 mb-4"
         style={{
           background: "color-mix(in srgb, var(--accent-red) 5%, transparent)",
           border:
@@ -116,7 +117,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
 
       {cardData.whatItIsNot && cardData.whatItIsNot.length > 0 && (
         <div
-          className="rounded-2xl p-5"
+          className="rounded-2xl p-4 sm:p-5"
           style={{
             background: "var(--fg-02)",
             border: "1px solid var(--fg-04)",

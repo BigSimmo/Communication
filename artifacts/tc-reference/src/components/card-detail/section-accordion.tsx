@@ -47,7 +47,7 @@ export function SectionAccordion({
           onClick={() => ctx?.toggleSection(id)}
           aria-expanded={open}
           aria-controls={`section-${id}-body`}
-          className="w-full flex items-center gap-3.5 px-4 sm:px-5 py-4 text-left transition-colors active:bg-[var(--fg-03)]"
+          className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 sm:py-4 text-left transition-colors active:bg-[var(--fg-03)]"
           style={{ minHeight: 56 }}
         >
           <span
@@ -88,7 +88,7 @@ export function SectionAccordion({
       {open && (
         <div
           id={`section-${id}-body`}
-          className="px-4 sm:px-5 pb-5 pt-4"
+          className="px-3 sm:px-5 pb-4 sm:pb-5 pt-3 sm:pt-4"
           style={{ borderTop: "1px solid var(--fg-04)" }}
         >
           {children}

@@ -21,7 +21,7 @@ export function MethodSection({
     >
       {cardData.fieldTip && (
         <div
-          className="rounded-2xl p-5 mb-5"
+          className="rounded-2xl p-4 sm:p-5 mb-5"
           style={{
             background: "color-mix(in srgb, var(--brand) 8%, transparent)",
             border:
@@ -54,7 +54,7 @@ export function MethodSection({
               <div className="flex flex-wrap gap-2">
                 {cardData.fieldTip.dont && (
                   <span
-                    className="text-[12px] px-3 py-1 rounded-full"
+                    className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
                     style={{
                       background:
                         "color-mix(in srgb, var(--accent-red) 8%, transparent)",
@@ -68,7 +68,7 @@ export function MethodSection({
                 )}
                 {cardData.fieldTip.do && (
                   <span
-                    className="text-[12px] px-3 py-1 rounded-full"
+                    className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
                     style={{
                       background:
                         "color-mix(in srgb, var(--accent-green) 8%, transparent)",
@@ -86,39 +86,44 @@ export function MethodSection({
         </div>
       )}
 
-      <div className="space-y-3 relative pl-7">
-        <div
-          className="absolute left-3 top-6 bottom-6 w-px"
-          style={{ background: "var(--fg-08)" }}
-          aria-hidden="true"
-        />
-        {cardData.method!.map((m) => (
-          <div key={m.step} className="relative">
-            <div
-              className="absolute -left-7 top-3 w-6 h-6 rounded-full flex items-center justify-center z-10"
-              style={{
-                background: "var(--brand)",
-                color: "var(--brand-contrast)",
-              }}
-              aria-hidden="true"
-            >
-              <span className="text-[11px] font-bold">{m.step}</span>
-            </div>
-            <div
+      {/* One number per step, beside the title. No side rail, so the text
+          keeps the full width on phones. */}
+      <ol className="space-y-2.5">
+        {cardData.method!.map((m) => {
+          const hasExamples = !!m.examples && m.examples.length > 0;
+          return (
+            <li
+              key={m.step}
               className="rounded-2xl p-4 shadow-sm"
               style={{
                 background: "var(--fg-03)",
                 border: "1px solid var(--fg-06)",
               }}
             >
-              <p className="text-[15px] font-bold text-foreground/90 mb-1.5">
-                <span className="sr-only">Step {m.step}: </span>
-                {m.title}
-              </p>
-              <p className="text-[14px] text-foreground/75 leading-relaxed mb-3 whitespace-pre-line">
+              <div className="flex items-start gap-2.5 mb-1.5">
+                <span
+                  className="w-6 h-6 mt-[-1px] rounded-full flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
+                  style={{
+                    background: "var(--brand)",
+                    color: "var(--brand-contrast)",
+                  }}
+                  aria-hidden="true"
+                >
+                  {m.step}
+                </span>
+                <p className="text-[15px] leading-snug font-bold text-foreground/90">
+                  <span className="sr-only">Step {m.step}: </span>
+                  {m.title}
+                </p>
+              </div>
+              <p
+                className={`text-[14px] text-foreground/75 leading-relaxed whitespace-pre-line ${
+                  hasExamples ? "mb-3" : ""
+                }`}
+              >
                 {m.body}
               </p>
-              {m.examples && m.examples.length > 0 && (
+              {hasExamples && (
                 <div
                   className="space-y-1.5 rounded-xl p-3"
                   style={{
@@ -126,7 +131,7 @@ export function MethodSection({
                     border: "1px solid var(--fg-04)",
                   }}
                 >
-                  {m.examples.map((ex, j) => (
+                  {m.examples!.map((ex, j) => (
                     <div key={j} className="flex items-start gap-2.5">
                       <span
                         className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
@@ -144,14 +149,14 @@ export function MethodSection({
                   ))}
                 </div>
               )}
-            </div>
-          </div>
-        ))}
-      </div>
+            </li>
+          );
+        })}
+      </ol>
 
       {cardData.liveThreadClues && cardData.liveThreadClues.length > 0 && (
         <div
-          className="rounded-2xl p-5 mt-5"
+          className="rounded-2xl p-4 sm:p-5 mt-5"
           style={{
             background: "var(--fg-03)",
             border: "1px solid var(--fg-06)",
@@ -167,7 +172,7 @@ export function MethodSection({
             {cardData.liveThreadClues.map((c) => (
               <span
                 key={c}
-                className="text-[12px] px-3 py-1.5 rounded-full"
+                className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
                 style={{
                   background: "var(--fg-05)",
                   border: "1px solid var(--fg-08)",
@@ -199,7 +204,7 @@ export function MethodSection({
             {cardData.depthDial.map((row, i) => (
               <div
                 key={row.depth}
-                className="flex items-center gap-3 px-4 py-3"
+                className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 px-3.5 sm:px-4 py-3"
                 style={{
                   borderBottom:
                     i < cardData.depthDial!.length - 1
@@ -207,7 +212,8 @@ export function MethodSection({
                       : "none",
                 }}
               >
-                <div className="flex-shrink-0 w-[88px]">
+                {/* Phones: label line above the phrase; wider: side column */}
+                <div className="flex-shrink-0 flex flex-wrap items-baseline gap-x-2 sm:block sm:w-[88px]">
                   <p className="text-[13px] font-bold text-foreground/90">
                     {row.depth}
                   </p>
@@ -218,7 +224,7 @@ export function MethodSection({
                 <button
                   onClick={() => handleCopy(row.phrase)}
                   aria-label={`Copy: ${row.phrase}`}
-                  className="flex-1 text-left flex items-center justify-between gap-2 rounded-xl px-3 py-2 transition-all active:scale-[0.98]"
+                  className="w-full sm:w-auto sm:flex-1 text-left flex items-center justify-between gap-2 rounded-xl px-3 py-2 transition-all active:scale-[0.98]"
                   style={{
                     background:
                       copiedPhrase === row.phrase
