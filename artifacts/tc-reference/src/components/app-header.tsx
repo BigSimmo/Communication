@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Link, useLocation } from "wouter";
 import {
   Search,
@@ -17,6 +17,7 @@ import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useTheme } from "@/lib/theme";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { useScrollDirection } from "@/hooks/use-scroll-direction";
 // Lazily loaded — global search builds its cached aggregate index only after a
 // user enters a query.
 const SearchModal = lazy(() =>
@@ -101,7 +102,10 @@ export function AppHeader({
   const { setIsOpen } = useQuickMode();
   const { isCardFav, toggleCard } = useFavourites();
   const { theme, toggle } = useTheme();
-  const [compact, setCompact] = useState(false);
+  // Shrinks to a slim reading bar while scrolling down, restores on the
+  // first deliberate scroll up or near the top. The shared hook clamps iOS
+  // overscroll so rubber banding can't make the header flicker.
+  const compact = useScrollDirection(24) === "down";
 
   const cardId = location.startsWith("/card/") ? location.replace("/card/", "").split("?")[0] : null;
   const mode: "library" | "card" = cardId !== null ? "card" : "library";
@@ -111,42 +115,9 @@ export function AppHeader({
   const cardMeta = cardId ? CARD_META[cardId] ?? null : null;
 
   const totalCards = allCards.length;
-  // Compact still clears the 44px touch targets used on coarse pointers.
-  const headerHeight = compact ? 46 : 48;
-
-  useEffect(() => {
-    let lastY = Math.max(0, window.scrollY);
-    let raf = 0;
-
-    const update = () => {
-      raf = 0;
-      const y = Math.max(0, window.scrollY);
-      const delta = y - lastY;
-
-      if (y < 24) {
-        setCompact(false);
-      } else if (delta > 8) {
-        setCompact(true);
-      } else if (delta < -16) {
-        setCompact(false);
-      }
-
-      lastY = y;
-    };
-
-    const onScroll = () => {
-      if (raf) return;
-      raf = window.requestAnimationFrame(update);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (raf) window.cancelAnimationFrame(raf);
-    };
-    // Subscribe once — the CSS-var write below tracks headerHeight separately,
-    // so compact toggles no longer tear down and re-add the scroll listener
-  }, []);
+  // Compact actions shrink to 28px and keep a full height hit area via CSS
+  // (see .app-header[data-compact] in index.css).
+  const headerHeight = compact ? 34 : 48;
 
   useEffect(() => {
     // Includes the top safe-area inset so sticky elements offset by this var
@@ -161,7 +132,7 @@ export function AppHeader({
   return (
     <>
       <div
-        className="sticky top-0 z-[var(--z-header)] flex-shrink-0"
+        className="app-header sticky top-0 z-[var(--z-header)] flex-shrink-0"
         style={{
           background: "var(--surface-header)",
           backdropFilter: "blur(20px) saturate(1.4)",
@@ -207,8 +178,12 @@ export function AppHeader({
                   {cardId}
                 </span>
                 <h1
-                  className="text-[15px] font-bold leading-tight truncate"
-                  style={{ color: "var(--fg-90)" }}
+                  className="font-bold leading-tight truncate"
+                  style={{
+                    color: "var(--fg-90)",
+                    fontSize: compact ? 13.5 : 15,
+                    transition: "font-size 180ms ease",
+                  }}
                   data-testid="card-title"
                 >
                   {cardMeta?.cardTitle ?? cardId}
@@ -250,7 +225,7 @@ export function AppHeader({
                 label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                 testId="button-theme-toggle-card"
                 onClick={toggle}
-                className="header-desktop-only"
+                className="header-desktop-only header-compact-hide"
               >
                 {theme === "dark"
                   ? <Sun className="w-4 h-4" aria-hidden="true" />
@@ -281,17 +256,18 @@ export function AppHeader({
                   aria-hidden="true"
                   className="flex items-center justify-center flex-shrink-0"
                   style={{
-                    width: compact ? 27 : 30,
-                    height: compact ? 27 : 30,
-                    borderRadius: 9,
+                    width: compact ? 22 : 30,
+                    height: compact ? 22 : 30,
+                    borderRadius: compact ? 7 : 9,
                     background: "var(--gradient-active)",
                     boxShadow:
                       "0 2px 8px color-mix(in srgb, var(--brand) 38%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)",
-                    transition: "width 180ms ease, height 180ms ease",
+                    transition:
+                      "width 180ms ease, height 180ms ease, border-radius 180ms ease",
                   }}
                 >
                   <BookOpen
-                    className="w-[15px] h-[15px]"
+                    className={compact ? "w-3 h-3" : "w-[15px] h-[15px]"}
                     style={{ color: "var(--brand-contrast)" }}
                     aria-hidden="true"
                   />
@@ -316,7 +292,7 @@ export function AppHeader({
                     className="font-bold leading-none truncate"
                     style={{
                       color: "var(--fg-90)",
-                      fontSize: compact ? 15 : 16,
+                      fontSize: compact ? 14 : 16,
                       transition: "font-size 180ms ease",
                     }}
                     data-testid="library-title"
@@ -354,7 +330,7 @@ export function AppHeader({
                   label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                   testId="button-theme-toggle"
                   onClick={toggle}
-                  className="hidden sm:inline-flex"
+                  className="header-compact-hide hidden sm:inline-flex"
                 >
                   {theme === "dark"
                     ? <Sun className="w-4 h-4" aria-hidden="true" />
@@ -363,7 +339,7 @@ export function AppHeader({
                 </HeaderIconButton>
                 {/* Library size badge — count of technique cards */}
                 <div
-                  className="library-progress-full flex-col items-end gap-1"
+                  className="library-progress-full header-compact-hide flex-col items-end gap-1"
                   aria-label={`${totalCards} technique cards`}
                   data-testid="library-progress"
                 >

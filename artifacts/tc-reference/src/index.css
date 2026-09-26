@@ -407,11 +407,45 @@
   }
   .fab-halo { animation: none !important; opacity: 0 !important; }
   .fab-badge-dot { animation: none !important; }
+  .app-header,
+  .app-header * {
+    transition: none !important;
+  }
+}
+
+/* Filter bar segments and header actions carry an invisible hit area so
+   they can look compact while staying easy to tap */
+.library-filter-control,
+.card-header-action {
+  position: relative;
+}
+
+/* Compact header while scrolling: 28px actions inside a 34px bar */
+.app-header[data-compact="true"] .card-header-action {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.app-header[data-compact="true"] .header-compact-hide {
+  display: none !important;
 }
 
 @media (pointer: coarse) {
-  .library-filter-control {
-    min-height: 44px;
+  /* Segment looks 26px, taps land anywhere in a 44px band. Grows mostly
+     downward so it never overlaps the search row above */
+  .library-filter-control::before {
+    content: "";
+    position: absolute;
+    inset: -6px 0 -12px;
+  }
+
+  /* Fills the full height of the compact header and widens sideways */
+  .app-header[data-compact="true"] .card-header-action::before {
+    content: "";
+    position: absolute;
+    inset: -3px -4px;
   }
 
   .library-card-favourite,
