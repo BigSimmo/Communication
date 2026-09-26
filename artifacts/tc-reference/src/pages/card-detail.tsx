@@ -28,6 +28,14 @@ import { impactStyleFor } from "@/lib/design-tokens";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
 
+// Smooth scrolling unless the user has asked the OS for reduced motion.
+function scrollBehavior(): ScrollBehavior {
+  return typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "auto"
+    : "smooth";
+}
+
 // Measured header height (includes the top safe-area inset and compact state)
 // so scroll offsets line up with the sticky header on every device.
 function headerOffset(): number {
@@ -42,13 +50,6 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
     CARD_TITLE_MAP[c.id] = c.title;
     CARD_CATEGORY_MAP[c.id] = category;
   }
-}
-
-// Ladder lines are stored inconsistently: some already open with a quote
-// ("Hey." (flat, distracted)), others are bare. Only wrap the bare ones so
-// the brief never shows doubled quotes.
-function asQuote(text: string): string {
-  return /^["\u201c]/.test(text.trim()) ? text : `\u201c${text}\u201d`;
 }
 
 // Core formula lines often open with a short label ("Short form:",
@@ -382,7 +383,7 @@ export default function CardDetail() {
     if (left < strip.scrollLeft + 24 || right > strip.scrollLeft + strip.clientWidth - 24) {
       strip.scrollTo({
         left: Math.max(0, left - (strip.clientWidth - tab.offsetWidth) / 2),
-        behavior: "smooth",
+        behavior: scrollBehavior(),
       });
     }
   }, [activeSection, cardData]);
@@ -517,7 +518,7 @@ export default function CardDetail() {
           navH -
           4;
         scrollLockRef.current = s;
-        window.scrollTo({ top: y, behavior: "smooth" });
+        window.scrollTo({ top: y, behavior: scrollBehavior() });
       }
     }, 30);
   };
@@ -662,6 +663,32 @@ export default function CardDetail() {
     };
   }, [cardId, cardData, setPdfUrl]);
 
+  // Left/right arrow keys step through cards on keyboard devices. Ignored
+  // while typing, with modifiers held, or when any dialog is open.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)
+        return;
+      const target = e.target;
+      if (
+        target instanceof Element &&
+        target.closest(
+          'input, textarea, select, [contenteditable="true"], [role="listbox"], [role="group"][aria-label="Jump to section"]',
+        )
+      )
+        return;
+      if (document.querySelector('[role="dialog"]')) return;
+      const card = e.key === "ArrowLeft" ? prevCard : nextCard;
+      if (!card || card.id === cardId) return;
+      e.preventDefault();
+      window.scrollTo(0, 0);
+      setLocation(`/card/${card.id}`);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [cardId, prevCard, nextCard, setLocation]);
+
   useEffect(() => {
     if (!pdfOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -708,7 +735,7 @@ export default function CardDetail() {
         </h2>
         <p
           className="text-[14px] leading-relaxed mb-6 max-w-[280px]"
-          style={{ color: "var(--fg-42)" }}
+          style={{ color: "var(--fg-55)" }}
         >
           No technique card with ID{" "}
           <strong style={{ color: "var(--fg-60)" }}>
@@ -755,7 +782,7 @@ export default function CardDetail() {
         </h2>
         <p
           className="text-[14px] leading-relaxed mb-6 max-w-[280px]"
-          style={{ color: "var(--fg-42)" }}
+          style={{ color: "var(--fg-55)" }}
         >
           Full content for this card is being prepared. Browse the library to
           find a fully loaded card.
@@ -800,7 +827,7 @@ export default function CardDetail() {
         }}
         aria-label={`Previous card: ${prevCard.id}`}
         data-testid="button-prev-float"
-        className="hidden md:flex fixed z-30 md:left-[200px] items-center justify-center transition-all active:scale-95"
+        className="hidden lg:flex fixed z-30 md:left-[200px] items-center justify-center transition-all active:scale-95"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
@@ -823,7 +850,7 @@ export default function CardDetail() {
         }}
         aria-label={`Next card: ${nextCard.id}`}
         data-testid="button-next-float"
-        className="hidden md:flex fixed z-30 items-center justify-center transition-all active:scale-95"
+        className="hidden lg:flex fixed z-30 items-center justify-center transition-all active:scale-95"
         style={{
           right: 0,
           top: "50%",
@@ -930,7 +957,7 @@ export default function CardDetail() {
                         className="min-w-0 leading-snug line-clamp-2"
                         style={{ color: "var(--fg-55)" }}
                       >
-                        {asQuote(cardData.ladder[0].weak)}
+                        {cardData.ladder[0].weak}
                       </span>
                     </div>
                   )}
@@ -955,7 +982,7 @@ export default function CardDetail() {
                         className="min-w-0 leading-snug font-medium line-clamp-3"
                         style={{ color: "var(--fg-85)" }}
                       >
-                        {asQuote(cardData.ladder[0].best)}
+                        {cardData.ladder[0].best}
                       </span>
                     </div>
                   )}
@@ -1529,7 +1556,7 @@ export default function CardDetail() {
                             <div key={j} className="flex items-start gap-2.5">
                               <span
                                 className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
-                                style={{ color: "var(--fg-38)" }}
+                                style={{ color: "var(--fg-55)" }}
                               >
                                 {ex.label}
                               </span>
@@ -1611,7 +1638,7 @@ export default function CardDetail() {
                           <p className="text-[13px] font-bold text-foreground/90">
                             {row.depth}
                           </p>
-                          <p className="text-[11px] text-foreground/45 leading-tight">
+                          <p className="text-[11px] text-foreground/60 leading-tight">
                             {row.useWhen}
                           </p>
                         </div>
@@ -1721,7 +1748,7 @@ export default function CardDetail() {
               </div>
             </div>
 
-            <p className="text-[12px] text-foreground/40 mb-3 font-medium">
+            <p className="text-[12px] text-foreground/60 mb-3 font-medium">
               Tap a phrase to copy it
             </p>
 
@@ -1762,7 +1789,7 @@ export default function CardDetail() {
                       </div>
                       <div className="flex items-center gap-3">
                         <span
-                          className="text-[11px] font-bold text-foreground/40 px-2 py-1 rounded-full"
+                          className="text-[11px] font-bold text-foreground/60 px-2 py-1 rounded-full"
                           style={{ background: "var(--fg-05)" }}
                         >
                           {group.phrases.length}
@@ -2676,7 +2703,7 @@ export default function CardDetail() {
                     className="text-[13px] leading-snug transition-colors"
                     style={{
                       color: checkedItems.has(i)
-                        ? "var(--fg-35)"
+                        ? "var(--fg-50)"
                         : "var(--fg-78)",
                       textDecoration: checkedItems.has(i)
                         ? "line-through"
@@ -2809,7 +2836,7 @@ export default function CardDetail() {
                   <div key={group} className="mb-5">
                     <p
                       className="text-[11px] font-bold tracking-widest uppercase mb-3"
-                      style={{ color: "var(--fg-35)" }}
+                      style={{ color: "var(--fg-55)" }}
                     >
                       {group}
                     </p>
@@ -2851,7 +2878,7 @@ export default function CardDetail() {
                               </p>
                               <p
                                 className="text-[11px] mt-0.5"
-                                style={{ color: "var(--fg-42)" }}
+                                style={{ color: "var(--fg-55)" }}
                               >
                                 {resource.description}
                               </p>
@@ -2979,7 +3006,7 @@ export default function CardDetail() {
                       {isPlaceholder && (
                         <span
                           className="ml-2 text-[11px] font-normal"
-                          style={{ color: "var(--fg-35)" }}
+                          style={{ color: "var(--fg-55)" }}
                         >
                           (placeholder)
                         </span>
@@ -3040,7 +3067,7 @@ export default function CardDetail() {
                       </p>
                       <p
                         className="text-[13px] leading-relaxed max-w-[300px]"
-                        style={{ color: "var(--fg-42)" }}
+                        style={{ color: "var(--fg-55)" }}
                       >
                         Your browser blocked the document — this can happen on
                         mobile or when third-party content is restricted.

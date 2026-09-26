@@ -349,7 +349,7 @@ export default function Drill() {
           <>
             <p
               className="text-[11px] font-semibold tracking-wide uppercase mb-2"
-              style={{ color: "var(--fg-35)" }}
+              style={{ color: "var(--fg-55)" }}
             >
               {drillEntry.day} · {drillEntry.title}
             </p>

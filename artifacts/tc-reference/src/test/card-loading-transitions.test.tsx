@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation, useRoute } from "wouter";
 import { SearchModal } from "../components/search-modal";
 import { CARD_DATA } from "../lib/cards";
+import { LIBRARY_CATEGORIES } from "../lib/data";
 import { TC001 } from "../lib/cards/TC001";
 import { FavouritesProvider } from "../lib/favourites-context";
 import { PdfProvider } from "../lib/pdf-context";
@@ -71,6 +72,40 @@ describe("lazy card consumer transitions", () => {
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
       "Live thread follow-ups",
     );
+  });
+
+  it("steps between cards with the arrow keys unless the user is typing", async () => {
+    vi.mocked(loadCard).mockResolvedValue(TC001);
+    const setLocation = vi.fn();
+    vi.mocked(useLocation).mockReturnValue(["/card/TC001", setLocation]);
+    const order = Object.values(LIBRARY_CATEGORIES)
+      .flat()
+      .map((c) => c.id);
+    const i = order.indexOf("TC001");
+    const prev = order[(i - 1 + order.length) % order.length];
+    const next = order[(i + 1) % order.length];
+
+    render(
+      <FavouritesProvider>
+        <PdfProvider>
+          <CardDetail />
+          <input aria-label="Typing field" />
+        </PdfProvider>
+      </FavouritesProvider>,
+    );
+    await screen.findByRole("heading", { level: 2 });
+
+    fireEvent.keyDown(window, { key: "ArrowRight" });
+    expect(setLocation).toHaveBeenLastCalledWith(`/card/${next}`);
+    fireEvent.keyDown(window, { key: "ArrowLeft" });
+    expect(setLocation).toHaveBeenLastCalledWith(`/card/${prev}`);
+
+    setLocation.mockClear();
+    fireEvent.keyDown(screen.getByLabelText("Typing field"), {
+      key: "ArrowRight",
+    });
+    fireEvent.keyDown(window, { key: "ArrowRight", metaKey: true });
+    expect(setLocation).not.toHaveBeenCalled();
   });
 
   it("announces Quick Lookup aggregate loading and preserves 120 initial rows", async () => {

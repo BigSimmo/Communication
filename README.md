@@ -7,13 +7,13 @@ A mobile-first reference app for 98 communication techniques, built in a workspa
 ## Features
 
 - 98 technique cards (voice/presence, influence/framing, clarity/direction, connection/warmth, resilience/recovery)
-- Library with category chips, impact/difficulty filters, and sort controls
+- Library with category, impact and difficulty filters, sort controls and a live result count
 - Phrase Bank (4,000+ phrases, filterable by tone and full-text searchable)
 - Daily drill with streak tracking and spaced-repetition review
 - Playbooks: chain techniques into your own step-by-step guides
 - Favourites for cards and phrases via localStorage persistence
-- Quick Lookup overlay for fast in-conversation phrase recall
-- Keyboard-accessible global search (`Cmd+K` / `Ctrl+K`)
+- Quick Lookup overlay for fast in-conversation phrase recall, scoped to the open card with one tap to widen to all cards
+- Keyboard-accessible global search (`Cmd+K` / `Ctrl+K`), and left/right arrow keys to step between cards
 - Light/dark theme persistence
 - Mobile-first navigation with a floating menu button, 44px touch targets and safe-area (notch) support
 - Installable PWA that works offline
