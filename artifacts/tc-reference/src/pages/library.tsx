@@ -184,6 +184,7 @@ function FilterDropdown({
         <div
           ref={listRef}
           role="listbox"
+          tabIndex={-1}
           aria-label={label}
           onKeyDown={moveFocus}
           className={`absolute top-full mt-1.5 z-50 w-max min-w-full max-w-[calc(100vw-24px)] max-h-[60vh] overflow-y-auto rounded-xl p-1 ${
@@ -371,6 +372,7 @@ export default function Library() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search techniques…"
+                role="combobox"
                 aria-label="Search techniques"
                 aria-expanded={searchOpen}
                 aria-controls="search-popout-panel"

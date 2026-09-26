@@ -73,7 +73,10 @@ function sanitize(text: string): string {
   return text
     .replaceAll("→", "->") // →
     .replaceAll("✓", "-") // ✓
-    .replace(/[^\x20-\x7E -ÿ–—‘’“”]/g, "?");
+    .replace(
+      /[^\x20-\x7E\u00A0-\u00FF\u2013\u2014\u2018\u2019\u201C\u201D]/g,
+      "?",
+    );
 }
 
 function wrap(

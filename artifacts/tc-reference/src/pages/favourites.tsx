@@ -450,6 +450,7 @@ export default function Favourites() {
                             </p>
                             <div
                               className="flex items-center gap-1.5 flex-shrink-0"
+                              role="presentation"
                               onClick={(e) => e.stopPropagation()}
                             >
                               {copiedPhrase === p.text ? (
