@@ -97,7 +97,7 @@ export default function Playbooks() {
   };
 
   return (
-    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom,0px))] md:pb-6 gap-6">
+    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-6 gap-6">
       <div className="flex items-center justify-between">
         <div>
           <h1

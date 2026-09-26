@@ -27,6 +27,7 @@ import { usePdf } from "@/lib/pdf-context";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
+import { SectionNav } from "@/components/card-detail/section-nav";
 
 // Measured header height (includes the top safe-area inset and compact state)
 // so scroll offsets line up with the sticky header on every device.
@@ -96,35 +97,6 @@ const SECTIONS: { id: CardSection; label: string }[] = [
   { id: "checklist", label: "Checklist" },
   { id: "related", label: "Related" },
   { id: "resources", label: "Downloads" },
-];
-
-interface SectionCluster {
-  id: string;
-  label: string;
-  sectionIds: CardSection[];
-}
-
-const SECTION_CLUSTERS: SectionCluster[] = [
-  {
-    id: "core",
-    label: "Core method",
-    sectionIds: ["overview", "why", "method"],
-  },
-  {
-    id: "phrases-practice",
-    label: "Phrases & practice",
-    sectionIds: ["phrases", "ladder", "inpractice", "tree"],
-  },
-  {
-    id: "scenarios-troubleshooting",
-    label: "Scenarios & troubleshooting",
-    sectionIds: ["scenarios", "chains", "calibration", "mistakes", "recovery"],
-  },
-  {
-    id: "review-downloads",
-    label: "Review & downloads",
-    sectionIds: ["practice", "checklist", "related", "resources"],
-  },
 ];
 
 // In-session memory: remembers which section and scroll position the user last viewed per card
@@ -954,120 +926,12 @@ export default function CardDetail() {
         </div>
 
         {/* ── Section nav (sticky flush below the shared header) ── */}
-        <div
-          ref={navRef}
-          className="sticky z-10"
-          style={{
-            top: "var(--app-header-height, 48px)",
-            background: "var(--surface-header)",
-            backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
-            borderBottom: "1px solid var(--fg-06)",
-          }}
-        >
-          {/* Category Clusters Quick Jump */}
-          <div
-            className="flex items-center gap-1.5 px-4 md:px-6 pt-2 pb-1 overflow-x-auto"
-            style={{ scrollbarWidth: "none" }}
-            role="region"
-            aria-label="Section categories"
-          >
-            {SECTION_CLUSTERS.map((cluster) => {
-              const availableSections = cluster.sectionIds.filter((id) =>
-                sectionAvailable(id),
-              );
-              if (availableSections.length === 0) return null;
-              const isClusterActive =
-                cluster.sectionIds.includes(activeSection);
-              return (
-                <button
-                  key={cluster.id}
-                  type="button"
-                  onClick={() => {
-                    const targetSection = cluster.sectionIds.includes(
-                      activeSection,
-                    )
-                      ? activeSection
-                      : availableSections[0];
-                    scrollSectionIntoView(targetSection);
-                  }}
-                  className="text-[12px] font-semibold px-3 rounded-lg transition-all flex-shrink-0"
-                  style={{
-                    minHeight: 32,
-                    background: isClusterActive
-                      ? "var(--fg-08)"
-                      : "var(--fg-02)",
-                    color: isClusterActive
-                      ? "var(--brand-text)"
-                      : "var(--fg-50)",
-                    border: isClusterActive
-                      ? "1px solid var(--fg-15)"
-                      : "1px solid var(--fg-05)",
-                  }}
-                >
-                  {cluster.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* All Section Tabs grouped by cluster */}
-          <div className="flex items-center gap-0">
-            <div
-              className="flex items-center gap-1.5 py-2 px-4 md:px-6 overflow-x-auto flex-1"
-              style={{ scrollbarWidth: "none" }}
-              role="group"
-              aria-label="Jump to section"
-            >
-              {SECTION_CLUSTERS.map((cluster, clusterIdx) => {
-                const clusterSections = cluster.sectionIds
-                  .map((id) => SECTIONS.find((s) => s.id === id)!)
-                  .filter((s) => s && sectionAvailable(s.id));
-                if (clusterSections.length === 0) return null;
-
-                return (
-                  <div
-                    key={cluster.id}
-                    className="flex items-center gap-1.5 flex-shrink-0"
-                  >
-                    {clusterIdx > 0 && (
-                      <div
-                        className="w-px h-4 mx-1 flex-shrink-0"
-                        style={{ background: "var(--fg-10)" }}
-                        aria-hidden="true"
-                      />
-                    )}
-                    {clusterSections.map((s) => (
-                      <button
-                        key={s.id}
-                        id={`nav-${s.id}`}
-                        type="button"
-                        aria-current={activeSection === s.id ? "true" : undefined}
-                        aria-controls={`section-${s.id}`}
-                        onClick={() => scrollSectionIntoView(s.id)}
-                        data-testid={`nav-${s.id}`}
-                        className="text-[12px] font-semibold px-3.5 rounded-full transition-all flex-shrink-0"
-                        style={{
-                          minHeight: 40,
-                          background:
-                            activeSection === s.id
-                              ? "var(--brand)"
-                              : "var(--fg-05)",
-                          color:
-                            activeSection === s.id
-                              ? "var(--brand-contrast)"
-                              : "var(--fg-55)",
-                        }}
-                      >
-                        {s.label}
-                      </button>
-                    ))}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        <SectionNav
+          navRef={navRef}
+          activeSection={activeSection}
+          sectionAvailable={sectionAvailable}
+          scrollSectionIntoView={scrollSectionIntoView}
+        />
 
         {/* Content — accordion sections */}
         <div className="px-3 md:px-4 pb-12 pt-2 flex flex-col gap-2">

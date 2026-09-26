@@ -222,14 +222,13 @@
   --accent-blue: #60a5fa;
 
   /* ── Z-index scale ──
-     header/sidebar 30 · FAB stack 37–41 · overlays 50 (Quick Lookup) ·
+     header/sidebar 30 · tab bar 35 · overlays 50 (Quick Lookup) ·
      modals 60 (PDF sheet) · search 70 */
   --z-header: 30;
-  --z-fab-swipe-zone: 37;
-  --z-fab-backdrop: 38;
-  --z-fab-halo: 39;
-  --z-fab: 40;
-  --z-fab-toggle: 41;
+  --z-tabbar: 35;
+
+  /* Phone tab bar height, excluding the home indicator inset */
+  --tabbar-height: 52px;
   --z-overlay: 50;
   --z-modal: 60;
   --z-search: 70;
@@ -358,68 +357,159 @@
   --foreground: 0 0% 100%;
 }
 
-/* Idle attention halo behind the closed FAB — gentle breathing glow */
-.fab-halo {
-  animation: fab-halo 3s ease-in-out infinite;
-  opacity: 0;
-  will-change: transform, opacity;
-}
-.fab-halo[data-open="true"] {
-  animation: none;
-  opacity: 0;
-}
-@keyframes fab-halo {
-  0%, 100% { opacity: 0;    transform: scale(0.9); }
-  50%      { opacity: 0.55; transform: scale(1.4); }
-}
-
-/* Closed-FAB unread badge dot — soft expanding pulse ring */
-.fab-badge-dot {
-  animation: fab-dot-pulse 2s ease-in-out infinite;
-}
-@keyframes fab-dot-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand) 55%, transparent); }
-  50%      { box-shadow: 0 0 0 5px transparent; }
-}
-
-/* Reduced motion: drop spring/stagger/pulse — fade only, no movement */
+/* Reduced motion: chrome snaps between states instead of sliding */
 @media (prefers-reduced-motion: reduce) {
-  .fab-pill,
-  .fab-pill * {
-    transition: opacity 150ms ease !important;
-    transition-delay: 0ms !important;
-    transform: none !important;
+  .app-header,
+  .app-header *,
+  .tab-bar,
+  .card-section-nav * {
+    transition: none !important;
   }
-  .fab-fan-item {
-    transition: opacity 150ms ease !important;
-    transition-delay: 0ms !important;
-    /* Keep the final translate so items appear at arc positions; only remove spring */
-    transform: var(--fab-fan-item-translate, translate(0, 0)) !important;
+}
+
+/* ── Phone tab bar ── */
+.tab-bar {
+  z-index: var(--z-tabbar);
+  background: var(--surface-header);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-top: 1px solid var(--fg-07);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  transform: translateY(0);
+  transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Slides fully off screen (including the home indicator band) while reading */
+.tab-bar[data-hidden="true"] {
+  transform: translateY(calc(100% + 1px));
+  pointer-events: none;
+}
+
+.tab-bar-inner {
+  height: var(--tabbar-height);
+}
+
+.tab-bar-item {
+  touch-action: manipulation;
+  transition: color 150ms ease;
+}
+
+.tab-bar-item:active .tab-bar-icon {
+  transform: scale(0.92);
+}
+
+.tab-bar-icon {
+  width: 46px;
+  height: 26px;
+  transition: background-color 150ms ease, transform 120ms ease;
+}
+
+/* Landscape phones: slimmer, icon only */
+@media (max-height: 500px) {
+  :root {
+    --tabbar-height: 42px;
   }
-  .fab-fan-label {
-    transition: opacity 150ms ease !important;
-    transition-delay: 0ms !important;
+  .tab-bar-label {
+    display: none;
   }
-  .fab-icon-menu,
-  .fab-icon-close {
-    transition: opacity 150ms ease !important;
-    transform: none !important;
+}
+
+/* ── Card section nav: one scrollable row with soft edge fades ── */
+.card-section-scroller {
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 10px, #000 calc(100% - 24px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 10px, #000 calc(100% - 24px), transparent 100%);
+}
+.card-section-scroller::-webkit-scrollbar {
+  display: none;
+}
+.card-section-pill {
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Content clears the tab bar and the home indicator on phones */
+.app-main {
+  padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom, 0px) + 16px);
+}
+
+@media (min-width: 768px) {
+  .app-main {
+    padding-bottom: 0;
   }
-  .fab-halo { animation: none !important; opacity: 0 !important; }
-  .fab-badge-dot { animation: none !important; }
+}
+
+/* Filter bar segments and header actions carry an invisible hit area so
+   they can look compact while staying easy to tap */
+.library-filter-control,
+.card-header-action,
+.tap-band {
+  position: relative;
+}
+
+/* Compact header while scrolling: 28px actions inside a 34px bar */
+.app-header[data-compact="true"] .card-header-action {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.app-header[data-compact="true"] .header-compact-hide {
+  display: none !important;
 }
 
 @media (pointer: coarse) {
-  .library-filter-control {
-    min-height: 44px;
+  /* Section pill looks 30px, taps land in the full 44px row */
+  .card-section-pill::before {
+    content: "";
+    position: absolute;
+    inset: -7px 0;
+  }
+
+  /* Segment looks 26px, taps land anywhere in a 44px band. Grows mostly
+     downward so it never overlaps the search row above */
+  .library-filter-control::before {
+    content: "";
+    position: absolute;
+    inset: -6px 0 -12px;
+  }
+
+  /* Fills the full height of the compact header and widens sideways */
+  .app-header[data-compact="true"] .card-header-action::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
   }
 
   .library-card-favourite,
-  .card-header-action,
   .quick-phrase-favourite,
   .tap-target {
     min-width: 44px;
     min-height: 44px;
+  }
+
+  /* Header actions look 36px so the card title keeps room; the invisible
+     band keeps a ~44px tap zone without overlapping neighbours */
+  .app-header .card-header-action::before {
+    content: "";
+    position: absolute;
+    inset: -4px -3px;
+  }
+
+  /* Compact chips inside a padded scroll row (e.g. Phrases tones) */
+  .tap-band::before {
+    content: "";
+    position: absolute;
+    inset: -6px 0;
   }
 
   /* Text-style controls (chips, "Clear", "Reset") grow vertically only */
@@ -433,37 +523,23 @@
   }
 }
 
-/* Print: hide FAB entirely and remove the bottom padding gap */
+/* Print: no app chrome, no bottom padding gap */
 @media print {
-  .fab-button,
-  .fab-backdrop,
-  .fab-halo,
-  .fab-nav,
-  .fab-pill,
-  .fab-fan-item,
-  .fab-fan-label { display: none !important; }
-  main { padding-bottom: 0 !important; }
+  .tab-bar,
+  .app-header { display: none !important; }
+  .app-main { padding-bottom: 0 !important; }
 }
 
 /* Forced-colours / Windows High Contrast: restore borders stripped by the OS */
 @media (forced-colors: active) {
-  .fab-button {
-    border: 2px solid ButtonText !important;
-    forced-color-adjust: none;
+  .tab-bar {
+    border-top: 1px solid CanvasText !important;
   }
-  .fab-pill {
-    border: 1px solid ButtonText !important;
-    forced-color-adjust: none;
+  .tab-bar-item[aria-current="page"] .tab-bar-icon {
+    outline: 2px solid Highlight;
   }
-  .fab-pill[aria-current="page"] {
-    border-inline-start: 3px solid Highlight !important;
-  }
-  .fab-fan-item {
-    border: 1px solid ButtonText !important;
-    forced-color-adjust: none;
-  }
-  .fab-fan-item[aria-current="page"] {
-    border: 2px solid Highlight !important;
+  .card-section-pill[aria-current="true"] {
+    outline: 2px solid Highlight;
   }
 }
 

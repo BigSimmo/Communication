@@ -1,4 +1,4 @@
 - [Favourites feature patterns](favourites-patterns.md) — library tiles use div+role=button to allow nested heart <button>; FavouritesProvider sits above WouterRouter in App.tsx.
 - [TC card cross-card links](tc-card-related-links.md) — link relatedTechniques to real in-app card IDs (check data.ts), never the source PDF's catalog IDs.
 - [card-detail per-card effects](card-detail-per-card-effects.md) — wouter re-renders card-detail without remount on cardId change; cardId-scoped effects (IntersectionObserver) must key on [cardId] and reset cross-card refs.
-- [Mobile FAB menu motion](fab-menu-motion.md) — nav stays mounted + CSS transitions (not conditional mount) to avoid close-pop; halo is a sibling div, not ::before.
+- [App navigation structure](app-navigation.md) — NAV_DESTINATIONS drives tab bar + sidebar; tools live in header; chrome hides via useScrollDirection; small controls get ::before tap bands.
