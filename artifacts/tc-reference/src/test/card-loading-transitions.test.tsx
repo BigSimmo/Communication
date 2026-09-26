@@ -105,6 +105,10 @@ describe("lazy card consumer transitions", () => {
       key: "ArrowRight",
     });
     fireEvent.keyDown(window, { key: "ArrowRight", metaKey: true });
+    // Focus on a section pill belongs to the section nav, not card paging
+    fireEvent.keyDown(screen.getByTestId("nav-overview"), {
+      key: "ArrowRight",
+    });
     expect(setLocation).not.toHaveBeenCalled();
   });
 

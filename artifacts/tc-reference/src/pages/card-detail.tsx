@@ -593,7 +593,7 @@ export default function CardDetail() {
       if (
         target instanceof Element &&
         target.closest(
-          'input, textarea, select, [contenteditable="true"], [role="listbox"], [role="group"][aria-label="Jump to section"]',
+          'input, textarea, select, [contenteditable="true"], [role="listbox"], nav[aria-label="Card sections"]',
         )
       )
         return;
