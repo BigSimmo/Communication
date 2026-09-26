@@ -68,20 +68,20 @@
 }
 
 :root {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(255, 255, 255, 0.1);
+  --badge-outline: rgba(255, 255, 255, 0.05);
 
   --opaque-button-border-intensity: -8;
 
-  --elevate-1: rgba(255,255,255, .03);
-  --elevate-2: rgba(255,255,255, .08);
+  --elevate-1: rgba(255, 255, 255, 0.03);
+  --elevate-2: rgba(255, 255, 255, 0.08);
 
   color-scheme: dark;
 
   --background: 217 42% 10%; /* #0f1724 */
   --foreground: 0 0% 100%;
   --border: 0 0% 100% / 0.1;
-  
+
   --card: 217 42% 12%;
   --card-foreground: 0 0% 100%;
   --card-border: 0 0% 100% / 0.1;
@@ -122,70 +122,96 @@
   --chart-4: 38 92% 50% / 0.5;
   --chart-5: 0 0% 100% / 0.2;
 
-  --app-font-sans: 'Inter', system-ui, sans-serif;
+  --app-font-sans: "Inter", system-ui, sans-serif;
   --app-font-serif: Georgia, serif;
   --app-font-mono: Menlo, monospace;
-  --radius: .5rem;
+  --radius: 0.5rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.1);
   --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.1);
-  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 2px 4px -1px hsl(0 0% 0% / 0.1);
-  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 4px 6px -1px hsl(0 0% 0% / 0.1);
-  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 8px 10px -1px hsl(0 0% 0% / 0.1);
+  --shadow-sm:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 2px 4px -1px hsl(0 0% 0% / 0.1);
+  --shadow-lg:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 4px 6px -1px hsl(0 0% 0% / 0.1);
+  --shadow-xl:
+    0px 2px 0px 0px hsl(0 0% 0% / 0.1), 0px 8px 10px -1px hsl(0 0% 0% / 0.1);
   --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.1);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
-  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-primary-border: hsl(
+    from hsl(var(--sidebar-primary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+  --sidebar-accent-border: hsl(
+    from hsl(var(--sidebar-accent)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+  --primary-border: hsl(
+    from hsl(var(--primary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+  --secondary-border: hsl(
+    from hsl(var(--secondary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+  --muted-border: hsl(
+    from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) /
+      alpha
+  );
+  --accent-border: hsl(
+    from hsl(var(--accent)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+  --destructive-border: hsl(
+    from hsl(var(--destructive)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
 
   /* ── Inline-style theme tokens (dark defaults) ── */
   /* Foreground opacity steps: white-at-X% over dark bg */
-  --fg-90: rgba(255,255,255,0.90);
-  --fg-85: rgba(255,255,255,0.85);
-  --fg-82: rgba(255,255,255,0.82);
-  --fg-80: rgba(255,255,255,0.80);
-  --fg-78: rgba(255,255,255,0.78);
-  --fg-75: rgba(255,255,255,0.75);
-  --fg-70: rgba(255,255,255,0.70);
-  --fg-65: rgba(255,255,255,0.65);
-  --fg-60: rgba(255,255,255,0.60);
-  --fg-55: rgba(255,255,255,0.55);
-  --fg-50: rgba(255,255,255,0.50);
-  --fg-45: rgba(255,255,255,0.45);
-  --fg-42: rgba(255,255,255,0.42);
-  --fg-40: rgba(255,255,255,0.40);
-  --fg-38: rgba(255,255,255,0.38);
-  --fg-35: rgba(255,255,255,0.35);
-  --fg-32: rgba(255,255,255,0.32);
-  --fg-30: rgba(255,255,255,0.30);
-  --fg-28: rgba(255,255,255,0.28);
-  --fg-25: rgba(255,255,255,0.25);
-  --fg-22: rgba(255,255,255,0.22);
-  --fg-20: rgba(255,255,255,0.20);
-  --fg-18: rgba(255,255,255,0.18);
-  --fg-15: rgba(255,255,255,0.15);
-  --fg-10: rgba(255,255,255,0.10);
-  --fg-09: rgba(255,255,255,0.09);
-  --fg-08: rgba(255,255,255,0.08);
-  --fg-07: rgba(255,255,255,0.07);
-  --fg-06: rgba(255,255,255,0.06);
-  --fg-05: rgba(255,255,255,0.05);
-  --fg-04: rgba(255,255,255,0.04);
-  --fg-03: rgba(255,255,255,0.03);
-  --fg-02: rgba(255,255,255,0.02);
+  --fg-90: rgba(255, 255, 255, 0.9);
+  --fg-85: rgba(255, 255, 255, 0.85);
+  --fg-82: rgba(255, 255, 255, 0.82);
+  --fg-80: rgba(255, 255, 255, 0.8);
+  --fg-78: rgba(255, 255, 255, 0.78);
+  --fg-75: rgba(255, 255, 255, 0.75);
+  --fg-70: rgba(255, 255, 255, 0.7);
+  --fg-65: rgba(255, 255, 255, 0.65);
+  --fg-60: rgba(255, 255, 255, 0.6);
+  --fg-55: rgba(255, 255, 255, 0.55);
+  --fg-50: rgba(255, 255, 255, 0.5);
+  --fg-45: rgba(255, 255, 255, 0.45);
+  --fg-42: rgba(255, 255, 255, 0.42);
+  --fg-40: rgba(255, 255, 255, 0.4);
+  --fg-38: rgba(255, 255, 255, 0.38);
+  --fg-35: rgba(255, 255, 255, 0.35);
+  --fg-32: rgba(255, 255, 255, 0.32);
+  --fg-30: rgba(255, 255, 255, 0.3);
+  --fg-28: rgba(255, 255, 255, 0.28);
+  --fg-25: rgba(255, 255, 255, 0.25);
+  --fg-22: rgba(255, 255, 255, 0.22);
+  --fg-20: rgba(255, 255, 255, 0.2);
+  --fg-18: rgba(255, 255, 255, 0.18);
+  --fg-15: rgba(255, 255, 255, 0.15);
+  --fg-10: rgba(255, 255, 255, 0.1);
+  --fg-09: rgba(255, 255, 255, 0.09);
+  --fg-08: rgba(255, 255, 255, 0.08);
+  --fg-07: rgba(255, 255, 255, 0.07);
+  --fg-06: rgba(255, 255, 255, 0.06);
+  --fg-05: rgba(255, 255, 255, 0.05);
+  --fg-04: rgba(255, 255, 255, 0.04);
+  --fg-03: rgba(255, 255, 255, 0.03);
+  --fg-02: rgba(255, 255, 255, 0.02);
 
   /* Surface backgrounds */
-  --surface-header: rgba(15,23,36,0.93);
-  --surface-float: rgba(15,23,36,0.80);
-  --surface-dd: hsl(217,42%,13%);
-  --surface-sidebar: hsl(217,42%,10%);
+  --surface-header: rgba(15, 23, 36, 0.93);
+  --surface-float: rgba(15, 23, 36, 0.8);
+  --surface-dd: hsl(217, 42%, 13%);
+  --surface-sidebar: hsl(217, 42%, 10%);
 
   /* ── Brand accent (amber) ──
      --brand: raw brand hue for fills, tints, borders and glows (same in both
@@ -240,7 +266,7 @@
 
   --background: 210 20% 98%;
   --foreground: 217 42% 10%;
-  --border: 217 42% 10% / 0.10;
+  --border: 217 42% 10% / 0.1;
 
   --card: 0 0% 100%;
   --card-foreground: 217 42% 10%;
@@ -257,7 +283,7 @@
 
   --popover: 0 0% 100%;
   --popover-foreground: 217 42% 10%;
-  --popover-border: 217 42% 10% / 0.10;
+  --popover-border: 217 42% 10% / 0.1;
 
   --primary: 38 92% 50%;
   --primary-foreground: 217 42% 10%;
@@ -274,7 +300,7 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --input: 217 42% 10% / 0.10;
+  --input: 217 42% 10% / 0.1;
   /* Darker amber so the focus ring stays visible on near-white surfaces */
   --ring: 26 90% 40%;
   --chart-1: 38 92% 50%;
@@ -283,51 +309,51 @@
   --chart-4: 38 92% 50% / 0.5;
   --chart-5: 217 42% 10% / 0.2;
 
-  --button-outline: rgba(0,0,0,0.08);
-  --badge-outline: rgba(0,0,0,0.04);
-  --elevate-1: rgba(0,0,0,0.02);
-  --elevate-2: rgba(0,0,0,0.05);
+  --button-outline: rgba(0, 0, 0, 0.08);
+  --badge-outline: rgba(0, 0, 0, 0.04);
+  --elevate-1: rgba(0, 0, 0, 0.02);
+  --elevate-2: rgba(0, 0, 0, 0.05);
   --opaque-button-border-intensity: 8;
 
   /* ── Inline-style theme tokens (light overrides) ── */
-  --fg-90: rgba(15,23,36,0.92);
-  --fg-85: rgba(15,23,36,0.85);
-  --fg-82: rgba(15,23,36,0.82);
-  --fg-80: rgba(15,23,36,0.80);
-  --fg-78: rgba(15,23,36,0.78);
-  --fg-75: rgba(15,23,36,0.75);
-  --fg-70: rgba(15,23,36,0.70);
-  --fg-65: rgba(15,23,36,0.65);
-  --fg-60: rgba(15,23,36,0.60);
-  --fg-55: rgba(15,23,36,0.55);
-  --fg-50: rgba(15,23,36,0.50);
-  --fg-45: rgba(15,23,36,0.45);
-  --fg-42: rgba(15,23,36,0.42);
-  --fg-40: rgba(15,23,36,0.40);
-  --fg-38: rgba(15,23,36,0.38);
-  --fg-35: rgba(15,23,36,0.35);
-  --fg-32: rgba(15,23,36,0.32);
-  --fg-30: rgba(15,23,36,0.30);
-  --fg-28: rgba(15,23,36,0.28);
-  --fg-25: rgba(15,23,36,0.25);
-  --fg-22: rgba(15,23,36,0.22);
-  --fg-20: rgba(15,23,36,0.20);
-  --fg-18: rgba(15,23,36,0.18);
-  --fg-15: rgba(15,23,36,0.15);
-  --fg-10: rgba(15,23,36,0.10);
-  --fg-09: rgba(15,23,36,0.09);
-  --fg-08: rgba(15,23,36,0.08);
-  --fg-07: rgba(15,23,36,0.07);
-  --fg-06: rgba(15,23,36,0.06);
-  --fg-05: rgba(15,23,36,0.05);
-  --fg-04: rgba(15,23,36,0.04);
-  --fg-03: rgba(15,23,36,0.03);
-  --fg-02: rgba(15,23,36,0.02);
+  --fg-90: rgba(15, 23, 36, 0.92);
+  --fg-85: rgba(15, 23, 36, 0.85);
+  --fg-82: rgba(15, 23, 36, 0.82);
+  --fg-80: rgba(15, 23, 36, 0.8);
+  --fg-78: rgba(15, 23, 36, 0.78);
+  --fg-75: rgba(15, 23, 36, 0.75);
+  --fg-70: rgba(15, 23, 36, 0.7);
+  --fg-65: rgba(15, 23, 36, 0.65);
+  --fg-60: rgba(15, 23, 36, 0.6);
+  --fg-55: rgba(15, 23, 36, 0.55);
+  --fg-50: rgba(15, 23, 36, 0.5);
+  --fg-45: rgba(15, 23, 36, 0.45);
+  --fg-42: rgba(15, 23, 36, 0.42);
+  --fg-40: rgba(15, 23, 36, 0.4);
+  --fg-38: rgba(15, 23, 36, 0.38);
+  --fg-35: rgba(15, 23, 36, 0.35);
+  --fg-32: rgba(15, 23, 36, 0.32);
+  --fg-30: rgba(15, 23, 36, 0.3);
+  --fg-28: rgba(15, 23, 36, 0.28);
+  --fg-25: rgba(15, 23, 36, 0.25);
+  --fg-22: rgba(15, 23, 36, 0.22);
+  --fg-20: rgba(15, 23, 36, 0.2);
+  --fg-18: rgba(15, 23, 36, 0.18);
+  --fg-15: rgba(15, 23, 36, 0.15);
+  --fg-10: rgba(15, 23, 36, 0.1);
+  --fg-09: rgba(15, 23, 36, 0.09);
+  --fg-08: rgba(15, 23, 36, 0.08);
+  --fg-07: rgba(15, 23, 36, 0.07);
+  --fg-06: rgba(15, 23, 36, 0.06);
+  --fg-05: rgba(15, 23, 36, 0.05);
+  --fg-04: rgba(15, 23, 36, 0.04);
+  --fg-03: rgba(15, 23, 36, 0.03);
+  --fg-02: rgba(15, 23, 36, 0.02);
 
-  --surface-header: rgba(248,249,251,0.93);
-  --surface-float: rgba(248,249,251,0.88);
-  --surface-dd: hsl(0,0%,99%);
-  --surface-sidebar: hsl(210,20%,98%);
+  --surface-header: rgba(248, 249, 251, 0.93);
+  --surface-float: rgba(248, 249, 251, 0.88);
+  --surface-dd: hsl(0, 0%, 99%);
+  --surface-sidebar: hsl(210, 20%, 98%);
 
   /* Brand accent — amber text darkens for contrast on light surfaces:
      #b45309 is ~4.8:1 on the near-white background, meeting AA for the
@@ -407,7 +433,9 @@
 .tab-bar-icon {
   width: 46px;
   height: 26px;
-  transition: background-color 150ms ease, transform 120ms ease;
+  transition:
+    background-color 150ms ease,
+    transform 120ms ease;
 }
 
 /* Landscape phones: slimmer, icon only */
@@ -424,8 +452,20 @@
 .card-section-scroller {
   scrollbar-width: none;
   overscroll-behavior-x: contain;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 10px, #000 calc(100% - 24px), transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, #000 10px, #000 calc(100% - 24px), transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 10px,
+    #000 calc(100% - 24px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 10px,
+    #000 calc(100% - 24px),
+    transparent 100%
+  );
 }
 .card-section-scroller::-webkit-scrollbar {
   display: none;
@@ -438,7 +478,9 @@
 
 /* Content clears the tab bar and the home indicator on phones */
 .app-main {
-  padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom, 0px) + 16px);
+  padding-bottom: calc(
+    var(--tabbar-height) + env(safe-area-inset-bottom, 0px) + 16px
+  );
 }
 
 @media (min-width: 768px) {
@@ -526,8 +568,12 @@
 /* Print: no app chrome, no bottom padding gap */
 @media print {
   .tab-bar,
-  .app-header { display: none !important; }
-  .app-main { padding-bottom: 0 !important; }
+  .app-header {
+    display: none !important;
+  }
+  .app-main {
+    padding-bottom: 0 !important;
+  }
 }
 
 /* Forced-colours / Windows High Contrast: restore borders stripped by the OS */
@@ -544,13 +590,23 @@
 }
 
 @keyframes pdf-sheet-up {
-  from { transform: translateY(100%); }
-  to   { transform: translateY(0); }
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 @keyframes pdf-modal-in {
-  from { opacity: 0; transform: translate(-50%, -48%); }
-  to   { opacity: 1; transform: translate(-50%, -50%); }
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .pdf-modal {

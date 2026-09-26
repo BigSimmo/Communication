@@ -5,6 +5,7 @@
     "watchPatterns": [
       "/artifacts/tc-reference/**",
       "/lib/**",
+      "/scripts/**",
       "/package.json",
       "/pnpm-lock.yaml",
       "/pnpm-workspace.yaml",

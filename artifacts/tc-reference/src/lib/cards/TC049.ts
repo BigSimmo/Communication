@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC049: CardData = {
   pdfUrl: "cards/TC049/TC049_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC049/TC049_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC049/TC049_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC049/TC049_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC049/TC049_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC049/TC049_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC049/TC049_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC049/TC049_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC049/TC049_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC049/TC049_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC049/TC049_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC049/TC049_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC049/TC049_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC049/TC049_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC049/TC049_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC049",
   whyItWorks:
@@ -24,7 +67,7 @@ export const TC049: CardData = {
     coreFormula: [
       "Context -> Action -> Result -> Learning",
       "Context: what the situation was. Action: what you did. Result: what happened. Learning: what you took from it.",
-      "Worked: \"The launch was slipping. I cut scope to the core feature. We shipped on time. I now agree the must-haves up front.\"",
+      'Worked: "The launch was slipping. I cut scope to the core feature. We shipped on time. I now agree the must-haves up front."',
       "Minimum viable move: Context: X. Action: Y. Result: Z. Learning: L.",
       "Best field rule: use the structure to organise thought, then speak like a person.",
     ],
@@ -156,7 +199,10 @@ export const TC049: CardData = {
       title: "Decide if CARL fits",
       body: "Choose the framework only if it serves the moment, and never name it out loud. If emotion is present, or the person just needs a straight answer, use a simpler move instead.",
       examples: [
-        { label: "Silent check", text: "Is this a reflection or a request? CARL is for the reflection." },
+        {
+          label: "Silent check",
+          text: "Is this a reflection or a request? CARL is for the reflection.",
+        },
       ],
     },
     {
@@ -164,7 +210,10 @@ export const TC049: CardData = {
       title: "Context — set the scene",
       body: "One line on the situation, no more. Enough for the listener to picture where you were.",
       examples: [
-        { label: "Context", text: "\"The launch was slipping by about two weeks.\"" },
+        {
+          label: "Context",
+          text: '"The launch was slipping by about two weeks."',
+        },
       ],
     },
     {
@@ -172,7 +221,10 @@ export const TC049: CardData = {
       title: "Action — what you did",
       body: "State the actual move you made, in plain language. This is the part that shows judgement.",
       examples: [
-        { label: "Action", text: "\"I cut scope to the one feature customers really needed and re-set the date with the team.\"" },
+        {
+          label: "Action",
+          text: '"I cut scope to the one feature customers really needed and re-set the date with the team."',
+        },
       ],
     },
     {
@@ -180,15 +232,21 @@ export const TC049: CardData = {
       title: "Result — what happened",
       body: "The consequence of your action, good or mixed. Keep it honest and specific.",
       examples: [
-        { label: "Result", text: "\"We shipped that core feature on time; the extras followed a month later.\"" },
+        {
+          label: "Result",
+          text: '"We shipped that core feature on time; the extras followed a month later."',
+        },
       ],
     },
     {
       step: "5",
       title: "Learning — what changes now",
-      body: "The point of CARL. Name a real learning that is specific enough to change future behaviour — not a vague \"I learned a lot.\"",
+      body: 'The point of CARL. Name a real learning that is specific enough to change future behaviour — not a vague "I learned a lot."',
       examples: [
-        { label: "Learning", text: "\"I now agree the must-haves before we start, not halfway through.\"" },
+        {
+          label: "Learning",
+          text: '"I now agree the must-haves before we start, not halfway through."',
+        },
       ],
     },
     {
@@ -196,7 +254,10 @@ export const TC049: CardData = {
       title: "Watch and adapt",
       body: "Notice whether the listener becomes clearer, more engaged or more able to act. If they look confused or resistant, summarise and invite correction rather than pushing the structure harder.",
       examples: [
-        { label: "Check", text: "\"Does that make sense laid out that way, or have I muddied it?\"" },
+        {
+          label: "Check",
+          text: '"Does that make sense laid out that way, or have I muddied it?"',
+        },
       ],
     },
   ],
@@ -219,9 +280,9 @@ export const TC049: CardData = {
   ],
   example: {
     without: [
-      "Interviewer: \"How did you handle the missed deadline?\"",
-      "You: \"I'll use CARL for this. Context: the project was behind. Action: I took action. Result: there was a result. Learning: I learned something.\"",
-      "You: \"Context is important, so let me give you a bit more context...\"",
+      'Interviewer: "How did you handle the missed deadline?"',
+      'You: "I\'ll use CARL for this. Context: the project was behind. Action: I took action. Result: there was a result. Learning: I learned something."',
+      'You: "Context is important, so let me give you a bit more context..."',
       "Why it is weak:",
       "announces the framework out loud",
       "forces empty labels with no real content",
@@ -229,11 +290,11 @@ export const TC049: CardData = {
       "sounds rehearsed rather than reflective",
     ],
     with: [
-      "Interviewer: \"How did you handle the missed deadline?\"",
-      "You: \"The launch was slipping about two weeks. I cut scope to the one feature customers really needed and re-set the date with the team.\"",
-      "You: \"We shipped that core feature on time, and the extras followed a month later.\"",
-      "You: \"What I took from it was to agree the must-haves before we start, not halfway through.\"",
-      "Interviewer: \"What would you have done differently?\"",
+      'Interviewer: "How did you handle the missed deadline?"',
+      'You: "The launch was slipping about two weeks. I cut scope to the one feature customers really needed and re-set the date with the team."',
+      'You: "We shipped that core feature on time, and the extras followed a month later."',
+      'You: "What I took from it was to agree the must-haves before we start, not halfway through."',
+      'Interviewer: "What would you have done differently?"',
       "You: \"Flagged the slip a week earlier. That's the bit I've changed since.\"",
       "Why this works:",
       "moves through context, action, result and learning without naming them",
@@ -244,7 +305,7 @@ export const TC049: CardData = {
     note: "Same four beats, never announced. The listener feels clarity, not choreography.",
   },
   influencePayoff: {
-    feeling: "\"That was clear, and I know exactly what they took from it.\"",
+    feeling: '"That was clear, and I know exactly what they took from it."',
     principle:
       "People trust a point they can follow. Clear sequencing reads as clear thinking, and its pull comes from clarity and respect rather than pressure.",
     gains: [
@@ -266,19 +327,22 @@ export const TC049: CardData = {
   fieldTip: {
     headline: "Scaffolding, not the conversation.",
     body: "Use CARL to organise your thinking, then take the scaffolding down before you speak. The whole thing turns on a learning specific enough to change what you do next time — that is what separates reflection from a nice-sounding recap.",
-    example: "\"We shipped the core feature on time; what I took from it was to agree the must-haves before we start.\"",
-    dont: "Don't announce the framework or end on a vague \"I learned a lot.\"",
+    example:
+      '"We shipped the core feature on time; what I took from it was to agree the must-haves before we start."',
+    dont: 'Don\'t announce the framework or end on a vague "I learned a lot."',
     do: "Do keep each step to one plain sentence and make the learning concrete.",
   },
   commonMistakes: [
     {
       mistake: "Announcing the framework",
-      soundsLike: "\"I'm going to use CARL here...\"",
+      soundsLike: '"I\'m going to use CARL here..."',
       better: "Just tell the story in four plain beats.",
     },
     {
-      mistake: "Over-structuring — making CARL matter more than the person or the point",
-      soundsLike: "Forcing every sentence into Context / Action / Result / Learning.",
+      mistake:
+        "Over-structuring — making CARL matter more than the person or the point",
+      soundsLike:
+        "Forcing every sentence into Context / Action / Result / Learning.",
       better: "Let the point lead; use the structure only to organise it.",
     },
     {
@@ -288,18 +352,18 @@ export const TC049: CardData = {
     },
     {
       mistake: "Structuring when emotion is present",
-      soundsLike: "\"Let me lay this out...\" while they're still upset.",
+      soundsLike: '"Let me lay this out..." while they\'re still upset.',
       better: "Validate first, then structure the information.",
     },
     {
       mistake: "A vague learning",
-      soundsLike: "\"So yeah, I learned a lot from it.\"",
-      better: "\"I now agree the must-haves before we start.\"",
+      soundsLike: '"So yeah, I learned a lot from it."',
+      better: '"I now agree the must-haves before we start."',
     },
     {
       mistake: "Not checking it landed",
       soundsLike: "Moving on without seeing if they followed.",
-      better: "\"Does that make sense laid out that way?\"",
+      better: '"Does that make sense laid out that way?"',
     },
   ],
   calibration: {
@@ -335,16 +399,16 @@ export const TC049: CardData = {
       label: "Clarity chain",
       sequence: "CARL -> Summary check",
       example: [
-        "\"...and the learning was to agree scope up front.\"",
-        "\"Does that match what you were expecting to hear?\"",
+        '"...and the learning was to agree scope up front."',
+        '"Does that match what you were expecting to hear?"',
       ],
     },
     {
       label: "Action chain",
       sequence: "CARL -> Clean request",
       example: [
-        "\"...so the fix is a scope check at kickoff.\"",
-        "\"Could you add that to next week's agenda?\"",
+        '"...so the fix is a scope check at kickoff."',
+        '"Could you add that to next week\'s agenda?"',
       ],
     },
     {
@@ -359,7 +423,7 @@ export const TC049: CardData = {
       label: "Emotion-first chain",
       sequence: "Validate the concern -> CARL",
       example: [
-        "\"That deadline sounded genuinely stressful.\"",
+        '"That deadline sounded genuinely stressful."',
         "\"Here's what happened and what I'd change...\"",
       ],
     },
@@ -368,7 +432,8 @@ export const TC049: CardData = {
     {
       situation: "Work meeting",
       move: "Make one contribution concise and memorable — four beats, no labels.",
-      phrase: "Here's the situation, what we did, where it landed, and what we'll carry forward.",
+      phrase:
+        "Here's the situation, what we did, where it landed, and what we'll carry forward.",
     },
     {
       situation: "Written update or email",
@@ -378,17 +443,20 @@ export const TC049: CardData = {
     {
       situation: "Feedback conversation",
       move: "Check what kind of feedback is wanted before you structure anything.",
-      phrase: "Would it help if I walked through what happened and what I'd change?",
+      phrase:
+        "Would it help if I walked through what happened and what I'd change?",
     },
     {
       situation: "Job interview or competency answer",
       move: "Answer in four beats, end on the learning, then invite the follow-up.",
-      phrase: "The result was we shipped on time; the learning was to agree the must-haves early.",
+      phrase:
+        "The result was we shipped on time; the learning was to agree the must-haves early.",
     },
     {
       situation: "Difficult conversation",
       move: "One sentence per step, then pause and let them respond.",
-      phrase: "Here's what happened. Here's what I did. Here's where it left us.",
+      phrase:
+        "Here's what happened. Here's what I did. Here's where it left us.",
     },
     {
       situation: "Debrief after something went wrong",
@@ -405,7 +473,8 @@ export const TC049: CardData = {
     {
       condition: "The listener needs support",
       action: "Validate first; delay the framework until the emotion settles.",
-      phrase: "That sounds like it was a lot. Want me to lay it out, or just talk it through?",
+      phrase:
+        "That sounds like it was a lot. Want me to lay it out, or just talk it through?",
     },
     {
       condition: "The listener needs a story or example",
@@ -419,7 +488,8 @@ export const TC049: CardData = {
     },
     {
       condition: "The listener looks confused",
-      action: "Summarise and invite correction rather than pushing the structure harder.",
+      action:
+        "Summarise and invite correction rather than pushing the structure harder.",
       phrase: "Let me boil that down — did I make the point or muddy it?",
     },
   ],
@@ -437,7 +507,7 @@ export const TC049: CardData = {
     {
       day: "Day 3",
       title: "Sharpen the learning",
-      task: "Rewrite the Learning line so it names something specific that would change what you do next time; delete any \"I learned a lot.\"",
+      task: 'Rewrite the Learning line so it names something specific that would change what you do next time; delete any "I learned a lot."',
     },
     {
       day: "Day 4",
@@ -452,7 +522,7 @@ export const TC049: CardData = {
     {
       day: "Day 6",
       title: "Practise a recovery",
-      task: "Rehearse one recovery line so you can drop the scaffolding smoothly if it lands badly — e.g. \"I made that too structured; let me say it more simply.\"",
+      task: 'Rehearse one recovery line so you can drop the scaffolding smoothly if it lands badly — e.g. "I made that too structured; let me say it more simply."',
     },
     {
       day: "Day 7",

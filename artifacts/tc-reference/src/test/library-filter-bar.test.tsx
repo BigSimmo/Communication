@@ -1,4 +1,11 @@
-import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from "@testing-library/react";
 import { describe, expect, it, beforeEach, vi } from "vitest";
 import { useLocation } from "wouter";
 import { AppHeader } from "../components/app-header";
@@ -103,7 +110,10 @@ describe("App header compact mode", () => {
 
     const scrollTo = (y: number) =>
       act(() => {
-        Object.defineProperty(window, "scrollY", { configurable: true, value: y });
+        Object.defineProperty(window, "scrollY", {
+          configurable: true,
+          value: y,
+        });
         window.dispatchEvent(new Event("scroll"));
       });
 
@@ -116,6 +126,8 @@ describe("App header compact mode", () => {
     );
 
     await scrollTo(150);
-    await waitFor(() => expect(header).toHaveAttribute("data-compact", "false"));
+    await waitFor(() =>
+      expect(header).toHaveAttribute("data-compact", "false"),
+    );
   });
 });

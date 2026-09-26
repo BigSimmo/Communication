@@ -1,6 +1,6 @@
 # TC Reference Tool
 
-A mobile-first reference app for 98 communication techniques, built in a workspace with protected local startup and API scaffolding for expansion.
+A mobile-first reference app for 98 communication techniques. It runs entirely in the browser, with user data kept in `localStorage`.
 
 ---
 
@@ -16,7 +16,7 @@ A mobile-first reference app for 98 communication techniques, built in a workspa
 - Keyboard-accessible global search (`Cmd+K` / `Ctrl+K`), and left/right arrow keys to step between cards
 - Light/dark theme persistence
 - Mobile-first navigation with a floating menu button, 44px touch targets and safe-area (notch) support
-- Installable PWA that works offline
+- Installable PWA: the app shell works offline, and cards and downloads work offline once they have been opened while online
 
 ---
 
@@ -27,9 +27,7 @@ A mobile-first reference app for 98 communication techniques, built in a workspa
 | Framework       | React + Vite                    |
 | Language        | TypeScript 5.9                  |
 | Styling         | Tailwind CSS                    |
-| Components      | shadcn/ui                       |
 | Routing         | Wouter                          |
-| Data fetching   | TanStack Query                  |
 | Testing         | Vitest + @testing-library/react |
 | Package manager | pnpm workspaces                 |
 | Node runtime    | Node.js 24                      |
@@ -44,14 +42,9 @@ artifacts/
 │   ├── src/
 │   ├── public/
 │   ├── index.html
+│   ├── server.mjs           ← Production static server
 │   ├── vite.config.ts
 │   └── package.json
-└── api-server/              ← Express backend scaffold
-lib/
-├── api-client-react/        ← Generated API client helpers
-├── api-spec/               ← OpenAPI definition and Orval settings
-├── api-zod/                ← Generated Zod contracts
-└── db/                     ← Drizzle schema + PostgreSQL client
 scripts/
 └── local-app.mjs            ← Protected run/guard/stop flow for local app
 ```
@@ -108,18 +101,41 @@ pnpm --filter @workspace/tc-reference test
 pnpm run typecheck
 ```
 
+### Lint and format
+
+```bash
+pnpm run lint           # ESLint across the workspace
+pnpm run format         # rewrite files with Prettier
+pnpm run format:check   # check formatting without writing (used in CI)
+```
+
 ### Build for production
 
 ```bash
 pnpm --filter @workspace/tc-reference run build
 ```
 
-The build verifies that the committed card downloads match the card source. After
-editing card content, regenerate them explicitly and then re-run the build:
+Card downloads (reference, guide and quick-card PDFs, phrase bank and Anki CSVs)
+are generated from the card source by `dev`, `build` and `test`, so they are not
+committed. TC001 and the OneCard/TwoCard PDFs are hand-made and stay in git. To
+regenerate them on their own:
 
 ```bash
-pnpm --filter @workspace/scripts run generate:card-downloads
+pnpm --filter @workspace/tc-reference run generate:downloads
 ```
+
+### Serve the production build
+
+```bash
+pnpm --filter @workspace/tc-reference start
+```
+
+`start` runs `server.mjs`, a small `sirv` server that serves `dist/public` with
+an SPA fallback, long-lived caching for hashed `/assets/*` files and `no-cache`
+for `index.html` and the service worker files. It listens on `PORT` (default
+`4173`) and `HOST` (default `0.0.0.0`), and shuts down cleanly on `SIGTERM`.
+This is what Railway runs. For a quick local check, `serve` still runs
+`vite preview`.
 
 ---
 
@@ -138,12 +154,8 @@ pnpm --filter @workspace/scripts run generate:card-downloads
 
 ## Data Architecture
 
-TC Reference is a mostly static SPA:
+TC Reference is a fully client-side SPA with no backend:
 
 - Core card, phrase and drill data lives in `artifacts/tc-reference/src/lib`
 - User state uses `localStorage` (favourites, drill progress, playbooks under `tc_playbooks`, theme)
-- No backend credentials are required for normal development
-
-The `api-server` package is available for backend-backed use-cases and uses:
-
-- `DATABASE_URL` — PostgreSQL connection string (required by server/database package when running API path)
+- No backend or credentials are required

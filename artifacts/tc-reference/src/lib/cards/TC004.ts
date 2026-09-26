@@ -3,19 +3,62 @@ import type { CardData } from "../card-types";
 export const TC004: CardData = {
   pdfUrl: "cards/TC004/TC004_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC004/TC004_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC004/TC004_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC004/TC004_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC004/TC004_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC004/TC004_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC004/TC004_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC004/TC004_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC004/TC004_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC004/TC004_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC004/TC004_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC004/TC004_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC004/TC004_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC004/TC004_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC004/TC004_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC004",
   whyItWorks:
     "Reflective listening is the habit of saying back the core meaning, feeling or concern in someone's words before you add your own content. You listen for the point underneath the words, reflect it briefly in your own plain language, and let them confirm, correct or deepen it. It is a timing and attention move: you notice the live moment and choose a response that keeps the other person oriented and unpressured. It works because people become more receptive once they feel understood — reflecting first lowers defensive pressure and improves accuracy, so no one has to defend, decode or rescue the conversation. Done well it sounds like ordinary adult speech, not a script or a performance.",
   whatItIsNot: [
-    "It is not parroting, clinical mirroring, or saying \"I hear you\" on autopilot.",
+    'It is not parroting, clinical mirroring, or saying "I hear you" on autopilot.',
     "It is not agreeing with everything or pretending to understand.",
     "It is not manipulation, performance, emotional extraction or a way to force intimacy.",
     "It is not something to keep pushing once they resist, shorten their answers or redirect — then you release it and follow the person.",
@@ -29,7 +72,7 @@ export const TC004: CardData = {
       "You wanted support, not someone solving it instantly.",
     ],
     minimumViableMove:
-      "Use one sentence: \"So the main thing is...\" or \"It sounds like the frustrating part was...\"",
+      'Use one sentence: "So the main thing is..." or "It sounds like the frustrating part was..."',
     impact: "High",
     difficulty: "Medium",
     misuse:
@@ -158,7 +201,8 @@ export const TC004: CardData = {
     {
       condition: "They said something emotionally or practically important",
       action: "Reflect the core in one line before moving on.",
-      phrase: "So the main thing is that the plan changed after you'd committed.",
+      phrase:
+        "So the main thing is that the plan changed after you'd committed.",
     },
     {
       condition: "You are guessing beyond what they actually said",
@@ -168,7 +212,8 @@ export const TC004: CardData = {
     {
       condition: "They correct your reflection",
       action: "Accept the correction and update — the correction is a win.",
-      phrase: "Got it — so it's more about the uncertainty than the change itself.",
+      phrase:
+        "Got it — so it's more about the uncertainty than the change itself.",
     },
     {
       condition: "They need action now, not reflection",
@@ -209,17 +254,20 @@ export const TC004: CardData = {
     {
       situation: "A work conflict",
       move: "Reflect the process concern before proposing a fix.",
-      phrase: "So the sticking point is that scope keeps moving after we start.",
+      phrase:
+        "So the sticking point is that scope keeps moving after we start.",
     },
     {
       situation: "A disagreement",
       move: "Reflect their concern before you present your own view.",
-      phrase: "So what matters most to you is that this stays fair to the team.",
+      phrase:
+        "So what matters most to you is that this stays fair to the team.",
     },
     {
       situation: "A clinical or helping context",
       move: "Reflect accurately and resist over-interpreting.",
-      phrase: "It sounds like the tiredness is the thing that's hardest to manage.",
+      phrase:
+        "It sounds like the tiredness is the thing that's hardest to manage.",
     },
     {
       situation: "Someone venting who doesn't want solutions",
@@ -234,7 +282,7 @@ export const TC004: CardData = {
   ],
   calibration: {
     working: [
-      "They say \"exactly\", \"that's it\", or \"that's exactly it.\"",
+      'They say "exactly", "that\'s it", or "that\'s exactly it."',
       "They elaborate and add detail you didn't ask for.",
       "Their tone softens.",
       "They move from defending to explaining.",
@@ -300,7 +348,7 @@ export const TC004: CardData = {
       "Them: They changed the roster again.",
       "You: I hear you.",
       "Them: Yeah.",
-      "Why it's weak: \"I hear you\" is generic — it proves nothing was understood, so the conversation stalls.",
+      'Why it\'s weak: "I hear you" is generic — it proves nothing was understood, so the conversation stalls.',
     ],
     with: [
       "Them: They changed the roster again.",
@@ -313,7 +361,7 @@ export const TC004: CardData = {
     note: "The best reflections are specific and slightly tentative — specific enough to prove you listened, open enough that they can correct you.",
   },
   influencePayoff: {
-    feeling: "\"They noticed the real part of what I was saying.\"",
+    feeling: '"They noticed the real part of what I was saying."',
     principle: "People become more receptive to you once they feel understood.",
     gains: [
       "Reduced defensiveness",
@@ -333,7 +381,8 @@ export const TC004: CardData = {
   fieldTip: {
     headline: "Reflect the point under the words, not every word.",
     body: "The best reflection names the meaning underneath what was said, not the surface detail. Reach for the word or idea carrying the feeling, and say that back in your own plain language.",
-    example: "\"It was technically fine, just draining.\" — reflect \"draining\", not \"fine\".",
+    example:
+      '"It was technically fine, just draining." — reflect "draining", not "fine".',
     dont: "Don't repeat their sentence back to them word for word.",
     do: "Do name the point in one plain sentence, then pause so they can confirm or correct it.",
   },
@@ -343,8 +392,11 @@ export const TC004: CardData = {
       title: "Notice the cue",
       body: "Listen for the point underneath the words — the meaning, feeling or concern carrying the most weight. It's usually one loaded word or the thing they keep circling back to.",
       examples: [
-        { label: "They say", text: "\"It was technically fine, just draining.\"" },
-        { label: "The cue", text: "\"draining\" — not \"fine\"" },
+        {
+          label: "They say",
+          text: '"It was technically fine, just draining."',
+        },
+        { label: "The cue", text: '"draining" — not "fine"' },
       ],
     },
     {
@@ -352,17 +404,29 @@ export const TC004: CardData = {
       title: "Choose the smallest useful move",
       body: "Reach for the smallest reflection that proves you understood, not the cleverest or deepest one. One plain sentence beats a paragraph.",
       examples: [
-        { label: "Too much", text: "\"So this has stirred up everything about feeling undervalued at work.\"" },
-        { label: "Enough", text: "\"So the draining part was doing it all with no thanks.\"" },
+        {
+          label: "Too much",
+          text: '"So this has stirred up everything about feeling undervalued at work."',
+        },
+        {
+          label: "Enough",
+          text: '"So the draining part was doing it all with no thanks."',
+        },
       ],
     },
     {
       step: "3",
       title: "Say it in plain language",
-      body: "Use ordinary adult speech, kept slightly tentative so they can correct you. \"So...\" and \"It sounds like...\" are enough — you don't need clinical framing.",
+      body: 'Use ordinary adult speech, kept slightly tentative so they can correct you. "So..." and "It sounds like..." are enough — you don\'t need clinical framing.',
       examples: [
-        { label: "Clinical", text: "\"I'm hearing that you feel invalidated.\"" },
-        { label: "Plain", text: "\"So it felt like no one noticed the effort.\"" },
+        {
+          label: "Clinical",
+          text: '"I\'m hearing that you feel invalidated."',
+        },
+        {
+          label: "Plain",
+          text: '"So it felt like no one noticed the effort."',
+        },
       ],
     },
     {
@@ -377,13 +441,13 @@ export const TC004: CardData = {
     },
   ],
   liveThreadClues: [
-    "\"honestly...\"",
-    "\"the hard part was...\"",
-    "\"what got me was...\"",
-    "\"it's not even about...\"",
-    "\"I just wanted...\"",
-    "\"again\" or \"every time\"",
-    "a loaded word said with weight (\"draining\", \"pointless\", \"alone\")",
+    '"honestly..."',
+    '"the hard part was..."',
+    '"what got me was..."',
+    '"it\'s not even about..."',
+    '"I just wanted..."',
+    '"again" or "every time"',
+    'a loaded word said with weight ("draining", "pointless", "alone")',
     "they repeat or keep circling back to the same thing",
   ],
   depthDial: [
@@ -411,33 +475,35 @@ export const TC004: CardData = {
   commonMistakes: [
     {
       mistake: "Parroting the exact words",
-      soundsLike: "\"They changed the roster again?\"",
-      better: "\"So you can't plan anything around them.\"",
+      soundsLike: '"They changed the roster again?"',
+      better: '"So you can\'t plan anything around them."',
     },
     {
       mistake: "Overstating feelings they didn't name",
-      soundsLike: "\"You must be furious.\"",
-      better: "\"It sounds like that was pretty frustrating.\"",
+      soundsLike: '"You must be furious."',
+      better: '"It sounds like that was pretty frustrating."',
     },
     {
       mistake: "Reflecting every single sentence",
-      soundsLike: "\"So you woke up... so you got the email... so you replied...\"",
+      soundsLike:
+        '"So you woke up... so you got the email... so you replied..."',
       better: "Reflect once, at the moment that carries the real point.",
     },
     {
       mistake: "Sounding clinical",
-      soundsLike: "\"I'm hearing that you feel invalidated.\"",
-      better: "\"So it felt like no one noticed the effort.\"",
+      soundsLike: '"I\'m hearing that you feel invalidated."',
+      better: '"So it felt like no one noticed the effort."',
     },
     {
       mistake: "Turning reflection into agreement you don't mean",
       soundsLike: "\"You're right, they're impossible.\"",
-      better: "\"So, from where you sit, they've been impossible to plan around.\"",
+      better:
+        '"So, from where you sit, they\'ve been impossible to plan around."',
     },
     {
       mistake: "Being too certain to be corrected",
-      soundsLike: "\"You're annoyed because they changed the plan.\"",
-      better: "\"It sounds like the annoying part was the change — is that it?\"",
+      soundsLike: '"You\'re annoyed because they changed the plan."',
+      better: '"It sounds like the annoying part was the change — is that it?"',
     },
   ],
   recoveryPhrases: [
@@ -456,32 +522,32 @@ export const TC004: CardData = {
       label: "Reflect, then validate",
       sequence: "TC004 -> TC005",
       example: [
-        "\"So the frustrating part was being left out of the call.\"",
-        "\"That makes sense — I'd be annoyed too, even though I still think the call was right.\"",
+        '"So the frustrating part was being left out of the call."',
+        '"That makes sense — I\'d be annoyed too, even though I still think the call was right."',
       ],
     },
     {
       label: "Reflect, then ask permission before advice",
       sequence: "TC004 -> TC027",
       example: [
-        "\"So you mainly wanted it heard, not fixed.\"",
-        "\"Would it help if I threw out an idea, or do you just want to vent for a bit?\"",
+        '"So you mainly wanted it heard, not fixed."',
+        '"Would it help if I threw out an idea, or do you just want to vent for a bit?"',
       ],
     },
     {
       label: "Reflect, then summarise before moving on",
       sequence: "TC004 -> TC011",
       example: [
-        "\"So it's the scope moving, not the deadline.\"",
-        "\"Let me play it back: two changes since Monday, and you want one owner before we restart.\"",
+        '"So it\'s the scope moving, not the deadline."',
+        '"Let me play it back: two changes since Monday, and you want one owner before we restart."',
       ],
     },
     {
       label: "Reflect, then deepen to meaning",
       sequence: "TC004 -> TC040",
       example: [
-        "\"So the hard part was the change landing without warning.\"",
-        "\"And I think what it really touches is whether your time gets respected at all.\"",
+        '"So the hard part was the change landing without warning."',
+        '"And I think what it really touches is whether your time gets respected at all."',
       ],
     },
   ],

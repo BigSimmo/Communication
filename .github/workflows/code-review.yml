@@ -17,10 +17,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Version comes from packageManager in package.json
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 10
+        uses: pnpm/action-setup@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,6 +29,12 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Check formatting
+        run: pnpm run format:check
+
+      - name: Lint
+        run: pnpm run lint
 
       - name: Typecheck
         run: pnpm run typecheck
@@ -41,4 +46,6 @@ jobs:
         run: pnpm --filter @workspace/tc-reference build
 
       - name: Run Automated Code Reviewer
+        env:
+          CODE_REVIEW_BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event.before }}
         run: pnpm run code-review

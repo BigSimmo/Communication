@@ -3,17 +3,60 @@ import type { CardData } from "../card-types";
 export const TC082: CardData = {
   pdfUrl: "cards/TC082/TC082_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC082/TC082_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC082/TC082_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC082/TC082_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC082/TC082_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC082/TC082_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC082/TC082_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC082/TC082_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC082/TC082_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC082/TC082_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC082/TC082_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC082/TC082_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC082/TC082_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC082/TC082_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC082/TC082_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC082",
   whyItWorks:
-    "Turn-toward bids means noticing a small bid for contact, attention, help, humour, acknowledgement, or shared focus, then giving it a clear, warm response instead of ignoring it, dismissing it, or competing with it. A bid is a small invitation for a response - sometimes obvious (\"Can I show you something?\"), more often indirect: a sigh, a joke, a side comment, a shared look, a photo, a question, a complaint, or a tiny update. It works because people rarely judge warmth by big speeches; they judge it by whether you noticed the small reach and did not make them fight for contact. Answered bids are trust deposits, and they compound.",
+    'Turn-toward bids means noticing a small bid for contact, attention, help, humour, acknowledgement, or shared focus, then giving it a clear, warm response instead of ignoring it, dismissing it, or competing with it. A bid is a small invitation for a response - sometimes obvious ("Can I show you something?"), more often indirect: a sigh, a joke, a side comment, a shared look, a photo, a question, a complaint, or a tiny update. It works because people rarely judge warmth by big speeches; they judge it by whether you noticed the small reach and did not make them fight for contact. Answered bids are trust deposits, and they compound.',
   whatItIsNot: [
     "Not constant availability, and not letting every small signal override your task, boundary, or fatigue.",
     "Not interrogation - turning every bid into a long question chain.",
@@ -24,11 +67,11 @@ export const TC082: CardData = {
   overview: {
     coreFormula: [
       "Notice: this is a bid, not background noise.",
-      "Name or join: \"That sounds exciting,\" \"That looks frustrating,\" \"Show me,\" \"I saw this.\"",
+      'Name or join: "That sounds exciting," "That looks frustrating," "Show me," "I saw this."',
       "Follow through: ask one relevant question, celebrate, help, laugh with them, or schedule a return.",
       "Calibrate: watch whether they relax, expand, smile, clarify, or pull back.",
-      "Minimum viable sentence: \"I saw that - tell me the important part.\"",
-      "Boundary version: \"I want to turn toward this, but not while I finish this. Can I come back in ten minutes?\"",
+      'Minimum viable sentence: "I saw that - tell me the important part."',
+      'Boundary version: "I want to turn toward this, but not while I finish this. Can I come back in ten minutes?"',
     ],
     minimumViableMove:
       "Look up or reply, name the signal in ordinary language, and add one small follow-through - or, if you cannot respond well now, acknowledge the bid and schedule a clean return.",
@@ -153,8 +196,10 @@ export const TC082: CardData = {
   ],
   decisionTree: [
     {
-      condition: "Someone made a small reach - a comment, look, joke, update, question, or sigh.",
-      action: "Treat it as a real bid. Do not dismiss it as noise, and do not invent one that is not there.",
+      condition:
+        "Someone made a small reach - a comment, look, joke, update, question, or sigh.",
+      action:
+        "Treat it as a real bid. Do not dismiss it as noise, and do not invent one that is not there.",
       phrase: "I saw that - tell me the important part.",
     },
     {
@@ -169,45 +214,50 @@ export const TC082: CardData = {
     },
     {
       condition: "You can respond now - match the type of bid.",
-      action: "Win: celebrate. Concern: validate. Humour: join. Help: clarify. Presence: slow down and show attention.",
+      action:
+        "Win: celebrate. Concern: validate. Humour: join. Help: clarify. Presence: slow down and show attention.",
       phrase: "Nice - what changed?",
     },
     {
       condition: "You are unsure whether your response landed.",
-      action: "Check rather than assume, and adjust with a recovery line if you misread it.",
+      action:
+        "Check rather than assume, and adjust with a recovery line if you misread it.",
       phrase: "Did I catch the right thing?",
     },
     {
-      condition: "The bid keeps repeating in a way that drains or pressures you.",
-      action: "Combine warmth with a clear limit rather than granting more access.",
+      condition:
+        "The bid keeps repeating in a way that drains or pressures you.",
+      action:
+        "Combine warmth with a clear limit rather than granting more access.",
       phrase: "I care about this, and I also need a clear time boundary.",
     },
   ],
   ladder: [
     {
-      weak: "Someone shares a small win: \"Cool,\" while looking away.",
-      better: "\"Nice - what changed?\"",
-      best: "\"That sounds like a real win. What part felt best?\"",
+      weak: 'Someone shares a small win: "Cool," while looking away.',
+      better: '"Nice - what changed?"',
+      best: '"That sounds like a real win. What part felt best?"',
     },
     {
-      weak: "Someone hints at a concern: \"Anyway, next item.\"",
-      better: "\"Sounds like there is a concern there.\"",
-      best: "\"I hear a concern under that. What should we slow down and look at?\"",
+      weak: 'Someone hints at a concern: "Anyway, next item."',
+      better: '"Sounds like there is a concern there."',
+      best: '"I hear a concern under that. What should we slow down and look at?"',
     },
     {
-      weak: "You are busy: no response, or a flat \"later.\"",
-      better: "\"Busy, later.\"",
-      best: "\"I want to hear it properly. I am finishing this, then I can give you five minutes.\"",
+      weak: 'You are busy: no response, or a flat "later."',
+      better: '"Busy, later."',
+      best: '"I want to hear it properly. I am finishing this, then I can give you five minutes."',
     },
     {
       weak: "You missed the bid: pretend you did not.",
-      better: "\"Sorry, what?\"",
-      best: "\"I missed that because I was distracted. I want to catch it - say it again?\"",
+      better: '"Sorry, what?"',
+      best: '"I missed that because I was distracted. I want to catch it - say it again?"',
     },
   ],
   scenarios: [
     {
-      situation: "A partner, friend, or family member shows you something small.",
+      situation:
+        "A partner, friend, or family member shows you something small.",
       move: "Pause enough to actually receive it before you move on.",
       phrase: "Show me. What do you like about it?",
     },
@@ -228,13 +278,14 @@ export const TC082: CardData = {
     },
     {
       situation: "A child asks you to watch something.",
-      move: "Give a real window or a clear promise, not a vague \"in a minute.\"",
+      move: 'Give a real window or a clear promise, not a vague "in a minute."',
       phrase: "I can watch one now. Show me the part you want me to see.",
     },
     {
       situation: "You are overloaded when a bid arrives.",
       move: "Acknowledge plus boundary, so warmth does not curdle into resentment.",
-      phrase: "I want to answer that, and I am at capacity. Can I respond after dinner?",
+      phrase:
+        "I want to answer that, and I am at capacity. Can I respond after dinner?",
     },
   ],
   calibration: {
@@ -247,9 +298,9 @@ export const TC082: CardData = {
       "They move from a small signal into the real thing they wanted to share.",
     ],
     adjust: [
-      "They pull back, go flat, or say \"never mind.\"",
+      'They pull back, go flat, or say "never mind."',
       "They repeat the same point more intensely.",
-      "They shift from a light bid to frustration: \"You never listen.\"",
+      'They shift from a light bid to frustration: "You never listen."',
       "Your response made it bigger than they intended - ease off.",
       "Your question chain is starting to feel like interrogation - stop asking.",
       "The bid has become pressure for immediate access - add a boundary.",
@@ -281,12 +332,12 @@ export const TC082: CardData = {
     {
       day: "Day 5",
       title: "Boundary plus warmth",
-      task: "Twice today, acknowledge a bid you cannot fully take right now and schedule a clean return - then keep it. Try: \"I want to hear this properly. Can we come back at 3?\"",
+      task: 'Twice today, acknowledge a bid you cannot fully take right now and schedule a clean return - then keep it. Try: "I want to hear this properly. Can we come back at 3?"',
     },
     {
       day: "Day 6",
       title: "Repair a miss",
-      task: "Find one bid you ignored, dismissed, or over-entered, and repair it cleanly: \"I treated that as small - it sounds like it mattered.\" Return without defensiveness.",
+      task: 'Find one bid you ignored, dismissed, or over-entered, and repair it cleanly: "I treated that as small - it sounds like it mattered." Return without defensiveness.',
     },
     {
       day: "Day 7",
@@ -304,27 +355,27 @@ export const TC082: CardData = {
   ],
   example: {
     without: [
-      "Colleague: \"I finally got that client to reply.\"",
-      "You: \"Okay, send me the update.\"",
-      "Colleague: \"Sure.\"",
+      'Colleague: "I finally got that client to reply."',
+      'You: "Okay, send me the update."',
+      'Colleague: "Sure."',
       "Why it is weak: the reply treats the bid as logistics only. The colleague was probably also offering effort, relief, or a small win - and got none of it back.",
     ],
     with: [
-      "Colleague: \"I finally got that client to reply.\"",
-      "You: \"Nice - that sounded like it took persistence. What did they say?\"",
-      "Colleague: \"They approved the revised scope.\"",
-      "You: \"Good. Send me the details and we will adjust the plan.\"",
+      'Colleague: "I finally got that client to reply."',
+      'You: "Nice - that sounded like it took persistence. What did they say?"',
+      'Colleague: "They approved the revised scope."',
+      'You: "Good. Send me the details and we will adjust the plan."',
       "Better: you acknowledged the effort first, then moved to useful action.",
       "Advanced:",
-      "You: \"That is the thing you have been chasing since Tuesday, right? Nice. What unlocked it?\"",
-      "Colleague: \"I stopped explaining everything and just asked for the one decision.\"",
-      "You: \"Good move - shorter ask, clearer decision. Let us use that in the next client thread.\"",
+      'You: "That is the thing you have been chasing since Tuesday, right? Nice. What unlocked it?"',
+      'Colleague: "I stopped explaining everything and just asked for the one decision."',
+      'You: "Good move - shorter ask, clearer decision. Let us use that in the next client thread."',
       "Why this works: you turned toward the win, remembered the context, drew out a reusable lesson, and did not hijack the moment.",
     ],
     note: "The bid was never really about logistics. Match the effort or feeling under the words first, then act.",
   },
   influencePayoff: {
-    feeling: "\"They noticed me. I did not have to fight for contact.\"",
+    feeling: '"They noticed me. I did not have to fight for contact."',
     principle:
       "People rarely judge warmth by big speeches. They judge it by repeated small moments - whether you noticed the joke, answered the quick update, looked up from the screen, or made room for the thing they were trying to show you. The effect is cumulative: many clean turns build a reputation for being safe to reach.",
     gains: [
@@ -337,7 +388,7 @@ export const TC082: CardData = {
     ],
     whyMostFail: [
       "They treat every bid as either an interruption to reject or a full conversation to enter, and miss the small real middle.",
-      "They use stock warmth (\"That's nice\") that does not match the actual signal.",
+      'They use stock warmth ("That\'s nice") that does not match the actual signal.',
       "They hijack the bid with advice or a story about themselves.",
       "They deliver the response mechanically, so it reads as performance rather than attention.",
     ],
@@ -345,7 +396,8 @@ export const TC082: CardData = {
   fieldTip: {
     headline: "Treat bids like door knocks, not alarms.",
     body: "You do not have to abandon everything when someone knocks - but you should not pretend you heard nothing. Look up. Name the signal. Give one real response. If you cannot enter now, promise a clean return and keep it. Small bids are trust deposits waiting for a response.",
-    example: "\"I finally finished that thing.\" -> \"Nice - that was the one hanging over you, right?\"",
+    example:
+      '"I finally finished that thing." -> "Nice - that was the one hanging over you, right?"',
     dont: "Leave an effortful or vulnerable message at a bare emoji, or answer a bid for presence with logistics.",
     do: "Match the size and type of your response to the size and type of the bid.",
   },
@@ -353,16 +405,19 @@ export const TC082: CardData = {
     {
       step: "1",
       title: "Catch the bid",
-      body: "Notice the small reach before you file it as noise: a comment, look, joke, update, complaint, question, link, photo, sigh, or \"you know what happened?\" Indirect bids are often the ones being tested for safety, so the quiet ones matter most.",
+      body: 'Notice the small reach before you file it as noise: a comment, look, joke, update, complaint, question, link, photo, sigh, or "you know what happened?" Indirect bids are often the ones being tested for safety, so the quiet ones matter most.',
     },
     {
       step: "2",
       title: "Classify it lightly",
       body: "Ask, quietly, what is being reached for - attention, celebration, comfort, practical help, shared humour, reassurance, or simple presence. You are not diagnosing; you are aiming your response so it matches the signal.",
       examples: [
-        { label: "Win", text: "\"Nice - what changed?\"" },
-        { label: "Concern", text: "\"I hear a concern under that. What should we not miss?\"" },
-        { label: "Presence", text: "\"Show me. What do you like about it?\"" },
+        { label: "Win", text: '"Nice - what changed?"' },
+        {
+          label: "Concern",
+          text: '"I hear a concern under that. What should we not miss?"',
+        },
+        { label: "Presence", text: '"Show me. What do you like about it?"' },
       ],
     },
     {
@@ -375,9 +430,18 @@ export const TC082: CardData = {
       title: "Give one matching response",
       body: "One move, matched to the type: acknowledge, join, ask a light follow-up, celebrate, validate, or set a respectful timing boundary. Small bid, small real response; important bid, a slower one; boundary-violating bid, a respectful limit.",
       examples: [
-        { label: "Live", text: "A look plus one sentence, within the next beat." },
-        { label: "Digital", text: "Send a real signal, not an empty reaction, when the bid is relational." },
-        { label: "Busy", text: "\"I want to hear this, but I am not fully here for five minutes.\"" },
+        {
+          label: "Live",
+          text: "A look plus one sentence, within the next beat.",
+        },
+        {
+          label: "Digital",
+          text: "Send a real signal, not an empty reaction, when the bid is relational.",
+        },
+        {
+          label: "Busy",
+          text: '"I want to hear this, but I am not fully here for five minutes."',
+        },
       ],
     },
     {
@@ -390,69 +454,71 @@ export const TC082: CardData = {
     "a sigh or a loaded pause",
     "a joke or a light tease",
     "a side comment or a small complaint",
-    "a photo, a link, or \"look at this\"",
-    "\"you know what happened?\"",
+    'a photo, a link, or "look at this"',
+    '"you know what happened?"',
     "a tiny update or status share",
-    "\"I don't know if this matters, but...\"",
+    '"I don\'t know if this matters, but..."',
     "a glance up, or catching your eye",
   ],
   depthDial: [
     {
       depth: "Minimal",
       useWhen: "the bid is small, quick, or just testing contact",
-      phrase: "\"I saw that - nice.\"",
+      phrase: '"I saw that - nice."',
     },
     {
       depth: "One follow-up",
       useWhen: "the bid carries a little feeling or meaning",
-      phrase: "\"That sounds like it mattered. What happened?\"",
+      phrase: '"That sounds like it mattered. What happened?"',
     },
     {
       depth: "Full turn",
       useWhen: "there is real effort, vulnerability, or a genuine win",
-      phrase: "\"That sounds like a real win. What part felt best?\"",
+      phrase: '"That sounds like a real win. What part felt best?"',
     },
     {
       depth: "Park and return",
       useWhen: "you cannot respond well right now",
-      phrase: "\"I want to hear this properly. Can we come back at 3?\"",
+      phrase: '"I want to hear this properly. Can we come back at 3?"',
     },
   ],
   commonMistakes: [
     {
       mistake: "Ignoring tiny signals as inefficient",
       soundsLike: "Reading the message and saying nothing.",
-      better: "\"I saw this - what mattered most to you here?\"",
+      better: '"I saw this - what mattered most to you here?"',
     },
     {
       mistake: "Over-entering every bid",
       soundsLike: "Turning a quick share into a full emotional meeting.",
-      better: "A warm acknowledgement and one light follow-up, then let it rest.",
+      better:
+        "A warm acknowledgement and one light follow-up, then let it rest.",
     },
     {
       mistake: "Stock warmth that misses the signal",
-      soundsLike: "\"That's nice.\" - said to news that clearly stung.",
-      better: "\"That sounds like it actually stung. What happened?\"",
+      soundsLike: '"That\'s nice." - said to news that clearly stung.',
+      better: '"That sounds like it actually stung. What happened?"',
     },
     {
       mistake: "Advice too early",
-      soundsLike: "\"Here's what you should do...\" before they finish.",
-      better: "\"Before I jump in - what did you want me to notice?\"",
+      soundsLike: '"Here\'s what you should do..." before they finish.',
+      better: '"Before I jump in - what did you want me to notice?"',
     },
     {
       mistake: "Making the bid about yourself",
-      soundsLike: "\"That reminds me of the time I...\"",
-      better: "\"Tell me more about yours first.\"",
+      soundsLike: '"That reminds me of the time I..."',
+      better: '"Tell me more about yours first."',
     },
     {
       mistake: "Dismissive digital minimalism",
       soundsLike: "A bare thumbs-up on an effortful, vulnerable message.",
-      better: "\"That clearly took a lot. Give me a little time to reply properly.\"",
+      better:
+        '"That clearly took a lot. Give me a little time to reply properly."',
     },
     {
       mistake: "Skipping the repair after a miss",
       soundsLike: "Pretending you did not miss it.",
-      better: "\"I missed that because I was distracted - say it again?\"",
+      better: '"I missed that because I was distracted - say it again?"',
     },
   ],
   recoveryPhrases: [
@@ -465,41 +531,46 @@ export const TC082: CardData = {
     "I care about this, and I need a clear time boundary. I can give you ten minutes after lunch.",
     "I am not ignoring you - I am just not available for this level of conversation right now.",
   ],
-  bestRecoveryLine: "I treated that as small, but it was not small to you. I am listening now.",
+  bestRecoveryLine:
+    "I treated that as small, but it was not small to you. I am listening now.",
   chains: [
     {
       label: "Live social warmth",
-      sequence: "TC010 Warm presence -> TC082 Turn-toward bids -> TC039 Common-ground discovery",
+      sequence:
+        "TC010 Warm presence -> TC082 Turn-toward bids -> TC039 Common-ground discovery",
       example: [
         "They make a small show-and-tell bid.",
-        "You: \"Show me - what am I looking at?\"",
-        "If they brighten, explore the overlap: \"Wait, you're into this too?\"",
+        'You: "Show me - what am I looking at?"',
+        'If they brighten, explore the overlap: "Wait, you\'re into this too?"',
       ],
     },
     {
       label: "Professional effort signal",
-      sequence: "TC082 Turn-toward bids -> TC018 Specific appreciation -> TC011 Summary check",
+      sequence:
+        "TC082 Turn-toward bids -> TC018 Specific appreciation -> TC011 Summary check",
       example: [
         "They mention a small win or some friction.",
-        "You: \"That sounds like it took persistence. What changed?\"",
+        'You: "That sounds like it took persistence. What changed?"',
         "Name the specific effort, then confirm the takeaway together.",
       ],
     },
     {
       label: "Digital repair",
-      sequence: "TC082 Turn-toward bids -> TC021 Autonomy release -> TC072 Low-pressure invitation",
+      sequence:
+        "TC082 Turn-toward bids -> TC021 Autonomy release -> TC072 Low-pressure invitation",
       example: [
         "A message sat unanswered and the sender may feel ignored.",
-        "You: \"I saw this late - I do want to respond to what you were showing me.\"",
-        "Reopen without pressure: \"No rush if the moment has passed.\"",
+        'You: "I saw this late - I do want to respond to what you were showing me."',
+        'Reopen without pressure: "No rush if the moment has passed."',
       ],
     },
     {
       label: "Boundary plus warmth",
-      sequence: "TC082 Turn-toward bids -> TC013 Clean request -> TC021 Autonomy release",
+      sequence:
+        "TC082 Turn-toward bids -> TC013 Clean request -> TC021 Autonomy release",
       example: [
         "A bid arrives at a bad time.",
-        "You: \"I want to hear it properly - I cannot while I am presenting. Come back at 2?\"",
+        'You: "I want to hear it properly - I cannot while I am presenting. Come back at 2?"',
         "Honour the return, then leave the next step genuinely optional.",
       ],
     },

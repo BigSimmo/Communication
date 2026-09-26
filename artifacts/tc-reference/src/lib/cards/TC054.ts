@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC054: CardData = {
   pdfUrl: "cards/TC054/TC054_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC054/TC054_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC054/TC054_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC054/TC054_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC054/TC054_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC054/TC054_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC054/TC054_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC054/TC054_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC054/TC054_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC054/TC054_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC054/TC054_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC054/TC054_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC054/TC054_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC054/TC054_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC054/TC054_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC054",
   whyItWorks:
@@ -18,16 +61,16 @@ export const TC054: CardData = {
     "Not forced rapport, and not pretending to share an experience you do not actually share.",
     "Not making the other person's story about you - it is a brief bridge, not a spotlight on your version.",
     "Not flattery, mirroring, identity capture, sales pressure, or a shortcut around consent.",
-    "Not a contest of suffering or expertise; \"I know exactly how you feel\" usually overclaims where \"I recognise that part\" is cleaner.",
+    'Not a contest of suffering or expertise; "I know exactly how you feel" usually overclaims where "I recognise that part" is cleaner.',
     "Not a tool for pressuring someone to trust, buy, disclose, agree, or join - the test is that they feel accompanied, not captured.",
   ],
   overview: {
     coreFormula: [
       "Shared point + modest signal + evidence + return of focus.",
-      "\"I recognise that part too, at least the timeline piece. How has that been showing up for you?\"",
-      "Professional: \"We are dealing with the same constraint - unclear priorities. The clean next step would be one owner per task. Does that match what you are seeing?\"",
-      "High-pressure: \"We may not agree on every detail, but I think we share the concern about rework. Can we anchor there for the next five minutes?\"",
-      "Minimum: \"I recognise that part. What has it been like on your side?\"",
+      '"I recognise that part too, at least the timeline piece. How has that been showing up for you?"',
+      'Professional: "We are dealing with the same constraint - unclear priorities. The clean next step would be one owner per task. Does that match what you are seeing?"',
+      'High-pressure: "We may not agree on every detail, but I think we share the concern about rework. Can we anchor there for the next five minutes?"',
+      'Minimum: "I recognise that part. What has it been like on your side?"',
     ],
     minimumViableMove:
       "I recognise that part. What has it been like on your side?",
@@ -166,13 +209,15 @@ export const TC054: CardData = {
       phrase: "What part has been the hardest?",
     },
     {
-      condition: "Naming it could minimise, compete with, or hijack their experience",
+      condition:
+        "Naming it could minimise, compete with, or hijack their experience",
       action: "Shrink the signal or skip it, and protect their difference.",
       phrase: "Different situation, but I recognise that one piece.",
     },
     {
       condition: "The overlap is real, specific, and safe",
-      action: "Signal it once, ground it in a single detail, then return the focus.",
+      action:
+        "Signal it once, ground it in a single detail, then return the focus.",
       phrase:
         "I recognise that part, at least the timeline piece. What has it been like on your side?",
     },
@@ -183,7 +228,8 @@ export const TC054: CardData = {
     },
     {
       condition: "They go flat, correct you, or seem uncomfortable",
-      action: "Return to their point, narrow the claim, or drop it - do not stack a second signal.",
+      action:
+        "Return to their point, narrow the claim, or drop it - do not stack a second signal.",
       phrase: "Back to you - what has been weighing most?",
     },
   ],
@@ -207,7 +253,8 @@ export const TC054: CardData = {
   ],
   scenarios: [
     {
-      situation: "Professional collaboration - a teammate is frustrated by unclear priorities",
+      situation:
+        "Professional collaboration - a teammate is frustrated by unclear priorities",
       move: "Signal the shared constraint, then return to action.",
       phrase:
         "Same constraint here: too many priority labels. What would make the next step clearer for you?",
@@ -225,7 +272,8 @@ export const TC054: CardData = {
         "We do not agree on the method, but I think we share the concern about avoiding rework. Can we anchor there?",
     },
     {
-      situation: "Supportive listening - someone describes a stressful transition",
+      situation:
+        "Supportive listening - someone describes a stressful transition",
       move: "Use only a tiny signal, then listen.",
       phrase:
         "Different situation, but I recognise the uncertainty piece. What has been weighing on you most?",
@@ -247,7 +295,7 @@ export const TC054: CardData = {
     working: [
       "They add detail after the signal.",
       "Their tone softens or becomes more animated.",
-      "They say \"exactly\", \"yes\", \"that is it\", or \"right\".",
+      'They say "exactly", "yes", "that is it", or "right".',
       "They ask about your brief version without losing their own thread.",
       "They move toward a shared next step.",
       "The conversation feels more relaxed but still focused.",
@@ -272,17 +320,17 @@ export const TC054: CardData = {
     {
       day: "Day 2",
       title: "One-sentence signals",
-      task: "For each overlap from Day 1, write a single sentence that names it without taking over. Example: \"Same on the last-minute-change part. What changed this time?\"",
+      task: 'For each overlap from Day 1, write a single sentence that names it without taking over. Example: "Same on the last-minute-change part. What changed this time?"',
     },
     {
       day: "Day 3",
       title: "Protect the difference",
-      task: "Rewrite three heavy claims - \"I know exactly what you mean\", \"We are basically the same\" - into difference-protecting versions such as \"Different situation, but I recognise the uncertainty piece.\"",
+      task: 'Rewrite three heavy claims - "I know exactly what you mean", "We are basically the same" - into difference-protecting versions such as "Different situation, but I recognise the uncertainty piece."',
     },
     {
       day: "Day 4",
       title: "Return the focus",
-      task: "Take each signal from Day 2 and add a return question or shared next step, so attention lands back on them: \"...What has been the main friction for you?\"",
+      task: 'Take each signal from Day 2 and add a return question or shared next step, so attention lands back on them: "...What has been the main friction for you?"',
     },
     {
       day: "Day 5",
@@ -310,34 +358,35 @@ export const TC054: CardData = {
   ],
   example: {
     without: [
-      "Colleague: \"I am finding this project hard because the brief keeps shifting.\"",
-      "You: \"Oh, I know exactly what you mean. That happened to me last year and it was a nightmare. I had to redo everything twice.\"",
-      "Colleague: \"Yeah... anyway.\"",
+      'Colleague: "I am finding this project hard because the brief keeps shifting."',
+      'You: "Oh, I know exactly what you mean. That happened to me last year and it was a nightmare. I had to redo everything twice."',
+      'Colleague: "Yeah... anyway."',
       "Why it fails:",
       "grabs the floor and turns their concern into your story",
       "overclaims total understanding",
       "leaves them nothing to respond to",
     ],
     with: [
-      "Colleague: \"I am finding this project hard because the brief keeps shifting.\"",
-      "You: \"I have had a version of that with moving briefs. The uncertainty makes planning harder. What keeps changing most?\"",
-      "Colleague: \"The timeline and the audience.\"",
+      'Colleague: "I am finding this project hard because the brief keeps shifting."',
+      'You: "I have had a version of that with moving briefs. The uncertainty makes planning harder. What keeps changing most?"',
+      'Colleague: "The timeline and the audience."',
       "Why the better version works: it signals the similarity briefly, then returns to their specifics.",
-      "Colleague: \"I am finding this project hard because the brief keeps shifting.\"",
-      "You: \"I do not want to overclaim the similarity, because you are closer to this than I am. But I recognise the moving-brief problem: it makes every decision feel provisional. What would stabilise it most - audience, timeline, or approval path?\"",
-      "Colleague: \"Approval path. If that were clear, the rest would be manageable.\"",
-      "You: \"That tracks. We share the same concern there: fewer invisible approvals. Let us make that the next ask.\"",
+      'Colleague: "I am finding this project hard because the brief keeps shifting."',
+      'You: "I do not want to overclaim the similarity, because you are closer to this than I am. But I recognise the moving-brief problem: it makes every decision feel provisional. What would stabilise it most - audience, timeline, or approval path?"',
+      'Colleague: "Approval path. If that were clear, the rest would be manageable."',
+      'You: "That tracks. We share the same concern there: fewer invisible approvals. Let us make that the next ask."',
       "Why the advanced version works: it preserves the difference, signals one real overlap, narrows the problem, and chains into a clean next step.",
     ],
     note: "The advanced version names the difference first, then one overlap, then hands the conversation back - a small bridge, not a spotlight.",
   },
   influencePayoff: {
-    feeling: "\"They noticed something we genuinely share, and did not take over.\"",
+    feeling:
+      '"They noticed something we genuinely share, and did not take over."',
     principle:
       "People relax when they sense a real point of contact. A true, modest overlap reduces unnecessary distance without erasing difference - and it stays clean only while the other person is free to accept, ignore, correct, or move past it.",
     gains: [
       "More ease at the start or middle of a conversation",
-      "Less \"us versus them\" framing",
+      'Less "us versus them" framing',
       "More willingness to keep talking",
       "Smoother transitions into shared problem-solving",
       "Lower defensiveness in a disagreement",
@@ -345,17 +394,18 @@ export const TC054: CardData = {
     ],
     whyMostFail: [
       "Using the signal as a self-shift, so the moment becomes your story instead of their point.",
-      "Overclaiming sameness (\"I know exactly how you feel\") and minimising their experience.",
-      "Grabbing identity too fast (\"we are the same kind of person\") instead of naming one situational overlap.",
+      'Overclaiming sameness ("I know exactly how you feel") and minimising their experience.',
+      'Grabbing identity too fast ("we are the same kind of person") instead of naming one situational overlap.',
       "Stacking signal after signal until the warmth starts to feel strategic.",
     ],
   },
   fieldTip: {
     headline: "Make the bridge small enough to be true.",
-    body: "The safest similarity signal is not \"we are the same.\" It is \"I recognise that one part.\" Name the overlap, protect the difference, and give the conversation back. If you feel eager to prove the similarity, you are probably about to make the moment about you - shrink the signal or skip it.",
-    example: "\"I recognise that part - different situation, but that piece is familiar. What is it like on your side?\"",
-    dont: "\"I know exactly how you feel.\"",
-    do: "\"I recognise that one part. What has it been like for you?\"",
+    body: 'The safest similarity signal is not "we are the same." It is "I recognise that one part." Name the overlap, protect the difference, and give the conversation back. If you feel eager to prove the similarity, you are probably about to make the moment about you - shrink the signal or skip it.',
+    example:
+      '"I recognise that part - different situation, but that piece is familiar. What is it like on your side?"',
+    dont: '"I know exactly how you feel."',
+    do: '"I recognise that one part. What has it been like for you?"',
   },
   method: [
     {
@@ -363,7 +413,10 @@ export const TC054: CardData = {
       title: "Spot a real overlap",
       body: "Listen for a genuine point of contact - shared context, a preference, the same friction, a value, a goal, or matching emotional texture. If there is no real overlap, do not manufacture one.",
       examples: [
-        { label: "Listen for", text: "\"the uncertainty\", \"the first month\", \"the vague brief\", \"the deadline\"" },
+        {
+          label: "Listen for",
+          text: '"the uncertainty", "the first month", "the vague brief", "the deadline"',
+        },
       ],
     },
     {
@@ -371,8 +424,8 @@ export const TC054: CardData = {
       title: "Isolate one small point",
       body: "Do not claim the whole experience. Pick the single overlap that is safest and most specific to name, and leave the rest of their story theirs.",
       examples: [
-        { label: "Not", text: "\"I know exactly what you mean.\"" },
-        { label: "Better", text: "\"I recognise the vague-timeline part.\"" },
+        { label: "Not", text: '"I know exactly what you mean."' },
+        { label: "Better", text: '"I recognise the vague-timeline part."' },
       ],
     },
     {
@@ -380,7 +433,10 @@ export const TC054: CardData = {
       title: "Ground it in evidence",
       body: "Use one concrete word from the conversation so the signal feels real rather than generic. One sentence of your own evidence is the limit.",
       examples: [
-        { label: "Anchor words", text: "deadline, first month, moving brief, small team, direct feedback, quiet mornings" },
+        {
+          label: "Anchor words",
+          text: "deadline, first month, moving brief, small team, direct feedback, quiet mornings",
+        },
       ],
     },
     {
@@ -388,7 +444,10 @@ export const TC054: CardData = {
       title: "Name it lightly",
       body: "Use wording that leaves room for difference. The goal is a small bridge, not a claim of sameness.",
       examples: [
-        { label: "Phrasing", text: "\"I recognise that part\" - \"I have a version of that\" - \"same constraint here\" - \"we may be aligned on the goal\"" },
+        {
+          label: "Phrasing",
+          text: '"I recognise that part" - "I have a version of that" - "same constraint here" - "we may be aligned on the goal"',
+        },
       ],
     },
     {
@@ -396,7 +455,10 @@ export const TC054: CardData = {
       title: "Add a return",
       body: "Move attention straight back to them, the task, or the shared next step. This return is what keeps the signal from sliding into self-disclosure.",
       examples: [
-        { label: "Return", text: "\"What has it been like on your side?\" or \"What would make the next step clearer?\"" },
+        {
+          label: "Return",
+          text: '"What has it been like on your side?" or "What would make the next step clearer?"',
+        },
       ],
     },
     {
@@ -404,52 +466,58 @@ export const TC054: CardData = {
       title: "Look for the landing",
       body: "Watch the response. If they open up, continue gently. If they go flat, correct, or pull away, narrow the claim or drop it. Do not stack a second signal - one clean signal does more than three eager ones.",
       examples: [
-        { label: "If they correct you", text: "\"Different situations, clearly. Back to what you were saying.\"" },
+        {
+          label: "If they correct you",
+          text: '"Different situations, clearly. Back to what you were saying."',
+        },
       ],
     },
   ],
   liveThreadClues: [
-    "A shared context (\"the first week\", \"a small team\")",
-    "A preference you both hold (\"clear plans\", \"keep it simple\")",
-    "The same friction or constraint (\"the deadline\", \"the moving brief\")",
-    "A value or goal you both want (\"fewer surprises\", \"less rework\")",
-    "Matching emotional texture (\"the uncertainty\", \"the overwhelm\")",
+    'A shared context ("the first week", "a small team")',
+    'A preference you both hold ("clear plans", "keep it simple")',
+    'The same friction or constraint ("the deadline", "the moving brief")',
+    'A value or goal you both want ("fewer surprises", "less rework")',
+    'Matching emotional texture ("the uncertainty", "the overwhelm")',
     "A concrete anchor word they used you can echo honestly",
   ],
   commonMistakes: [
     {
       mistake: "Overclaiming sameness",
-      soundsLike: "\"I know exactly how you feel.\"",
-      better: "\"I recognise one part of that.\"",
+      soundsLike: '"I know exactly how you feel."',
+      better: '"I recognise one part of that."',
     },
     {
       mistake: "Turning the conversation into your story",
-      soundsLike: "\"That happened to me too, and it was a nightmare...\"",
-      better: "One sentence of evidence, then return: \"...what keeps changing most for you?\"",
+      soundsLike: '"That happened to me too, and it was a nightmare..."',
+      better:
+        'One sentence of evidence, then return: "...what keeps changing most for you?"',
     },
     {
       mistake: "Grabbing identity too quickly",
-      soundsLike: "\"We are the same kind of person.\"",
-      better: "Keep it situational: \"We seem to share a preference for clear timelines.\"",
+      soundsLike: '"We are the same kind of person."',
+      better:
+        'Keep it situational: "We seem to share a preference for clear timelines."',
     },
     {
       mistake: "Using similarity to force agreement",
-      soundsLike: "\"We both want this, so let us just do it my way.\"",
-      better: "\"We are not aligned on the method, but we do share the concern about quality.\"",
+      soundsLike: '"We both want this, so let us just do it my way."',
+      better:
+        '"We are not aligned on the method, but we do share the concern about quality."',
     },
     {
       mistake: "Mirroring superficial details too eagerly",
-      soundsLike: "\"You like coffee? Same. And that show, and that jacket...\"",
+      soundsLike: '"You like coffee? Same. And that show, and that jacket..."',
       better: "Choose one meaningful overlap, not every coincidence.",
     },
     {
       mistake: "Ignoring the difference",
-      soundsLike: "\"Same thing happened to me.\"",
-      better: "\"Different situations, but I recognise that one part.\"",
+      soundsLike: '"Same thing happened to me."',
+      better: '"Different situations, but I recognise that one part."',
     },
     {
       mistake: "Repeating signals until they feel strategic",
-      soundsLike: "\"Same here... oh, same... me too...\"",
+      soundsLike: '"Same here... oh, same... me too..."',
       better: "One signal, then listen.",
     },
   ],
@@ -462,26 +530,29 @@ export const TC054: CardData = {
     "I want to keep this useful. The shared point I see is the deadline constraint.",
     "No need to go further into it. I only wanted to name the one overlap that affects the decision.",
   ],
-  bestRecoveryLine: "I am making this too much about my version. Back to yours.",
+  bestRecoveryLine:
+    "I am making this too much about my version. Back to yours.",
   chains: [
     {
       label: "Bridge to a request",
-      sequence: "Common-ground discovery -> Similarity signalling -> Clean request",
+      sequence:
+        "Common-ground discovery -> Similarity signalling -> Clean request",
       example: [
         "Discover a real shared goal or constraint.",
         "Signal the similarity briefly.",
         "Make a clean next-step request.",
-        "\"We both want fewer surprises in the timeline. Can we agree on one update point each Friday?\"",
+        '"We both want fewer surprises in the timeline. Can we agree on one update point each Friday?"',
       ],
     },
     {
       label: "Warm up, then follow the energy",
-      sequence: "Warm presence -> Similarity signalling -> Topic energy tracking",
+      sequence:
+        "Warm presence -> Similarity signalling -> Topic energy tracking",
       example: [
         "Create low-pressure attention.",
         "Name one true overlap.",
         "Follow the topic where their energy rises.",
-        "\"I recognise the first-week uncertainty. What part has had the most life for you so far?\"",
+        '"I recognise the first-week uncertainty. What part has had the most life for you so far?"',
       ],
     },
     {
@@ -490,7 +561,7 @@ export const TC054: CardData = {
       example: [
         "Name a shared constraint.",
         "Give status to how they handled it.",
-        "\"Same deadline pressure on my side. I appreciate how clearly you separated urgent from important there.\"",
+        '"Same deadline pressure on my side. I appreciate how clearly you separated urgent from important there."',
       ],
     },
     {
@@ -499,7 +570,7 @@ export const TC054: CardData = {
       example: [
         "Name the shared point.",
         "Reflect both sides of the tension.",
-        "\"We both care about speed. At the same time, you do not want speed to create rework.\"",
+        '"We both care about speed. At the same time, you do not want speed to create rework."',
       ],
     },
   ],

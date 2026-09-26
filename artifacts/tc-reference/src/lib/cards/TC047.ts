@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC047: CardData = {
   pdfUrl: "cards/TC047/TC047_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC047/TC047_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC047/TC047_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC047/TC047_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC047/TC047_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC047/TC047_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC047/TC047_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC047/TC047_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC047/TC047_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC047/TC047_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC047/TC047_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC047/TC047_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC047/TC047_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC047/TC047_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC047/TC047_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC047",
   whyItWorks:
@@ -179,7 +222,8 @@ export const TC047: CardData = {
     {
       condition: "The listener is already clear",
       action: "Stop — don't finish the structure for its own sake.",
-      phrase: '"Sounds like you\'ve got what you need, so I\'ll leave it there."',
+      phrase:
+        "\"Sounds like you've got what you need, so I'll leave it there.\"",
     },
   ],
   ladder: [
@@ -226,12 +270,14 @@ export const TC047: CardData = {
     {
       situation: "Difficult conversation",
       move: "One sentence per step, then pause and let them respond.",
-      phrase: '"Here\'s what happened and what I did — then I\'ll stop and hear you."',
+      phrase:
+        "\"Here's what happened and what I did — then I'll stop and hear you.\"",
     },
     {
       situation: "Performance review",
       move: "Use STAR to give evidence for a claim about your work.",
-      phrase: '"When I say I improved retention, here\'s the specific example."',
+      phrase:
+        '"When I say I improved retention, here\'s the specific example."',
     },
   ],
   calibration: {
@@ -300,8 +346,8 @@ export const TC047: CardData = {
   ],
   example: {
     without: [
-      "Interviewer: \"Tell me about a time you dealt with a tight deadline.\"",
-      "You: \"Situation. The situation was that we had a project. Task. My task was to complete it. Action. The action I took was to work hard. Result. The result was that it got done.\"",
+      'Interviewer: "Tell me about a time you dealt with a tight deadline."',
+      'You: "Situation. The situation was that we had a project. Task. My task was to complete it. Action. The action I took was to work hard. Result. The result was that it got done."',
       "Why it is weak:",
       "announces each label like a checklist",
       "the scene, task and action are all vague",
@@ -309,13 +355,13 @@ export const TC047: CardData = {
       "sounds rehearsed rather than like a real experience",
     ],
     with: [
-      "Interviewer: \"Tell me about a time you dealt with a tight deadline.\"",
-      "You: \"Sure. Two weeks before a product launch, our main supplier pulled out.\"",
-      "You: \"I owned delivery, so holding the launch date was on me.\"",
-      "You: \"I called three alternative vendors that afternoon, negotiated a rush order, and re-sequenced the build so the critical parts came first.\"",
-      "You: \"We shipped on the original date, and the client renewed for another year.\"",
-      "Interviewer: \"What would you do differently?\"",
-      "You: \"Keep a backup supplier on file — that's the habit I took from it.\"",
+      'Interviewer: "Tell me about a time you dealt with a tight deadline."',
+      'You: "Sure. Two weeks before a product launch, our main supplier pulled out."',
+      'You: "I owned delivery, so holding the launch date was on me."',
+      'You: "I called three alternative vendors that afternoon, negotiated a rush order, and re-sequenced the build so the critical parts came first."',
+      'You: "We shipped on the original date, and the client renewed for another year."',
+      'Interviewer: "What would you do differently?"',
+      'You: "Keep a backup supplier on file — that\'s the habit I took from it."',
       "Why this works:",
       "one line of scene, then straight to what mattered",
       "the action is specific and shows judgement",
@@ -355,38 +401,32 @@ export const TC047: CardData = {
     {
       step: "1",
       title: "Decide whether an example helps",
-      body:
-        "Choose the framework only if a concrete story is what this moment needs. If the person wants a direct answer, or needs to be heard first, a story is the wrong move. Reach for STAR when someone asks you to show, prove or recount something.",
+      body: "Choose the framework only if a concrete story is what this moment needs. If the person wants a direct answer, or needs to be heard first, a story is the wrong move. Reach for STAR when someone asks you to show, prove or recount something.",
     },
     {
       step: "2",
       title: "Situation — set a brief scene",
-      body:
-        "Give just enough context for the rest to make sense — one or two sentences, no more. This is the part that runs long if you let it.\nWeak:\n\"So, going back a bit, the company had recently restructured and there were a few teams involved...\"\nBetter:\n\"Two weeks before launch, our main supplier pulled out.\"",
+      body: 'Give just enough context for the rest to make sense — one or two sentences, no more. This is the part that runs long if you let it.\nWeak:\n"So, going back a bit, the company had recently restructured and there were a few teams involved..."\nBetter:\n"Two weeks before launch, our main supplier pulled out."',
     },
     {
       step: "3",
       title: "Task — name what you were responsible for",
-      body:
-        "Say what was on you specifically. This is what separates your contribution from the team's.\nExample:\n\"I owned delivery, so holding the date was my problem to solve.\"",
+      body: 'Say what was on you specifically. This is what separates your contribution from the team\'s.\nExample:\n"I owned delivery, so holding the date was my problem to solve."',
     },
     {
       step: "4",
       title: "Action — say what you actually did",
-      body:
-        "This is the heart of it. Be specific and show judgement — the verbs should be yours.\nVague:\n\"I sorted it out.\"\nSpecific:\n\"I called three vendors, negotiated a rush order, and re-sequenced the build so the critical parts came first.\"",
+      body: 'This is the heart of it. Be specific and show judgement — the verbs should be yours.\nVague:\n"I sorted it out."\nSpecific:\n"I called three vendors, negotiated a rush order, and re-sequenced the build so the critical parts came first."',
     },
     {
       step: "5",
       title: "Result — show what changed",
-      body:
-        "Land a concrete outcome, ideally something measurable. Don't trail off before you get here.\nExample:\n\"We shipped on the original date, and the client renewed for another year.\"\nIf there's a lesson, one line is enough:\n\"The habit I took from it was keeping a backup supplier on file.\"",
+      body: 'Land a concrete outcome, ideally something measurable. Don\'t trail off before you get here.\nExample:\n"We shipped on the original date, and the client renewed for another year."\nIf there\'s a lesson, one line is enough:\n"The habit I took from it was keeping a backup supplier on file."',
     },
     {
       step: "6",
       title: "Check and adapt",
-      body:
-        "Watch whether the listener is clearer, more engaged or more able to act. If they look confused or resistant, summarise and invite correction rather than pushing the structure harder.\n\"Does that answer it, or do you want more on any part?\"",
+      body: 'Watch whether the listener is clearer, more engaged or more able to act. If they look confused or resistant, summarise and invite correction rather than pushing the structure harder.\n"Does that answer it, or do you want more on any part?"',
     },
   ],
   liveThreadClues: [
@@ -402,7 +442,8 @@ export const TC047: CardData = {
     {
       depth: "One-line",
       useWhen: "They need speed or it's a passing point",
-      phrase: '"Supplier pulled out; I found three alternatives; we shipped on time."',
+      phrase:
+        '"Supplier pulled out; I found three alternatives; we shipped on time."',
     },
     {
       depth: "30-second",
@@ -413,12 +454,14 @@ export const TC047: CardData = {
     {
       depth: "Two-minute",
       useWhen: "They want the full example and your judgement",
-      phrase: '"Let me walk you through what happened, what I decided, and how it turned out."',
+      phrase:
+        '"Let me walk you through what happened, what I decided, and how it turned out."',
     },
     {
       depth: "Written",
       useWhen: "Email or a document they'll scan",
-      phrase: '"Context, action and outcome in three short labelled paragraphs."',
+      phrase:
+        '"Context, action and outcome in three short labelled paragraphs."',
     },
   ],
   commonMistakes: [
@@ -499,7 +542,7 @@ export const TC047: CardData = {
       sequence: "Validate -> STAR",
       example: [
         '"That sounds genuinely stressful — I get why it\'s frustrating."',
-        '"When you\'re ready, here\'s what happened and what I did about it."',
+        "\"When you're ready, here's what happened and what I did about it.\"",
       ],
     },
   ],

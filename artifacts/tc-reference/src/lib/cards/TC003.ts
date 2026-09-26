@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC003: CardData = {
   pdfUrl: "cards/TC003/TC003_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC003/TC003_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC003/TC003_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC003/TC003_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC003/TC003_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC003/TC003_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC003/TC003_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC003/TC003_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC003/TC003_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC003/TC003_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC003/TC003_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC003/TC003_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC003/TC003_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC003/TC003_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC003/TC003_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC003",
   whyItWorks:
@@ -23,12 +66,12 @@ export const TC003: CardData = {
     coreFormula: [
       "Hear the content → make one relevant comment → ask one question → stop and listen.",
       "Short form: notice → name or respond → invite → calibrate → release.",
-      "\"That sounds like a big shift. What made you decide?\"",
-      "\"That's a lot to weigh up. Which part mattered most?\"",
-      "\"Sounds like it came after some thought. What tipped it?\"",
+      '"That sounds like a big shift. What made you decide?"',
+      '"That\'s a lot to weigh up. Which part mattered most?"',
+      '"Sounds like it came after some thought. What tipped it?"',
     ],
     minimumViableMove:
-      "Say one honest comment, then ask one clean question: \"That sounds like a big shift. What made you decide?\"",
+      'Say one honest comment, then ask one clean question: "That sounds like a big shift. What made you decide?"',
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
@@ -150,13 +193,15 @@ export const TC003: CardData = {
   decisionTree: [
     {
       condition: "You're about to ask a question",
-      action: "Add one true comment first — unless urgency demands a direct answer.",
-      phrase: "\"That's a big shift. What made you decide?\"",
+      action:
+        "Add one true comment first — unless urgency demands a direct answer.",
+      phrase: '"That\'s a big shift. What made you decide?"',
     },
     {
       condition: "The comment would be fake",
-      action: "Skip it and ask the question plainly. A false comment is worse than none.",
-      phrase: "\"Can I ask what changed?\"",
+      action:
+        "Skip it and ask the question plainly. A false comment is worse than none.",
+      phrase: '"Can I ask what changed?"',
     },
     {
       condition: "You've already asked a question",
@@ -166,28 +211,30 @@ export const TC003: CardData = {
     {
       condition: "They gave a short, closed answer",
       action: "Lower the pressure or change direction — don't push harder.",
-      phrase: "\"No need to get into it. I was just curious.\"",
+      phrase: '"No need to get into it. I was just curious."',
     },
     {
       condition: "It's a tense or emotional moment",
       action: "Keep the comment neutral and ask about impact, not motive.",
-      phrase: "\"I can see it mattered. What did you need at the time?\"",
+      phrase: '"I can see it mattered. What did you need at the time?"',
     },
     {
       condition: "They corrected your frame",
       action: "Take the correction, drop the technique, and just follow them.",
-      phrase: "\"Fair enough — say more.\"",
+      phrase: '"Fair enough — say more."',
     },
   ],
   ladder: [
     {
       weak: "Why did you do that? (A bare question can sound cross-examining.)",
-      better: "That's a big choice. Why did you do it? (Adds context, but still slightly blunt.)",
+      better:
+        "That's a big choice. Why did you do it? (Adds context, but still slightly blunt.)",
       best: "That's a big choice. What made it feel like the right move? (Warmer and easier to answer.)",
     },
     {
       weak: "What's the budget? (Lands as a demand.)",
-      better: "Budgets are always tight on these. What's the budget? (Softer, but generic.)",
+      better:
+        "Budgets are always tight on these. What's the budget? (Softer, but generic.)",
       best: "Budget's usually the hard part of these. Where does it need to land for this to work? (Invites the real answer.)",
     },
     {
@@ -200,32 +247,36 @@ export const TC003: CardData = {
     {
       situation: "First date or social chat",
       move: "React briefly to their story before asking about it, so it reads as interest, not vetting.",
-      phrase: "\"That's a great way to spend a weekend. What got you into it?\"",
+      phrase: '"That\'s a great way to spend a weekend. What got you into it?"',
     },
     {
       situation: "Interview or supervision",
       move: "Signal you followed their point before asking for specifics.",
-      phrase: "\"That's a useful bit of context. What was the constraint you were working around?\"",
+      phrase:
+        '"That\'s a useful bit of context. What was the constraint you were working around?"',
     },
     {
       situation: "Text or DM",
       move: "Add one contextual sentence so a bare question doesn't read as abrupt.",
-      phrase: "\"That's a lot to land in one week. What was the hardest part?\"",
+      phrase: '"That\'s a lot to land in one week. What was the hardest part?"',
     },
     {
       situation: "Conflict or tension",
       move: "Offer a neutral observation before asking about impact — keep any judgement out of the comment.",
-      phrase: "\"I can see this really got to you. What did it cost you on your side?\"",
+      phrase:
+        '"I can see this really got to you. What did it cost you on your side?"',
     },
     {
       situation: "Networking",
       move: "Validate the interest before asking how, so it doesn't feel transactional.",
-      phrase: "\"That sounds like a genuinely hard problem to work on. How did you get into it?\"",
+      phrase:
+        '"That sounds like a genuinely hard problem to work on. How did you get into it?"',
     },
     {
       situation: "Catching up with a friend",
       move: "Name the shift you heard before asking them to unpack it.",
-      phrase: "\"That's a big change since we last spoke. How are you actually finding it?\"",
+      phrase:
+        '"That\'s a big change since we last spoke. How are you actually finding it?"',
     },
   ],
   calibration: {
@@ -282,7 +333,7 @@ export const TC003: CardData = {
     {
       day: "Day 7",
       title: "Recover on purpose",
-      task: "Let one question come out too blunt on purpose, then use a recovery line — \"That came out more like an interview than I meant\" — and notice how the moment resets.",
+      task: 'Let one question come out too blunt on purpose, then use a recovery line — "That came out more like an interview than I meant" — and notice how the moment resets.',
     },
   ],
   checklist: [
@@ -295,9 +346,9 @@ export const TC003: CardData = {
   ],
   example: {
     without: [
-      "Them: \"I quit the course.\"",
-      "You: \"Why?\"",
-      "Them: \"It just wasn't right.\"",
+      'Them: "I quit the course."',
+      'You: "Why?"',
+      'Them: "It just wasn\'t right."',
       "Why it is weak:",
       "the bare question reads as a challenge",
       "they have to defend a decision instead of explaining it",
@@ -305,13 +356,13 @@ export const TC003: CardData = {
       "the conversation stalls after one exchange",
     ],
     with: [
-      "Them: \"I quit the course.\"",
-      "You: \"That's a big decision. What changed?\"",
-      "Them: \"I realised I hated the practical work.\"",
-      "You: \"That sounds like it came after some thought, not a random impulse. What was the moment it became obvious?\"",
-      "Them: \"The placement, honestly. Two weeks in and I knew.\"",
-      "You: \"That's a hard thing to admit to yourself mid-course.\"",
-      "Them: \"It was. But better than three more years of it.\"",
+      'Them: "I quit the course."',
+      'You: "That\'s a big decision. What changed?"',
+      'Them: "I realised I hated the practical work."',
+      'You: "That sounds like it came after some thought, not a random impulse. What was the moment it became obvious?"',
+      'Them: "The placement, honestly. Two weeks in and I knew."',
+      'You: "That\'s a hard thing to admit to yourself mid-course."',
+      'Them: "It was. But better than three more years of it."',
       "Why this works:",
       "the comment shows you took in the decision before probing it",
       "the question asks how it happened, not just why, so it invites the story",
@@ -321,8 +372,9 @@ export const TC003: CardData = {
     note: "The poor version interrogates; the advanced version reacts first, then asks — and the person keeps talking.",
   },
   influencePayoff: {
-    feeling: "\"They actually took in what I said before asking for more.\"",
-    principle: "People become more receptive to you when they feel heard first.",
+    feeling: '"They actually took in what I said before asking for more."',
+    principle:
+      "People become more receptive to you when they feel heard first.",
     gains: [
       "Questions become warmer and easier to answer.",
       "The other person doesn't have to defend, decode or rescue the conversation.",
@@ -334,15 +386,14 @@ export const TC003: CardData = {
     whyMostFail: [
       "They add a fake or overlong comment that feels like a scripted preamble before interrogation.",
       "They stack two or three questions after the comment, so it stops feeling like listening.",
-      "They lean on generic filler like \"that's interesting\" until it means nothing.",
+      'They lean on generic filler like "that\'s interesting" until it means nothing.',
       "They slip a judgement into the comment, so it lands as criticism, not interest.",
     ],
   },
   fieldTip: {
     headline: "One real comment buys one clean question.",
-    body:
-      "The comment isn't there to be clever or kind — it's there to show you actually heard them before you ask for more. Keep it to a phrase, keep it true, then ask one thing and stop.",
-    example: "\"That's a big shift. What made you decide?\"",
+    body: "The comment isn't there to be clever or kind — it's there to show you actually heard them before you ask for more. Keep it to a phrase, keep it true, then ask one thing and stop.",
+    example: '"That\'s a big shift. What made you decide?"',
     dont: "Don't manufacture warmth you don't feel — a fake comment is more obvious than a bare question.",
     do: "Do let the comment be small. A five-word reaction is plenty.",
   },
@@ -350,114 +401,131 @@ export const TC003: CardData = {
     {
       step: "1",
       title: "Notice the cue",
-      body:
-        "Listen for the moment worth reacting to — a decision, a change, a surprise or a strong feeling they've just shared. That's what earns a comment before your question.",
+      body: "Listen for the moment worth reacting to — a decision, a change, a surprise or a strong feeling they've just shared. That's what earns a comment before your question.",
       examples: [
-        { label: "They say", text: "\"I ended up moving back home.\"" },
-        { label: "The cue", text: "a big change, said plainly — worth acknowledging" },
+        { label: "They say", text: '"I ended up moving back home."' },
+        {
+          label: "The cue",
+          text: "a big change, said plainly — worth acknowledging",
+        },
       ],
     },
     {
       step: "2",
       title: "Choose the smallest useful move",
-      body:
-        "Pick the shortest true reaction, not the cleverest one. A five-word comment does the job; a paragraph turns it into a performance.",
+      body: "Pick the shortest true reaction, not the cleverest one. A five-word comment does the job; a paragraph turns it into a performance.",
       examples: [
-        { label: "Too much", text: "\"Wow, that must have been such a complicated, emotional thing to navigate…\"" },
-        { label: "Enough", text: "\"That's a big move. What prompted it?\"" },
+        {
+          label: "Too much",
+          text: '"Wow, that must have been such a complicated, emotional thing to navigate…"',
+        },
+        { label: "Enough", text: '"That\'s a big move. What prompted it?"' },
       ],
     },
     {
       step: "3",
       title: "Say it in plain language",
-      body:
-        "Use ordinary adult speech. The comment should sound like something you'd actually say, not a line from a script.",
+      body: "Use ordinary adult speech. The comment should sound like something you'd actually say, not a line from a script.",
       examples: [
-        { label: "Scripted", text: "\"I hear that this was significant for you.\"" },
-        { label: "Natural", text: "\"That sounds like it mattered. What made it feel that way?\"" },
+        {
+          label: "Scripted",
+          text: '"I hear that this was significant for you."',
+        },
+        {
+          label: "Natural",
+          text: '"That sounds like it mattered. What made it feel that way?"',
+        },
       ],
     },
     {
       step: "4",
       title: "Ask one question, then stop",
-      body:
-        "Add a single clean question and let it land. Don't stack a second one — give them room to answer the first.",
+      body: "Add a single clean question and let it land. Don't stack a second one — give them room to answer the first.",
       examples: [
-        { label: "Stacked", text: "\"Where was it? Who with? How long?\"" },
-        { label: "One clean question", text: "\"What was the hardest part?\"" },
+        { label: "Stacked", text: '"Where was it? Who with? How long?"' },
+        { label: "One clean question", text: '"What was the hardest part?"' },
       ],
     },
     {
       step: "5",
       title: "Watch and release",
-      body:
-        "Read the response. If they expand, stay with it. If they shorten, tense up, correct your frame or move on, drop the technique and just follow them.",
+      body: "Read the response. If they expand, stay with it. If they shorten, tense up, correct your frame or move on, drop the technique and just follow them.",
       examples: [
-        { label: "It's landing", text: "they answer with more than you asked for" },
-        { label: "Ease off", text: "\"No pressure — we can leave it there.\"" },
+        {
+          label: "It's landing",
+          text: "they answer with more than you asked for",
+        },
+        { label: "Ease off", text: '"No pressure — we can leave it there."' },
       ],
     },
   ],
   liveThreadClues: [
-    "\"I just…\" / \"I finally…\" — a change or a relief worth naming",
-    "\"I ended up…\" — an unexpected path",
-    "\"It turned out…\" — a surprise",
-    "\"I decided to…\" — a choice they might want to explain",
-    "\"We've been…\" — an ongoing situation with weight",
+    '"I just…" / "I finally…" — a change or a relief worth naming',
+    '"I ended up…" — an unexpected path',
+    '"It turned out…" — a surprise',
+    '"I decided to…" — a choice they might want to explain',
+    '"We\'ve been…" — an ongoing situation with weight',
     "Any decision, transition or strong reaction they've just handed you",
   ],
   depthDial: [
     {
       depth: "Light",
       useWhen: "early or casual — keep it feather-light",
-      phrase: "\"Nice. What got you into it?\"",
+      phrase: '"Nice. What got you into it?"',
     },
     {
       depth: "Warm",
       useWhen: "rapport is forming",
-      phrase: "\"That sounds like it mattered. What made it feel that way?\"",
+      phrase: '"That sounds like it mattered. What made it feel that way?"',
     },
     {
       depth: "Reflective",
       useWhen: "they've shared something with weight",
-      phrase: "\"That sounds like it took a toll. What was the hardest part?\"",
+      phrase: '"That sounds like it took a toll. What was the hardest part?"',
     },
     {
       depth: "Interpretive",
       useWhen: "trust is solid and you've earned a read — hold it loosely",
-      phrase: "\"That sounds like it came after real thought, not impulse. What was the moment it clarified?\"",
+      phrase:
+        '"That sounds like it came after real thought, not impulse. What was the moment it clarified?"',
     },
   ],
   commonMistakes: [
     {
       mistake: "The comment is longer than the question",
       soundsLike: "a thirty-second preamble in front of a one-line question",
-      better: "Keep the comment to a phrase: \"That's a big shift. What changed?\"",
+      better:
+        'Keep the comment to a phrase: "That\'s a big shift. What changed?"',
     },
     {
       mistake: "Generic filler on repeat",
-      soundsLike: "\"That's interesting.\" … \"That's interesting.\" … \"Interesting.\"",
-      better: "Say something only you would say: \"That's the opposite of what I expected. What shifted it?\"",
+      soundsLike:
+        '"That\'s interesting." … "That\'s interesting." … "Interesting."',
+      better:
+        'Say something only you would say: "That\'s the opposite of what I expected. What shifted it?"',
     },
     {
       mistake: "Stacking questions after the comment",
-      soundsLike: "\"Nice. Where was it? Who with? How long?\"",
-      better: "One comment, one question, then stop: \"Sounds fun. Who talked you into it?\"",
+      soundsLike: '"Nice. Where was it? Who with? How long?"',
+      better:
+        'One comment, one question, then stop: "Sounds fun. Who talked you into it?"',
     },
     {
       mistake: "Making the interpretation too certain",
-      soundsLike: "\"So you clearly hated it.\"",
-      better: "Hold it loosely: \"Sounds like it wore you down. Is that fair?\"",
+      soundsLike: '"So you clearly hated it."',
+      better: 'Hold it loosely: "Sounds like it wore you down. Is that fair?"',
     },
     {
       mistake: "Sneaking a judgement into the comment",
-      soundsLike: "\"That was a risky move. Why'd you do it?\"",
-      better: "Keep the comment neutral: \"That was a bold call. What made it feel right?\"",
+      soundsLike: '"That was a risky move. Why\'d you do it?"',
+      better:
+        'Keep the comment neutral: "That was a bold call. What made it feel right?"',
     },
     {
       mistake: "Faking the comment to earn the question",
       soundsLike: "a warm-sounding line you don't actually mean",
-      better: "If nothing genuine comes to mind, just ask the question plainly.",
+      better:
+        "If nothing genuine comes to mind, just ask the question plainly.",
     },
   ],
   recoveryPhrases: [
@@ -476,38 +544,38 @@ export const TC003: CardData = {
       label: "Comment → follow the answer",
       sequence: "TC003 → TC001",
       example: [
-        "Them: \"We finally moved house.\"",
+        'Them: "We finally moved house."',
         "You: \"That's a huge job. How's it feeling now it's done?\" (TC003)",
-        "Them: \"Exhausting but right.\"",
-        "You: \"Exhausting how — the logistics, or the goodbyes?\" (TC001)",
+        'Them: "Exhausting but right."',
+        'You: "Exhausting how — the logistics, or the goodbyes?" (TC001)',
       ],
     },
     {
       label: "Comment → offer two options",
       sequence: "TC003 → TC034",
       example: [
-        "Them: \"I'm rethinking the whole plan.\"",
+        'Them: "I\'m rethinking the whole plan."',
         "You: \"That's a big rethink. What's driving it?\" (TC003)",
-        "Them: \"A bit of everything.\"",
-        "You: \"Is it more the timing, or the direction?\" (TC034)",
+        'Them: "A bit of everything."',
+        'You: "Is it more the timing, or the direction?" (TC034)',
       ],
     },
     {
       label: "Comment → check the summary",
       sequence: "TC003 → TC011",
       example: [
-        "You: \"That's a lot of moving parts. What matters most to get right?\" (TC003)",
+        'You: "That\'s a lot of moving parts. What matters most to get right?" (TC003)',
         "Them: [lays out the priorities]",
-        "You: \"So the deadline is fixed and the budget can flex a little — have I got that right?\" (TC011)",
+        'You: "So the deadline is fixed and the budget can flex a little — have I got that right?" (TC011)',
       ],
     },
     {
       label: "Comment → reflect the meaning",
       sequence: "TC003 → TC040",
       example: [
-        "You: \"That sounds like a real turning point. What made it land?\" (TC003)",
+        'You: "That sounds like a real turning point. What made it land?" (TC003)',
         "Them: [explains]",
-        "You: \"So it wasn't the job itself — it was finally trusting your own read on it.\" (TC040)",
+        'You: "So it wasn\'t the job itself — it was finally trusting your own read on it." (TC040)',
       ],
     },
   ],
@@ -520,7 +588,7 @@ export const TC003: CardData = {
     {
       id: "TC033",
       reason:
-        "TC033 Minimal encouragers uses tiny signals (\"mm\", \"go on\") to keep them talking; TC003 adds one substantive comment before a question. Use TC033 to sustain, TC003 to open.",
+        'TC033 Minimal encouragers uses tiny signals ("mm", "go on") to keep them talking; TC003 adds one substantive comment before a question. Use TC033 to sustain, TC003 to open.',
     },
     {
       id: "TC034",

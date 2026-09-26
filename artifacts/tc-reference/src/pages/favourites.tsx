@@ -136,7 +136,11 @@ export default function Favourites() {
                 className="w-5 h-5 flex items-center justify-center rounded-full"
                 style={{ background: "var(--fg-08)" }}
               >
-                <X className="w-3 h-3" style={{ color: "var(--fg-50)" }} aria-hidden="true" />
+                <X
+                  className="w-3 h-3"
+                  style={{ color: "var(--fg-50)" }}
+                  aria-hidden="true"
+                />
               </span>
             </button>
           )}
@@ -459,6 +463,7 @@ export default function Favourites() {
                             </p>
                             <div
                               className="flex items-center gap-1.5 flex-shrink-0"
+                              role="presentation"
                               onClick={(e) => e.stopPropagation()}
                             >
                               {copiedPhrase === p.text ? (

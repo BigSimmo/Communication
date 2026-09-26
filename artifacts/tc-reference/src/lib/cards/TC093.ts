@@ -3,21 +3,64 @@ import type { CardData } from "../card-types";
 export const TC093: CardData = {
   pdfUrl: "cards/TC093/TC093_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC093/TC093_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC093/TC093_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC093/TC093_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC093/TC093_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC093/TC093_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC093/TC093_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC093/TC093_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC093/TC093_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC093/TC093_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC093/TC093_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC093/TC093_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC093/TC093_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC093/TC093_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC093/TC093_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC093",
   whyItWorks:
-    "The How-so prompt is a compact elaboration question: when someone gives a claim, reaction, preference or vague conclusion, you ask a short, warm \"How so?\" that invites the mechanism, example or reasoning behind it. It works because it lets the speaker define their own meaning instead of you guessing or debating — a single short prompt often surfaces the real criterion faster than a long explanation or a stack of detailed questions, and the person feels understood rather than cross-examined.",
+    'The How-so prompt is a compact elaboration question: when someone gives a claim, reaction, preference or vague conclusion, you ask a short, warm "How so?" that invites the mechanism, example or reasoning behind it. It works because it lets the speaker define their own meaning instead of you guessing or debating — a single short prompt often surfaces the real criterion faster than a long explanation or a stack of detailed questions, and the person feels understood rather than cross-examined.',
   whatItIsNot: [
-    "\"How so?\" said with a sceptical tone that really means \"prove it.\"",
-    "\"How could you possibly think that?\" — a challenge dressed up as a question.",
-    "Asking \"why?\" over and over, which tends to sound accusatory or abstract.",
+    '"How so?" said with a sceptical tone that really means "prove it."',
+    '"How could you possibly think that?" — a challenge dressed up as a question.',
+    'Asking "why?" over and over, which tends to sound accusatory or abstract.',
     "A repetitive interrogation after the person has already answered.",
     "A Socratic trap or a disguised objection that makes someone defend themselves.",
   ],
@@ -30,17 +73,17 @@ export const TC093: CardData = {
       "You said this matters more than speed. How does that show up in the decision?",
     ],
     minimumViableMove:
-      "When a person says something compressed, ask one warm, neutral \"How so?\" and then stop talking.",
+      'When a person says something compressed, ask one warm, neutral "How so?" and then stop talking.',
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
-      "A sceptical, courtroom tone turns \"How so?\" into a demand for proof, so the speaker hears challenge instead of curiosity.",
+      'A sceptical, courtroom tone turns "How so?" into a demand for proof, so the speaker hears challenge instead of curiosity.',
     bestFor: [
-      "Vague evaluations like \"that felt off\" or \"I am not convinced\"",
-      "Compressed preferences such as \"I like A more than B\"",
+      'Vague evaluations like "that felt off" or "I am not convinced"',
+      'Compressed preferences such as "I like A more than B"',
       "Disagreement that needs understanding before you respond",
       "Coaching, facilitation, customer discovery and team debriefs",
-      "Sensitive moments where \"why?\" would sound too sharp",
+      'Sensitive moments where "why?" would sound too sharp',
       "Conversations where the speaker has more context than you do",
     ],
   },
@@ -155,7 +198,7 @@ export const TC093: CardData = {
     {
       condition: "One word is doing the main work",
       action: "Pick up that exact word first, then ask how.",
-      phrase: "You said \"fragile\" — how is it fragile?",
+      phrase: 'You said "fragile" — how is it fragile?',
     },
     {
       condition: "You need reasoning, mechanism or an example",
@@ -202,32 +245,33 @@ export const TC093: CardData = {
   ],
   scenarios: [
     {
-      situation: "Team disagreement — \"This timeline is unrealistic.\"",
+      situation: 'Team disagreement — "This timeline is unrealistic."',
       move: "Ask how it breaks down; listen for dependency, capacity or stakeholder timing, then reflect the real blocker.",
       phrase: "How do you see it breaking down?",
     },
     {
-      situation: "Customer discovery — \"The old tool is painful.\"",
+      situation: 'Customer discovery — "The old tool is painful."',
       move: "Ask how the pain shows up day to day; listen for frequency, cost and workarounds.",
       phrase: "How does that pain show up day to day?",
     },
     {
-      situation: "Personal support — \"I just feel disconnected lately.\"",
+      situation: 'Personal support — "I just feel disconnected lately."',
       move: "Soften, then ask how it has been showing up; listen for routine, mood and energy before naming it.",
       phrase: "How has that been showing up?",
     },
     {
-      situation: "Leadership decision — \"The team is not ready.\"",
+      situation: 'Leadership decision — "The team is not ready."',
       move: "Ask how they are reading readiness; listen for skill, confidence and alignment, then look for a small signal.",
       phrase: "How are you reading readiness?",
     },
     {
-      situation: "Digital message — \"I am not sure this direction works.\"",
+      situation: 'Digital message — "I am not sure this direction works."',
       move: "Reply with a category-offering how-question so they can name the type of concern, then respond to the category.",
-      phrase: "Can you say how you are seeing the issue — is it audience fit, timing, or execution risk?",
+      phrase:
+        "Can you say how you are seeing the issue — is it audience fit, timing, or execution risk?",
     },
     {
-      situation: "Sensitive one-to-one where \"why?\" would sound sharp",
+      situation: 'Sensitive one-to-one where "why?" would sound sharp',
       move: "Cushion first, then ask how, so the question reads as care rather than challenge.",
       phrase: "I want to understand before I respond. How are you seeing it?",
     },
@@ -236,14 +280,14 @@ export const TC093: CardData = {
     working: [
       "They give an example, mechanism or criterion.",
       "Their tone becomes more thoughtful or precise.",
-      "They say things like \"What I mean is...\" or \"The part I am noticing is...\".",
+      'They say things like "What I mean is..." or "The part I am noticing is...".',
       "The conversation eases because the hidden variable is now visible.",
       "They lean in and share more detail.",
       "They move from a vague label to a concrete cause.",
     ],
     adjust: [
-      "They answer defensively (\"I just think that, okay?\") — repair the frame before asking again.",
-      "They ask \"What do you mean?\" or seem unsure how much detail you want — narrow the question.",
+      'They answer defensively ("I just think that, okay?") — repair the frame before asking again.',
+      'They ask "What do you mean?" or seem unsure how much detail you want — narrow the question.',
       "The answer becomes circular — stop and reflect what you already have.",
       "They look like they feel judged — add warmth or drop the thread.",
       "They give a clear answer and are ready for a response — stop asking and reply.",
@@ -260,7 +304,7 @@ export const TC093: CardData = {
     {
       day: "Day 2",
       title: "Turn vague into how",
-      task: "Take yesterday's three statements and write one neutral How-so prompt for each, under twelve words. Cut any version that really means \"why\" or \"prove it.\"",
+      task: 'Take yesterday\'s three statements and write one neutral How-so prompt for each, under twelve words. Cut any version that really means "why" or "prove it."',
     },
     {
       day: "Day 3",
@@ -270,7 +314,7 @@ export const TC093: CardData = {
     {
       day: "Day 4",
       title: "Cushion for high stakes",
-      task: "Rewrite two prompts with a respect signal in front, e.g. \"I want to understand before I respond. How are you seeing it?\" Use these when tension is likely.",
+      task: 'Rewrite two prompts with a respect signal in front, e.g. "I want to understand before I respond. How are you seeing it?" Use these when tension is likely.',
     },
     {
       day: "Day 5",
@@ -280,7 +324,7 @@ export const TC093: CardData = {
     {
       day: "Day 6",
       title: "Catch the mechanism",
-      task: "Use the prompt once and, instead of asking again, reflect the real criterion back: \"So the issue is X, not Y.\" Check whether they say \"exactly.\"",
+      task: 'Use the prompt once and, instead of asking again, reflect the real criterion back: "So the issue is X, not Y." Check whether they say "exactly."',
     },
     {
       day: "Day 7",
@@ -298,26 +342,26 @@ export const TC093: CardData = {
   ],
   example: {
     without: [
-      "A: \"I do not think the client is ready for the new proposal.\"",
-      "B: \"Why not? They asked for it. We already discussed this.\"",
-      "A: \"I know, but I still think it is too early.\"",
-      "B: \"That does not make sense.\"",
+      'A: "I do not think the client is ready for the new proposal."',
+      'B: "Why not? They asked for it. We already discussed this."',
+      'A: "I know, but I still think it is too early."',
+      'B: "That does not make sense."',
       "Why it fails: B treats the concern as a claim to defeat, not a signal to understand.",
     ],
     with: [
-      "A: \"I do not think the client is ready for the new proposal.\"",
-      "B: \"How so?\"",
-      "A: \"They keep asking about basics we covered weeks ago.\"",
-      "B: \"So the issue is not interest; it is readiness and retention.\"",
-      "A: \"Exactly.\"",
-      "Advanced: \"I want to understand that before we decide. How are you reading their readiness?\" — then reflect: \"So it might land with the sponsor but fail with the users who implement it.\"",
-      "B: \"Would a short readiness check before the proposal reduce that risk?\"",
+      'A: "I do not think the client is ready for the new proposal."',
+      'B: "How so?"',
+      'A: "They keep asking about basics we covered weeks ago."',
+      'B: "So the issue is not interest; it is readiness and retention."',
+      'A: "Exactly."',
+      'Advanced: "I want to understand that before we decide. How are you reading their readiness?" — then reflect: "So it might land with the sponsor but fail with the users who implement it."',
+      'B: "Would a short readiness check before the proposal reduce that risk?"',
       "Why it works: B asks for the mechanism, reflects the real concern, and chains into risk reduction rather than premature persuasion.",
     ],
     note: "The poor version defends against the concern; the strong version treats it as information and asks for the path behind it.",
   },
   influencePayoff: {
-    feeling: "\"They wanted to understand my thinking, not win against it.\"",
+    feeling: '"They wanted to understand my thinking, not win against it."',
     principle:
       "A single short prompt often surfaces more useful information than a long explanation or a multi-part question — its power comes from restraint.",
     gains: [
@@ -330,15 +374,15 @@ export const TC093: CardData = {
       "You become easier to think with",
     ],
     whyMostFail: [
-      "A sceptical, courtroom tone turns \"How so?\" into a demand for proof.",
+      'A sceptical, courtroom tone turns "How so?" into a demand for proof.',
       "Repeating the same prompt makes it feel lazy or interrogative.",
       "Stacking questions overloads the speaker instead of opening one path.",
       "Filling the silence too fast robs the prompt of its power.",
     ],
   },
   fieldTip: {
-    headline: "Put a cushion before \"How so?\" when the stakes are high.",
-    body: "A bare \"How so?\" can read as a trap when tension is high. A short respect signal in front tells them the question is not an attack — and the silence after it does the real work.",
+    headline: 'Put a cushion before "How so?" when the stakes are high.',
+    body: 'A bare "How so?" can read as a trap when tension is high. A short respect signal in front tells them the question is not an attack — and the silence after it does the real work.',
     dont: "How so?",
     do: "I want to understand your read before I respond. How are you seeing it?",
   },
@@ -346,8 +390,8 @@ export const TC093: CardData = {
     {
       step: "1",
       title: "Catch the compressed statement",
-      body: "Listen for a conclusion, reaction, preference or concern that has not been unpacked — \"that felt off,\" \"they are not ready,\" \"I like the second one.\" That is your cue.",
-      examples: [{ label: "Cue", text: "\"That meeting felt strange.\"" }],
+      body: 'Listen for a conclusion, reaction, preference or concern that has not been unpacked — "that felt off," "they are not ready," "I like the second one." That is your cue.',
+      examples: [{ label: "Cue", text: '"That meeting felt strange."' }],
     },
     {
       step: "2",
@@ -363,34 +407,45 @@ export const TC093: CardData = {
       title: "Keep the wording short",
       body: "One clean sentence beats a question-stack. The shorter the prompt, the easier it is to answer and the less it feels like an interrogation.",
       examples: [
-        { label: "Instead of", text: "How so, what happened, who said what, and why?" },
+        {
+          label: "Instead of",
+          text: "How so, what happened, who said what, and why?",
+        },
         { label: "Say", text: "How so?" },
       ],
     },
     {
       step: "4",
       title: "Warm the tone",
-      body: "The same words can feel supportive or adversarial. Curious, low-pressure delivery is what separates \"How so?\" from \"prove it.\" For sensitive topics, add a softener.",
+      body: 'The same words can feel supportive or adversarial. Curious, low-pressure delivery is what separates "How so?" from "prove it." For sensitive topics, add a softener.',
       examples: [
-        { label: "Softener", text: "I want to understand before responding. How do you mean?" },
+        {
+          label: "Softener",
+          text: "I want to understand before responding. How do you mean?",
+        },
       ],
     },
     {
       step: "5",
       title: "Stop after asking",
       body: "Give the person room to think and do not rush to fill the silence. The value of the prompt comes from the answer it makes space for, not from the question itself.",
-      examples: [{ label: "Then", text: "Count two full breaths before adding anything." }],
+      examples: [
+        {
+          label: "Then",
+          text: "Count two full breaths before adding anything.",
+        },
+      ],
     },
   ],
   liveThreadClues: [
-    "\"That felt off.\"",
-    "\"This is better.\"",
-    "\"I am not convinced.\"",
-    "\"I like A more than B.\"",
-    "\"I do not think that will work.\"",
-    "\"It is not really about the money.\"",
-    "\"They are not ready.\"",
-    "\"That meeting felt strange.\"",
+    '"That felt off."',
+    '"This is better."',
+    '"I am not convinced."',
+    '"I like A more than B."',
+    '"I do not think that will work."',
+    '"It is not really about the money."',
+    '"They are not ready."',
+    '"That meeting felt strange."',
   ],
   depthDial: [
     {
@@ -422,23 +477,25 @@ export const TC093: CardData = {
   commonMistakes: [
     {
       mistake: "Using a sceptical tone",
-      soundsLike: "\"How so?\" delivered sharply, meaning \"prove it.\"",
-      better: "\"I want to understand how you are seeing it\" — curious and unhurried.",
+      soundsLike: '"How so?" delivered sharply, meaning "prove it."',
+      better:
+        '"I want to understand how you are seeing it" — curious and unhurried.',
     },
     {
       mistake: "Overusing the same phrase",
-      soundsLike: "\"How so?\" ... \"How so?\" ... \"How so?\"",
-      better: "Vary it: \"How does that show up?\" then \"What is the main thing pointing you there?\"",
+      soundsLike: '"How so?" ... "How so?" ... "How so?"',
+      better:
+        'Vary it: "How does that show up?" then "What is the main thing pointing you there?"',
     },
     {
       mistake: "Asking too broadly when the issue is specific",
-      soundsLike: "\"How so?\"",
-      better: "\"How did that show up in the meeting?\"",
+      soundsLike: '"How so?"',
+      better: '"How did that show up in the meeting?"',
     },
     {
       mistake: "Stacking questions",
-      soundsLike: "\"How so, what happened, who said what, and why?\"",
-      better: "Ask one: \"How so?\" — then wait.",
+      soundsLike: '"How so, what happened, who said what, and why?"',
+      better: 'Ask one: "How so?" — then wait.',
     },
     {
       mistake: "Interrupting the answer",
@@ -452,8 +509,8 @@ export const TC093: CardData = {
     },
     {
       mistake: "Ignoring emotional content",
-      soundsLike: "\"How so?\" straight after something painful.",
-      better: "Reflect first: \"That sounds hard. How has it been showing up?\"",
+      soundsLike: '"How so?" straight after something painful.',
+      better: 'Reflect first: "That sounds hard. How has it been showing up?"',
     },
     {
       mistake: "Turning every claim into a debate",
@@ -475,10 +532,11 @@ export const TC093: CardData = {
   chains: [
     {
       label: "Open then reflect",
-      sequence: "Comment-before-question → How-so prompt → Reflective listening",
+      sequence:
+        "Comment-before-question → How-so prompt → Reflective listening",
       example: [
-        "\"That sounds like a real concern. How are you seeing it?\"",
-        "Then reflect: \"So the risk is adoption, not interest.\"",
+        '"That sounds like a real concern. How are you seeing it?"',
+        'Then reflect: "So the risk is adoption, not interest."',
       ],
     },
     {
@@ -486,24 +544,24 @@ export const TC093: CardData = {
       sequence: "Exact-word pickup → How-so prompt → Summary check",
       example: [
         "\"You said 'fragile.' How is it fragile?\"",
-        "Then check: \"Have I got that right?\"",
+        'Then check: "Have I got that right?"',
       ],
     },
     {
       label: "Open then reduce risk",
       sequence: "How-so prompt → Risk reduction → Bounded request",
       example: [
-        "\"How do you see the risk playing out?\"",
-        "\"What would reduce that risk?\"",
-        "\"Could we do a ten-minute readiness check before sending it?\"",
+        '"How do you see the risk playing out?"',
+        '"What would reduce that risk?"',
+        '"Could we do a ten-minute readiness check before sending it?"',
       ],
     },
     {
       label: "Understand then advise",
       sequence: "How-so prompt → Permission-based advice",
       example: [
-        "\"How are you seeing the bottleneck?\"",
-        "\"Would it help if I offered one option?\"",
+        '"How are you seeing the bottleneck?"',
+        '"Would it help if I offered one option?"',
       ],
     },
   ],
@@ -511,7 +569,7 @@ export const TC093: CardData = {
     {
       id: "TC003",
       reason:
-        "Add a short observation before the how-question when trust is low, so \"How so?\" does not feel cold or abrupt. Use How-so alone once rapport is there.",
+        'Add a short observation before the how-question when trust is low, so "How so?" does not feel cold or abrupt. Use How-so alone once rapport is there.',
     },
     {
       id: "TC023",
@@ -531,7 +589,7 @@ export const TC093: CardData = {
     {
       id: "TC087",
       reason:
-        "Invite a story for sequence and scene (\"what happened?\"); ask How-so for the mechanism or criterion behind a claim.",
+        'Invite a story for sequence and scene ("what happened?"); ask How-so for the mechanism or criterion behind a claim.',
     },
     {
       id: "TC100",
