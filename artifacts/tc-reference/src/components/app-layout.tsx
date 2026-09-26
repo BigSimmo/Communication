@@ -638,6 +638,7 @@ export function AppLayout({ children }: AppLayoutProps) {
 
       {/* ── Stack nav (vertical pills, default) ── */}
       {presentedLayout === "stack" && (
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- delegated Tab focus trap for the links inside
         <nav
           id="mobile-organized-menu"
           ref={navRef}
@@ -775,6 +776,7 @@ export function AppLayout({ children }: AppLayoutProps) {
 
       {/* ── Fan nav (radial arc chips) ── */}
       {presentedLayout === "fan" && (
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- delegated Tab focus trap for the links inside
         <nav
           id="mobile-organized-menu"
           ref={navRef}

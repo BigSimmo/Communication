@@ -149,12 +149,13 @@ export function QuickModeOverlay() {
     (count, group) => count + group.phrases.length,
     0,
   );
+  const visibleGroups: QuickGroup[] = [];
   let remainingRows = visibleCount;
-  const visibleGroups = filteredGroups.flatMap((group) => {
+  for (const group of filteredGroups) {
     const phrases = group.phrases.slice(0, remainingRows);
     remainingRows -= phrases.length;
-    return phrases.length > 0 ? [{ ...group, phrases }] : [];
-  });
+    if (phrases.length > 0) visibleGroups.push({ ...group, phrases });
+  }
   const remainingPhraseCount =
     totalPhraseCount - Math.min(visibleCount, totalPhraseCount);
 
