@@ -1,6 +1,22 @@
 import { ChevronDown } from "lucide-react";
 
-export type CardSection = "overview" | "why" | "method" | "phrases" | "ladder" | "inpractice" | "tree" | "scenarios" | "chains" | "calibration" | "mistakes" | "recovery" | "practice" | "checklist" | "related" | "resources";
+export type CardSection =
+  | "overview"
+  | "why"
+  | "method"
+  | "phrases"
+  | "ladder"
+  | "inpractice"
+  | "tree"
+  | "scenarios"
+  | "chains"
+  | "calibration"
+  | "mistakes"
+  | "recovery"
+  | "practice"
+  | "checklist"
+  | "related"
+  | "resources";
 
 export const SECTIONS: { id: CardSection; label: string }[] = [
   { id: "overview", label: "Overview" },
@@ -26,7 +42,13 @@ export const SECTIONS: { id: CardSection; label: string }[] = [
 // component identity every render, remounting each open section's subtree on
 // any state change (losing focus and transient DOM state within sections).
 export function SectionAccordion({
-  id, label, color, subtitle, open, onToggle, children,
+  id,
+  label,
+  color,
+  subtitle,
+  open,
+  onToggle,
+  children,
 }: {
   id: CardSection;
   label: string;
@@ -52,22 +74,39 @@ export function SectionAccordion({
           className="w-full flex items-center gap-3.5 px-5 py-4 text-left transition-colors active:bg-[var(--fg-03)]"
           style={{ minHeight: 56 }}
         >
-          <div className="w-1 h-[18px] rounded-full flex-shrink-0" style={{ background: color }} aria-hidden="true" />
+          <div
+            className="w-1 h-[18px] rounded-full flex-shrink-0"
+            style={{ background: color }}
+            aria-hidden="true"
+          />
           <div className="flex-1 min-w-0">
-            <span className="block text-[14px] font-bold text-foreground/85">{label}</span>
+            <span className="block text-[14px] font-bold text-foreground/85">
+              {label}
+            </span>
             {subtitle && (
-              <span className="block text-[11px] mt-0.5 leading-snug font-normal" style={{ color: "var(--fg-55)" }}>{subtitle}</span>
+              <span
+                className="block text-[11px] mt-0.5 leading-snug font-normal"
+                style={{ color: "var(--fg-55)" }}
+              >
+                {subtitle}
+              </span>
             )}
           </div>
           <ChevronDown
             className="w-4 h-4 flex-shrink-0 transition-transform duration-200"
-            style={{ color: "var(--fg-35)", transform: open ? "rotate(180deg)" : "none" }}
+            style={{
+              color: "var(--fg-35)",
+              transform: open ? "rotate(180deg)" : "none",
+            }}
             aria-hidden="true"
           />
         </button>
       </h2>
       {open && (
-        <div className="px-5 pb-5 pt-4" style={{ borderTop: "1px solid var(--fg-04)" }}>
+        <div
+          className="px-5 pb-5 pt-4"
+          style={{ borderTop: "1px solid var(--fg-04)" }}
+        >
           {children}
         </div>
       )}

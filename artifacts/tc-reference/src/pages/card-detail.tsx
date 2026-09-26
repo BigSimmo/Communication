@@ -1,10 +1,4 @@
-import {
-  useState,
-  useEffect,
-  useRef,
-  createContext,
-  useContext,
-} from "react";
+import { useState, useEffect, useRef, createContext, useContext } from "react";
 import { useRoute, useLocation } from "wouter";
 import {
   Check,
@@ -31,7 +25,9 @@ import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
 // Measured header height (includes the top safe-area inset and compact state)
 // so scroll offsets line up with the sticky header on every device.
 function headerOffset(): number {
-  const header = document.querySelector<HTMLElement>('[data-testid="app-header"]');
+  const header = document.querySelector<HTMLElement>(
+    '[data-testid="app-header"]',
+  );
   return header?.getBoundingClientRect().height ?? 48;
 }
 
@@ -181,11 +177,7 @@ function ExampleLines({ lines, color }: { lines: string[]; color: string }) {
       {dialogue.map((line, i) => {
         const m = line.match(SPEAKER);
         return (
-          <p
-            key={i}
-            className="text-[14px] leading-relaxed"
-            style={{ color }}
-          >
+          <p key={i} className="text-[14px] leading-relaxed" style={{ color }}>
             {m ? (
               <>
                 <span className="font-semibold text-foreground/85">
@@ -1042,7 +1034,9 @@ export default function CardDetail() {
                         key={s.id}
                         id={`nav-${s.id}`}
                         type="button"
-                        aria-current={activeSection === s.id ? "true" : undefined}
+                        aria-current={
+                          activeSection === s.id ? "true" : undefined
+                        }
                         aria-controls={`section-${s.id}`}
                         onClick={() => scrollSectionIntoView(s.id)}
                         data-testid={`nav-${s.id}`}
@@ -2012,7 +2006,10 @@ export default function CardDetail() {
                   className="px-4 pb-4 pt-3 space-y-2"
                   style={{ background: "rgba(239,68,68,0.04)" }}
                 >
-                  <ExampleLines lines={cardData.example.without} color="var(--fg-65)" />
+                  <ExampleLines
+                    lines={cardData.example.without}
+                    color="var(--fg-65)"
+                  />
                 </div>
               </div>
 
@@ -2035,7 +2032,10 @@ export default function CardDetail() {
                   className="px-4 pb-4 pt-3 space-y-2"
                   style={{ background: "rgba(34,197,94,0.04)" }}
                 >
-                  <ExampleLines lines={cardData.example.with} color="var(--fg-78)" />
+                  <ExampleLines
+                    lines={cardData.example.with}
+                    color="var(--fg-78)"
+                  />
                 </div>
               </div>
 
@@ -2168,7 +2168,9 @@ export default function CardDetail() {
                       ) : (
                         <Copy className="w-3.5 h-3.5" />
                       )}
-                      <span className="min-w-0 break-words text-left">{s.phrase}</span>
+                      <span className="min-w-0 break-words text-left">
+                        {s.phrase}
+                      </span>
                     </button>
                     <button
                       onClick={() =>

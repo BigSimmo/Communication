@@ -29,7 +29,10 @@ export function useRecentSearches() {
     const trimmed = term.trim();
     if (!trimmed) return;
     setRecents((prev) => {
-      const deduped = [trimmed, ...prev.filter((r) => r.toLowerCase() !== trimmed.toLowerCase())];
+      const deduped = [
+        trimmed,
+        ...prev.filter((r) => r.toLowerCase() !== trimmed.toLowerCase()),
+      ];
       const capped = deduped.slice(0, MAX_RECENTS);
       writeRecents(capped);
       return capped;

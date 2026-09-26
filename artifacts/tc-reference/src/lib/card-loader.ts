@@ -7,7 +7,8 @@ export function createCardLoader(
   moduleLoadersById: ReadonlyMap<string, CardModuleLoader>,
 ) {
   const cardPromiseCache = new Map<string, Promise<CardData | null>>();
-  let aggregatePromise: Promise<Readonly<Record<string, CardData>>> | null = null;
+  let aggregatePromise: Promise<Readonly<Record<string, CardData>>> | null =
+    null;
 
   function loadCard(cardId: string): Promise<CardData | null> {
     const cached = cardPromiseCache.get(cardId);

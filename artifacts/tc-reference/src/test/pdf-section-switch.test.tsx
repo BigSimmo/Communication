@@ -1,5 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, act, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  act,
+  waitFor,
+} from "@testing-library/react";
 import { useRoute, useLocation } from "wouter";
 import CardDetail from "../pages/card-detail";
 import { PdfProvider, usePdf } from "../lib/pdf-context";
@@ -29,9 +35,7 @@ function PdfUrlDisplay() {
 function Wrapper({ children }: { children: React.ReactNode }) {
   return (
     <FavouritesProvider>
-      <PdfProvider>
-        {children}
-      </PdfProvider>
+      <PdfProvider>{children}</PdfProvider>
     </FavouritesProvider>
   );
 }
@@ -60,7 +64,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
         <OpenPdfButton />
         <PdfStatusDisplay />
         <CardDetail />
-      </Wrapper>
+      </Wrapper>,
     );
 
     await screen.findByTestId("nav-phrases");
@@ -86,7 +90,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
         <OpenPdfButton />
         <PdfStatusDisplay />
         <CardDetail />
-      </Wrapper>
+      </Wrapper>,
     );
 
     await screen.findByTestId("nav-phrases");
@@ -101,7 +105,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
           <OpenPdfButton />
           <PdfStatusDisplay />
           <CardDetail />
-        </Wrapper>
+        </Wrapper>,
       );
     });
 
@@ -116,14 +120,20 @@ describe("CardDetail PDF viewer — section switching regression", () => {
         <OpenPdfButton />
         <PdfStatusDisplay />
         <CardDetail />
-      </Wrapper>
+      </Wrapper>,
     );
 
     await screen.findByTestId("nav-phrases");
     fireEvent.click(screen.getByTestId("open-pdf"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
-    const tabs = ["nav-phrases", "nav-scenarios", "nav-inpractice", "nav-overview", "nav-phrases"] as const;
+    const tabs = [
+      "nav-phrases",
+      "nav-scenarios",
+      "nav-inpractice",
+      "nav-overview",
+      "nav-phrases",
+    ] as const;
     for (const tab of tabs) {
       fireEvent.click(screen.getByTestId(tab));
       expect(screen.getByTestId("pdf-status").textContent).toBe("open");
@@ -137,7 +147,7 @@ describe("CardDetail PDF availability contract", () => {
       <Wrapper>
         <PdfUrlDisplay />
         <CardDetail />
-      </Wrapper>
+      </Wrapper>,
     );
 
     await waitFor(() =>
@@ -153,7 +163,7 @@ describe("CardDetail PDF availability contract", () => {
         <Wrapper>
           <PdfUrlDisplay />
           <CardDetail />
-        </Wrapper>
+        </Wrapper>,
       );
     });
 

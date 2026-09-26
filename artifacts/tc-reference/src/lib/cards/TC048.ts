@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC048: CardData = {
   pdfUrl: "cards/TC048/TC048_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC048/TC048_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC048/TC048_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC048/TC048_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC048/TC048_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC048/TC048_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC048/TC048_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC048/TC048_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC048/TC048_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC048/TC048_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC048/TC048_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC048/TC048_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC048/TC048_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC048/TC048_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC048/TC048_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC048",
   whyItWorks:
@@ -25,7 +68,7 @@ export const TC048: CardData = {
       "Situation → Complication → Question → Answer",
       "Situation: where things stand. Complication: what has changed or gone wrong. Question: the decision it forces. Answer: what you recommend.",
       "Minimum viable move: Situation X. Complication Y. Question: what should we do? Answer: Z.",
-      "Worked example: \"We shipped on time (S). But support tickets have doubled (C). Do we pause new features to fix it (Q)? I'd pause for two weeks (A).\"",
+      'Worked example: "We shipped on time (S). But support tickets have doubled (C). Do we pause new features to fix it (Q)? I\'d pause for two weeks (A)."',
       "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
@@ -154,7 +197,9 @@ export const TC048: CardData = {
       step: "2",
       title: "Set the situation",
       body: "Give one or two lines of shared, neutral context — the ground you both already stand on. Keep it short; this is the setup, not the story.",
-      examples: [{ label: "Situation", text: "\"The migration's on track for Friday.\"" }],
+      examples: [
+        { label: "Situation", text: '"The migration\'s on track for Friday."' },
+      ],
     },
     {
       step: "3",
@@ -163,7 +208,7 @@ export const TC048: CardData = {
       examples: [
         {
           label: "Complication",
-          text: "\"But the vendor changed their API last week, which adds about a week of work.\"",
+          text: '"But the vendor changed their API last week, which adds about a week of work."',
         },
       ],
     },
@@ -172,7 +217,10 @@ export const TC048: CardData = {
       title: "Make the question explicit",
       body: "Say the actual decision the complication forces, so you are both solving the same problem instead of guessing at it. This is the step people skip most.",
       examples: [
-        { label: "Question", text: "\"So do we hold the launch date or cut the reporting feature?\"" },
+        {
+          label: "Question",
+          text: '"So do we hold the launch date or cut the reporting feature?"',
+        },
       ],
     },
     {
@@ -182,72 +230,78 @@ export const TC048: CardData = {
       examples: [
         {
           label: "Answer",
-          text: "\"I'd cut reporting and keep the date — we can add it next release. Happy to talk it through.\"",
+          text: '"I\'d cut reporting and keep the date — we can add it next release. Happy to talk it through."',
         },
       ],
     },
   ],
   liveThreadClues: [
-    "\"Sorry — what's the actual point?\"",
-    "\"I'm not following.\"",
-    "\"So what are you asking me to decide?\"",
-    "\"Can you get to the bottom line?\"",
-    "\"Wait, back up.\"",
-    "\"What do you want me to do with this?\"",
-    "\"We keep going in circles.\"",
+    '"Sorry — what\'s the actual point?"',
+    '"I\'m not following."',
+    '"So what are you asking me to decide?"',
+    '"Can you get to the bottom line?"',
+    '"Wait, back up."',
+    '"What do you want me to do with this?"',
+    '"We keep going in circles."',
   ],
   depthDial: [
     {
       depth: "Answer only",
       useWhen: "They need speed and already know the context",
-      phrase: "\"Short answer: we pause for two weeks.\"",
+      phrase: '"Short answer: we pause for two weeks."',
     },
     {
       depth: "Question + Answer",
       useWhen: "The situation is shared but the decision isn't named",
-      phrase: "\"The question is whether we pause; I'd pause.\"",
+      phrase: '"The question is whether we pause; I\'d pause."',
     },
     {
       depth: "Complication + Question + Answer",
       useWhen: "They know where things stand but not what's changed",
-      phrase: "\"Tickets have doubled — do we pause? I think yes.\"",
+      phrase: '"Tickets have doubled — do we pause? I think yes."',
     },
     {
       depth: "Full SCQA",
       useWhen: "The listener is new to the problem",
-      phrase: "\"Here's the situation, here's what changed, here's the call, here's my answer.\"",
+      phrase:
+        "\"Here's the situation, here's what changed, here's the call, here's my answer.\"",
     },
     {
       depth: "Situation only, then stop",
       useWhen: "Emotion is high and you need to check in first",
-      phrase: "\"Here's where things stand — how are you feeling about it before I go on?\"",
+      phrase:
+        '"Here\'s where things stand — how are you feeling about it before I go on?"',
     },
   ],
   decisionTree: [
     {
       condition: "The listener needs speed",
-      action: "Use the shortest version — answer first, structure only if they ask for it.",
-      phrase: "\"Short answer: pause for two weeks. I can give you the why if you want it.\"",
+      action:
+        "Use the shortest version — answer first, structure only if they ask for it.",
+      phrase:
+        '"Short answer: pause for two weeks. I can give you the why if you want it."',
     },
     {
       condition: "The listener needs support",
-      action: "Validate first and delay the framework until the emotion settles.",
-      phrase: "\"That's a lot to carry. Tell me what you need before I get into the detail.\"",
+      action:
+        "Validate first and delay the framework until the emotion settles.",
+      phrase:
+        '"That\'s a lot to carry. Tell me what you need before I get into the detail."',
     },
     {
       condition: "The listener needs a story or example",
       action: "Switch to an example-led neighbour such as STAR or CARL.",
-      phrase: "\"Let me give you a concrete example of how this played out.\"",
+      phrase: '"Let me give you a concrete example of how this played out."',
     },
     {
       condition: "The listener needs to act",
       action: "End with one clean, specific next step.",
-      phrase: "\"So the one thing I need is a yes or no on cutting reporting.\"",
+      phrase: '"So the one thing I need is a yes or no on cutting reporting."',
     },
     {
       condition: "You notice you're inflating the problem",
       action: "Drop the drama and name the issue at its true size.",
-      phrase: "\"Honestly it's a small thing, but worth a heads-up.\"",
+      phrase: '"Honestly it\'s a small thing, but worth a heads-up."',
     },
     {
       condition: "The listener is already clear",
@@ -266,32 +320,38 @@ export const TC048: CardData = {
     {
       situation: "Work meeting",
       move: "Make a scattered contribution concise and memorable — one line per step.",
-      phrase: "\"Here's where we are, here's the snag, here's the call, here's what I'd do.\"",
+      phrase:
+        "\"Here's where we are, here's the snag, here's the call, here's what I'd do.\"",
     },
     {
       situation: "Email or written update",
       move: "Put each step in a short labelled paragraph or bullet so the reader can scan it.",
-      phrase: "\"Background: … / What's changed: … / Decision needed: … / My recommendation: …\"",
+      phrase:
+        '"Background: … / What\'s changed: … / Decision needed: … / My recommendation: …"',
     },
     {
       situation: "Giving feedback",
       move: "Check what kind of feedback is wanted before you structure it.",
-      phrase: "\"Do you want my read on it, or just a sounding board? If it's useful, here's the shape of it.\"",
+      phrase:
+        "\"Do you want my read on it, or just a sounding board? If it's useful, here's the shape of it.\"",
     },
     {
       situation: "Difficult conversation",
       move: "One sentence per step, then pause so it stays a conversation.",
-      phrase: "\"Here's the situation. Here's what's gone wrong. Can we work out the question together?\"",
+      phrase:
+        "\"Here's the situation. Here's what's gone wrong. Can we work out the question together?\"",
     },
     {
       situation: "Someone is upset",
       move: "Validate first; only structure once they feel heard.",
-      phrase: "\"That sounds really frustrating. When you're ready, I can lay out where things stand.\"",
+      phrase:
+        '"That sounds really frustrating. When you\'re ready, I can lay out where things stand."',
     },
     {
       situation: "Pitching a proposal",
       move: "Lead from shared context to your recommendation without hiding the ask.",
-      phrase: "\"We agreed on the goal; here's the obstacle; here's the question; here's what I'd back.\"",
+      phrase:
+        "\"We agreed on the goal; here's the obstacle; here's the question; here's what I'd back.\"",
     },
   ],
   calibration: {
@@ -315,23 +375,24 @@ export const TC048: CardData = {
   commonMistakes: [
     {
       mistake: "Announcing the framework",
-      soundsLike: "\"I'm going to use SCQA here. Situation, colon…\"",
-      better: "\"Here's the short version…\" — use the structure silently.",
+      soundsLike: '"I\'m going to use SCQA here. Situation, colon…"',
+      better: '"Here\'s the short version…" — use the structure silently.',
     },
     {
       mistake: "Manufacturing a complication",
-      soundsLike: "\"This is a huge problem\" — about a minor issue.",
-      better: "\"It's a small snag, but worth flagging: …\"",
+      soundsLike: '"This is a huge problem" — about a minor issue.',
+      better: '"It\'s a small snag, but worth flagging: …"',
     },
     {
       mistake: "Over-structuring",
-      soundsLike: "Forcing every sentence into a step after they're already clear.",
+      soundsLike:
+        "Forcing every sentence into a step after they're already clear.",
       better: "Stopping the moment the point has landed.",
     },
     {
       mistake: "Burying the question",
       soundsLike: "Lots of context, no explicit decision.",
-      better: "\"So the question is whether we hold the date or cut a feature.\"",
+      better: '"So the question is whether we hold the date or cut a feature."',
     },
     {
       mistake: "Over-explaining after the answer",
@@ -360,7 +421,7 @@ export const TC048: CardData = {
       sequence: "SCQA → Summary check",
       example: [
         "Give the four-beat frame, then check it landed.",
-        "\"Before we move on — what did you take as the main point?\"",
+        '"Before we move on — what did you take as the main point?"',
       ],
     },
     {
@@ -368,7 +429,7 @@ export const TC048: CardData = {
       sequence: "SCQA → Clean request",
       example: [
         "Once the frame has made the problem clear, make the next step concrete.",
-        "\"So — can you approve the scope cut by Thursday?\"",
+        '"So — can you approve the scope cut by Thursday?"',
       ],
     },
     {
@@ -436,7 +497,7 @@ export const TC048: CardData = {
   example: {
     without: [
       "You: \"So, um, a few things — the migration's mostly done, though there were issues with staging, and also the vendor's API changed, which affects the timeline, and I've been meaning to mention the budget too…\"",
-      "Manager: \"Sorry — what do you actually need from me?\"",
+      'Manager: "Sorry — what do you actually need from me?"',
       "You: \"Well, it's complicated. There's a lot going on.\"",
       "Why it is weak:",
       "buries the real decision under background",
@@ -445,10 +506,10 @@ export const TC048: CardData = {
       "sounds anxious rather than clear",
     ],
     with: [
-      "You: \"Quick one — can I give you the shape of it in four lines?\"",
-      "Manager: \"Go for it.\"",
-      "You: \"The migration's on track for Friday. But the vendor changed their API last week, which adds about a week of work. So the question is whether we hold the launch date or cut the reporting feature.\"",
-      "Manager: \"And what do you think?\"",
+      'You: "Quick one — can I give you the shape of it in four lines?"',
+      'Manager: "Go for it."',
+      'You: "The migration\'s on track for Friday. But the vendor changed their API last week, which adds about a week of work. So the question is whether we hold the launch date or cut the reporting feature."',
+      'Manager: "And what do you think?"',
       "You: \"I'd cut reporting and keep the date — we can add it next release. Happy to talk it through if you'd rather hold.\"",
       "Manager: \"No, that's clear. Let's cut reporting.\"",
       "Why this works:",
@@ -460,7 +521,7 @@ export const TC048: CardData = {
     note: "The structure never gets announced. The listener just feels the point arrive in a clear order.",
   },
   influencePayoff: {
-    feeling: "\"I know exactly what they're asking me and why it matters.\"",
+    feeling: '"I know exactly what they\'re asking me and why it matters."',
     principle:
       "People engage with a point more readily when they can see its shape — context, problem, question, answer — before they're asked to judge it.",
     gains: [

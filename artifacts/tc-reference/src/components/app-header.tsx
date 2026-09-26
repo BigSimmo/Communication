@@ -23,7 +23,8 @@ const SearchModal = lazy(() =>
   import("@/components/search-modal").then((m) => ({ default: m.SearchModal })),
 );
 
-const CARD_META: Record<string, { cardTitle: string; cardCategory: string }> = {};
+const CARD_META: Record<string, { cardTitle: string; cardCategory: string }> =
+  {};
 for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
   for (const card of cards) {
     CARD_META[card.id] = { cardTitle: card.title, cardCategory: category };
@@ -31,7 +32,7 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
 }
 
 const allCards = Object.entries(LIBRARY_CATEGORIES).flatMap(([cat, cards]) =>
-  cards.map((c) => ({ ...c, category: cat }))
+  cards.map((c) => ({ ...c, category: cat })),
 );
 
 interface AppHeaderProps {
@@ -71,12 +72,14 @@ function HeaderIconButton({
       data-testid={testId}
       className={`card-header-action h-9 w-9 flex-shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-95 ${className}`}
       style={{
-        background: active
-          ? "var(--gradient-active)"
-          : "var(--fg-05)",
-        border: active ? "1px solid color-mix(in srgb, var(--brand) 55%, transparent)" : "1px solid var(--fg-08)",
+        background: active ? "var(--gradient-active)" : "var(--fg-05)",
+        border: active
+          ? "1px solid color-mix(in srgb, var(--brand) 55%, transparent)"
+          : "1px solid var(--fg-08)",
         color: active ? "var(--brand-contrast)" : "var(--fg-55)",
-        boxShadow: active ? "0 2px 10px color-mix(in srgb, var(--brand) 24%, transparent)" : "none",
+        boxShadow: active
+          ? "0 2px 10px color-mix(in srgb, var(--brand) 24%, transparent)"
+          : "none",
       }}
     >
       {children}
@@ -84,10 +87,7 @@ function HeaderIconButton({
   );
 }
 
-export function AppHeader({
-  menuOpen = false,
-  onToggleMenu,
-}: AppHeaderProps) {
+export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
   const [location] = useLocation();
   const {
     searchOpen,
@@ -103,12 +103,14 @@ export function AppHeader({
   const { theme, toggle } = useTheme();
   const [compact, setCompact] = useState(false);
 
-  const cardId = location.startsWith("/card/") ? location.replace("/card/", "").split("?")[0] : null;
+  const cardId = location.startsWith("/card/")
+    ? location.replace("/card/", "").split("?")[0]
+    : null;
   const mode: "library" | "card" = cardId !== null ? "card" : "library";
   // The brand title is only the page heading on the Library route itself;
   // other pages (Phrases, Drill, Favourites) provide their own h1.
   const TitleTag: "h1" | "p" = location === "/" ? "h1" : "p";
-  const cardMeta = cardId ? CARD_META[cardId] ?? null : null;
+  const cardMeta = cardId ? (CARD_META[cardId] ?? null) : null;
 
   const totalCards = allCards.length;
   // Compact still clears the 44px touch targets used on coarse pointers.
@@ -173,7 +175,8 @@ export function AppHeader({
           maxHeight: `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
           transform: "translateZ(0)",
           contain: "layout paint",
-          transition: "height 180ms ease, min-height 180ms ease, max-height 180ms ease",
+          transition:
+            "height 180ms ease, min-height 180ms ease, max-height 180ms ease",
         }}
         data-testid="app-header"
         data-compact={compact}
@@ -186,7 +189,6 @@ export function AppHeader({
             paddingRight: "max(var(--hdr-px), env(safe-area-inset-right, 0px))",
           }}
         >
-
           {/* ── CARD MODE ── */}
           {mode === "card" && (
             <>
@@ -197,12 +199,18 @@ export function AppHeader({
                 className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                 style={{ background: "var(--fg-05)" }}
               >
-                <ChevronLeft className="w-5 h-5" style={{ color: "var(--fg-70)" }} />
+                <ChevronLeft
+                  className="w-5 h-5"
+                  style={{ color: "var(--fg-70)" }}
+                />
               </Link>
               <div className="flex-1 min-w-0 flex items-center gap-2">
                 <span
                   className="text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
-                  style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
+                  style={{
+                    background: "var(--brand)",
+                    color: "var(--brand-contrast)",
+                  }}
                 >
                   {cardId}
                 </span>
@@ -217,17 +225,29 @@ export function AppHeader({
               {cardId && (
                 <button
                   onClick={() => toggleCard(cardId)}
-                  aria-label={isCardFav(cardId) ? "Remove from favourites" : "Save to favourites"}
+                  aria-label={
+                    isCardFav(cardId)
+                      ? "Remove from favourites"
+                      : "Save to favourites"
+                  }
                   data-testid="button-fav-card"
                   className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                   style={{
-                    background: isCardFav(cardId) ? "color-mix(in srgb, var(--brand) 12%, transparent)" : "var(--fg-05)",
-                    border: isCardFav(cardId) ? "none" : "1px solid var(--fg-08)"
+                    background: isCardFav(cardId)
+                      ? "color-mix(in srgb, var(--brand) 12%, transparent)"
+                      : "var(--fg-05)",
+                    border: isCardFav(cardId)
+                      ? "none"
+                      : "1px solid var(--fg-08)",
                   }}
                 >
                   <Heart
                     className="w-4 h-4"
-                    style={{ color: isCardFav(cardId) ? "var(--brand-text)" : "var(--fg-55)" }}
+                    style={{
+                      color: isCardFav(cardId)
+                        ? "var(--brand-text)"
+                        : "var(--fg-55)",
+                    }}
                     fill={isCardFav(cardId) ? "var(--brand-text)" : "none"}
                   />
                 </button>
@@ -247,22 +267,30 @@ export function AppHeader({
                   menu button already provides it, and dropping it gives the
                   card title room at 375px. */}
               <HeaderIconButton
-                label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                label={
+                  theme === "dark"
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+                }
                 testId="button-theme-toggle-card"
                 onClick={toggle}
                 className="header-desktop-only"
               >
-                {theme === "dark"
-                  ? <Sun className="w-4 h-4" aria-hidden="true" />
-                  : <Moon className="w-4 h-4" aria-hidden="true" />
-                }
+                {theme === "dark" ? (
+                  <Sun className="w-4 h-4" aria-hidden="true" />
+                ) : (
+                  <Moon className="w-4 h-4" aria-hidden="true" />
+                )}
               </HeaderIconButton>
               <button
                 onClick={() => setIsOpen(true)}
                 aria-label="Open Quick Lookup"
                 data-testid="button-quick"
                 className="card-header-action flex items-center gap-1.5 text-[11px] font-bold px-2.5 md:px-3.5 py-2 rounded-full active:scale-95 transition-transform flex-shrink-0"
-                style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
+                style={{
+                  background: "var(--brand)",
+                  color: "var(--brand-contrast)",
+                }}
               >
                 <Zap className="w-3.5 h-3.5" />
                 <span className="hidden md:inline">Quick</span>
@@ -327,7 +355,11 @@ export function AppHeader({
               </div>
               <div className="flex items-center justify-end gap-1.5 sm:gap-2.5 flex-shrink-0">
                 <HeaderIconButton
-                  label={headerDetailsOpen ? "Hide header details" : "Show header details"}
+                  label={
+                    headerDetailsOpen
+                      ? "Hide header details"
+                      : "Show header details"
+                  }
                   active={headerDetailsOpen}
                   expanded={headerDetailsOpen}
                   controls="library-header-details"
@@ -338,7 +370,9 @@ export function AppHeader({
                 </HeaderIconButton>
                 {onToggleMenu && (
                   <HeaderIconButton
-                    label={menuOpen ? "Close organized menu" : "Open organized menu"}
+                    label={
+                      menuOpen ? "Close organized menu" : "Open organized menu"
+                    }
                     active={menuOpen}
                     expanded={menuOpen}
                     controls="mobile-organized-menu"
@@ -346,20 +380,29 @@ export function AppHeader({
                     onClick={onToggleMenu}
                     className="inline-flex md:hidden"
                   >
-                    {menuOpen ? <X className="w-4 h-4" aria-hidden="true" /> : <Menu className="w-4 h-4" aria-hidden="true" />}
+                    {menuOpen ? (
+                      <X className="w-4 h-4" aria-hidden="true" />
+                    ) : (
+                      <Menu className="w-4 h-4" aria-hidden="true" />
+                    )}
                   </HeaderIconButton>
                 )}
                 {/* Theme toggle */}
                 <HeaderIconButton
-                  label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                  label={
+                    theme === "dark"
+                      ? "Switch to light mode"
+                      : "Switch to dark mode"
+                  }
                   testId="button-theme-toggle"
                   onClick={toggle}
                   className="hidden sm:inline-flex"
                 >
-                  {theme === "dark"
-                    ? <Sun className="w-4 h-4" aria-hidden="true" />
-                    : <Moon className="w-4 h-4" aria-hidden="true" />
-                  }
+                  {theme === "dark" ? (
+                    <Sun className="w-4 h-4" aria-hidden="true" />
+                  ) : (
+                    <Moon className="w-4 h-4" aria-hidden="true" />
+                  )}
                 </HeaderIconButton>
                 {/* Library size badge — count of technique cards */}
                 <div
@@ -372,14 +415,22 @@ export function AppHeader({
                     style={{
                       background:
                         "linear-gradient(135deg, color-mix(in srgb, var(--brand) 20%, transparent) 0%, color-mix(in srgb, var(--brand) 7%, transparent) 100%)",
-                      border: "1px solid color-mix(in srgb, var(--brand) 30%, transparent)",
-                      boxShadow: "0 0 12px color-mix(in srgb, var(--brand) 10%, transparent)",
+                      border:
+                        "1px solid color-mix(in srgb, var(--brand) 30%, transparent)",
+                      boxShadow:
+                        "0 0 12px color-mix(in srgb, var(--brand) 10%, transparent)",
                     }}
                   >
-                    <span className="text-[12px] font-bold" style={{ color: "var(--brand-text)" }}>
+                    <span
+                      className="text-[12px] font-bold"
+                      style={{ color: "var(--brand-text)" }}
+                    >
                       {totalCards}
                     </span>
-                    <span className="text-[10px] font-semibold" style={{ color: "var(--fg-55)" }}>
+                    <span
+                      className="text-[10px] font-semibold"
+                      style={{ color: "var(--fg-55)" }}
+                    >
                       cards
                     </span>
                   </div>

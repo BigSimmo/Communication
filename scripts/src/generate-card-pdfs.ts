@@ -13,7 +13,11 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { PDFDocument, PDFFont, PDFPage, StandardFonts, rgb } from "pdf-lib";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
+const ROOT = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+  "..",
+);
 const OUT_BASE = process.env.CARD_DOWNLOADS_OUT_DIR
   ? path.resolve(process.env.CARD_DOWNLOADS_OUT_DIR)
   : path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
@@ -40,10 +44,14 @@ interface CardData {
 }
 
 const cardsModule = (await import(
-  pathToFileURL(path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "cards.ts")).href
+  pathToFileURL(
+    path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "cards.ts"),
+  ).href
 )) as { CARD_DATA: Record<string, CardData> };
 const dataModule = (await import(
-  pathToFileURL(path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "data.ts")).href
+  pathToFileURL(
+    path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "data.ts"),
+  ).href
 )) as { LIBRARY_CATEGORIES: Record<string, { id: string; title: string }[]> };
 
 const { CARD_DATA } = cardsModule;
@@ -68,7 +76,12 @@ function sanitize(text: string): string {
     .replace(/[^\x20-\x7E -ÿ–—‘’“”]/g, "?");
 }
 
-function wrap(text: string, font: PDFFont, size: number, maxWidth: number): string[] {
+function wrap(
+  text: string,
+  font: PDFFont,
+  size: number,
+  maxWidth: number,
+): string[] {
   const words = sanitize(text).split(/\s+/).filter(Boolean);
   const lines: string[] = [];
   let line = "";
@@ -118,9 +131,21 @@ async function buildPdf(cardId: string, title: string, category: string) {
 
   const drawText = (
     text: string,
-    opts: { font?: PDFFont; size?: number; color?: ReturnType<typeof rgb>; indent?: number; gapAfter?: number } = {}
+    opts: {
+      font?: PDFFont;
+      size?: number;
+      color?: ReturnType<typeof rgb>;
+      indent?: number;
+      gapAfter?: number;
+    } = {},
   ) => {
-    const { font = regular, size = 9.5, color = NAVY, indent = 0, gapAfter = 3 } = opts;
+    const {
+      font = regular,
+      size = 9.5,
+      color = NAVY,
+      indent = 0,
+      gapAfter = 3,
+    } = opts;
     const lineHeight = size * 1.35;
     const lines = wrap(text, font, size, CONTENT_W - indent);
     for (const line of lines) {
@@ -134,7 +159,13 @@ async function buildPdf(cardId: string, title: string, category: string) {
   const sectionHeading = (label: string) => {
     ensure(34);
     w.y -= 22;
-    w.page.drawRectangle({ x: MARGIN, y: w.y - 2, width: 3, height: 12, color: AMBER });
+    w.page.drawRectangle({
+      x: MARGIN,
+      y: w.y - 2,
+      width: 3,
+      height: 12,
+      color: AMBER,
+    });
     w.page.drawText(sanitize(label.toUpperCase()), {
       x: MARGIN + 9,
       y: w.y,
@@ -145,7 +176,10 @@ async function buildPdf(cardId: string, title: string, category: string) {
     w.y -= 10;
   };
 
-  const bullet = (text: string, opts: { font?: PDFFont; size?: number } = {}) => {
+  const bullet = (
+    text: string,
+    opts: { font?: PDFFont; size?: number } = {},
+  ) => {
     const { font = regular, size = 9.5 } = opts;
     const lineHeight = size * 1.35;
     ensure(lineHeight);
@@ -153,16 +187,46 @@ async function buildPdf(cardId: string, title: string, category: string) {
     lines.forEach((line, i) => {
       ensure(lineHeight);
       w.y -= lineHeight;
-      if (i === 0) w.page.drawCircle({ x: MARGIN + 4, y: w.y + size * 0.32, size: 1.4, color: AMBER });
-      w.page.drawText(line, { x: MARGIN + 14, y: w.y, size, font, color: NAVY });
+      if (i === 0)
+        w.page.drawCircle({
+          x: MARGIN + 4,
+          y: w.y + size * 0.32,
+          size: 1.4,
+          color: AMBER,
+        });
+      w.page.drawText(line, {
+        x: MARGIN + 14,
+        y: w.y,
+        size,
+        font,
+        color: NAVY,
+      });
     });
     w.y -= 2.5;
   };
 
   // ── Header band ──
-  w.page.drawRectangle({ x: 0, y: PAGE_H - 96, width: PAGE_W, height: 96, color: NAVY });
-  w.page.drawRectangle({ x: MARGIN, y: PAGE_H - 46, width: 46, height: 18, color: AMBER });
-  w.page.drawText(cardId, { x: MARGIN + 5, y: PAGE_H - 41, size: 10, font: bold, color: NAVY });
+  w.page.drawRectangle({
+    x: 0,
+    y: PAGE_H - 96,
+    width: PAGE_W,
+    height: 96,
+    color: NAVY,
+  });
+  w.page.drawRectangle({
+    x: MARGIN,
+    y: PAGE_H - 46,
+    width: 46,
+    height: 18,
+    color: AMBER,
+  });
+  w.page.drawText(cardId, {
+    x: MARGIN + 5,
+    y: PAGE_H - 41,
+    size: 10,
+    font: bold,
+    color: NAVY,
+  });
   w.page.drawText(sanitize(title), {
     x: MARGIN + 56,
     y: PAGE_H - 42,
@@ -178,14 +242,19 @@ async function buildPdf(cardId: string, title: string, category: string) {
     color: rgb(0.72, 0.76, 0.82),
   });
   w.page.drawText(
-    sanitize(`Impact: ${card.overview.impact}   Difficulty: ${card.overview.difficulty}   Misuse risk: ${card.overview.misuse}`),
-    { x: MARGIN, y: PAGE_H - 84, size: 8.5, font: regular, color: AMBER }
+    sanitize(
+      `Impact: ${card.overview.impact}   Difficulty: ${card.overview.difficulty}   Misuse risk: ${card.overview.misuse}`,
+    ),
+    { x: MARGIN, y: PAGE_H - 84, size: 8.5, font: regular, color: AMBER },
   );
   w.y = PAGE_H - 96 - 8;
 
   // ── Core formula ──
   sectionHeading("Core formula");
-  drawText(card.overview.coreFormula.join("  ->  "), { font: bold, size: 10.5 });
+  drawText(card.overview.coreFormula.join("  ->  "), {
+    font: bold,
+    size: 10.5,
+  });
 
   sectionHeading("Minimum viable move");
   drawText(card.overview.minimumViableMove, { size: 10 });
@@ -196,7 +265,11 @@ async function buildPdf(cardId: string, title: string, category: string) {
   sectionHeading("Phrase bank");
   for (const group of card.phraseBank) {
     ensure(30);
-    drawText(`${group.label}  ·  ${group.tag}`, { font: bold, size: 9.5, gapAfter: 1 });
+    drawText(`${group.label}  ·  ${group.tag}`, {
+      font: bold,
+      size: 9.5,
+      gapAfter: 1,
+    });
     for (const phrase of group.phrases) bullet(`"${phrase}"`, { size: 9 });
     w.y -= 4;
   }
@@ -204,9 +277,18 @@ async function buildPdf(cardId: string, title: string, category: string) {
   sectionHeading("Weak -> Better -> Best");
   card.ladder.forEach((row, i) => {
     ensure(44);
-    drawText(`${i + 1}. Weak: ${row.weak}`, { size: 9, indent: 0, gapAfter: 1 });
+    drawText(`${i + 1}. Weak: ${row.weak}`, {
+      size: 9,
+      indent: 0,
+      gapAfter: 1,
+    });
     drawText(`Better: ${row.better}`, { size: 9, indent: 14, gapAfter: 1 });
-    drawText(`Best: ${row.best}`, { font: bold, size: 9, indent: 14, gapAfter: 5 });
+    drawText(`Best: ${row.best}`, {
+      font: bold,
+      size: 9,
+      indent: 14,
+      gapAfter: 5,
+    });
   });
 
   sectionHeading("Decision tree");
@@ -214,7 +296,13 @@ async function buildPdf(cardId: string, title: string, category: string) {
     ensure(34);
     drawText(`If ${node.condition}`, { font: bold, size: 9, gapAfter: 1 });
     drawText(node.action, { size: 9, indent: 14, gapAfter: 1 });
-    if (node.phrase) drawText(`"${node.phrase}"`, { font: oblique, size: 9, indent: 14, gapAfter: 5 });
+    if (node.phrase)
+      drawText(`"${node.phrase}"`, {
+        font: oblique,
+        size: 9,
+        indent: 14,
+        gapAfter: 5,
+      });
     else w.y -= 4;
   }
 
@@ -271,7 +359,9 @@ for (const cardId of Object.keys(CARD_DATA).sort()) {
   if (cardId === "TC001") continue; // ships designed PDFs already
   const meta = CARD_META[cardId];
   if (!meta) {
-    console.warn(`WARNING: ${cardId} has no LIBRARY_CATEGORIES entry — using id as title`);
+    console.warn(
+      `WARNING: ${cardId} has no LIBRARY_CATEGORIES entry — using id as title`,
+    );
   }
   const { title, category } = meta ?? { title: cardId, category: "" };
   const bytes = await buildPdf(cardId, title, category);
@@ -280,6 +370,8 @@ for (const cardId of Object.keys(CARD_DATA).sort()) {
   const file = path.join(dir, `${cardId}_Reference.pdf`);
   writeFileSync(file, bytes);
   generated++;
-  console.log(`${cardId} -> ${path.relative(ROOT, file)} (${(bytes.length / 1024).toFixed(1)} kB)`);
+  console.log(
+    `${cardId} -> ${path.relative(ROOT, file)} (${(bytes.length / 1024).toFixed(1)} kB)`,
+  );
 }
 console.log(`Generated ${generated} reference PDFs.`);

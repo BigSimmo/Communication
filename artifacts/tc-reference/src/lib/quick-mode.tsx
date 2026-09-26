@@ -5,7 +5,9 @@ interface QuickModeContextType {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-const QuickModeContext = createContext<QuickModeContextType | undefined>(undefined);
+const QuickModeContext = createContext<QuickModeContextType | undefined>(
+  undefined,
+);
 
 export function QuickModeProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);

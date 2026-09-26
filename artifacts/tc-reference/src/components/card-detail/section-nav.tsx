@@ -1,7 +1,10 @@
 import { SECTIONS, type CardSection } from "./section-accordion";
 
 export function SectionNav({
-  navRef, activeSection, sectionAvailable, scrollSectionIntoView,
+  navRef,
+  activeSection,
+  sectionAvailable,
+  scrollSectionIntoView,
 }: {
   navRef: React.RefObject<HTMLDivElement | null>;
   activeSection: CardSection;
@@ -29,7 +32,7 @@ export function SectionNav({
           style={{ scrollbarWidth: "none" }}
           aria-label="Card sections"
         >
-          {SECTIONS.filter(s => sectionAvailable(s.id)).map((s) => (
+          {SECTIONS.filter((s) => sectionAvailable(s.id)).map((s) => (
             <button
               key={s.id}
               id={`nav-${s.id}`}
@@ -40,8 +43,12 @@ export function SectionNav({
               className="text-[11px] font-semibold px-3 rounded-full transition-all flex-shrink-0"
               style={{
                 minHeight: 40,
-                background: activeSection === s.id ? "var(--brand)" : "var(--fg-05)",
-                color: activeSection === s.id ? "var(--brand-contrast)" : "var(--fg-55)",
+                background:
+                  activeSection === s.id ? "var(--brand)" : "var(--fg-05)",
+                color:
+                  activeSection === s.id
+                    ? "var(--brand-contrast)"
+                    : "var(--fg-55)",
               }}
             >
               {s.label}

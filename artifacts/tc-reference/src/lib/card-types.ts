@@ -1,4 +1,5 @@
-export type CanonicalTone = "Quick" | "Warm" | "Professional" | "Direct" | "Repair" | "High-stakes";
+export type CanonicalTone =
+  "Quick" | "Warm" | "Professional" | "Direct" | "Repair" | "High-stakes";
 
 export const CANONICAL_TONES: CanonicalTone[] = [
   "Quick",
@@ -36,15 +37,33 @@ export function inferPhraseTone(group: PhraseGroup): CanonicalTone {
 
   const signal = `${group.id} ${group.label} ${group.tag}`.toLowerCase();
 
-  if (/\bprofessional\b|work|meeting|document|decision|mail|email|report|client|office|status/i.test(signal))
+  if (
+    /\bprofessional\b|work|meeting|document|decision|mail|email|report|client|office|status/i.test(
+      signal,
+    )
+  )
     return "Professional";
-  if (/\brepair\b|soften|soothe|sorry|apolog|conflict|boundary|tone|no\b|decline|reject|pressur|escalat|defens/i.test(signal))
+  if (
+    /\brepair\b|soften|soothe|sorry|apolog|conflict|boundary|tone|no\b|decline|reject|pressur|escalat|defens/i.test(
+      signal,
+    )
+  )
     return "Repair";
-  if (/\bquick\b|starter|one-option|two-option|short|text|sms|dm\b/i.test(signal))
+  if (
+    /\bquick\b|starter|one-option|two-option|short|text|sms|dm\b/i.test(signal)
+  )
     return "Quick";
-  if (/\bdirect\b|ask|clarif|limit|firm|clear|decide|request|say no|refuse|stop/i.test(signal))
+  if (
+    /\bdirect\b|ask|clarif|limit|firm|clear|decide|request|say no|refuse|stop/i.test(
+      signal,
+    )
+  )
     return "Direct";
-  if (/\bwarm\b|support|validation|praise|gratitude|connection|rapport|encourage|positive|appreci/i.test(signal))
+  if (
+    /\bwarm\b|support|validation|praise|gratitude|connection|rapport|encourage|positive|appreci/i.test(
+      signal,
+    )
+  )
     return "Warm";
 
   return "Professional";

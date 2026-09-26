@@ -16,7 +16,11 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
+const ROOT = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+  "..",
+);
 const OUT_BASE = process.env.CARD_DOWNLOADS_OUT_DIR
   ? path.resolve(process.env.CARD_DOWNLOADS_OUT_DIR)
   : path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
@@ -34,7 +38,9 @@ interface CardData {
 }
 
 const cardsModule = (await import(
-  pathToFileURL(path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "cards.ts")).href
+  pathToFileURL(
+    path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "cards.ts"),
+  ).href
 )) as { CARD_DATA: Record<string, CardData> };
 const { CARD_DATA } = cardsModule;
 
@@ -58,10 +64,14 @@ function phraseBankCsv(card: CardData): string {
 
 function ankiCsv(cardId: string, card: CardData): string {
   const rows: string[][] = [["front", "back"]];
-  const add = (front: string, back: string) => rows.push([`${cardId}: ${front}`, back]);
+  const add = (front: string, back: string) =>
+    rows.push([`${cardId}: ${front}`, back]);
 
   add("What is the minimum viable move?", card.overview.minimumViableMove);
-  add("What is the core sequence?", card.overview.coreFormula.join(" -> ") + ".");
+  add(
+    "What is the core sequence?",
+    card.overview.coreFormula.join(" -> ") + ".",
+  );
   if (card.fieldTip) add("What is the field tip?", card.fieldTip.headline);
   for (const row of card.ladder.slice(0, 3)) {
     add(`What is the strong version of: ${row.weak}?`, row.best);
@@ -70,8 +80,12 @@ function ankiCsv(cardId: string, card: CardData): string {
     add(`What is better than: ${m.soundsLike}?`, m.better);
   }
   add("What are signs it is working?", card.calibration.working.join(" "));
-  add("When should you avoid this technique?", card.notFor.slice(0, 2).join(" "));
-  if (card.bestRecoveryLine) add("What is the best recovery line?", card.bestRecoveryLine);
+  add(
+    "When should you avoid this technique?",
+    card.notFor.slice(0, 2).join(" "),
+  );
+  if (card.bestRecoveryLine)
+    add("What is the best recovery line?", card.bestRecoveryLine);
   return csv(rows);
 }
 
@@ -81,8 +95,14 @@ for (const cardId of Object.keys(CARD_DATA).sort()) {
   const card = CARD_DATA[cardId];
   const dir = path.join(OUT_BASE, cardId);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(path.join(dir, `${cardId}_Phrase_Bank.csv`), phraseBankCsv(card));
-  writeFileSync(path.join(dir, `${cardId}_Anki_Flashcards.csv`), ankiCsv(cardId, card));
+  writeFileSync(
+    path.join(dir, `${cardId}_Phrase_Bank.csv`),
+    phraseBankCsv(card),
+  );
+  writeFileSync(
+    path.join(dir, `${cardId}_Anki_Flashcards.csv`),
+    ankiCsv(cardId, card),
+  );
   written += 2;
 }
 console.log(`generated ${written} CSVs into ${OUT_BASE}`);

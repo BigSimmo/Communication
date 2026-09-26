@@ -37,7 +37,13 @@ export default defineConfig({
     runtimeErrorOverlay(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.svg", "apple-touch-icon.png", "pwa-maskable-512.png", "robots.txt", "opengraph.jpg"],
+      includeAssets: [
+        "favicon.svg",
+        "apple-touch-icon.png",
+        "pwa-maskable-512.png",
+        "robots.txt",
+        "opengraph.jpg",
+      ],
       manifest: {
         name: "TC Reference Tool",
         short_name: "TC Reference",
@@ -56,7 +62,12 @@ export default defineConfig({
           { src: "pwa-icon-512.png", sizes: "512x512", type: "image/png" },
           // Full-bleed with artwork inside the 80% safe zone so Android masks
           // never expose transparent corners.
-          { src: "pwa-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+          {
+            src: "pwa-maskable-512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
         ],
       },
       workbox: {
@@ -116,7 +127,12 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
-      "@assets": path.resolve(import.meta.dirname, "..", "..", "attached_assets"),
+      "@assets": path.resolve(
+        import.meta.dirname,
+        "..",
+        "..",
+        "attached_assets",
+      ),
     },
     dedupe: ["react", "react-dom"],
   },

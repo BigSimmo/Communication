@@ -3,39 +3,82 @@ import type { CardData } from "../card-types";
 export const TC029: CardData = {
   pdfUrl: "cards/TC029/TC029_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC029/TC029_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC029/TC029_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC029/TC029_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC029/TC029_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC029/TC029_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC029/TC029_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC029/TC029_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC029/TC029_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC029/TC029_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC029/TC029_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC029/TC029_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC029/TC029_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC029/TC029_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC029/TC029_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
-  "id": "TC029",
-  "whyItWorks":
+  id: "TC029",
+  whyItWorks:
     "Strategic silence is a brief, warm, intentional pause after something important — a meaningful question, a reflection, a disclosure, an objection, a request, or a key point — so the other person has room to think, feel, continue, or decide. It is warm attention plus restraint: your face, posture, and tone keep signalling that you are present and listening, not rushing them. It works because the second answer is usually more honest and specific than the first, important words are given time to land rather than being buried, and you come across as calmer and less needy for not scrambling to prove, rescue, fix, or fill every gap.",
-  "whatItIsNot": [
+  whatItIsNot: [
     "It is not awkward freezing, stonewalling, sulking, intimidation, or passive-aggression.",
     "It is not a trick to force a confession or compliance — if it feels cold, punishing, or superior, it damages trust.",
     "It is not making the other person guess what you want; you are clear first, then you pause.",
     "It works when the silence feels like space. It fails the moment it feels like pressure.",
   ],
-  "overview": {
-    "coreFormula": [
+  overview: {
+    coreFormula: [
       "Meaningful moment + warm pause + one useful next move.",
       "Say the key sentence, pause, let them continue, then reflect or ask one useful question.",
-      "\"That sounds like it mattered.\" [pause] \"What part is still with you?\"",
-      "\"My recommendation is option B.\" [pause] \"What concerns would you have?\"",
-      "\"I can do Friday, but not Thursday.\" [pause] \"Would Friday still help?\"",
-      "\"What part of this feels most unresolved?\" [pause]",
+      '"That sounds like it mattered." [pause] "What part is still with you?"',
+      '"My recommendation is option B." [pause] "What concerns would you have?"',
+      '"I can do Friday, but not Thursday." [pause] "Would Friday still help?"',
+      '"What part of this feels most unresolved?" [pause]',
     ],
-    "minimumViableMove":
+    minimumViableMove:
       "Say the key sentence or question, then pause warmly for one slow breath before speaking again.",
-    "impact": "High",
-    "difficulty": "Medium",
-    "misuse":
+    impact: "High",
+    difficulty: "Medium",
+    misuse:
       "Using silence as pressure, punishment, superiority, or a way to make the other person fill the discomfort.",
-    "bestFor": [
+    bestFor: [
       "After a meaningful question about values, feelings, trade-offs, concern, or commitment.",
       "After someone shares something vulnerable, surprising, difficult, or important.",
       "After a reflection, label, validation, or summary check.",
@@ -45,7 +88,7 @@ export const TC029: CardData = {
       "In social or dating conversation, when a moment has emotional weight.",
     ],
   },
-  "notFor": [
+  notFor: [
     "Immediate safety or operational urgency requires clear action.",
     "The person already feels abandoned, embarrassed, confused, or put on the spot.",
     "You would be using silence to punish, dominate, extract, test, or create discomfort.",
@@ -53,13 +96,13 @@ export const TC029: CardData = {
     "A simple direct answer would be more respectful.",
     "You are performing calm rather than genuinely listening.",
   ],
-  "phraseBank": [
+  phraseBank: [
     {
-      "id": "supportive-openers",
-      "label": "Supportive pause openers",
-      "tag": "Supportive pause openers",
-      "tone": "Quick",
-      "phrases": [
+      id: "supportive-openers",
+      label: "Supportive pause openers",
+      tag: "Supportive pause openers",
+      tone: "Quick",
+      phrases: [
         "Take your time.",
         "No rush.",
         "I am with you.",
@@ -69,11 +112,11 @@ export const TC029: CardData = {
       ],
     },
     {
-      "id": "after-emotion",
-      "label": "After emotion",
-      "tag": "After emotion",
-      "tone": "Warm",
-      "phrases": [
+      id: "after-emotion",
+      label: "After emotion",
+      tag: "After emotion",
+      tone: "Warm",
+      phrases: [
         "That sounds like it hit hard.",
         "I do not want to rush past that.",
         "That sounds like it stayed with you.",
@@ -83,11 +126,11 @@ export const TC029: CardData = {
       ],
     },
     {
-      "id": "after-a-question",
-      "label": "After a question",
-      "tag": "Ask, then hold the pause",
-      "tone": "Direct",
-      "phrases": [
+      id: "after-a-question",
+      label: "After a question",
+      tag: "Ask, then hold the pause",
+      tone: "Direct",
+      phrases: [
         "What was the real issue there? [pause]",
         "What do you make of that? [pause]",
         "What would make this workable? [pause]",
@@ -96,11 +139,11 @@ export const TC029: CardData = {
       ],
     },
     {
-      "id": "professional",
-      "label": "Professional",
-      "tag": "Work, meetings, recommendations",
-      "tone": "Professional",
-      "phrases": [
+      id: "professional",
+      label: "Professional",
+      tag: "Work, meetings, recommendations",
+      tone: "Professional",
+      phrases: [
         "I will pause there because that is the key trade-off.",
         "I do not want to over-talk the recommendation.",
         "I will stop there and hear your concern.",
@@ -110,11 +153,11 @@ export const TC029: CardData = {
       ],
     },
     {
-      "id": "conflict-tension",
-      "label": "Conflict / tension",
-      "tag": "Heat, pressure, disagreement",
-      "tone": "High-stakes",
-      "phrases": [
+      id: "conflict-tension",
+      label: "Conflict / tension",
+      tag: "Heat, pressure, disagreement",
+      tone: "High-stakes",
+      phrases: [
         "I hear the concern. [pause]",
         "I do not want to respond too quickly and miss the point.",
         "Take a second. What feels most unresolved?",
@@ -124,11 +167,11 @@ export const TC029: CardData = {
       ],
     },
     {
-      "id": "high-status-busy",
-      "label": "High-status / busy",
-      "tag": "Concise, invites challenge",
-      "tone": "Direct",
-      "phrases": [
+      id: "high-status-busy",
+      label: "High-status / busy",
+      tag: "Concise, invites challenge",
+      tone: "Direct",
+      phrases: [
         "I will keep it brief and pause there.",
         "Your read? [pause]",
         "What would you challenge? [pause]",
@@ -137,11 +180,11 @@ export const TC029: CardData = {
       ],
     },
     {
-      "id": "digital-text",
-      "label": "Digital / text",
-      "tag": "Messages and email",
-      "tone": "Quick",
-      "phrases": [
+      id: "digital-text",
+      label: "Digital / text",
+      tag: "Messages and email",
+      tone: "Quick",
+      phrases: [
         "No need to reply quickly — worth thinking about.",
         "Leaving that with you rather than over-explaining.",
         "Take your time. A short reply is fine.",
@@ -150,11 +193,11 @@ export const TC029: CardData = {
       ],
     },
     {
-      "id": "recovery",
-      "label": "Recovery",
-      "tag": "Softening a pause that landed wrong",
-      "tone": "Repair",
-      "phrases": [
+      id: "recovery",
+      label: "Recovery",
+      tag: "Softening a pause that landed wrong",
+      tone: "Repair",
+      phrases: [
         "Sorry, I went quiet because I was thinking, not judging.",
         "That pause probably felt more intense than I meant.",
         "I did not want to rush past that, but we can move on.",
@@ -164,145 +207,149 @@ export const TC029: CardData = {
       ],
     },
   ],
-  "decisionTree": [
+  decisionTree: [
     {
-      "condition": "They continue with more detail",
-      "action": "Stay quiet, listen, then reflect the new information back.",
-      "phrase": "So the real concern is the ongoing ownership, not the task itself.",
+      condition: "They continue with more detail",
+      action: "Stay quiet, listen, then reflect the new information back.",
+      phrase:
+        "So the real concern is the ongoing ownership, not the task itself.",
     },
     {
-      "condition": "They go thoughtful and quiet",
-      "action": "Hold the pause a little longer, then offer a gentle prompt.",
-      "phrase": "What are you thinking?",
+      condition: "They go thoughtful and quiet",
+      action: "Hold the pause a little longer, then offer a gentle prompt.",
+      phrase: "What are you thinking?",
     },
     {
-      "condition": "They look uncomfortable or exposed",
-      "action": "Soften immediately and give them an exit.",
-      "phrase": "No pressure — we can move on.",
+      condition: "They look uncomfortable or exposed",
+      action: "Soften immediately and give them an exit.",
+      phrase: "No pressure — we can move on.",
     },
     {
-      "condition": "They ask what you mean",
-      "action": "Clarify. The silence probably followed something too vague.",
-      "phrase": "Let me say that more clearly.",
+      condition: "They ask what you mean",
+      action: "Clarify. The silence probably followed something too vague.",
+      phrase: "Let me say that more clearly.",
     },
     {
-      "condition": "They become defensive",
-      "action": "Return to validation or autonomy release.",
-      "phrase": "It is completely your call — I just wanted to understand it.",
+      condition: "They become defensive",
+      action: "Return to validation or autonomy release.",
+      phrase: "It is completely your call — I just wanted to understand it.",
     },
     {
-      "condition": "They turn the question back to you",
-      "action": "Answer briefly, then hand the thread back to them.",
-      "phrase": "Short version from me, then I want your take.",
-    },
-  ],
-  "ladder": [
-    {
-      "weak": "Uses the technique mechanically or too often.",
-      "better": "Uses the smallest useful version and then listens.",
-      "best": "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
-    },
-    {
-      "weak": "Talks about the technique instead of doing it.",
-      "better": "Performs one clear behavioural move.",
-      "best": "Makes the move feel like ordinary skilled conversation.",
-    },
-    {
-      "weak": "Fills every gap with words to kill the silence.",
-      "better": "Lets one pause land after the key point.",
-      "best": "Treats silence as a normal, comfortable part of the exchange.",
+      condition: "They turn the question back to you",
+      action: "Answer briefly, then hand the thread back to them.",
+      phrase: "Short version from me, then I want your take.",
     },
   ],
-  "scenarios": [
+  ladder: [
     {
-      "situation": "A friend shares something painful",
-      "move": "Reflect briefly, then pause and let them lead.",
-      "phrase": "That sounds like it stayed with you. [pause] What part is still sitting with you?",
+      weak: "Uses the technique mechanically or too often.",
+      better: "Uses the smallest useful version and then listens.",
+      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
     },
     {
-      "situation": "Making a professional recommendation",
-      "move": "Make the recommendation once, then stop.",
-      "phrase": "My recommendation is option B because it reduces risk. I will pause there — what concerns would you have?",
+      weak: "Talks about the technique instead of doing it.",
+      better: "Performs one clear behavioural move.",
+      best: "Makes the move feel like ordinary skilled conversation.",
     },
     {
-      "situation": "Conflict",
-      "move": "Validate, pause, then clarify the real issue.",
-      "phrase": "I can see why that felt unfair. [pause] What part felt most unfair?",
-    },
-    {
-      "situation": "Negotiation",
-      "move": "Ask a calibrated question and let it sit.",
-      "phrase": "How could we make that work with the timeline? [pause]",
-    },
-    {
-      "situation": "High-status or busy person",
-      "move": "Be concise and do not over-justify.",
-      "phrase": "Bottom line: I would choose X. Happy to be challenged. [pause]",
-    },
-    {
-      "situation": "Shy or guarded person",
-      "move": "Use a shorter pause plus an exit.",
-      "phrase": "No rush. You do not have to go into it if you would rather not.",
+      weak: "Fills every gap with words to kill the silence.",
+      better: "Lets one pause land after the key point.",
+      best: "Treats silence as a normal, comfortable part of the exchange.",
     },
   ],
-  "calibration": {
-    "working": [
+  scenarios: [
+    {
+      situation: "A friend shares something painful",
+      move: "Reflect briefly, then pause and let them lead.",
+      phrase:
+        "That sounds like it stayed with you. [pause] What part is still sitting with you?",
+    },
+    {
+      situation: "Making a professional recommendation",
+      move: "Make the recommendation once, then stop.",
+      phrase:
+        "My recommendation is option B because it reduces risk. I will pause there — what concerns would you have?",
+    },
+    {
+      situation: "Conflict",
+      move: "Validate, pause, then clarify the real issue.",
+      phrase:
+        "I can see why that felt unfair. [pause] What part felt most unfair?",
+    },
+    {
+      situation: "Negotiation",
+      move: "Ask a calibrated question and let it sit.",
+      phrase: "How could we make that work with the timeline? [pause]",
+    },
+    {
+      situation: "High-status or busy person",
+      move: "Be concise and do not over-justify.",
+      phrase: "Bottom line: I would choose X. Happy to be challenged. [pause]",
+    },
+    {
+      situation: "Shy or guarded person",
+      move: "Use a shorter pause plus an exit.",
+      phrase: "No rush. You do not have to go into it if you would rather not.",
+    },
+  ],
+  calibration: {
+    working: [
       "They continue with more detail after the pause.",
       "Their second answer is more honest, specific, or emotionally clear.",
       "They look thoughtful rather than abandoned.",
       "The pace slows and becomes more grounded.",
       "They name the real concern.",
-      "They say \"Actually...\" or \"The real issue is...\".",
+      'They say "Actually..." or "The real issue is...".',
     ],
-    "adjust": [
+    adjust: [
       "They look confused, awkward, exposed, or pressured — soften at once.",
-      "They ask \"What?\" or seem unsure whether you heard them — reflect to show you did.",
-      "The pause starts to feel like a test — name it: \"I am just thinking for a second.\"",
+      'They ask "What?" or seem unsure whether you heard them — reflect to show you did.',
+      'The pause starts to feel like a test — name it: "I am just thinking for a second."',
       "The setting is light and the silence feels too intense — shorten it and ask something simpler.",
       "You have gone quiet because you do not know what to say — say that rather than hide it.",
       "Move from deep or emotional back to something practical.",
-      "Give an exit: \"We can leave that there if you prefer.\"",
+      'Give an exit: "We can leave that there if you prefer."',
       "Clarify your point if the silence followed something vague.",
     ],
   },
-  "drill": [
+  drill: [
     {
-      "day": "Day 1",
-      "title": "Notice the urge",
-      "task": "Through the day, just notice the moments you rush to fill a silence. Change nothing yet — count how often you fill gaps.",
+      day: "Day 1",
+      title: "Notice the urge",
+      task: "Through the day, just notice the moments you rush to fill a silence. Change nothing yet — count how often you fill gaps.",
     },
     {
-      "day": "Day 2",
-      "title": "One slow breath",
-      "task": "After asking a meaningful question, count one slow breath before speaking again. Do it at least twice today.",
+      day: "Day 2",
+      title: "One slow breath",
+      task: "After asking a meaningful question, count one slow breath before speaking again. Do it at least twice today.",
     },
     {
-      "day": "Day 3",
-      "title": "Recommend and stop",
-      "task": "In one professional conversation, make your recommendation once and stop before adding extra justifications.",
+      day: "Day 3",
+      title: "Recommend and stop",
+      task: "In one professional conversation, make your recommendation once and stop before adding extra justifications.",
     },
     {
-      "day": "Day 4",
-      "title": "Reflect, pause, wait",
-      "task": "In one supportive conversation, reflect once, pause, and let the person continue before asking anything else.",
+      day: "Day 4",
+      title: "Reflect, pause, wait",
+      task: "In one supportive conversation, reflect once, pause, and let the person continue before asking anything else.",
     },
     {
-      "day": "Day 5",
-      "title": "Warm the pause",
-      "task": "Practise keeping a soft face and open posture during a pause so it reads as space, not coldness. Add \"take your time\" if needed.",
+      day: "Day 5",
+      title: "Warm the pause",
+      task: 'Practise keeping a soft face and open posture during a pause so it reads as space, not coldness. Add "take your time" if needed.',
     },
     {
-      "day": "Day 6",
-      "title": "Recover cleanly",
-      "task": "When a pause lands awkwardly, use one recovery line — \"I went quiet because I was thinking, not judging\" — and carry on.",
+      day: "Day 6",
+      title: "Recover cleanly",
+      task: 'When a pause lands awkwardly, use one recovery line — "I went quiet because I was thinking, not judging" — and carry on.',
     },
     {
-      "day": "Day 7",
-      "title": "Space vs pressure review",
-      "task": "Review the week. For each attempt, note whether the silence felt like space or pressure, and what made the difference.",
+      day: "Day 7",
+      title: "Space vs pressure review",
+      task: "Review the week. For each attempt, note whether the silence felt like space or pressure, and what made the difference.",
     },
   ],
-  "checklist": [
+  checklist: [
     "Did I pause after a moment that had weight?",
     "Did my silence feel warm rather than cold?",
     "Did I avoid rescuing the other person too quickly?",
@@ -310,8 +357,8 @@ export const TC029: CardData = {
     "Did I use silence to create space, not pressure?",
     "Did the other person become more open, thoughtful, or specific?",
   ],
-  "example": {
-    "without": [
+  example: {
+    without: [
       "Person: I think I am worried this will create more work.",
       "You: No, it will be fine — the first step is simple, and once that is done it should not be hard, and honestly it saves time later...",
       "Why it is weak:",
@@ -319,7 +366,7 @@ export const TC029: CardData = {
       "buries the real worry under persuasion",
       "leaves the person no room to say what is actually bothering them",
     ],
-    "with": [
+    with: [
       "Person: I think I am worried this will create more work.",
       "You: That is a fair concern.",
       "You: [pause]",
@@ -336,13 +383,14 @@ export const TC029: CardData = {
       "the response stays warm and specific rather than defensive",
       "the next sentence is a reflection, not a lecture",
     ],
-    "note": "The whole difference is one breath of restraint after \"That is a fair concern.\"",
+    note: 'The whole difference is one breath of restraint after "That is a fair concern."',
   },
-  "influencePayoff": {
-    "feeling": "\"They gave me room to think, and they actually heard the real thing.\"",
-    "principle":
+  influencePayoff: {
+    feeling:
+      '"They gave me room to think, and they actually heard the real thing."',
+    principle:
       "People reveal more in the space you leave them than in the space you fill. Restraint reads as confidence and respect.",
-    "gains": [
+    gains: [
       "You seem calmer, less needy, and more present.",
       "The other person gets room to elaborate — the second answer is often more honest and useful.",
       "Important words are given time to land instead of being buried.",
@@ -351,64 +399,71 @@ export const TC029: CardData = {
       "You stop hijacking the conversation back to yourself.",
       "Trust grows because the person feels genuinely heard, not managed.",
     ],
-    "whyMostFail": [
+    whyMostFail: [
       "They use silence as pressure, punishment, superiority, or a way to make the other person fill the discomfort.",
       "The pause goes cold — a blank stare with no warmth or softener.",
       "They hold it too long, so a light moment turns strange and theatrical.",
       "They pause after something vague, so the other person is left guessing rather than thinking.",
     ],
   },
-  "fieldTip": {
-    "headline": "If the moment has weight, do not remove it with words.",
-    "body": "The instinct after something meaningful is to fill the gap — reassure, explain, move on. Resist it for one breath. The space is doing the work; your next sentence can wait.",
-    "example": "\"That sounds like it mattered.\" [pause] \"What part is still with you?\"",
-    "dont": "\"No, it'll be fine, honestly, because...\" — rushing to reassure.",
-    "do": "\"That is a fair concern.\" [pause] — then let them keep going.",
+  fieldTip: {
+    headline: "If the moment has weight, do not remove it with words.",
+    body: "The instinct after something meaningful is to fill the gap — reassure, explain, move on. Resist it for one breath. The space is doing the work; your next sentence can wait.",
+    example:
+      '"That sounds like it mattered." [pause] "What part is still with you?"',
+    dont: '"No, it\'ll be fine, honestly, because..." — rushing to reassure.',
+    do: '"That is a fair concern." [pause] — then let them keep going.',
   },
-  "method": [
+  method: [
     {
-      "step": "1",
-      "title": "Spot the moment",
-      "body": "Use silence after emotion, conflict, a meaningful answer, a clear request, or a strong question. Do not scatter it randomly — silence only lands where the moment already has weight.",
+      step: "1",
+      title: "Spot the moment",
+      body: "Use silence after emotion, conflict, a meaningful answer, a clear request, or a strong question. Do not scatter it randomly — silence only lands where the moment already has weight.",
     },
     {
-      "step": "2",
-      "title": "Signal presence first",
-      "body": "Let your face, posture, and tone say that you are with them. A soft expression and relaxed body stop the silence feeling cold or like a test.",
+      step: "2",
+      title: "Signal presence first",
+      body: "Let your face, posture, and tone say that you are with them. A soft expression and relaxed body stop the silence feeling cold or like a test.",
     },
     {
-      "step": "3",
-      "title": "Say one useful thing",
-      "body": "Ask a question, reflect, validate, or make the point — then stop. The pause works precisely because the sentence before it is complete.",
-      "examples": [
-        { "label": "Complete sentence, then stop", "text": "\"My recommendation is option B.\" Then nothing." },
+      step: "3",
+      title: "Say one useful thing",
+      body: "Ask a question, reflect, validate, or make the point — then stop. The pause works precisely because the sentence before it is complete.",
+      examples: [
+        {
+          label: "Complete sentence, then stop",
+          text: '"My recommendation is option B." Then nothing.',
+        },
       ],
     },
     {
-      "step": "4",
-      "title": "Hold the pause",
-      "body": "Give one slow breath at minimum. In deeper moments, allow a few seconds while watching their cues rather than counting the time.",
+      step: "4",
+      title: "Hold the pause",
+      body: "Give one slow breath at minimum. In deeper moments, allow a few seconds while watching their cues rather than counting the time.",
     },
     {
-      "step": "5",
-      "title": "Read the response",
-      "body": "If they continue, listen. If they soften, stay with it. If they look confused or pressured, support them verbally straight away.",
+      step: "5",
+      title: "Read the response",
+      body: "If they continue, listen. If they soften, stay with it. If they look confused or pressured, support them verbally straight away.",
     },
     {
-      "step": "6",
-      "title": "Re-enter gently",
-      "body": "Resume with a low-pressure line, not a rush of words.",
-      "examples": [
-        { "label": "Low-pressure re-entry", "text": "\"Take your time.\" / \"I am just thinking.\" / \"What are you thinking?\"" },
+      step: "6",
+      title: "Re-enter gently",
+      body: "Resume with a low-pressure line, not a rush of words.",
+      examples: [
+        {
+          label: "Low-pressure re-entry",
+          text: '"Take your time." / "I am just thinking." / "What are you thinking?"',
+        },
       ],
     },
     {
-      "step": "7",
-      "title": "Respond cleanly",
-      "body": "After the pause, use a reflection, a follow-up question, or a practical next step. Do not launch into a monologue that undoes the space you just made.",
+      step: "7",
+      title: "Respond cleanly",
+      body: "After the pause, use a reflection, a follow-up question, or a practical next step. Do not launch into a monologue that undoes the space you just made.",
     },
   ],
-  "liveThreadClues": [
+  liveThreadClues: [
     "They have just said something vulnerable, surprising, or difficult.",
     "You have just asked a real question about values, feelings, or trade-offs.",
     "You have just reflected, labelled, validated, or summarised.",
@@ -416,66 +471,67 @@ export const TC029: CardData = {
     "Emotion has spiked and needs a moment to settle.",
     "A negotiation point or calibrated question has just landed.",
   ],
-  "depthDial": [
+  depthDial: [
     {
-      "depth": "Light",
-      "useWhen": "Casual chat or a busy person",
-      "phrase": "One beat, then move on: \"Anyway — your read?\"",
+      depth: "Light",
+      useWhen: "Casual chat or a busy person",
+      phrase: 'One beat, then move on: "Anyway — your read?"',
     },
     {
-      "depth": "Warm",
-      "useWhen": "Rapport forming, a meaningful answer",
-      "phrase": "\"That sounds like it mattered.\" [pause]",
+      depth: "Warm",
+      useWhen: "Rapport forming, a meaningful answer",
+      phrase: '"That sounds like it mattered." [pause]',
     },
     {
-      "depth": "Deep",
-      "useWhen": "Something vulnerable or a real decision",
-      "phrase": "Reflect, then hold a few seconds: \"I do not want to rush past that.\"",
+      depth: "Deep",
+      useWhen: "Something vulnerable or a real decision",
+      phrase:
+        'Reflect, then hold a few seconds: "I do not want to rush past that."',
     },
     {
-      "depth": "Negotiation",
-      "useWhen": "After a calibrated question or recommendation",
-      "phrase": "\"My recommendation is B.\" [pause] — let it sit.",
-    },
-  ],
-  "commonMistakes": [
-    {
-      "mistake": "Cold silence",
-      "soundsLike": "A blank stare, no warmth, no softener.",
-      "better": "Keep your face receptive and add \"take your time\" if needed.",
-    },
-    {
-      "mistake": "Weaponised silence",
-      "soundsLike": "Using the pause to make them squirm or force agreement.",
-      "better": "Preserve their choice and accept the answer cleanly.",
-    },
-    {
-      "mistake": "Over-long pause",
-      "soundsLike": "A five-second silence in a light chat.",
-      "better": "Use one to three seconds unless the moment is genuinely deep.",
-    },
-    {
-      "mistake": "Nervous rescue",
-      "soundsLike": "You ask a good question, then answer it yourself.",
-      "better": "Ask, pause, and let them answer.",
-    },
-    {
-      "mistake": "Silence after unclear communication",
-      "soundsLike": "You say something vague, then wait for them to guess.",
-      "better": "Be clear first, then pause.",
-    },
-    {
-      "mistake": "Looking away or checking your phone",
-      "soundsLike": "The pause reads as disengagement.",
-      "better": "Stay oriented and attentive so the silence still feels present.",
-    },
-    {
-      "mistake": "Pausing after every sentence",
-      "soundsLike": "Theatrical, over-stylised, or manipulative.",
-      "better": "Use silence only where the moment actually has weight.",
+      depth: "Negotiation",
+      useWhen: "After a calibrated question or recommendation",
+      phrase: '"My recommendation is B." [pause] — let it sit.',
     },
   ],
-  "recoveryPhrases": [
+  commonMistakes: [
+    {
+      mistake: "Cold silence",
+      soundsLike: "A blank stare, no warmth, no softener.",
+      better: 'Keep your face receptive and add "take your time" if needed.',
+    },
+    {
+      mistake: "Weaponised silence",
+      soundsLike: "Using the pause to make them squirm or force agreement.",
+      better: "Preserve their choice and accept the answer cleanly.",
+    },
+    {
+      mistake: "Over-long pause",
+      soundsLike: "A five-second silence in a light chat.",
+      better: "Use one to three seconds unless the moment is genuinely deep.",
+    },
+    {
+      mistake: "Nervous rescue",
+      soundsLike: "You ask a good question, then answer it yourself.",
+      better: "Ask, pause, and let them answer.",
+    },
+    {
+      mistake: "Silence after unclear communication",
+      soundsLike: "You say something vague, then wait for them to guess.",
+      better: "Be clear first, then pause.",
+    },
+    {
+      mistake: "Looking away or checking your phone",
+      soundsLike: "The pause reads as disengagement.",
+      better: "Stay oriented and attentive so the silence still feels present.",
+    },
+    {
+      mistake: "Pausing after every sentence",
+      soundsLike: "Theatrical, over-stylised, or manipulative.",
+      better: "Use silence only where the moment actually has weight.",
+    },
+  ],
+  recoveryPhrases: [
     "Sorry, I went quiet because I was thinking, not judging.",
     "That pause probably felt more intense than I meant.",
     "I did not want to rush past that, but we can move on.",
@@ -484,64 +540,73 @@ export const TC029: CardData = {
     "No pressure to answer quickly.",
     "I was giving that space, but I may have overdone it.",
   ],
-  "bestRecoveryLine": "Sorry, I went quiet because I was thinking, not judging.",
-  "chains": [
+  bestRecoveryLine: "Sorry, I went quiet because I was thinking, not judging.",
+  chains: [
     {
-      "label": "Listening chain",
-      "sequence": "Reflective listening → strategic silence → summary check → live-thread follow-up",
-      "example": [
-        "\"So the hard part was the uncertainty, not the work.\" [pause]",
-        "\"Let me check I have it: the ask is more clarity up front?\"",
-        "\"What would make that clarity feel real to you?\"",
+      label: "Listening chain",
+      sequence:
+        "Reflective listening → strategic silence → summary check → live-thread follow-up",
+      example: [
+        '"So the hard part was the uncertainty, not the work." [pause]',
+        '"Let me check I have it: the ask is more clarity up front?"',
+        '"What would make that clarity feel real to you?"',
       ],
     },
     {
-      "label": "Conflict chain",
-      "sequence": "Validate the concern → strategic silence → clarify the objection → ask what would make it workable",
-      "example": [
-        "\"I can see why that felt unfair.\" [pause]",
-        "\"What part felt most unfair?\"",
-        "\"What would make this workable from your side?\"",
+      label: "Conflict chain",
+      sequence:
+        "Validate the concern → strategic silence → clarify the objection → ask what would make it workable",
+      example: [
+        '"I can see why that felt unfair." [pause]',
+        '"What part felt most unfair?"',
+        '"What would make this workable from your side?"',
       ],
     },
     {
-      "label": "Request chain",
-      "sequence": "Clean request → autonomy release → strategic silence → handle the response",
-      "example": [
-        "\"Could you take the Friday slot?\"",
-        "\"It is genuinely your call.\" [pause]",
+      label: "Request chain",
+      sequence:
+        "Clean request → autonomy release → strategic silence → handle the response",
+      example: [
+        '"Could you take the Friday slot?"',
+        '"It is genuinely your call." [pause]',
         "Then let them answer without filling the gap.",
       ],
     },
     {
-      "label": "Influence chain",
-      "sequence": "Values-based framing → concise recommendation → strategic silence → invite concerns",
-      "example": [
-        "\"Since the priority is reducing risk, I would choose option B.\" [pause]",
-        "\"What concerns would you have?\"",
+      label: "Influence chain",
+      sequence:
+        "Values-based framing → concise recommendation → strategic silence → invite concerns",
+      example: [
+        '"Since the priority is reducing risk, I would choose option B." [pause]',
+        '"What concerns would you have?"',
       ],
     },
   ],
-  "relatedTechniques": [
+  relatedTechniques: [
     {
-      "id": "TC035",
-      "reason": "The closest neighbour. TC035 Strategic pause is the micro-pause for emphasis or timing within your own delivery; TC029 is the fuller silence you leave for the other person to think, feel, or continue.",
+      id: "TC035",
+      reason:
+        "The closest neighbour. TC035 Strategic pause is the micro-pause for emphasis or timing within your own delivery; TC029 is the fuller silence you leave for the other person to think, feel, or continue.",
     },
     {
-      "id": "TC031",
-      "reason": "Both create space. Use TC029 to leave a warm gap after a meaningful point; use TC031 Slow down under pressure when your own pace is the problem and you need to deliberately slow while under pressure.",
+      id: "TC031",
+      reason:
+        "Both create space. Use TC029 to leave a warm gap after a meaningful point; use TC031 Slow down under pressure when your own pace is the problem and you need to deliberately slow while under pressure.",
     },
     {
-      "id": "TC033",
-      "reason": "Use TC029 to give full silence; use TC033 Minimal encouragers when a small \"mm\", \"go on\", or nod keeps them talking better than complete quiet would.",
+      id: "TC033",
+      reason:
+        'Use TC029 to give full silence; use TC033 Minimal encouragers when a small "mm", "go on", or nod keeps them talking better than complete quiet would.',
     },
     {
-      "id": "TC004",
-      "reason": "Often paired. Use TC004 Reflective listening to say back what you heard; use TC029 for the pause right after, so the reflection has room to land.",
+      id: "TC004",
+      reason:
+        "Often paired. Use TC004 Reflective listening to say back what you heard; use TC029 for the pause right after, so the reflection has room to land.",
     },
     {
-      "id": "TC090",
-      "reason": "Use TC090 Do-not-fix-yet discipline to resist jumping to solutions; use TC029 as the concrete move — the pause — that holds that space open instead of filling it with advice.",
+      id: "TC090",
+      reason:
+        "Use TC090 Do-not-fix-yet discipline to resist jumping to solutions; use TC029 as the concrete move — the pause — that holds that space open instead of filling it with advice.",
     },
   ],
 };

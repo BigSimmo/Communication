@@ -19,7 +19,9 @@
     "workflow:clean-state": "node ../.local-dev/workflow-clean-state.mjs",
     "workflow:export": "node ../.local-dev/workflow-export.mjs",
     "workflow:handoff": "node ../.local-dev/workflow-handoff.mjs",
-    "code-review": "node scripts/code-reviewer.mjs"
+    "code-review": "node scripts/code-reviewer.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "private": true,
   "devDependencies": {

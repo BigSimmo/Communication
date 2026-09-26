@@ -3,20 +3,63 @@ import type { CardData } from "../card-types";
 export const TC013: CardData = {
   pdfUrl: "cards/TC013/TC013_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC013/TC013_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC013/TC013_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC013/TC013_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC013/TC013_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC013/TC013_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC013/TC013_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC013/TC013_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC013/TC013_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC013/TC013_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC013/TC013_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC013/TC013_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC013/TC013_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC013/TC013_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC013/TC013_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC013",
   whyItWorks:
     "A clean request asks directly for the specific action you want, with just enough context and no hidden pressure. It works because it removes the load the other person would otherwise carry — the guessing about what you need, by when, and how much it matters. When the ask is clear, people can say yes, no, or offer a workable alternative without friction, and you come across as organised, respectful and easy to help.",
   whatItIsNot: [
     "It is not bluntness, pressure, passive-aggression, or overexplaining.",
-    "It is not \"Can you help?\" with the real ask hidden underneath.",
+    'It is not "Can you help?" with the real ask hidden underneath.',
     "It is not a script for pressure, extraction or control.",
     "It is not a substitute for listening to the response.",
     "A clean request is direct enough to be useful and warm enough to preserve goodwill.",
@@ -29,11 +72,11 @@ export const TC013: CardData = {
       "The decision I need is A or B. Could you send your preference by midday so I can finalise it?",
     ],
     minimumViableMove:
-      "Ask for the exact action and timeframe: \"Could you do X by Y?\"",
+      'Ask for the exact action and timeframe: "Could you do X by Y?"',
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
-      "It fails when the request stays vague (\"Can you help?\") or turns to pressure (\"I need this now\") without context, reason, realism or an easy way to respond — which reads as demanding rather than clear.",
+      'It fails when the request stays vague ("Can you help?") or turns to pressure ("I need this now") without context, reason, realism or an easy way to respond — which reads as demanding rather than clear.',
     bestFor: [
       "Work requests",
       "Asking busy or high-status people for help",
@@ -172,7 +215,8 @@ export const TC013: CardData = {
     },
     {
       condition: "If they say no",
-      action: "Accept it cleanly; ask about an alternative only if appropriate.",
+      action:
+        "Accept it cleanly; ask about an alternative only if appropriate.",
       phrase: "Completely fine. Thanks for telling me straight.",
     },
     {
@@ -193,7 +237,8 @@ export const TC013: CardData = {
     {
       condition: "If they counteroffer",
       action: "Clarify the new action and close the loop.",
-      phrase: "That works — so you'll do X by Monday instead. Shall I confirm that?",
+      phrase:
+        "That works — so you'll do X by Monday instead. Shall I confirm that?",
     },
   ],
   ladder: [
@@ -241,26 +286,27 @@ export const TC013: CardData = {
     },
     {
       situation: "Digital / text",
-      move: "Open with \"Quick ask\", give a deadline and an easy reply option.",
+      move: 'Open with "Quick ask", give a deadline and an easy reply option.',
       phrase: "Quick ask: could you reply yes/no by Friday?",
     },
     {
       situation: "Conflict",
       move: "Validate the concern first, then make the behavioural request specific.",
-      phrase: "I hear the worry about time. Could we agree who does what by Friday?",
+      phrase:
+        "I hear the worry about time. Could we agree who does what by Friday?",
     },
   ],
   calibration: {
     working: [
       "They answer faster because the ask is clear.",
       "They can repeat the next step back to you.",
-      "They ask execution-level questions, not \"What exactly do you mean?\"",
+      'They ask execution-level questions, not "What exactly do you mean?"',
       "They say yes, no, or offer a workable alternative clearly.",
       "They follow through without needing repeated clarification.",
       "They relax, add detail, or correct you comfortably.",
     ],
     adjust: [
-      "They look confused or ask \"What exactly do you need?\"",
+      'They look confused or ask "What exactly do you need?"',
       "They delay because the ask feels too large.",
       "They seem pressured, cornered or guilty.",
       "They agree vaguely but do not commit to a next step.",
@@ -274,7 +320,7 @@ export const TC013: CardData = {
     {
       day: "Day 1",
       title: "Spot the vague ask",
-      task: "Catch and write down three vague or pressured asks you would normally make today, such as \"Can you help?\" or \"When you get a chance.\"",
+      task: 'Catch and write down three vague or pressured asks you would normally make today, such as "Can you help?" or "When you get a chance."',
     },
     {
       day: "Day 2",
@@ -317,22 +363,22 @@ export const TC013: CardData = {
   ],
   example: {
     without: [
-      "You: \"Can you help with this?\"",
-      "Them: \"Maybe. What do you need?\"",
-      "You: \"Just whatever you think.\"",
+      'You: "Can you help with this?"',
+      'Them: "Maybe. What do you need?"',
+      'You: "Just whatever you think."',
       "Why it is weak: the other person has to discover the task, the effort, the deadline and what a good result even looks like.",
     ],
     with: [
-      "You: \"I'm trying to finalise this by Friday. Could you look over the one-page summary by Thursday afternoon and tell me if option B makes sense?\"",
-      "Them: \"Yes, send it through.\"",
-      "You (lighter version): \"Quick ask, and a no is fine — could you give me a one-line steer by Thursday on whether option B is sensible?\"",
-      "Digital version: \"Quick ask: could you reply yes/no by Friday on whether option B is acceptable? No detail needed unless there's a problem.\"",
+      'You: "I\'m trying to finalise this by Friday. Could you look over the one-page summary by Thursday afternoon and tell me if option B makes sense?"',
+      'Them: "Yes, send it through."',
+      'You (lighter version): "Quick ask, and a no is fine — could you give me a one-line steer by Thursday on whether option B is sensible?"',
+      'Digital version: "Quick ask: could you reply yes/no by Friday on whether option B is acceptable? No detail needed unless there\'s a problem."',
       "Why this works: the action, the deadline and the reason are all present, and there is an easy way to reply.",
     ],
     note: "The advanced version should make the other person feel clearer, not managed.",
   },
   influencePayoff: {
-    feeling: "\"I know exactly what they need, and it's easy to say yes.\"",
+    feeling: '"I know exactly what they need, and it\'s easy to say yes."',
     principle:
       "People cooperate more readily when a request is clear, because it removes cognitive load, ambiguity, status risk and decision friction.",
     gains: [
@@ -344,8 +390,8 @@ export const TC013: CardData = {
       "Momentum on stuck decisions",
     ],
     whyMostFail: [
-      "They stay vague — \"Can you help?\" — so the other person has to reverse-engineer the ask.",
-      "They apply pressure — \"I need this now\" — without context, reason or realism.",
+      'They stay vague — "Can you help?" — so the other person has to reverse-engineer the ask.',
+      'They apply pressure — "I need this now" — without context, reason or realism.',
       "They bury the action under two paragraphs of context.",
       "They leave no easy response path, so the reply feels effortful and gets delayed.",
     ],
@@ -355,7 +401,7 @@ export const TC013: CardData = {
       "If the other person has to translate your request into an action, the request is not clean.",
     body: "The goal is not to display skill. It is to make the next human moment easier — easy for them to answer, and easy for you to move forward.",
     example:
-      "\"Could you send the final version by 3 pm Friday? A one-line yes is all I need.\"",
+      '"Could you send the final version by 3 pm Friday? A one-line yes is all I need."',
     dont: "Wrap the ask in so much politeness or context that the action disappears.",
     do: "Put the action first, name the deadline and the reason, and leave an easy way to say no.",
   },
@@ -371,7 +417,10 @@ export const TC013: CardData = {
       body: "Ask for the least that would genuinely work. Overloading the request with scope or urgency makes it harder to accept, not easier.",
       examples: [
         { label: "Light", text: "A one-line yes/no is enough." },
-        { label: "Fuller", text: "Could you review the one-page version and flag anything that worries you?" },
+        {
+          label: "Fuller",
+          text: "Could you review the one-page version and flag anything that worries you?",
+        },
       ],
     },
     {
@@ -400,7 +449,10 @@ export const TC013: CardData = {
       title: "Confirm and close the loop",
       body: "When they agree, restate the next step in one line and thank them specifically, so nothing is left ambiguous.",
       examples: [
-        { label: "Close", text: "Great — you'll send it by Thursday and I'll finalise Friday. Thank you." },
+        {
+          label: "Close",
+          text: "Great — you'll send it by Thursday and I'll finalise Friday. Thank you.",
+        },
       ],
     },
   ],
@@ -415,14 +467,14 @@ export const TC013: CardData = {
   commonMistakes: [
     {
       mistake: "Vague ask",
-      soundsLike: "\"Can you help?\"",
+      soundsLike: '"Can you help?"',
       better:
-        "\"Could you review page 2 by Thursday and tell me if the recommendation is clear?\"",
+        '"Could you review page 2 by Thursday and tell me if the recommendation is clear?"',
     },
     {
       mistake: "No deadline",
-      soundsLike: "\"Can you send it when you get a chance?\"",
-      better: "\"Could you send it by 3 pm Friday?\"",
+      soundsLike: '"Can you send it when you get a chance?"',
+      better: '"Could you send it by 3 pm Friday?"',
     },
     {
       mistake: "Buried ask",
@@ -431,17 +483,17 @@ export const TC013: CardData = {
     },
     {
       mistake: "False urgency",
-      soundsLike: "\"I need this urgently\" when it is not actually urgent.",
+      soundsLike: '"I need this urgently" when it is not actually urgent.',
       better: "Name the real deadline and why it matters.",
     },
     {
       mistake: "No easy response path",
       soundsLike: "A long request with no clear yes/no or next step.",
-      better: "\"A yes/no is enough,\" or \"just pick A, B or C.\"",
+      better: '"A yes/no is enough," or "just pick A, B or C."',
     },
     {
       mistake: "Pressure disguised as politeness",
-      soundsLike: "\"No worries if not, but I really need you to...\"",
+      soundsLike: '"No worries if not, but I really need you to..."',
       better: "Either make it genuinely optional, or clearly explain the need.",
     },
   ],
@@ -455,46 +507,51 @@ export const TC013: CardData = {
     "I may have framed that badly — let me step back.",
     "We can leave that if it is not the useful thread.",
   ],
-  bestRecoveryLine: "I realise I buried the ask — the specific thing I need is...",
+  bestRecoveryLine:
+    "I realise I buried the ask — the specific thing I need is...",
   chains: [
     {
       label: "Rapport chain",
-      sequence: "Warm presence -> clean request -> autonomy release -> appreciation",
+      sequence:
+        "Warm presence -> clean request -> autonomy release -> appreciation",
       example: [
-        "\"Good to see you — quick one.\"",
-        "\"Could you send the signed form by Thursday?\"",
-        "\"No rush if today is mad; just let me know.\"",
-        "\"Thanks, that genuinely helps.\"",
+        '"Good to see you — quick one."',
+        '"Could you send the signed form by Thursday?"',
+        '"No rush if today is mad; just let me know."',
+        '"Thanks, that genuinely helps."',
       ],
     },
     {
       label: "Influence chain",
-      sequence: "Understand their goal -> clean request -> reduce friction -> confirm next step",
+      sequence:
+        "Understand their goal -> clean request -> reduce friction -> confirm next step",
       example: [
-        "\"You want this shipped without another delay, right?\"",
-        "\"Could you approve the one-pager by midday?\"",
+        '"You want this shipped without another delay, right?"',
+        '"Could you approve the one-pager by midday?"',
         "\"I've attached it so it's a two-minute read.\"",
         "\"Great — you'll approve by midday and I'll ship this afternoon.\"",
       ],
     },
     {
       label: "Conflict chain",
-      sequence: "Validate concern -> define request -> offer choice -> check fairness",
+      sequence:
+        "Validate concern -> define request -> offer choice -> check fairness",
       example: [
-        "\"I get that the timing feels tight.\"",
-        "\"Could we lock who does what by Friday?\"",
-        "\"Would you rather take the booking or the transport?\"",
-        "\"Does that feel like a fair split?\"",
+        '"I get that the timing feels tight."',
+        '"Could we lock who does what by Friday?"',
+        '"Would you rather take the booking or the transport?"',
+        '"Does that feel like a fair split?"',
       ],
     },
     {
       label: "Digital chain",
-      sequence: "Subject line -> one-line context -> clean ask -> deadline -> easy reply option",
+      sequence:
+        "Subject line -> one-line context -> clean ask -> deadline -> easy reply option",
       example: [
-        "Subject: \"Quick decision needed — option B\"",
-        "\"We're finalising Friday.\"",
-        "\"Could you confirm option B is acceptable?\"",
-        "\"By Thursday would be ideal — a yes/no is enough.\"",
+        'Subject: "Quick decision needed — option B"',
+        '"We\'re finalising Friday."',
+        '"Could you confirm option B is acceptable?"',
+        '"By Thursday would be ideal — a yes/no is enough."',
       ],
     },
   ],

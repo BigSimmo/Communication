@@ -714,7 +714,11 @@ export default function Library() {
                 border: "1px solid var(--fg-07)",
               }}
             >
-              <SearchX className="w-6 h-6" style={{ color: "var(--fg-40)" }} aria-hidden="true" />
+              <SearchX
+                className="w-6 h-6"
+                style={{ color: "var(--fg-40)" }}
+                aria-hidden="true"
+              />
             </div>
             <p
               className="text-[16px] font-semibold mb-1.5"

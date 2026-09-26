@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC095: CardData = {
   pdfUrl: "cards/TC095/TC095_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC095/TC095_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC095/TC095_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC095/TC095_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC095/TC095_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC095/TC095_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC095/TC095_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC095/TC095_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC095/TC095_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC095/TC095_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC095/TC095_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC095/TC095_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC095/TC095_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC095/TC095_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC095/TC095_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC095",
   whyItWorks:
@@ -155,7 +198,8 @@ export const TC095: CardData = {
   decisionTree: [
     {
       condition: "The situation is unsafe or threatening",
-      action: "Disengage and use a formal or safety process. Don't use DEAR MAN to stay in danger.",
+      action:
+        "Disengage and use a formal or safety process. Don't use DEAR MAN to stay in danger.",
       phrase: "I'm going to stop this conversation here.",
     },
     {
@@ -175,8 +219,10 @@ export const TC095: CardData = {
     },
     {
       condition: "Emotion, pushback or negotiation is likely",
-      action: "Use the full DEAR MAN sequence, negotiating only the flexible detail.",
-      phrase: "Here's what happened, here's the effect, here's what I need, here's why it helps.",
+      action:
+        "Use the full DEAR MAN sequence, negotiating only the flexible detail.",
+      phrase:
+        "Here's what happened, here's the effect, here's what I need, here's why it helps.",
     },
     {
       condition: "They keep deflecting after two restatements",
@@ -187,17 +233,20 @@ export const TC095: CardData = {
   ladder: [
     {
       weak: "I guess I'll just do it again. (a hint wrapped in resentment — the ask never lands)",
-      better: "Please send it earlier next time. (clearer, but vague on timing and reason)",
+      better:
+        "Please send it earlier next time. (clearer, but vague on timing and reason)",
       best: "The last two sets came in under a day before deadline, which leaves me rushing. I need them by noon the day before — that cuts the error risk. If the appendix is late, send the core figures first.",
     },
     {
       weak: "You clearly don't care about my time. (blame-first — the facts get buried)",
-      better: "I can't cover Saturday because I have a prior commitment. (direct boundary, brief reason)",
+      better:
+        "I can't cover Saturday because I have a prior commitment. (direct boundary, brief reason)",
       best: "You asked me to cover Saturday with a day's notice. I'm already committed and it puts me in a bind. I can't take this Saturday. If requests come earlier I can usually help — and I can help you message the group today.",
     },
     {
       weak: "It's fine, don't worry about it. (withdraws while resentment builds)",
-      better: "Can we talk about how the handoffs are going? (opens it, but there's no actual ask)",
+      better:
+        "Can we talk about how the handoffs are going? (opens it, but there's no actual ask)",
       best: "When changes come in after final approval, the published version can end up inconsistent. Please route changes through the review thread from now on — that keeps us all working from the same version.",
     },
   ],
@@ -344,7 +393,8 @@ export const TC095: CardData = {
   fieldTip: {
     headline: "Keep the Assert short enough to repeat calmly.",
     body: "If you can't say your ask in one breath, it's probably too long. Cut the speech down to four beats: here's what happened, here's the effect, here's what I need, here's what can flex. The person should leave knowing the ask, not admiring the structure.",
-    example: "Here's what happened. Here's the effect. Here's what I need. Here's what can flex.",
+    example:
+      "Here's what happened. Here's the effect. Here's what I need. Here's what can flex.",
     dont: "Deliver a polished paragraph they'll admire but can't act on.",
     do: "State the ask in one plain sentence, then stop and let them respond.",
   },
@@ -354,7 +404,10 @@ export const TC095: CardData = {
       title: "Choose one objective",
       body: "Before you speak, write the single sentence you want understood. If you have three objectives, pick the one that matters most — trying to land all of them at once is how the point gets lost.",
       examples: [
-        { label: "Request", text: "I need the figures by noon the day before." },
+        {
+          label: "Request",
+          text: "I need the figures by noon the day before.",
+        },
         { label: "Refusal", text: "I can't take that shift." },
       ],
     },
@@ -363,7 +416,10 @@ export const TC095: CardData = {
       title: "Describe — the facts only",
       body: "Name what actually happened in observable terms, with no mind-reading or character claims. Facts are hard to argue with; labels invite a defence.",
       examples: [
-        { label: "Facts", text: "The report was due Monday and I received it Thursday." },
+        {
+          label: "Facts",
+          text: "The report was due Monday and I received it Thursday.",
+        },
         { label: "Not this", text: "You never respect deadlines." },
       ],
     },
@@ -391,7 +447,10 @@ export const TC095: CardData = {
       title: "Hold it: Mindful, steady, negotiable",
       body: "If the conversation drifts, return to the point once or twice without adding a new accusation. Keep your voice firm but not sharp — steadiness isn't coldness. Stay flexible on timing, format or sequence while protecting the core ask; if it turns circular or unsafe, use your exit line.",
       examples: [
-        { label: "Return", text: "I'm not debating intent — I'm asking for the handoff by 2 pm." },
+        {
+          label: "Return",
+          text: "I'm not debating intent — I'm asking for the handoff by 2 pm.",
+        },
         { label: "Exit", text: "I'll pause here and come back to this later." },
       ],
     },
@@ -412,29 +471,34 @@ export const TC095: CardData = {
     {
       depth: "Minimum viable (four beats)",
       useWhen: "Mildly loaded, but the other person is cooperative.",
-      phrase: "Here's what happened, here's the effect, here's what I need, here's why it helps.",
+      phrase:
+        "Here's what happened, here's the effect, here's what I need, here's why it helps.",
     },
     {
       depth: "Full DEAR MAN",
       useWhen: "Emotion, pushback or negotiation is likely.",
-      phrase: "When X happened, Y was the effect. I need Z, because A. I can flex on B, but the main ask is Z.",
+      phrase:
+        "When X happened, Y was the effect. I need Z, because A. I can flex on B, but the main ask is Z.",
     },
     {
       depth: "Boundary form",
       useWhen: "You're refusing, not requesting.",
-      phrase: "I can't do Z. What I can do is A. If that doesn't work, we need another plan.",
+      phrase:
+        "I can't do Z. What I can do is A. If that doesn't work, we need another plan.",
     },
     {
       depth: "Hold + exit",
       useWhen: "They keep deflecting after two restatements.",
-      phrase: "I'm staying with the request: X by Y. If we can't stay on it, I'll pause and come back later.",
+      phrase:
+        "I'm staying with the request: X by Y. If we can't stay on it, I'll pause and come back later.",
     },
   ],
   commonMistakes: [
     {
       mistake: "Starting with Express instead of Describe",
       soundsLike: "I feel completely disrespected and taken for granted.",
-      better: "The figures came in Thursday; the deadline was Friday. That left me rushing the review.",
+      better:
+        "The figures came in Thursday; the deadline was Friday. That left me rushing the review.",
     },
     {
       mistake: "Turning Assert into a demand",
@@ -448,8 +512,10 @@ export const TC095: CardData = {
     },
     {
       mistake: "Using Mindful as stonewalling",
-      soundsLike: "Repeating the ask while ignoring a genuine constraint they've raised.",
-      better: "I hear the figures take time — let's build that in. I still need them by noon.",
+      soundsLike:
+        "Repeating the ask while ignoring a genuine constraint they've raised.",
+      better:
+        "I hear the figures take time — let's build that in. I still need them by noon.",
     },
     {
       mistake: "Appearing confident by sounding cold",
@@ -463,8 +529,10 @@ export const TC095: CardData = {
     },
     {
       mistake: "Running it too late, or when an apology is due",
-      soundsLike: "Launching the script while furious, or asserting when you caused the problem.",
-      better: "I got that wrong — let me own it first, then we can sort the handoff.",
+      soundsLike:
+        "Launching the script while furious, or asserting when you caused the problem.",
+      better:
+        "I got that wrong — let me own it first, then we can sort the handoff.",
     },
   ],
   recoveryPhrases: [
