@@ -149,7 +149,7 @@ export function useCardSectionScroll({
       section: activeSection,
       scrollY: prev?.scrollY ?? 0,
     });
-  }, [activeSection]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [activeSection]);
 
   // Restore the saved section (and scroll position) when the viewed card changes
   useEffect(() => {
