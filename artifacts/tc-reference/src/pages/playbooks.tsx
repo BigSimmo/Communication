@@ -1,15 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation } from "wouter";
 import {
-  BookOpen,
   Plus,
   Check,
   Trash2,
   Edit2,
-  Play,
   ChevronRight,
   X,
-  Sparkles,
   FolderHeart,
   AlertTriangle,
 } from "lucide-react";
@@ -422,7 +419,11 @@ export default function Playbooks() {
             backdropFilter: "blur(4px)",
             WebkitBackdropFilter: "blur(4px)",
           }}
-          onClick={() => setDeletingPlaybook(null)}
+          role="presentation"
+          onClick={(e) => {
+            // Only a click on the backdrop itself dismisses the dialog.
+            if (e.target === e.currentTarget) setDeletingPlaybook(null);
+          }}
         >
           <div
             ref={deleteModalRef}
@@ -430,7 +431,6 @@ export default function Playbooks() {
             aria-modal="true"
             aria-labelledby="delete-dialog-title"
             aria-describedby="delete-dialog-desc"
-            onClick={(e) => e.stopPropagation()}
             className="w-full max-w-sm rounded-2xl p-5 border flex flex-col gap-4 shadow-xl animate-in fade-in zoom-in-95 duration-150"
             style={{
               background: "var(--surface-dd)",

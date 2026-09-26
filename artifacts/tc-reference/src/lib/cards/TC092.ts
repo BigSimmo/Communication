@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC092: CardData = {
   pdfUrl: "cards/TC092/TC092_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC092/TC092_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC092/TC092_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC092/TC092_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC092/TC092_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC092/TC092_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC092/TC092_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC092/TC092_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC092/TC092_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC092/TC092_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC092/TC092_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC092/TC092_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC092/TC092_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC092/TC092_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC092/TC092_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC092",
   whyItWorks:
@@ -166,33 +209,43 @@ export const TC092: CardData = {
   decisionTree: [
     {
       condition: "You do not actually disagree",
-      action: "Do not manufacture a difference — validate, reflect or stay curious instead.",
+      action:
+        "Do not manufacture a difference — validate, reflect or stay curious instead.",
       phrase: "That makes sense. Say more about how you are seeing it.",
     },
     {
       condition: "There is danger, misconduct, legal or safety risk",
-      action: "State the boundary or escalation plainly; face-saving comes second to safety.",
-      phrase: "I have to stop us here — this crosses a line we cannot step over.",
+      action:
+        "State the boundary or escalation plainly; face-saving comes second to safety.",
+      phrase:
+        "I have to stop us here — this crosses a line we cannot step over.",
     },
     {
       condition: "The disagreement could threaten someone's dignity or status",
-      action: "Use the face-saving move: one true bridge, one precise point, one dignified next step.",
-      phrase: "I can see why that read makes sense. I see one part differently: the support load.",
+      action:
+        "Use the face-saving move: one true bridge, one precise point, one dignified next step.",
+      phrase:
+        "I can see why that read makes sense. I see one part differently: the support load.",
     },
     {
       condition: "You cannot find a truthful bridge",
       action: "Do not invent praise — use respectful directness instead.",
-      phrase: "I see this differently, and I would rather be straight with you than pad it.",
+      phrase:
+        "I see this differently, and I would rather be straight with you than pad it.",
     },
     {
       condition: "They stay engaged after your point",
-      action: "Continue into a trade-off, a clean request or the decision itself.",
-      phrase: "Could we test that against the first-week workload before we commit?",
+      action:
+        "Continue into a trade-off, a clean request or the decision itself.",
+      phrase:
+        "Could we test that against the first-week workload before we commit?",
     },
     {
       condition: "They turn defensive or embarrassed",
-      action: "Separate respect from the disagreement, shrink the target, or move it private.",
-      phrase: "I am challenging this one part, not your intent — can we take the detail offline?",
+      action:
+        "Separate respect from the disagreement, shrink the target, or move it private.",
+      phrase:
+        "I am challenging this one part, not your intent — can we take the detail offline?",
     },
   ],
   ladder: [
@@ -221,32 +274,38 @@ export const TC092: CardData = {
     {
       situation: "A plan is proposed publicly in a meeting",
       move: "Protect the goal, challenge the plan.",
-      phrase: "The goal is right. I see one risk differently: the support load. Could we test that before committing?",
+      phrase:
+        "The goal is right. I see one risk differently: the support load. Could we test that before committing?",
     },
     {
       situation: "A client wants an approach you think will fail",
       move: "Respect the business goal, disagree with the method.",
-      phrase: "I understand why that feels faster. My concern is it creates rework later — I would recommend a smaller first step.",
+      phrase:
+        "I understand why that feels faster. My concern is it creates rework later — I would recommend a smaller first step.",
     },
     {
       situation: "A senior person states a conclusion confidently",
       move: "Ask permission lightly, then name the alternate read.",
-      phrase: "Could I offer a different read? I see the same urgency, but I am weighting customer confusion more heavily.",
+      phrase:
+        "Could I offer a different read? I see the same urgency, but I am weighting customer confusion more heavily.",
     },
     {
       situation: "A friend reads someone's intent harshly",
       move: "Validate the hurt, separate impact from intent.",
-      phrase: "I get why that hurt. I am not sure the fairest read is that they meant to leave you out.",
+      phrase:
+        "I get why that hurt. I am not sure the fairest read is that they meant to leave you out.",
     },
     {
       situation: "Someone asks for something you cannot do",
       move: "Acknowledge the need, keep the no, offer an alternative.",
-      phrase: "I know this would help. I cannot take it on this week — I can look at it next Tuesday.",
+      phrase:
+        "I know this would help. I cannot take it on this week — I can look at it next Tuesday.",
     },
     {
       situation: "A written thread is turning adversarial",
       move: "Use short, non-performative wording.",
-      phrase: "I see the rationale. I would push back on one part: the timeline assumes approvals we do not have yet.",
+      phrase:
+        "I see the rationale. I would push back on one part: the timeline assumes approvals we do not have yet.",
     },
   ],
   calibration: {
@@ -330,8 +389,7 @@ export const TC092: CardData = {
       "Colleague: That seems workable.",
       "Why it works: it affirms the goal, protects the colleague's competence, and reframes the disagreement as a trade-off rather than a rejection — so they can move without a public climbdown.",
     ],
-    note:
-      "The difference is not softness. The advanced version is just as clear that a full launch next week is off the table; it simply leaves the colleague a route to stay in the conversation with their standing intact.",
+    note: "The difference is not softness. The advanced version is just as clear that a full launch next week is off the table; it simply leaves the colleague a route to stay in the conversation with their standing intact.",
   },
   influencePayoff: {
     feeling: "“They can tell me I am wrong without making me look foolish.”",
@@ -354,30 +412,28 @@ export const TC092: CardData = {
   },
   fieldTip: {
     headline: "Save the person before you challenge the point.",
-    body:
-      "Use one truthful bridge, one precise disagreement and one workable next step — then stop. The strongest face-saving disagreement is not the softest one; it is the clearest one that does not require the other person to lose dignity in order to hear it.",
+    body: "Use one truthful bridge, one precise disagreement and one workable next step — then stop. The strongest face-saving disagreement is not the softest one; it is the clearest one that does not require the other person to lose dignity in order to hear it.",
     example:
       "I see why that makes sense. I see one part differently: the timeline assumes approvals we do not have yet. Could we confirm those first?",
-    dont:
-      "Do not bury the point under so much reassurance that they never hear it, and do not invent praise you do not mean.",
-    do:
-      "Keep the respect real and the difference unmistakable: respect the person, narrow the difference, keep the next step workable.",
+    dont: "Do not bury the point under so much reassurance that they never hear it, and do not invent praise you do not mean.",
+    do: "Keep the respect real and the difference unmistakable: respect the person, narrow the difference, keep the next step workable.",
   },
   method: [
     {
       step: "1",
       title: "Read the face threat",
-      body:
-        "Notice whether disagreeing here could cost the other person dignity. Signals: a public setting, a big status gap, a confident claim just made, visible embarrassment, nervous humour, or a decision already tied to their identity. If face is at risk, this is the move.",
+      body: "Notice whether disagreeing here could cost the other person dignity. Signals: a public setting, a big status gap, a confident claim just made, visible embarrassment, nervous humour, or a decision already tied to their identity. If face is at risk, this is the move.",
       examples: [
-        { label: "Cue", text: "They have just advocated hard for a plan in front of the team." },
+        {
+          label: "Cue",
+          text: "They have just advocated hard for a plan in front of the team.",
+        },
       ],
     },
     {
       step: "2",
       title: "Find a true bridge",
-      body:
-        "Before you touch the content, name one thing genuinely reasonable in their view — a shared goal, a valid concern, a real constraint, an honest intention. If you cannot find one truthfully, do not invent it; switch to respectful directness instead.",
+      body: "Before you touch the content, name one thing genuinely reasonable in their view — a shared goal, a valid concern, a real constraint, an honest intention. If you cannot find one truthfully, do not invent it; switch to respectful directness instead.",
       examples: [
         { label: "Bridge", text: "I agree that waiting has a real cost." },
       ],
@@ -385,38 +441,46 @@ export const TC092: CardData = {
     {
       step: "3",
       title: "Name the exact difference",
-      body:
-        "State the specific point you see differently, and keep it narrow — the claim, the plan, the timing, the interpretation or the criterion. One precise disagreement lands better than a broad verdict.",
+      body: "State the specific point you see differently, and keep it narrow — the claim, the plan, the timing, the interpretation or the criterion. One precise disagreement lands better than a broad verdict.",
       examples: [
         { label: "Broad", text: "This will not work." },
-        { label: "Precise", text: "I do not think support is ready for the first-week volume." },
+        {
+          label: "Precise",
+          text: "I do not think support is ready for the first-week volume.",
+        },
       ],
     },
     {
       step: "4",
       title: "Move it off their identity",
-      body:
-        "Anchor the disagreement to something impersonal — data, a trade-off, timing, scope or the decision criteria — so it is about the point, not their competence or character.",
+      body: "Anchor the disagreement to something impersonal — data, a trade-off, timing, scope or the decision criteria — so it is about the point, not their competence or character.",
       examples: [
-        { label: "Reframe", text: "My concern is not the feature quality; it is the support load in the first 72 hours." },
+        {
+          label: "Reframe",
+          text: "My concern is not the feature quality; it is the support load in the first 72 hours.",
+        },
       ],
     },
     {
       step: "5",
       title: "Offer a dignified path",
-      body:
-        "Give them a way to revise or continue without a public defeat: a smaller version, a test against a criterion, a clarifying question, or a split of two issues.",
+      body: "Give them a way to revise or continue without a public defeat: a smaller version, a test against a criterion, a clarifying question, or a split of two issues.",
       examples: [
-        { label: "Path", text: "Could we keep the milestone with a limited release and decide full launch after we see the volume?" },
+        {
+          label: "Path",
+          text: "Could we keep the milestone with a limited release and decide full launch after we see the volume?",
+        },
       ],
     },
     {
       step: "6",
       title: "Let them respond",
-      body:
-        "Stop talking. Do not force an immediate concession — leave room for them to think, ask or adjust while keeping their standing. The silence after your point is part of the technique.",
+      body: "Stop talking. Do not force an immediate concession — leave room for them to think, ask or adjust while keeping their standing. The silence after your point is part of the technique.",
       examples: [
-        { label: "Give room", text: "No rush — I just wanted the risk on the table before we lock it in." },
+        {
+          label: "Give room",
+          text: "No rush — I just wanted the risk on the table before we lock it in.",
+        },
       ],
     },
   ],
@@ -443,29 +507,34 @@ export const TC092: CardData = {
     {
       depth: "Full spine",
       useWhen: "a public setting or someone invested in being right",
-      phrase: "I can see why speed is the priority. I see the launch date differently because support is not ready. Could we separate the two decisions?",
+      phrase:
+        "I can see why speed is the priority. I see the launch date differently because support is not ready. Could we separate the two decisions?",
     },
     {
       depth: "Boundary",
       useWhen: "you have to hold a clear no",
-      phrase: "I understand the ask. I cannot agree to that. What I can do is send the first version by Friday.",
+      phrase:
+        "I understand the ask. I cannot agree to that. What I can do is send the first version by Friday.",
     },
     {
       depth: "Final decision",
       useWhen: "discussion has happened and the difference remains",
-      phrase: "I understand the argument. My decision is still to hold the launch until the triage path is ready.",
+      phrase:
+        "I understand the argument. My decision is still to hold the launch until the triage path is ready.",
     },
   ],
   commonMistakes: [
     {
       mistake: "Hiding the disagreement",
-      soundsLike: "So many validating things that the point of difference never actually lands.",
+      soundsLike:
+        "So many validating things that the point of difference never actually lands.",
       better: "One bridge, then the specific disagreement — said plainly.",
     },
     {
       mistake: "False agreement",
       soundsLike: "Saying 'I agree' when you do not.",
-      better: "Agree only with the part you genuinely endorse: the goal, the concern, the pressure.",
+      better:
+        "Agree only with the part you genuinely endorse: the goal, the concern, the pressure.",
     },
     {
       mistake: "Compliment sandwiching",
@@ -475,7 +544,8 @@ export const TC092: CardData = {
     {
       mistake: "Patronising tone",
       soundsLike: "'I see why you might think that…' said down your nose.",
-      better: "Neutral wording: 'I can see the logic,' or 'That concern makes sense.'",
+      better:
+        "Neutral wording: 'I can see the logic,' or 'That concern makes sense.'",
     },
     {
       mistake: "The delayed no",
@@ -484,13 +554,17 @@ export const TC092: CardData = {
     },
     {
       mistake: "Public over-correction",
-      soundsLike: "Making the person wrong in front of others when a quiet adjustment would do.",
-      better: "Challenge the claim, not the person — and move it private if you can.",
+      soundsLike:
+        "Making the person wrong in front of others when a quiet adjustment would do.",
+      better:
+        "Challenge the claim, not the person — and move it private if you can.",
     },
     {
       mistake: "Softening real harm",
-      soundsLike: "Turning misconduct or a safety issue into 'just different views.'",
-      better: "When harm or safety is present, name the behaviour and consequence plainly.",
+      soundsLike:
+        "Turning misconduct or a safety issue into 'just different views.'",
+      better:
+        "When harm or safety is present, name the behaviour and consequence plainly.",
     },
     {
       mistake: "Explaining too much",
@@ -521,7 +595,8 @@ export const TC092: CardData = {
     },
     {
       label: "Validate, then differ",
-      sequence: "TC014 Validate the concern → TC092 Face-saving disagreement → TC013 Clean request",
+      sequence:
+        "TC014 Validate the concern → TC092 Face-saving disagreement → TC013 Clean request",
       example: [
         "Recognise the worry, name the disagreement, then make one clear ask.",
         "'The risk you are flagging is real. I do not think a full launch answers it. Could we test a limited release against the first-week volume?'",
@@ -529,7 +604,8 @@ export const TC092: CardData = {
     },
     {
       label: "Reflect both sides, then add yours",
-      sequence: "TC037 Double-sided reflection → TC092 Face-saving disagreement",
+      sequence:
+        "TC037 Double-sided reflection → TC092 Face-saving disagreement",
       example: [
         "Reflect the tension they are already holding, then add your point of difference.",
         "'Part of you wants to ship, part of you knows support is not ready. I lean towards the second for now.'",
@@ -537,7 +613,8 @@ export const TC092: CardData = {
     },
     {
       label: "Disagree, then release",
-      sequence: "TC092 Face-saving disagreement → TC021 Autonomy release → TC029 Strategic silence",
+      sequence:
+        "TC092 Face-saving disagreement → TC021 Autonomy release → TC029 Strategic silence",
       example: [
         "Name the disagreement, hand the decision back, then stop talking.",
         "'I have said where I land. It is genuinely your call — I just wanted the risk visible.' Then silence.",

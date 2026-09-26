@@ -1,5 +1,4 @@
 import {
-  act,
   fireEvent,
   render,
   screen,
@@ -392,7 +391,9 @@ describe("core accessibility contracts", () => {
     expect(
       screen.getByRole("heading", { level: 1, name: "Daily Drill" }),
     ).toBeInTheDocument();
-    fireEvent.click(await screen.findByRole("button", { name: "Hard — review soon" }));
+    fireEvent.click(
+      await screen.findByRole("button", { name: "Hard — review soon" }),
+    );
 
     const completion = screen.getByRole("status");
     expect(completion).toHaveTextContent("Great work — come back tomorrow");

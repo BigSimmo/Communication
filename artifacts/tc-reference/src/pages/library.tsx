@@ -53,10 +53,7 @@ const ALL_LOADED_CARDS = Object.values(LIBRARY_CATEGORIES)
 
 // Segment style inside the single line filter bar: inactive segments sit flat
 // on the bar, the active one lifts into an amber pill
-const segmentStyle = (
-  active: boolean,
-  open: boolean,
-): React.CSSProperties => ({
+const segmentStyle = (active: boolean, open: boolean): React.CSSProperties => ({
   background: active
     ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
     : open
@@ -194,6 +191,7 @@ function FilterDropdown({
         <div
           ref={listRef}
           role="listbox"
+          tabIndex={-1}
           aria-label={label}
           onKeyDown={moveFocus}
           className={`absolute top-full mt-2 z-50 w-max min-w-full max-w-[calc(100vw-24px)] max-h-[60vh] overflow-y-auto rounded-xl p-1 ${
@@ -409,6 +407,7 @@ export default function Library() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search techniques…"
+                role="combobox"
                 aria-label="Search techniques"
                 aria-expanded={searchOpen}
                 aria-controls="search-popout-panel"
@@ -766,7 +765,11 @@ export default function Library() {
                 border: "1px solid var(--fg-07)",
               }}
             >
-              <SearchX className="w-6 h-6" style={{ color: "var(--fg-40)" }} aria-hidden="true" />
+              <SearchX
+                className="w-6 h-6"
+                style={{ color: "var(--fg-40)" }}
+                aria-hidden="true"
+              />
             </div>
             <p
               className="text-[16px] font-semibold mb-1.5"

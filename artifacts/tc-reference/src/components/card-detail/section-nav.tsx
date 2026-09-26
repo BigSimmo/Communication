@@ -1,10 +1,18 @@
 import { useEffect, useRef } from "react";
-import { SECTIONS, type CardSection } from "./section-accordion";
+import { SECTIONS, type CardSection } from "./card-sections";
 
 // Sections grouped into the card's four reading stages. Groups are shown as
 // hairline breaks in the single pill row rather than a second row of buttons.
-const SECTION_CLUSTERS: { id: string; label: string; sectionIds: CardSection[] }[] = [
-  { id: "core", label: "Core method", sectionIds: ["overview", "why", "method"] },
+const SECTION_CLUSTERS: {
+  id: string;
+  label: string;
+  sectionIds: CardSection[];
+}[] = [
+  {
+    id: "core",
+    label: "Core method",
+    sectionIds: ["overview", "why", "method"],
+  },
   {
     id: "phrases-practice",
     label: "Phrases and practice",
@@ -22,10 +30,9 @@ const SECTION_CLUSTERS: { id: string; label: string; sectionIds: CardSection[] }
   },
 ];
 
-const SECTION_LABEL = Object.fromEntries(SECTIONS.map((s) => [s.id, s.label])) as Record<
-  CardSection,
-  string
->;
+const SECTION_LABEL = Object.fromEntries(
+  SECTIONS.map((s) => [s.id, s.label]),
+) as Record<CardSection, string>;
 
 /**
  * Sticky one-line section nav for the card page. Sits flush under the shared
@@ -50,9 +57,15 @@ export function SectionNav({
     const scroller = scrollerRef.current;
     const pill = scroller?.querySelector<HTMLElement>(`#nav-${activeSection}`);
     if (!scroller || !pill) return;
-    const target = pill.offsetLeft - (scroller.clientWidth - pill.offsetWidth) / 2;
-    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    scroller.scrollTo?.({ left: Math.max(0, target), behavior: reduce ? "auto" : "smooth" });
+    const target =
+      pill.offsetLeft - (scroller.clientWidth - pill.offsetWidth) / 2;
+    const reduce = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    scroller.scrollTo?.({
+      left: Math.max(0, target),
+      behavior: reduce ? "auto" : "smooth",
+    });
   }, [activeSection]);
 
   const groups = SECTION_CLUSTERS.map((cluster) => ({

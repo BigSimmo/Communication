@@ -10,7 +10,16 @@ function isTextEntry(el: EventTarget | null): boolean {
   if (el.isContentEditable || el.tagName === "TEXTAREA") return true;
   if (el.tagName !== "INPUT") return false;
   const type = (el as HTMLInputElement).type;
-  return !["checkbox", "radio", "button", "submit", "reset", "range", "color", "file"].includes(type);
+  return ![
+    "checkbox",
+    "radio",
+    "button",
+    "submit",
+    "reset",
+    "range",
+    "color",
+    "file",
+  ].includes(type);
 }
 
 function useTextEntryFocused(): boolean {
@@ -53,7 +62,8 @@ export function BottomTabBar() {
       className="tab-bar md:hidden fixed inset-x-0 bottom-0"
       onFocus={() => setFocusWithin(true)}
       onBlur={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocusWithin(false);
+        if (!e.currentTarget.contains(e.relatedTarget as Node))
+          setFocusWithin(false);
       }}
     >
       <ul className="tab-bar-inner flex items-stretch">
@@ -66,15 +76,24 @@ export function BottomTabBar() {
               <Link
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                aria-label={badge && item.id === "favourites" ? `${item.label}, ${badge} items` : item.label}
+                aria-label={
+                  badge && item.id === "favourites"
+                    ? `${item.label}, ${badge} items`
+                    : item.label
+                }
                 data-testid={`nav-tab-${item.id}`}
                 tabIndex={hidden ? -1 : undefined}
                 onClick={(e) => {
                   // Native pattern: tapping the tab you're on scrolls to top
                   if (location === item.href) {
                     e.preventDefault();
-                    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-                    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+                    const reduce = window.matchMedia?.(
+                      "(prefers-reduced-motion: reduce)",
+                    ).matches;
+                    window.scrollTo({
+                      top: 0,
+                      behavior: reduce ? "auto" : "smooth",
+                    });
                   }
                 }}
                 className="tab-bar-item h-full w-full flex flex-col items-center justify-center gap-[3px]"
@@ -91,7 +110,11 @@ export function BottomTabBar() {
                   <Icon
                     className="w-[19px] h-[19px]"
                     strokeWidth={active ? 2.3 : 1.9}
-                    fill={active && item.id === "favourites" ? "currentColor" : "none"}
+                    fill={
+                      active && item.id === "favourites"
+                        ? "currentColor"
+                        : "none"
+                    }
                     aria-hidden="true"
                   />
                   {badge && (

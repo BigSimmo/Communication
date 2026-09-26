@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from "@testing-library/react";
 import { describe, expect, it, beforeAll, beforeEach, vi } from "vitest";
 import { useLocation } from "wouter";
 import { AppHeader } from "../components/app-header";
@@ -32,7 +38,10 @@ function Wrapper({ children }: { children: React.ReactNode }) {
 }
 
 beforeEach(() => {
-  Object.defineProperty(window, "innerWidth", { configurable: true, value: 1024 });
+  Object.defineProperty(window, "innerWidth", {
+    configurable: true,
+    value: 1024,
+  });
   vi.mocked(useLocation).mockReturnValue(["/", vi.fn()]);
 
   Object.defineProperty(window, "matchMedia", {
@@ -114,7 +123,7 @@ describe("Library smart search toggle", () => {
       <Wrapper>
         <AppHeader />
         <Library />
-      </Wrapper>
+      </Wrapper>,
     );
 
     const toggle = screen.getByTestId("button-header-details-toggle");
@@ -141,7 +150,7 @@ describe("Library smart search toggle", () => {
       <Wrapper>
         <AppHeader />
         <Library />
-      </Wrapper>
+      </Wrapper>,
     );
 
     const input = screen.getByTestId("library-search-input");
@@ -161,7 +170,7 @@ describe("Library smart search toggle", () => {
       <Wrapper>
         <AppHeader />
         <Library />
-      </Wrapper>
+      </Wrapper>,
     );
 
     const input = screen.getByTestId("library-search-input");
@@ -182,7 +191,7 @@ describe("Library smart search toggle", () => {
       <Wrapper>
         <AppHeader />
         <Library />
-      </Wrapper>
+      </Wrapper>,
     );
 
     const input = screen.getByTestId("library-search-input");
@@ -198,10 +207,14 @@ describe("Library smart search toggle", () => {
     const { unmount } = render(
       <Wrapper>
         <AppHeader />
-      </Wrapper>
+      </Wrapper>,
     );
-    expect(screen.getByTestId("button-header-details-toggle")).toBeInTheDocument();
-    expect(screen.queryByTestId("button-header-search")).not.toBeInTheDocument();
+    expect(
+      screen.getByTestId("button-header-details-toggle"),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("button-header-search"),
+    ).not.toBeInTheDocument();
     expect(screen.queryByTestId("button-header-menu")).not.toBeInTheDocument();
     unmount();
 
@@ -209,9 +222,11 @@ describe("Library smart search toggle", () => {
     render(
       <Wrapper>
         <AppHeader />
-      </Wrapper>
+      </Wrapper>,
     );
-    expect(screen.queryByTestId("button-header-details-toggle")).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("button-header-details-toggle"),
+    ).not.toBeInTheDocument();
     const search = screen.getByTestId("button-header-search");
     expect(search).toHaveAttribute("aria-controls", "search-popout-panel");
     expect(search).toHaveAttribute("aria-expanded", "false");

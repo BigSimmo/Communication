@@ -3,20 +3,63 @@ import type { CardData } from "../card-types";
 export const TC072: CardData = {
   pdfUrl: "cards/TC072/TC072_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC072/TC072_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC072/TC072_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC072/TC072_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC072/TC072_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC072/TC072_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC072/TC072_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC072/TC072_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC072/TC072_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC072/TC072_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC072/TC072_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC072/TC072_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC072/TC072_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC072/TC072_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC072/TC072_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC072",
   whyItWorks:
     "A low-pressure invitation opens a door and keeps the choice genuinely free. You name what you are inviting someone into — a plan, a conversation, a reply, a disclosure — and you make declining, delaying, or joining at a lighter level completely safe. It works because people engage more honestly when refusing would not be awkward: the warmth plus a real exit ramp lowers defensiveness and proves that connecting with you is not a trap.",
   whatItIsNot: [
     "It is not a hidden request, a guilt trip, or a soft ultimatum dressed up as a choice.",
-    "It is not adding \"no pressure\" to a message that is otherwise loaded with pressure.",
+    'It is not adding "no pressure" to a message that is otherwise loaded with pressure.',
     "It is not vague passivity — you still say clearly what the invitation is.",
     "It is not making the other person responsible for protecting your feelings if they decline.",
   ],
@@ -46,7 +89,7 @@ export const TC072: CardData = {
   notFor: [
     "The action is genuinely required and needs to be named as required",
     "There is a safety, legal, clinical, or compliance issue that needs direct language",
-    "A power difference makes \"no pressure\" hard to believe",
+    'A power difference makes "no pressure" hard to believe',
     "You will resent, punish, repeatedly chase, or quietly shame a no",
     "The invitation hides cost, commitment, visibility, or obligation",
     "Physical safety or an immediate emergency takes priority",
@@ -163,7 +206,8 @@ export const TC072: CardData = {
       condition: "Power gap, social risk, or chance of guilt?",
       action:
         "If yes, make the exit ramp explicit and behaviourally credible; if no, a lighter line is enough.",
-      phrase: "There's genuinely no downside to declining — I want to be clear about that.",
+      phrase:
+        "There's genuinely no downside to declining — I want to be clear about that.",
     },
     {
       condition: "Can you accept a no without resentment or chasing?",
@@ -173,8 +217,10 @@ export const TC072: CardData = {
     },
     {
       condition: "Inviting them to join something",
-      action: "Name the event, roughly how long it takes, and the option to skip.",
-      phrase: "We're on at six for about an hour — very welcome if it suits, easy to skip if not.",
+      action:
+        "Name the event, roughly how long it takes, and the option to skip.",
+      phrase:
+        "We're on at six for about an hour — very welcome if it suits, easy to skip if not.",
     },
     {
       condition: "Inviting a view, a reply, or a disclosure",
@@ -197,7 +243,8 @@ export const TC072: CardData = {
     },
     {
       weak: "Can you give me feedback by tomorrow? No pressure.",
-      better: "If you have time, could you send one quick reaction by tomorrow?",
+      better:
+        "If you have time, could you send one quick reaction by tomorrow?",
       best: "If you have capacity, one quick reaction by tomorrow would help. If your week's full, no need — I can move with what I have.",
     },
     {
@@ -216,17 +263,20 @@ export const TC072: CardData = {
     {
       situation: "A quiet person in a group",
       move: "Offer an entry point without spotlighting them.",
-      phrase: "Sam, if you have a view I'd like to hear it — and it's completely fine to pass.",
+      phrase:
+        "Sam, if you have a view I'd like to hear it — and it's completely fine to pass.",
     },
     {
       situation: "Digital follow-up to someone busy",
       move: "Make the invitation useful and genuinely optional.",
-      phrase: "If you have one quick thought, I'd appreciate it. If not, no need to reply.",
+      phrase:
+        "If you have one quick thought, I'd appreciate it. If not, no need to reply.",
     },
     {
       situation: "Someone hints at something personal",
       move: "Leave the door open without pulling on it.",
-      phrase: "If you want to say more, I'm here. If not, we can leave it there.",
+      phrase:
+        "If you want to say more, I'm here. If not, we can leave it there.",
     },
     {
       situation: "Including someone in optional work",
@@ -237,7 +287,8 @@ export const TC072: CardData = {
     {
       situation: "After they decline",
       move: "Accept it cleanly and keep the warmth intact.",
-      phrase: "Of course. Thanks for letting me know — hope the rest of the week's lighter.",
+      phrase:
+        "Of course. Thanks for letting me know — hope the rest of the week's lighter.",
     },
   ],
   calibration: {
@@ -251,7 +302,7 @@ export const TC072: CardData = {
     ],
     adjust: [
       "They hesitate, over-justify, or look like they're managing your feelings.",
-      "They ask \"Do you need me to?\" or \"Would it be bad if I couldn't?\"",
+      'They ask "Do you need me to?" or "Would it be bad if I couldn\'t?"',
       "Your own tone is turning needy, urgent, or over-sold.",
       "A power gap is making the opt-out hard to believe — so make it more explicit.",
       "They decline or say they're overloaded — accept it and stop.",
@@ -278,17 +329,17 @@ export const TC072: CardData = {
     {
       day: "Day 4",
       title: "Convert the pushy classics",
-      task: "Turn \"You should come\" into a low-pressure invitation, and \"Can you review this?\" into an optional contribution.",
+      task: 'Turn "You should come" into a low-pressure invitation, and "Can you review this?" into an optional contribution.',
     },
     {
       day: "Day 5",
       title: "Disclosure and time-boxing",
-      task: "Turn \"Tell me what happened\" into a disclosure invitation, and \"Join the call\" into a time-bounded optional invite that names how long it takes.",
+      task: 'Turn "Tell me what happened" into a disclosure invitation, and "Join the call" into a time-bounded optional invite that names how long it takes.',
     },
     {
       day: "Day 6",
       title: "Public to private, and the open door",
-      task: "Take one invitation that would be awkward to decline in public and rewrite it as a private message. Then convert \"Why didn't you reply?\" into a clean open door.",
+      task: 'Take one invitation that would be awkward to decline in public and rewrite it as a private message. Then convert "Why didn\'t you reply?" into a clean open door.',
     },
     {
       day: "Day 7",
@@ -306,25 +357,26 @@ export const TC072: CardData = {
   ],
   example: {
     without: [
-      "A: \"You never come to these things. You should come tonight.\"",
-      "B: \"I might be busy.\"",
-      "A: \"Come on, just make time.\"",
+      'A: "You never come to these things. You should come tonight."',
+      'B: "I might be busy."',
+      'A: "Come on, just make time."',
       "Why it fails: the invitation is really a loyalty test — declining costs B something.",
     ],
     with: [
       "A: \"Some of us are meeting tonight for about an hour. You'd be very welcome if it sounds good, and it's completely fine if tonight's a recovery night.\"",
-      "B: \"Honestly, recovery night. But thank you.\"",
-      "A: \"Makes sense. Rest well — I'll let you know if we do another one.\"",
+      'B: "Honestly, recovery night. But thank you."',
+      'A: "Makes sense. Rest well — I\'ll let you know if we do another one."',
       "Why it works: the invitation is specific, warm, and optional, and the no is accepted without punishment.",
       "Professional version:",
       "A: \"I'm gathering quick reactions to the onboarding draft. If you have five minutes, one thing that feels confusing would be useful. If not, no problem — I know you're deep in launch work.\"",
-      "B: \"I can send one note tonight.\"",
-      "A: \"Great — and truly, keep it to one note if that's easiest.\"",
+      'B: "I can send one note tonight."',
+      'A: "Great — and truly, keep it to one note if that\'s easiest."',
     ],
     note: "The advanced version stops selling the moment the invitation is out. The clean acceptance does the rest of the work.",
   },
   influencePayoff: {
-    feeling: "\"I could have said no — and that's what made it easy to say yes.\"",
+    feeling:
+      '"I could have said no — and that\'s what made it easy to say yes."',
     principle:
       "People engage more freely when refusing carries no cost. Remove the penalty for a no and you get a more honest yes, a cleaner no, or a better answer later.",
     gains: [
@@ -336,7 +388,7 @@ export const TC072: CardData = {
       "A reputation for opening doors rather than cornering people",
     ],
     whyMostFail: [
-      "They say \"no pressure\" after a message already loaded with pressure.",
+      'They say "no pressure" after a message already loaded with pressure.',
       "The follow-up — chasing, disappointment, repeated asks — contradicts the claim that it was optional.",
       "They keep selling reasons to say yes, which quietly makes the no costly.",
       "They hide the real cost, time, or exposure, so the choice was never fully informed.",
@@ -360,8 +412,11 @@ export const TC072: CardData = {
       title: "Name the invitation clearly",
       body: "Make the thing concrete: what it is, roughly how long it takes, and what joining involves. Vague invitations hide the cost and make the choice unfair.",
       examples: [
-        { label: "Vague", text: "\"Join if you want.\"" },
-        { label: "Clear", text: "\"We're on for about an hour after this — you're welcome to come.\"" },
+        { label: "Vague", text: '"Join if you want."' },
+        {
+          label: "Clear",
+          text: "\"We're on for about an hour after this — you're welcome to come.\"",
+        },
       ],
     },
     {
@@ -369,7 +424,10 @@ export const TC072: CardData = {
       title: "Add a real exit ramp",
       body: "Make no, later, or a smaller version socially safe, and state it plainly so declining doesn't take courage.",
       examples: [
-        { label: "Exit ramp", text: "\"...and it's completely fine if the timing's wrong.\"" },
+        {
+          label: "Exit ramp",
+          text: "\"...and it's completely fine if the timing's wrong.\"",
+        },
       ],
     },
     {
@@ -387,18 +445,21 @@ export const TC072: CardData = {
       title: "Respect the answer in your behaviour",
       body: "If they decline, accept it cleanly and keep the warmth. Your reaction to this no is what makes your next invitation believable.",
       examples: [
-        { label: "Clean accept", text: "\"Of course — thanks for letting me know.\"" },
+        {
+          label: "Clean accept",
+          text: '"Of course — thanks for letting me know."',
+        },
       ],
     },
   ],
   liveThreadClues: [
     "Someone hovering at the edge of a group",
-    "\"Maybe, I'm not sure...\"",
+    '"Maybe, I\'m not sure..."',
     "A quiet person who hasn't spoken yet",
-    "\"I've been meaning to...\" after a gap",
+    '"I\'ve been meaning to..." after a gap',
     "Someone busy who might still want in",
     "A hint of something personal, only half-said",
-    "\"Do I have to?\" energy in the room",
+    '"Do I have to?" energy in the room',
   ],
   depthDial: [
     {
@@ -424,9 +485,10 @@ export const TC072: CardData = {
   ],
   commonMistakes: [
     {
-      mistake: "Saying \"no pressure\" on a loaded message",
+      mistake: 'Saying "no pressure" on a loaded message',
       soundsLike: "I really need this — no pressure though.",
-      better: "If you have capacity it'd help; if not, no need — I can work with what I have.",
+      better:
+        "If you have capacity it'd help; if not, no need — I can work with what I have.",
     },
     {
       mistake: "Leaving the invitation vague",
@@ -445,17 +507,19 @@ export const TC072: CardData = {
     },
     {
       mistake: "Over-explaining why they should say yes",
-      soundsLike: "It's your call, but everyone's going, and it'd mean a lot, and...",
+      soundsLike:
+        "It's your call, but everyone's going, and it'd mean a lot, and...",
       better: "You're very welcome — and it's completely fine either way.",
     },
     {
       mistake: "Inviting in public when private would be kinder",
       soundsLike: "So, are you coming or not? (in front of the group)",
-      better: "A quiet message: no worries if it's not your thing — just wanted to ask directly.",
+      better:
+        "A quiet message: no worries if it's not your thing — just wanted to ask directly.",
     },
     {
       mistake: "Offering an exit you don't actually mean",
-      soundsLike: "\"No pressure\" — then visible disappointment at the no",
+      soundsLike: '"No pressure" — then visible disappointment at the no',
       better: "Mean it: let the no sit without a reaction that punishes it.",
     },
   ],
@@ -473,7 +537,8 @@ export const TC072: CardData = {
   chains: [
     {
       label: "Warm open",
-      sequence: "TC036 Contextual opener → TC072 Low-pressure invitation → TC021 Autonomy release",
+      sequence:
+        "TC036 Contextual opener → TC072 Low-pressure invitation → TC021 Autonomy release",
       example: [
         "Name the shared context.",
         "Invite lightly.",
@@ -482,7 +547,8 @@ export const TC072: CardData = {
     },
     {
       label: "Include and ease",
-      sequence: "TC022 Status generosity → TC072 Low-pressure invitation → TC020 Low-friction ask",
+      sequence:
+        "TC022 Status generosity → TC072 Low-pressure invitation → TC020 Low-friction ask",
       example: [
         "Recognise a real contribution.",
         "Invite optional input.",
@@ -491,7 +557,8 @@ export const TC072: CardData = {
     },
     {
       label: "Connect without assuming",
-      sequence: "TC039 Common-ground discovery → TC054 Similarity signalling → TC072 Low-pressure invitation",
+      sequence:
+        "TC039 Common-ground discovery → TC054 Similarity signalling → TC072 Low-pressure invitation",
       example: [
         "Notice a genuine overlap.",
         "Name it modestly.",
@@ -500,7 +567,8 @@ export const TC072: CardData = {
     },
     {
       label: "Re-enter and offer",
-      sequence: "TC071 Conversation re-entry after interruption → TC072 Low-pressure invitation → TC041 Topic energy tracking",
+      sequence:
+        "TC071 Conversation re-entry after interruption → TC072 Low-pressure invitation → TC041 Topic energy tracking",
       example: [
         "Return to the interrupted thread.",
         "Make continuing optional.",

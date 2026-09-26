@@ -98,9 +98,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                       <span
                         className="min-w-[18px] h-[18px] px-1.5 rounded-full text-[10px] font-bold leading-none flex items-center justify-center"
                         style={{
-                          background: active
-                            ? "var(--brand)"
-                            : "var(--fg-08)",
+                          background: active ? "var(--brand)" : "var(--fg-08)",
                           color: active
                             ? "var(--brand-contrast)"
                             : "var(--fg-60)",
@@ -138,7 +136,8 @@ export function AppLayout({ children }: AppLayoutProps) {
               >
                 {LOADED_CARDS}
                 <span className="font-medium" style={{ color: "var(--fg-40)" }}>
-                  {" "}/ {TOTAL_CARDS}
+                  {" "}
+                  / {TOTAL_CARDS}
                 </span>
               </p>
             </div>

@@ -48,3 +48,12 @@ Thumbs.db
 # Large binary files
 /techniques/
 
+
+# Card downloads generated at build time by scripts/src/generate-card-*.ts
+# (TC001's downloads are hand-made and stay committed).
+/artifacts/tc-reference/public/cards/TC*/TC*_Reference.pdf
+/artifacts/tc-reference/public/cards/TC*/TC*_Detailed_Guide.pdf
+/artifacts/tc-reference/public/cards/TC*/TC*_Quick_Card.pdf
+/artifacts/tc-reference/public/cards/TC*/TC*_Phrase_Bank.csv
+/artifacts/tc-reference/public/cards/TC*/TC*_Anki_Flashcards.csv
+!/artifacts/tc-reference/public/cards/TC001/**

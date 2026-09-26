@@ -3,36 +3,79 @@ import type { CardData } from "../card-types";
 export const TC020: CardData = {
   pdfUrl: "cards/TC020/TC020_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC020/TC020_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC020/TC020_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC020/TC020_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC020/TC020_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC020/TC020_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC020/TC020_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC020/TC020_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC020/TC020_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC020/TC020_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC020/TC020_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC020/TC020_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC020/TC020_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC020/TC020_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC020/TC020_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC020",
   whyItWorks:
     "A low-friction ask is a request shaped so it is genuinely easy to answer. You reduce the effort, the uncertainty, the timing pressure or the social cost of replying, while keeping a real option to decline. It works because people respond far more readily when saying yes is cheap and saying no is free: they do not have to guess what you need, weigh a hidden cost, or manage your feelings before they answer. The move is behavioural, not theoretical — one short, plain line that lowers the friction without lowering the clarity of what you are actually asking.",
   whatItIsNot: [
-    "It is not making a manipulative ask sound easy, or saying \"no pressure\" after you have already applied pressure.",
+    'It is not making a manipulative ask sound easy, or saying "no pressure" after you have already applied pressure.',
     "It is not hiding the real cost of saying yes, or engineering a false agreement.",
     "It is not a dominance move, a way to force a favour, or a shortcut around consent and context.",
     "It is not lowering your standards for the request — the ask stays clear; only the friction drops.",
   ],
   overview: {
     coreFormula: [
-      "Reduce the effort: \"If it's easy, could you send the link?\"",
-      "Reduce the ambiguity: \"A yes or no is all I need.\"",
-      "Give an easy path to reply: \"A one-line answer is plenty.\"",
-      "Make no genuinely acceptable: \"No worries at all if not.\"",
+      'Reduce the effort: "If it\'s easy, could you send the link?"',
+      'Reduce the ambiguity: "A yes or no is all I need."',
+      'Give an easy path to reply: "A one-line answer is plenty."',
+      'Make no genuinely acceptable: "No worries at all if not."',
     ],
     minimumViableMove:
-      "Add one small easing clause to your request — \"if it's easy\" or \"no worries if not\" — that makes a genuine no just as available as a yes.",
+      'Add one small easing clause to your request — "if it\'s easy" or "no worries if not" — that makes a genuine no just as available as a yes.',
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "The move fails when \"no pressure\" becomes decoration: you soften how the ask sounds but leave the cost of refusing intact, so it only looks easy while a real no is still expensive.",
+      'The move fails when "no pressure" becomes decoration: you soften how the ask sounds but leave the cost of refusing intact, so it only looks easy while a real no is still expensive.',
     bestFor: [
       "Busy people who are short on time",
       "Optional help or small favours",
@@ -46,9 +89,9 @@ export const TC020: CardData = {
   notFor: [
     "The ask has real stakes that need a full, honest discussion.",
     "Saying no would be socially risky for them.",
-    "The other person has less power, so \"optional\" may not feel optional.",
+    'The other person has less power, so "optional" may not feel optional.',
     "Direct, open negotiation would be more respectful.",
-    "Making it \"easy\" would hide a genuine cost of saying yes.",
+    'Making it "easy" would hide a genuine cost of saying yes.',
     "Physical safety or an emergency needs a plain, direct request instead.",
   ],
   phraseBank: [
@@ -164,7 +207,8 @@ export const TC020: CardData = {
     {
       condition: "The ask is unclear",
       action: "Use a check version before you ask for anything.",
-      phrase: "Just so I ask for the right thing — is it the March file you mean?",
+      phrase:
+        "Just so I ask for the right thing — is it the March file you mean?",
     },
     {
       condition: "They seem to resist or hesitate",
@@ -208,12 +252,14 @@ export const TC020: CardData = {
     {
       situation: "Social",
       move: "Keep it warm and brief; make the invitation easy to decline.",
-      phrase: "If you're free, fancy grabbing a coffee? No worries if the week's mad.",
+      phrase:
+        "If you're free, fancy grabbing a coffee? No worries if the week's mad.",
     },
     {
       situation: "Professional",
       move: "Name the action or concern clearly, then cap the effort.",
-      phrase: "If you've got the figures to hand, could you send them? If not, I'll pull them myself.",
+      phrase:
+        "If you've got the figures to hand, could you send them? If not, I'll pull them myself.",
     },
     {
       situation: "Digital / text",
@@ -223,12 +269,14 @@ export const TC020: CardData = {
     {
       situation: "Conflict or objection",
       move: "Validate or summarise before you make any ask.",
-      phrase: "I think I've got your main worry — can I check I've got it right before I respond?",
+      phrase:
+        "I think I've got your main worry — can I check I've got it right before I respond?",
     },
     {
       situation: "High-status or guarded person",
       move: "Make the move optional and low-pressure.",
-      phrase: "Only if it's useful — would a quick premise-check help, or shall I just read it?",
+      phrase:
+        "Only if it's useful — would a quick premise-check help, or shall I just read it?",
     },
     {
       situation: "Close relationship",
@@ -242,7 +290,7 @@ export const TC020: CardData = {
       "They give a little more detail than you asked for.",
       "They relax — tone softens, pace picks up.",
       "They correct you without any friction.",
-      "They say \"yes\", \"that's it\", or offer a next step.",
+      'They say "yes", "that\'s it", or offer a next step.',
       "They stay engaged rather than going quiet.",
     ],
     adjust: [
@@ -269,7 +317,7 @@ export const TC020: CardData = {
     {
       day: "Day 3",
       title: "Draft the line",
-      task: "Rewrite one of those asks as a single plain sentence with a genuine exit, e.g. \"...no worries if not\".",
+      task: 'Rewrite one of those asks as a single plain sentence with a genuine exit, e.g. "...no worries if not".',
     },
     {
       day: "Day 4",
@@ -279,7 +327,7 @@ export const TC020: CardData = {
     {
       day: "Day 5",
       title: "Add the fallback",
-      task: "Practise the \"best\" version: cap the effort (\"if it's to hand\") and offer a real alternative route.",
+      task: 'Practise the "best" version: cap the effort ("if it\'s to hand") and offer a real alternative route.',
     },
     {
       day: "Day 6",
@@ -302,21 +350,21 @@ export const TC020: CardData = {
   ],
   example: {
     without: [
-      "You: \"Can you send me the document today? No pressure, but I really need it.\"",
-      "Them: \"That sounds like pressure.\"",
-      "You: \"Well… kind of.\"",
+      'You: "Can you send me the document today? No pressure, but I really need it."',
+      'Them: "That sounds like pressure."',
+      'You: "Well… kind of."',
       "Why it is weak:",
-      "the \"no pressure\" contradicts \"I really need it\"",
+      'the "no pressure" contradicts "I really need it"',
       "the deadline is fixed, so no isn't really available",
       "it makes the other person police the tone",
       "the ask sounds easy, but refusing still costs them",
     ],
     with: [
       "You: \"If you've got the document handy, could you send it? If it'd take digging, leave it and I'll find another route.\"",
-      "Them: \"I've got it — sending now.\"",
-      "You: \"Thanks — only if it was easy.\"",
+      'Them: "I\'ve got it — sending now."',
+      'You: "Thanks — only if it was easy."',
       "Why this works:",
-      "the effort is capped (\"if it's handy\")",
+      'the effort is capped ("if it\'s handy")',
       "there's a real fallback, so a no costs them nothing",
       "the reply path is obvious and short",
       "the closing line confirms the no was genuine",
@@ -324,7 +372,7 @@ export const TC020: CardData = {
     note: "Low friction means easier to answer, not harder to refuse.",
   },
   influencePayoff: {
-    feeling: "\"That was easy to answer, and a no would have been fine too.\"",
+    feeling: '"That was easy to answer, and a no would have been fine too."',
     principle:
       "People respond more readily when replying costs them little and refusing costs them nothing.",
     gains: [
@@ -347,8 +395,8 @@ export const TC020: CardData = {
     headline: "Easier to answer, not harder to refuse.",
     body: "The whole test of a low-friction ask is whether a no still costs them nothing. If you've made the yes easy but left the no expensive, you haven't lowered friction — you've hidden pressure. Say the ask, then ask yourself: could they comfortably decline right now?",
     example: "Soften the cost of no, not just the sound of the ask.",
-    dont: "\"No pressure, but I really need this today.\"",
-    do: "\"If it's to hand, send it; if not, genuinely leave it.\"",
+    dont: '"No pressure, but I really need this today."',
+    do: '"If it\'s to hand, send it; if not, genuinely leave it."',
   },
   method: [
     {
@@ -356,7 +404,10 @@ export const TC020: CardData = {
       title: "Notice the cue",
       body: "Catch the moment where an ask is about to land heavy — the person is busy, the favour is optional, a reply has stalled, or you feel yourself about to add pressure.",
       examples: [
-        { label: "Cue", text: "You catch yourself drafting \"I really need this by...\"" },
+        {
+          label: "Cue",
+          text: 'You catch yourself drafting "I really need this by..."',
+        },
       ],
     },
     {
@@ -378,7 +429,10 @@ export const TC020: CardData = {
       title: "Leave a real exit",
       body: "Make no genuinely acceptable — offer a fallback route so declining costs them nothing.",
       examples: [
-        { label: "Exit", text: "If it'd take digging, please leave it and I'll find another way." },
+        {
+          label: "Exit",
+          text: "If it'd take digging, please leave it and I'll find another way.",
+        },
       ],
     },
     {
@@ -391,12 +445,15 @@ export const TC020: CardData = {
       title: "Repair quickly if it misses",
       body: "If the ask felt heavier than you intended, take the pressure back out loud and release it, rather than pressing on.",
       examples: [
-        { label: "Repair", text: "Sorry — that came out more urgent than I meant. Genuinely no rush." },
+        {
+          label: "Repair",
+          text: "Sorry — that came out more urgent than I meant. Genuinely no rush.",
+        },
       ],
     },
   ],
   liveThreadClues: [
-    "You catch yourself about to say \"I really need this\".",
+    'You catch yourself about to say "I really need this".',
     "The person is visibly busy, rushed, or buried.",
     "It's a small favour or an optional bit of help.",
     "You're messaging a weak tie or someone senior.",
@@ -417,7 +474,8 @@ export const TC020: CardData = {
     {
       depth: "Capped with a fallback",
       useWhen: "Busy or senior person",
-      phrase: "If it's to hand, send it; if it'd take digging, please leave it and I'll find another route.",
+      phrase:
+        "If it's to hand, send it; if it'd take digging, please leave it and I'll find another route.",
     },
     {
       depth: "Full release",
@@ -428,37 +486,40 @@ export const TC020: CardData = {
   commonMistakes: [
     {
       mistake: "Fake ease",
-      soundsLike: "\"No pressure, but I really need it today.\"",
+      soundsLike: '"No pressure, but I really need it today."',
       better: "\"If it's easy, today's great; if not, tomorrow's fine.\"",
     },
     {
       mistake: "Making the move too long",
-      soundsLike: "\"So sorry to bother you, I know you're slammed, but if you possibly could…\"",
-      better: "\"Quick one — could you send the link?\"",
+      soundsLike:
+        '"So sorry to bother you, I know you\'re slammed, but if you possibly could…"',
+      better: '"Quick one — could you send the link?"',
     },
     {
       mistake: "Using it as a tactic",
-      soundsLike: "The easing line, then straight into pushing your own agenda.",
-      better: "Say \"only if it's easy\" and mean it, with nothing attached.",
+      soundsLike:
+        "The easing line, then straight into pushing your own agenda.",
+      better: 'Say "only if it\'s easy" and mean it, with nothing attached.',
     },
     {
       mistake: "Repeating it mechanically",
-      soundsLike: "\"No worries if not\" stapled onto every single line.",
+      soundsLike: '"No worries if not" stapled onto every single line.',
       better: "Say it once, then let the exit stand.",
     },
     {
       mistake: "Over-polished wording",
-      soundsLike: "\"Would you be amenable to furnishing me with the file?\"",
-      better: "\"Have you got the file handy?\"",
+      soundsLike: '"Would you be amenable to furnishing me with the file?"',
+      better: '"Have you got the file handy?"',
     },
     {
       mistake: "Ignoring the correction",
       soundsLike: "Pressing on after they've clearly eased off.",
-      better: "\"Fair enough — I'll leave it and find another route.\"",
+      better: '"Fair enough — I\'ll leave it and find another route."',
     },
     {
       mistake: "Missing the context",
-      soundsLike: "The same breezy ask to someone junior, senior, or exhausted.",
+      soundsLike:
+        "The same breezy ask to someone junior, senior, or exhausted.",
       better: "Match the ask to their power, culture, urgency and workload.",
     },
   ],
@@ -480,24 +541,25 @@ export const TC020: CardData = {
       example: [
         "Give them your full attention and let them finish.",
         "\"If it's easy, could you send the figures? If not, I'll pull them.\"",
-        "\"So the version you'd send is the March one — have I got that right?\"",
+        '"So the version you\'d send is the March one — have I got that right?"',
       ],
     },
     {
       label: "Listen, then offer",
-      sequence: "Reflective listening → Low-friction ask → Permission-based advice",
+      sequence:
+        "Reflective listening → Low-friction ask → Permission-based advice",
       example: [
-        "\"Sounds like the timing is the tricky part.\"",
-        "\"Want me to take a first pass? Only if that's genuinely helpful.\"",
-        "\"Happy to suggest an approach if it'd be useful — your call.\"",
+        '"Sounds like the timing is the tricky part."',
+        '"Want me to take a first pass? Only if that\'s genuinely helpful."',
+        '"Happy to suggest an approach if it\'d be useful — your call."',
       ],
     },
     {
       label: "Release the pressure",
       sequence: "Low-friction ask → Autonomy release",
       example: [
-        "\"If you've got a spare ten minutes this week, could you look it over?\"",
-        "\"Honestly, no obligation — a no won't cause me any problem.\"",
+        '"If you\'ve got a spare ten minutes this week, could you look it over?"',
+        '"Honestly, no obligation — a no won\'t cause me any problem."',
       ],
     },
   ],

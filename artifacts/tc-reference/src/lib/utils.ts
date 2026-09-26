@@ -4,7 +4,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     try {
       const textArea = document.createElement("textarea");
       textArea.value = text;
-      
+
       // Avoid scrolling to bottom
       textArea.style.top = "0";
       textArea.style.left = "0";
@@ -14,15 +14,15 @@ export async function copyToClipboard(text: string): Promise<boolean> {
       textArea.focus();
       textArea.select();
 
-      const successful = document.execCommand('copy');
+      const successful = document.execCommand("copy");
       document.body.removeChild(textArea);
       return successful;
     } catch (err) {
-      console.error('Fallback: Oops, unable to copy', err);
+      console.error("Fallback: Oops, unable to copy", err);
       return false;
     }
   }
-  
+
   try {
     await navigator.clipboard.writeText(text);
     return true;

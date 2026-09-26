@@ -3,22 +3,65 @@ import type { CardData } from "../card-types";
 export const TC089: CardData = {
   pdfUrl: "cards/TC089/TC089_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC089/TC089_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC089/TC089_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC089/TC089_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC089/TC089_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC089/TC089_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC089/TC089_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC089/TC089_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC089/TC089_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC089/TC089_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC089/TC089_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC089/TC089_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC089/TC089_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC089/TC089_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC089/TC089_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC089",
   whyItWorks:
     "Risk reduction is the move of making the next step feel safer before you ask someone to engage, decide, disagree, give feedback, try something, or tell you the truth. You lower the perceived downside — naming what is low-stakes, optional, reversible, private, time-bounded, or easy to decline — and then invite one small next move. It does not remove real risk; it makes the real risk clearer, smaller where possible, and easier to choose around. People often resist not the idea itself but the hidden risk of commitment, embarrassment, wasted time, or being locked into a path, so capping that downside honestly lets them engage accurately instead of defensively.",
   whatItIsNot: [
-    "It is not false reassurance — saying \"no risk\" when there is real risk.",
-    "It is not pressure in soft language — saying \"no pressure\" while implying a social cost for saying no.",
+    'It is not false reassurance — saying "no risk" when there is real risk.',
+    'It is not pressure in soft language — saying "no pressure" while implying a social cost for saying no.',
     "It is not avoiding accountability — reducing discomfort while hiding consequences, trade-offs, or ownership.",
-    "It is not minimising a legitimate concern — telling someone \"it is not a big deal\" when it is a big deal to them.",
+    'It is not minimising a legitimate concern — telling someone "it is not a big deal" when it is a big deal to them.',
     "It is not conflict avoidance — reducing the risk around a hard topic is not the same as dodging the topic.",
   ],
   overview: {
@@ -30,11 +73,11 @@ export const TC089: CardData = {
       "Short version: small step, easy exit, real choice.",
     ],
     minimumViableMove:
-      "Say one honest sentence that caps the next step, then offer a real exit: \"This is just a first read, not a commitment. A quick no is completely fine.\"",
+      'Say one honest sentence that caps the next step, then offer a real exit: "This is just a first read, not a commitment. A quick no is completely fine."',
     impact: "Medium",
     difficulty: "Hard",
     misuse:
-      "It curdles into pressure wearing soft clothing — saying \"no pressure\" or \"no risk\" while still implying a cost for declining, or framing an irreversible ask as a reversible trial. The test is simple: if the person no longer feels free to decline, question, or name a risk after your phrase, it has become pressure, not risk reduction.",
+      'It curdles into pressure wearing soft clothing — saying "no pressure" or "no risk" while still implying a cost for declining, or framing an irreversible ask as a reversible trial. The test is simple: if the person no longer feels free to decline, question, or name a risk after your phrase, it has become pressure, not risk reduction.',
     bestFor: [
       "Asking someone to try a small experiment.",
       "Inviting honest feedback or disagreement.",
@@ -168,67 +211,82 @@ export const TC089: CardData = {
     {
       step: "1",
       title: "Spot the risk signal",
-      body:
-        "Before you push the ask, notice the hesitation. Risk shows up as delay, a vague concern, silence, over-explaining, a defensive tone, or a stalling line like \"I need to think about it.\" That signal is your cue that the perceived downside — not the idea itself — is the obstacle.",
+      body: 'Before you push the ask, notice the hesitation. Risk shows up as delay, a vague concern, silence, over-explaining, a defensive tone, or a stalling line like "I need to think about it." That signal is your cue that the perceived downside — not the idea itself — is the obstacle.',
       examples: [
-        { label: "Clue", text: "\"I'm not sure I have capacity for that.\"" },
-        { label: "Clue", text: "A long pause, then \"What exactly would this involve?\"" },
+        { label: "Clue", text: '"I\'m not sure I have capacity for that."' },
+        {
+          label: "Clue",
+          text: 'A long pause, then "What exactly would this involve?"',
+        },
       ],
     },
     {
       step: "2",
       title: "Name the likely risk without mind-reading",
-      body:
-        "Guess the concern tentatively and let them correct you. Offer it as a possibility, not a diagnosis — \"I can imagine the concern might be time,\" not \"You are afraid of commitment.\" Naming it aloud makes it discussable; asserting it makes them defensive.",
+      body: 'Guess the concern tentatively and let them correct you. Offer it as a possibility, not a diagnosis — "I can imagine the concern might be time," not "You are afraid of commitment." Naming it aloud makes it discussable; asserting it makes them defensive.',
       examples: [
-        { label: "Do", text: "\"I can imagine the risk is that this turns into a new workstream.\"" },
-        { label: "Don't", text: "\"You always avoid extra work.\"" },
+        {
+          label: "Do",
+          text: '"I can imagine the risk is that this turns into a new workstream."',
+        },
+        { label: "Don't", text: '"You always avoid extra work."' },
       ],
     },
     {
       step: "3",
       title: "Cap the next step honestly",
-      body:
-        "Shrink the real downside along whichever axis is in play — time, reversibility, exposure, scope, or decision authority. The cap has to be true: a trial that secretly locks them in is not a cap. Match the cap to the risk — time or effort, limit the duration or workload; commitment, make it a test, draft, or reversible trial; blame or status, protect face and privacy; ambiguity, state the exact ask and the non-ask.",
+      body: "Shrink the real downside along whichever axis is in play — time, reversibility, exposure, scope, or decision authority. The cap has to be true: a trial that secretly locks them in is not a cap. Match the cap to the risk — time or effort, limit the duration or workload; commitment, make it a test, draft, or reversible trial; blame or status, protect face and privacy; ambiguity, state the exact ask and the non-ask.",
       examples: [
-        { label: "Time", text: "\"A 15-minute triage, not a new workstream.\"" },
-        { label: "Commitment", text: "\"A one-cycle test with a stop point on Friday.\"" },
+        { label: "Time", text: '"A 15-minute triage, not a new workstream."' },
+        {
+          label: "Commitment",
+          text: '"A one-cycle test with a stop point on Friday."',
+        },
       ],
     },
     {
       step: "4",
       title: "Give a real exit or choice",
-      body:
-        "Make declining, pausing, revising, or choosing a smaller version explicitly acceptable — and mean it. The test is simple: would they still feel free to say no after your phrase? If not, you have added pressure, not reduced risk.",
+      body: "Make declining, pausing, revising, or choosing a smaller version explicitly acceptable — and mean it. The test is simple: would they still feel free to say no after your phrase? If not, you have added pressure, not reduced risk.",
       examples: [
-        { label: "Exit", text: "\"A quick no is fine; I will not chase it.\"" },
-        { label: "Choice", text: "\"You can revise it, pause it, or pick a smaller version.\"" },
+        { label: "Exit", text: '"A quick no is fine; I will not chase it."' },
+        {
+          label: "Choice",
+          text: '"You can revise it, pause it, or pick a smaller version."',
+        },
       ],
     },
     {
       step: "5",
       title: "Ask for the smallest useful move",
-      body:
-        "Request one small, concrete thing: a first reaction, a quick no, a preferred option, or a single condition that would make it safer. A narrow ask is easier to say yes to and easier to decline cleanly.",
+      body: "Request one small, concrete thing: a first reaction, a quick no, a preferred option, or a single condition that would make it safer. A narrow ask is easier to say yes to and easier to decline cleanly.",
       examples: [
-        { label: "Ask", text: "\"Could you skim the first page and mark the one part that feels least clear?\"" },
+        {
+          label: "Ask",
+          text: '"Could you skim the first page and mark the one part that feels least clear?"',
+        },
       ],
     },
     {
       step: "6",
       title: "Calibrate, then continue or stop",
-      body:
-        "Read the response. If they relax or ask a practical question about the smaller version, continue. If they stay guarded, ask what risk is still present rather than repeating the cap. If they decline clearly, stop cleanly. The whole move should sound calm, concrete, and easy to verify.",
+      body: "Read the response. If they relax or ask a practical question about the smaller version, continue. If they stay guarded, ask what risk is still present rather than repeating the cap. If they decline clearly, stop cleanly. The whole move should sound calm, concrete, and easy to verify.",
       examples: [
-        { label: "Calibration question", text: "\"What risk is still present for you?\"" },
-        { label: "Clean stop", text: "\"Understood. Thanks for considering it; I will leave it there.\"" },
+        {
+          label: "Calibration question",
+          text: '"What risk is still present for you?"',
+        },
+        {
+          label: "Clean stop",
+          text: '"Understood. Thanks for considering it; I will leave it there."',
+        },
       ],
     },
   ],
   liveThreadClues: [
-    "\"I need to think about it.\"",
-    "\"I'm not sure.\"",
-    "\"What's the catch?\"",
+    '"I need to think about it."',
+    '"I\'m not sure."',
+    '"What\'s the catch?"',
     "A pause or a delayed reply",
     "Vague or repeated concerns",
     "Over-explaining or justifying",
@@ -236,7 +294,8 @@ export const TC089: CardData = {
     "Silence after your ask",
   ],
   influencePayoff: {
-    feeling: "\"I can look at this without getting trapped — I could still say no.\"",
+    feeling:
+      '"I can look at this without getting trapped — I could still say no."',
     principle:
       "People resist the perceived downside more than the idea itself. A person may not object to what you are proposing; they object to the hidden risk of commitment, embarrassment, loss of control, wasted time, or being locked into a path.",
     gains: [
@@ -250,7 +309,7 @@ export const TC089: CardData = {
     whyMostFail: [
       "They hijack the topic or deliver the frame mechanically, so it sounds like a script.",
       "They reduce their own risk while leaving the real cost sitting on the other person.",
-      "They say \"no risk\" or \"no pressure\" without proof, so the reassurance rings hollow.",
+      'They say "no risk" or "no pressure" without proof, so the reassurance rings hollow.',
       "They cap the downside falsely — calling an irreversible ask a reversible trial.",
     ],
   },
@@ -289,11 +348,10 @@ export const TC089: CardData = {
       "B: Exactly.",
       "A: I do not want either. Could we do a 10-minute risk map — what might break, who is affected, and the smallest containment step? If it starts becoming blame, we pause it.",
       "B: That is workable.",
-      "A: Good. And if the safest move is \"no new action today,\" that is still a valid outcome.",
+      'A: Good. And if the safest move is "no new action today," that is still a valid outcome.',
       "Why it works: A names the likely risk, caps time and scope, protects autonomy, and makes stopping a legitimate outcome.",
     ],
-    note:
-      "The plain-better version simply caps time (\"a 10-minute triage, no decision today\"). The advanced version also names the feared risk aloud and makes \"no action\" a valid result — that is what turns reluctance into a workable yes.",
+    note: 'The plain-better version simply caps time ("a 10-minute triage, no decision today"). The advanced version also names the feared risk aloud and makes "no action" a valid result — that is what turns reluctance into a workable yes.',
   },
   calibration: {
     working: [
@@ -306,25 +364,29 @@ export const TC089: CardData = {
     ],
     adjust: [
       "They repeat the same concern after your first risk cap.",
-      "They ask, \"What is the catch?\"",
+      'They ask, "What is the catch?"',
       "They sound reassured but still do not engage.",
       "They say yes quickly with obvious tension.",
       "They focus on a different downside than the one you addressed.",
       "They say no clearly — accept it and stop.",
       "The issue turns out to involve safety, consent, or real authority — stop capping and handle it properly.",
-      "The exchange becomes about persuading them rather than clarifying their choice — reset to \"What risk is still present for you?\"",
+      'The exchange becomes about persuading them rather than clarifying their choice — reset to "What risk is still present for you?"',
     ],
   },
   decisionTree: [
     {
       condition: "You do not actually need a next step from them",
-      action: "Do not reduce risk — just listen, validate, or hold off on fixing.",
-      phrase: "I do not need anything from you here — I just wanted to understand it.",
+      action:
+        "Do not reduce risk — just listen, validate, or hold off on fixing.",
+      phrase:
+        "I do not need anything from you here — I just wanted to understand it.",
     },
     {
       condition: "The real risk is high, formal, unsafe, or consent-sensitive",
-      action: "Do not reduce it rhetorically. Escalate, disclose, seek consent, or use the proper process.",
-      phrase: "This is bigger than I can cap honestly — let us handle it properly.",
+      action:
+        "Do not reduce it rhetorically. Escalate, disclose, seek consent, or use the proper process.",
+      phrase:
+        "This is bigger than I can cap honestly — let us handle it properly.",
     },
     {
       condition: "The main risk is time or effort",
@@ -334,96 +396,112 @@ export const TC089: CardData = {
     {
       condition: "The main risk is commitment or being locked in",
       action: "Make it a test, draft, first read, or reversible trial.",
-      phrase: "Let us treat it as a one-cycle test with a stop point, not a permanent change.",
+      phrase:
+        "Let us treat it as a one-cycle test with a stop point, not a permanent change.",
     },
     {
       condition: "The main risk is blame or loss of face",
-      action: "Frame it around impact, protect privacy, and offer a stop point.",
-      phrase: "I want to look at one behaviour and its impact, not judge you — and we can pause if it gets circular.",
+      action:
+        "Frame it around impact, protect privacy, and offer a stop point.",
+      phrase:
+        "I want to look at one behaviour and its impact, not judge you — and we can pause if it gets circular.",
     },
     {
       condition: "After your phrase they stay guarded or decline",
       action: "Name the leftover risk once, then accept a clear no.",
-      phrase: "What risk is still present for you? If the answer is no, that is a fine answer.",
+      phrase:
+        "What risk is still present for you? If the answer is no, that is a fine answer.",
     },
   ],
   scenarios: [
     {
       situation: "Work proposal",
       move: "They fear a new workstream — bound it to a reversible trial with a stop point.",
-      phrase: "Could we treat this as a two-week test with a stop point, not a permanent process change?",
+      phrase:
+        "Could we treat this as a two-week test with a stop point, not a permanent process change?",
     },
     {
       situation: "Feedback",
       move: "They fear a character judgement — narrow it to one behaviour and its impact.",
-      phrase: "I want to discuss one behaviour and its impact, not make a broad judgement about you.",
+      phrase:
+        "I want to discuss one behaviour and its impact, not make a broad judgement about you.",
     },
     {
       situation: "Conflict repair",
       move: "They fear another argument — drop the demand to agree and offer a pause.",
-      phrase: "I am not asking you to agree. I want to understand the impact, and we can pause if it gets circular.",
+      phrase:
+        "I am not asking you to agree. I want to understand the impact, and we can pause if it gets circular.",
     },
     {
       situation: "Social invitation",
       move: "They fear obligation — make declining costless and explanation-free.",
-      phrase: "I would enjoy it, but a no is completely fine. No explanation needed.",
+      phrase:
+        "I would enjoy it, but a no is completely fine. No explanation needed.",
     },
     {
       situation: "Digital follow-up",
       move: "They fear a long reply — shrink the required answer to one line.",
-      phrase: "A one-line answer is enough. If it is not a fit, no need to explain.",
+      phrase:
+        "A one-line answer is enough. If it is not a fit, no need to explain.",
     },
     {
       situation: "Sensitive topic",
       move: "They fear exposure — hand them the stop button before you start.",
-      phrase: "You can stop the conversation at any point. I want to raise it carefully, not force disclosure.",
+      phrase:
+        "You can stop the conversation at any point. I want to raise it carefully, not force disclosure.",
     },
   ],
   commonMistakes: [
     {
-      mistake: "Claiming \"no risk\" when the risk is real",
-      soundsLike: "\"There's no downside here.\"",
-      better: "\"The risk I can reduce is scope; the decision itself still matters.\"",
+      mistake: 'Claiming "no risk" when the risk is real',
+      soundsLike: '"There\'s no downside here."',
+      better:
+        '"The risk I can reduce is scope; the decision itself still matters."',
     },
     {
       mistake: "Vague comfort language",
-      soundsLike: "\"No pressure.\"",
-      better: "\"A quick no is fine, and I will not follow up again unless you ask.\"",
+      soundsLike: '"No pressure."',
+      better:
+        '"A quick no is fine, and I will not follow up again unless you ask."',
     },
     {
       mistake: "Making the person reassure you",
-      soundsLike: "\"Sorry, is this okay? Are you sure it's okay?\"",
-      better: "Keep the focus on their choice, not your nervousness: \"You can decline this with no explanation.\"",
+      soundsLike: '"Sorry, is this okay? Are you sure it\'s okay?"',
+      better:
+        'Keep the focus on their choice, not your nervousness: "You can decline this with no explanation."',
     },
     {
       mistake: "Reducing only your own risk",
-      soundsLike: "\"It's quick for me to send over.\"",
-      better: "Cap the cost that lands on them: \"First page only — no full review needed.\"",
+      soundsLike: '"It\'s quick for me to send over."',
+      better:
+        'Cap the cost that lands on them: "First page only — no full review needed."',
     },
     {
       mistake: "Hiding the larger commitment",
-      soundsLike: "Calling it a \"quick trial\" that actually locks them in.",
-      better: "\"This is a one-cycle test with a real stop point on Friday.\"",
+      soundsLike: 'Calling it a "quick trial" that actually locks them in.',
+      better: '"This is a one-cycle test with a real stop point on Friday."',
     },
     {
       mistake: "Over-explaining the safety frame",
       soundsLike: "A three-minute preamble about how low-risk it is.",
-      better: "One or two concrete caps: \"Ten minutes, no decision today.\"",
+      better: 'One or two concrete caps: "Ten minutes, no decision today."',
     },
     {
       mistake: "Trying again after a clear no",
-      soundsLike: "\"Just one more thing on that...\"",
-      better: "Let the exit be real: \"Understood. I will leave it there.\"",
+      soundsLike: '"Just one more thing on that..."',
+      better: 'Let the exit be real: "Understood. I will leave it there."',
     },
     {
       mistake: "Skipping repair when harm has occurred",
-      soundsLike: "Reducing risk around the next ask while the earlier hurt is unaddressed.",
-      better: "Apologise or repair first, then reduce the risk around the next conversation.",
+      soundsLike:
+        "Reducing risk around the next ask while the earlier hurt is unaddressed.",
+      better:
+        "Apologise or repair first, then reduce the risk around the next conversation.",
     },
   ],
   recoveryPhrases: [
     "I may have made that sound lower-risk than it is. Let me restate the real trade-off.",
-    "I do not want \"no pressure\" to become pressure. A no is completely acceptable.",
+    'I do not want "no pressure" to become pressure. A no is completely acceptable.',
     "I think I guessed the wrong risk. What concern should I be paying attention to?",
     "Let me slow down — I am asking for a small read, not a decision.",
     "You are right; there is more consequence here than I named.",
@@ -432,42 +510,43 @@ export const TC089: CardData = {
     "We can leave this here. Thanks for being direct.",
   ],
   bestRecoveryLine:
-    "I do not want \"no pressure\" to become pressure. A no is completely acceptable — and if the cleanest answer is no, I will respect it.",
+    'I do not want "no pressure" to become pressure. A no is completely acceptable — and if the cleanest answer is no, I will respect it.',
   chains: [
     {
       label: "Validate then bound",
       sequence: "Validate the concern -> Risk reduction -> Small ask",
       example: [
-        "\"That time concern makes complete sense.\"",
-        "\"Could we make this a 10-minute trial rather than a standing meeting?\"",
-        "\"If it does not earn its place, we drop it.\"",
+        '"That time concern makes complete sense."',
+        '"Could we make this a 10-minute trial rather than a standing meeting?"',
+        '"If it does not earn its place, we drop it."',
       ],
     },
     {
       label: "Clean request, capped",
       sequence: "NVC / OFNR -> Risk reduction -> Autonomy release",
       example: [
-        "\"When the handoff slips, I feel stretched, because I need a predictable Friday.\"",
-        "\"My request is a one-week test, not a permanent rule.\"",
-        "\"And no is an acceptable answer.\"",
+        '"When the handoff slips, I feel stretched, because I need a predictable Friday."',
+        '"My request is a one-week test, not a permanent rule."',
+        '"And no is an acceptable answer."',
       ],
     },
     {
       label: "Safe feedback",
       sequence: "SBI -> Risk reduction -> Recovery phrase",
       example: [
-        "\"In Monday's meeting, the direction changed after the interruption.\"",
-        "\"I want to raise it as one example, not a character judgement.\"",
-        "\"If I have read it wrong, tell me — I would rather know.\"",
+        '"In Monday\'s meeting, the direction changed after the interruption."',
+        '"I want to raise it as one example, not a character judgement."',
+        '"If I have read it wrong, tell me — I would rather know."',
       ],
     },
     {
       label: "Workable pilot",
-      sequence: "Ask what would make it workable -> Risk reduction -> Clean request",
+      sequence:
+        "Ask what would make it workable -> Risk reduction -> Clean request",
       example: [
-        "\"What would make this workable for you?\"",
-        "\"Good — let us protect those conditions.\"",
-        "\"The clean request is a two-day pilot with a stop point.\"",
+        '"What would make this workable for you?"',
+        '"Good — let us protect those conditions."',
+        '"The clean request is a two-day pilot with a stop point."',
       ],
     },
   ],
@@ -480,19 +559,18 @@ export const TC089: CardData = {
     "Did I make the choice clearer and safer, or make pressure sound polite?",
   ],
   fieldTip: {
-    headline: "Do not say \"no pressure\" unless you can prove it.",
-    body:
-      "Vague comfort words — \"no pressure,\" \"no risk,\" \"it's nothing\" — ask the other person to trust you. A real risk-reduction phrase shows its working: it names exactly how the ask is smaller, safer, or easier to decline, so they can see the cap for themselves rather than take it on faith.",
+    headline: 'Do not say "no pressure" unless you can prove it.',
+    body: 'Vague comfort words — "no pressure," "no risk," "it\'s nothing" — ask the other person to trust you. A real risk-reduction phrase shows its working: it names exactly how the ask is smaller, safer, or easier to decline, so they can see the cap for themselves rather than take it on faith.',
     example:
-      "\"A quick no is fine; I will not chase it.\" / \"First page only; no full review needed.\" / \"One-week test; rollback if it adds friction.\"",
-    dont: "\"No pressure, just let me know your thoughts.\"",
-    do: "\"A yes or no is enough — first page only, and I will not follow up unless you ask.\"",
+      '"A quick no is fine; I will not chase it." / "First page only; no full review needed." / "One-week test; rollback if it adds friction."',
+    dont: '"No pressure, just let me know your thoughts."',
+    do: '"A yes or no is enough — first page only, and I will not follow up unless you ask."',
   },
   relatedTechniques: [
     {
       id: "TC021",
       reason:
-        "Both can sound like \"no pressure.\" Autonomy release protects the person's freedom to choose; risk reduction shrinks the actual downside of a specific next step. Reach for autonomy release when freedom is the issue, risk reduction when hidden commitment or cost is.",
+        'Both can sound like "no pressure." Autonomy release protects the person\'s freedom to choose; risk reduction shrinks the actual downside of a specific next step. Reach for autonomy release when freedom is the issue, risk reduction when hidden commitment or cost is.',
     },
     {
       id: "TC014",

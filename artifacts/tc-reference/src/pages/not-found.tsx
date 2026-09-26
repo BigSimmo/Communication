@@ -20,7 +20,10 @@ export default function NotFound() {
             border: "1px solid hsl(var(--destructive) / 0.18)",
           }}
         >
-          <AlertCircle className="w-7 h-7" style={{ color: "hsl(var(--destructive) / 0.7)" }} />
+          <AlertCircle
+            className="w-7 h-7"
+            style={{ color: "hsl(var(--destructive) / 0.7)" }}
+          />
         </div>
         <h1 className="text-[20px] font-bold text-foreground mb-2">
           404 — Page not found
@@ -36,7 +39,8 @@ export default function NotFound() {
           className="inline-flex items-center gap-2 text-[13px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
           style={{
             background: "color-mix(in srgb, var(--brand) 12%, transparent)",
-            border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+            border:
+              "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
             color: "var(--brand-text)",
           }}
         >

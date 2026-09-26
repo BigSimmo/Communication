@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC074: CardData = {
   pdfUrl: "cards/TC074/TC074_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC074/TC074_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC074/TC074_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC074/TC074_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC074/TC074_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC074/TC074_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC074/TC074_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC074/TC074_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC074/TC074_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC074/TC074_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC074/TC074_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC074/TC074_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC074/TC074_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC074/TC074_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC074/TC074_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC074",
   whyItWorks:
@@ -22,9 +65,9 @@ export const TC074: CardData = {
   ],
   overview: {
     coreFormula: [
-      "D — Describe: name the observable behaviour. \"In the last two meetings, the decision changed after we'd already agreed the scope.\"",
-      "E — Express: name the effect, not the motive. \"That makes it hard to plan the work and keep the team aligned.\"",
-      "S — Specify: ask for the concrete change. \"I need scope changes flagged before the meeting ends.\"",
+      'D — Describe: name the observable behaviour. "In the last two meetings, the decision changed after we\'d already agreed the scope."',
+      'E — Express: name the effect, not the motive. "That makes it hard to plan the work and keep the team aligned."',
+      'S — Specify: ask for the concrete change. "I need scope changes flagged before the meeting ends."',
       "C — Consequence: name your next step, not a punishment. \"If that isn't possible, I'll pause implementation until we have it in writing.\"",
       "Skeleton: \"When [behaviour] happens, it affects [impact]. I need [specific change]. If that can't happen, I'll [my own next step].\"",
     ],
@@ -110,7 +153,7 @@ export const TC074: CardData = {
         "I can do this if the scope stays fixed. If it changes again today, I'll pause and replan.",
         "Please clear your dishes before bed; if they're still there in the morning, I'll leave them on your side rather than doing them.",
         "Let me know as soon as you're unsure about plans. If it's last-minute again, I'll wait for you to suggest the next one.",
-        "If the concern is urgent, say \"I need to interrupt for a risk,\" and I'll pause.",
+        'If the concern is urgent, say "I need to interrupt for a risk," and I\'ll pause.',
       ],
     },
     {
@@ -157,17 +200,21 @@ export const TC074: CardData = {
     {
       condition: "It's observable and repeated",
       action: "Use DESC: describe, express, specify, then set the boundary.",
-      phrase: "When this keeps happening, it affects the work. I need one clear change. If not, I'll...",
+      phrase:
+        "When this keeps happening, it affects the work. I need one clear change. If not, I'll...",
     },
     {
       condition: "They're distressed or escalated",
-      action: "Validate or pause first; use a shorter DESC only if it's still needed.",
+      action:
+        "Validate or pause first; use a shorter DESC only if it's still needed.",
       phrase: "Let's take a breath — I do want to sort this out with you.",
     },
     {
       condition: "The consequence would be punitive or unsafe",
-      action: "Don't use it. Name your own next action, seek support, or move to a formal process.",
-      phrase: "I'll take this through the proper process rather than handle it here.",
+      action:
+        "Don't use it. Name your own next action, seek support, or move to a formal process.",
+      phrase:
+        "I'll take this through the proper process rather than handle it here.",
     },
     {
       condition: "They understand and agree",
@@ -177,9 +224,10 @@ export const TC074: CardData = {
   ],
   ladder: [
     {
-      weak: "\"You keep ignoring what I ask for, so don't be surprised if I stop helping.\" This attacks motive and turns the consequence into punishment.",
-      better: "\"When the request changes after I've started, I lose time. I need the scope settled before I begin. If it changes, I'll need to re-estimate.\" Clearer and far less blaming.",
-      best: "\"I want to keep helping, and I also need the scope stable. When it changes after I start, I lose time and quality drops. Please confirm the scope before I begin. If it changes, I'll pause and send a new estimate before continuing.\" Warmth, specificity, request and boundary held together.",
+      weak: '"You keep ignoring what I ask for, so don\'t be surprised if I stop helping." This attacks motive and turns the consequence into punishment.',
+      better:
+        "\"When the request changes after I've started, I lose time. I need the scope settled before I begin. If it changes, I'll need to re-estimate.\" Clearer and far less blaming.",
+      best: '"I want to keep helping, and I also need the scope stable. When it changes after I start, I lose time and quality drops. Please confirm the scope before I begin. If it changes, I\'ll pause and send a new estimate before continuing." Warmth, specificity, request and boundary held together.',
     },
     {
       weak: "Overloading the other person with a long case file of everything they've ever done.",
@@ -191,32 +239,38 @@ export const TC074: CardData = {
     {
       situation: "Workplace delay",
       move: "Name the deadline impact and make the fallback a process, not a punishment.",
-      phrase: "When approval comes after the deadline, I can't protect quality. I need it by Thursday; if it's later, launch moves to the next cycle.",
+      phrase:
+        "When approval comes after the deadline, I can't protect quality. I need it by Thursday; if it's later, launch moves to the next cycle.",
     },
     {
       situation: "Household boundary",
       move: "State the agreement, the effect, and your own next action.",
-      phrase: "When dishes are left overnight after we agreed to clear them, I start the day frustrated. Please clear yours before bed; if they're still there, I'll move them to your side rather than doing them.",
+      phrase:
+        "When dishes are left overnight after we agreed to clear them, I start the day frustrated. Please clear yours before bed; if they're still there, I'll move them to your side rather than doing them.",
     },
     {
       situation: "Friendship",
       move: "Describe the pattern and set a boundary about your own effort, not a threat.",
-      phrase: "When plans are cancelled once I'm already on the way, I feel disrespected. Please tell me as soon as you're unsure; if it's last-minute again, I'll wait for you to suggest the next plan.",
+      phrase:
+        "When plans are cancelled once I'm already on the way, I feel disrespected. Please tell me as soon as you're unsure; if it's last-minute again, I'll wait for you to suggest the next plan.",
     },
     {
       situation: "Client scope creep",
       move: "Turn the consequence into a transparent process.",
-      phrase: "When new requirements are added after sign-off, the estimate changes. Please send changes in writing; if scope changes, I'll pause and quote the revision before continuing.",
+      phrase:
+        "When new requirements are added after sign-off, the estimate changes. Please send changes in writing; if scope changes, I'll pause and quote the revision before continuing.",
     },
     {
       situation: "Digital overload",
       move: "Ask for the context you need and set a default if it's missing.",
-      phrase: "When I get multiple urgent messages without context, I can't triage. Please include the deadline and decision needed; if not, I'll respond in the normal queue.",
+      phrase:
+        "When I get multiple urgent messages without context, I can't triage. Please include the deadline and decision needed; if not, I'll respond in the normal queue.",
     },
     {
       situation: "Team disagreement",
       move: "Sequence the input and leave a clear channel for genuine risk.",
-      phrase: "When objections come before the proposal is complete, the group misses the full logic. Please hold objections until the summary slide; if there's a critical risk, name it as a risk and I'll pause.",
+      phrase:
+        "When objections come before the proposal is complete, the group misses the full logic. Please hold objections until the summary slide; if there's a critical risk, name it as a risk and I'll pause.",
     },
   ],
   calibration: {
@@ -230,7 +284,7 @@ export const TC074: CardData = {
     ],
     adjust: [
       "They argue about your tone rather than the request — slow down and restate the observable behaviour.",
-      "They go quiet or look embarrassed — add warmth: \"I'm raising this because I want us to work well together.\"",
+      'They go quiet or look embarrassed — add warmth: "I\'m raising this because I want us to work well together."',
       "They fixate only on the consequence — separate the facts from your reaction and re-anchor the request.",
       "There's repair needed under the request — lead with the relationship before the boundary.",
       "They have less power than you — check the consequence is proportionate, transparent and not punitive.",
@@ -271,7 +325,7 @@ export const TC074: CardData = {
     {
       day: "Day 7",
       title: "Add the calibration line",
-      task: "End with one line that hands back choice — \"How does that land?\" or \"What am I missing?\" — and use the whole thing once in a real conversation.",
+      task: 'End with one line that hands back choice — "How does that land?" or "What am I missing?" — and use the whole thing once in a real conversation.',
     },
   ],
   checklist: [
@@ -289,13 +343,13 @@ export const TC074: CardData = {
       "jumps straight from judgement to threat",
       "labels character instead of naming a behaviour",
       "lets them argue about the label instead of hearing the request",
-      "Them: \"So I can't say anything now?\"",
+      'Them: "So I can\'t say anything now?"',
     ],
     with: [
       "You (better): \"In today's meeting, you interrupted me twice while I was explaining the timeline. I felt dismissed and it made it harder to finish the update. Please let me complete the timeline before challenging it. If you have concerns, I'll make time for them straight after.\"",
       "You (advanced): \"I want your pushback — it improves the plan — and I need the timing to work. When the timeline got interrupted twice today before I'd finished, I lost the thread and the group didn't get the full picture. Please let me finish first, then challenge the assumptions. If something's urgent, say 'I need to interrupt for a risk,' and I'll pause.\"",
-      "Them: \"So I can't say anything now?\"",
-      "You (recovery): \"You can absolutely challenge it. I'm asking for sequencing, not silence — finish first, challenge second.\"",
+      'Them: "So I can\'t say anything now?"',
+      'You (recovery): "You can absolutely challenge it. I\'m asking for sequencing, not silence — finish first, challenge second."',
       "Why this works:",
       "describes the behaviour, not the character",
       "names the impact without blaming motive",
@@ -305,7 +359,8 @@ export const TC074: CardData = {
     note: "The poor version hands the other person a label to argue about; the strong version hands them something concrete to say yes to.",
   },
   influencePayoff: {
-    feeling: "\"I know exactly what they need and why — and I still have a real choice.\"",
+    feeling:
+      '"I know exactly what they need and why — and I still have a real choice."',
     principle:
       "People respond to a request they can understand and answer. Clarity and fairness move people where pressure only hardens them.",
     gains: [
@@ -327,7 +382,7 @@ export const TC074: CardData = {
     headline: "Make the C about your boundary, not their punishment.",
     body: "The other person should leave knowing exactly what happened, why it matters, what you're asking for, and what you'll do next if the pattern continues. Use the structure to become clearer, not colder.",
     example:
-      "Threat: \"Do that again and you'll regret it.\" Boundary: \"If it happens again, I'll pause the discussion and reschedule with an agenda.\"",
+      'Threat: "Do that again and you\'ll regret it." Boundary: "If it happens again, I\'ll pause the discussion and reschedule with an agenda."',
     do: "Keep the consequence about your own next action — what you will do.",
     dont: "Don't make the consequence leverage over them — what they will suffer.",
   },
@@ -347,10 +402,22 @@ export const TC074: CardData = {
       title: "Phrase",
       body: "Use one short clause for each step. Keep each in your own plain voice rather than a rehearsed script.",
       examples: [
-        { label: "Describe", text: "\"In the last two meetings the scope changed after we'd agreed it.\"" },
-        { label: "Express", text: "\"That makes it hard to plan the work and keep the team aligned.\"" },
-        { label: "Specify", text: "\"I need scope changes flagged before we close the meeting.\"" },
-        { label: "Consequence", text: "\"If that's not possible, I'll pause until it's confirmed in writing.\"" },
+        {
+          label: "Describe",
+          text: '"In the last two meetings the scope changed after we\'d agreed it."',
+        },
+        {
+          label: "Express",
+          text: '"That makes it hard to plan the work and keep the team aligned."',
+        },
+        {
+          label: "Specify",
+          text: '"I need scope changes flagged before we close the meeting."',
+        },
+        {
+          label: "Consequence",
+          text: "\"If that's not possible, I'll pause until it's confirmed in writing.\"",
+        },
       ],
     },
     {
@@ -381,54 +448,63 @@ export const TC074: CardData = {
     {
       depth: "Light (Describe + Specify)",
       useWhen: "low-stakes, first time, no consequence needed yet",
-      phrase: "When objections come before the proposal is finished, we miss the full logic. Please hold them until the summary slide.",
+      phrase:
+        "When objections come before the proposal is finished, we miss the full logic. Please hold them until the summary slide.",
     },
     {
       depth: "Minimum (full skeleton)",
       useWhen: "you need the boundary but time is short",
-      phrase: "When the scope changes after I start, I lose time. Please confirm it before I begin. If it changes, I'll re-estimate.",
+      phrase:
+        "When the scope changes after I start, I lose time. Please confirm it before I begin. If it changes, I'll re-estimate.",
     },
     {
       depth: "Full DESC",
-      useWhen: "a repeated pattern needs a clear behaviour change and a boundary",
-      phrase: "In the last two meetings the scope changed after we'd agreed it. That makes it hard to plan. I need changes flagged before we close; if not, I'll pause until it's confirmed in writing.",
+      useWhen:
+        "a repeated pattern needs a clear behaviour change and a boundary",
+      phrase:
+        "In the last two meetings the scope changed after we'd agreed it. That makes it hard to plan. I need changes flagged before we close; if not, I'll pause until it's confirmed in writing.",
     },
     {
       depth: "Full + warmth",
-      useWhen: "the relationship matters and repair is needed alongside the request",
-      phrase: "I want to keep helping and I need the scope stable. When it changes after I start, quality drops. Please confirm before I begin; if it changes, I'll pause and re-quote.",
+      useWhen:
+        "the relationship matters and repair is needed alongside the request",
+      phrase:
+        "I want to keep helping and I need the scope stable. When it changes after I start, quality drops. Please confirm before I begin; if it changes, I'll pause and re-quote.",
     },
   ],
   commonMistakes: [
     {
       mistake: "Describing motive instead of behaviour",
-      soundsLike: "\"You were trying to undermine me.\"",
-      better: "\"You changed the decision after we'd agreed it.\"",
+      soundsLike: '"You were trying to undermine me."',
+      better: '"You changed the decision after we\'d agreed it."',
     },
     {
       mistake: "Using Express as an accusation",
-      soundsLike: "\"You made me feel useless.\"",
-      better: "\"I felt sidelined and couldn't finish the update.\"",
+      soundsLike: '"You made me feel useless."',
+      better: '"I felt sidelined and couldn\'t finish the update."',
     },
     {
       mistake: "Leaving the request vague",
-      soundsLike: "\"Just be more respectful.\"",
-      better: "\"Please let me finish the sentence before you respond.\"",
+      soundsLike: '"Just be more respectful."',
+      better: '"Please let me finish the sentence before you respond."',
     },
     {
       mistake: "Turning the consequence into a threat",
-      soundsLike: "\"Do that again and you'll regret it.\"",
-      better: "\"If it happens again, I'll pause the discussion and reschedule with an agenda.\"",
+      soundsLike: '"Do that again and you\'ll regret it."',
+      better:
+        '"If it happens again, I\'ll pause the discussion and reschedule with an agenda."',
     },
     {
       mistake: "Skipping calibration",
       soundsLike: "delivering all four steps, then moving straight on",
-      better: "\"How does that land?\" — then watch whether they can actually respond.",
+      better:
+        '"How does that land?" — then watch whether they can actually respond.',
     },
     {
       mistake: "Reaching for DESC too early",
       soundsLike: "a boundary before you've understood the problem",
-      better: "validate or ask first, and use DESC only if the boundary still stands.",
+      better:
+        "validate or ask first, and use DESC only if the boundary still stands.",
     },
     {
       mistake: "Over-polishing until it's a performance",
@@ -445,29 +521,33 @@ export const TC074: CardData = {
     "I skipped listening. Before I restate the request, what am I missing?",
     "That was too much at once. One-sentence version: when this happens, I need that, or I'll do this.",
   ],
-  bestRecoveryLine: "I made that sound more like a threat than a boundary. Let me restate it.",
+  bestRecoveryLine:
+    "I made that sound more like a threat than a boundary. Let me restate it.",
   chains: [
     {
       label: "Validate → DESC",
-      sequence: "Acknowledge the concern first, then Describe, Specify and set the boundary.",
+      sequence:
+        "Acknowledge the concern first, then Describe, Specify and set the boundary.",
       example: [
-        "\"I know the deadline moved and that wasn't on you.\"",
+        '"I know the deadline moved and that wasn\'t on you."',
         "\"And when the draft still comes in after the review window, I can't do it justice. I need it by Tuesday noon; if it's later, it moves to the next cycle.\"",
       ],
     },
     {
       label: "Resistance-as-information → DESC",
-      sequence: "Explore the pushback first; if the boundary still stands, state DESC cleanly.",
+      sequence:
+        "Explore the pushback first; if the boundary still stands, state DESC cleanly.",
       example: [
-        "\"Say more about what makes the timing hard.\"",
-        "\"That helps. I still need the scope confirmed before I start — if it shifts, I'll pause and re-quote.\"",
+        '"Say more about what makes the timing hard."',
+        '"That helps. I still need the scope confirmed before I start — if it shifts, I\'ll pause and re-quote."',
       ],
     },
     {
       label: "DESC → Autonomy release",
-      sequence: "State the request and boundary, then hand back the choice so it doesn't read as coercion.",
+      sequence:
+        "State the request and boundary, then hand back the choice so it doesn't read as coercion.",
       example: [
-        "\"Please send changes in writing; if the scope grows, I'll re-estimate before continuing.\"",
+        '"Please send changes in writing; if the scope grows, I\'ll re-estimate before continuing."',
         "\"You can decide how you want to handle it — I'm just being clear about what I'll do next.\"",
       ],
     },
@@ -475,8 +555,8 @@ export const TC074: CardData = {
       label: "DESC → Summary check",
       sequence: "After the ask, confirm what they heard when accuracy matters.",
       example: [
-        "\"...and if it changes, launch moves to the next cycle.\"",
-        "\"Can you tell me what you heard me asking for?\"",
+        '"...and if it changes, launch moves to the next cycle."',
+        '"Can you tell me what you heard me asking for?"',
       ],
     },
   ],
