@@ -1,46 +1,54 @@
-import { FileText, X, ExternalLink } from "lucide-react";
+import type { RefObject } from "react";
+import { ExternalLink, FileText, X } from "lucide-react";
+import type { CardData } from "@/lib/card-types";
+import { getCardPdfUrl } from "./card-sections";
 
+// ── PDF viewer modal / bottom sheet ──
 export function PdfViewerModal({
   cardId,
-  pdfUrl,
-  pdfSheetRef,
-  pdfCloseRef,
+  cardData,
+  sheetRef,
   pdfError,
   pdfLoaded,
-  pdfLoadedRef,
-  setPdfOpen,
-  setPdfLoaded,
-  setPdfError,
+  onClose,
+  onLoad,
+  onError,
 }: {
   cardId: string;
-  pdfUrl: string;
-  pdfSheetRef: React.RefObject<HTMLDivElement | null>;
-  pdfCloseRef: React.RefObject<HTMLButtonElement | null>;
+  cardData: CardData;
+  sheetRef: RefObject<HTMLDivElement | null>;
   pdfError: boolean;
   pdfLoaded: boolean;
-  pdfLoadedRef: React.RefObject<boolean>;
-  setPdfOpen: (open: boolean) => void;
-  setPdfLoaded: (loaded: boolean) => void;
-  setPdfError: (error: boolean) => void;
+  onClose: () => void;
+  onLoad: () => void;
+  onError: () => void;
 }) {
+  const isCoarsePointer =
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(pointer: coarse)").matches;
+  const { url, isPlaceholder } = getCardPdfUrl(cardId, cardData);
   return (
     <>
       {/* Backdrop */}
       <div
         className="fixed inset-0"
-        style={{ background: "rgba(0,0,0,0.60)", zIndex: "var(--z-modal)" }}
-        onClick={() => setPdfOpen(false)}
+        style={{
+          background: "rgba(0,0,0,0.60)",
+          zIndex: "var(--z-modal)" as unknown as number,
+        }}
+        onClick={onClose}
         aria-hidden="true"
       />
       {/* Sheet */}
       <div
-        ref={pdfSheetRef}
+        ref={sheetRef}
         role="dialog"
         aria-modal="true"
         aria-label={`${cardId} Reference PDF`}
         className="pdf-modal flex flex-col"
         style={{
-          zIndex: "var(--z-modal)",
+          zIndex: "var(--z-modal)" as unknown as number,
           background: "var(--surface-float)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
@@ -49,29 +57,40 @@ export function PdfViewerModal({
       >
         {/* Header */}
         <div
-          className="flex items-center justify-between px-5 py-3.5 flex-shrink-0"
+          className="flex items-center justify-between gap-2 pl-5 pr-3 py-2 flex-shrink-0"
           style={{ borderBottom: "1px solid var(--fg-08)" }}
         >
           <div className="flex items-center gap-2.5">
             <FileText
               className="w-4 h-4"
-              style={{ color: "var(--brand-text)" }}
+              style={{
+                color: "var(--brand-text)",
+                opacity: isPlaceholder ? 0.5 : 1,
+              }}
             />
             <span
               className="text-[13px] font-semibold"
               style={{ color: "var(--fg-70)" }}
             >
               {cardId} — Reference PDF
+              {isPlaceholder && (
+                <span
+                  className="ml-2 text-[11px] font-normal"
+                  style={{ color: "var(--fg-35)" }}
+                >
+                  (placeholder)
+                </span>
+              )}
             </span>
           </div>
           <div className="flex items-center gap-2">
             <a
-              href={pdfUrl}
+              href={url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open PDF in new tab"
               title="Open PDF in new tab"
-              className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+              className="w-11 h-11 flex items-center justify-center rounded-full transition-all active:scale-95"
               style={{ background: "var(--fg-06)" }}
             >
               <ExternalLink
@@ -80,10 +99,9 @@ export function PdfViewerModal({
               />
             </a>
             <button
-              ref={pdfCloseRef}
-              onClick={() => setPdfOpen(false)}
+              onClick={onClose}
               aria-label="Close PDF viewer"
-              className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+              className="w-11 h-11 flex items-center justify-center rounded-full transition-all active:scale-95"
               style={{ background: "var(--fg-06)" }}
             >
               <X className="w-4 h-4" style={{ color: "var(--fg-55)" }} />
@@ -91,28 +109,23 @@ export function PdfViewerModal({
           </div>
         </div>
         {/* PDF iframe / fallback
-             Detection strategy:
-             • onError  → immediate failure (network error)
-             • 10 s timeout → catches X-Frame-Options / CSP blocks where
-               browsers fire onLoad (or nothing) instead of onError
-             • "Open in new tab" is always visible so users are never stuck */}
+           Detection strategy:
+           • onError  → immediate failure (network error)
+           • 10 s timeout → catches X-Frame-Options / CSP blocks where
+             browsers fire onLoad (or nothing) instead of onError
+           • "Open in new tab" is always visible so users are never stuck */}
         {pdfError ? (
           <div className="flex-1 flex flex-col items-center justify-center px-6 py-8 text-center gap-5">
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
               style={{
-                background:
-                  "color-mix(in srgb, var(--accent-red) 7%, transparent)",
-                border:
-                  "1px solid color-mix(in srgb, var(--accent-red) 16%, transparent)",
+                background: "rgba(239,68,68,0.07)",
+                border: "1px solid rgba(239,68,68,0.16)",
               }}
             >
               <FileText
                 className="w-6 h-6"
-                style={{
-                  color:
-                    "color-mix(in srgb, var(--accent-red) 50%, transparent)",
-                }}
+                style={{ color: "rgba(239,68,68,0.5)" }}
               />
             </div>
             <div>
@@ -128,15 +141,14 @@ export function PdfViewerModal({
               </p>
             </div>
             <a
-              href={pdfUrl}
+              href={url}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-[13px] font-semibold px-5 rounded-full transition-all active:scale-95"
               style={{
                 minHeight: 44,
-                background: "color-mix(in srgb, var(--brand) 12%, transparent)",
-                border:
-                  "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+                background: "rgba(245,158,11,0.12)",
+                border: "1px solid rgba(245,158,11,0.22)",
                 color: "var(--brand-text)",
               }}
             >
@@ -156,17 +168,17 @@ export function PdfViewerModal({
                   }}
                   aria-hidden="true"
                 />
-                <p className="text-[13px]" style={{ color: "var(--fg-35)" }}>
+                <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
                   Loading PDF…
                 </p>
                 <a
-                  href={pdfUrl}
+                  href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-[12px] font-medium rounded-full px-4 transition-all active:scale-95"
                   style={{
-                    minHeight: 36,
-                    color: "var(--fg-42)",
+                    minHeight: 44,
+                    color: "var(--fg-55)",
                     border: "1px solid var(--fg-08)",
                   }}
                 >
@@ -176,19 +188,32 @@ export function PdfViewerModal({
               </div>
             )}
             <iframe
-              src={pdfUrl}
+              src={url}
               className="w-full border-0"
               title="Technique PDF"
               style={{
                 display: pdfLoaded ? "block" : "none",
                 flex: "1 1 auto",
               }}
-              onLoad={() => {
-                pdfLoadedRef.current = true;
-                setPdfLoaded(true);
-              }}
-              onError={() => setPdfError(true)}
+              onLoad={onLoad}
+              onError={onError}
             />
+            {pdfLoaded && isCoarsePointer && (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 text-[13px] font-semibold flex-shrink-0"
+                style={{
+                  minHeight: 48,
+                  borderTop: "1px solid var(--fg-08)",
+                  color: "var(--brand-text)",
+                }}
+              >
+                <ExternalLink className="w-4 h-4" aria-hidden="true" />
+                Open full PDF
+              </a>
+            )}
           </>
         )}
       </div>

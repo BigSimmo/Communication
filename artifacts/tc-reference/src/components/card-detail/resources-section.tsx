@@ -1,77 +1,63 @@
 import { FileText } from "lucide-react";
-import type { CardResource } from "@/lib/card-types";
-import { SectionAccordion, type CardSection } from "./section-accordion";
+import type { CardData } from "@/lib/card-types";
+import { SectionAccordion } from "./section-accordion";
 
-export function ResourcesSection({
-  resourceItems,
-  open,
-  onToggle,
-}: {
-  resourceItems: CardResource[];
-  open: boolean;
-  onToggle: (id: CardSection) => void;
-}) {
+// ── Downloads ──
+export function ResourcesSection({ cardData }: { cardData: CardData }) {
   return (
     <SectionAccordion
       id="resources"
-      open={open}
-      onToggle={onToggle}
       label="Downloads"
-      color="var(--accent-purple)"
+      color="#a78bfa"
       subtitle="PDFs & reference files"
     >
       <div
         className="rounded-2xl px-4 py-3 mb-5 flex items-start gap-3"
         style={{
-          background:
-            "color-mix(in srgb, var(--accent-purple) 7%, transparent)",
-          border:
-            "1px solid color-mix(in srgb, var(--accent-purple) 14%, transparent)",
+          background: "rgba(167,139,250,0.07)",
+          border: "1px solid rgba(167,139,250,0.14)",
         }}
       >
         <FileText
           className="w-4 h-4 mt-0.5 flex-shrink-0"
-          style={{
-            color: "color-mix(in srgb, var(--accent-purple) 65%, transparent)",
-          }}
+          style={{ color: "rgba(167,139,250,0.65)" }}
           aria-hidden="true"
         />
         <p
           className="text-[12px] leading-relaxed"
           style={{ color: "var(--fg-55)" }}
         >
-          The visual card PDF can also be viewed in-app via the PDF button in
-          the app navigation.
+          The visual card PDF can also be viewed in-app using the PDF button in
+          the top navigation.
         </p>
       </div>
 
       {(["Visual Cards", "Written Guides", "Practice Tools"] as const).map(
         (group) => {
-          const items = resourceItems.filter((r) => r.group === group);
+          const items = cardData.resources!.filter((r) => r.group === group);
           if (items.length === 0) return null;
           const typeStyle: Record<string, { bg: string; color: string }> = {
             pdf: {
-              bg: "color-mix(in srgb, var(--accent-red) 9%, transparent)",
-              color: "color-mix(in srgb, var(--accent-red) 85%, transparent)",
+              bg: "rgba(239,68,68,0.09)",
+              color: "rgba(248,113,113,0.85)",
             },
             docx: {
-              bg: "color-mix(in srgb, var(--accent-blue) 9%, transparent)",
-              color: "color-mix(in srgb, var(--accent-blue) 85%, transparent)",
+              bg: "rgba(59,130,246,0.09)",
+              color: "rgba(96,165,250,0.85)",
             },
             png: {
-              bg: "color-mix(in srgb, var(--accent-emerald) 9%, transparent)",
-              color:
-                "color-mix(in srgb, var(--accent-emerald) 85%, transparent)",
+              bg: "rgba(16,185,129,0.09)",
+              color: "rgba(52,211,153,0.85)",
             },
             csv: {
-              bg: "color-mix(in srgb, var(--brand) 9%, transparent)",
-              color: "color-mix(in srgb, var(--brand-text) 85%, transparent)",
+              bg: "rgba(245,158,11,0.09)",
+              color: "rgba(245,158,11,0.85)",
             },
           };
           return (
             <div key={group} className="mb-5">
               <p
-                className="text-[10px] font-bold tracking-widest uppercase mb-3"
+                className="text-[11px] font-bold tracking-widest uppercase mb-3"
                 style={{ color: "var(--fg-35)" }}
               >
                 {group}
@@ -120,7 +106,7 @@ export function ResourcesSection({
                         </p>
                       </div>
                       <span
-                        className="text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full flex-shrink-0 ml-1"
+                        className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full flex-shrink-0 ml-1"
                         style={{ background: ts.bg, color: ts.color }}
                       >
                         {resource.type}

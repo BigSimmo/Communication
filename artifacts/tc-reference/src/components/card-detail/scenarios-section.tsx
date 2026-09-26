@@ -1,35 +1,27 @@
 import { Check, Copy, Heart } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import type { FavouritePhrase } from "@/lib/favourites-state";
-import { SectionAccordion, type CardSection } from "./section-accordion";
-import { CARD_TITLE_MAP } from "./card-title-map";
+import { useFavourites } from "@/lib/favourites-context";
+import { CARD_TITLE_MAP } from "./card-sections";
+import { SectionAccordion } from "./section-accordion";
 
+// ── Scenarios ──
 export function ScenariosSection({
-  cardData,
   cardId,
-  open,
-  onToggle,
+  cardData,
   copiedPhrase,
   handleCopy,
-  isPhrasesFav,
-  togglePhrase,
 }: {
-  cardData: CardData;
   cardId: string;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
+  cardData: CardData;
   copiedPhrase: string | null;
-  handleCopy: (text: string) => void;
-  isPhrasesFav: (cardId: string, text: string) => boolean;
-  togglePhrase: (phrase: FavouritePhrase) => void;
+  handleCopy: (phrase: string) => void;
 }) {
+  const { isPhrasesFav, togglePhrase } = useFavourites();
   return (
     <SectionAccordion
       id="scenarios"
-      open={open}
-      onToggle={onToggle}
-      label="Scenario Playbook"
-      color="var(--accent-teal)"
+      label="Scenario playbook"
+      color="#2dd4bf"
       subtitle={`${cardData.scenarios.length} real-world entries`}
     >
       <div className="space-y-3">
@@ -56,12 +48,12 @@ export function ScenariosSection({
                 style={{
                   background:
                     copiedPhrase === s.phrase
-                      ? "color-mix(in srgb, var(--brand) 15%, transparent)"
-                      : "color-mix(in srgb, var(--brand) 8%, transparent)",
+                      ? "rgba(245,158,11,0.15)"
+                      : "rgba(245,158,11,0.08)",
                   border:
                     copiedPhrase === s.phrase
-                      ? "1px solid color-mix(in srgb, var(--brand) 40%, transparent)"
-                      : "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+                      ? "1px solid rgba(245,158,11,0.4)"
+                      : "1px solid rgba(245,158,11,0.18)",
                   color: "var(--brand-text)",
                   minHeight: 44,
                 }}
@@ -71,7 +63,9 @@ export function ScenariosSection({
                 ) : (
                   <Copy className="w-3.5 h-3.5" />
                 )}
-                <span className="truncate max-w-[220px]">{s.phrase}</span>
+                <span className="min-w-0 break-words text-left">
+                  {s.phrase}
+                </span>
               </button>
               <button
                 onClick={() =>
@@ -85,12 +79,12 @@ export function ScenariosSection({
                 aria-label={
                   isPhrasesFav(cardId, s.phrase)
                     ? "Remove from favourites"
-                    : "Save phrase"
+                    : "Save to favourites"
                 }
                 className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                 style={{
                   background: isPhrasesFav(cardId, s.phrase)
-                    ? "color-mix(in srgb, var(--brand) 10%, transparent)"
+                    ? "rgba(245,158,11,0.1)"
                     : "var(--fg-05)",
                 }}
               >
@@ -99,7 +93,7 @@ export function ScenariosSection({
                   style={{
                     color: isPhrasesFav(cardId, s.phrase)
                       ? "var(--brand-text)"
-                      : "var(--fg-30)",
+                      : "var(--fg-45)",
                   }}
                   fill={
                     isPhrasesFav(cardId, s.phrase)

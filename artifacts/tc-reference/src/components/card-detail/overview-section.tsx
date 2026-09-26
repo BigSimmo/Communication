@@ -1,37 +1,33 @@
-import { ChevronRight, ChevronDown } from "lucide-react";
+import type { Dispatch, SetStateAction } from "react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { impactStyleFor } from "@/lib/design-tokens";
-import { SectionAccordion, type CardSection } from "./section-accordion";
+import { SectionAccordion } from "./section-accordion";
 
+// ── Overview ──
 export function OverviewSection({
   cardData,
-  open,
-  onToggle,
   whyOpen,
   setWhyOpen,
   notForOpen,
   setNotForOpen,
 }: {
   cardData: CardData;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
   whyOpen: boolean;
-  setWhyOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setWhyOpen: Dispatch<SetStateAction<boolean>>;
   notForOpen: boolean;
-  setNotForOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setNotForOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
     <SectionAccordion
       id="overview"
-      open={open}
-      onToggle={onToggle}
       label="Overview"
       color="var(--brand)"
       subtitle="Core formula, quick stats & when not to use"
     >
       <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 mb-4">
-        <p className="text-[10px] font-bold tracking-widest text-primary/80 uppercase mb-3">
-          Core Formula
+        <p className="text-[11px] font-bold tracking-widest text-primary/80 uppercase mb-3">
+          Core formula
         </p>
         <div className="flex flex-wrap gap-2 items-center">
           {cardData.overview.coreFormula.map((step, i, arr) => (
@@ -52,10 +48,13 @@ export function OverviewSection({
 
       <div
         className="rounded-2xl p-5 mb-4"
-        style={{ background: "var(--fg-03)", border: "1px solid var(--fg-06)" }}
+        style={{
+          background: "var(--fg-03)",
+          border: "1px solid var(--fg-06)",
+        }}
       >
-        <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-2">
-          Minimum Viable Move
+        <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-2">
+          Minimum viable move
         </p>
         <p className="text-[14px] leading-relaxed text-foreground/80">
           {cardData.overview.minimumViableMove}
@@ -66,10 +65,8 @@ export function OverviewSection({
         <div
           className="rounded-2xl mb-4 overflow-hidden"
           style={{
-            background:
-              "color-mix(in srgb, var(--accent-purple) 7%, transparent)",
-            border:
-              "1px solid color-mix(in srgb, var(--accent-purple) 18%, transparent)",
+            background: "rgba(139,92,246,0.07)",
+            border: "1px solid rgba(139,92,246,0.18)",
           }}
         >
           <button
@@ -78,19 +75,15 @@ export function OverviewSection({
             aria-expanded={whyOpen}
           >
             <p
-              className="text-[10px] font-bold tracking-widest uppercase"
-              style={{
-                color:
-                  "color-mix(in srgb, var(--accent-purple) 80%, transparent)",
-              }}
+              className="text-[11px] font-bold tracking-widest uppercase"
+              style={{ color: "rgba(167,139,250,0.8)" }}
             >
-              Why It Works
+              Why it works
             </p>
             <ChevronDown
               className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
               style={{
-                color:
-                  "color-mix(in srgb, var(--accent-purple) 60%, transparent)",
+                color: "rgba(167,139,250,0.6)",
                 transform: whyOpen ? "rotate(180deg)" : "none",
               }}
               aria-hidden="true"
@@ -117,8 +110,12 @@ export function OverviewSection({
               cardData.overview.impact,
               impactStyleFor(cardData.overview.impact).color,
             ],
-            ["Difficulty", cardData.overview.difficulty, "var(--accent-blue)"],
-            ["Misuse risk", cardData.overview.misuse, "var(--brand)"],
+            [
+              "Difficulty",
+              cardData.overview.difficulty,
+              "var(--impact-medium)",
+            ],
+            ["Misuse risk", cardData.overview.misuse, "var(--brand-text)"],
           ] as [string, string, string][]
         ).map(([k, v, c]) => (
           <div
@@ -144,9 +141,12 @@ export function OverviewSection({
 
       <div
         className="rounded-2xl p-5 mb-4"
-        style={{ background: "var(--fg-03)", border: "1px solid var(--fg-06)" }}
+        style={{
+          background: "var(--fg-03)",
+          border: "1px solid var(--fg-06)",
+        }}
       >
-        <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-3">
+        <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-3">
           Best for
         </p>
         <ul className="space-y-2">
@@ -167,9 +167,8 @@ export function OverviewSection({
       <div
         className="rounded-2xl overflow-hidden"
         style={{
-          background: "color-mix(in srgb, var(--accent-red) 6%, transparent)",
-          border:
-            "1px solid color-mix(in srgb, var(--accent-red) 16%, transparent)",
+          background: "rgba(239,68,68,0.06)",
+          border: "1px solid rgba(239,68,68,0.16)",
         }}
       >
         <button
@@ -178,17 +177,15 @@ export function OverviewSection({
           aria-expanded={notForOpen}
         >
           <p
-            className="text-[10px] font-bold tracking-widest uppercase"
-            style={{
-              color: "color-mix(in srgb, var(--accent-red) 80%, transparent)",
-            }}
+            className="text-[11px] font-bold tracking-widest uppercase"
+            style={{ color: "rgba(248,113,113,0.8)" }}
           >
-            When Not to Use
+            When not to use
           </p>
           <ChevronDown
             className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
             style={{
-              color: "color-mix(in srgb, var(--accent-red) 60%, transparent)",
+              color: "rgba(248,113,113,0.6)",
               transform: notForOpen ? "rotate(180deg)" : "none",
             }}
             aria-hidden="true"
@@ -201,10 +198,7 @@ export function OverviewSection({
                 <li key={item} className="flex gap-2.5 items-start">
                   <div
                     className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-red) 50%, transparent)",
-                    }}
+                    style={{ background: "rgba(239,68,68,0.5)" }}
                     aria-hidden="true"
                   />
                   <p

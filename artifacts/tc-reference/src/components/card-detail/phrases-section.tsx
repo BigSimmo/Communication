@@ -1,43 +1,37 @@
-import { Check, Copy, ChevronRight, Heart } from "lucide-react";
+import { Check, ChevronRight, Copy, Heart } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import type { FavouritePhrase } from "@/lib/favourites-state";
-import { SectionAccordion, type CardSection } from "./section-accordion";
-import { CARD_TITLE_MAP } from "./card-title-map";
+import { useFavourites } from "@/lib/favourites-context";
+import { CARD_TITLE_MAP } from "./card-sections";
+import { SectionAccordion } from "./section-accordion";
 
+// ── Phrase Bank ──
 export function PhrasesSection({
-  cardData,
   cardId,
-  open,
-  onToggle,
-  copiedPhrase,
-  handleCopy,
-  isPhrasesFav,
-  togglePhrase,
+  cardData,
   expandedPhraseGroup,
   setExpandedPhraseGroup,
+  copiedPhrase,
+  handleCopy,
 }: {
-  cardData: CardData;
   cardId: string;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
-  copiedPhrase: string | null;
-  handleCopy: (text: string) => void;
-  isPhrasesFav: (cardId: string, text: string) => boolean;
-  togglePhrase: (phrase: FavouritePhrase) => void;
+  cardData: CardData;
   expandedPhraseGroup: string | null;
-  setExpandedPhraseGroup: React.Dispatch<React.SetStateAction<string | null>>;
+  setExpandedPhraseGroup: (id: string | null) => void;
+  copiedPhrase: string | null;
+  handleCopy: (phrase: string) => void;
 }) {
+  const { isPhrasesFav, togglePhrase } = useFavourites();
   return (
     <SectionAccordion
       id="phrases"
-      open={open}
-      onToggle={onToggle}
-      label="Phrase Bank"
-      color="var(--accent-blue)"
+      label="Phrase bank"
+      color="#60a5fa"
       subtitle={`${cardData.phraseBank.reduce((a, g) => a + g.phrases.length, 0)} phrases · ${cardData.phraseBank.length} groups`}
     >
       <div className="mb-4">
-        <p className="text-[11px] text-foreground/50 mb-2">I am in a...</p>
+        <p className="text-[12px] text-foreground/60 mb-2">
+          Filter by situation
+        </p>
         <div
           className="flex gap-2 overflow-x-auto pb-2 -mx-5 px-5"
           style={{ scrollbarWidth: "none" }}
@@ -148,12 +142,12 @@ export function PhrasesSection({
                 <div style={{ borderTop: "1px solid var(--fg-05)" }}>
                   {group.phrases.map((phrase, i) => (
                     <div
-                      key={phrase}
+                      key={i}
                       className="w-full flex items-center justify-between px-5 py-3 text-left"
                       style={{
                         background:
                           copiedPhrase === phrase
-                            ? "color-mix(in srgb, var(--brand) 7%, transparent)"
+                            ? "rgba(245,158,11,0.07)"
                             : "transparent",
                         borderBottom:
                           i < group.phrases.length - 1
@@ -186,13 +180,13 @@ export function PhrasesSection({
                           aria-label={
                             isPhrasesFav(cardId, phrase)
                               ? "Remove from favourites"
-                              : "Save phrase"
+                              : "Save to favourites"
                           }
                           data-testid={`phrase-fav-${group.id}-${i}`}
-                          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                          className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                           style={{
                             background: isPhrasesFav(cardId, phrase)
-                              ? "color-mix(in srgb, var(--brand) 10%, transparent)"
+                              ? "rgba(245,158,11,0.1)"
                               : "transparent",
                           }}
                         >
@@ -201,7 +195,7 @@ export function PhrasesSection({
                             style={{
                               color: isPhrasesFav(cardId, phrase)
                                 ? "var(--brand-text)"
-                                : "var(--fg-20)",
+                                : "var(--fg-45)",
                             }}
                             fill={
                               isPhrasesFav(cardId, phrase)
@@ -214,7 +208,7 @@ export function PhrasesSection({
                           onClick={() => handleCopy(phrase)}
                           aria-label={`Copy: ${phrase}`}
                           data-testid={`phrase-copy-${group.id}-${i}`}
-                          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                          className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                         >
                           {copiedPhrase === phrase ? (
                             <Check
@@ -224,7 +218,7 @@ export function PhrasesSection({
                           ) : (
                             <Copy
                               className="w-3.5 h-3.5"
-                              style={{ color: "var(--fg-18)" }}
+                              style={{ color: "var(--fg-45)" }}
                             />
                           )}
                         </button>

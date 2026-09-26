@@ -1,26 +1,21 @@
 import { ChevronRight } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion, type CardSection } from "./section-accordion";
-import { CARD_TITLE_MAP } from "./card-title-map";
+import { CARD_TITLE_MAP } from "./card-sections";
+import { SectionAccordion } from "./section-accordion";
 
+// ── Related Techniques ──
 export function RelatedSection({
   cardData,
-  open,
-  onToggle,
   setLocation,
 }: {
   cardData: CardData;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
   setLocation: (to: string) => void;
 }) {
   return (
     <SectionAccordion
       id="related"
-      open={open}
-      onToggle={onToggle}
-      label="Related Techniques"
-      color="var(--accent-indigo)"
+      label="Related techniques"
+      color="#60a5fa"
       subtitle={`${cardData.relatedTechniques?.length ?? 0} paired techniques`}
     >
       <div className="space-y-2">
@@ -41,16 +36,14 @@ export function RelatedSection({
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
               style={{
-                background:
-                  "color-mix(in srgb, var(--accent-indigo) 10%, transparent)",
-                border:
-                  "1px solid color-mix(in srgb, var(--accent-indigo) 20%, transparent)",
+                background: "rgba(96,165,250,0.1)",
+                border: "1px solid rgba(96,165,250,0.2)",
               }}
               aria-hidden="true"
             >
               <span
                 className="text-[11px] font-bold"
-                style={{ color: "var(--accent-indigo)" }}
+                style={{ color: "rgba(96,165,250,0.95)" }}
               >
                 {rt.id.replace(/^TC/, "")}
               </span>
@@ -68,7 +61,7 @@ export function RelatedSection({
             </div>
             <ChevronRight
               className="w-4 h-4 flex-shrink-0"
-              style={{ color: "var(--fg-30)" }}
+              style={{ color: "var(--fg-45)" }}
               aria-hidden="true"
             />
           </button>
