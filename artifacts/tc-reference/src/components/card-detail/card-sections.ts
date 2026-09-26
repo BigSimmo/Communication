@@ -11,9 +11,25 @@ export function headerOffset(): number {
 }
 
 export const CARD_TITLE_MAP: Record<string, string> = {};
-for (const cards of Object.values(LIBRARY_CATEGORIES)) {
-  for (const c of cards) CARD_TITLE_MAP[c.id] = c.title;
+export const CARD_CATEGORY_MAP: Record<string, string> = {};
+for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
+  for (const c of cards) {
+    CARD_TITLE_MAP[c.id] = c.title;
+    CARD_CATEGORY_MAP[c.id] = category;
+  }
 }
+
+// Smooth scrolling unless the user has asked the OS for reduced motion.
+export function scrollBehavior(): ScrollBehavior {
+  return typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "auto"
+    : "smooth";
+}
+
+// Core formula lines often open with a short label ("Short form:",
+// "Greeting:"). Split it off so the label can be set in bold.
+export const FORMULA_LABEL = /^([A-Z][A-Za-z ]{1,24}):\s+/;
 
 export const PLACEHOLDER_PDF = "https://www.w3.org/WAI/WCAG21/wcag21.pdf";
 export const CARD_PDF_URLS: Record<string, string> = {};

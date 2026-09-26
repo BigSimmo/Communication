@@ -16,8 +16,8 @@ export function MistakesSection({
     <SectionAccordion
       id="mistakes"
       label="Common mistakes"
-      color="#f87171"
-      subtitle={`${cardData.commonMistakes?.length ?? 0} pitfalls + fixes`}
+      color="var(--accent-red)"
+      subtitle={`${cardData.commonMistakes?.length ?? 0} pitfalls and fixes`}
     >
       <div className="space-y-3">
         {cardData.commonMistakes!.map((m) => (
@@ -32,7 +32,8 @@ export function MistakesSection({
             <div
               className="px-4 py-3"
               style={{
-                background: "rgba(239,68,68,0.06)",
+                background:
+                  "color-mix(in srgb, var(--accent-red) 6%, transparent)",
                 borderBottom: "1px solid var(--fg-05)",
               }}
             >
@@ -44,7 +45,7 @@ export function MistakesSection({
               <div className="flex items-start gap-2.5">
                 <span
                   className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
-                  style={{ color: "rgba(248,113,113,0.85)" }}
+                  style={{ color: "var(--accent-red)" }}
                 >
                   Sounds like
                 </span>
@@ -58,7 +59,7 @@ export function MistakesSection({
               <div className="flex items-start gap-2.5">
                 <span
                   className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
-                  style={{ color: "rgba(74,222,128,0.9)" }}
+                  style={{ color: "var(--accent-green)" }}
                 >
                   Better
                 </span>

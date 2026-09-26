@@ -8,19 +8,21 @@ export function WhySection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="why"
       label="Why it works"
-      color="#a78bfa"
-      subtitle="Psychological principle & what it builds"
+      color="var(--accent-purple)"
+      subtitle="The principle and what it builds"
     >
       <div
         className="rounded-2xl p-5 mb-4"
         style={{
-          background: "rgba(139,92,246,0.08)",
-          border: "1px solid rgba(139,92,246,0.2)",
+          background:
+            "color-mix(in srgb, var(--accent-purple) 8%, transparent)",
+          border:
+            "1px solid color-mix(in srgb, var(--accent-purple) 20%, transparent)",
         }}
       >
         <p
           className="text-[11px] font-bold tracking-widest uppercase mb-2"
-          style={{ color: "rgba(167,139,250,0.85)" }}
+          style={{ color: "var(--accent-purple)" }}
         >
           What they feel
         </p>
@@ -63,9 +65,11 @@ export function WhySection({ cardData }: { cardData: CardData }) {
               key={g}
               className="text-[12px] font-medium px-3 py-1.5 rounded-full"
               style={{
-                background: "rgba(139,92,246,0.1)",
-                border: "1px solid rgba(139,92,246,0.2)",
-                color: "rgba(167,139,250,0.95)",
+                background:
+                  "color-mix(in srgb, var(--accent-purple) 10%, transparent)",
+                border:
+                  "1px solid color-mix(in srgb, var(--accent-purple) 20%, transparent)",
+                color: "var(--accent-purple)",
               }}
             >
               {g}
@@ -77,13 +81,14 @@ export function WhySection({ cardData }: { cardData: CardData }) {
       <div
         className="rounded-2xl p-5 mb-4"
         style={{
-          background: "rgba(239,68,68,0.05)",
-          border: "1px solid rgba(239,68,68,0.14)",
+          background: "color-mix(in srgb, var(--accent-red) 5%, transparent)",
+          border:
+            "1px solid color-mix(in srgb, var(--accent-red) 14%, transparent)",
         }}
       >
         <p
           className="text-[11px] font-bold tracking-widest uppercase mb-3"
-          style={{ color: "rgba(248,113,113,0.8)" }}
+          style={{ color: "var(--accent-red)" }}
         >
           Why most people fail
         </p>
@@ -92,7 +97,10 @@ export function WhySection({ cardData }: { cardData: CardData }) {
             <li key={item} className="flex gap-2.5 items-start">
               <div
                 className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                style={{ background: "rgba(239,68,68,0.5)" }}
+                style={{
+                  background:
+                    "color-mix(in srgb, var(--accent-red) 50%, transparent)",
+                }}
                 aria-hidden="true"
               />
               <p

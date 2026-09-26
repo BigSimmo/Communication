@@ -16,7 +16,7 @@ export function ChecklistSection({
     <SectionAccordion
       id="checklist"
       label="After-action checklist"
-      color="#34d399"
+      color="var(--accent-emerald)"
       subtitle={`${checkedItems.size} / ${cardData.checklist.length} items checked`}
     >
       <div
@@ -63,7 +63,7 @@ export function ChecklistSection({
             className="w-full flex gap-4 p-4 text-left transition-all"
             style={{
               background: checkedItems.has(i)
-                ? "rgba(245,158,11,0.04)"
+                ? "color-mix(in srgb, var(--brand) 4%, transparent)"
                 : "transparent",
               borderBottom:
                 i < cardData.checklist.length - 1
@@ -92,7 +92,7 @@ export function ChecklistSection({
             <span
               className="text-[13px] leading-snug transition-colors"
               style={{
-                color: checkedItems.has(i) ? "var(--fg-35)" : "var(--fg-78)",
+                color: checkedItems.has(i) ? "var(--fg-50)" : "var(--fg-78)",
                 textDecoration: checkedItems.has(i) ? "line-through" : "none",
               }}
             >

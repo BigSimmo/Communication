@@ -12,6 +12,7 @@ import {
   ALL_CARD_IDS,
   LOADED_CARD_IDS,
   LOADED_CARDS_NAV,
+  SECTIONS,
   isSectionAvailable,
   type CardSection,
 } from "@/components/card-detail/card-sections";
@@ -134,8 +135,13 @@ export default function CardDetail() {
   };
 
   // Accordion open state, scroll-spy and per-card section/scroll memory
-  const { activeSection, openSections, toggleSection, scrollSectionIntoView } =
-    useCardSectionScroll({ cardId, cardData, sectionAvailable, navRef });
+  const {
+    activeSection,
+    openSections,
+    setOpenSections,
+    toggleSection,
+    scrollSectionIntoView,
+  } = useCardSectionScroll({ cardId, cardData, sectionAvailable, navRef });
 
   // PDF URL publishing, close on card change / Escape, iframe load tracking
   const { pdfError, pdfLoaded, onPdfLoad, onPdfError } = useCardPdf({
@@ -145,6 +151,39 @@ export default function CardDetail() {
     setPdfOpen,
     setPdfUrl,
   });
+
+  // Left/right arrow keys step through cards on keyboard devices. Ignored
+  // while typing, with modifiers held, on the section nav, or when any
+  // dialog is open.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      if (
+        e.defaultPrevented ||
+        e.altKey ||
+        e.ctrlKey ||
+        e.metaKey ||
+        e.shiftKey
+      )
+        return;
+      const target = e.target;
+      if (
+        target instanceof Element &&
+        target.closest(
+          'input, textarea, select, [contenteditable="true"], [role="listbox"], nav[aria-label="Card sections"]',
+        )
+      )
+        return;
+      if (document.querySelector('[role="dialog"]')) return;
+      const card = e.key === "ArrowLeft" ? prevCard : nextCard;
+      if (!card || card.id === cardId) return;
+      e.preventDefault();
+      window.scrollTo(0, 0);
+      setLocation(`/card/${card.id}`);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [cardId, prevCard, nextCard, setLocation]);
 
   // ── Unknown card ID — not in the library at all ──
   if (!isKnownCard) {
@@ -192,6 +231,34 @@ export default function CardDetail() {
 
         {/* Content — accordion sections */}
         <div className="px-3 md:px-4 pb-12 pt-2 flex flex-col gap-2">
+          {(() => {
+            const available = SECTIONS.filter((sec) =>
+              sectionAvailable(sec.id),
+            );
+            const allOpen = available.every((sec) => openSections.has(sec.id));
+            return (
+              <div className="flex items-center justify-between px-1 pt-1">
+                <p className="text-[12px]" style={{ color: "var(--fg-50)" }}>
+                  {available.length} sections
+                </p>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setOpenSections(
+                      allOpen
+                        ? new Set<CardSection>()
+                        : new Set(available.map((sec) => sec.id)),
+                    )
+                  }
+                  data-testid="button-toggle-all-sections"
+                  className="tap-target-y text-[12px] font-semibold px-2 rounded-lg transition-colors hover:bg-[var(--fg-05)]"
+                  style={{ color: "var(--brand-text)", minHeight: 32 }}
+                >
+                  {allOpen ? "Collapse all" : "Expand all"}
+                </button>
+              </div>
+            );
+          })()}
           <OverviewSection
             cardData={cardData}
             whyOpen={whyOpen}

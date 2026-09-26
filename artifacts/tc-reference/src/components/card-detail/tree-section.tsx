@@ -16,8 +16,8 @@ export function TreeSection({
     <SectionAccordion
       id="tree"
       label="Decision tree"
-      color="#a78bfa"
-      subtitle={`${cardData.decisionTree.length} situation → action paths`}
+      color="var(--accent-purple)"
+      subtitle={`${cardData.decisionTree.length} situations and the move for each`}
     >
       <div className="space-y-3 relative pl-6">
         <div
@@ -54,12 +54,12 @@ export function TreeSection({
                   style={{
                     background:
                       copiedPhrase === item.phrase
-                        ? "rgba(245,158,11,0.15)"
-                        : "rgba(245,158,11,0.06)",
+                        ? "color-mix(in srgb, var(--brand) 15%, transparent)"
+                        : "color-mix(in srgb, var(--brand) 6%, transparent)",
                     border:
                       copiedPhrase === item.phrase
-                        ? "1px solid rgba(245,158,11,0.35)"
-                        : "1px solid rgba(245,158,11,0.15)",
+                        ? "1px solid color-mix(in srgb, var(--brand) 35%, transparent)"
+                        : "1px solid color-mix(in srgb, var(--brand) 15%, transparent)",
                     color: "var(--brand-text)",
                     minHeight: 44,
                   }}

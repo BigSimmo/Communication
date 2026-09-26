@@ -29,13 +29,15 @@ export function SectionAccordion({
   return (
     <section
       id={`section-${id}`}
-      className="rounded-2xl overflow-hidden"
+      className="rounded-2xl overflow-hidden transition-colors"
       aria-labelledby={`section-${id}-title`}
       style={{
-        background: "var(--fg-02)",
-        border: "1px solid var(--fg-05)",
+        background: open ? "var(--fg-03)" : "var(--fg-02)",
+        border: open
+          ? `1px solid color-mix(in srgb, ${color} 22%, var(--fg-07))`
+          : "1px solid var(--fg-06)",
         scrollMarginTop:
-          "calc(var(--app-header-height, 48px) + var(--card-nav-height, 96px) + 8px)",
+          "calc(var(--app-header-height, 48px) + var(--card-nav-height, 56px) + 8px)",
       }}
     >
       <h3 className="m-0">
@@ -49,12 +51,19 @@ export function SectionAccordion({
           style={{ minHeight: 56 }}
         >
           <span
-            className="w-1 h-[18px] rounded-full flex-shrink-0"
-            style={{ background: color }}
+            className="w-1 rounded-full flex-shrink-0 self-stretch transition-opacity"
+            style={{
+              background: color,
+              opacity: open ? 1 : 0.55,
+              minHeight: 18,
+            }}
             aria-hidden="true"
           />
           <span className="flex-1 min-w-0 block">
-            <span className="block text-[15px] font-bold text-foreground/85">
+            <span
+              className="block text-[15px] font-bold"
+              style={{ color: open ? "var(--fg-90)" : "var(--fg-82)" }}
+            >
               {label}
             </span>
             {subtitle && (

@@ -32,6 +32,16 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
   }
 }
 
+// Header title per top-level route. The Library keeps the brand name; other
+// pages name themselves so the header always says where you are.
+const PAGE_TITLES: Record<string, string> = {
+  "/": "TC Library",
+  "/phrases": "Phrase Bank",
+  "/drill": "Daily Drill",
+  "/favourites": "Favourites",
+  "/playbooks": "Playbooks",
+};
+
 // Header actions share one quiet style. "brand" tints the icon amber for the
 // primary tool (Quick) and saved state; "active" marks an open panel.
 function HeaderIconButton({
@@ -134,6 +144,7 @@ export function AppHeader() {
   }, [headerHeight]);
 
   const isLibraryRoute = location === "/";
+  const pageTitle = PAGE_TITLES[location] ?? "TC Library";
 
   const searchButton = (testId: string) => (
     <HeaderIconButton
@@ -286,7 +297,7 @@ export function AppHeader() {
               <div className="flex items-center gap-2.5 min-w-0">
                 <span
                   aria-hidden="true"
-                  className="flex items-center justify-center flex-shrink-0"
+                  className="flex md:hidden items-center justify-center flex-shrink-0"
                   style={{
                     width: compact ? 22 : 30,
                     height: compact ? 22 : 30,
@@ -318,7 +329,9 @@ export function AppHeader() {
                     }}
                     data-testid="library-subtitle"
                   >
-                    Technique Cards
+                    {PAGE_TITLES[location] && !isLibraryRoute
+                      ? "TC Library"
+                      : "Technique cards"}
                   </p>
                   <TitleTag
                     className="font-bold leading-none truncate"
@@ -329,7 +342,7 @@ export function AppHeader() {
                     }}
                     data-testid="library-title"
                   >
-                    TC Library
+                    {pageTitle}
                   </TitleTag>
                 </div>
               </div>

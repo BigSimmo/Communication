@@ -1,14 +1,23 @@
 import { useState } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Heart, Copy, Check, Search, ChevronRight, X } from "lucide-react";
 import { useFavourites } from "@/lib/favourites-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
+import { impactStyleFor } from "@/lib/design-tokens";
 
-const CARD_META: Record<string, { title: string; category: string }> = {};
+const CARD_META: Record<
+  string,
+  { title: string; category: string; difficulty: string; impact: string }
+> = {};
 for (const [cat, cards] of Object.entries(LIBRARY_CATEGORIES)) {
   for (const c of cards) {
-    CARD_META[c.id] = { title: c.title, category: cat };
+    CARD_META[c.id] = {
+      title: c.title,
+      category: cat,
+      difficulty: c.difficulty,
+      impact: c.impact,
+    };
   }
 }
 
@@ -237,84 +246,88 @@ export default function Favourites() {
                 </p>
               </div>
             ) : (
-              <div className="space-y-2">
+              <ul className="space-y-2">
                 {favCards.map((id) => {
                   const meta = CARD_META[id];
                   if (!meta) return null;
+                  const impact = impactStyleFor(meta.impact);
                   return (
-                    <div
-                      key={id}
-                      className="flex items-center gap-3.5 px-4 py-3.5 rounded-2xl"
-                      style={{
-                        background:
-                          "color-mix(in srgb, var(--brand) 8%, transparent)",
-                        border:
-                          "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
-                        minHeight: 64,
-                      }}
-                    >
-                      <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
+                    <li key={id} className="relative">
+                      <Link
+                        href={`/card/${id}`}
+                        aria-label={`${meta.title} (${id})`}
+                        data-testid={`favourite-card-${id}`}
+                        className="flex items-center gap-3 pl-3 pr-14 py-3 rounded-2xl transition-colors bg-[var(--fg-03)] hover:bg-[var(--fg-06)]"
                         style={{
-                          background: "var(--brand)",
-                          color: "var(--brand-contrast)",
+                          border: "1px solid var(--fg-07)",
+                          minHeight: 64,
                         }}
                       >
-                        {id.slice(2)}
-                      </div>
-                      <button
-                        className="flex-1 text-left min-w-0"
-                        onClick={() => setLocation(`/card/${id}`)}
-                        aria-label={`Open ${meta.title}`}
-                      >
-                        <p
-                          className="text-[14px] font-semibold leading-tight"
-                          style={{ color: "var(--fg-90)" }}
-                        >
-                          {meta.title}
-                        </p>
-                        <p
-                          className="text-[11px] mt-0.5"
-                          style={{
-                            color:
-                              "color-mix(in srgb, var(--brand-text) 70%, transparent)",
-                          }}
-                        >
-                          {id} · {meta.category}
-                        </p>
-                      </button>
-                      <div className="flex items-center gap-1.5 flex-shrink-0">
-                        <button
-                          onClick={() => setLocation(`/card/${id}`)}
-                          aria-label={`Open ${id}`}
-                          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                          style={{ background: "var(--fg-05)" }}
-                        >
-                          <ChevronRight
-                            className="w-4 h-4"
-                            style={{ color: "var(--fg-40)" }}
-                          />
-                        </button>
-                        <button
-                          onClick={() => toggleCard(id)}
-                          aria-label="Remove from favourites"
-                          className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        <span
+                          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[12px] font-bold tabular-nums"
                           style={{
                             background:
-                              "color-mix(in srgb, var(--brand) 12%, transparent)",
+                              "color-mix(in srgb, var(--brand) 14%, transparent)",
+                            border:
+                              "1px solid color-mix(in srgb, var(--brand) 26%, transparent)",
+                            color: "var(--brand-text)",
                           }}
+                          aria-hidden="true"
                         >
-                          <Heart
-                            className="w-4 h-4"
-                            style={{ color: "var(--brand-text)" }}
-                            fill="var(--brand-text)"
-                          />
-                        </button>
-                      </div>
-                    </div>
+                          {id.slice(2)}
+                        </span>
+                        <span className="flex-1 min-w-0">
+                          <span
+                            className="block text-[15px] font-semibold leading-snug line-clamp-2"
+                            style={{ color: "var(--fg-90)" }}
+                          >
+                            {meta.title}
+                          </span>
+                          <span
+                            className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12px]"
+                            style={{ color: "var(--fg-55)" }}
+                          >
+                            <span
+                              className="font-semibold"
+                              style={{ color: "var(--brand-text)" }}
+                            >
+                              {id}
+                            </span>
+                            <span aria-hidden="true">·</span>
+                            <span>{meta.difficulty}</span>
+                            <span
+                              className="ml-0.5 text-[10px] font-bold tracking-wider px-1.5 py-px rounded-md uppercase"
+                              style={{
+                                background: impact.bg,
+                                color: impact.color,
+                              }}
+                            >
+                              {impact.label}
+                            </span>
+                          </span>
+                        </span>
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => toggleCard(id)}
+                        aria-label={`Remove ${meta.title} from favourites`}
+                        className="library-card-favourite absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
+                        style={{
+                          background:
+                            "color-mix(in srgb, var(--brand) 14%, transparent)",
+                        }}
+                      >
+                        <Heart
+                          className="w-4 h-4"
+                          style={{ color: "var(--brand-text)" }}
+                          fill="var(--brand-text)"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             )}
           </div>
         )}

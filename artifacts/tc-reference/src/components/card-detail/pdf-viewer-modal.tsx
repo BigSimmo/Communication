@@ -76,7 +76,7 @@ export function PdfViewerModal({
               {isPlaceholder && (
                 <span
                   className="ml-2 text-[11px] font-normal"
-                  style={{ color: "var(--fg-35)" }}
+                  style={{ color: "var(--fg-55)" }}
                 >
                   (placeholder)
                 </span>
@@ -119,13 +119,18 @@ export function PdfViewerModal({
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
               style={{
-                background: "rgba(239,68,68,0.07)",
-                border: "1px solid rgba(239,68,68,0.16)",
+                background:
+                  "color-mix(in srgb, var(--accent-red) 7%, transparent)",
+                border:
+                  "1px solid color-mix(in srgb, var(--accent-red) 16%, transparent)",
               }}
             >
               <FileText
                 className="w-6 h-6"
-                style={{ color: "rgba(239,68,68,0.5)" }}
+                style={{
+                  color:
+                    "color-mix(in srgb, var(--accent-red) 50%, transparent)",
+                }}
               />
             </div>
             <div>
@@ -134,7 +139,7 @@ export function PdfViewerModal({
               </p>
               <p
                 className="text-[13px] leading-relaxed max-w-[300px]"
-                style={{ color: "var(--fg-42)" }}
+                style={{ color: "var(--fg-55)" }}
               >
                 Your browser blocked the document — this can happen on mobile or
                 when third-party content is restricted.
@@ -147,8 +152,9 @@ export function PdfViewerModal({
               className="flex items-center gap-2 text-[13px] font-semibold px-5 rounded-full transition-all active:scale-95"
               style={{
                 minHeight: 44,
-                background: "rgba(245,158,11,0.12)",
-                border: "1px solid rgba(245,158,11,0.22)",
+                background: "color-mix(in srgb, var(--brand) 12%, transparent)",
+                border:
+                  "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
                 color: "var(--brand-text)",
               }}
             >

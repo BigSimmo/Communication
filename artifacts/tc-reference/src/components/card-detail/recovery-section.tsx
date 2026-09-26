@@ -21,20 +21,22 @@ export function RecoverySection({
     <SectionAccordion
       id="recovery"
       label="Recovery"
-      color="#34d399"
-      subtitle="When you've pushed too far — reset scripts"
+      color="var(--accent-emerald)"
+      subtitle="Reset scripts for when it lands badly"
     >
       {cardData.bestRecoveryLine && (
         <div
           className="rounded-2xl p-5 mb-4"
           style={{
-            background: "rgba(52,211,153,0.08)",
-            border: "1px solid rgba(52,211,153,0.2)",
+            background:
+              "color-mix(in srgb, var(--accent-emerald) 8%, transparent)",
+            border:
+              "1px solid color-mix(in srgb, var(--accent-emerald) 20%, transparent)",
           }}
         >
           <p
             className="text-[11px] font-bold tracking-widest uppercase mb-2"
-            style={{ color: "rgba(52,211,153,0.9)" }}
+            style={{ color: "var(--accent-emerald)" }}
           >
             Best all-purpose line
           </p>
@@ -46,14 +48,20 @@ export function RecoverySection({
               onClick={() => handleCopy(cardData.bestRecoveryLine!)}
               aria-label={`Copy: ${cardData.bestRecoveryLine}`}
               className="tap-target w-8 h-8 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
-              style={{ background: "rgba(52,211,153,0.12)" }}
+              style={{
+                background:
+                  "color-mix(in srgb, var(--accent-emerald) 12%, transparent)",
+              }}
             >
               {copiedPhrase === cardData.bestRecoveryLine ? (
-                <Check className="w-4 h-4" style={{ color: "#34d399" }} />
+                <Check
+                  className="w-4 h-4"
+                  style={{ color: "var(--accent-emerald)" }}
+                />
               ) : (
                 <Copy
                   className="w-4 h-4"
-                  style={{ color: "rgba(52,211,153,0.8)" }}
+                  style={{ color: "var(--accent-emerald)" }}
                 />
               )}
             </button>
@@ -75,7 +83,7 @@ export function RecoverySection({
             style={{
               background:
                 copiedPhrase === phrase
-                  ? "rgba(245,158,11,0.07)"
+                  ? "color-mix(in srgb, var(--brand) 7%, transparent)"
                   : "transparent",
               borderBottom:
                 i < cardData.recoveryPhrases!.length - 1
@@ -113,7 +121,7 @@ export function RecoverySection({
                 className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                 style={{
                   background: isPhrasesFav(cardId, phrase)
-                    ? "rgba(245,158,11,0.1)"
+                    ? "color-mix(in srgb, var(--brand) 10%, transparent)"
                     : "transparent",
                 }}
               >

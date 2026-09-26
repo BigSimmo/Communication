@@ -8,19 +8,21 @@ export function ResourcesSection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="resources"
       label="Downloads"
-      color="#a78bfa"
-      subtitle="PDFs & reference files"
+      color="var(--accent-purple)"
+      subtitle="PDFs and reference files"
     >
       <div
         className="rounded-2xl px-4 py-3 mb-5 flex items-start gap-3"
         style={{
-          background: "rgba(167,139,250,0.07)",
-          border: "1px solid rgba(167,139,250,0.14)",
+          background:
+            "color-mix(in srgb, var(--accent-purple) 7%, transparent)",
+          border:
+            "1px solid color-mix(in srgb, var(--accent-purple) 14%, transparent)",
         }}
       >
         <FileText
           className="w-4 h-4 mt-0.5 flex-shrink-0"
-          style={{ color: "rgba(167,139,250,0.65)" }}
+          style={{ color: "var(--accent-purple)" }}
           aria-hidden="true"
         />
         <p
@@ -38,27 +40,27 @@ export function ResourcesSection({ cardData }: { cardData: CardData }) {
           if (items.length === 0) return null;
           const typeStyle: Record<string, { bg: string; color: string }> = {
             pdf: {
-              bg: "rgba(239,68,68,0.09)",
-              color: "rgba(248,113,113,0.85)",
+              bg: "color-mix(in srgb, var(--accent-red) 9%, transparent)",
+              color: "var(--accent-red)",
             },
             docx: {
-              bg: "rgba(59,130,246,0.09)",
-              color: "rgba(96,165,250,0.85)",
+              bg: "color-mix(in srgb, var(--accent-blue) 9%, transparent)",
+              color: "var(--accent-blue)",
             },
             png: {
-              bg: "rgba(16,185,129,0.09)",
-              color: "rgba(52,211,153,0.85)",
+              bg: "color-mix(in srgb, var(--accent-emerald) 9%, transparent)",
+              color: "var(--accent-emerald)",
             },
             csv: {
-              bg: "rgba(245,158,11,0.09)",
-              color: "rgba(245,158,11,0.85)",
+              bg: "color-mix(in srgb, var(--brand) 9%, transparent)",
+              color: "var(--brand-text)",
             },
           };
           return (
             <div key={group} className="mb-5">
               <p
                 className="text-[11px] font-bold tracking-widest uppercase mb-3"
-                style={{ color: "var(--fg-35)" }}
+                style={{ color: "var(--fg-55)" }}
               >
                 {group}
               </p>
@@ -100,7 +102,7 @@ export function ResourcesSection({ cardData }: { cardData: CardData }) {
                         </p>
                         <p
                           className="text-[11px] mt-0.5"
-                          style={{ color: "var(--fg-42)" }}
+                          style={{ color: "var(--fg-55)" }}
                         >
                           {resource.description}
                         </p>

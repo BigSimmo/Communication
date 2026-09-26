@@ -7,8 +7,8 @@ export function PracticeSection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="practice"
       label="Practice protocol"
-      color="#38bdf8"
-      subtitle={`${cardData.drill.length}-day program`}
+      color="var(--accent-sky)"
+      subtitle={`${cardData.drill.length}-day programme`}
     >
       <div className="space-y-3">
         {cardData.drill.map((d, i) => (

@@ -5,6 +5,7 @@ import {
   SECTIONS,
   cardSectionMemory,
   headerOffset,
+  scrollBehavior,
   type CardSection,
 } from "@/components/card-detail/card-sections";
 
@@ -72,7 +73,7 @@ export function useCardSectionScroll({
           navH -
           4;
         scrollLockRef.current = s;
-        window.scrollTo({ top: y, behavior: "smooth" });
+        window.scrollTo({ top: y, behavior: scrollBehavior() });
       }
     }, 30);
   };
@@ -192,5 +193,11 @@ export function useCardSectionScroll({
     };
   }, [cardId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return { activeSection, openSections, toggleSection, scrollSectionIntoView };
+  return {
+    activeSection,
+    openSections,
+    setOpenSections,
+    toggleSection,
+    scrollSectionIntoView,
+  };
 }

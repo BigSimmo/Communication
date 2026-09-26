@@ -7,7 +7,7 @@ export function ChainsSection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="chains"
       label="Technique chains"
-      color="#818cf8"
+      color="var(--accent-indigo)"
       subtitle="Combine this move into longer sequences"
     >
       <div className="space-y-4">
@@ -25,7 +25,7 @@ export function ChainsSection({ cardData }: { cardData: CardData }) {
             </p>
             <p
               className="text-[12px] leading-relaxed mb-4"
-              style={{ color: "rgba(129,140,248,0.95)" }}
+              style={{ color: "var(--accent-indigo)" }}
             >
               {chain.sequence}
             </p>
@@ -39,7 +39,10 @@ export function ChainsSection({ cardData }: { cardData: CardData }) {
                 <div key={j} className="relative">
                   <div
                     className="absolute -left-5 top-1.5 w-2.5 h-2.5 rounded-full"
-                    style={{ background: "rgba(129,140,248,0.5)" }}
+                    style={{
+                      background:
+                        "color-mix(in srgb, var(--accent-indigo) 50%, transparent)",
+                    }}
                     aria-hidden="true"
                   />
                   <p className="text-[13px] leading-snug text-foreground/75">

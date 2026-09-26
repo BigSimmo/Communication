@@ -1,8 +1,9 @@
 import type { Dispatch, SetStateAction } from "react";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { SectionAccordion } from "./section-accordion";
+import { FORMULA_LABEL } from "./card-sections";
 
 // ── Overview ──
 export function OverviewSection({
@@ -23,50 +24,70 @@ export function OverviewSection({
       id="overview"
       label="Overview"
       color="var(--brand)"
-      subtitle="Core formula, quick stats & when not to use"
+      subtitle="Core formula, quick stats and when not to use it"
     >
-      <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 mb-4">
-        <p className="text-[11px] font-bold tracking-widest text-primary/80 uppercase mb-3">
-          Core formula
-        </p>
-        <div className="flex flex-wrap gap-2 items-center">
-          {cardData.overview.coreFormula.map((step, i, arr) => (
-            <div key={step} className="flex items-center gap-2">
-              <span className="text-[12px] font-semibold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full shadow-sm">
-                {step}
-              </span>
-              {i < arr.length - 1 && (
-                <ChevronRight
-                  className="w-3.5 h-3.5 text-primary/40 flex-shrink-0"
-                  aria-hidden="true"
-                />
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div
         className="rounded-2xl p-5 mb-4"
         style={{
-          background: "var(--fg-03)",
-          border: "1px solid var(--fg-06)",
+          background: "color-mix(in srgb, var(--brand) 7%, transparent)",
+          border: "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
         }}
       >
-        <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-2">
-          Minimum viable move
+        <p
+          className="text-[11px] font-bold tracking-widest uppercase mb-3"
+          style={{ color: "var(--brand-text)" }}
+        >
+          Core formula
         </p>
-        <p className="text-[14px] leading-relaxed text-foreground/80">
-          {cardData.overview.minimumViableMove}
-        </p>
+        <ul className="flex flex-col gap-2.5" data-testid="core-formula">
+          {cardData.overview.coreFormula.map((step, i) => {
+            const text = step.replace(/\s*->\s*/g, " \u2192 ");
+            const m = text.match(FORMULA_LABEL);
+            return (
+              <li
+                key={i}
+                className="flex gap-3 text-[14px] leading-relaxed"
+                style={{ color: i === 0 ? "var(--fg-90)" : "var(--fg-78)" }}
+              >
+                <span
+                  className="mt-[9px] w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{
+                    background:
+                      i === 0
+                        ? "var(--brand)"
+                        : "color-mix(in srgb, var(--brand) 45%, transparent)",
+                  }}
+                  aria-hidden="true"
+                />
+                <span className={`min-w-0 ${i === 0 ? "font-semibold" : ""}`}>
+                  {m ? (
+                    <>
+                      <span
+                        className="font-semibold"
+                        style={{ color: "var(--fg-90)" }}
+                      >
+                        {m[1]}:
+                      </span>{" "}
+                      {text.slice(m[0].length)}
+                    </>
+                  ) : (
+                    text
+                  )}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       {!cardData.influencePayoff && (
         <div
           className="rounded-2xl mb-4 overflow-hidden"
           style={{
-            background: "rgba(139,92,246,0.07)",
-            border: "1px solid rgba(139,92,246,0.18)",
+            background:
+              "color-mix(in srgb, var(--accent-purple) 7%, transparent)",
+            border:
+              "1px solid color-mix(in srgb, var(--accent-purple) 18%, transparent)",
           }}
         >
           <button
@@ -76,14 +97,14 @@ export function OverviewSection({
           >
             <p
               className="text-[11px] font-bold tracking-widest uppercase"
-              style={{ color: "rgba(167,139,250,0.8)" }}
+              style={{ color: "var(--accent-purple)" }}
             >
               Why it works
             </p>
             <ChevronDown
               className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
               style={{
-                color: "rgba(167,139,250,0.6)",
+                color: "var(--accent-purple)",
                 transform: whyOpen ? "rotate(180deg)" : "none",
               }}
               aria-hidden="true"
@@ -167,8 +188,9 @@ export function OverviewSection({
       <div
         className="rounded-2xl overflow-hidden"
         style={{
-          background: "rgba(239,68,68,0.06)",
-          border: "1px solid rgba(239,68,68,0.16)",
+          background: "color-mix(in srgb, var(--accent-red) 6%, transparent)",
+          border:
+            "1px solid color-mix(in srgb, var(--accent-red) 16%, transparent)",
         }}
       >
         <button
@@ -178,14 +200,14 @@ export function OverviewSection({
         >
           <p
             className="text-[11px] font-bold tracking-widest uppercase"
-            style={{ color: "rgba(248,113,113,0.8)" }}
+            style={{ color: "var(--accent-red)" }}
           >
             When not to use
           </p>
           <ChevronDown
             className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
             style={{
-              color: "rgba(248,113,113,0.6)",
+              color: "var(--accent-red)",
               transform: notForOpen ? "rotate(180deg)" : "none",
             }}
             aria-hidden="true"
@@ -198,7 +220,10 @@ export function OverviewSection({
                 <li key={item} className="flex gap-2.5 items-start">
                   <div
                     className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                    style={{ background: "rgba(239,68,68,0.5)" }}
+                    style={{
+                      background:
+                        "color-mix(in srgb, var(--accent-red) 50%, transparent)",
+                    }}
                     aria-hidden="true"
                   />
                   <p

@@ -377,9 +377,7 @@ describe("core accessibility contracts", () => {
       await screen.findByRole("dialog", { name: "Quick Lookup" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "In-conversation phrase cheat-sheet — instant copyable lines grouped by situation.",
-      ),
+      screen.getByText("Tap any line to copy it. Grouped by situation."),
     ).toBeInTheDocument();
   });
 

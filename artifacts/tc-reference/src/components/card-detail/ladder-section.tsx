@@ -21,7 +21,7 @@ export function LadderSection({
     <SectionAccordion
       id="ladder"
       label="Weak → Better → Best"
-      color="#fb923c"
+      color="var(--accent-orange)"
       subtitle={`${cardData.ladder.length} upgrade examples`}
     >
       <div className="space-y-4">
@@ -86,7 +86,7 @@ export function LadderSection({
                     className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                     style={{
                       background: isPhrasesFav(cardId, row.best)
-                        ? "rgba(245,158,11,0.1)"
+                        ? "color-mix(in srgb, var(--brand) 10%, transparent)"
                         : "transparent",
                     }}
                   >

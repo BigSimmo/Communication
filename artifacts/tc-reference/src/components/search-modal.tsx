@@ -13,6 +13,16 @@ import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
 
+// Plain-language hint for where a non-title match was found. Title, ID and
+// category matches are self-evident from the row and get no hint.
+const MATCH_HINTS: Record<string, string> = {
+  "best-for": "Matches Best for",
+  formula: "Matches the core formula",
+  phrases: "Matches a phrase",
+  scenarios: "Matches a scenario",
+  explanation: "Matches Why it works",
+};
+
 interface SearchModalProps {
   query: string;
   setQuery: (q: string) => void;
@@ -502,14 +512,12 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                           style={{ color: "var(--fg-55)" }}
                         >
                           {result.id} · {result.category}
-                          {result.matchedIn &&
-                            result.matchedIn !== "title" &&
-                            result.matchedIn !== "id" && (
-                              <span style={{ color: "var(--fg-55)" }}>
-                                {" "}
-                                · matched in {result.matchedIn}
-                              </span>
-                            )}
+                          {MATCH_HINTS[result.matchedIn] && (
+                            <span style={{ color: "var(--fg-55)" }}>
+                              {" "}
+                              · {MATCH_HINTS[result.matchedIn]}
+                            </span>
+                          )}
                         </p>
                       </div>
                       {result.loaded ? (

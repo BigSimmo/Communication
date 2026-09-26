@@ -17,19 +17,20 @@ export function MethodSection({
       id="method"
       label="The method"
       color="var(--brand)"
-      subtitle={`${cardData.method?.length ?? 0}-step execution guide`}
+      subtitle={`${cardData.method?.length ?? 0}-step guide`}
     >
       {cardData.fieldTip && (
         <div
           className="rounded-2xl p-5 mb-5"
           style={{
-            background: "rgba(245,158,11,0.08)",
-            border: "1px solid rgba(245,158,11,0.2)",
+            background: "color-mix(in srgb, var(--brand) 8%, transparent)",
+            border:
+              "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
           }}
         >
           <p
             className="text-[11px] font-bold tracking-widest uppercase mb-2"
-            style={{ color: "rgba(245,158,11,0.85)" }}
+            style={{ color: "var(--brand-text)" }}
           >
             Guiding principle
           </p>
@@ -55,9 +56,11 @@ export function MethodSection({
                   <span
                     className="text-[12px] px-3 py-1 rounded-full"
                     style={{
-                      background: "rgba(239,68,68,0.08)",
-                      border: "1px solid rgba(239,68,68,0.18)",
-                      color: "rgba(248,113,113,0.9)",
+                      background:
+                        "color-mix(in srgb, var(--accent-red) 8%, transparent)",
+                      border:
+                        "1px solid color-mix(in srgb, var(--accent-red) 18%, transparent)",
+                      color: "var(--accent-red)",
                     }}
                   >
                     Don't: {cardData.fieldTip.dont}
@@ -67,9 +70,11 @@ export function MethodSection({
                   <span
                     className="text-[12px] px-3 py-1 rounded-full"
                     style={{
-                      background: "rgba(34,197,94,0.08)",
-                      border: "1px solid rgba(34,197,94,0.18)",
-                      color: "rgba(74,222,128,0.95)",
+                      background:
+                        "color-mix(in srgb, var(--accent-green) 8%, transparent)",
+                      border:
+                        "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)",
+                      color: "var(--accent-green)",
                     }}
                   >
                     Do: {cardData.fieldTip.do}
@@ -87,7 +92,7 @@ export function MethodSection({
           style={{ background: "var(--fg-08)" }}
           aria-hidden="true"
         />
-        {cardData.method!.map((m, i) => (
+        {cardData.method!.map((m) => (
           <div key={m.step} className="relative">
             <div
               className="absolute -left-7 top-3 w-6 h-6 rounded-full flex items-center justify-center z-10"
@@ -97,7 +102,7 @@ export function MethodSection({
               }}
               aria-hidden="true"
             >
-              <span className="text-[11px] font-bold">{i + 1}</span>
+              <span className="text-[11px] font-bold">{m.step}</span>
             </div>
             <div
               className="rounded-2xl p-4 shadow-sm"
@@ -106,21 +111,11 @@ export function MethodSection({
                 border: "1px solid var(--fg-06)",
               }}
             >
-              <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                <span
-                  className="text-[11px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
-                  style={{
-                    background: "rgba(245,158,11,0.12)",
-                    color: "var(--brand-text)",
-                  }}
-                >
-                  {m.step}
-                </span>
-                <p className="text-[14px] font-bold text-foreground/90">
-                  {m.title}
-                </p>
-              </div>
-              <p className="text-[13px] text-foreground/65 leading-relaxed mb-3 whitespace-pre-line">
+              <p className="text-[15px] font-bold text-foreground/90 mb-1.5">
+                <span className="sr-only">Step {m.step}: </span>
+                {m.title}
+              </p>
+              <p className="text-[14px] text-foreground/75 leading-relaxed mb-3 whitespace-pre-line">
                 {m.body}
               </p>
               {m.examples && m.examples.length > 0 && (
@@ -135,7 +130,7 @@ export function MethodSection({
                     <div key={j} className="flex items-start gap-2.5">
                       <span
                         className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
-                        style={{ color: "var(--fg-38)" }}
+                        style={{ color: "var(--fg-55)" }}
                       >
                         {ex.label}
                       </span>
@@ -216,7 +211,7 @@ export function MethodSection({
                   <p className="text-[13px] font-bold text-foreground/90">
                     {row.depth}
                   </p>
-                  <p className="text-[11px] text-foreground/45 leading-tight">
+                  <p className="text-[11px] text-foreground/60 leading-tight">
                     {row.useWhen}
                   </p>
                 </div>
@@ -227,7 +222,7 @@ export function MethodSection({
                   style={{
                     background:
                       copiedPhrase === row.phrase
-                        ? "rgba(245,158,11,0.1)"
+                        ? "color-mix(in srgb, var(--brand) 10%, transparent)"
                         : "var(--fg-03)",
                     border: "1px solid var(--fg-06)",
                   }}

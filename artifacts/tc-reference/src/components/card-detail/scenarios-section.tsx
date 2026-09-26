@@ -21,8 +21,8 @@ export function ScenariosSection({
     <SectionAccordion
       id="scenarios"
       label="Scenario playbook"
-      color="#2dd4bf"
-      subtitle={`${cardData.scenarios.length} real-world entries`}
+      color="var(--accent-teal)"
+      subtitle={`${cardData.scenarios.length} real-world scenarios`}
     >
       <div className="space-y-3">
         {cardData.scenarios.map((s, i) => (
@@ -48,12 +48,12 @@ export function ScenariosSection({
                 style={{
                   background:
                     copiedPhrase === s.phrase
-                      ? "rgba(245,158,11,0.15)"
-                      : "rgba(245,158,11,0.08)",
+                      ? "color-mix(in srgb, var(--brand) 15%, transparent)"
+                      : "color-mix(in srgb, var(--brand) 8%, transparent)",
                   border:
                     copiedPhrase === s.phrase
-                      ? "1px solid rgba(245,158,11,0.4)"
-                      : "1px solid rgba(245,158,11,0.18)",
+                      ? "1px solid color-mix(in srgb, var(--brand) 40%, transparent)"
+                      : "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
                   color: "var(--brand-text)",
                   minHeight: 44,
                 }}
@@ -84,7 +84,7 @@ export function ScenariosSection({
                 className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                 style={{
                   background: isPhrasesFav(cardId, s.phrase)
-                    ? "rgba(245,158,11,0.1)"
+                    ? "color-mix(in srgb, var(--brand) 10%, transparent)"
                     : "var(--fg-05)",
                 }}
               >

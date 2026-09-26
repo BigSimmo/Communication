@@ -15,7 +15,7 @@ export function RelatedSection({
     <SectionAccordion
       id="related"
       label="Related techniques"
-      color="#60a5fa"
+      color="var(--accent-blue)"
       subtitle={`${cardData.relatedTechniques?.length ?? 0} paired techniques`}
     >
       <div className="space-y-2">
@@ -36,14 +36,16 @@ export function RelatedSection({
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
               style={{
-                background: "rgba(96,165,250,0.1)",
-                border: "1px solid rgba(96,165,250,0.2)",
+                background:
+                  "color-mix(in srgb, var(--accent-blue) 10%, transparent)",
+                border:
+                  "1px solid color-mix(in srgb, var(--accent-blue) 20%, transparent)",
               }}
               aria-hidden="true"
             >
               <span
                 className="text-[11px] font-bold"
-                style={{ color: "rgba(96,165,250,0.95)" }}
+                style={{ color: "var(--accent-blue)" }}
               >
                 {rt.id.replace(/^TC/, "")}
               </span>

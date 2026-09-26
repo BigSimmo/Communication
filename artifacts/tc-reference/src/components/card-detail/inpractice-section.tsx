@@ -8,28 +8,37 @@ export function InPracticeSection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="inpractice"
       label="In practice"
-      color="#4ade80"
-      subtitle="Without vs. with — see the difference"
+      color="var(--accent-green)"
+      subtitle="The same moment without and with the technique"
     >
       <div className="space-y-3">
         <div
           className="rounded-2xl overflow-hidden"
-          style={{ border: "1px solid rgba(239,68,68,0.18)" }}
+          style={{
+            border:
+              "1px solid color-mix(in srgb, var(--accent-red) 18%, transparent)",
+          }}
         >
           <div
             className="px-4 py-2.5"
-            style={{ background: "rgba(239,68,68,0.08)" }}
+            style={{
+              background:
+                "color-mix(in srgb, var(--accent-red) 8%, transparent)",
+            }}
           >
             <p
               className="text-[11px] font-bold tracking-widest uppercase"
-              style={{ color: "rgba(248,113,113,0.85)" }}
+              style={{ color: "var(--accent-red)" }}
             >
               Without this technique
             </p>
           </div>
           <div
             className="px-4 pb-4 pt-3 space-y-2"
-            style={{ background: "rgba(239,68,68,0.04)" }}
+            style={{
+              background:
+                "color-mix(in srgb, var(--accent-red) 4%, transparent)",
+            }}
           >
             <ExampleLines
               lines={cardData.example.without}
@@ -40,22 +49,31 @@ export function InPracticeSection({ cardData }: { cardData: CardData }) {
 
         <div
           className="rounded-2xl overflow-hidden"
-          style={{ border: "1px solid rgba(34,197,94,0.18)" }}
+          style={{
+            border:
+              "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)",
+          }}
         >
           <div
             className="px-4 py-2.5"
-            style={{ background: "rgba(34,197,94,0.08)" }}
+            style={{
+              background:
+                "color-mix(in srgb, var(--accent-green) 8%, transparent)",
+            }}
           >
             <p
               className="text-[11px] font-bold tracking-widest uppercase"
-              style={{ color: "rgba(74,222,128,0.85)" }}
+              style={{ color: "var(--accent-green)" }}
             >
               With this technique
             </p>
           </div>
           <div
             className="px-4 pb-4 pt-3 space-y-2"
-            style={{ background: "rgba(34,197,94,0.04)" }}
+            style={{
+              background:
+                "color-mix(in srgb, var(--accent-green) 4%, transparent)",
+            }}
           >
             <ExampleLines lines={cardData.example.with} color="var(--fg-78)" />
           </div>
@@ -65,13 +83,14 @@ export function InPracticeSection({ cardData }: { cardData: CardData }) {
           <div
             className="rounded-2xl px-4 py-3"
             style={{
-              background: "rgba(245,158,11,0.06)",
-              border: "1px solid rgba(245,158,11,0.14)",
+              background: "color-mix(in srgb, var(--brand) 6%, transparent)",
+              border:
+                "1px solid color-mix(in srgb, var(--brand) 14%, transparent)",
             }}
           >
             <p
               className="text-[12px] italic"
-              style={{ color: "rgba(245,158,11,0.7)" }}
+              style={{ color: "var(--brand-text)" }}
             >
               {cardData.example.note}
             </p>

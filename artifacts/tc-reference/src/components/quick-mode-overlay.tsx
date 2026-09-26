@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import { X, Check, Copy, Heart } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { isSpeakablePhrase } from "@/lib/card-types";
@@ -14,6 +15,8 @@ interface QuickPhrase {
   text: string;
   cardId: string;
   cardTitle: string;
+  /** Every card that lists this line in this group (it is shown once). */
+  cardIds: string[];
 }
 
 interface QuickGroup {
@@ -32,6 +35,9 @@ function buildQuickGroups(
   cards: Readonly<Record<string, CardData>>,
 ): QuickGroup[] {
   const groupsMap = new Map<string, QuickGroup>();
+  // Many cards share stock lines ("What was that like?"). Keep one row per
+  // line per group and remember every card it came from.
+  const seen = new Map<string, QuickPhrase>();
 
   for (const [cardId, card] of Object.entries(cards)) {
     const cardMeta = Object.values(LIBRARY_CATEGORIES)
@@ -51,11 +57,20 @@ function buildQuickGroups(
       const targetGroup = groupsMap.get(group.id)!;
       for (const phraseText of group.phrases) {
         if (!isSpeakablePhrase(phraseText)) continue;
-        targetGroup.phrases.push({
+        const key = `${group.id}\u0000${phraseText.trim().toLowerCase()}`;
+        const existing = seen.get(key);
+        if (existing) {
+          if (!existing.cardIds.includes(cardId)) existing.cardIds.push(cardId);
+          continue;
+        }
+        const entry: QuickPhrase = {
           text: phraseText,
           cardId,
           cardTitle: cardMeta.title,
-        });
+          cardIds: [cardId],
+        };
+        seen.set(key, entry);
+        targetGroup.phrases.push(entry);
       }
     }
   }
@@ -82,6 +97,14 @@ const QUICK_PAGE_SIZE = 120;
 
 export function QuickModeOverlay() {
   const { isOpen, setIsOpen } = useQuickMode();
+  const [location] = useLocation();
+  // Opened from a card: default to that card's lines, one tap from the rest.
+  const routeCardId = location.startsWith("/card/")
+    ? location.split("/")[2]
+    : null;
+  const contextCardId =
+    routeCardId && CARD_TITLE_MAP_QM[routeCardId] ? routeCardId : null;
+  const [cardScope, setCardScope] = useState(true);
   const { isPhrasesFav, togglePhrase } = useFavourites();
   const [quickFilter, setQuickFilter] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(QUICK_PAGE_SIZE);
@@ -104,13 +127,14 @@ export function QuickModeOverlay() {
   useEffect(() => {
     if (!isOpen) {
       setQuickFilter(null);
+      setCardScope(true);
       resetCopied();
     }
   }, [isOpen, resetCopied]);
 
   useEffect(() => {
     setVisibleCount(QUICK_PAGE_SIZE);
-  }, [isOpen, quickFilter]);
+  }, [isOpen, quickFilter, cardScope]);
 
   useEffect(() => {
     if (!isOpen || quickGroups) return;
@@ -141,7 +165,22 @@ export function QuickModeOverlay() {
 
   if (!isOpen) return null;
 
-  const allQuickGroups = quickGroups ?? [];
+  const scopedToCard = cardScope && contextCardId !== null;
+  const allQuickGroups = scopedToCard
+    ? (quickGroups ?? [])
+        .map((g) => ({
+          ...g,
+          phrases: g.phrases
+            .filter((p) => p.cardIds.includes(contextCardId))
+            // Attribute to the open card so favourites file under it
+            .map((p) => ({
+              ...p,
+              cardId: contextCardId,
+              cardTitle: CARD_TITLE_MAP_QM[contextCardId],
+            })),
+        }))
+        .filter((g) => g.phrases.length > 0)
+    : (quickGroups ?? []);
   const filteredGroups = quickFilter
     ? allQuickGroups.filter((g) => g.id === quickFilter)
     : allQuickGroups;
@@ -179,13 +218,22 @@ export function QuickModeOverlay() {
             <h2 className="text-[20px] font-bold text-foreground">
               Quick Lookup
             </h2>
-            <p
-              className="hidden sm:block text-[12px]"
-              style={{ color: "var(--fg-55)" }}
-            >
-              In-conversation phrase cheat-sheet — instant copyable lines
-              grouped by situation.
-            </p>
+            {scopedToCard ? (
+              <p
+                className="text-[12px] truncate"
+                style={{ color: "var(--fg-55)" }}
+                data-testid="quick-scope-title"
+              >
+                {CARD_TITLE_MAP_QM[contextCardId]}
+              </p>
+            ) : (
+              <p
+                className="hidden sm:block text-[12px]"
+                style={{ color: "var(--fg-55)" }}
+              >
+                Tap any line to copy it. Grouped by situation.
+              </p>
+            )}
           </div>
           <button
             ref={closeButtonRef}
@@ -202,6 +250,46 @@ export function QuickModeOverlay() {
             />
           </button>
         </div>
+
+        {contextCardId && (
+          <div
+            className="grid grid-cols-2 gap-1 p-1 mb-3 rounded-xl"
+            style={{ background: "var(--fg-05)" }}
+            role="group"
+            aria-label="Phrase source"
+          >
+            {[
+              { scoped: true, label: `This card · ${contextCardId}` },
+              { scoped: false, label: "All cards" },
+            ].map((opt) => {
+              const selected = cardScope === opt.scoped;
+              return (
+                <button
+                  key={opt.label}
+                  type="button"
+                  aria-pressed={selected}
+                  data-testid={
+                    opt.scoped ? "quick-scope-card" : "quick-scope-all"
+                  }
+                  onClick={() => {
+                    setCardScope(opt.scoped);
+                    setQuickFilter(null);
+                  }}
+                  className="min-h-10 rounded-lg px-3 text-[12px] font-semibold truncate transition-colors"
+                  style={{
+                    background: selected ? "var(--card)" : "transparent",
+                    color: selected ? "var(--fg-90)" : "var(--fg-55)",
+                    boxShadow: selected
+                      ? "0 1px 3px rgba(0,0,0,0.12), 0 0 0 1px var(--fg-07)"
+                      : "none",
+                  }}
+                >
+                  {opt.label}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {/* ── Situation filters ── */}
         <div

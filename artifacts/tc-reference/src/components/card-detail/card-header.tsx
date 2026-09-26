@@ -1,9 +1,8 @@
-import { ChevronRight } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { impactStyleFor } from "@/lib/design-tokens";
-import { CARD_TITLE_MAP } from "./card-sections";
+import { CARD_CATEGORY_MAP, CARD_TITLE_MAP } from "./card-sections";
 
-// ── Technique brief header ──
+// ── Technique brief ──
 export function CardHeader({
   cardId,
   cardData,
@@ -12,147 +11,127 @@ export function CardHeader({
   cardData: CardData;
 }) {
   return (
-    <div className="px-3 md:px-4 pt-4">
-      <div
-        className="rounded-2xl p-5 border"
-        style={{
-          background: "linear-gradient(135deg, var(--fg-02), var(--fg-03))",
-          borderColor: "var(--fg-08)",
-        }}
-      >
-        <div className="flex justify-between items-center">
-          <span
-            className="text-[11px] font-bold tracking-widest uppercase font-mono px-2 py-0.5 rounded-md"
-            style={{
-              background: "var(--fg-04)",
-              color: "var(--brand-text)",
-              border: "1px solid var(--fg-06)",
-            }}
-          >
-            {cardId}
-          </span>
-          <div className="flex items-center gap-2">
-            <span
-              className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
-              style={{
-                background: "var(--fg-06)",
-                color: "var(--fg-60)",
-              }}
+    <>
+      {/* ── Technique brief ──
+        The shared header already carries the card ID and title, so the
+        brief leads with the move itself plus the quickest weak/best
+        contrast; the full formula lives in Overview directly below. */}
+      <div className="px-3 md:px-4 pt-4">
+        <div
+          className="rounded-2xl p-5 border relative overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(160deg, color-mix(in srgb, var(--brand) 9%, transparent) 0%, var(--fg-02) 55%)",
+            borderColor: "color-mix(in srgb, var(--brand) 18%, var(--fg-08))",
+          }}
+        >
+          {/* Visible title lives in the shared header (h1); keep the
+            section heading for the document outline. */}
+          <h2 className="sr-only">{CARD_TITLE_MAP[cardId] ?? cardId}</h2>
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+            <p
+              className="text-[11px] font-bold tracking-[0.12em] uppercase"
+              style={{ color: "var(--brand-text)" }}
+              data-testid="card-brief-category"
             >
-              {cardData.overview.difficulty}
-            </span>
-            {cardData.overview.impact &&
-              (() => {
-                const impactStyle = impactStyleFor(cardData.overview.impact);
-                return (
-                  <span
-                    className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
-                    style={{
-                      background: impactStyle.bg,
-                      color: impactStyle.color,
-                    }}
-                  >
-                    {cardData.overview.impact} Impact
-                  </span>
-                );
-              })()}
-          </div>
-        </div>
-
-        <h2 className="text-[18px] font-bold text-foreground mt-1">
-          {CARD_TITLE_MAP[cardId] ?? cardId}
-        </h2>
-
-        <p className="text-[13px] text-foreground/80 mt-2 leading-relaxed">
-          {cardData.overview.minimumViableMove}
-        </p>
-
-        {/* Compact preview of Core Formula & Quick Ladder Phrase */}
-        {(cardData.overview.coreFormula?.length > 0 ||
-          cardData.ladder?.[0]?.best) && (
-          <div
-            className="mt-3.5 pt-3 flex flex-col gap-2.5 border-t"
-            style={{ borderColor: "var(--fg-06)" }}
-          >
-            {cardData.overview.coreFormula?.length > 0 && (
-              <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
-                <span
-                  className="text-[10px] font-bold uppercase tracking-wider mr-1"
-                  style={{ color: "var(--fg-45)" }}
-                >
-                  Formula
-                </span>
-                {cardData.overview.coreFormula.map((step, idx, arr) => (
-                  <span key={step} className="inline-flex items-center gap-1.5">
-                    <span
-                      className="font-medium px-2 py-0.5 rounded-md"
-                      style={{
-                        background: "var(--fg-04)",
-                        border: "1px solid var(--fg-06)",
-                        color: "var(--fg-85)",
-                      }}
-                    >
-                      {step}
-                    </span>
-                    {idx < arr.length - 1 && (
-                      <ChevronRight
-                        className="w-3 h-3 flex-shrink-0"
-                        style={{ color: "var(--fg-35)" }}
-                        aria-hidden="true"
-                      />
-                    )}
-                  </span>
-                ))}
-              </div>
-            )}
-            {cardData.ladder?.[0] && (
-              <div
-                className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 px-3 py-2 rounded-xl text-[12px]"
+              {CARD_CATEGORY_MAP[cardId] ?? "Technique"}
+            </p>
+            <div className="flex items-center gap-1.5">
+              <span
+                className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
                 style={{
-                  background: "var(--fg-03)",
-                  border: "1px solid var(--fg-05)",
+                  background: "var(--fg-06)",
+                  color: "var(--fg-65)",
                 }}
               >
-                <span
-                  className="text-[10px] font-bold uppercase tracking-wider flex-shrink-0"
-                  style={{ color: "var(--brand-text)" }}
-                >
-                  Quick ladder
-                </span>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 flex-1 min-w-0">
-                  {cardData.ladder[0].weak && (
-                    <span className="text-[11px] text-foreground/50 truncate">
-                      <span
-                        className="font-semibold mr-1"
-                        style={{ color: "var(--accent-red)" }}
-                      >
-                        Weak:
-                      </span>
-                      "{cardData.ladder[0].weak}"
+                {cardData.overview.difficulty}
+              </span>
+              {cardData.overview.impact &&
+                (() => {
+                  const impactStyle = impactStyleFor(cardData.overview.impact);
+                  return (
+                    <span
+                      className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
+                      style={{
+                        background: impactStyle.bg,
+                        color: impactStyle.color,
+                      }}
+                    >
+                      {cardData.overview.impact} impact
                     </span>
-                  )}
-                  {cardData.ladder[0].weak && cardData.ladder[0].best && (
-                    <span className="hidden sm:inline text-[11px] text-foreground/30">
-                      →
+                  );
+                })()}
+            </div>
+          </div>
+
+          <p
+            className="text-[11px] font-bold tracking-wider uppercase mt-4 mb-1.5"
+            style={{ color: "var(--fg-45)" }}
+          >
+            Minimum viable move
+          </p>
+          <p
+            className="text-[16px] font-semibold leading-snug"
+            style={{ color: "var(--fg-90)" }}
+          >
+            {cardData.overview.minimumViableMove}
+          </p>
+
+          {cardData.ladder?.[0] &&
+            (cardData.ladder[0].weak || cardData.ladder[0].best) && (
+              <div
+                className="mt-4 rounded-xl overflow-hidden text-[13px]"
+                style={{ border: "1px solid var(--fg-07)" }}
+                data-testid="card-brief-ladder"
+              >
+                {cardData.ladder[0].weak && (
+                  <div
+                    className="flex gap-2.5 px-3.5 py-2.5"
+                    style={{ background: "var(--fg-02)" }}
+                  >
+                    <span
+                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
+                      style={{ color: "var(--accent-red)" }}
+                    >
+                      Weak
                     </span>
-                  )}
-                  {cardData.ladder[0].best && (
-                    <span className="text-[11px] text-foreground/90 font-medium truncate">
-                      <span
-                        className="font-semibold mr-1"
-                        style={{ color: "var(--accent-green)" }}
-                      >
-                        Best:
-                      </span>
-                      "{cardData.ladder[0].best}"
+                    <span
+                      className="min-w-0 leading-snug line-clamp-2"
+                      style={{ color: "var(--fg-55)" }}
+                    >
+                      {cardData.ladder[0].weak}
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
+                {cardData.ladder[0].best && (
+                  <div
+                    className="flex gap-2.5 px-3.5 py-2.5"
+                    style={{
+                      background:
+                        "color-mix(in srgb, var(--accent-green) 7%, transparent)",
+                      borderTop: cardData.ladder[0].weak
+                        ? "1px solid var(--fg-06)"
+                        : undefined,
+                    }}
+                  >
+                    <span
+                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
+                      style={{ color: "var(--accent-green)" }}
+                    >
+                      Best
+                    </span>
+                    <span
+                      className="min-w-0 leading-snug font-medium line-clamp-3"
+                      style={{ color: "var(--fg-85)" }}
+                    >
+                      {cardData.ladder[0].best}
+                    </span>
+                  </div>
+                )}
               </div>
             )}
-          </div>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

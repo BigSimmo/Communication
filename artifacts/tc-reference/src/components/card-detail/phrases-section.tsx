@@ -25,7 +25,7 @@ export function PhrasesSection({
     <SectionAccordion
       id="phrases"
       label="Phrase bank"
-      color="#60a5fa"
+      color="var(--accent-blue)"
       subtitle={`${cardData.phraseBank.reduce((a, g) => a + g.phrases.length, 0)} phrases · ${cardData.phraseBank.length} groups`}
     >
       <div className="mb-4">
@@ -82,7 +82,7 @@ export function PhrasesSection({
         </div>
       </div>
 
-      <p className="text-[12px] text-foreground/40 mb-3 font-medium">
+      <p className="text-[12px] text-foreground/60 mb-3 font-medium">
         Tap a phrase to copy it
       </p>
 
@@ -121,7 +121,7 @@ export function PhrasesSection({
                 </div>
                 <div className="flex items-center gap-3">
                   <span
-                    className="text-[11px] font-bold text-foreground/40 px-2 py-1 rounded-full"
+                    className="text-[11px] font-bold text-foreground/60 px-2 py-1 rounded-full"
                     style={{ background: "var(--fg-05)" }}
                   >
                     {group.phrases.length}
@@ -147,7 +147,7 @@ export function PhrasesSection({
                       style={{
                         background:
                           copiedPhrase === phrase
-                            ? "rgba(245,158,11,0.07)"
+                            ? "color-mix(in srgb, var(--brand) 7%, transparent)"
                             : "transparent",
                         borderBottom:
                           i < group.phrases.length - 1
@@ -186,7 +186,7 @@ export function PhrasesSection({
                           className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                           style={{
                             background: isPhrasesFav(cardId, phrase)
-                              ? "rgba(245,158,11,0.1)"
+                              ? "color-mix(in srgb, var(--brand) 10%, transparent)"
                               : "transparent",
                           }}
                         >

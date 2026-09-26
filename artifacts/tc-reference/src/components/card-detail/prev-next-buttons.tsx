@@ -20,7 +20,7 @@ export function FloatingPrevNext({
         }}
         aria-label={`Previous card: ${prevCard.id}`}
         data-testid="button-prev-float"
-        className="hidden md:flex fixed z-30 md:left-[200px] items-center justify-center transition-all active:scale-95"
+        className="hidden lg:flex fixed z-30 md:left-[200px] items-center justify-center transition-all active:scale-95"
         style={{
           top: "50%",
           transform: "translateY(-50%)",
@@ -43,7 +43,7 @@ export function FloatingPrevNext({
         }}
         aria-label={`Next card: ${nextCard.id}`}
         data-testid="button-next-float"
-        className="hidden md:flex fixed z-30 items-center justify-center transition-all active:scale-95"
+        className="hidden lg:flex fixed z-30 items-center justify-center transition-all active:scale-95"
         style={{
           right: 0,
           top: "50%",
