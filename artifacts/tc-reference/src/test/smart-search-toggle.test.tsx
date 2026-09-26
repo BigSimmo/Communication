@@ -7,6 +7,7 @@ import { FavouritesProvider } from "../lib/favourites-context";
 import { NavProvider } from "../lib/nav-context";
 import { QuickModeProvider } from "../lib/quick-mode";
 import { ThemeProvider } from "../lib/theme";
+import { PdfProvider } from "../lib/pdf-context";
 
 vi.mock("wouter");
 
@@ -21,7 +22,9 @@ function Wrapper({ children }: { children: React.ReactNode }) {
     <ThemeProvider>
       <QuickModeProvider>
         <NavProvider>
-          <FavouritesProvider>{children}</FavouritesProvider>
+          <FavouritesProvider>
+            <PdfProvider>{children}</PdfProvider>
+          </FavouritesProvider>
         </NavProvider>
       </QuickModeProvider>
     </ThemeProvider>
@@ -191,26 +194,26 @@ describe("Library smart search toggle", () => {
     expect(input).not.toHaveAttribute("data-suppress-search-open");
   });
 
-  it("keeps only the organized menu trigger in the header", () => {
-    const toggleMenu = vi.fn();
-
-    render(
+  it("shows the filter toggle on the Library and a search button elsewhere", () => {
+    const { unmount } = render(
       <Wrapper>
-        <AppHeader
-          menuOpen={false}
-          onToggleMenu={toggleMenu}
-        />
+        <AppHeader />
       </Wrapper>
     );
+    expect(screen.getByTestId("button-header-details-toggle")).toBeInTheDocument();
+    expect(screen.queryByTestId("button-header-search")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("button-header-menu")).not.toBeInTheDocument();
+    unmount();
 
-    const menuButton = screen.getByTestId("button-header-menu");
-
-    expect(menuButton).toHaveAttribute("aria-expanded", "false");
-    expect(menuButton).toHaveAttribute("aria-controls", "mobile-organized-menu");
-    expect(screen.queryByTestId("button-header-menu-layout")).not.toBeInTheDocument();
-
-    fireEvent.click(menuButton);
-
-    expect(toggleMenu).toHaveBeenCalledTimes(1);
+    vi.mocked(useLocation).mockReturnValue(["/phrases", vi.fn()]);
+    render(
+      <Wrapper>
+        <AppHeader />
+      </Wrapper>
+    );
+    expect(screen.queryByTestId("button-header-details-toggle")).not.toBeInTheDocument();
+    const search = screen.getByTestId("button-header-search");
+    expect(search).toHaveAttribute("aria-controls", "search-popout-panel");
+    expect(search).toHaveAttribute("aria-expanded", "false");
   });
 });

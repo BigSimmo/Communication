@@ -605,15 +605,8 @@ export default function Library() {
         </div>
       </div>
 
-      {/* ── Card list ── */}
-      {/* Bottom padding clears the floating action button (and the home-indicator
-          safe area) so the last card is never hidden behind it. */}
-      <div
-        className="px-4 md:px-6 pt-4 space-y-6"
-        style={{
-          paddingBottom: "calc(6.5rem + env(safe-area-inset-bottom, 0px))",
-        }}
-      >
+      {/* ── Card list ── (main already clears the phone tab bar) */}
+      <div className="px-4 md:px-6 pt-4 pb-6 space-y-6">
         {hasResults ? (
           Object.entries(filteredLibrary).map(([cat, cards]) => (
             <div

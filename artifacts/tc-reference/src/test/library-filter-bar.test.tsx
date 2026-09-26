@@ -7,6 +7,7 @@ import { FavouritesProvider } from "../lib/favourites-context";
 import { NavProvider } from "../lib/nav-context";
 import { QuickModeProvider } from "../lib/quick-mode";
 import { ThemeProvider } from "../lib/theme";
+import { PdfProvider } from "../lib/pdf-context";
 
 vi.mock("wouter");
 
@@ -15,7 +16,9 @@ function Wrapper({ children }: { children: React.ReactNode }) {
     <ThemeProvider>
       <QuickModeProvider>
         <NavProvider>
-          <FavouritesProvider>{children}</FavouritesProvider>
+          <FavouritesProvider>
+            <PdfProvider>{children}</PdfProvider>
+          </FavouritesProvider>
         </NavProvider>
       </QuickModeProvider>
     </ThemeProvider>
