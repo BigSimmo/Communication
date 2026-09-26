@@ -163,9 +163,9 @@ export default function Phrases() {
               onClick={() => setToneFilter(null)}
               aria-pressed={!toneFilter}
               data-testid="tone-filter-all"
-              className="flex-shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
+              className="tap-band flex-shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
               style={{
-                minHeight: 40,
+                height: 32,
                 background: !toneFilter
                   ? "var(--gradient-active)"
                   : "var(--fg-05)",
@@ -200,9 +200,9 @@ export default function Phrases() {
                   onClick={() => setToneFilter(active ? null : tone)}
                   aria-pressed={active}
                   data-testid={`tone-filter-${tone.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="flex-shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
+                  className="tap-band flex-shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
                   style={{
-                    minHeight: 40,
+                    height: 32,
                     background: active
                       ? "var(--gradient-active)"
                       : "var(--fg-05)",

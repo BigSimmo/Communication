@@ -27,6 +27,8 @@ import { usePdf } from "@/lib/pdf-context";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
+import { SectionNav } from "@/components/card-detail/section-nav";
+import { SECTIONS, type CardSection } from "@/components/card-detail/sections";
 
 // Smooth scrolling unless the user has asked the OS for reduced motion.
 function scrollBehavior(): ScrollBehavior {
@@ -76,72 +78,6 @@ function getCardPdfUrl(
   const url = CARD_PDF_URLS[cardId] ?? PLACEHOLDER_PDF;
   return { url, isPlaceholder: !CARD_PDF_URLS[cardId] };
 }
-
-type CardSection =
-  | "overview"
-  | "why"
-  | "method"
-  | "phrases"
-  | "ladder"
-  | "inpractice"
-  | "tree"
-  | "scenarios"
-  | "chains"
-  | "calibration"
-  | "mistakes"
-  | "recovery"
-  | "practice"
-  | "checklist"
-  | "related"
-  | "resources";
-
-const SECTIONS: { id: CardSection; label: string }[] = [
-  { id: "overview", label: "Overview" },
-  { id: "why", label: "Why it works" },
-  { id: "method", label: "Method" },
-  { id: "phrases", label: "Phrases" },
-  { id: "ladder", label: "Ladder" },
-  { id: "inpractice", label: "In practice" },
-  { id: "tree", label: "Decision tree" },
-  { id: "scenarios", label: "Scenarios" },
-  { id: "chains", label: "Chains" },
-  { id: "calibration", label: "Calibration" },
-  { id: "mistakes", label: "Mistakes" },
-  { id: "recovery", label: "Recovery" },
-  { id: "practice", label: "Practice" },
-  { id: "checklist", label: "Checklist" },
-  { id: "related", label: "Related" },
-  { id: "resources", label: "Downloads" },
-];
-
-interface SectionCluster {
-  id: string;
-  label: string;
-  sectionIds: CardSection[];
-}
-
-const SECTION_CLUSTERS: SectionCluster[] = [
-  {
-    id: "core",
-    label: "Core method",
-    sectionIds: ["overview", "why", "method"],
-  },
-  {
-    id: "phrases-practice",
-    label: "Phrases and practice",
-    sectionIds: ["phrases", "ladder", "inpractice", "tree"],
-  },
-  {
-    id: "scenarios-troubleshooting",
-    label: "Scenarios and troubleshooting",
-    sectionIds: ["scenarios", "chains", "calibration", "mistakes", "recovery"],
-  },
-  {
-    id: "review-downloads",
-    label: "Review and downloads",
-    sectionIds: ["practice", "checklist", "related", "resources"],
-  },
-];
 
 // In-session memory: remembers which section and scroll position the user last viewed per card
 const cardSectionMemory = new Map<
@@ -365,28 +301,11 @@ export default function CardDetail() {
   const [pdfLoaded, setPdfLoaded] = useState(false);
   const pdfLoadedRef = useRef(false);
   const navRef = useRef<HTMLDivElement>(null);
-  const tabStripRef = useRef<HTMLDivElement>(null);
   const pdfSheetRef = useRef<HTMLDivElement>(null);
   const isCoarsePointer =
     typeof window !== "undefined" &&
     typeof window.matchMedia === "function" &&
     window.matchMedia("(pointer: coarse)").matches;
-
-  // Keep the active tab visible in the horizontally scrolling strip as the
-  // scroll-spy advances. Scrolls the strip only, never the page.
-  useEffect(() => {
-    const strip = tabStripRef.current;
-    const tab = strip?.querySelector<HTMLElement>(`#nav-${activeSection}`);
-    if (!strip || !tab || typeof strip.scrollTo !== "function") return;
-    const left = tab.offsetLeft - strip.offsetLeft;
-    const right = left + tab.offsetWidth;
-    if (left < strip.scrollLeft + 24 || right > strip.scrollLeft + strip.clientWidth - 24) {
-      strip.scrollTo({
-        left: Math.max(0, left - (strip.clientWidth - tab.offsetWidth) / 2),
-        behavior: scrollBehavior(),
-      });
-    }
-  }, [activeSection, cardData]);
 
   // Publish the section nav's height so accordion scroll-margin matches it.
   useEffect(() => {
@@ -992,77 +911,12 @@ export default function CardDetail() {
         </div>
 
         {/* ── Section nav (sticky flush below the shared header) ── */}
-        <div
-          ref={navRef}
-          className="sticky z-10"
-          style={{
-            top: "var(--app-header-height, 48px)",
-            background: "var(--surface-header)",
-            backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
-            borderBottom: "1px solid var(--fg-06)",
-          }}
-        >
-          {/* Section tabs, grouped by cluster with thin dividers */}
-          <div className="flex items-center gap-0">
-            <div
-              ref={tabStripRef}
-              className="flex items-center gap-1.5 py-2 px-4 md:px-6 overflow-x-auto flex-1"
-              style={{ scrollbarWidth: "none", scrollPaddingInline: 24 }}
-              role="group"
-              aria-label="Jump to section"
-            >
-              {SECTION_CLUSTERS.map((cluster, clusterIdx) => {
-                const clusterSections = cluster.sectionIds
-                  .map((id) => SECTIONS.find((s) => s.id === id)!)
-                  .filter((s) => s && sectionAvailable(s.id));
-                if (clusterSections.length === 0) return null;
-
-                return (
-                  <div
-                    key={cluster.id}
-                    role="group"
-                    aria-label={cluster.label}
-                    className="flex items-center gap-1.5 flex-shrink-0"
-                  >
-                    {clusterIdx > 0 && (
-                      <div
-                        className="w-px h-4 mx-1 flex-shrink-0"
-                        style={{ background: "var(--fg-10)" }}
-                        aria-hidden="true"
-                      />
-                    )}
-                    {clusterSections.map((s) => (
-                      <button
-                        key={s.id}
-                        id={`nav-${s.id}`}
-                        type="button"
-                        aria-current={activeSection === s.id ? "true" : undefined}
-                        aria-controls={`section-${s.id}`}
-                        onClick={() => scrollSectionIntoView(s.id)}
-                        data-testid={`nav-${s.id}`}
-                        className="text-[12px] font-semibold px-3.5 rounded-full transition-all flex-shrink-0"
-                        style={{
-                          minHeight: 40,
-                          background:
-                            activeSection === s.id
-                              ? "var(--brand)"
-                              : "var(--fg-05)",
-                          color:
-                            activeSection === s.id
-                              ? "var(--brand-contrast)"
-                              : "var(--fg-55)",
-                        }}
-                      >
-                        {s.label}
-                      </button>
-                    ))}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        <SectionNav
+          navRef={navRef}
+          activeSection={activeSection}
+          sectionAvailable={sectionAvailable}
+          scrollSectionIntoView={scrollSectionIntoView}
+        />
 
         {/* Content — accordion sections */}
         <div className="px-3 md:px-4 pb-12 pt-2 flex flex-col gap-2">
