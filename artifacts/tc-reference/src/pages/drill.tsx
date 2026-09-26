@@ -235,7 +235,8 @@ export default function Drill() {
           className="h-full rounded-full transition-all duration-500"
           style={{
             width: `${overallPct}%`,
-            background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
+            background:
+              "linear-gradient(90deg, var(--brand), var(--brand-bright))",
           }}
         />
       </div>
@@ -244,10 +245,12 @@ export default function Drill() {
       <div
         className="rounded-2xl p-5"
         style={{
-          background: done ? "rgba(34,197,94,0.06)" : "rgba(245,158,11,0.07)",
+          background: done
+            ? "color-mix(in srgb, var(--accent-green) 6%, transparent)"
+            : "color-mix(in srgb, var(--brand) 7%, transparent)",
           border: done
-            ? "1px solid rgba(34,197,94,0.18)"
-            : "1px solid rgba(245,158,11,0.2)",
+            ? "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)"
+            : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
         }}
       >
         {/* Card ID + title row */}
@@ -258,7 +261,7 @@ export default function Drill() {
                 className="text-[11px] font-bold tracking-widest uppercase"
                 style={{
                   color: done
-                    ? "rgba(34,197,94,0.7)"
+                    ? "var(--accent-green)"
                     : "color-mix(in srgb, var(--brand-text) 70%, transparent)",
                 }}
               >
@@ -268,8 +271,9 @@ export default function Drill() {
                 <span
                   className="flex items-center gap-1 text-[11px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full"
                   style={{
-                    background: "rgba(34,197,94,0.12)",
-                    color: "#22c55e",
+                    background:
+                      "color-mix(in srgb, var(--accent-green) 12%, transparent)",
+                    color: "var(--accent-green)",
                   }}
                 >
                   <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
@@ -290,16 +294,18 @@ export default function Drill() {
             className="flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 rounded-xl"
             style={{
               background: done
-                ? "rgba(34,197,94,0.12)"
+                ? "color-mix(in srgb, var(--accent-green) 12%, transparent)"
                 : "color-mix(in srgb, var(--brand) 12%, transparent)",
               border: done
-                ? "1px solid rgba(34,197,94,0.2)"
+                ? "1px solid color-mix(in srgb, var(--accent-green) 20%, transparent)"
                 : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
             }}
           >
             <span
               className="text-[18px] font-black leading-none"
-              style={{ color: done ? "#22c55e" : "var(--brand-text)" }}
+              style={{
+                color: done ? "var(--accent-green)" : "var(--brand-text)",
+              }}
             >
               {dayNum}
             </span>
@@ -307,7 +313,7 @@ export default function Drill() {
               className="text-[10px] font-semibold tracking-wide uppercase mt-0.5"
               style={{
                 color: done
-                  ? "rgba(34,197,94,0.6)"
+                  ? "var(--accent-green)"
                   : "color-mix(in srgb, var(--brand-text) 60%, transparent)",
               }}
             >
@@ -327,7 +333,7 @@ export default function Drill() {
                 className="flex-1 h-1.5 rounded-full transition-all duration-300"
                 style={{
                   background: isPast
-                    ? "#22c55e"
+                    ? "var(--accent-green)"
                     : isCurrent
                       ? "var(--brand)"
                       : "var(--fg-08)",
@@ -366,19 +372,21 @@ export default function Drill() {
           tabIndex={-1}
           className="rounded-2xl p-4 flex items-center gap-3"
           style={{
-            background: "rgba(34,197,94,0.06)",
-            border: "1px solid rgba(34,197,94,0.13)",
+            background:
+              "color-mix(in srgb, var(--accent-green) 6%, transparent)",
+            border:
+              "1px solid color-mix(in srgb, var(--accent-green) 13%, transparent)",
           }}
         >
           <CheckCircle2
             className="w-5 h-5 flex-shrink-0"
-            style={{ color: "#22c55e" }}
+            style={{ color: "var(--accent-green)" }}
             aria-hidden="true"
           />
           <div className="flex-1 min-w-0">
             <p
               className="text-[13px] font-semibold"
-              style={{ color: "#22c55e" }}
+              style={{ color: "var(--accent-green)" }}
             >
               Great work — come back tomorrow
             </p>
@@ -407,9 +415,11 @@ export default function Drill() {
               aria-label={"Hard — review soon"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
-                borderColor: "rgba(239,68,68,0.3)",
-                background: "rgba(239,68,68,0.06)",
-                color: "#ef4444",
+                borderColor:
+                  "color-mix(in srgb, var(--accent-red) 30%, transparent)",
+                background:
+                  "color-mix(in srgb, var(--accent-red) 6%, transparent)",
+                color: "var(--accent-red)",
               }}
             >
               <span className="block">Hard</span>
@@ -422,9 +432,11 @@ export default function Drill() {
               aria-label={"Good — review later"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
-                borderColor: "rgba(96,165,250,0.3)",
-                background: "rgba(96,165,250,0.06)",
-                color: "#60a5fa",
+                borderColor:
+                  "color-mix(in srgb, var(--accent-blue) 30%, transparent)",
+                background:
+                  "color-mix(in srgb, var(--accent-blue) 6%, transparent)",
+                color: "var(--accent-blue)",
               }}
             >
               <span className="block">Good</span>
@@ -437,9 +449,11 @@ export default function Drill() {
               aria-label={"Easy — review much later"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
-                borderColor: "rgba(34,197,94,0.3)",
-                background: "rgba(34,197,94,0.06)",
-                color: "#22c55e",
+                borderColor:
+                  "color-mix(in srgb, var(--accent-green) 30%, transparent)",
+                background:
+                  "color-mix(in srgb, var(--accent-green) 6%, transparent)",
+                color: "var(--accent-green)",
               }}
             >
               <span className="block">Easy</span>

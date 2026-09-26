@@ -30,9 +30,16 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
   }
 }
 
-const allCards = Object.entries(LIBRARY_CATEGORIES).flatMap(([cat, cards]) =>
-  cards.map((c) => ({ ...c, category: cat }))
-);
+
+// Header title per top-level route. The Library keeps the brand name; other
+// pages name themselves so the header always says where you are.
+const PAGE_TITLES: Record<string, string> = {
+  "/": "TC Library",
+  "/phrases": "Phrase Bank",
+  "/drill": "Daily Drill",
+  "/favourites": "Favourites",
+  "/playbooks": "Playbooks",
+};
 
 interface AppHeaderProps {
   menuOpen?: boolean;
@@ -109,8 +116,9 @@ export function AppHeader({
   // other pages (Phrases, Drill, Favourites) provide their own h1.
   const TitleTag: "h1" | "p" = location === "/" ? "h1" : "p";
   const cardMeta = cardId ? CARD_META[cardId] ?? null : null;
+  const isLibraryRoute = location === "/";
+  const pageTitle = PAGE_TITLES[location] ?? "TC Library";
 
-  const totalCards = allCards.length;
   // Compact still clears the 44px touch targets used on coarse pointers.
   const headerHeight = compact ? 46 : 48;
 
@@ -246,17 +254,6 @@ export function AppHeader({
               {/* No header menu button in card mode: on phones the floating
                   menu button already provides it, and dropping it gives the
                   card title room at 375px. */}
-              <HeaderIconButton
-                label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                testId="button-theme-toggle-card"
-                onClick={toggle}
-                className="header-desktop-only"
-              >
-                {theme === "dark"
-                  ? <Sun className="w-4 h-4" aria-hidden="true" />
-                  : <Moon className="w-4 h-4" aria-hidden="true" />
-                }
-              </HeaderIconButton>
               <button
                 onClick={() => setIsOpen(true)}
                 aria-label="Open Quick Lookup"
@@ -279,7 +276,7 @@ export function AppHeader({
               <div className="flex items-center gap-2.5 min-w-0">
                 <span
                   aria-hidden="true"
-                  className="flex items-center justify-center flex-shrink-0"
+                  className="flex md:hidden items-center justify-center flex-shrink-0"
                   style={{
                     width: compact ? 27 : 30,
                     height: compact ? 27 : 30,
@@ -310,7 +307,7 @@ export function AppHeader({
                     }}
                     data-testid="library-subtitle"
                   >
-                    Technique Cards
+                    {isLibraryRoute ? "Technique cards" : "TC Library"}
                   </p>
                   <TitleTag
                     className="font-bold leading-none truncate"
@@ -321,13 +318,14 @@ export function AppHeader({
                     }}
                     data-testid="library-title"
                   >
-                    TC Library
+                    {pageTitle}
                   </TitleTag>
                 </div>
               </div>
               <div className="flex items-center justify-end gap-1.5 sm:gap-2.5 flex-shrink-0">
-                <HeaderIconButton
-                  label={headerDetailsOpen ? "Hide header details" : "Show header details"}
+                {isLibraryRoute && (
+                  <HeaderIconButton
+                  label={headerDetailsOpen ? "Hide search and filters" : "Show search and filters"}
                   active={headerDetailsOpen}
                   expanded={headerDetailsOpen}
                   controls="library-header-details"
@@ -336,6 +334,7 @@ export function AppHeader({
                 >
                   <SlidersHorizontal className="w-4 h-4" aria-hidden="true" />
                 </HeaderIconButton>
+                )}
                 {onToggleMenu && (
                   <HeaderIconButton
                     label={menuOpen ? "Close organized menu" : "Open organized menu"}
@@ -354,36 +353,13 @@ export function AppHeader({
                   label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                   testId="button-theme-toggle"
                   onClick={toggle}
-                  className="hidden sm:inline-flex"
+                  className="hidden sm:inline-flex md:hidden"
                 >
                   {theme === "dark"
                     ? <Sun className="w-4 h-4" aria-hidden="true" />
                     : <Moon className="w-4 h-4" aria-hidden="true" />
                   }
                 </HeaderIconButton>
-                {/* Library size badge — count of technique cards */}
-                <div
-                  className="library-progress-full flex-col items-end gap-1"
-                  aria-label={`${totalCards} technique cards`}
-                  data-testid="library-progress"
-                >
-                  <div
-                    className="flex items-center justify-center gap-1 rounded-lg px-2.5 py-1 leading-none"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, color-mix(in srgb, var(--brand) 20%, transparent) 0%, color-mix(in srgb, var(--brand) 7%, transparent) 100%)",
-                      border: "1px solid color-mix(in srgb, var(--brand) 30%, transparent)",
-                      boxShadow: "0 0 12px color-mix(in srgb, var(--brand) 10%, transparent)",
-                    }}
-                  >
-                    <span className="text-[12px] font-bold" style={{ color: "var(--brand-text)" }}>
-                      {totalCards}
-                    </span>
-                    <span className="text-[10px] font-semibold" style={{ color: "var(--fg-55)" }}>
-                      cards
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
           )}

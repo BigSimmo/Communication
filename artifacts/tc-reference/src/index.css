@@ -575,20 +575,3 @@
     font-size: 16px;
   }
 }
-
-.header-desktop-only,
-.library-progress-full {
-  display: none;
-}
-
-@media (min-width: 640px) {
-  .library-progress-full {
-    display: flex;
-  }
-}
-
-@media (min-width: 768px) {
-  .header-desktop-only {
-    display: inline-flex;
-  }
-}

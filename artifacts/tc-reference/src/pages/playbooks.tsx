@@ -116,7 +116,8 @@ export default function Playbooks() {
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[12px] font-bold transition-all shadow-sm active:scale-95"
             style={{
               minHeight: 44,
-              background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+              background:
+                "linear-gradient(135deg, var(--brand), var(--brand-bright))",
               color: "var(--brand-contrast)",
             }}
           >
@@ -272,7 +273,8 @@ export default function Playbooks() {
             className="w-full py-2.5 rounded-xl text-[13px] font-bold transition-all mt-2 disabled:opacity-50 active:scale-95"
             style={{
               minHeight: 44,
-              background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+              background:
+                "linear-gradient(135deg, var(--brand), var(--brand-bright))",
               color: "var(--brand-contrast)",
             }}
           >
@@ -313,7 +315,8 @@ export default function Playbooks() {
                 className="mt-2 px-4 py-2 rounded-xl text-[12px] font-bold transition-all shadow-sm active:scale-95"
                 style={{
                   minHeight: 44,
-                  background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                  background:
+                    "linear-gradient(135deg, var(--brand), var(--brand-bright))",
                   color: "var(--brand-contrast)",
                 }}
               >
@@ -442,8 +445,9 @@ export default function Playbooks() {
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{
-                  background: "rgba(239, 68, 68, 0.12)",
-                  color: "#ef4444",
+                  background:
+                    "color-mix(in srgb, var(--accent-red) 12%, transparent)",
+                  color: "var(--accent-red)",
                 }}
               >
                 <AlertTriangle className="w-5 h-5" aria-hidden="true" />

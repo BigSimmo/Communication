@@ -16,6 +16,8 @@ import {
   Heart,
   FileText,
   Menu,
+  Sun,
+  Moon,
   X,
   LayoutGrid,
   LayoutList,
@@ -37,11 +39,9 @@ import {
 } from "@/lib/drill-state";
 import { useFavourites } from "@/lib/favourites-context";
 import { usePdf } from "@/lib/pdf-context";
+import { useTheme } from "@/lib/theme";
 
 const TOTAL_CARDS = Object.values(LIBRARY_CATEGORIES).flat().length;
-const LOADED_CARDS = Object.values(LIBRARY_CATEGORIES)
-  .flat()
-  .filter((c) => c.loaded).length;
 
 // Light haptic feedback for a native-app feel — degrades silently when unsupported
 function triggerHaptic(pattern: number | number[]) {
@@ -115,6 +115,7 @@ export function AppLayout({ children }: AppLayoutProps) {
   const { isOpen, setIsOpen } = useQuickMode();
   const { openSearch, toggleSearch, searchOpen } = useNav();
   const { pdfUrl, pdfOpen, setPdfOpen } = usePdf();
+  const { theme, toggle: toggleTheme } = useTheme();
 
   const isLibrary = location === "/";
   const isDrill = location === "/drill";
@@ -451,20 +452,43 @@ export function AppLayout({ children }: AppLayoutProps) {
         }}
       >
         {/* Brand */}
-        <div className="px-5 pt-7 pb-5">
-          <p
-            className="text-[9px] font-bold tracking-[0.18em] uppercase"
-            style={{ color: "rgba(245,158,11,0.65)" }}
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 px-5 pt-6 pb-5 rounded-lg"
+          aria-label="TC Library home"
+        >
+          <span
+            aria-hidden="true"
+            className="flex items-center justify-center flex-shrink-0"
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: 10,
+              background: "var(--gradient-active)",
+              boxShadow:
+                "0 2px 8px color-mix(in srgb, var(--brand) 32%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)",
+            }}
           >
-            Technique Cards
-          </p>
-          <p
-            className="text-[18px] font-bold leading-tight mt-0.5"
-            style={{ color: "var(--fg-90)" }}
-          >
-            TC Library
-          </p>
-        </div>
+            <BookOpen
+              className="w-4 h-4"
+              style={{ color: "var(--brand-contrast)" }}
+            />
+          </span>
+          <span className="min-w-0">
+            <span
+              className="block text-[16px] font-bold leading-tight"
+              style={{ color: "var(--fg-90)" }}
+            >
+              TC Library
+            </span>
+            <span
+              className="block text-[11px] font-medium mt-0.5"
+              style={{ color: "var(--fg-50)" }}
+            >
+              {TOTAL_CARDS} communication techniques
+            </span>
+          </span>
+        </Link>
 
         <div className="w-full h-px" style={{ background: "var(--fg-06)" }} />
 
@@ -487,10 +511,10 @@ export function AppLayout({ children }: AppLayoutProps) {
                 paddingLeft: item.active ? 10 : 12,
                 paddingRight: 12,
                 background: item.active
-                  ? "rgba(245,158,11,0.11)"
+                  ? "color-mix(in srgb, var(--brand) 11%, transparent)"
                   : "transparent",
                 borderLeft: item.active
-                  ? "2px solid rgba(245,158,11,0.65)"
+                  ? "2px solid color-mix(in srgb, var(--brand) 65%, transparent)"
                   : "2px solid transparent",
               }}
             >
@@ -501,17 +525,21 @@ export function AppLayout({ children }: AppLayoutProps) {
                   width: 26,
                   height: 26,
                   background: item.active
-                    ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+                    ? "var(--gradient-active)"
                     : "var(--fg-08)",
                   boxShadow: item.active
-                    ? "0 2px 8px rgba(245,158,11,0.45), inset 0 1px 0 rgba(255,255,255,0.35)"
+                    ? "0 2px 8px color-mix(in srgb, var(--brand) 45%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)"
                     : "inset 0 1px 0 rgba(255,255,255,0.05)",
                   transition: "background 200ms ease, box-shadow 200ms ease",
                 }}
               >
                 <item.icon
                   className="w-3.5 h-3.5"
-                  style={{ color: item.active ? "#0f1724" : "var(--fg-50)" }}
+                  style={{
+                    color: item.active
+                      ? "var(--brand-contrast)"
+                      : "var(--fg-50)",
+                  }}
                   aria-hidden="true"
                 />
                 {/* Badge lives on the chip, matching the mobile pill pattern */}
@@ -552,61 +580,66 @@ export function AppLayout({ children }: AppLayoutProps) {
           ))}
         </nav>
 
-        {/* Cards loaded badge */}
-        <div className="px-4 pb-6">
-          <div
-            className="rounded-xl px-4 py-3"
-            style={{
-              background: "rgba(245,158,11,0.06)",
-              border: "1px solid rgba(245,158,11,0.13)",
-            }}
+        {/* Footer: theme + search shortcut (the header drops its theme
+            toggle on some routes, so the sidebar always carries one) */}
+        <div
+          className="px-3 pb-5 pt-3 space-y-1"
+          style={{ borderTop: "1px solid var(--fg-06)" }}
+        >
+          <button
+            type="button"
+            onClick={toggleTheme}
+            data-testid="nav-sidebar-theme"
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+            className="w-full flex items-center gap-2.5 rounded-xl px-3 transition-colors hover:bg-[var(--fg-05)]"
+            style={{ minHeight: 40 }}
           >
-            <div className="flex items-center justify-between mb-1">
-              <p
-                className="text-[10px] font-semibold"
-                style={{ color: "var(--fg-35)" }}
-              >
-                Cards loaded
-              </p>
-              <BookOpen
-                className="w-3.5 h-3.5"
-                style={{
-                  color:
-                    "color-mix(in srgb, var(--brand-text) 45%, transparent)",
-                }}
-                aria-hidden="true"
-              />
-            </div>
-            <p
-              className="text-[22px] font-bold"
-              style={{ color: "var(--brand-text)" }}
+            <span
+              className="flex items-center justify-center flex-shrink-0 rounded-full"
+              style={{ width: 26, height: 26, background: "var(--fg-08)" }}
             >
-              {LOADED_CARDS}
-              <span
-                className="text-[13px] font-normal ml-1"
-                style={{ color: "var(--fg-45)" }}
-              >
-                / {TOTAL_CARDS}
-              </span>
-            </p>
-            <div
-              className="mt-2 h-1.5 rounded-full overflow-hidden"
-              style={{ background: "var(--fg-06)" }}
-              role="progressbar"
-              aria-valuenow={LOADED_CARDS}
-              aria-valuemin={0}
-              aria-valuemax={TOTAL_CARDS}
-              aria-label={`${LOADED_CARDS} of ${TOTAL_CARDS} cards loaded`}
+              {theme === "dark" ? (
+                <Sun
+                  className="w-3.5 h-3.5"
+                  style={{ color: "var(--fg-50)" }}
+                  aria-hidden="true"
+                />
+              ) : (
+                <Moon
+                  className="w-3.5 h-3.5"
+                  style={{ color: "var(--fg-50)" }}
+                  aria-hidden="true"
+                />
+              )}
+            </span>
+            <span
+              className="text-[13px] font-semibold"
+              style={{ color: "var(--fg-55)" }}
             >
-              <div
-                className="h-full rounded-full transition-all duration-300"
-                style={{
-                  width: `${(LOADED_CARDS / TOTAL_CARDS) * 100}%`,
-                  background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
-                }}
-              />
-            </div>
-          </div>
+              {theme === "dark" ? "Light mode" : "Dark mode"}
+            </span>
+          </button>
+          <p
+            className="keyboard-hint px-3 pt-1 text-[11px] leading-snug"
+            style={{ color: "var(--fg-45)" }}
+          >
+            <kbd
+              className="font-sans font-semibold px-1.5 py-0.5 rounded-md mr-1"
+              style={{
+                background: "var(--fg-06)",
+                border: "1px solid var(--fg-08)",
+                color: "var(--fg-60)",
+              }}
+            >
+              {typeof navigator !== "undefined" &&
+              /Mac|iPhone|iPad/.test(navigator.platform)
+                ? "\u2318K"
+                : "Ctrl K"}
+            </kbd>
+            search everything
+          </p>
         </div>
       </aside>
 
@@ -686,15 +719,15 @@ export function AppLayout({ children }: AppLayoutProps) {
                   gap: isShortScreen ? 7 : 9,
                   fontSize: isShortScreen ? 12 : 13,
                   background: item.active
-                    ? "rgba(245,158,11,0.16)"
+                    ? "color-mix(in srgb, var(--brand) 16%, transparent)"
                     : "var(--surface-float)",
                   backdropFilter: "blur(18px)",
                   WebkitBackdropFilter: "blur(18px)",
                   border: item.active
-                    ? "1px solid rgba(245,158,11,0.42)"
+                    ? "1px solid color-mix(in srgb, var(--brand) 42%, transparent)"
                     : "1px solid var(--fg-10)",
                   boxShadow: item.active
-                    ? "0 0 0 1px rgba(245,158,11,0.30), 0 6px 20px rgba(245,158,11,0.24), 0 2px 8px rgba(0,0,0,0.20)"
+                    ? "0 0 0 1px color-mix(in srgb, var(--brand) 30%, transparent), 0 6px 20px color-mix(in srgb, var(--brand) 24%, transparent), 0 2px 8px rgba(0,0,0,0.20)"
                     : "0 4px 16px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.06)",
                   opacity: fabOpen ? 1 : 0,
                   transform: fabOpen
@@ -712,17 +745,21 @@ export function AppLayout({ children }: AppLayoutProps) {
                     width: chipSize,
                     height: chipSize,
                     background: item.active
-                      ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+                      ? "var(--gradient-active)"
                       : "var(--fg-08)",
                     boxShadow: item.active
-                      ? "0 2px 8px rgba(245,158,11,0.45), inset 0 1px 0 rgba(255,255,255,0.35)"
+                      ? "0 2px 8px color-mix(in srgb, var(--brand) 45%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)"
                       : "inset 0 1px 0 rgba(255,255,255,0.05)",
                     transition: "background 200ms ease, box-shadow 200ms ease",
                   }}
                 >
                   <item.icon
                     className="w-4 h-4"
-                    style={{ color: item.active ? "#0f1724" : "var(--fg-55)" }}
+                    style={{
+                      color: item.active
+                        ? "var(--brand-contrast)"
+                        : "var(--fg-55)",
+                    }}
                     aria-hidden="true"
                   />
                   {item.badge && (
@@ -852,15 +889,15 @@ export function AppLayout({ children }: AppLayoutProps) {
                     justifyContent: "center",
                     flexShrink: 0,
                     background: item.active
-                      ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+                      ? "var(--gradient-active)"
                       : "var(--surface-float)",
                     backdropFilter: "blur(18px)",
                     WebkitBackdropFilter: "blur(18px)",
                     border: item.active
-                      ? "1.5px solid rgba(245,158,11,0.50)"
+                      ? "1.5px solid color-mix(in srgb, var(--brand) 50%, transparent)"
                       : "1px solid var(--fg-10)",
                     boxShadow: item.active
-                      ? "0 0 0 1px rgba(245,158,11,0.22), 0 6px 20px rgba(245,158,11,0.38), 0 2px 8px rgba(0,0,0,0.25)"
+                      ? "0 0 0 1px color-mix(in srgb, var(--brand) 22%, transparent), 0 6px 20px color-mix(in srgb, var(--brand) 38%, transparent), 0 2px 8px rgba(0,0,0,0.25)"
                       : "0 4px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08)",
                     opacity: fabOpen ? 1 : 0,
                     transform: fabOpen
@@ -879,7 +916,11 @@ export function AppLayout({ children }: AppLayoutProps) {
               >
                 <item.icon
                   className="w-[18px] h-[18px]"
-                  style={{ color: item.active ? "#0f1724" : "var(--fg-65)" }}
+                  style={{
+                    color: item.active
+                      ? "var(--brand-contrast)"
+                      : "var(--fg-65)",
+                  }}
                   aria-hidden="true"
                 />
                 {item.badge && (
@@ -1010,7 +1051,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           height: 48,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(245,158,11,0.55) 0%, rgba(245,158,11,0) 70%)",
+            "radial-gradient(circle, color-mix(in srgb, var(--brand) 55%, transparent) 0%, color-mix(in srgb, var(--brand) 0%, transparent) 70%)",
           pointerEvents: "none",
         }}
       />
@@ -1038,12 +1079,14 @@ export function AppLayout({ children }: AppLayoutProps) {
               height: 48,
               borderRadius: "50%",
               background: fabOpen
-                ? "rgba(245,158,11,0.14)"
-                : "linear-gradient(135deg, #fbbf24 0%, #f59e0b 48%, #d97706 100%)",
-              border: fabOpen ? "1.5px solid rgba(245,158,11,0.35)" : "none",
+                ? "color-mix(in srgb, var(--brand) 14%, transparent)"
+                : "linear-gradient(135deg, var(--brand-bright) 0%, var(--brand) 48%, #d97706 100%)",
+              border: fabOpen
+                ? "1.5px solid color-mix(in srgb, var(--brand) 35%, transparent)"
+                : "none",
               boxShadow: fabOpen
-                ? "inset 0 0 0 1px rgba(245,158,11,0.15)"
-                : "0 6px 22px rgba(245,158,11,0.50), 0 2px 8px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.40), inset 0 -2px 6px rgba(180,83,9,0.45)",
+                ? "inset 0 0 0 1px color-mix(in srgb, var(--brand) 15%, transparent)"
+                : "0 6px 22px color-mix(in srgb, var(--brand) 50%, transparent), 0 2px 8px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.40), inset 0 -2px 6px rgba(180,83,9,0.45)",
               backdropFilter: fabOpen ? "blur(16px)" : undefined,
               WebkitBackdropFilter: fabOpen ? "blur(16px)" : undefined,
               touchAction: "manipulation",
@@ -1054,7 +1097,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               <Menu
                 className="absolute w-[18px] h-[18px] fab-icon-menu transition-all duration-200"
                 style={{
-                  color: "#0f1724",
+                  color: "var(--brand-contrast)",
                   opacity: fabOpen ? 0 : 1,
                   transform: fabOpen
                     ? "rotate(90deg) scale(0.7)"
