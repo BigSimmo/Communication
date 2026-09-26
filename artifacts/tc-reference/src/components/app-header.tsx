@@ -307,7 +307,9 @@ export function AppHeader({
                     }}
                     data-testid="library-subtitle"
                   >
-                    {isLibraryRoute ? "Technique cards" : "TC Library"}
+                    {PAGE_TITLES[location] && !isLibraryRoute
+                      ? "TC Library"
+                      : "Technique cards"}
                   </p>
                   <TitleTag
                     className="font-bold leading-none truncate"

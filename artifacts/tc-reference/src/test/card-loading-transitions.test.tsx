@@ -74,6 +74,9 @@ describe("lazy card consumer transitions", () => {
   });
 
   it("announces Quick Lookup aggregate loading and preserves 120 initial rows", async () => {
+    // The shared location mock sits on a card route, which scopes Quick
+    // Lookup to that card. This test covers the full cross-card list.
+    vi.mocked(useLocation).mockReturnValue(["/", vi.fn()]);
     const cards = deferred<Record<string, typeof TC001>>();
     vi.mocked(loadAllCards).mockReturnValue(cards.promise);
 

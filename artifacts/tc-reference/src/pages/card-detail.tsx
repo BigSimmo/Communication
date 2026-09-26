@@ -127,17 +127,17 @@ const SECTION_CLUSTERS: SectionCluster[] = [
   },
   {
     id: "phrases-practice",
-    label: "Phrases & practice",
+    label: "Phrases and practice",
     sectionIds: ["phrases", "ladder", "inpractice", "tree"],
   },
   {
     id: "scenarios-troubleshooting",
-    label: "Scenarios & troubleshooting",
+    label: "Scenarios and troubleshooting",
     sectionIds: ["scenarios", "chains", "calibration", "mistakes", "recovery"],
   },
   {
     id: "review-downloads",
-    label: "Review & downloads",
+    label: "Review and downloads",
     sectionIds: ["practice", "checklist", "related", "resources"],
   },
 ];

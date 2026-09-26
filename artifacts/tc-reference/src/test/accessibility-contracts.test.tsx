@@ -392,7 +392,7 @@ describe("core accessibility contracts", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        "In-conversation phrase cheat-sheet — instant copyable lines grouped by situation.",
+        "Tap any line to copy it. Grouped by situation.",
       ),
     ).toBeInTheDocument();
   });

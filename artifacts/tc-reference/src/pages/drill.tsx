@@ -483,7 +483,7 @@ export default function Drill() {
             View full card
           </p>
           <p className="text-[12px] mt-0.5" style={{ color: "var(--fg-55)" }}>
-            Phrases, decision tree, scenarios &amp; more
+            Phrases, decision tree, scenarios and more
           </p>
         </div>
         <ChevronRight

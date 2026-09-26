@@ -88,3 +88,78 @@ describe("Quick Lookup rendering", () => {
     );
   });
 });
+
+describe("Quick Lookup de-duplication and card scope", () => {
+  const sharedAggregate = {
+    TC001: {
+      phraseBank: [
+        {
+          id: "openers",
+          label: "Openers",
+          tag: "Quick",
+          phrases: ["Shared line", "Only in one"],
+        },
+      ],
+    } as CardData,
+    TC002: {
+      phraseBank: [
+        {
+          id: "openers",
+          label: "Openers",
+          tag: "Quick",
+          phrases: ["shared line ", "Only in two"],
+        },
+      ],
+    } as CardData,
+  };
+
+  // The overlay caches its aggregate at module level, so load fresh module
+  // instances (overlay, providers and the mocked loader) for each test.
+  async function renderQuick() {
+    vi.resetModules();
+    const loader = await import("../lib/card-loader");
+    vi.mocked(loader.loadAllCards).mockResolvedValue(sharedAggregate);
+    const { QuickModeOverlay: Overlay } =
+      await import("../components/quick-mode-overlay");
+    const quick = await import("../lib/quick-mode");
+    const favs = await import("../lib/favourites-context");
+    function Open() {
+      const { setIsOpen } = quick.useQuickMode();
+      return <button onClick={() => setIsOpen(true)}>Open Quick</button>;
+    }
+    render(
+      <quick.QuickModeProvider>
+        <favs.FavouritesProvider>
+          <Open />
+          <Overlay />
+        </favs.FavouritesProvider>
+      </quick.QuickModeProvider>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Open Quick" }));
+  }
+
+  it("shows a line shared by several cards once", async () => {
+    window.history.replaceState(null, "", "/");
+    await renderQuick();
+    await screen.findByText("Only in two");
+    expect(screen.getAllByText(/^shared line/i)).toHaveLength(1);
+    expect(screen.queryByTestId("quick-scope-card")).not.toBeInTheDocument();
+  });
+
+  it("defaults to the open card and can widen to all cards", async () => {
+    window.history.replaceState(null, "", "/card/TC002");
+    await renderQuick();
+    await screen.findByText("Only in two");
+    expect(screen.getByTestId("quick-scope-card")).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+    // The shared line still counts as TC002's even though TC001 listed it first
+    expect(screen.getByText(/^shared line/i)).toBeInTheDocument();
+    expect(screen.queryByText("Only in one")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByTestId("quick-scope-all"));
+    expect(await screen.findByText("Only in one")).toBeInTheDocument();
+    window.history.replaceState(null, "", "/");
+  });
+});

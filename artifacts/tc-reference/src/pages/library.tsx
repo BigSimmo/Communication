@@ -652,11 +652,7 @@ export default function Library() {
                       <button
                         type="button"
                         onClick={() => toggleCard(card.id)}
-                        aria-label={
-                          fav
-                            ? `Remove ${card.title} from favourites`
-                            : `Save ${card.title} to favourites`
-                        }
+                        aria-label={`Favourite ${card.title}`}
                         aria-pressed={fav}
                         className="library-card-favourite absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
                         style={{
