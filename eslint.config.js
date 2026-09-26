@@ -14,9 +14,6 @@ export default tseslint.config(
       // Temporary agent worktrees
       ".claude/worktrees/**",
       "artifacts/tc-reference/public/**",
-      // Dead code awaiting deletion.
-      "artifacts/api-server/**",
-      "lib/**",
     ],
   },
   js.configs.recommended,
