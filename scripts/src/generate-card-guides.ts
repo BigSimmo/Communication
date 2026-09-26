@@ -9,7 +9,7 @@
  * content — why it works, what it is (and isn't), the influence payoff, the
  * step-by-step method, field tips, common mistakes, recovery lines, technique
  * chains and related techniques — none of which the reference sheet includes.
- * It mirrors TC001's designed Detailed Guide for the other 30 cards.
+ * It mirrors TC001's designed Detailed Guide for every other card (97 of the 98).
  *
  * Content is rendered straight from CARD_DATA in
  * artifacts/tc-reference/src/lib/cards.ts, so output is deterministic —

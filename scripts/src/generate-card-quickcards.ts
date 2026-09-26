@@ -9,7 +9,7 @@
  * to a monitor or screenshot to your phone: the core move, the one thing to do,
  * a handful of signature lines, and what to avoid. It complements the dense
  * <id>_Reference.pdf and the full multi-page <id>_Detailed_Guide.pdf, mirroring
- * TC001's designed one-card format for the other 30 cards.
+ * TC001's designed one-card format for every other card (97 of the 98).
  *
  * Content is curated straight from CARD_DATA in
  * artifacts/tc-reference/src/lib/cards.ts, so output is deterministic —
