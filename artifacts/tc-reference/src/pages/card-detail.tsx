@@ -99,6 +99,12 @@ const SECTIONS: { id: CardSection; label: string }[] = [
   { id: "resources", label: "Downloads" },
 ];
 
+// Card data sometimes already carries its own quote marks (e.g. '"Hey." (flat)').
+// Only wrap text that doesn't start with one, so nothing renders as ""Hey."".
+function quoted(text: string): string {
+  return /^["“‘']/.test(text.trim()) ? text : `"${text}"`;
+}
+
 // In-session memory: remembers which section and scroll position the user last viewed per card
 const cardSectionMemory = new Map<
   string,
@@ -238,7 +244,7 @@ function SectionAccordion({
           onClick={() => ctx?.toggleSection(id)}
           aria-expanded={open}
           aria-controls={`section-${id}-body`}
-          className="w-full flex items-center gap-3.5 px-4 sm:px-5 py-4 text-left transition-colors active:bg-[var(--fg-03)]"
+          className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 sm:py-4 text-left transition-colors active:bg-[var(--fg-03)]"
           style={{ minHeight: 56 }}
         >
           <span
@@ -272,7 +278,7 @@ function SectionAccordion({
       {open && (
         <div
           id={`section-${id}-body`}
-          className="px-4 sm:px-5 pb-5 pt-4"
+          className="px-3 sm:px-5 pb-4 sm:pb-5 pt-3 sm:pt-4"
           style={{ borderTop: "1px solid var(--fg-04)" }}
         >
           {children}
@@ -779,7 +785,7 @@ export default function CardDetail() {
         {/* ── Technique Brief Header ── */}
         <div className="px-3 md:px-4 pt-4">
           <div
-            className="rounded-2xl p-5 border"
+            className="rounded-2xl p-4 sm:p-5 border"
             style={{
               background: "linear-gradient(135deg, var(--fg-02), var(--fg-03))",
               borderColor: "var(--fg-08)",
@@ -841,10 +847,12 @@ export default function CardDetail() {
                 className="mt-3.5 pt-3 flex flex-col gap-2.5 border-t"
                 style={{ borderColor: "var(--fg-06)" }}
               >
+                {/* Phones skip this preview: the Overview directly below opens
+                    with the same formula, so it only pushed content down */}
                 {cardData.overview.coreFormula?.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
+                  <div className="hidden sm:flex flex-wrap items-center gap-1.5 text-[11px]">
                     <span
-                      className="text-[10px] font-bold uppercase tracking-wider mr-1"
+                      className="text-[11px] font-bold uppercase tracking-wider mr-1"
                       style={{ color: "var(--fg-45)" }}
                     >
                       Formula
@@ -884,7 +892,7 @@ export default function CardDetail() {
                     }}
                   >
                     <span
-                      className="text-[10px] font-bold uppercase tracking-wider flex-shrink-0"
+                      className="text-[11px] font-bold uppercase tracking-wider flex-shrink-0"
                       style={{ color: "var(--brand-text)" }}
                     >
                       Quick ladder
@@ -898,7 +906,7 @@ export default function CardDetail() {
                           >
                             Weak:
                           </span>
-                          "{cardData.ladder[0].weak}"
+                          {quoted(cardData.ladder[0].weak)}
                         </span>
                       )}
                       {cardData.ladder[0].weak && cardData.ladder[0].best && (
@@ -914,7 +922,7 @@ export default function CardDetail() {
                           >
                             Best:
                           </span>
-                          "{cardData.ladder[0].best}"
+                          {quoted(cardData.ladder[0].best)}
                         </span>
                       )}
                     </div>
@@ -942,29 +950,37 @@ export default function CardDetail() {
             color="var(--brand)"
             subtitle="Core formula, quick stats & when not to use"
           >
-            <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 mb-4">
+            <div className="bg-primary/10 border border-primary/20 rounded-2xl p-4 sm:p-5 mb-4">
               <p className="text-[11px] font-bold tracking-widest text-primary/80 uppercase mb-3">
                 Core formula
               </p>
-              <div className="flex flex-wrap gap-2 items-center">
+              {/* Phones: a numbered list (long steps wrap cleanly).
+                  Wider screens: a wrapped chain of pills with arrows. */}
+              <ol className="flex flex-col sm:flex-row sm:flex-wrap gap-1.5 sm:gap-2 sm:items-center">
                 {cardData.overview.coreFormula.map((step, i, arr) => (
-                  <div key={step} className="flex items-center gap-2">
-                    <span className="text-[12px] font-semibold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full shadow-sm">
+                  <li key={step} className="flex items-center gap-2">
+                    <span className="flex items-start gap-2 text-[12px] leading-snug font-semibold text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 sm:py-1 rounded-xl sm:rounded-full shadow-sm">
+                      <span
+                        className="sm:hidden tabular-nums opacity-60"
+                        aria-hidden="true"
+                      >
+                        {i + 1}
+                      </span>
                       {step}
                     </span>
                     {i < arr.length - 1 && (
                       <ChevronRight
-                        className="w-3.5 h-3.5 text-primary/40 flex-shrink-0"
+                        className="hidden sm:block w-3.5 h-3.5 text-primary/40 flex-shrink-0"
                         aria-hidden="true"
                       />
                     )}
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
 
             <div
-              className="rounded-2xl p-5 mb-4"
+              className="rounded-2xl p-4 sm:p-5 mb-4"
               style={{
                 background: "var(--fg-03)",
                 border: "1px solid var(--fg-06)",
@@ -1041,19 +1057,19 @@ export default function CardDetail() {
               ).map(([k, v, c]) => (
                 <div
                   key={k}
-                  className="flex items-center gap-2 rounded-full px-3.5 py-1.5"
+                  className="flex items-baseline gap-2 rounded-xl px-3.5 py-1.5"
                   style={{
                     background: "var(--fg-03)",
                     border: "1px solid var(--fg-06)",
                   }}
                 >
                   <div
-                    className="w-2 h-2 rounded-full"
+                    className="w-2 h-2 rounded-full flex-shrink-0 self-start mt-[4px]"
                     style={{ background: c }}
                     aria-hidden="true"
                   />
-                  <span className="text-[11px] text-foreground/50">{k}</span>
-                  <span className="text-[11px] font-semibold text-foreground/90">
+                  <span className="text-[11px] text-foreground/50 whitespace-nowrap">{k}</span>
+                  <span className="text-[11px] leading-snug font-semibold text-foreground/90 min-w-0">
                     {v}
                   </span>
                 </div>
@@ -1061,7 +1077,7 @@ export default function CardDetail() {
             </div>
 
             <div
-              className="rounded-2xl p-5 mb-4"
+              className="rounded-2xl p-4 sm:p-5 mb-4"
               style={{
                 background: "var(--fg-03)",
                 border: "1px solid var(--fg-06)",
@@ -1145,7 +1161,7 @@ export default function CardDetail() {
               subtitle="Psychological principle & what it builds"
             >
               <div
-                className="rounded-2xl p-5 mb-4"
+                className="rounded-2xl p-4 sm:p-5 mb-4"
                 style={{
                   background: "rgba(139,92,246,0.08)",
                   border: "1px solid rgba(139,92,246,0.2)",
@@ -1161,12 +1177,12 @@ export default function CardDetail() {
                   className="text-[15px] font-semibold leading-relaxed"
                   style={{ color: "var(--fg-90)" }}
                 >
-                  "{cardData.influencePayoff!.feeling}"
+                  {quoted(cardData.influencePayoff!.feeling)}
                 </p>
               </div>
 
               <div
-                className="rounded-2xl p-5 mb-4"
+                className="rounded-2xl p-4 sm:p-5 mb-4"
                 style={{
                   background: "var(--fg-03)",
                   border: "1px solid var(--fg-06)",
@@ -1181,7 +1197,7 @@ export default function CardDetail() {
               </div>
 
               <div
-                className="rounded-2xl p-5 mb-4"
+                className="rounded-2xl p-4 sm:p-5 mb-4"
                 style={{
                   background: "var(--fg-03)",
                   border: "1px solid var(--fg-06)",
@@ -1194,7 +1210,7 @@ export default function CardDetail() {
                   {cardData.influencePayoff!.gains.map((g) => (
                     <span
                       key={g}
-                      className="text-[12px] font-medium px-3 py-1.5 rounded-full"
+                      className="text-[12px] leading-snug font-medium px-3 py-1.5 rounded-xl"
                       style={{
                         background: "rgba(139,92,246,0.1)",
                         border: "1px solid rgba(139,92,246,0.2)",
@@ -1208,7 +1224,7 @@ export default function CardDetail() {
               </div>
 
               <div
-                className="rounded-2xl p-5 mb-4"
+                className="rounded-2xl p-4 sm:p-5 mb-4"
                 style={{
                   background: "rgba(239,68,68,0.05)",
                   border: "1px solid rgba(239,68,68,0.14)",
@@ -1241,7 +1257,7 @@ export default function CardDetail() {
 
               {cardData.whatItIsNot && cardData.whatItIsNot.length > 0 && (
                 <div
-                  className="rounded-2xl p-5"
+                  className="rounded-2xl p-4 sm:p-5"
                   style={{
                     background: "var(--fg-02)",
                     border: "1px solid var(--fg-04)",
@@ -1279,7 +1295,7 @@ export default function CardDetail() {
             >
               {cardData.fieldTip && (
                 <div
-                  className="rounded-2xl p-5 mb-5"
+                  className="rounded-2xl p-4 sm:p-5 mb-5"
                   style={{
                     background: "rgba(245,158,11,0.08)",
                     border: "1px solid rgba(245,158,11,0.2)",
@@ -1311,7 +1327,7 @@ export default function CardDetail() {
                       <div className="flex flex-wrap gap-2">
                         {cardData.fieldTip.dont && (
                           <span
-                            className="text-[12px] px-3 py-1 rounded-full"
+                            className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
                             style={{
                               background: "rgba(239,68,68,0.08)",
                               border: "1px solid rgba(239,68,68,0.18)",
@@ -1323,7 +1339,7 @@ export default function CardDetail() {
                         )}
                         {cardData.fieldTip.do && (
                           <span
-                            className="text-[12px] px-3 py-1 rounded-full"
+                            className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
                             style={{
                               background: "rgba(34,197,94,0.08)",
                               border: "1px solid rgba(34,197,94,0.18)",
@@ -1339,24 +1355,11 @@ export default function CardDetail() {
                 </div>
               )}
 
-              <div className="space-y-3 relative pl-7">
-                <div
-                  className="absolute left-3 top-6 bottom-6 w-px"
-                  style={{ background: "var(--fg-08)" }}
-                  aria-hidden="true"
-                />
-                {cardData.method!.map((m, i) => (
-                  <div key={m.step} className="relative">
-                    <div
-                      className="absolute -left-7 top-3 w-6 h-6 rounded-full flex items-center justify-center z-10"
-                      style={{
-                        background: "var(--brand)",
-                        color: "var(--brand-contrast)",
-                      }}
-                      aria-hidden="true"
-                    >
-                      <span className="text-[11px] font-bold">{i + 1}</span>
-                    </div>
+              {/* One number per step, beside the title. No side rail, so the
+                  text keeps the full width on phones. */}
+              <ol className="space-y-2.5">
+                {cardData.method!.map((m) => (
+                  <li key={m.step}>
                     <div
                       className="rounded-2xl p-4 shadow-sm"
                       style={{
@@ -1364,21 +1367,25 @@ export default function CardDetail() {
                         border: "1px solid var(--fg-06)",
                       }}
                     >
-                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                      <div className="flex items-start gap-2.5 mb-1.5">
                         <span
-                          className="text-[11px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
+                          className="w-6 h-6 mt-[-1px] rounded-full flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
                           style={{
-                            background: "rgba(245,158,11,0.12)",
-                            color: "var(--brand-text)",
+                            background: "var(--brand)",
+                            color: "var(--brand-contrast)",
                           }}
                         >
                           {m.step}
                         </span>
-                        <p className="text-[14px] font-bold text-foreground/90">
+                        <p className="text-[14px] leading-snug font-bold text-foreground/90">
                           {m.title}
                         </p>
                       </div>
-                      <p className="text-[13px] text-foreground/65 leading-relaxed mb-3 whitespace-pre-line">
+                      <p
+                        className={`text-[13px] text-foreground/65 leading-relaxed whitespace-pre-line ${
+                          m.examples && m.examples.length > 0 ? "mb-3" : ""
+                        }`}
+                      >
                         {m.body}
                       </p>
                       {m.examples && m.examples.length > 0 && (
@@ -1408,14 +1415,14 @@ export default function CardDetail() {
                         </div>
                       )}
                     </div>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
 
               {cardData.liveThreadClues &&
                 cardData.liveThreadClues.length > 0 && (
                   <div
-                    className="rounded-2xl p-5 mt-5"
+                    className="rounded-2xl p-4 sm:p-5 mt-5"
                     style={{
                       background: "var(--fg-03)",
                       border: "1px solid var(--fg-06)",
@@ -1431,7 +1438,7 @@ export default function CardDetail() {
                       {cardData.liveThreadClues.map((c) => (
                         <span
                           key={c}
-                          className="text-[12px] px-3 py-1.5 rounded-full"
+                          className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
                           style={{
                             background: "var(--fg-05)",
                             border: "1px solid var(--fg-08)",
@@ -1463,7 +1470,7 @@ export default function CardDetail() {
                     {cardData.depthDial.map((row, i) => (
                       <div
                         key={row.depth}
-                        className="flex items-center gap-3 px-4 py-3"
+                        className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 px-3.5 sm:px-4 py-3"
                         style={{
                           borderBottom:
                             i < cardData.depthDial!.length - 1
@@ -1471,7 +1478,8 @@ export default function CardDetail() {
                               : "none",
                         }}
                       >
-                        <div className="flex-shrink-0 w-[88px]">
+                        {/* Phones: label line above the phrase; wider: side column */}
+                        <div className="flex-shrink-0 flex flex-wrap items-baseline gap-x-2 sm:block sm:w-[88px]">
                           <p className="text-[13px] font-bold text-foreground/90">
                             {row.depth}
                           </p>
@@ -1482,7 +1490,7 @@ export default function CardDetail() {
                         <button
                           onClick={() => handleCopy(row.phrase)}
                           aria-label={`Copy: ${row.phrase}`}
-                          className="flex-1 text-left flex items-center justify-between gap-2 rounded-xl px-3 py-2 transition-all active:scale-[0.98]"
+                          className="w-full sm:w-auto sm:flex-1 text-left flex items-center justify-between gap-2 rounded-xl px-3 py-2 transition-all active:scale-[0.98]"
                           style={{
                             background:
                               copiedPhrase === row.phrase
@@ -1613,16 +1621,19 @@ export default function CardDetail() {
                         )
                       }
                       aria-expanded={expandedPhraseGroup === group.id}
-                      className="w-full flex items-center justify-between px-5 py-4 transition-colors"
-                      style={{ minHeight: 60 }}
+                      className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3 transition-colors"
+                      style={{ minHeight: 52 }}
                     >
-                      <div className="text-left">
+                      <div className="text-left min-w-0">
                         <p className="text-[14px] font-bold text-foreground/90">
                           {group.label}
                         </p>
-                        <p className="text-[11px] text-foreground/50 mt-1">
-                          {group.tag}
-                        </p>
+                        {/* Many cards reuse the label as the tag; skip the echo */}
+                        {group.tag && group.tag !== group.label && (
+                          <p className="text-[11px] text-foreground/50 mt-0.5">
+                            {group.tag}
+                          </p>
+                        )}
                       </div>
                       <div className="flex items-center gap-3">
                         <span
@@ -1929,16 +1940,17 @@ export default function CardDetail() {
             color="#a78bfa"
             subtitle={`${cardData.decisionTree.length} situation → action paths`}
           >
-            <div className="space-y-3 relative pl-6">
+            {/* The rail is decoration; phones give its width back to the text */}
+            <div className="space-y-2.5 sm:space-y-3 relative sm:pl-6">
               <div
-                className="absolute left-2.5 top-6 bottom-6 w-px"
+                className="hidden sm:block absolute left-2.5 top-6 bottom-6 w-px"
                 style={{ background: "var(--fg-08)" }}
                 aria-hidden="true"
               />
               {cardData.decisionTree.map((item, i) => (
                 <div key={i} className="relative">
                   <div
-                    className="absolute -left-6 top-4 w-4 h-4 rounded-full bg-background border border-primary/40 flex items-center justify-center z-10"
+                    className="hidden sm:flex absolute -left-6 top-4 w-4 h-4 rounded-full bg-background border border-primary/40 items-center justify-center z-10"
                     aria-hidden="true"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -1960,7 +1972,7 @@ export default function CardDetail() {
                       <button
                         onClick={() => handleCopy(item.phrase)}
                         aria-label={`Copy: ${item.phrase}`}
-                        className="inline-flex items-center gap-1.5 text-[12px] font-medium px-3 py-1.5 rounded-full border transition-all"
+                        className="inline-flex items-center gap-1.5 text-[12px] leading-snug text-left font-medium px-3 py-2 rounded-xl border transition-all"
                         style={{
                           background:
                             copiedPhrase === item.phrase
@@ -1977,7 +1989,7 @@ export default function CardDetail() {
                         {copiedPhrase === item.phrase && (
                           <Check className="w-3.5 h-3.5" />
                         )}
-                        "{item.phrase}"
+                        {quoted(item.phrase)}
                       </button>
                     )}
                   </div>
@@ -1997,7 +2009,7 @@ export default function CardDetail() {
               {cardData.scenarios.map((s, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl p-5 shadow-sm"
+                  className="rounded-2xl p-4 sm:p-5 shadow-sm"
                   style={{
                     background: "var(--fg-03)",
                     border: "1px solid var(--fg-06)",
@@ -2007,13 +2019,13 @@ export default function CardDetail() {
                     {s.situation}
                   </p>
                   <p className="text-[13px] text-foreground/60 mb-3 italic">
-                    "{s.move}"
+                    {quoted(s.move)}
                   </p>
-                  <div className="flex items-center gap-2 flex-wrap">
+                  <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleCopy(s.phrase)}
                       aria-label={`Copy: ${s.phrase}`}
-                      className="inline-flex items-center gap-2 text-[12px] font-medium px-4 py-2 rounded-full border transition-all"
+                      className="flex-1 sm:flex-initial min-w-0 inline-flex items-center gap-2 text-[12px] leading-snug font-medium px-3.5 py-2 rounded-xl border transition-all"
                       style={{
                         background:
                           copiedPhrase === s.phrase
@@ -2030,7 +2042,7 @@ export default function CardDetail() {
                       {copiedPhrase === s.phrase ? (
                         <Check className="w-3.5 h-3.5" />
                       ) : (
-                        <Copy className="w-3.5 h-3.5" />
+                        <Copy className="w-3.5 h-3.5 flex-shrink-0" />
                       )}
                       <span className="min-w-0 break-words text-left">{s.phrase}</span>
                     </button>
@@ -2048,7 +2060,7 @@ export default function CardDetail() {
                           ? "Remove from favourites"
                           : "Save to favourites"
                       }
-                      className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                      className="tap-target w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-full transition-all active:scale-95"
                       style={{
                         background: isPhrasesFav(cardId, s.phrase)
                           ? "rgba(245,158,11,0.1)"
@@ -2087,7 +2099,7 @@ export default function CardDetail() {
                 {cardData.chains!.map((chain) => (
                   <div
                     key={chain.label}
-                    className="rounded-2xl p-5 shadow-sm"
+                    className="rounded-2xl p-4 sm:p-5 shadow-sm"
                     style={{
                       background: "var(--fg-03)",
                       border: "1px solid var(--fg-06)",
@@ -2135,7 +2147,7 @@ export default function CardDetail() {
             subtitle="Is it working? When to adjust"
           >
             <div className="grid grid-cols-1 gap-4">
-              <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-5 shadow-sm">
+              <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-4 sm:p-5 shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                   <Check
                     className="w-5 h-5 text-green-400"
@@ -2162,7 +2174,7 @@ export default function CardDetail() {
                   ))}
                 </ul>
               </div>
-              <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-5 shadow-sm">
+              <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4 sm:p-5 shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                   <Zap className="w-5 h-5 text-red-400" aria-hidden="true" />
                   <p className="text-[14px] font-bold text-red-400 uppercase tracking-wide">
@@ -2219,9 +2231,9 @@ export default function CardDetail() {
                       </p>
                     </div>
                     <div className="p-4 space-y-3">
-                      <div className="flex items-start gap-2.5">
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2.5">
                         <span
-                          className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                          className="text-[11px] font-bold tracking-wider uppercase sm:mt-1 flex-shrink-0 sm:w-[72px]"
                           style={{ color: "rgba(248,113,113,0.85)" }}
                         >
                           Sounds like
@@ -2233,16 +2245,16 @@ export default function CardDetail() {
                           {m.soundsLike}
                         </p>
                       </div>
-                      <div className="flex items-start gap-2.5">
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2.5">
                         <span
-                          className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                          className="text-[11px] font-bold tracking-wider uppercase sm:mt-1 flex-shrink-0 sm:w-[72px]"
                           style={{ color: "rgba(74,222,128,0.9)" }}
                         >
                           Better
                         </span>
                         <div className="flex-1 flex items-start justify-between gap-2">
                           <p
-                            className="text-[13px]"
+                            className="text-[13px] min-w-0"
                             style={{ color: "var(--fg-85)" }}
                           >
                             {m.better}
@@ -2283,7 +2295,7 @@ export default function CardDetail() {
             >
               {cardData.bestRecoveryLine && (
                 <div
-                  className="rounded-2xl p-5 mb-4"
+                  className="rounded-2xl p-4 sm:p-5 mb-4"
                   style={{
                     background: "rgba(52,211,153,0.08)",
                     border: "1px solid rgba(52,211,153,0.2)",
