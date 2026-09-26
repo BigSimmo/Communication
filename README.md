@@ -115,11 +115,13 @@ pnpm run format:check   # check formatting without writing (used in CI)
 pnpm --filter @workspace/tc-reference run build
 ```
 
-The build verifies that the committed card downloads match the card source. After
-editing card content, regenerate them explicitly and then re-run the build:
+Card downloads (reference, guide and quick-card PDFs, phrase bank and Anki CSVs)
+are generated from the card source by `dev`, `build` and `test`, so they are not
+committed. TC001 and the OneCard/TwoCard PDFs are hand-made and stay in git. To
+regenerate them on their own:
 
 ```bash
-pnpm --filter @workspace/scripts run generate:card-downloads
+pnpm --filter @workspace/tc-reference run generate:downloads
 ```
 
 ### Serve the production build
