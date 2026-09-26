@@ -73,35 +73,6 @@ export const SECTIONS: { id: CardSection; label: string }[] = [
   { id: "resources", label: "Downloads" },
 ];
 
-export interface SectionCluster {
-  id: string;
-  label: string;
-  sectionIds: CardSection[];
-}
-
-export const SECTION_CLUSTERS: SectionCluster[] = [
-  {
-    id: "core",
-    label: "Core method",
-    sectionIds: ["overview", "why", "method"],
-  },
-  {
-    id: "phrases-practice",
-    label: "Phrases & practice",
-    sectionIds: ["phrases", "ladder", "inpractice", "tree"],
-  },
-  {
-    id: "scenarios-troubleshooting",
-    label: "Scenarios & troubleshooting",
-    sectionIds: ["scenarios", "chains", "calibration", "mistakes", "recovery"],
-  },
-  {
-    id: "review-downloads",
-    label: "Review & downloads",
-    sectionIds: ["practice", "checklist", "related", "resources"],
-  },
-];
-
 // In-session memory: remembers which section and scroll position the user last viewed per card
 export const cardSectionMemory = new Map<
   string,

@@ -1,5 +1,4 @@
 import {
-  act,
   fireEvent,
   render,
   screen,
@@ -118,8 +117,9 @@ describe("core accessibility contracts", () => {
       expect(link.tagName).toBe("A");
       expect(link).toHaveAttribute("href", href);
     }
-    expect(screen.getByTestId("nav-sidebar-quick").tagName).toBe("BUTTON");
-    expect(screen.getByTestId("nav-sidebar-search").tagName).toBe("BUTTON");
+    // Tools live in the header, so the sidebar holds destinations only
+    expect(screen.queryByTestId("nav-sidebar-quick")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("nav-sidebar-search")).not.toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
     expect(document.title).toBe("Library · TC Reference Tool");
   });
@@ -147,7 +147,7 @@ describe("core accessibility contracts", () => {
     expect(document.title).toBe(`${title} · TC Reference Tool`);
   });
 
-  it("keeps Quick as a button that opens from the mobile menu", async () => {
+  it("keeps Quick as a header button that opens Quick Lookup", async () => {
     render(
       <AppProviders>
         <AppLayout>
@@ -157,96 +157,82 @@ describe("core accessibility contracts", () => {
       </AppProviders>,
     );
 
-    fireEvent.click(screen.getByTestId("button-header-menu"));
-    const quick = screen.getByTestId("nav-tab-quick");
+    const quick = screen.getByTestId("button-quick");
     expect(quick.tagName).toBe("BUTTON");
+    expect(quick).toHaveAccessibleName("Open Quick Lookup");
 
     fireEvent.click(quick);
     expect(await screen.findByText("Quick is open")).toBeInTheDocument();
   });
 
-  it.each([7, 8])(
-    "keeps all %i coarse-pointer targets independently reachable on a short screen",
-    (count) => {
-      Object.defineProperty(window, "innerHeight", {
-        configurable: true,
-        value: 320,
-      });
-      if (count === 8)
-        vi.mocked(useLocation).mockReturnValue(["/card/TC001", vi.fn()]);
-      let pointerChange!: (event: { matches: boolean }) => void;
-      Object.defineProperty(window, "matchMedia", {
-        writable: true,
-        value: vi.fn().mockImplementation((query: string) => ({
-          matches: query === "(max-height: 580px)",
-          media: query,
-          addEventListener: (_type: string, listener: typeof pointerChange) => {
-            if (query === "(pointer: coarse)") pointerChange = listener;
-          },
-          removeEventListener: vi.fn(),
-        })),
-      });
+  it("gives the phone tab bar five one-tap destination links", () => {
+    render(
+      <AppProviders>
+        <AppLayout>
+          <div />
+        </AppLayout>
+      </AppProviders>,
+    );
 
-      render(
-        <AppProviders>
-          <AppLayout>{count === 8 ? <CardPdf /> : <div />}</AppLayout>
-        </AppProviders>,
-      );
+    const bar = screen.getByTestId("bottom-tab-bar");
+    expect(bar.tagName).toBe("NAV");
+    expect(bar).toHaveAccessibleName("Main navigation");
+    const links = within(bar).getAllByRole("link");
+    expect(links.map((l) => l.getAttribute("href"))).toEqual([
+      "/",
+      "/playbooks",
+      "/phrases",
+      "/favourites",
+      "/drill",
+    ]);
+    expect(screen.getByTestId("nav-tab-library")).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+    expect(within(bar).queryAllByRole("button")).toHaveLength(0);
+    expect(screen.queryByTestId("nav-fab")).not.toBeInTheDocument();
+  });
 
-      fireEvent.click(screen.getByTestId("nav-fab"));
-      fireEvent.click(screen.getByTestId("button-fab-layout-toggle"));
-      expect(screen.getByTestId("nav-tab-quick")).toHaveClass("fab-fan-item");
-      expect(screen.getByTestId("nav-tab-quick")).toHaveStyle({
-        width: "36px",
-        height: "36px",
-      });
-      act(() => pointerChange({ matches: true }));
-      const menu = document.getElementById("mobile-organized-menu")!;
-      expect(menu).toHaveClass("flex", "flex-col");
-      expect(menu).toHaveStyle({
-        overflowY: "auto",
-        maxHeight: "calc(100dvh - 120px)",
-      });
-      const targets = Array.from(
-        menu.querySelectorAll<HTMLElement>("a, button"),
-      );
-      expect(targets).toHaveLength(count);
-      const gap = parseFloat(menu.style.gap);
-      let top = 0;
-      const centers: number[] = [];
-      for (const target of targets) {
-        // Nonshrinking normal-flow pills cannot cover adjacent centers. The
-        // bounded scroll container makes offscreen rows reachable even at 320px.
-        expect(target).toHaveClass("fab-pill");
-        expect(target).toHaveStyle({ height: "44px", flexShrink: "0" });
-        expect(target).toHaveAttribute("tabindex", "0");
-        expect(target.style.position).not.toBe("absolute");
-        const height = parseFloat(target.style.height);
-        centers.push(top + height / 2);
-        top += height + gap;
-      }
-      for (let i = 1; i < centers.length; i++)
-        expect(centers[i] - centers[i - 1]).toBeGreaterThanOrEqual(44);
-      expect(top - gap).toBeGreaterThan(window.innerHeight - 120);
-      expect(screen.getByTestId("nav-tab-library")).toHaveAttribute(
-        "href",
-        "/",
-      );
-      expect(screen.getByTestId("nav-tab-quick").tagName).toBe("BUTTON");
-      if (count === 7)
-        expect(screen.getByTestId("nav-tab-library")).toHaveAttribute(
-          "aria-current",
-          "page",
-        );
-      expect(screen.getByTestId("button-fab-layout-toggle")).toBeDisabled();
-      act(() => pointerChange({ matches: false }));
-      expect(screen.getByTestId("nav-tab-quick")).toHaveClass("fab-fan-item");
-      expect(screen.getByTestId("nav-tab-quick")).toHaveStyle({
-        width: "36px",
-        height: "36px",
-      });
-    },
-  );
+  it("keeps Library lit in the tab bar while reading a card", () => {
+    vi.mocked(useLocation).mockReturnValue(["/card/TC001", vi.fn()]);
+    render(
+      <AppProviders>
+        <AppLayout>
+          <div />
+        </AppLayout>
+      </AppProviders>,
+    );
+    expect(screen.getByTestId("nav-tab-library")).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+    expect(screen.getByTestId("nav-tab-phrases")).not.toHaveAttribute(
+      "aria-current",
+    );
+  });
+
+  it("offers the card PDF from the header only when one exists", async () => {
+    vi.mocked(useLocation).mockReturnValue(["/card/TC001", vi.fn()]);
+    const { unmount } = render(
+      <AppProviders>
+        <AppLayout>
+          <div />
+        </AppLayout>
+      </AppProviders>,
+    );
+    expect(screen.queryByTestId("button-card-pdf")).not.toBeInTheDocument();
+    unmount();
+
+    render(
+      <AppProviders>
+        <AppLayout>
+          <CardPdf />
+        </AppLayout>
+      </AppProviders>,
+    );
+    const pdf = await screen.findByTestId("button-card-pdf");
+    expect(pdf).toHaveAccessibleName("Open printable PDF");
+  });
 
   it("uses a semantic back link from a card route", () => {
     vi.mocked(useLocation).mockReturnValue(["/card/TC001", vi.fn()]);

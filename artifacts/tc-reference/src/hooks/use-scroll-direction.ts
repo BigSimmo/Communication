@@ -16,10 +16,13 @@ type ScrollDirection = "up" | "down";
  *   scrolling from toggling the bar.
  * - Reads are throttled with requestAnimationFrame to avoid reacting to every
  *   micro scroll event.
+ * - Changing `resetKey` (e.g. the route) re-initialises to "up", so chrome that
+ *   hid while reading one page is visible again on the next.
  */
 export function useScrollDirection(
   threshold = 60,
   flipThreshold = 12,
+  resetKey?: unknown,
 ): ScrollDirection {
   const [direction, setDirection] = useState<ScrollDirection>("up");
   const lastY = useRef(0);
@@ -78,15 +81,20 @@ export function useScrollDirection(
       }
     };
 
+    let raf = 0;
     const onScroll = () => {
       if (ticking.current) return;
       ticking.current = true;
-      window.requestAnimationFrame(update);
+      raf = window.requestAnimationFrame(update);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [threshold, flipThreshold]);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) window.cancelAnimationFrame(raf);
+      ticking.current = false;
+    };
+  }, [threshold, flipThreshold, resetKey]);
 
   return direction;
 }

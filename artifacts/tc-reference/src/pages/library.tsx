@@ -51,19 +51,23 @@ const ALL_LOADED_CARDS = Object.values(LIBRARY_CATEGORIES)
   .flat()
   .filter((c) => c.loaded);
 
-// Shared style for compact filter/sort controls
-const chipStyle = (active: boolean): React.CSSProperties => ({
+// Segment style inside the single line filter bar: inactive segments sit flat
+// on the bar, the active one lifts into an amber pill
+const segmentStyle = (active: boolean, open: boolean): React.CSSProperties => ({
   background: active
     ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
-    : "var(--fg-05)",
-  color: active ? "#0f1724" : "var(--fg-60)",
-  border: active ? "1px solid rgba(245,158,11,0.6)" : "1px solid var(--fg-08)",
-  boxShadow: active ? "0 2px 8px rgba(245,158,11,0.28)" : "none",
+    : open
+      ? "var(--fg-08)"
+      : "transparent",
+  color: active ? "#0f1724" : open ? "var(--fg-90)" : "var(--fg-60)",
+  boxShadow: active ? "0 1px 6px rgba(245,158,11,0.3)" : "none",
 });
 
 interface DropdownOption {
   value: string;
   label: string;
+  // Shorter label shown on the trigger once selected (defaults to label)
+  short?: string;
 }
 
 interface FilterDropdownProps {
@@ -75,6 +79,7 @@ interface FilterDropdownProps {
   testId: string;
   icon?: React.ReactNode;
   align?: "left" | "right";
+  labelClassName?: string;
 }
 
 // Compact dropdown: a single chip-sized trigger that opens a listbox popover.
@@ -89,6 +94,7 @@ function FilterDropdown({
   testId,
   icon,
   align = "left",
+  labelClassName = "",
 }: FilterDropdownProps) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -147,9 +153,11 @@ function FilterDropdown({
   };
 
   const active = value !== null;
-  const currentLabel = active
-    ? (options.find((o) => o.value === value)?.label ?? label)
-    : label;
+  const selectedOption = active
+    ? options.find((o) => o.value === value)
+    : undefined;
+  const currentLabel = selectedOption?.label ?? label;
+  const triggerLabel = selectedOption?.short ?? currentLabel;
 
   const select = (next: string | null) => {
     onChange(next);
@@ -158,23 +166,22 @@ function FilterDropdown({
   };
 
   return (
-    <div ref={rootRef} className="relative min-w-0">
+    <div ref={rootRef} className="relative flex min-w-0 flex-1">
       <button
         ref={triggerRef}
         onClick={() => setOpen((prev) => !prev)}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={`${label} filter${active ? `: ${currentLabel}` : ""}`}
+        title={active ? currentLabel : undefined}
         data-testid={testId}
-        className="library-filter-control w-full inline-flex h-8 min-w-0 items-center justify-between gap-1 rounded-xl pl-2.5 pr-2 text-[12px] font-semibold transition-all"
-        style={chipStyle(active)}
+        className="library-filter-control w-full inline-flex h-full min-w-0 items-center justify-center gap-1 rounded-full px-1.5 text-[11.5px] font-semibold transition-all"
+        style={segmentStyle(active, open)}
       >
-        <span className="inline-flex min-w-0 items-center gap-1.5">
-          {icon}
-          <span className="truncate">{currentLabel}</span>
-        </span>
+        {icon}
+        <span className={`truncate ${labelClassName}`}>{triggerLabel}</span>
         <ChevronDown
-          className="w-3 h-3 flex-shrink-0 transition-transform"
+          className="w-2.5 h-2.5 flex-shrink-0 opacity-70 transition-transform"
           style={{ transform: open ? "rotate(180deg)" : undefined }}
           aria-hidden="true"
         />
@@ -187,7 +194,7 @@ function FilterDropdown({
           tabIndex={-1}
           aria-label={label}
           onKeyDown={moveFocus}
-          className={`absolute top-full mt-1.5 z-50 w-max min-w-full max-w-[calc(100vw-24px)] max-h-[60vh] overflow-y-auto rounded-xl p-1 ${
+          className={`absolute top-full mt-2 z-50 w-max min-w-full max-w-[calc(100vw-24px)] max-h-[60vh] overflow-y-auto rounded-xl p-1 ${
             align === "right" ? "right-0" : "left-0"
           }`}
           style={{
@@ -240,6 +247,16 @@ function FilterDropdown({
   );
 }
 
+function SegmentDivider() {
+  return (
+    <span
+      aria-hidden="true"
+      className="w-px flex-shrink-0 self-center h-3.5"
+      style={{ background: "var(--fg-10)" }}
+    />
+  );
+}
+
 export default function Library() {
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
   const [impactFilter, setImpactFilter] = useState<CardImpact | null>(null);
@@ -266,6 +283,9 @@ export default function Library() {
     !!searchQuery;
   const isFilterHidden = scrollDirection === "down" && !hasFiltersActive;
   const showHeaderDetails = headerDetailsOpen && !isFilterHidden;
+  // While reading with filters applied, fold the search row away and keep
+  // only the one line filter bar so the active filters stay in view
+  const searchRowCollapsed = scrollDirection === "down" && hasFiltersActive;
   const activeFilterCount =
     (categoryFilter ? 1 : 0) +
     (impactFilter ? 1 : 0) +
@@ -346,21 +366,36 @@ export default function Library() {
           borderBottom: showHeaderDetails
             ? "1px solid var(--fg-07)"
             : "1px solid transparent",
-          maxHeight: showHeaderDetails ? 200 : 0,
+          maxHeight: showHeaderDetails ? 96 : 0,
           opacity: showHeaderDetails ? 1 : 0,
           // Visible when open so the filter dropdown popovers can extend
           // below the collapsible header without being clipped
           overflow: showHeaderDetails ? "visible" : "hidden",
-          paddingTop: showHeaderDetails ? 8 : 0,
-          paddingBottom: showHeaderDetails ? 8 : 0,
+          paddingTop: showHeaderDetails ? 6 : 0,
+          paddingBottom: showHeaderDetails ? 6 : 0,
           transform: "translateZ(0)",
           transition:
             "max-height 220ms ease, opacity 160ms ease, padding 220ms ease, border-color 180ms ease, top 180ms ease",
           pointerEvents: showHeaderDetails ? "auto" : "none",
         }}
       >
-        <div className="space-y-2 min-w-0">
-          <div className="flex items-center gap-2">
+        <div className="min-w-0">
+          <div
+            className="flex items-center gap-2"
+            data-testid="library-search-row"
+            aria-hidden={searchRowCollapsed || undefined}
+            style={{
+              maxHeight: searchRowCollapsed ? 0 : 44,
+              marginBottom: searchRowCollapsed ? 0 : 6,
+              opacity: searchRowCollapsed ? 0 : 1,
+              // Hidden rather than just transparent so the collapsed row
+              // drops out of the tab order and can't swallow taps
+              visibility: searchRowCollapsed ? "hidden" : "visible",
+              overflow: searchRowCollapsed ? "hidden" : "visible",
+              transition:
+                "max-height 220ms ease, margin-bottom 220ms ease, opacity 160ms ease, visibility 220ms",
+            }}
+          >
             <div className="relative flex-1 min-w-0">
               <Search
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none"
@@ -483,10 +518,16 @@ export default function Library() {
             )}
           </div>
 
+          {/* Single line segmented bar: one rounded track, four segments */}
           <div
-            className="grid min-w-0 grid-cols-2 gap-1.5 sm:grid-cols-4"
+            className="flex h-8 min-w-0 items-stretch gap-px rounded-full p-0.5"
             role="toolbar"
             aria-label="Filter and sort techniques"
+            data-testid="library-filter-bar"
+            style={{
+              background: "var(--fg-05)",
+              border: "1px solid var(--fg-08)",
+            }}
           >
             <FilterDropdown
               label="Category"
@@ -494,11 +535,14 @@ export default function Library() {
               options={Object.keys(LIBRARY_CATEGORIES).map((cat) => ({
                 value: cat,
                 label: cat,
+                // "Influence / Framing" shows as "Influence" on the segment
+                short: cat.split(" / ")[0],
               }))}
               value={categoryFilter}
               onChange={setCategoryFilter}
               testId="filter-category"
             />
+            <SegmentDivider />
             <FilterDropdown
               label="Impact"
               defaultLabel="Any impact"
@@ -513,29 +557,41 @@ export default function Library() {
               testId="filter-impact"
               align="right"
             />
+            <SegmentDivider />
             <FilterDropdown
               label="Difficulty"
               defaultLabel="Any difficulty"
               options={DIFFICULTY_LEVELS.map((diff) => ({
                 value: diff,
                 label: diff,
+                short: diff === "Easy-Medium" ? "Easy-Med" : undefined,
               }))}
               value={difficultyFilter}
               onChange={setDifficultyFilter}
               testId="filter-difficulty"
             />
+            <SegmentDivider />
             <FilterDropdown
               label="Sort"
               defaultLabel="Default order"
               options={[
-                { value: "impact", label: "Impact · high first" },
-                { value: "difficulty", label: "Difficulty · easy first" },
+                {
+                  value: "impact",
+                  label: "Impact · high first",
+                  short: "Impact",
+                },
+                {
+                  value: "difficulty",
+                  label: "Difficulty · easy first",
+                  short: "Easiest",
+                },
               ]}
               value={sortBy === "default" ? null : sortBy}
               onChange={(v) =>
                 setSortBy((v as "impact" | "difficulty" | null) ?? "default")
               }
               testId="sort-control"
+              labelClassName="max-[359px]:hidden"
               icon={
                 <ArrowUpDown
                   className="w-3 h-3 flex-shrink-0"
@@ -548,15 +604,8 @@ export default function Library() {
         </div>
       </div>
 
-      {/* ── Card list ── */}
-      {/* Bottom padding clears the floating action button (and the home-indicator
-          safe area) so the last card is never hidden behind it. */}
-      <div
-        className="px-4 md:px-6 pt-4 space-y-6"
-        style={{
-          paddingBottom: "calc(6.5rem + env(safe-area-inset-bottom, 0px))",
-        }}
-      >
+      {/* ── Card list ── (main already clears the phone tab bar) */}
+      <div className="px-4 md:px-6 pt-4 pb-6 space-y-6">
         {hasResults ? (
           Object.entries(filteredLibrary).map(([cat, cards]) => (
             <div

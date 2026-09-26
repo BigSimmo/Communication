@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Link, useLocation } from "wouter";
 import {
   Search,
@@ -7,16 +7,17 @@ import {
   Heart,
   Sun,
   Moon,
-  Menu,
-  X,
   SlidersHorizontal,
   BookOpen,
+  FileText,
 } from "lucide-react";
 import { useNav } from "@/lib/nav-context";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useTheme } from "@/lib/theme";
+import { usePdf } from "@/lib/pdf-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { useScrollDirection } from "@/hooks/use-scroll-direction";
 // Lazily loaded — global search builds its cached aggregate index only after a
 // user enters a query.
 const SearchModal = lazy(() =>
@@ -31,19 +32,13 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
   }
 }
 
-const allCards = Object.entries(LIBRARY_CATEGORIES).flatMap(([cat, cards]) =>
-  cards.map((c) => ({ ...c, category: cat })),
-);
-
-interface AppHeaderProps {
-  menuOpen?: boolean;
-  onToggleMenu?: () => void;
-}
-
+// Header actions share one quiet style. "brand" tints the icon amber for the
+// primary tool (Quick) and saved state; "active" marks an open panel.
 function HeaderIconButton({
   label,
   children,
   active = false,
+  tone = "default",
   testId,
   expanded,
   controls,
@@ -54,6 +49,7 @@ function HeaderIconButton({
   label: string;
   children: React.ReactNode;
   active?: boolean;
+  tone?: "default" | "brand";
   testId?: string;
   expanded?: boolean;
   controls?: string;
@@ -61,6 +57,7 @@ function HeaderIconButton({
   onClick: () => void;
   className?: string;
 }) {
+  const lit = active || tone === "brand";
   return (
     <button
       type="button"
@@ -68,18 +65,24 @@ function HeaderIconButton({
       aria-label={label}
       aria-expanded={expanded}
       aria-controls={controls}
+      aria-pressed={expanded === undefined && active ? true : undefined}
       data-search-toggle={searchToggle ? "true" : undefined}
       data-testid={testId}
       className={`card-header-action h-9 w-9 flex-shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-95 ${className}`}
       style={{
-        background: active ? "var(--gradient-active)" : "var(--fg-05)",
-        border: active
-          ? "1px solid color-mix(in srgb, var(--brand) 55%, transparent)"
-          : "1px solid var(--fg-08)",
-        color: active ? "var(--brand-contrast)" : "var(--fg-55)",
-        boxShadow: active
-          ? "0 2px 10px color-mix(in srgb, var(--brand) 24%, transparent)"
-          : "none",
+        background: active
+          ? "color-mix(in srgb, var(--brand) 18%, transparent)"
+          : lit
+            ? "color-mix(in srgb, var(--brand) 9%, transparent)"
+            : "var(--fg-05)",
+        border: `1px solid ${
+          active
+            ? "color-mix(in srgb, var(--brand) 45%, transparent)"
+            : lit
+              ? "color-mix(in srgb, var(--brand) 22%, transparent)"
+              : "var(--fg-08)"
+        }`,
+        color: lit ? "var(--brand-text)" : "var(--fg-60)",
       }}
     >
       {children}
@@ -87,7 +90,7 @@ function HeaderIconButton({
   );
 }
 
-export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
+export function AppHeader() {
   const [location] = useLocation();
   const {
     searchOpen,
@@ -98,10 +101,14 @@ export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
     searchQuery,
     setSearchQuery,
   } = useNav();
-  const { setIsOpen } = useQuickMode();
+  const { isOpen: quickOpen, setIsOpen } = useQuickMode();
+  const { pdfUrl, pdfOpen, setPdfOpen } = usePdf();
   const { isCardFav, toggleCard } = useFavourites();
   const { theme, toggle } = useTheme();
-  const [compact, setCompact] = useState(false);
+  // Shrinks to a slim reading bar while scrolling down, restores on the
+  // first deliberate scroll up or near the top. The shared hook clamps iOS
+  // overscroll so rubber banding can't make the header flicker.
+  const compact = useScrollDirection(24, 12, location) === "down";
 
   const cardId = location.startsWith("/card/")
     ? location.replace("/card/", "").split("?")[0]
@@ -112,43 +119,9 @@ export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
   const TitleTag: "h1" | "p" = location === "/" ? "h1" : "p";
   const cardMeta = cardId ? (CARD_META[cardId] ?? null) : null;
 
-  const totalCards = allCards.length;
-  // Compact still clears the 44px touch targets used on coarse pointers.
-  const headerHeight = compact ? 46 : 48;
-
-  useEffect(() => {
-    let lastY = Math.max(0, window.scrollY);
-    let raf = 0;
-
-    const update = () => {
-      raf = 0;
-      const y = Math.max(0, window.scrollY);
-      const delta = y - lastY;
-
-      if (y < 24) {
-        setCompact(false);
-      } else if (delta > 8) {
-        setCompact(true);
-      } else if (delta < -16) {
-        setCompact(false);
-      }
-
-      lastY = y;
-    };
-
-    const onScroll = () => {
-      if (raf) return;
-      raf = window.requestAnimationFrame(update);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (raf) window.cancelAnimationFrame(raf);
-    };
-    // Subscribe once — the CSS-var write below tracks headerHeight separately,
-    // so compact toggles no longer tear down and re-add the scroll listener
-  }, []);
+  // Compact actions shrink to 28px and keep a full height hit area via CSS
+  // (see .app-header[data-compact] in index.css).
+  const headerHeight = compact ? 34 : 48;
 
   useEffect(() => {
     // Includes the top safe-area inset so sticky elements offset by this var
@@ -160,10 +133,54 @@ export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
     );
   }, [headerHeight]);
 
+  const isLibraryRoute = location === "/";
+
+  const searchButton = (testId: string) => (
+    <HeaderIconButton
+      label="Open smart search"
+      active={searchOpen}
+      expanded={searchOpen}
+      controls="search-popout-panel"
+      testId={testId}
+      searchToggle
+      onClick={toggleSearch}
+    >
+      <Search className="w-4 h-4" aria-hidden="true" />
+    </HeaderIconButton>
+  );
+
+  const quickButton = (
+    <HeaderIconButton
+      label="Open Quick Lookup"
+      testId="button-quick"
+      tone="brand"
+      active={quickOpen}
+      onClick={() => setIsOpen(true)}
+    >
+      <Zap className="w-4 h-4" aria-hidden="true" />
+    </HeaderIconButton>
+  );
+
+  // Hidden while the header is compact; it returns on scroll up
+  const themeButton = (testId: string, className: string) => (
+    <HeaderIconButton
+      label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      testId={testId}
+      onClick={toggle}
+      className={`header-compact-hide ${className}`}
+    >
+      {theme === "dark" ? (
+        <Sun className="w-4 h-4" aria-hidden="true" />
+      ) : (
+        <Moon className="w-4 h-4" aria-hidden="true" />
+      )}
+    </HeaderIconButton>
+  );
+
   return (
     <>
       <div
-        className="sticky top-0 z-[var(--z-header)] flex-shrink-0"
+        className="app-header sticky top-0 z-[var(--z-header)] flex-shrink-0"
         style={{
           background: "var(--surface-header)",
           backdropFilter: "blur(20px) saturate(1.4)",
@@ -197,16 +214,14 @@ export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
                 aria-label="Back to Library"
                 data-testid="button-back"
                 className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
-                style={{ background: "var(--fg-05)" }}
+                style={{ background: "var(--fg-05)", color: "var(--fg-70)" }}
               >
-                <ChevronLeft
-                  className="w-5 h-5"
-                  style={{ color: "var(--fg-70)" }}
-                />
+                <ChevronLeft className="w-5 h-5" aria-hidden="true" />
               </Link>
               <div className="flex-1 min-w-0 flex items-center gap-2">
+                {/* The ID tag gives way to the title on narrow phones */}
                 <span
-                  className="text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
+                  className="hidden sm:inline text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
                   style={{
                     background: "var(--brand)",
                     color: "var(--brand-contrast)",
@@ -215,90 +230,54 @@ export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
                   {cardId}
                 </span>
                 <h1
-                  className="text-[15px] font-bold leading-tight truncate"
-                  style={{ color: "var(--fg-90)" }}
+                  className="font-bold leading-tight truncate"
+                  style={{
+                    color: "var(--fg-90)",
+                    fontSize: compact ? 13.5 : 15,
+                    transition: "font-size 180ms ease",
+                  }}
                   data-testid="card-title"
                 >
                   {cardMeta?.cardTitle ?? cardId}
                 </h1>
               </div>
-              {cardId && (
-                <button
-                  onClick={() => toggleCard(cardId)}
-                  aria-label={
-                    isCardFav(cardId)
-                      ? "Remove from favourites"
-                      : "Save to favourites"
-                  }
-                  data-testid="button-fav-card"
-                  className="card-header-action w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
-                  style={{
-                    background: isCardFav(cardId)
-                      ? "color-mix(in srgb, var(--brand) 12%, transparent)"
-                      : "var(--fg-05)",
-                    border: isCardFav(cardId)
-                      ? "none"
-                      : "1px solid var(--fg-08)",
-                  }}
-                >
-                  <Heart
-                    className="w-4 h-4"
-                    style={{
-                      color: isCardFav(cardId)
-                        ? "var(--brand-text)"
-                        : "var(--fg-55)",
-                    }}
-                    fill={isCardFav(cardId) ? "var(--brand-text)" : "none"}
-                  />
-                </button>
-              )}
-              <HeaderIconButton
-                label="Open smart search"
-                active={searchOpen}
-                expanded={searchOpen}
-                controls="search-popout-panel"
-                testId="button-card-search"
-                searchToggle
-                onClick={toggleSearch}
-              >
-                <Search className="w-4 h-4" aria-hidden="true" />
-              </HeaderIconButton>
-              {/* No header menu button in card mode: on phones the floating
-                  menu button already provides it, and dropping it gives the
-                  card title room at 375px. */}
-              <HeaderIconButton
-                label={
-                  theme === "dark"
-                    ? "Switch to light mode"
-                    : "Switch to dark mode"
-                }
-                testId="button-theme-toggle-card"
-                onClick={toggle}
-                className="header-desktop-only"
-              >
-                {theme === "dark" ? (
-                  <Sun className="w-4 h-4" aria-hidden="true" />
-                ) : (
-                  <Moon className="w-4 h-4" aria-hidden="true" />
+              <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+                {cardId && (
+                  <HeaderIconButton
+                    label={
+                      isCardFav(cardId)
+                        ? "Remove from favourites"
+                        : "Save to favourites"
+                    }
+                    testId="button-fav-card"
+                    tone={isCardFav(cardId) ? "brand" : "default"}
+                    onClick={() => toggleCard(cardId)}
+                  >
+                    <Heart
+                      className="w-4 h-4"
+                      fill={isCardFav(cardId) ? "currentColor" : "none"}
+                      aria-hidden="true"
+                    />
+                  </HeaderIconButton>
                 )}
-              </HeaderIconButton>
-              <button
-                onClick={() => setIsOpen(true)}
-                aria-label="Open Quick Lookup"
-                data-testid="button-quick"
-                className="card-header-action flex items-center gap-1.5 text-[11px] font-bold px-2.5 md:px-3.5 py-2 rounded-full active:scale-95 transition-transform flex-shrink-0"
-                style={{
-                  background: "var(--brand)",
-                  color: "var(--brand-contrast)",
-                }}
-              >
-                <Zap className="w-3.5 h-3.5" />
-                <span className="hidden md:inline">Quick</span>
-              </button>
+                {pdfUrl && (
+                  <HeaderIconButton
+                    label="Open printable PDF"
+                    testId="button-card-pdf"
+                    active={pdfOpen}
+                    onClick={() => setPdfOpen(true)}
+                  >
+                    <FileText className="w-4 h-4" aria-hidden="true" />
+                  </HeaderIconButton>
+                )}
+                {searchButton("button-card-search")}
+                {quickButton}
+                {themeButton("button-theme-toggle-card", "header-desktop-only")}
+              </div>
             </>
           )}
 
-          {/* ── LIBRARY MODE ── */}
+          {/* ── SECTION MODE (Library, Playbooks, Phrases, Saved, Drill) ── */}
           {mode === "library" && (
             <div
               className="flex items-center justify-between flex-1 min-w-0 gap-2"
@@ -309,17 +288,18 @@ export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
                   aria-hidden="true"
                   className="flex items-center justify-center flex-shrink-0"
                   style={{
-                    width: compact ? 27 : 30,
-                    height: compact ? 27 : 30,
-                    borderRadius: 9,
+                    width: compact ? 22 : 30,
+                    height: compact ? 22 : 30,
+                    borderRadius: compact ? 7 : 9,
                     background: "var(--gradient-active)",
                     boxShadow:
-                      "0 2px 8px color-mix(in srgb, var(--brand) 38%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)",
-                    transition: "width 180ms ease, height 180ms ease",
+                      "0 1px 4px color-mix(in srgb, var(--brand) 30%, transparent), inset 0 1px 0 rgba(255,255,255,0.3)",
+                    transition:
+                      "width 180ms ease, height 180ms ease, border-radius 180ms ease",
                   }}
                 >
                   <BookOpen
-                    className="w-[15px] h-[15px]"
+                    className={compact ? "w-3 h-3" : "w-[15px] h-[15px]"}
                     style={{ color: "var(--brand-contrast)" }}
                     aria-hidden="true"
                   />
@@ -344,7 +324,7 @@ export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
                     className="font-bold leading-none truncate"
                     style={{
                       color: "var(--fg-90)",
-                      fontSize: compact ? 15 : 16,
+                      fontSize: compact ? 14 : 16,
                       transition: "font-size 180ms ease",
                     }}
                     data-testid="library-title"
@@ -353,88 +333,28 @@ export function AppHeader({ menuOpen = false, onToggleMenu }: AppHeaderProps) {
                   </TitleTag>
                 </div>
               </div>
-              <div className="flex items-center justify-end gap-1.5 sm:gap-2.5 flex-shrink-0">
-                <HeaderIconButton
-                  label={
-                    headerDetailsOpen
-                      ? "Hide header details"
-                      : "Show header details"
-                  }
-                  active={headerDetailsOpen}
-                  expanded={headerDetailsOpen}
-                  controls="library-header-details"
-                  testId="button-header-details-toggle"
-                  onClick={toggleHeaderDetails}
-                >
-                  <SlidersHorizontal className="w-4 h-4" aria-hidden="true" />
-                </HeaderIconButton>
-                {onToggleMenu && (
+              <div className="flex items-center justify-end gap-1.5 sm:gap-2 flex-shrink-0">
+                {/* On the Library the filter panel already holds search */}
+                {isLibraryRoute ? (
                   <HeaderIconButton
                     label={
-                      menuOpen ? "Close organized menu" : "Open organized menu"
+                      headerDetailsOpen
+                        ? "Hide search and filters"
+                        : "Show search and filters"
                     }
-                    active={menuOpen}
-                    expanded={menuOpen}
-                    controls="mobile-organized-menu"
-                    testId="button-header-menu"
-                    onClick={onToggleMenu}
-                    className="inline-flex md:hidden"
+                    active={headerDetailsOpen}
+                    expanded={headerDetailsOpen}
+                    controls="library-header-details"
+                    testId="button-header-details-toggle"
+                    onClick={toggleHeaderDetails}
                   >
-                    {menuOpen ? (
-                      <X className="w-4 h-4" aria-hidden="true" />
-                    ) : (
-                      <Menu className="w-4 h-4" aria-hidden="true" />
-                    )}
+                    <SlidersHorizontal className="w-4 h-4" aria-hidden="true" />
                   </HeaderIconButton>
+                ) : (
+                  searchButton("button-header-search")
                 )}
-                {/* Theme toggle */}
-                <HeaderIconButton
-                  label={
-                    theme === "dark"
-                      ? "Switch to light mode"
-                      : "Switch to dark mode"
-                  }
-                  testId="button-theme-toggle"
-                  onClick={toggle}
-                  className="hidden sm:inline-flex"
-                >
-                  {theme === "dark" ? (
-                    <Sun className="w-4 h-4" aria-hidden="true" />
-                  ) : (
-                    <Moon className="w-4 h-4" aria-hidden="true" />
-                  )}
-                </HeaderIconButton>
-                {/* Library size badge — count of technique cards */}
-                <div
-                  className="library-progress-full flex-col items-end gap-1"
-                  aria-label={`${totalCards} technique cards`}
-                  data-testid="library-progress"
-                >
-                  <div
-                    className="flex items-center justify-center gap-1 rounded-lg px-2.5 py-1 leading-none"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, color-mix(in srgb, var(--brand) 20%, transparent) 0%, color-mix(in srgb, var(--brand) 7%, transparent) 100%)",
-                      border:
-                        "1px solid color-mix(in srgb, var(--brand) 30%, transparent)",
-                      boxShadow:
-                        "0 0 12px color-mix(in srgb, var(--brand) 10%, transparent)",
-                    }}
-                  >
-                    <span
-                      className="text-[12px] font-bold"
-                      style={{ color: "var(--brand-text)" }}
-                    >
-                      {totalCards}
-                    </span>
-                    <span
-                      className="text-[10px] font-semibold"
-                      style={{ color: "var(--fg-55)" }}
-                    >
-                      cards
-                    </span>
-                  </div>
-                </div>
+                {quickButton}
+                {themeButton("button-theme-toggle", "hidden sm:inline-flex")}
               </div>
             </div>
           )}
