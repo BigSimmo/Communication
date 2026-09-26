@@ -11,13 +11,12 @@ export default tseslint.config(
       "**/node_modules/**",
       "**/coverage/**",
       ".agents/**",
+      // Temporary agent worktrees
+      ".claude/worktrees/**",
       "artifacts/tc-reference/public/**",
       // Dead code awaiting deletion.
       "artifacts/api-server/**",
       "lib/**",
-      // Being refactored in a separate branch.
-      "artifacts/tc-reference/src/pages/card-detail.tsx",
-      "artifacts/tc-reference/src/components/card-detail/**",
     ],
   },
   js.configs.recommended,

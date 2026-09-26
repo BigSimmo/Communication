@@ -3,3 +3,4 @@ dist
 coverage
 artifacts/tc-reference/public/cards
 .agents
+.claude/worktrees
