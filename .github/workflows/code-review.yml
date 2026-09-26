@@ -31,6 +31,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check formatting
+        run: pnpm run format:check
+
       - name: Typecheck
         run: pnpm run typecheck
 
@@ -41,4 +44,6 @@ jobs:
         run: pnpm --filter @workspace/tc-reference build
 
       - name: Run Automated Code Reviewer
+        env:
+          CODE_REVIEW_BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event.before }}
         run: pnpm run code-review

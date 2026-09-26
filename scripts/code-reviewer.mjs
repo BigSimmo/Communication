@@ -21,6 +21,26 @@ console.log(
 function getChangedFiles() {
   const files = new Set();
 
+  // In CI the checkout is clean, so compare against the base ref instead
+  // (e.g. CODE_REVIEW_BASE=origin/main for a pull request)
+  const base = process.env.CODE_REVIEW_BASE;
+  if (base) {
+    const committed = spawnSync(
+      "git",
+      ["diff", "--name-only", "--diff-filter=ACMR", `${base}...HEAD`],
+      { encoding: "utf8" },
+    );
+    if (committed.status !== 0) {
+      console.error(
+        `${colors.red}Could not diff against ${base}: ${committed.stderr.trim()}${colors.reset}`,
+      );
+      process.exit(1);
+    }
+    committed.stdout
+      .split("\n")
+      .forEach((f) => f.trim() && files.add(f.trim()));
+  }
+
   // Staged files
   const staged = spawnSync("git", ["diff", "--cached", "--name-only"], {
     encoding: "utf8",
@@ -92,9 +112,8 @@ const formattingFailures = [];
 for (const file of changedFiles) {
   // Prettier formatting is supported for many text formats
   if (/\.(js|jsx|ts|tsx|css|md|json|html|yml|yaml)$/.test(file)) {
-    const check = spawnSync("npx", ["prettier", "--check", file], {
+    const check = spawnSync("pnpm", ["exec", "prettier", "--check", file], {
       encoding: "utf8",
-      shell: true,
     });
     if (check.status !== 0) {
       formattingFailures.push(file);
@@ -190,7 +209,8 @@ const rules = [
   {
     name: "Hardcoded Credential / Secret Leak",
     pattern: new RegExp(
-      "(const|let|var|env)\\s+\\w*(key|secret|password|token|auth)\\w*\\s*=\\s*['\"`][A-Za-z0-9+/=_-]{16,}['\"`]",
+      // Require a digit so slug-style names like "tc-recent-searches" pass
+      "(const|let|var|env)\\s+\\w*(key|secret|password|token|auth)\\w*\\s*=\\s*['\"`](?=[^'\"`]*\\d)[A-Za-z0-9+/=_-]{16,}['\"`]",
       "i",
     ),
     severity: "error",

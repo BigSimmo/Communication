@@ -46,12 +46,9 @@ artifacts/
 │   ├── index.html
 │   ├── vite.config.ts
 │   └── package.json
-└── api-server/              ← Express backend scaffold
+└── api-server/              ← Express sync routes (scaffold, not wired up)
 lib/
-├── api-client-react/        ← Generated API client helpers
-├── api-spec/               ← OpenAPI definition and Orval settings
-├── api-zod/                ← Generated Zod contracts
-└── db/                     ← Drizzle schema + PostgreSQL client
+└── db/                     ← Drizzle schema (scaffold, not wired up)
 scripts/
 └── local-app.mjs            ← Protected run/guard/stop flow for local app
 ```
@@ -144,6 +141,8 @@ TC Reference is a mostly static SPA:
 - User state uses `localStorage` (favourites, drill progress, playbooks under `tc_playbooks`, theme)
 - No backend credentials are required for normal development
 
-The `api-server` package is available for backend-backed use-cases and uses:
-
-- `DATABASE_URL` — PostgreSQL connection string (required by server/database package when running API path)
+`artifacts/api-server` and `lib/db` are unwired scaffolds for a future sync
+backend. They have no `package.json`, are not part of the build or typecheck,
+and are not deployed. The sync routes require an upstream auth middleware to
+set `res.locals.userId`. Without one, every request is rejected with 401.
+Running them would also need `DATABASE_URL` (PostgreSQL connection string).
