@@ -1,26 +1,21 @@
 import { Check, Copy } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion, type CardSection } from "./section-accordion";
+import { SectionAccordion } from "./section-accordion";
 
+// ── The Method ──
 export function MethodSection({
   cardData,
-  open,
-  onToggle,
   copiedPhrase,
   handleCopy,
 }: {
   cardData: CardData;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
   copiedPhrase: string | null;
-  handleCopy: (text: string) => void;
+  handleCopy: (phrase: string) => void;
 }) {
   return (
     <SectionAccordion
       id="method"
-      open={open}
-      onToggle={onToggle}
-      label="The Method"
+      label="The method"
       color="var(--brand)"
       subtitle={`${cardData.method?.length ?? 0}-step execution guide`}
     >
@@ -28,23 +23,20 @@ export function MethodSection({
         <div
           className="rounded-2xl p-5 mb-5"
           style={{
-            background: "color-mix(in srgb, var(--brand) 8%, transparent)",
-            border:
-              "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
+            background: "rgba(245,158,11,0.08)",
+            border: "1px solid rgba(245,158,11,0.2)",
           }}
         >
           <p
-            className="text-[10px] font-bold tracking-widest uppercase mb-2"
-            style={{
-              color: "color-mix(in srgb, var(--brand-text) 85%, transparent)",
-            }}
+            className="text-[11px] font-bold tracking-widest uppercase mb-2"
+            style={{ color: "rgba(245,158,11,0.85)" }}
           >
             Guiding principle
           </p>
           <p className="text-[15px] font-bold text-foreground/90 mb-1.5 leading-snug">
             {cardData.fieldTip.headline}
           </p>
-          <p className="text-[13px] leading-relaxed text-foreground/65">
+          <p className="text-[13px] leading-relaxed text-foreground/65 whitespace-pre-line">
             {cardData.fieldTip.body}
           </p>
           {cardData.fieldTip.example && (
@@ -63,12 +55,9 @@ export function MethodSection({
                   <span
                     className="text-[12px] px-3 py-1 rounded-full"
                     style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-red) 8%, transparent)",
-                      border:
-                        "1px solid color-mix(in srgb, var(--accent-red) 18%, transparent)",
-                      color:
-                        "color-mix(in srgb, var(--accent-red) 90%, transparent)",
+                      background: "rgba(239,68,68,0.08)",
+                      border: "1px solid rgba(239,68,68,0.18)",
+                      color: "rgba(248,113,113,0.9)",
                     }}
                   >
                     Don't: {cardData.fieldTip.dont}
@@ -78,12 +67,9 @@ export function MethodSection({
                   <span
                     className="text-[12px] px-3 py-1 rounded-full"
                     style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-green) 8%, transparent)",
-                      border:
-                        "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)",
-                      color:
-                        "color-mix(in srgb, var(--accent-green) 95%, transparent)",
+                      background: "rgba(34,197,94,0.08)",
+                      border: "1px solid rgba(34,197,94,0.18)",
+                      color: "rgba(74,222,128,0.95)",
                     }}
                   >
                     Do: {cardData.fieldTip.do}
@@ -122,10 +108,9 @@ export function MethodSection({
             >
               <div className="flex items-center gap-2 mb-1.5 flex-wrap">
                 <span
-                  className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
+                  className="text-[11px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
                   style={{
-                    background:
-                      "color-mix(in srgb, var(--brand) 12%, transparent)",
+                    background: "rgba(245,158,11,0.12)",
                     color: "var(--brand-text)",
                   }}
                 >
@@ -135,7 +120,7 @@ export function MethodSection({
                   {m.title}
                 </p>
               </div>
-              <p className="text-[13px] text-foreground/65 leading-relaxed mb-3">
+              <p className="text-[13px] text-foreground/65 leading-relaxed mb-3 whitespace-pre-line">
                 {m.body}
               </p>
               {m.examples && m.examples.length > 0 && (
@@ -149,7 +134,7 @@ export function MethodSection({
                   {m.examples.map((ex, j) => (
                     <div key={j} className="flex items-start gap-2.5">
                       <span
-                        className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                        className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
                         style={{ color: "var(--fg-38)" }}
                       >
                         {ex.label}
@@ -177,7 +162,7 @@ export function MethodSection({
             border: "1px solid var(--fg-06)",
           }}
         >
-          <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-1">
+          <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-1">
             Live-thread clues
           </p>
           <p className="text-[12px] text-foreground/50 mb-3">
@@ -203,7 +188,7 @@ export function MethodSection({
 
       {cardData.depthDial && cardData.depthDial.length > 0 && (
         <div className="mt-5">
-          <p className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase mb-1">
+          <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-1">
             The depth dial
           </p>
           <p className="text-[12px] text-foreground/50 mb-3">
@@ -242,7 +227,7 @@ export function MethodSection({
                   style={{
                     background:
                       copiedPhrase === row.phrase
-                        ? "color-mix(in srgb, var(--brand) 10%, transparent)"
+                        ? "rgba(245,158,11,0.1)"
                         : "var(--fg-03)",
                     border: "1px solid var(--fg-06)",
                   }}
@@ -266,17 +251,13 @@ export function MethodSection({
                   ) : (
                     <Copy
                       className="w-3.5 h-3.5 flex-shrink-0"
-                      style={{ color: "var(--fg-25)" }}
+                      style={{ color: "var(--fg-45)" }}
                     />
                   )}
                 </button>
               </div>
             ))}
           </div>
-          <p className="text-[12px] text-foreground/45 mt-3 italic">
-            Most everyday charisma lives in the middle — warm and personal, not
-            overly deep.
-          </p>
         </div>
       )}
     </SectionAccordion>

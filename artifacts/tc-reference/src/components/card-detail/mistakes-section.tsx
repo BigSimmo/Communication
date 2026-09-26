@@ -1,27 +1,22 @@
 import { Check, Copy } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion, type CardSection } from "./section-accordion";
+import { SectionAccordion } from "./section-accordion";
 
+// ── Common Mistakes ──
 export function MistakesSection({
   cardData,
-  open,
-  onToggle,
   copiedPhrase,
   handleCopy,
 }: {
   cardData: CardData;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
   copiedPhrase: string | null;
-  handleCopy: (text: string) => void;
+  handleCopy: (phrase: string) => void;
 }) {
   return (
     <SectionAccordion
       id="mistakes"
-      open={open}
-      onToggle={onToggle}
-      label="Common Mistakes"
-      color="var(--accent-red)"
+      label="Common mistakes"
+      color="#f87171"
       subtitle={`${cardData.commonMistakes?.length ?? 0} pitfalls + fixes`}
     >
       <div className="space-y-3">
@@ -37,8 +32,7 @@ export function MistakesSection({
             <div
               className="px-4 py-3"
               style={{
-                background:
-                  "color-mix(in srgb, var(--accent-red) 6%, transparent)",
+                background: "rgba(239,68,68,0.06)",
                 borderBottom: "1px solid var(--fg-05)",
               }}
             >
@@ -49,11 +43,8 @@ export function MistakesSection({
             <div className="p-4 space-y-3">
               <div className="flex items-start gap-2.5">
                 <span
-                  className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--accent-red) 85%, transparent)",
-                  }}
+                  className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                  style={{ color: "rgba(248,113,113,0.85)" }}
                 >
                   Sounds like
                 </span>
@@ -66,11 +57,8 @@ export function MistakesSection({
               </div>
               <div className="flex items-start gap-2.5">
                 <span
-                  className="text-[9px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--accent-green) 90%, transparent)",
-                  }}
+                  className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                  style={{ color: "rgba(74,222,128,0.9)" }}
                 >
                   Better
                 </span>
@@ -81,7 +69,7 @@ export function MistakesSection({
                   <button
                     onClick={() => handleCopy(m.better)}
                     aria-label={`Copy: ${m.better}`}
-                    className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
+                    className="tap-target w-8 h-8 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
                   >
                     {copiedPhrase === m.better ? (
                       <Check
@@ -91,7 +79,7 @@ export function MistakesSection({
                     ) : (
                       <Copy
                         className="w-3.5 h-3.5"
-                        style={{ color: "var(--fg-20)" }}
+                        style={{ color: "var(--fg-45)" }}
                       />
                     )}
                   </button>

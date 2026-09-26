@@ -1,22 +1,13 @@
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion, type CardSection } from "./section-accordion";
+import { SectionAccordion } from "./section-accordion";
 
-export function PracticeSection({
-  cardData,
-  open,
-  onToggle,
-}: {
-  cardData: CardData;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
-}) {
+// ── Practice Protocol ──
+export function PracticeSection({ cardData }: { cardData: CardData }) {
   return (
     <SectionAccordion
       id="practice"
-      open={open}
-      onToggle={onToggle}
-      label="Practice Protocol"
-      color="var(--accent-sky)"
+      label="Practice protocol"
+      color="#38bdf8"
       subtitle={`${cardData.drill.length}-day program`}
     >
       <div className="space-y-3">

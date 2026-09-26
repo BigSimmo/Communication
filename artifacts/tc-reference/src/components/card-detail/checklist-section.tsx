@@ -1,32 +1,30 @@
 import { Check } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion, type CardSection } from "./section-accordion";
+import { SectionAccordion } from "./section-accordion";
 
+// ── After-Action Checklist ──
 export function ChecklistSection({
   cardData,
-  open,
-  onToggle,
   checkedItems,
   toggleCheck,
 }: {
   cardData: CardData;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
   checkedItems: Set<number>;
   toggleCheck: (i: number) => void;
 }) {
   return (
     <SectionAccordion
       id="checklist"
-      open={open}
-      onToggle={onToggle}
-      label="After-Action Checklist"
-      color="var(--accent-emerald)"
+      label="After-action checklist"
+      color="#34d399"
       subtitle={`${checkedItems.size} / ${cardData.checklist.length} items checked`}
     >
       <div
         className="mb-4 rounded-full p-1.5 flex items-center gap-3"
-        style={{ background: "var(--fg-03)", border: "1px solid var(--fg-06)" }}
+        style={{
+          background: "var(--fg-03)",
+          border: "1px solid var(--fg-06)",
+        }}
         role="progressbar"
         aria-valuenow={checkedItems.size}
         aria-valuemin={0}
@@ -39,12 +37,8 @@ export function ChecklistSection({
         >
           <div
             className="h-full bg-primary rounded-full transition-all duration-300"
-            // Guard the divide: an empty checklist must render 0%, not NaN%
             style={{
-              width:
-                cardData.checklist.length > 0
-                  ? `${(checkedItems.size / cardData.checklist.length) * 100}%`
-                  : "0%",
+              width: `${(checkedItems.size / cardData.checklist.length) * 100}%`,
             }}
           />
         </div>
@@ -54,7 +48,10 @@ export function ChecklistSection({
       </div>
       <div
         className="rounded-2xl overflow-hidden shadow-sm"
-        style={{ background: "var(--fg-03)", border: "1px solid var(--fg-05)" }}
+        style={{
+          background: "var(--fg-03)",
+          border: "1px solid var(--fg-05)",
+        }}
       >
         {cardData.checklist.map((item, i) => (
           <button
@@ -63,12 +60,11 @@ export function ChecklistSection({
             aria-checked={checkedItems.has(i)}
             role="checkbox"
             data-testid={`checklist-item-${i}`}
-            className={`w-full flex gap-4 p-4 text-left transition-all ${
-              checkedItems.has(i)
-                ? "bg-[color-mix(in_srgb,var(--brand)_4%,transparent)]"
-                : "bg-transparent hover:bg-[var(--fg-02)]"
-            }`}
+            className="w-full flex gap-4 p-4 text-left transition-all"
             style={{
+              background: checkedItems.has(i)
+                ? "rgba(245,158,11,0.04)"
+                : "transparent",
               borderBottom:
                 i < cardData.checklist.length - 1
                   ? "1px solid var(--fg-03)"

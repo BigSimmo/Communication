@@ -1,53 +1,40 @@
 import { Check, Copy, Heart } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import type { FavouritePhrase } from "@/lib/favourites-state";
-import { SectionAccordion, type CardSection } from "./section-accordion";
-import { CARD_TITLE_MAP } from "./card-title-map";
+import { useFavourites } from "@/lib/favourites-context";
+import { CARD_TITLE_MAP } from "./card-sections";
+import { SectionAccordion } from "./section-accordion";
 
+// ── Recovery ──
 export function RecoverySection({
-  cardData,
   cardId,
-  open,
-  onToggle,
+  cardData,
   copiedPhrase,
   handleCopy,
-  isPhrasesFav,
-  togglePhrase,
 }: {
-  cardData: CardData;
   cardId: string;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
+  cardData: CardData;
   copiedPhrase: string | null;
-  handleCopy: (text: string) => void;
-  isPhrasesFav: (cardId: string, text: string) => boolean;
-  togglePhrase: (phrase: FavouritePhrase) => void;
+  handleCopy: (phrase: string) => void;
 }) {
+  const { isPhrasesFav, togglePhrase } = useFavourites();
   return (
     <SectionAccordion
       id="recovery"
-      open={open}
-      onToggle={onToggle}
       label="Recovery"
-      color="var(--accent-emerald)"
+      color="#34d399"
       subtitle="When you've pushed too far — reset scripts"
     >
       {cardData.bestRecoveryLine && (
         <div
           className="rounded-2xl p-5 mb-4"
           style={{
-            background:
-              "color-mix(in srgb, var(--accent-emerald) 8%, transparent)",
-            border:
-              "1px solid color-mix(in srgb, var(--accent-emerald) 20%, transparent)",
+            background: "rgba(52,211,153,0.08)",
+            border: "1px solid rgba(52,211,153,0.2)",
           }}
         >
           <p
-            className="text-[10px] font-bold tracking-widest uppercase mb-2"
-            style={{
-              color:
-                "color-mix(in srgb, var(--accent-emerald) 90%, transparent)",
-            }}
+            className="text-[11px] font-bold tracking-widest uppercase mb-2"
+            style={{ color: "rgba(52,211,153,0.9)" }}
           >
             Best all-purpose line
           </p>
@@ -58,24 +45,15 @@ export function RecoverySection({
             <button
               onClick={() => handleCopy(cardData.bestRecoveryLine!)}
               aria-label={`Copy: ${cardData.bestRecoveryLine}`}
-              className="w-9 h-9 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
-              style={{
-                background:
-                  "color-mix(in srgb, var(--accent-emerald) 12%, transparent)",
-              }}
+              className="tap-target w-8 h-8 flex items-center justify-center rounded-full flex-shrink-0 transition-all active:scale-95"
+              style={{ background: "rgba(52,211,153,0.12)" }}
             >
               {copiedPhrase === cardData.bestRecoveryLine ? (
-                <Check
-                  className="w-4 h-4"
-                  style={{ color: "var(--accent-emerald)" }}
-                />
+                <Check className="w-4 h-4" style={{ color: "#34d399" }} />
               ) : (
                 <Copy
                   className="w-4 h-4"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--accent-emerald) 80%, transparent)",
-                  }}
+                  style={{ color: "rgba(52,211,153,0.8)" }}
                 />
               )}
             </button>
@@ -85,16 +63,19 @@ export function RecoverySection({
 
       <div
         className="rounded-2xl overflow-hidden shadow-sm"
-        style={{ background: "var(--fg-03)", border: "1px solid var(--fg-06)" }}
+        style={{
+          background: "var(--fg-03)",
+          border: "1px solid var(--fg-06)",
+        }}
       >
         {cardData.recoveryPhrases!.map((phrase, i) => (
           <div
-            key={phrase}
+            key={i}
             className="w-full flex items-center justify-between px-5 py-3"
             style={{
               background:
                 copiedPhrase === phrase
-                  ? "color-mix(in srgb, var(--brand) 7%, transparent)"
+                  ? "rgba(245,158,11,0.07)"
                   : "transparent",
               borderBottom:
                 i < cardData.recoveryPhrases!.length - 1
@@ -127,12 +108,12 @@ export function RecoverySection({
                 aria-label={
                   isPhrasesFav(cardId, phrase)
                     ? "Remove from favourites"
-                    : "Save phrase"
+                    : "Save to favourites"
                 }
-                className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
                 style={{
                   background: isPhrasesFav(cardId, phrase)
-                    ? "color-mix(in srgb, var(--brand) 10%, transparent)"
+                    ? "rgba(245,158,11,0.1)"
                     : "transparent",
                 }}
               >
@@ -141,7 +122,7 @@ export function RecoverySection({
                   style={{
                     color: isPhrasesFav(cardId, phrase)
                       ? "var(--brand-text)"
-                      : "var(--fg-20)",
+                      : "var(--fg-45)",
                   }}
                   fill={
                     isPhrasesFav(cardId, phrase) ? "var(--brand-text)" : "none"
@@ -151,7 +132,7 @@ export function RecoverySection({
               <button
                 onClick={() => handleCopy(phrase)}
                 aria-label={`Copy: ${phrase}`}
-                className="w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
               >
                 {copiedPhrase === phrase ? (
                   <Check
@@ -161,7 +142,7 @@ export function RecoverySection({
                 ) : (
                   <Copy
                     className="w-3.5 h-3.5"
-                    style={{ color: "var(--fg-18)" }}
+                    style={{ color: "var(--fg-45)" }}
                   />
                 )}
               </button>

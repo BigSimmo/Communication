@@ -1,27 +1,22 @@
 import { Check } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion, type CardSection } from "./section-accordion";
+import { SectionAccordion } from "./section-accordion";
 
+// ── Decision Tree ──
 export function TreeSection({
   cardData,
-  open,
-  onToggle,
   copiedPhrase,
   handleCopy,
 }: {
   cardData: CardData;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
   copiedPhrase: string | null;
-  handleCopy: (text: string) => void;
+  handleCopy: (phrase: string) => void;
 }) {
   return (
     <SectionAccordion
       id="tree"
-      open={open}
-      onToggle={onToggle}
-      label="Decision Tree"
-      color="var(--accent-purple)"
+      label="Decision tree"
+      color="#a78bfa"
       subtitle={`${cardData.decisionTree.length} situation → action paths`}
     >
       <div className="space-y-3 relative pl-6">
@@ -59,12 +54,12 @@ export function TreeSection({
                   style={{
                     background:
                       copiedPhrase === item.phrase
-                        ? "color-mix(in srgb, var(--brand) 15%, transparent)"
-                        : "color-mix(in srgb, var(--brand) 6%, transparent)",
+                        ? "rgba(245,158,11,0.15)"
+                        : "rgba(245,158,11,0.06)",
                     border:
                       copiedPhrase === item.phrase
-                        ? "1px solid color-mix(in srgb, var(--brand) 35%, transparent)"
-                        : "1px solid color-mix(in srgb, var(--brand) 15%, transparent)",
+                        ? "1px solid rgba(245,158,11,0.35)"
+                        : "1px solid rgba(245,158,11,0.15)",
                     color: "var(--brand-text)",
                     minHeight: 44,
                   }}

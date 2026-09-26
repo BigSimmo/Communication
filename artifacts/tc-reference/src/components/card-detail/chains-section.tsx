@@ -1,22 +1,13 @@
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion, type CardSection } from "./section-accordion";
+import { SectionAccordion } from "./section-accordion";
 
-export function ChainsSection({
-  cardData,
-  open,
-  onToggle,
-}: {
-  cardData: CardData;
-  open: boolean;
-  onToggle: (id: CardSection) => void;
-}) {
+// ── Chains ──
+export function ChainsSection({ cardData }: { cardData: CardData }) {
   return (
     <SectionAccordion
       id="chains"
-      open={open}
-      onToggle={onToggle}
-      label="Technique Chains"
-      color="var(--accent-indigo)"
+      label="Technique chains"
+      color="#818cf8"
       subtitle="Combine this move into longer sequences"
     >
       <div className="space-y-4">
@@ -34,10 +25,7 @@ export function ChainsSection({
             </p>
             <p
               className="text-[12px] leading-relaxed mb-4"
-              style={{
-                color:
-                  "color-mix(in srgb, var(--accent-indigo) 95%, transparent)",
-              }}
+              style={{ color: "rgba(129,140,248,0.95)" }}
             >
               {chain.sequence}
             </p>
@@ -51,10 +39,7 @@ export function ChainsSection({
                 <div key={j} className="relative">
                   <div
                     className="absolute -left-5 top-1.5 w-2.5 h-2.5 rounded-full"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-indigo) 50%, transparent)",
-                    }}
+                    style={{ background: "rgba(129,140,248,0.5)" }}
                     aria-hidden="true"
                   />
                   <p className="text-[13px] leading-snug text-foreground/75">
