@@ -6,7 +6,10 @@ import type { CardImpact } from "./data";
  * dark defaults and light-theme overrides, so the same mapping adapts to
  * both themes: High = amber (brand emphasis), Medium = blue, Low = neutral.
  */
-export const IMPACT_STYLES: Record<CardImpact, { label: string; color: string; bg: string }> = {
+export const IMPACT_STYLES: Record<
+  CardImpact,
+  { label: string; color: string; bg: string }
+> = {
   high: {
     label: "High",
     color: "var(--impact-high)",

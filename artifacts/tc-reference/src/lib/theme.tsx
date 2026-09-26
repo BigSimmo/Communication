@@ -17,7 +17,9 @@ function getInitialTheme(): Theme {
     const stored = localStorage.getItem("tc_theme");
     if (stored === "light" || stored === "dark") return stored;
   } catch {}
-  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  return window.matchMedia("(prefers-color-scheme: light)").matches
+    ? "light"
+    : "dark";
 }
 
 function applyTheme(theme: Theme) {

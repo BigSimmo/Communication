@@ -20,7 +20,7 @@ interface FocusTrapOptions {
 export function useFocusTrap(
   active: boolean,
   containerRef: RefObject<HTMLElement | null>,
-  options?: FocusTrapOptions
+  options?: FocusTrapOptions,
 ) {
   const initialFocusRef = options?.initialFocusRef;
   const restoreFocus = options?.restoreFocus ?? true;
@@ -37,9 +37,9 @@ export function useFocusTrap(
     const getFocusable = () => {
       const container = containerRef.current;
       if (!container) return [];
-      return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
-        (el) => el.tabIndex !== -1
-      );
+      return Array.from(
+        container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+      ).filter((el) => el.tabIndex !== -1);
     };
 
     const frame = requestAnimationFrame(() => {

@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation, useRoute } from "wouter";
 import { SearchModal } from "../components/search-modal";
 import { CARD_DATA } from "../lib/cards";
+import { LIBRARY_CATEGORIES } from "../lib/data";
 import { TC001 } from "../lib/cards/TC001";
 import { FavouritesProvider } from "../lib/favourites-context";
 import { PdfProvider } from "../lib/pdf-context";
@@ -73,7 +74,48 @@ describe("lazy card consumer transitions", () => {
     );
   });
 
+  it("steps between cards with the arrow keys unless the user is typing", async () => {
+    vi.mocked(loadCard).mockResolvedValue(TC001);
+    const setLocation = vi.fn();
+    vi.mocked(useLocation).mockReturnValue(["/card/TC001", setLocation]);
+    const order = Object.values(LIBRARY_CATEGORIES)
+      .flat()
+      .map((c) => c.id);
+    const i = order.indexOf("TC001");
+    const prev = order[(i - 1 + order.length) % order.length];
+    const next = order[(i + 1) % order.length];
+
+    render(
+      <FavouritesProvider>
+        <PdfProvider>
+          <CardDetail />
+          <input aria-label="Typing field" />
+        </PdfProvider>
+      </FavouritesProvider>,
+    );
+    await screen.findByRole("heading", { level: 2 });
+
+    fireEvent.keyDown(window, { key: "ArrowRight" });
+    expect(setLocation).toHaveBeenLastCalledWith(`/card/${next}`);
+    fireEvent.keyDown(window, { key: "ArrowLeft" });
+    expect(setLocation).toHaveBeenLastCalledWith(`/card/${prev}`);
+
+    setLocation.mockClear();
+    fireEvent.keyDown(screen.getByLabelText("Typing field"), {
+      key: "ArrowRight",
+    });
+    fireEvent.keyDown(window, { key: "ArrowRight", metaKey: true });
+    // Focus on a section pill belongs to the section nav, not card paging
+    fireEvent.keyDown(screen.getByTestId("nav-overview"), {
+      key: "ArrowRight",
+    });
+    expect(setLocation).not.toHaveBeenCalled();
+  });
+
   it("announces Quick Lookup aggregate loading and preserves 120 initial rows", async () => {
+    // The shared location mock sits on a card route, which scopes Quick
+    // Lookup to that card. This test covers the full cross-card list.
+    vi.mocked(useLocation).mockReturnValue(["/", vi.fn()]);
     const cards = deferred<Record<string, typeof TC001>>();
     vi.mocked(loadAllCards).mockReturnValue(cards.promise);
 
@@ -119,9 +161,13 @@ describe("lazy card consumer transitions", () => {
 
     render(<Drill />);
 
-    fireEvent.click(await screen.findByRole("button", { name: "Good — review later" }));
+    fireEvent.click(
+      await screen.findByRole("button", { name: "Good — review later" }),
+    );
 
-    expect(await screen.findByText("Great work — come back tomorrow")).toBeInTheDocument();
+    expect(
+      await screen.findByText("Great work — come back tomorrow"),
+    ).toBeInTheDocument();
   });
 
   it("announces Phrase Bank loading before rendering aggregate phrases", async () => {
@@ -155,7 +201,9 @@ describe("lazy card consumer transitions", () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByRole("status")).toHaveTextContent("Loading search index");
+    expect(screen.getByRole("status")).toHaveTextContent(
+      "Loading search index",
+    );
 
     await act(async () => cards.resolve({ TC001 }));
 

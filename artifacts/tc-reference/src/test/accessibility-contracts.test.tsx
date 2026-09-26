@@ -1,5 +1,4 @@
 import {
-  act,
   fireEvent,
   render,
   screen,
@@ -378,9 +377,7 @@ describe("core accessibility contracts", () => {
       await screen.findByRole("dialog", { name: "Quick Lookup" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "In-conversation phrase cheat-sheet — instant copyable lines grouped by situation.",
-      ),
+      screen.getByText("Tap any line to copy it. Grouped by situation."),
     ).toBeInTheDocument();
   });
 
@@ -392,7 +389,9 @@ describe("core accessibility contracts", () => {
     expect(
       screen.getByRole("heading", { level: 1, name: "Daily Drill" }),
     ).toBeInTheDocument();
-    fireEvent.click(await screen.findByRole("button", { name: "Hard — review soon" }));
+    fireEvent.click(
+      await screen.findByRole("button", { name: "Hard — review soon" }),
+    );
 
     const completion = screen.getByRole("status");
     expect(completion).toHaveTextContent("Great work — come back tomorrow");

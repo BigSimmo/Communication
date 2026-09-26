@@ -3,23 +3,66 @@ import type { CardData } from "../card-types";
 export const TC096: CardData = {
   pdfUrl: "cards/TC096/TC096_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC096/TC096_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC096/TC096_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC096/TC096_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC096/TC096_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC096/TC096_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC096/TC096_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC096/TC096_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC096/TC096_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC096/TC096_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC096/TC096_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC096/TC096_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC096/TC096_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC096/TC096_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC096/TC096_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC096",
   whyItWorks:
-    "Capitalisation extension is a response pattern for positive news. When someone shares a win, a relief, a proud moment or good feedback, you don't stop at \"nice\": you mark the good thing, add one specific reason it matters, and invite them to say a little more about the best part. It works because people become more open with you when they trust that their good news will be handled well rather than ignored, hijacked or turned into your status opportunity. Recognise it, name a concrete piece of it, extend it with one short prompt, and let them choose the size of the celebration.",
+    'Capitalisation extension is a response pattern for positive news. When someone shares a win, a relief, a proud moment or good feedback, you don\'t stop at "nice": you mark the good thing, add one specific reason it matters, and invite them to say a little more about the best part. It works because people become more open with you when they trust that their good news will be handled well rather than ignored, hijacked or turned into your status opportunity. Recognise it, name a concrete piece of it, extend it with one short prompt, and let them choose the size of the celebration.',
   whatItIsNot: [
     "Not generic praise or forced enthusiasm, and not a demand that they be more excited than they actually are.",
-    "Not a competition: \"That reminds me of my bigger win.\"",
-    "Not a diagnostic interview: \"What exactly did you do, why, and what was the ROI?\"",
-    "Not a covert status grab: \"I knew that because I helped you.\"",
-    "Not a productivity pivot: \"Great, now how will you leverage it?\"",
+    'Not a competition: "That reminds me of my bigger win."',
+    'Not a diagnostic interview: "What exactly did you do, why, and what was the ROI?"',
+    'Not a covert status grab: "I knew that because I helped you."',
+    'Not a productivity pivot: "Great, now how will you leverage it?"',
   ],
   overview: {
     coreFormula: [
@@ -44,7 +87,7 @@ export const TC096: CardData = {
     ],
   },
   notFor: [
-    "They signal privacy: \"I don't want to make a thing of it.\"",
+    'They signal privacy: "I don\'t want to make a thing of it."',
     "The news is mixed or fragile - attached to grief, guilt, survivor feelings, or uncertainty",
     "They are time-constrained or in task mode",
     "Public attention could embarrass them or create group envy",
@@ -157,12 +200,14 @@ export const TC096: CardData = {
   decisionTree: [
     {
       condition: "They shared a win, relief, or progress",
-      action: "Extend it: mark the good news, add one specific value, offer one short prompt.",
+      action:
+        "Extend it: mark the good news, add one specific value, offer one short prompt.",
       phrase: "That's a real win. What was the best part?",
     },
     {
       condition: "No positive event was actually shared",
-      action: "Don't force it. Listen, validate, or ask a normal question instead.",
+      action:
+        "Don't force it. Listen, validate, or ask a normal question instead.",
       phrase: "",
     },
     {
@@ -212,7 +257,8 @@ export const TC096: CardData = {
     {
       situation: "A colleague solves a hard problem",
       move: "Name the specific difficulty, then ask what moved it.",
-      phrase: "Strong result, especially given the messy handoffs. What made it finally move?",
+      phrase:
+        "Strong result, especially given the messy handoffs. What made it finally move?",
     },
     {
       situation: "A partner shares relief",
@@ -232,7 +278,8 @@ export const TC096: CardData = {
     {
       situation: "Good news with complexity",
       move: "Name both sides, then let them choose the size.",
-      phrase: "Sounds good, and maybe a little complicated. Want to share the good part or keep it light?",
+      phrase:
+        "Sounds good, and maybe a little complicated. Want to share the good part or keep it light?",
     },
   ],
   calibration: {
@@ -240,7 +287,7 @@ export const TC096: CardData = {
       "They smile, lean in, add detail, or start telling the story.",
       "Their voice gains energy or warmth.",
       "They answer your prompt and add another positive detail.",
-      "They use words like \"honestly\", \"the best part\", \"I was proud\", or \"it finally felt real\".",
+      'They use words like "honestly", "the best part", "I was proud", or "it finally felt real".',
       "They volunteer context you didn't ask for.",
       "They move from reporting the news to replaying the moment.",
     ],
@@ -248,7 +295,7 @@ export const TC096: CardData = {
       "They acknowledge but stay brief - hold steady, don't push.",
       "They're pleased but task-focused - mark it and move on.",
       "They shift between pride and modesty - keep it light.",
-      "They deflect repeatedly: \"It's not a big deal.\" - downshift.",
+      'They deflect repeatedly: "It\'s not a big deal." - downshift.',
       "Their body language closes - stop.",
       "The win is clearly mixed with discomfort - drop to a headline marker.",
       "They answer in one-word responses - release the pressure.",
@@ -259,7 +306,7 @@ export const TC096: CardData = {
     {
       day: "Day 1",
       title: "Good-news markers",
-      task: "Take ten plain good-news statements and write one non-generic marker for each. Ban \"nice\" and \"awesome\" unless they're immediately followed by a specific detail.",
+      task: 'Take ten plain good-news statements and write one non-generic marker for each. Ban "nice" and "awesome" unless they\'re immediately followed by a specific detail.',
     },
     {
       day: "Day 2",
@@ -279,7 +326,7 @@ export const TC096: CardData = {
     {
       day: "Day 5",
       title: "Recovery reps",
-      task: "Rehearse saying \"No need to make it huge - I just wanted to mark it\" out loud in a calm, unbothered tone until it sounds natural.",
+      task: 'Rehearse saying "No need to make it huge - I just wanted to mark it" out loud in a calm, unbothered tone until it sounds natural.',
     },
     {
       day: "Day 6",
@@ -326,7 +373,8 @@ export const TC096: CardData = {
     note: "The whole difference is often one sentence: mark it, name why, invite one detail, then let them choose whether to say more.",
   },
   influencePayoff: {
-    feeling: "\"They noticed my good news actually mattered - and they let me enjoy it.\"",
+    feeling:
+      '"They noticed my good news actually mattered - and they let me enjoy it."',
     principle:
       "People become more open with you when they trust that their good moments will be handled well, not ignored or hijacked. The payoff isn't flattery - it's better signal quality: people tell you more when your response shows their news is safe with you.",
     gains: [
@@ -338,7 +386,7 @@ export const TC096: CardData = {
       "You get better signal: good news handled well invites more of it.",
     ],
     whyMostFail: [
-      "They stop at \"nice\" or \"great\" and the moment dies with no detail.",
+      'They stop at "nice" or "great" and the moment dies with no detail.',
       "They hijack the good news with their own, bigger story.",
       "They over-question a light win until it feels like an interrogation.",
       "They pivot straight to next steps, treating the win as a logistical footnote.",
@@ -346,8 +394,9 @@ export const TC096: CardData = {
   },
   fieldTip: {
     headline: "Make the good news easier to enjoy at their chosen size.",
-    body: "A clean move is often only one sentence longer than a generic \"congrats\", but it changes the emotional result. The person hears: I noticed this matters, I understand why, and I won't steal it or overplay it. The rule is simple - match their celebration size, then offer one step more room, not five.",
-    example: "That's worth enjoying. What was the best part - or should we just mark it and keep moving?",
+    body: 'A clean move is often only one sentence longer than a generic "congrats", but it changes the emotional result. The person hears: I noticed this matters, I understand why, and I won\'t steal it or overplay it. The rule is simple - match their celebration size, then offer one step more room, not five.',
+    example:
+      "That's worth enjoying. What was the best part - or should we just mark it and keep moving?",
     dont: "Nice. Anyway, can you send the deck?",
     do: "That's a real win after all that back-and-forth. What made it finally click?",
   },
@@ -357,8 +406,14 @@ export const TC096: CardData = {
       title: "Perception - notice the positive cue",
       body: "Listen for the signal that something good just landed. It may be explicit or a quiet cue such as a small smile after a hard stretch. Catch it before the conversation moves on.",
       examples: [
-        { label: "Explicit", text: "\"They said yes.\" / \"It finally worked.\" / \"I passed.\"" },
-        { label: "Quiet", text: "A relieved exhale, or \"honestly, that's a weight off.\"" },
+        {
+          label: "Explicit",
+          text: '"They said yes." / "It finally worked." / "I passed."',
+        },
+        {
+          label: "Quiet",
+          text: 'A relieved exhale, or "honestly, that\'s a weight off."',
+        },
       ],
     },
     {
@@ -366,7 +421,10 @@ export const TC096: CardData = {
       title: "Move - mark the positive event",
       body: "Give it a clear but not oversized acknowledgement. You're registering that it matters, not launching a party.",
       examples: [
-        { label: "Markers", text: "\"That's a real win.\" / \"That sounds like a relief.\" / \"That is worth taking in.\"" },
+        {
+          label: "Markers",
+          text: '"That\'s a real win." / "That sounds like a relief." / "That is worth taking in."',
+        },
       ],
     },
     {
@@ -374,7 +432,10 @@ export const TC096: CardData = {
       title: "Phrase - add one specific reason it matters",
       body: "Use the evidence they gave you. Naming the effort, timing or difficulty shows you were actually listening, not just being polite.",
       examples: [
-        { label: "Specific value", text: "\"especially after the last few weeks\" / \"given how much coordination that took\" / \"because you kept at it when it was messy\"" },
+        {
+          label: "Specific value",
+          text: '"especially after the last few weeks" / "given how much coordination that took" / "because you kept at it when it was messy"',
+        },
       ],
     },
     {
@@ -382,7 +443,10 @@ export const TC096: CardData = {
       title: "Calibration - invite extension with one prompt",
       body: "Ask a single question that lets them choose the depth. Match their celebration size, then offer one step more room - not five.",
       examples: [
-        { label: "Prompts", text: "\"What was the best part?\" / \"What made it land?\" / \"What are you enjoying most about it?\"" },
+        {
+          label: "Prompts",
+          text: '"What was the best part?" / "What made it land?" / "What are you enjoying most about it?"',
+        },
       ],
     },
     {
@@ -390,7 +454,10 @@ export const TC096: CardData = {
       title: "Recovery - reduce intensity if you overshoot",
       body: "If they shrink, joke nervously, deflect, or change subject, ease off at once. The recovery is often warmer than the original move.",
       examples: [
-        { label: "Ease off", text: "\"No need to make it huge - I just wanted to register that it matters.\"" },
+        {
+          label: "Ease off",
+          text: '"No need to make it huge - I just wanted to register that it matters."',
+        },
       ],
     },
     {
@@ -398,7 +465,10 @@ export const TC096: CardData = {
       title: "Chain - only if it genuinely helps",
       body: "Combine with a neighbouring move when useful, not by reflex. Good news is not an opening to dominate the room.",
       examples: [
-        { label: "Chains", text: "TC016 to respond actively first, TC018 to name the effort, TC041 if their energy rises around a subtopic, TC021 if they need space." },
+        {
+          label: "Chains",
+          text: "TC016 to respond actively first, TC018 to name the effort, TC041 if their energy rises around a subtopic, TC021 if they need space.",
+        },
       ],
     },
   ],
@@ -432,19 +502,20 @@ export const TC096: CardData = {
     {
       depth: "Full extension",
       useWhen: "strong energy, private setting, plenty of time",
-      phrase: "I want to mark that properly. What are you most proud of about it?",
+      phrase:
+        "I want to mark that properly. What are you most proud of about it?",
     },
   ],
   commonMistakes: [
     {
       mistake: "Generic applause",
-      soundsLike: "\"Amazing! Great! Awesome!\" and nothing else.",
-      better: "\"That's a strong result - what made the difference?\"",
+      soundsLike: '"Amazing! Great! Awesome!" and nothing else.',
+      better: '"That\'s a strong result - what made the difference?"',
     },
     {
       mistake: "Spotlight theft",
-      soundsLike: "\"That reminds me of when I...\"",
-      better: "\"That's your moment. What was the best part for you?\"",
+      soundsLike: '"That reminds me of when I..."',
+      better: '"That\'s your moment. What was the best part for you?"',
     },
     {
       mistake: "Overcelebration",
@@ -453,22 +524,22 @@ export const TC096: CardData = {
     },
     {
       mistake: "Forced positivity",
-      soundsLike: "\"Come on, you should be more excited than that!\"",
-      better: "\"You seem quietly pleased. That's allowed too.\"",
+      soundsLike: '"Come on, you should be more excited than that!"',
+      better: '"You seem quietly pleased. That\'s allowed too."',
     },
     {
       mistake: "Premature optimisation",
-      soundsLike: "\"Great - so what's the next step?\"",
-      better: "\"Before we move on, what should not get lost about this?\"",
+      soundsLike: '"Great - so what\'s the next step?"',
+      better: '"Before we move on, what should not get lost about this?"',
     },
     {
       mistake: "Suspicion reflex",
-      soundsLike: "\"Are you sure that really counts?\"",
-      better: "\"That counts. What are you most glad about?\"",
+      soundsLike: '"Are you sure that really counts?"',
+      better: '"That counts. What are you most glad about?"',
     },
     {
       mistake: "Endless extension",
-      soundsLike: "\"And then? And who? And why? And what next?\"",
+      soundsLike: '"And then? And who? And why? And what next?"',
       better: "One good question, then let them enjoy it.",
     },
   ],
@@ -482,22 +553,24 @@ export const TC096: CardData = {
     "Sounds like there's good in it and some complexity too. Want to keep it at the headline level?",
     "No need for a big celebration. I just wanted to register that it counts.",
   ],
-  bestRecoveryLine: "I may have made that bigger than you wanted. I just meant: good news.",
+  bestRecoveryLine:
+    "I may have made that bigger than you wanted. I just meant: good news.",
   chains: [
     {
       label: "Warm open, then extend",
       sequence: "TC024 Warm opening -> TC096 Capitalisation extension",
       example: [
         "Open warmly, then extend the good news they slip in.",
-        "\"Good to see you - and hang on, didn't your results come through? What was the best part?\"",
+        '"Good to see you - and hang on, didn\'t your results come through? What was the best part?"',
       ],
     },
     {
       label: "Respond, then savour",
-      sequence: "TC016 Active-constructive responding -> TC096 Capitalisation extension",
+      sequence:
+        "TC016 Active-constructive responding -> TC096 Capitalisation extension",
       example: [
         "Respond actively first, then ask the best-part prompt.",
-        "\"That's genuinely brilliant. What was the moment you knew it had worked?\"",
+        '"That\'s genuinely brilliant. What was the moment you knew it had worked?"',
       ],
     },
     {
@@ -505,7 +578,7 @@ export const TC096: CardData = {
       sequence: "TC018 Specific appreciation -> TC096 Capitalisation extension",
       example: [
         "Name the specific effort, then let them enjoy the result.",
-        "\"You kept at that when it was messy. What part are you most proud of now it's landed?\"",
+        '"You kept at that when it was messy. What part are you most proud of now it\'s landed?"',
       ],
     },
     {
@@ -513,7 +586,7 @@ export const TC096: CardData = {
       sequence: "TC096 Capitalisation extension -> TC021 Autonomy release",
       example: [
         "Extend once, then hand control of the celebration back to them.",
-        "\"What was the best part? ... No need to unpack it if you're already moving on.\"",
+        '"What was the best part? ... No need to unpack it if you\'re already moving on."',
       ],
     },
   ],
@@ -541,7 +614,7 @@ export const TC096: CardData = {
     {
       id: "TC054",
       reason:
-        "TC054 bonds through a real, shared similarity. TC096 keeps the focus on their win. If \"same here\" serves their moment, chain briefly; if it shifts focus to you, stay with TC096.",
+        'TC054 bonds through a real, shared similarity. TC096 keeps the focus on their win. If "same here" serves their moment, chain briefly; if it shifts focus to you, stay with TC096.',
     },
   ],
 };

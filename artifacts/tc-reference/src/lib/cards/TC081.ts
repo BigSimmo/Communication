@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC081: CardData = {
   pdfUrl: "cards/TC081/TC081_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC081/TC081_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC081/TC081_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC081/TC081_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC081/TC081_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC081/TC081_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC081/TC081_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC081/TC081_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC081/TC081_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC081/TC081_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC081/TC081_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC081/TC081_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC081/TC081_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC081/TC081_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC081/TC081_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC081",
   whyItWorks:
@@ -24,11 +67,11 @@ export const TC081: CardData = {
   overview: {
     coreFormula: [
       "COIN = Context -> Observation -> Impact -> Next step.",
-      "Context: \"In yesterday's client handoff...\"",
-      "Observation: \"...the risk note was missing from the summary...\"",
-      "Impact: \"...so the next person had to reconstruct the issue under time pressure...\"",
-      "Next step: \"...next time, please add the risk note before sending the handoff.\"",
-      "Compact: \"In [moment], I noticed [observable behaviour]. The impact was [specific effect]. Next time, could we [workable next step]?\"",
+      'Context: "In yesterday\'s client handoff..."',
+      'Observation: "...the risk note was missing from the summary..."',
+      'Impact: "...so the next person had to reconstruct the issue under time pressure..."',
+      'Next step: "...next time, please add the risk note before sending the handoff."',
+      'Compact: "In [moment], I noticed [observable behaviour]. The impact was [specific effect]. Next time, could we [workable next step]?"',
     ],
     minimumViableMove:
       "In [context], I noticed [behaviour]. The impact was [effect]. Next time, can we [specific next step]?",
@@ -165,8 +208,10 @@ export const TC081: CardData = {
     },
     {
       condition: "They're visibly distressed",
-      action: "Lead with emotion first (validation or NURSE) before any feedback.",
-      phrase: "This looks like a hard moment. Do you want to talk about that first?",
+      action:
+        "Lead with emotion first (validation or NURSE) before any feedback.",
+      phrase:
+        "This looks like a hard moment. Do you want to talk about that first?",
     },
     {
       condition: "They dispute your observation",
@@ -191,18 +236,21 @@ export const TC081: CardData = {
   ],
   ladder: [
     {
-      weak: "\"You are unreliable and your updates are always messy.\" Labels character, exaggerates and offers no repair path.",
-      better: "\"The last update was missing the status and owner, so I had to ask three follow-up questions.\" Observable and impact-based, but still needs a next step.",
-      best: "\"In yesterday's handoff, the status and owner fields were blank. The impact was that triage took an extra ten minutes and the next owner was unclear. Next time, can you fill both fields before closing the handoff?\"",
+      weak: '"You are unreliable and your updates are always messy." Labels character, exaggerates and offers no repair path.',
+      better:
+        '"The last update was missing the status and owner, so I had to ask three follow-up questions." Observable and impact-based, but still needs a next step.',
+      best: '"In yesterday\'s handoff, the status and owner fields were blank. The impact was that triage took an extra ten minutes and the next owner was unclear. Next time, can you fill both fields before closing the handoff?"',
     },
     {
-      weak: "\"You were dismissive in there.\" An interpretation dressed as a fact — easy to deny.",
-      better: "\"You spoke over the last two sentences before I finished the risk point.\" A clean observation, but no consequence or ask.",
-      best: "\"In the risk discussion, I got spoken over before I finished, so the risk didn't get logged. Next time, can we let each point land before responding?\"",
+      weak: '"You were dismissive in there." An interpretation dressed as a fact — easy to deny.',
+      better:
+        '"You spoke over the last two sentences before I finished the risk point." A clean observation, but no consequence or ask.',
+      best: '"In the risk discussion, I got spoken over before I finished, so the risk didn\'t get logged. Next time, can we let each point land before responding?"',
     },
     {
-      weak: "\"You made everyone miserable on Friday.\" Turns impact into guilt and mind-reads the room.",
-      better: "\"The decision had to be reopened after the meeting.\" States a real effect, but leaves it hanging.",
+      weak: '"You made everyone miserable on Friday." Turns impact into guilt and mind-reads the room.',
+      better:
+        '"The decision had to be reopened after the meeting." States a real effect, but leaves it hanging.',
       best: "\"In Friday's call, the decision was reopened after we'd closed it. The impact was an extra hour for six people. Next time, can we confirm everyone's a yes before we move on?\"",
     },
   ],
@@ -210,32 +258,38 @@ export const TC081: CardData = {
     {
       situation: "Manager feedback on a specific incident",
       move: "Anchor to one recent example and end with a concrete operational next step.",
-      phrase: "In the last client update, the risk caveat was missing. The impact was that support answered the same question repeatedly. Next time, please include the caveat before it goes out.",
+      phrase:
+        "In the last client update, the risk caveat was missing. The impact was that support answered the same question repeatedly. Next time, please include the caveat before it goes out.",
     },
     {
       situation: "Peer collaboration without authority",
       move: "Keep it a joint request, not an order — you're asking, not instructing.",
-      phrase: "In the planning thread, the owner changed before the dependency was confirmed. The impact was rework. Next time, can we confirm dependencies before assigning the owner?",
+      phrase:
+        "In the planning thread, the owner changed before the dependency was confirmed. The impact was rework. Next time, can we confirm dependencies before assigning the owner?",
     },
     {
       situation: "Upward feedback to someone senior",
       move: "Focus on the practical cost to the work, not the person's judgement.",
-      phrase: "In yesterday's meeting, the deadline changed before blockers were reviewed. The impact is that I'm not sure what to drop. Could we confirm the trade-off before I re-plan?",
+      phrase:
+        "In yesterday's meeting, the deadline changed before blockers were reviewed. The impact is that I'm not sure what to drop. Could we confirm the trade-off before I re-plan?",
     },
     {
       situation: "Relationship repair",
       move: "Name your own behaviour first, then propose the shared fix.",
-      phrase: "When we talked last night, I interrupted twice while you were explaining. The impact was that you had to restart. Next time, I'll pause and ask before responding.",
+      phrase:
+        "When we talked last night, I interrupted twice while you were explaining. The impact was that you had to restart. Next time, I'll pause and ask before responding.",
     },
     {
       situation: "Digital or written feedback",
       move: "Use short labelled lines only when clarity matters more than warmth.",
-      phrase: "Context: last release note. Observation: caveat missing. Impact: repeated support questions. Next step: add caveats before release.",
+      phrase:
+        "Context: last release note. Observation: caveat missing. Impact: repeated support questions. Next step: add caveats before release.",
     },
     {
       situation: "Group retrospective",
       move: "Run COIN on the process, not a person, unless a direct person-to-person channel is appropriate.",
-      phrase: "In the retro, we skipped the action review, and the same issue returned. Next time, can we hold five minutes for actions?",
+      phrase:
+        "In the retro, we skipped the action review, and the same issue returned. Next time, can we hold five minutes for actions?",
     },
   ],
   calibration: {
@@ -248,7 +302,7 @@ export const TC081: CardData = {
       "The temperature stays level — no spike in defensiveness.",
     ],
     adjust: [
-      "They argue about intent — say: \"I'm not trying to decide intent, just naming the behaviour and its effect.\"",
+      'They argue about intent — say: "I\'m not trying to decide intent, just naming the behaviour and its effect."',
       "They look ashamed or shut down — reduce intensity and separate the behaviour from their identity.",
       "They dispute the observation — ask for their version before continuing.",
       "The exchange turns unsafe, humiliating, circular or coercive — stop and use the right process or support route.",
@@ -260,7 +314,7 @@ export const TC081: CardData = {
     {
       day: "Day 1",
       title: "Spot clean observations",
-      task: "Take five vague judgements you've thought this week (\"he's dismissive\", \"she's careless\") and rewrite each as one observable behaviour a camera could have caught.",
+      task: 'Take five vague judgements you\'ve thought this week ("he\'s dismissive", "she\'s careless") and rewrite each as one observable behaviour a camera could have caught.',
     },
     {
       day: "Day 2",
@@ -275,7 +329,7 @@ export const TC081: CardData = {
     {
       day: "Day 4",
       title: "Add the invitation",
-      task: "Append one calibration line — \"What am I missing?\" or \"Does that next step work?\" — and read the note aloud twice: once too formal, once as plain speech.",
+      task: 'Append one calibration line — "What am I missing?" or "Does that next step work?" — and read the note aloud twice: once too formal, once as plain speech.',
     },
     {
       day: "Day 5",
@@ -303,23 +357,23 @@ export const TC081: CardData = {
   ],
   example: {
     without: [
-      "A: \"You keep making meetings chaotic. You need to be more professional.\"",
-      "B: \"What are you talking about?\"",
-      "A: \"You know exactly what I mean.\"",
+      'A: "You keep making meetings chaotic. You need to be more professional."',
+      'B: "What are you talking about?"',
+      'A: "You know exactly what I mean."',
       "Why it fails: no context, no observation, no specific impact and no workable next step — just a character verdict B can only deny.",
     ],
     with: [
-      "A: \"Can I give one specific note from today's meeting?\"",
-      "B: \"Sure.\"",
-      "A: \"In the planning meeting, the task owner changed before the risk was discussed. The impact was that two people left with different assumptions. Next time, could we pause on the risk before assigning ownership? I may be missing why you moved quickly.\"",
-      "B: \"I moved because we were out of time, but yes, the risk should be explicit.\"",
-      "A: \"That makes sense. Let's use the last two minutes for risk and owner next time.\"",
+      'A: "Can I give one specific note from today\'s meeting?"',
+      'B: "Sure."',
+      'A: "In the planning meeting, the task owner changed before the risk was discussed. The impact was that two people left with different assumptions. Next time, could we pause on the risk before assigning ownership? I may be missing why you moved quickly."',
+      'B: "I moved because we were out of time, but yes, the risk should be explicit."',
+      'A: "That makes sense. Let\'s use the last two minutes for risk and owner next time."',
       "Why it works: it asks permission, keeps to one clean moment, states impact without blame, invites correction, and turns the note into a shared operating change.",
     ],
     note: "The plainer version drops the permission opener and the invitation to correct — still effective, but the advanced version turns feedback into a joint agreement rather than a verdict.",
   },
   influencePayoff: {
-    feeling: "\"I know exactly what to change, and I wasn't put on trial.\"",
+    feeling: '"I know exactly what to change, and I wasn\'t put on trial."',
     principle:
       "People act on feedback they can actually act on. Clarity and fairness move behaviour where pressure and character verdicts only trigger defence.",
     gains: [
@@ -332,7 +386,7 @@ export const TC081: CardData = {
     ],
     whyMostFail: [
       "They stack several old grievances into one note, so it lands as an ambush the structure can't rescue.",
-      "They dress an interpretation up as an observation — \"you were dismissive\" instead of \"you spoke over the last two sentences.\"",
+      'They dress an interpretation up as an observation — "you were dismissive" instead of "you spoke over the last two sentences."',
       "They make the impact sound like guilt rather than a practical cost.",
       "They skip the next step, leaving a complaint instead of a path.",
       "They over-polish the acronym until it sounds rehearsed and managerial.",
@@ -340,9 +394,9 @@ export const TC081: CardData = {
   },
   fieldTip: {
     headline: "Name the moment, not the person.",
-    body: "COIN works when the listener can think, \"I can change that behaviour,\" not, \"I have to defend who I am.\" If you can't make the observation clean enough for a fair stranger to recognise, you're not ready to give feedback yet — ask a question first.",
-    dont: "\"You're dismissive and unreliable.\"",
-    do: "\"In the risk discussion, I got spoken over before I finished. Next time, can we let each point land?\"",
+    body: 'COIN works when the listener can think, "I can change that behaviour," not, "I have to defend who I am." If you can\'t make the observation clean enough for a fair stranger to recognise, you\'re not ready to give feedback yet — ask a question first.',
+    dont: '"You\'re dismissive and unreliable."',
+    do: '"In the risk discussion, I got spoken over before I finished. Next time, can we let each point land?"',
   },
   method: [
     {
@@ -350,8 +404,8 @@ export const TC081: CardData = {
       title: "Pick one clean moment (Context)",
       body: "Choose a single, recent behaviour that had a real effect, and name where and when it happened. One moment keeps the feedback anchored instead of becoming a pile of grievances.",
       examples: [
-        { label: "Vague", text: "\"Lately you've been all over the place.\"" },
-        { label: "Context", text: "\"In yesterday's client handoff...\"" },
+        { label: "Vague", text: '"Lately you\'ve been all over the place."' },
+        { label: "Context", text: '"In yesterday\'s client handoff..."' },
       ],
     },
     {
@@ -359,8 +413,11 @@ export const TC081: CardData = {
       title: "State what you saw (Observation)",
       body: "Describe only what a camera would have caught — no mind-reading, exaggeration or character labels. If you can't, you're interpreting, not observing, and it's time to ask a question instead.",
       examples: [
-        { label: "Interpretation", text: "\"You were dismissive.\"" },
-        { label: "Observation", text: "\"...the risk note was missing from the summary...\"" },
+        { label: "Interpretation", text: '"You were dismissive."' },
+        {
+          label: "Observation",
+          text: '"...the risk note was missing from the summary..."',
+        },
       ],
     },
     {
@@ -368,8 +425,11 @@ export const TC081: CardData = {
       title: "Name the effect (Impact)",
       body: "Explain the practical, operational or relational consequence — the cost, not the guilt. Concrete effects are far harder to argue with than accusations of how people felt.",
       examples: [
-        { label: "Guilt", text: "\"You made everyone miserable.\"" },
-        { label: "Impact", text: "\"...so the next person had to reconstruct the issue under time pressure...\"" },
+        { label: "Guilt", text: '"You made everyone miserable."' },
+        {
+          label: "Impact",
+          text: '"...so the next person had to reconstruct the issue under time pressure..."',
+        },
       ],
     },
     {
@@ -377,8 +437,11 @@ export const TC081: CardData = {
       title: "Agree what changes (Next step)",
       body: "Turn it into a workable action or request. Keep it specific and, where you can, open to a better alternative rather than a flat instruction.",
       examples: [
-        { label: "Vague", text: "\"Just be more careful.\"" },
-        { label: "Next step", text: "\"Next time, please add the risk note before sending the handoff.\"" },
+        { label: "Vague", text: '"Just be more careful."' },
+        {
+          label: "Next step",
+          text: '"Next time, please add the risk note before sending the handoff."',
+        },
       ],
     },
     {
@@ -386,76 +449,86 @@ export const TC081: CardData = {
       title: "Invite correction, then calibrate",
       body: "Add a line that opens the door, then watch whether they get clearer or more defensive. If it lands as judgement, narrow it back to the behaviour and separate what you observed from the story you may be adding.",
       examples: [
-        { label: "Invite", text: "\"That's how I saw the impact — what am I missing?\"" },
-        { label: "Recover", text: "\"Let me narrow that to the behaviour, not your character.\"" },
+        {
+          label: "Invite",
+          text: '"That\'s how I saw the impact — what am I missing?"',
+        },
+        {
+          label: "Recover",
+          text: '"Let me narrow that to the behaviour, not your character."',
+        },
       ],
     },
   ],
   liveThreadClues: [
-    "\"always\" / \"never\" — exaggeration, almost never a clean observation",
-    "\"dismissive\", \"lazy\", \"careless\" — character labels, not behaviours",
-    "\"you made everyone...\" — impact turned into guilt",
-    "\"you know exactly what I mean\" — you've skipped the observation",
-    "\"last week and the month before...\" — you're stacking, not naming one moment",
-    "\"you clearly didn't care\" — mind-reading motive",
+    '"always" / "never" — exaggeration, almost never a clean observation',
+    '"dismissive", "lazy", "careless" — character labels, not behaviours',
+    '"you made everyone..." — impact turned into guilt',
+    '"you know exactly what I mean" — you\'ve skipped the observation',
+    '"last week and the month before..." — you\'re stacking, not naming one moment',
+    '"you clearly didn\'t care" — mind-reading motive',
   ],
   depthDial: [
     {
       depth: "Invitation",
       useWhen: "Peer, low stakes, and you might be missing context",
-      phrase: "\"Next time, could we...? Or is there a better way?\"",
+      phrase: '"Next time, could we...? Or is there a better way?"',
     },
     {
       depth: "Request",
       useWhen: "Clear cost, collaborative relationship",
-      phrase: "\"Next time, can we...?\"",
+      phrase: '"Next time, can we...?"',
     },
     {
       depth: "Instruction",
       useWhen: "Repeated issue and the call is yours to make",
-      phrase: "\"From now on, please...\"",
+      phrase: '"From now on, please..."',
     },
     {
       depth: "Boundary",
       useWhen: "Non-negotiable — a safety, quality or standard line",
-      phrase: "\"This one isn't optional: it needs to be...\"",
+      phrase: '"This one isn\'t optional: it needs to be..."',
     },
   ],
   commonMistakes: [
     {
       mistake: "Stacking grievances into one note",
-      soundsLike: "\"Last week, yesterday and the month before...\"",
-      better: "Pick the single cleanest example: \"In yesterday's handoff...\"",
+      soundsLike: '"Last week, yesterday and the month before..."',
+      better: 'Pick the single cleanest example: "In yesterday\'s handoff..."',
     },
     {
       mistake: "Dressing interpretation up as observation",
-      soundsLike: "\"You were dismissive.\"",
-      better: "\"You spoke over the last two sentences before I finished.\"",
+      soundsLike: '"You were dismissive."',
+      better: '"You spoke over the last two sentences before I finished."',
     },
     {
       mistake: "Making impact sound like guilt",
-      soundsLike: "\"You made everyone miserable.\"",
-      better: "\"The decision had to be reopened after the meeting.\"",
+      soundsLike: '"You made everyone miserable."',
+      better: '"The decision had to be reopened after the meeting."',
     },
     {
       mistake: "Skipping the next step",
-      soundsLike: "\"...and that really wasn't good enough.\"",
-      better: "\"Next time, can we confirm the risk before assigning the owner?\"",
+      soundsLike: '"...and that really wasn\'t good enough."',
+      better:
+        '"Next time, can we confirm the risk before assigning the owner?"',
     },
     {
       mistake: "Ambushing after privately building a case",
-      soundsLike: "\"I've been keeping track, and...\"",
-      better: "Raise one moment close to when it happens, not a dossier weeks later.",
+      soundsLike: '"I\'ve been keeping track, and..."',
+      better:
+        "Raise one moment close to when it happens, not a dossier weeks later.",
     },
     {
       mistake: "Over-polishing the acronym",
-      soundsLike: "\"Per the framework, the observation phase indicates...\"",
-      better: "Plain speech: \"In the review, the caveat was missing, so support kept getting the same question.\"",
+      soundsLike: '"Per the framework, the observation phase indicates..."',
+      better:
+        'Plain speech: "In the review, the caveat was missing, so support kept getting the same question."',
     },
     {
       mistake: "Using COIN when care should come first",
       soundsLike: "Delivering feedback while they're visibly upset.",
-      better: "Validate or use NURSE first, then give the note once it can be heard.",
+      better:
+        "Validate or use NURSE first, then give the note once it can be heard.",
     },
   ],
   recoveryPhrases: [
@@ -475,8 +548,8 @@ export const TC081: CardData = {
       label: "Warm opening -> COIN",
       sequence: "Warm opening -> COIN",
       example: [
-        "\"Good to catch you — I know this week's been full-on.\"",
-        "\"In this morning's review, we moved past the risk before Alex finished. The impact was that we had to reopen it. Next time, can we let the owner finish?\"",
+        '"Good to catch you — I know this week\'s been full-on."',
+        '"In this morning\'s review, we moved past the risk before Alex finished. The impact was that we had to reopen it. Next time, can we let the owner finish?"',
       ],
     },
     {
@@ -484,23 +557,23 @@ export const TC081: CardData = {
       sequence: "Validate the concern -> COIN",
       example: [
         "\"You're right that the timeline was brutal — that part wasn't on you.\"",
-        "\"Still, in the handoff the status field was blank, so triage stalled. Next time, can we fill it before closing?\"",
+        '"Still, in the handoff the status field was blank, so triage stalled. Next time, can we fill it before closing?"',
       ],
     },
     {
       label: "Permission -> COIN",
       sequence: "Permission-based advice -> COIN",
       example: [
-        "\"Can I share one specific note from the meeting?\"",
-        "\"In the planning chat, my estimate changed before I'd explained the constraint. The impact was a plan that looked cleaner than it was. Next time, can we check the constraint first?\"",
+        '"Can I share one specific note from the meeting?"',
+        '"In the planning chat, my estimate changed before I\'d explained the constraint. The impact was a plan that looked cleaner than it was. Next time, can we check the constraint first?"',
       ],
     },
     {
       label: "COIN -> Summary check -> Autonomy release",
       sequence: "COIN -> Summary check -> Autonomy release",
       example: [
-        "\"...so next time, can we confirm dependencies before assigning the owner?\"",
-        "\"Just to check we're aligned — we lock dependencies first, then assign?\"",
+        '"...so next time, can we confirm dependencies before assigning the owner?"',
+        '"Just to check we\'re aligned — we lock dependencies first, then assign?"',
         "\"But if there's a better way to handle it your end, I'm open to that.\"",
       ],
     },

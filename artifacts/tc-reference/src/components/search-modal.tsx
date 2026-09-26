@@ -13,6 +13,16 @@ import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
 
+// Plain-language hint for where a non-title match was found. Title, ID and
+// category matches are self-evident from the row and get no hint.
+const MATCH_HINTS: Record<string, string> = {
+  "best-for": "Matches Best for",
+  formula: "Matches the core formula",
+  phrases: "Matches a phrase",
+  scenarios: "Matches a scenario",
+  explanation: "Matches Why it works",
+};
+
 interface SearchModalProps {
   query: string;
   setQuery: (q: string) => void;
@@ -38,7 +48,7 @@ function HighlightedText({ text, query }: { text: string; query: string }) {
           </mark>
         ) : (
           <span key={i}>{p.text}</span>
-        )
+        ),
       )}
     </>
   );
@@ -109,7 +119,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
   // Keep Tab cycling inside the popout while it's open (initial focus lands
   // on the input). Focus restore is handled manually below — restoring into
   // an element that opens search on focus would immediately reopen the modal.
-  useFocusTrap(true, panelRef, { initialFocusRef: inputRef, restoreFocus: false });
+  useFocusTrap(true, panelRef, {
+    initialFocusRef: inputRef,
+    restoreFocus: false,
+  });
   useBodyScrollLock(true);
 
   useEffect(() => {
@@ -122,7 +135,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
         // without immediately re-triggering the modal.
         opener.setAttribute("data-suppress-search-open", "true");
         opener.focus?.();
-        setTimeout(() => opener.removeAttribute("data-suppress-search-open"), 0);
+        setTimeout(
+          () => opener.removeAttribute("data-suppress-search-open"),
+          0,
+        );
       } else {
         opener.focus?.();
       }
@@ -158,7 +174,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
       handleClose();
       setTimeout(() => setLocation(`/card/${id}`), 10);
     },
-    [query, addRecent, handleClose, setLocation]
+    [query, addRecent, handleClose, setLocation],
   );
 
   const applyRecent = useCallback(
@@ -166,7 +182,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
       setQuery(term);
       setTimeout(() => inputRef.current?.focus(), 30);
     },
-    [setQuery]
+    [setQuery],
   );
 
   useEffect(() => {
@@ -199,7 +215,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
   useEffect(() => {
     if (selectedIndex >= 0 && listRef.current) {
       const el = listRef.current.querySelector(
-        `[data-result-index="${selectedIndex}"]`
+        `[data-result-index="${selectedIndex}"]`,
       ) as HTMLElement | null;
       el?.scrollIntoView({ block: "nearest" });
     }
@@ -213,9 +229,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
     background: "var(--surface-dd)",
     border: "1px solid var(--fg-10)",
     borderRadius: 16,
-    boxShadow: theme === "light"
-      ? "0 18px 46px rgba(15,23,36,0.18)"
-      : "0 18px 52px rgba(0,0,0,0.48)",
+    boxShadow:
+      theme === "light"
+        ? "0 18px 46px rgba(15,23,36,0.18)"
+        : "0 18px 52px rgba(0,0,0,0.48)",
     width: "100%",
     maxWidth: 520,
     // dvh tracks the on-screen keyboard on iOS/Android so results stay visible
@@ -223,9 +240,13 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
-    transition: prefersReducedMotion ? "none" : "opacity 0.18s ease, transform 0.18s ease",
+    transition: prefersReducedMotion
+      ? "none"
+      : "opacity 0.18s ease, transform 0.18s ease",
     opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0) scale(1)" : "translateY(-8px) scale(0.985)",
+    transform: visible
+      ? "translateY(0) scale(1)"
+      : "translateY(-8px) scale(0.985)",
   };
 
   const backdropStyle: React.CSSProperties = {
@@ -237,7 +258,8 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
     justifyContent: "flex-end",
     padding:
       "calc(var(--app-header-height, 48px) + 8px) max(12px, env(safe-area-inset-right, 0px)) 12px max(12px, env(safe-area-inset-left, 0px))",
-    background: theme === "light" ? "rgba(248,249,251,0.30)" : "rgba(3,7,18,0.24)",
+    background:
+      theme === "light" ? "rgba(248,249,251,0.30)" : "rgba(3,7,18,0.24)",
     backdropFilter: prefersReducedMotion ? "none" : "blur(2px)",
     WebkitBackdropFilter: prefersReducedMotion ? "none" : "blur(2px)",
     transition: prefersReducedMotion ? "none" : "opacity 0.18s ease",
@@ -253,7 +275,11 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
       aria-label="Search"
       data-testid="search-modal"
     >
-      <div id="search-popout-panel" ref={panelRef} style={{ ...panelStyle, pointerEvents: "auto" }}>
+      <div
+        id="search-popout-panel"
+        ref={panelRef}
+        style={{ ...panelStyle, pointerEvents: "auto" }}
+      >
         {/* Input row */}
         <div
           className="flex items-center gap-3 px-4"
@@ -264,7 +290,13 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             flexShrink: 0,
           }}
         >
-          <Search className="w-5 h-5 flex-shrink-0" style={{ color: "color-mix(in srgb, var(--brand-text) 60%, transparent)" }} aria-hidden="true" />
+          <Search
+            className="w-5 h-5 flex-shrink-0"
+            style={{
+              color: "color-mix(in srgb, var(--brand-text) 60%, transparent)",
+            }}
+            aria-hidden="true"
+          />
           <input
             ref={inputRef}
             type="text"
@@ -275,7 +307,9 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             aria-label="Search techniques"
             aria-autocomplete="list"
             aria-expanded={results.length > 0}
-            aria-controls={results.length > 0 ? "search-modal-results" : undefined}
+            aria-controls={
+              results.length > 0 ? "search-modal-results" : undefined
+            }
             aria-activedescendant={
               selectedIndex >= 0 && selectedIndex < results.length
                 ? `search-modal-option-${selectedIndex}`
@@ -292,7 +326,11 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
               className="tap-target flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
               style={{ background: "var(--fg-07)" }}
             >
-              <X className="w-3.5 h-3.5" style={{ color: "var(--fg-50)" }} aria-hidden="true" />
+              <X
+                className="w-3.5 h-3.5"
+                style={{ color: "var(--fg-50)" }}
+                aria-hidden="true"
+              />
             </button>
           )}
           <button
@@ -300,10 +338,19 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             aria-label="Close search"
             data-testid="button-search-modal-close"
             className="tap-target flex-shrink-0 h-9 min-w-9 px-2 flex items-center justify-center gap-1 rounded-lg transition-all active:scale-95"
-            style={{ background: "var(--fg-06)", color: "var(--fg-55)", border: "1px solid var(--fg-09)" }}
+            style={{
+              background: "var(--fg-06)",
+              color: "var(--fg-55)",
+              border: "1px solid var(--fg-09)",
+            }}
           >
-            <X className="w-4 h-4 [@media(pointer:fine)]:hidden" aria-hidden="true" />
-            <span className="hidden [@media(pointer:fine)]:inline text-[11px] font-semibold">Esc</span>
+            <X
+              className="w-4 h-4 [@media(pointer:fine)]:hidden"
+              aria-hidden="true"
+            />
+            <span className="hidden [@media(pointer:fine)]:inline text-[11px] font-semibold">
+              Esc
+            </span>
           </button>
         </div>
 
@@ -315,16 +362,23 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           className="overflow-y-auto overscroll-contain"
           style={{
             flex: 1,
-            WebkitOverflowScrolling: "touch" as React.CSSProperties["WebkitOverflowScrolling"],
+            WebkitOverflowScrolling:
+              "touch" as React.CSSProperties["WebkitOverflowScrolling"],
           }}
         >
           {showSmartStart && (
             <div
               className="px-3 py-3"
-              style={{ borderBottom: showRecents ? "1px solid var(--fg-05)" : "none" }}
+              style={{
+                borderBottom: showRecents ? "1px solid var(--fg-05)" : "none",
+              }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <Sparkles className="w-3.5 h-3.5" style={{ color: "var(--brand-text)" }} aria-hidden="true" />
+                <Sparkles
+                  className="w-3.5 h-3.5"
+                  style={{ color: "var(--brand-text)" }}
+                  aria-hidden="true"
+                />
                 <p
                   className="text-[11px] font-semibold tracking-widest uppercase"
                   style={{ color: "var(--fg-55)" }}
@@ -355,8 +409,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                     onClick={() => applyRecent(term)}
                     className="tap-target-y rounded-full px-3 py-1.5 text-[12px] font-semibold transition-all active:scale-95"
                     style={{
-                      background: "color-mix(in srgb, var(--brand) 8%, transparent)",
-                      border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+                      background:
+                        "color-mix(in srgb, var(--brand) 8%, transparent)",
+                      border:
+                        "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
                       color: "var(--brand-text)",
                     }}
                   >
@@ -369,7 +425,11 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
 
           {/* Results list */}
           {searchLoading && (
-            <div role="status" aria-live="polite" className="py-10 px-6 text-center">
+            <div
+              role="status"
+              aria-live="polite"
+              className="py-10 px-6 text-center"
+            >
               <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
                 Loading search index…
               </p>
@@ -392,73 +452,98 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
               >
                 Results
               </p>
-              <div id="search-modal-results" role="listbox" aria-label="Search results">
-              {results.map((result, i) => {
-                const isSelected = i === selectedIndex;
-                return (
-                  <button
-                    key={result.id}
-                    id={`search-modal-option-${i}`}
-                    role="option"
-                    aria-selected={isSelected}
-                    aria-disabled={!result.loaded}
-                    data-result-index={i}
-                    data-testid={`search-modal-result-${result.id}`}
-                    onClick={() => navigate(result.id, result.loaded)}
-                    className="w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-100"
-                    style={{
-                      background: isSelected ? "var(--fg-06)" : "transparent",
-                      opacity: result.loaded ? 1 : 0.45,
-                      cursor: result.loaded ? "pointer" : "default",
-                    }}
-                    onPointerEnter={(e) => {
-                      // Mouse only — a tap would otherwise leave the row stuck highlighted
-                      if (e.pointerType === "mouse") setSelectedIndex(i);
-                    }}
-                    onPointerLeave={(e) => {
-                      if (e.pointerType === "mouse") setSelectedIndex(-1);
-                    }}
-                  >
-                    <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
+              <div
+                id="search-modal-results"
+                role="listbox"
+                aria-label="Search results"
+              >
+                {results.map((result, i) => {
+                  const isSelected = i === selectedIndex;
+                  return (
+                    <button
+                      key={result.id}
+                      id={`search-modal-option-${i}`}
+                      role="option"
+                      aria-selected={isSelected}
+                      aria-disabled={!result.loaded}
+                      data-result-index={i}
+                      data-testid={`search-modal-result-${result.id}`}
+                      onClick={() => navigate(result.id, result.loaded)}
+                      className="w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-100"
                       style={{
-                        background: result.loaded ? "var(--brand)" : "var(--fg-08)",
-                        color: result.loaded ? "var(--brand-contrast)" : "var(--fg-30)",
+                        background: isSelected ? "var(--fg-06)" : "transparent",
+                        opacity: result.loaded ? 1 : 0.45,
+                        cursor: result.loaded ? "pointer" : "default",
+                      }}
+                      onPointerEnter={(e) => {
+                        // Mouse only — a tap would otherwise leave the row stuck highlighted
+                        if (e.pointerType === "mouse") setSelectedIndex(i);
+                      }}
+                      onPointerLeave={(e) => {
+                        if (e.pointerType === "mouse") setSelectedIndex(-1);
                       }}
                     >
-                      {result.id.slice(2)}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p
-                        className="text-[13px] font-semibold leading-tight"
-                        style={{ color: result.loaded ? "var(--fg-90)" : "var(--fg-40)" }}
+                      <div
+                        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
+                        style={{
+                          background: result.loaded
+                            ? "var(--brand)"
+                            : "var(--fg-08)",
+                          color: result.loaded
+                            ? "var(--brand-contrast)"
+                            : "var(--fg-30)",
+                        }}
                       >
-                        <HighlightedText text={result.title} query={query} />
-                      </p>
-                      <p className="text-[11px] mt-0.5" style={{ color: "var(--fg-55)" }}>
-                        {result.id} · {result.category}
-                        {result.matchedIn && result.matchedIn !== "title" && result.matchedIn !== "id" && (
-                          <span style={{ color: "var(--fg-55)" }}> · matched in {result.matchedIn}</span>
-                        )}
-                      </p>
-                    </div>
-                    {result.loaded ? (
-                      <ArrowRight
-                        className="w-4 h-4 flex-shrink-0"
-                        style={{ color: isSelected ? "var(--brand-text)" : "var(--fg-40)" }}
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <span
-                        className="text-[10px] font-medium px-2 py-0.5 rounded-full flex-shrink-0"
-                        style={{ background: "var(--fg-05)", color: "var(--fg-55)" }}
-                      >
-                        Soon
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
+                        {result.id.slice(2)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p
+                          className="text-[13px] font-semibold leading-tight"
+                          style={{
+                            color: result.loaded
+                              ? "var(--fg-90)"
+                              : "var(--fg-40)",
+                          }}
+                        >
+                          <HighlightedText text={result.title} query={query} />
+                        </p>
+                        <p
+                          className="text-[11px] mt-0.5"
+                          style={{ color: "var(--fg-55)" }}
+                        >
+                          {result.id} · {result.category}
+                          {MATCH_HINTS[result.matchedIn] && (
+                            <span style={{ color: "var(--fg-55)" }}>
+                              {" "}
+                              · {MATCH_HINTS[result.matchedIn]}
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                      {result.loaded ? (
+                        <ArrowRight
+                          className="w-4 h-4 flex-shrink-0"
+                          style={{
+                            color: isSelected
+                              ? "var(--brand-text)"
+                              : "var(--fg-40)",
+                          }}
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <span
+                          className="text-[10px] font-medium px-2 py-0.5 rounded-full flex-shrink-0"
+                          style={{
+                            background: "var(--fg-05)",
+                            color: "var(--fg-55)",
+                          }}
+                        >
+                          Soon
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
               <div
                 className="px-4 py-2.5 flex items-center justify-between"
@@ -467,7 +552,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 <p className="text-[11px]" style={{ color: "var(--fg-55)" }}>
                   {results.length} result{results.length !== 1 ? "s" : ""}
                 </p>
-                <p className="keyboard-hint text-[11px]" style={{ color: "var(--fg-55)" }}>
+                <p
+                  className="keyboard-hint text-[11px]"
+                  style={{ color: "var(--fg-55)" }}
+                >
                   ↑↓ navigate · Enter open
                 </p>
               </div>
@@ -475,16 +563,29 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           )}
 
           {/* No results */}
-          {!searchLoading && !searchFailed && query.trim().length >= 1 && results.length === 0 && (
-            <div role="status" className="flex flex-col items-center py-10 px-6 text-center">
-              <p className="text-[15px] font-semibold mb-1.5" style={{ color: "var(--fg-50)" }}>
-                No results for "{query}"
-              </p>
-              <p className="text-[12px] leading-relaxed" style={{ color: "var(--fg-55)" }}>
-                Try a technique number (TC031), a keyword like "pressure" or "clarity", or a situation like "disagreement".
-              </p>
-            </div>
-          )}
+          {!searchLoading &&
+            !searchFailed &&
+            query.trim().length >= 1 &&
+            results.length === 0 && (
+              <div
+                role="status"
+                className="flex flex-col items-center py-10 px-6 text-center"
+              >
+                <p
+                  className="text-[15px] font-semibold mb-1.5"
+                  style={{ color: "var(--fg-50)" }}
+                >
+                  No results for "{query}"
+                </p>
+                <p
+                  className="text-[12px] leading-relaxed"
+                  style={{ color: "var(--fg-55)" }}
+                >
+                  Try a technique number (TC031), a keyword like "pressure" or
+                  "clarity", or a situation like "disagreement".
+                </p>
+              </div>
+            )}
 
           {/* Recent searches */}
           {showRecents && (
@@ -499,7 +600,11 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 <button
                   onClick={clearRecents}
                   className="tap-target-y text-[12px] font-medium transition-colors"
-                  style={{ color: "var(--fg-55)", minHeight: 36, paddingInline: 8 }}
+                  style={{
+                    color: "var(--fg-55)",
+                    minHeight: 36,
+                    paddingInline: 8,
+                  }}
                 >
                   Clear
                 </button>
@@ -511,7 +616,11 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                   className="w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-100 hover:bg-[var(--fg-04)] focus-visible:bg-[var(--fg-04)]"
                   style={{ color: "var(--fg-60)" }}
                 >
-                  <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--fg-45)" }} aria-hidden="true" />
+                  <Clock
+                    className="w-3.5 h-3.5 flex-shrink-0"
+                    style={{ color: "var(--fg-45)" }}
+                    aria-hidden="true"
+                  />
                   <span className="text-[13px]">{term}</span>
                 </button>
               ))}

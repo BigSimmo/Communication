@@ -1,4 +1,10 @@
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation } from "wouter";
 import { BottomTabBar } from "../components/bottom-tab-bar";
@@ -39,7 +45,10 @@ beforeEach(() => {
   localStorage.clear();
   vi.mocked(useLocation).mockReturnValue(["/phrases", vi.fn()]);
   Object.defineProperty(window, "scrollY", { configurable: true, value: 0 });
-  Object.defineProperty(window, "innerHeight", { configurable: true, value: 800 });
+  Object.defineProperty(window, "innerHeight", {
+    configurable: true,
+    value: 800,
+  });
   Object.defineProperty(document.documentElement, "scrollHeight", {
     configurable: true,
     value: 6000,
@@ -49,8 +58,13 @@ beforeEach(() => {
 describe("BottomTabBar", () => {
   it("marks the current destination", () => {
     renderBar();
-    expect(screen.getByTestId("nav-tab-phrases")).toHaveAttribute("aria-current", "page");
-    expect(screen.getByTestId("nav-tab-library")).not.toHaveAttribute("aria-current");
+    expect(screen.getByTestId("nav-tab-phrases")).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+    expect(screen.getByTestId("nav-tab-library")).not.toHaveAttribute(
+      "aria-current",
+    );
   });
 
   it("hides while scrolling down and returns on scroll up", async () => {
@@ -61,7 +75,10 @@ describe("BottomTabBar", () => {
     await scrollTo(300);
     await waitFor(() => expect(bar).toHaveAttribute("data-hidden", "true"));
     // Hidden links drop out of the tab order
-    expect(screen.getByTestId("nav-tab-drill")).toHaveAttribute("tabindex", "-1");
+    expect(screen.getByTestId("nav-tab-drill")).toHaveAttribute(
+      "tabindex",
+      "-1",
+    );
 
     // Keeps hiding as reading continues
     await scrollTo(900);

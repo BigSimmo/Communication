@@ -1,7 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import {
-  ChevronRight,
   ChevronDown,
   SearchX,
   Heart,
@@ -53,17 +52,20 @@ const ALL_LOADED_CARDS = Object.values(LIBRARY_CATEGORIES)
 
 // Segment style inside the single line filter bar: inactive segments sit flat
 // on the bar, the active one lifts into an amber pill
-const segmentStyle = (
-  active: boolean,
-  open: boolean,
-): React.CSSProperties => ({
+const segmentStyle = (active: boolean, open: boolean): React.CSSProperties => ({
   background: active
-    ? "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)"
+    ? "var(--gradient-active)"
     : open
       ? "var(--fg-08)"
       : "transparent",
-  color: active ? "#0f1724" : open ? "var(--fg-90)" : "var(--fg-60)",
-  boxShadow: active ? "0 1px 6px rgba(245,158,11,0.3)" : "none",
+  color: active
+    ? "var(--brand-contrast)"
+    : open
+      ? "var(--fg-90)"
+      : "var(--fg-60)",
+  boxShadow: active
+    ? "0 1px 6px color-mix(in srgb, var(--brand) 30%, transparent)"
+    : "none",
 });
 
 interface DropdownOption {
@@ -194,6 +196,7 @@ function FilterDropdown({
         <div
           ref={listRef}
           role="listbox"
+          tabIndex={-1}
           aria-label={label}
           onKeyDown={moveFocus}
           className={`absolute top-full mt-2 z-50 w-max min-w-full max-w-[calc(100vw-24px)] max-h-[60vh] overflow-y-auto rounded-xl p-1 ${
@@ -352,6 +355,10 @@ export default function Library() {
   }, {});
 
   const hasResults = Object.keys(filteredLibrary).length > 0;
+  const resultCount = Object.values(filteredLibrary).reduce(
+    (n, cards) => n + cards.length,
+    0,
+  );
 
   return (
     <div className="flex flex-col bg-background w-full max-w-full min-w-0 overflow-x-clip sm:max-w-2xl sm:mx-auto">
@@ -409,6 +416,7 @@ export default function Library() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search techniques…"
+                role="combobox"
                 aria-label="Search techniques"
                 aria-expanded={searchOpen}
                 aria-controls="search-popout-panel"
@@ -432,9 +440,10 @@ export default function Library() {
                     return;
                   }
                   openSearch();
-                  e.currentTarget.style.borderColor = "rgba(245,158,11,0.45)";
+                  e.currentTarget.style.borderColor =
+                    "color-mix(in srgb, var(--brand) 45%, transparent)";
                   e.currentTarget.style.boxShadow =
-                    "0 0 0 3px rgba(245,158,11,0.12)";
+                    "0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent)";
                 }}
                 onClick={(e) => {
                   e.currentTarget.focus();
@@ -607,153 +616,122 @@ export default function Library() {
 
       {/* ── Card list ── (main already clears the phone tab bar) */}
       <div className="px-4 md:px-6 pt-4 pb-6 space-y-6">
+        {hasFiltersActive && hasResults && (
+          <p
+            className="px-1 -mb-2 text-[12px] font-medium"
+            style={{ color: "var(--fg-55)" }}
+            role="status"
+            aria-live="polite"
+            data-testid="library-result-count"
+          >
+            {resultCount} of {ALL_LOADED_CARDS.length} techniques
+          </p>
+        )}
         {hasResults ? (
           Object.entries(filteredLibrary).map(([cat, cards]) => (
             <div
               key={cat}
               data-testid={`category-section-${cat.toLowerCase().replace(/[\s/]+/g, "-")}`}
             >
-              <p
-                className="text-[11px] font-semibold tracking-widest uppercase mb-3 px-1"
-                style={{ color: "var(--fg-32)" }}
+              <h2
+                className="flex items-baseline justify-between text-[11px] font-bold tracking-widest uppercase mb-2.5 px-1"
+                style={{ color: "var(--fg-50)" }}
               >
-                {cat}
-              </p>
-              <div className="space-y-2">
+                <span>{cat}</span>
+                <span
+                  className="font-semibold tracking-normal normal-case"
+                  style={{ color: "var(--fg-45)" }}
+                >
+                  {cards.length}
+                </span>
+              </h2>
+              <ul className="space-y-2">
                 {cards.map((card) => {
                   const badge = IMPACT_BADGE[card.impact];
-                  const cardContent = (
-                    <>
-                      <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
+                  const fav = isCardFav(card.id);
+                  return (
+                    <li key={card.id} className="relative max-w-full min-w-0">
+                      <Link
+                        href={`/card/${card.id}`}
+                        aria-label={`${card.title} (${card.id}), ${badge.label.toLowerCase()} impact, ${CARD_DIFFICULTY[card.id]}`}
+                        data-testid={`card-link-${card.id}`}
+                        className="w-full max-w-full min-w-0 flex items-center gap-3 pl-3 pr-14 py-3 rounded-2xl transition-colors duration-150 text-left overflow-hidden bg-[var(--fg-03)] hover:bg-[var(--fg-06)] active:bg-[var(--fg-06)]"
                         style={{
-                          background: card.loaded
-                            ? "var(--brand)"
-                            : "var(--fg-07)",
-                          color: card.loaded
-                            ? "var(--brand-contrast)"
-                            : "var(--fg-28)",
+                          border: "1px solid var(--fg-07)",
+                          minHeight: 64,
+                          contentVisibility: "auto",
+                          containIntrinsicSize: "auto 66px",
                         }}
                       >
-                        {card.id.slice(2)}
-                      </div>
-                      <div className="flex-1 text-left min-w-0">
-                        <p
-                          className="text-[14px] font-semibold leading-tight"
-                          style={{
-                            color: card.loaded
-                              ? "var(--fg-90)"
-                              : "var(--fg-40)",
-                          }}
-                        >
-                          {card.title}
-                        </p>
-                        <p
-                          className="text-[12px] mt-0.5"
-                          style={{
-                            color: card.loaded
-                              ? "var(--brand-text)"
-                              : "var(--fg-40)",
-                          }}
-                        >
-                          {card.id} · {cat}
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
                         <span
-                          className="text-[12px] font-bold tracking-wide px-2.5 py-0.5 rounded-full uppercase"
+                          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[12px] font-bold tabular-nums"
                           style={{
-                            background: badge.bg,
-                            color: badge.color,
-                            border: `1px solid color-mix(in srgb, ${badge.color} 25%, transparent)`,
+                            background:
+                              "color-mix(in srgb, var(--brand) 14%, transparent)",
+                            border:
+                              "1px solid color-mix(in srgb, var(--brand) 26%, transparent)",
+                            color: "var(--brand-text)",
                           }}
+                          aria-hidden="true"
                         >
-                          {badge.label}
+                          {card.id.slice(2)}
                         </span>
-                        {card.loaded ? (
-                          <ChevronRight
-                            className="w-4 h-4"
-                            style={{ color: "var(--fg-40)" }}
-                            aria-hidden="true"
-                          />
-                        ) : (
+                        <span className="flex-1 min-w-0">
                           <span
-                            className="text-[12px] font-medium tracking-wide uppercase"
-                            style={{ color: "var(--fg-40)" }}
+                            className="block text-[15px] font-semibold leading-snug line-clamp-2"
+                            style={{ color: "var(--fg-90)" }}
                           >
-                            Soon
+                            {card.title}
                           </span>
-                        )}
-                      </div>
-                    </>
-                  );
-                  return (
-                    <div key={card.id} className="relative max-w-full min-w-0">
-                      {card.loaded ? (
-                        <Link
-                          href={`/card/${card.id}`}
-                          aria-label={`${card.title} (${card.id})`}
-                          data-testid={`card-link-${card.id}`}
-                          className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 pr-14 rounded-2xl transition-all duration-150 text-left overflow-hidden hover:bg-[var(--fg-05)]"
+                          <span
+                            className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12px]"
+                            style={{ color: "var(--fg-55)" }}
+                          >
+                            <span
+                              className="font-semibold"
+                              style={{ color: "var(--brand-text)" }}
+                            >
+                              {card.id}
+                            </span>
+                            <span aria-hidden="true">·</span>
+                            <span>{CARD_DIFFICULTY[card.id]}</span>
+                            <span
+                              className="ml-0.5 text-[10px] font-bold tracking-wider px-1.5 py-px rounded-md uppercase"
+                              style={{
+                                background: badge.bg,
+                                color: badge.color,
+                              }}
+                            >
+                              {badge.label}
+                            </span>
+                          </span>
+                        </span>
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => toggleCard(card.id)}
+                        aria-label={`Favourite ${card.title}`}
+                        aria-pressed={fav}
+                        className="library-card-favourite absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
+                        style={{
+                          background: fav
+                            ? "color-mix(in srgb, var(--brand) 14%, transparent)"
+                            : "transparent",
+                        }}
+                      >
+                        <Heart
+                          className="w-4 h-4"
                           style={{
-                            background: "var(--fg-03)",
-                            border: "1px solid var(--fg-07)",
-                            minHeight: 64,
-                            contentVisibility: "auto",
-                            containIntrinsicSize: "auto 72px",
+                            color: fav ? "var(--brand-text)" : "var(--fg-45)",
                           }}
-                        >
-                          {cardContent}
-                        </Link>
-                      ) : (
-                        <div
-                          aria-label={`${card.title} (${card.id}) — coming soon`}
-                          data-testid={`card-link-${card.id}`}
-                          className="w-full max-w-full min-w-0 flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-left overflow-hidden"
-                          style={{
-                            background: "var(--fg-02)",
-                            border: "1px solid var(--fg-04)",
-                            opacity: 0.55,
-                            minHeight: 64,
-                            contentVisibility: "auto",
-                            containIntrinsicSize: "auto 72px",
-                          }}
-                        >
-                          {cardContent}
-                        </div>
-                      )}
-                      {card.loaded && (
-                        <button
-                          onClick={() => toggleCard(card.id)}
-                          aria-label={
-                            isCardFav(card.id)
-                              ? "Remove from favourites"
-                              : "Save to favourites"
-                          }
-                          className="library-card-favourite absolute right-3 bottom-3 w-7 h-7 flex items-center justify-center rounded-full transition-all active:scale-95"
-                          style={{
-                            background: isCardFav(card.id)
-                              ? "color-mix(in srgb, var(--brand) 12%, transparent)"
-                              : "var(--fg-05)",
-                          }}
-                        >
-                          <Heart
-                            className="w-3.5 h-3.5"
-                            style={{
-                              color: isCardFav(card.id)
-                                ? "var(--brand-text)"
-                                : "var(--fg-50)",
-                            }}
-                            fill={
-                              isCardFav(card.id) ? "var(--brand-text)" : "none"
-                            }
-                          />
-                        </button>
-                      )}
-                    </div>
+                          fill={fav ? "var(--brand-text)" : "none"}
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
           ))
         ) : (
@@ -766,7 +744,11 @@ export default function Library() {
                 border: "1px solid var(--fg-07)",
               }}
             >
-              <SearchX className="w-6 h-6" style={{ color: "var(--fg-40)" }} aria-hidden="true" />
+              <SearchX
+                className="w-6 h-6"
+                style={{ color: "var(--fg-40)" }}
+                aria-hidden="true"
+              />
             </div>
             <p
               className="text-[16px] font-semibold mb-1.5"

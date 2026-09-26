@@ -58,7 +58,9 @@ async function run() {
     console.error(
       `${url} is already in use, but it is not the recorded ${appId} server.`,
     );
-    console.error("Use a different COMMUNICATION_APP_PORT or stop the other app.");
+    console.error(
+      "Use a different COMMUNICATION_APP_PORT or stop the other app.",
+    );
     process.exit(1);
   }
 
@@ -103,11 +105,7 @@ function spawnDevServer() {
       BROWSER: "none",
       PORT: String(port),
     },
-    stdio: [
-      "ignore",
-      openLogHandle(stdoutPath),
-      openLogHandle(stderrPath),
-    ],
+    stdio: ["ignore", openLogHandle(stdoutPath), openLogHandle(stderrPath)],
     windowsHide: true,
   };
 

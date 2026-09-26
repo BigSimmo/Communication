@@ -7,7 +7,8 @@ export function createCardLoader(
   moduleLoadersById: ReadonlyMap<string, CardModuleLoader>,
 ) {
   const cardPromiseCache = new Map<string, Promise<CardData | null>>();
-  let aggregatePromise: Promise<Readonly<Record<string, CardData>>> | null = null;
+  let aggregatePromise: Promise<Readonly<Record<string, CardData>>> | null =
+    null;
 
   function loadCard(cardId: string): Promise<CardData | null> {
     const cached = cardPromiseCache.get(cardId);
@@ -20,8 +21,7 @@ export function createCardLoader(
       return missing;
     }
 
-    let retryablePromise: Promise<CardData | null>;
-    retryablePromise = loader()
+    const retryablePromise: Promise<CardData | null> = loader()
       .then((module) => {
         const card = module[cardId];
         if (!card) {
@@ -42,21 +42,22 @@ export function createCardLoader(
   function loadAllCards(): Promise<Readonly<Record<string, CardData>>> {
     if (aggregatePromise) return aggregatePromise;
 
-    let retryablePromise: Promise<Readonly<Record<string, CardData>>>;
-    retryablePromise = Promise.all(
-      Array.from(moduleLoadersById.keys()).map(async (cardId) => {
-        const card = await loadCard(cardId);
-        if (!card) throw new Error(`Card module ${cardId} could not be loaded`);
-        return [cardId, card] as const;
-      }),
-    )
-      .then((entries) => Object.freeze(Object.fromEntries(entries)))
-      .catch((error: unknown) => {
-        if (aggregatePromise === retryablePromise) {
-          aggregatePromise = null;
-        }
-        throw error;
-      });
+    const retryablePromise: Promise<Readonly<Record<string, CardData>>> =
+      Promise.all(
+        Array.from(moduleLoadersById.keys()).map(async (cardId) => {
+          const card = await loadCard(cardId);
+          if (!card)
+            throw new Error(`Card module ${cardId} could not be loaded`);
+          return [cardId, card] as const;
+        }),
+      )
+        .then((entries) => Object.freeze(Object.fromEntries(entries)))
+        .catch((error: unknown) => {
+          if (aggregatePromise === retryablePromise) {
+            aggregatePromise = null;
+          }
+          throw error;
+        });
     aggregatePromise = retryablePromise;
     return retryablePromise;
   }

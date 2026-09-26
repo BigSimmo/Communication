@@ -32,15 +32,11 @@ export function useScrollDirection(
   useEffect(() => {
     // Largest position the document can actually be scrolled to.
     const getMaxScroll = () =>
-      Math.max(
-        0,
-        document.documentElement.scrollHeight - window.innerHeight,
-      );
+      Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
 
     // Clamp to the real scrollable range so overscroll (negative at the top,
     // beyond-max at the bottom) doesn't register as movement.
-    const clampY = () =>
-      Math.max(0, Math.min(window.scrollY, getMaxScroll()));
+    const clampY = () => Math.max(0, Math.min(window.scrollY, getMaxScroll()));
 
     // Initialise from the current position so the first scroll event
     // doesn't produce a false "down" jump from 0 → actual scrollY.
@@ -68,7 +64,10 @@ export function useScrollDirection(
 
       // Reset the accumulator whenever the direction of movement reverses,
       // then build up movement in the current direction.
-      if ((delta > 0 && accum.current < 0) || (delta < 0 && accum.current > 0)) {
+      if (
+        (delta > 0 && accum.current < 0) ||
+        (delta < 0 && accum.current > 0)
+      ) {
         accum.current = 0;
       }
       accum.current += delta;

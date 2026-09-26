@@ -8,13 +8,11 @@ const QuickModeOverlay = lazy(() =>
 );
 import { AppHeader } from "./app-header";
 import { BottomTabBar } from "./bottom-tab-bar";
+import { BookOpen } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { NAV_DESTINATIONS, pageTitle, useNavBadges } from "@/lib/nav-items";
 
 const TOTAL_CARDS = Object.values(LIBRARY_CATEGORIES).flat().length;
-const LOADED_CARDS = Object.values(LIBRARY_CATEGORIES)
-  .flat()
-  .filter((c) => c.loaded).length;
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -42,22 +40,43 @@ export function AppLayout({ children }: AppLayoutProps) {
         }}
       >
         {/* Brand */}
-        <div className="px-5 pt-7 pb-5">
-          <p
-            className="text-[9px] font-bold tracking-[0.18em] uppercase"
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 px-5 pt-6 pb-5 rounded-lg"
+          aria-label="TC Library home"
+        >
+          <span
+            aria-hidden="true"
+            className="flex items-center justify-center flex-shrink-0"
             style={{
-              color: "color-mix(in srgb, var(--brand-text) 70%, transparent)",
+              width: 32,
+              height: 32,
+              borderRadius: 10,
+              background: "var(--gradient-active)",
+              boxShadow:
+                "0 2px 8px color-mix(in srgb, var(--brand) 32%, transparent), inset 0 1px 0 rgba(255,255,255,0.35)",
             }}
           >
-            Technique Cards
-          </p>
-          <p
-            className="text-[18px] font-bold leading-tight mt-0.5"
-            style={{ color: "var(--fg-90)" }}
-          >
-            TC Library
-          </p>
-        </div>
+            <BookOpen
+              className="w-4 h-4"
+              style={{ color: "var(--brand-contrast)" }}
+            />
+          </span>
+          <span className="min-w-0">
+            <span
+              className="block text-[16px] font-bold leading-tight"
+              style={{ color: "var(--fg-90)" }}
+            >
+              TC Library
+            </span>
+            <span
+              className="block text-[11px] font-medium mt-0.5"
+              style={{ color: "var(--fg-50)" }}
+            >
+              {TOTAL_CARDS} communication techniques
+            </span>
+          </span>
+        </Link>
 
         <div className="w-full h-px" style={{ background: "var(--fg-06)" }} />
 
@@ -98,9 +117,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                       <span
                         className="min-w-[18px] h-[18px] px-1.5 rounded-full text-[10px] font-bold leading-none flex items-center justify-center"
                         style={{
-                          background: active
-                            ? "var(--brand)"
-                            : "var(--fg-08)",
+                          background: active ? "var(--brand)" : "var(--fg-08)",
                           color: active
                             ? "var(--brand-contrast)"
                             : "var(--fg-60)",
@@ -116,50 +133,30 @@ export function AppLayout({ children }: AppLayoutProps) {
           </ul>
         </nav>
 
-        {/* Cards loaded */}
-        <div className="px-4 pb-6">
-          <div
-            className="rounded-xl px-3.5 py-3"
-            style={{
-              background: "var(--fg-03)",
-              border: "1px solid var(--fg-06)",
-            }}
+        {/* Footer: search shortcut hint (theme lives in the header) */}
+        <div
+          className="px-3 pb-5 pt-3"
+          style={{ borderTop: "1px solid var(--fg-06)" }}
+        >
+          <p
+            className="keyboard-hint px-3 pt-1 text-[11px] leading-snug"
+            style={{ color: "var(--fg-45)" }}
           >
-            <div className="flex items-baseline justify-between">
-              <p
-                className="text-[10px] font-semibold uppercase tracking-wider"
-                style={{ color: "var(--fg-40)" }}
-              >
-                Cards loaded
-              </p>
-              <p
-                className="text-[12px] font-bold"
-                style={{ color: "var(--brand-text)" }}
-              >
-                {LOADED_CARDS}
-                <span className="font-medium" style={{ color: "var(--fg-40)" }}>
-                  {" "}/ {TOTAL_CARDS}
-                </span>
-              </p>
-            </div>
-            <div
-              className="mt-2 h-1 rounded-full overflow-hidden"
-              style={{ background: "var(--fg-06)" }}
-              role="progressbar"
-              aria-valuenow={LOADED_CARDS}
-              aria-valuemin={0}
-              aria-valuemax={TOTAL_CARDS}
-              aria-label={`${LOADED_CARDS} of ${TOTAL_CARDS} cards loaded`}
+            <kbd
+              className="font-sans font-semibold px-1.5 py-0.5 rounded-md mr-1"
+              style={{
+                background: "var(--fg-06)",
+                border: "1px solid var(--fg-08)",
+                color: "var(--fg-60)",
+              }}
             >
-              <div
-                className="h-full rounded-full"
-                style={{
-                  width: `${(LOADED_CARDS / TOTAL_CARDS) * 100}%`,
-                  background: "var(--brand)",
-                }}
-              />
-            </div>
-          </div>
+              {typeof navigator !== "undefined" &&
+              /Mac|iPhone|iPad/.test(navigator.platform)
+                ? "\u2318K"
+                : "Ctrl K"}
+            </kbd>
+            search everything
+          </p>
         </div>
       </aside>
 

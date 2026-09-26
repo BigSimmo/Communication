@@ -279,7 +279,11 @@ export default function Phrases() {
                     className="w-5 h-5 flex items-center justify-center rounded-full"
                     style={{ background: "var(--fg-08)" }}
                   >
-                    <X className="w-3 h-3" style={{ color: "var(--fg-50)" }} aria-hidden="true" />
+                    <X
+                      className="w-3 h-3"
+                      style={{ color: "var(--fg-50)" }}
+                      aria-hidden="true"
+                    />
                   </span>
                 </button>
               )}
@@ -468,23 +472,18 @@ function PhraseRow({
           onClick={onCardClick}
           aria-label={`View card ${phrase.cardId}: ${phrase.cardTitle}`}
           data-testid={`phrase-card-link-${phrase.cardId}`}
-          className="flex items-center gap-1.5 text-[12px] font-semibold rounded-full pl-1 pr-2.5 min-h-8 min-w-0 flex-1 transition-all active:scale-95"
-          style={{
-            background: "var(--fg-05)",
-            border: "1px solid var(--fg-08)",
-            color: "var(--fg-65)",
-          }}
+          className="flex items-center gap-1.5 text-[12px] rounded-lg px-1.5 min-h-8 min-w-0 flex-1 transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)]"
+          style={{ color: "var(--fg-55)" }}
         >
           <span
-            className="text-[10px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
-            style={{
-              background: "var(--brand)",
-              color: "var(--brand-contrast)",
-            }}
+            className="font-bold flex-shrink-0 tabular-nums"
+            style={{ color: "var(--brand-text)" }}
           >
             {phrase.cardId}
           </span>
-          <span className="truncate min-w-0">{phrase.cardTitle}</span>
+          <span className="truncate min-w-0 font-medium">
+            {phrase.cardTitle}
+          </span>
         </button>
 
         {/* Fav button */}

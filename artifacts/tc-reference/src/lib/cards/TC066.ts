@@ -3,13 +3,56 @@ import type { CardData } from "../card-types";
 export const TC066: CardData = {
   pdfUrl: "cards/TC066/TC066_TwoCard_Combined.pdf",
   resources: [
-    { label: "Two-card (combined)", description: "Front and back study cards on one sheet — the designed visual card.", href: "cards/TC066/TC066_TwoCard_Combined.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "One-card summary", description: "The whole technique on a single designed card.", href: "cards/TC066/TC066_OneCard.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Quick card", description: "One-page glance card for fast recall.", href: "cards/TC066/TC066_Quick_Card.pdf", type: "pdf", group: "Visual Cards" },
-    { label: "Detailed guide", description: "The full written guide with every section.", href: "cards/TC066/TC066_Detailed_Guide.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Reference sheet", description: "Dense one-page reference of the key moves.", href: "cards/TC066/TC066_Reference.pdf", type: "pdf", group: "Written Guides" },
-    { label: "Phrase bank (CSV)", description: "Every phrase, ready to import or drill.", href: "cards/TC066/TC066_Phrase_Bank.csv", type: "csv", group: "Practice Tools" },
-    { label: "Anki flashcards", description: "Import into Anki for spaced-repetition practice.", href: "cards/TC066/TC066_Anki_Flashcards.csv", type: "csv", group: "Practice Tools" },
+    {
+      label: "Two-card (combined)",
+      description:
+        "Front and back study cards on one sheet — the designed visual card.",
+      href: "cards/TC066/TC066_TwoCard_Combined.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "One-card summary",
+      description: "The whole technique on a single designed card.",
+      href: "cards/TC066/TC066_OneCard.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Quick card",
+      description: "One-page glance card for fast recall.",
+      href: "cards/TC066/TC066_Quick_Card.pdf",
+      type: "pdf",
+      group: "Visual Cards",
+    },
+    {
+      label: "Detailed guide",
+      description: "The full written guide with every section.",
+      href: "cards/TC066/TC066_Detailed_Guide.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Reference sheet",
+      description: "Dense one-page reference of the key moves.",
+      href: "cards/TC066/TC066_Reference.pdf",
+      type: "pdf",
+      group: "Written Guides",
+    },
+    {
+      label: "Phrase bank (CSV)",
+      description: "Every phrase, ready to import or drill.",
+      href: "cards/TC066/TC066_Phrase_Bank.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
+    {
+      label: "Anki flashcards",
+      description: "Import into Anki for spaced-repetition practice.",
+      href: "cards/TC066/TC066_Anki_Flashcards.csv",
+      type: "csv",
+      group: "Practice Tools",
+    },
   ],
   id: "TC066",
   whyItWorks:
@@ -184,48 +227,60 @@ export const TC066: CardData = {
       title: "Write the fact",
       body: "State it with specifics: dates, times, decisions, commitments, observable behaviour, or the actual next step. Facts are what make the reply hard to attack.",
       examples: [
-        { label: "Instead of", text: "\"I always do my job properly.\"" },
-        { label: "Write", text: "\"The file was sent to the shared folder yesterday at 4:15 pm.\"" },
+        { label: "Instead of", text: '"I always do my job properly."' },
+        {
+          label: "Write",
+          text: '"The file was sent to the shared folder yesterday at 4:15 pm."',
+        },
       ],
     },
     {
       step: "5",
       title: "Add one civil line",
-      body: "Use a single human line — \"Thanks for sending this,\" \"I understand this is frustrating,\" \"I appreciate the update.\" One is enough; do not over-warm a hostile exchange.",
+      body: 'Use a single human line — "Thanks for sending this," "I understand this is frustrating," "I appreciate the update." One is enough; do not over-warm a hostile exchange.',
     },
     {
       step: "6",
       title: "Close firmly",
       body: "Name the boundary, next action, decision, or response limit so the message ends the loop instead of inviting another round. Firm means clear, not harsh.",
       examples: [
-        { label: "Next step", text: "\"The next step is to send the form by Friday.\"" },
-        { label: "Boundary", text: "\"I am not available to discuss this by text.\"" },
+        {
+          label: "Next step",
+          text: '"The next step is to send the form by Friday."',
+        },
+        {
+          label: "Boundary",
+          text: '"I am not available to discuss this by text."',
+        },
       ],
     },
   ],
   liveThreadClues: [
     "An insult or name-calling aimed at you",
-    "Sweeping words like \"always\" and \"never\"",
-    "Sarcasm or rhetorical questions (\"do you even read anything?\")",
-    "False urgency — \"fix this today or I will escalate\"",
+    'Sweeping words like "always" and "never"',
+    'Sarcasm or rhetorical questions ("do you even read anything?")',
+    'False urgency — "fix this today or I will escalate"',
     "A demand that you defend your character or motives",
     "An accusation you feel an instant pull to rebut point by point",
   ],
   depthDial: [
     {
       depth: "Soft touch",
-      useWhen: "the relationship is basically fine and just needs a light nudge back to logistics",
+      useWhen:
+        "the relationship is basically fine and just needs a light nudge back to logistics",
       phrase: "I would rather keep this to the scheduling details for now.",
     },
     {
       depth: "Standard firm",
       useWhen: "most hostile or baiting threads",
-      phrase: "I will keep this thread focused on logistics and will not respond to personal accusations.",
+      phrase:
+        "I will keep this thread focused on logistics and will not respond to personal accusations.",
     },
     {
       depth: "Hard close",
       useWhen: "the same bait keeps coming after you have already answered",
-      phrase: "I have answered the practical point. I will respond again only when there is new information.",
+      phrase:
+        "I have answered the practical point. I will respond again only when there is new information.",
     },
     {
       depth: "Pause and hold",
@@ -241,31 +296,38 @@ export const TC066: CardData = {
   decisionTree: [
     {
       condition: "The message did not actually require a reply.",
-      action: "Do not reply, or archive and monitor. Silence is a legitimate BIFF move.",
+      action:
+        "Do not reply, or archive and monitor. Silence is a legitimate BIFF move.",
       phrase: "",
     },
     {
       condition: "There is immediate safety, legal, HR, or abuse risk.",
-      action: "Preserve the record and use the proper escalation pathway; use BIFF only for the minimum necessary contact.",
+      action:
+        "Preserve the record and use the proper escalation pathway; use BIFF only for the minimum necessary contact.",
       phrase: "I will follow this up through the appropriate channel.",
     },
     {
       condition: "The person wants care, not a fight.",
-      action: "Switch to validation, reflective listening, or NVC / OFNR instead of containment.",
+      action:
+        "Switch to validation, reflective listening, or NVC / OFNR instead of containment.",
       phrase: "That sounds really hard. Tell me what would actually help.",
     },
     {
-      condition: "The message carries bait, accusation, hostility, or false claims.",
-      action: "BIFF fits. Pick the one reply-worthy issue — a fact, decision, deadline, boundary, or next step — and answer only that.",
+      condition:
+        "The message carries bait, accusation, hostility, or false claims.",
+      action:
+        "BIFF fits. Pick the one reply-worthy issue — a fact, decision, deadline, boundary, or next step — and answer only that.",
       phrase: "The revised deadline is Friday at 5 pm.",
     },
     {
       condition: "It is a neutral request, not an attack.",
-      action: "Use the technique that fits the task instead: BLUF, a clean request, SBI, or Ask-tell-ask.",
+      action:
+        "Use the technique that fits the task instead: BLUF, a clean request, SBI, or Ask-tell-ask.",
       phrase: "",
     },
     {
-      condition: "Your draft runs long, defends your motives, or ends with no next step.",
+      condition:
+        "Your draft runs long, defends your motives, or ends with no next step.",
       action: "Cut it back to civil opener + fact + firm close before sending.",
       phrase: "Thanks for the update. [Fact.] [Next step.]",
     },
@@ -273,12 +335,14 @@ export const TC066: CardData = {
   ladder: [
     {
       weak: "That is unfair. I did read your notes, and you keep changing them. The project is not a mess — you are exaggerating.",
-      better: "I read your notes. The current version includes the budget changes and timeline update. I will review the risk section next.",
+      better:
+        "I read your notes. The current version includes the budget changes and timeline update. I will review the risk section next.",
       best: "Thanks for flagging the notes. The current version includes the budget and timeline changes; I will review the risk section by 3 pm and keep comments in the document thread so changes stay traceable.",
     },
     {
       weak: "That is ridiculous and you know it. I helped all last month — you only remember what supports your story.",
-      better: "I understand you are upset. I can help with the appointment on Friday. I am not available for insults by text.",
+      better:
+        "I understand you are upset. I can help with the appointment on Friday. I am not available for insults by text.",
       best: "I understand this is stressful. I can take Dad to the Friday appointment at 10 am. I will stay on logistics by text and discuss anything broader when we are both calmer.",
     },
     {
@@ -289,9 +353,9 @@ export const TC066: CardData = {
   ],
   example: {
     without: [
-      "Incoming: \"This is completely unprofessional. You people never keep your promises. Fix this today or I will escalate.\"",
-      "You: \"That is not fair. We have been working hard, and the delay is because your team sent the assets late.\"",
-      "You: \"If you are going to escalate, make sure you include the whole history.\"",
+      'Incoming: "This is completely unprofessional. You people never keep your promises. Fix this today or I will escalate."',
+      'You: "That is not fair. We have been working hard, and the delay is because your team sent the assets late."',
+      'You: "If you are going to escalate, make sure you include the whole history."',
       "Why it is weak:",
       "matches the heat and gets defensive",
       "opens a blame debate about whose fault the delay is",
@@ -299,17 +363,17 @@ export const TC066: CardData = {
       "leaves no clear next step",
     ],
     with: [
-      "Incoming: \"This is completely unprofessional. You people never keep your promises. Fix this today or I will escalate.\"",
-      "You: \"I understand the delay is frustrating.\"",
-      "You: \"The revised delivery date is Thursday at 4 pm, pending the final product image from your team.\"",
-      "You: \"Please send that image by noon tomorrow; if it does not arrive, I will export with the current draft image and mark it for later replacement.\"",
+      'Incoming: "This is completely unprofessional. You people never keep your promises. Fix this today or I will escalate."',
+      'You: "I understand the delay is frustrating."',
+      'You: "The revised delivery date is Thursday at 4 pm, pending the final product image from your team."',
+      'You: "Please send that image by noon tomorrow; if it does not arrive, I will export with the current draft image and mark it for later replacement."',
       "Why this works:",
       "acknowledges the feeling in one civil line, without conceding fault",
       "states the single fact that matters — the new date",
       "gives a concrete next step and consequence without threat language",
       "stays brief, informative, friendly, and firm",
     ],
-    note: "For a firmer boundary, swap the last line for: \"I will keep this thread focused on delivery details and will not respond to personal character comments.\"",
+    note: 'For a firmer boundary, swap the last line for: "I will keep this thread focused on delivery details and will not respond to personal character comments."',
   },
   calibration: {
     working: [
@@ -334,32 +398,38 @@ export const TC066: CardData = {
     {
       mistake: "Correcting every accusation",
       soundsLike: "a point-by-point rebuttal of all six claims",
-      better: "answer only the factual point that matters now, and let the rest stand unaddressed",
+      better:
+        "answer only the factual point that matters now, and let the rest stand unaddressed",
     },
     {
       mistake: "Sounding icy instead of civil",
-      soundsLike: "\"Noted.\"",
-      better: "\"Thanks for flagging this — the current version is in the shared folder.\"",
+      soundsLike: '"Noted."',
+      better:
+        '"Thanks for flagging this — the current version is in the shared folder."',
     },
     {
       mistake: "Smuggling in a counterattack",
-      soundsLike: "\"As you should know, as I already explained…\"",
-      better: "\"The current version includes the budget changes. I will review the risk section next.\"",
+      soundsLike: '"As you should know, as I already explained…"',
+      better:
+        '"The current version includes the budget changes. I will review the risk section next."',
     },
     {
       mistake: "Over-apologising to calm them down",
-      soundsLike: "\"I'm so sorry, this is all my fault\" for something that was not",
-      better: "accurate accountability only — apologise for what you actually did, and nothing more",
+      soundsLike:
+        '"I\'m so sorry, this is all my fault" for something that was not',
+      better:
+        "accurate accountability only — apologise for what you actually did, and nothing more",
     },
     {
       mistake: "Ending without a firm next step",
       soundsLike: "a brief, friendly note that simply stops",
-      better: "\"Please send the revised figures by Friday so I can update the deck.\"",
+      better:
+        '"Please send the revised figures by Friday so I can update the deck."',
     },
     {
       mistake: "Making firmness sound punitive",
-      soundsLike: "\"I will not be responding to you again.\"",
-      better: "\"I will respond again when there is new information.\"",
+      soundsLike: '"I will not be responding to you again."',
+      better: '"I will respond again when there is new information."',
     },
     {
       mistake: "Replying too quickly",
@@ -371,32 +441,38 @@ export const TC066: CardData = {
     {
       situation: "Hostile workplace email",
       move: "Acknowledge the flag, state the current status, and route edits to a traceable channel.",
-      phrase: "Thanks for flagging the review issue. The current draft was submitted yesterday and is still open for corrections. Please add specific edits in the document by 4 pm.",
+      phrase:
+        "Thanks for flagging the review issue. The current draft was submitted yesterday and is still open for corrections. Please add specific edits in the document by 4 pm.",
     },
     {
       situation: "Co-parenting logistics",
       move: "Confirm the practical arrangement and name the channel boundary.",
-      phrase: "I understand scheduling is important. Pickup is confirmed for 5 pm at the school entrance. I will keep this thread focused on logistics.",
+      phrase:
+        "I understand scheduling is important. Pickup is confirmed for 5 pm at the school entrance. I will keep this thread focused on logistics.",
     },
     {
       situation: "Customer escalation",
       move: "Acknowledge the frustration, give the concrete next action and time, and promise an update.",
-      phrase: "I understand the delay is frustrating. Your replacement order is scheduled for dispatch tomorrow, and the tracking link will arrive by 6 pm. I will update this ticket when dispatch is confirmed.",
+      phrase:
+        "I understand the delay is frustrating. Your replacement order is scheduled for dispatch tomorrow, and the tracking link will arrive by 6 pm. I will update this ticket when dispatch is confirmed.",
     },
     {
       situation: "Public criticism",
       move: "Correct the fact once, in the open, without defending your character.",
-      phrase: "Thanks for checking. The event starts at 6 pm on Friday at the main hall. The post has been updated to match the registration page.",
+      phrase:
+        "Thanks for checking. The event starts at 6 pm on Friday at the main hall. The post has been updated to match the registration page.",
     },
     {
       situation: "Family accusation",
       move: "Acknowledge the feeling briefly, offer the concrete help, and decline the blame.",
-      phrase: "I hear that you are upset. I can help with the appointment on Friday at 10 am. I am not available for blame by text.",
+      phrase:
+        "I hear that you are upset. I can help with the appointment on Friday at 10 am. I am not available for blame by text.",
     },
     {
       situation: "Repeated bait or a demand to apologise",
       move: "State that the practical issue is answered and set a condition for replying again.",
-      phrase: "I have answered the practical issue. The booking remains for Tuesday at 2 pm. I will respond again if there is new scheduling information.",
+      phrase:
+        "I have answered the practical issue. The booking remains for Tuesday at 2 pm. I will respond again if there is new scheduling information.",
     },
   ],
   recoveryPhrases: [
@@ -425,27 +501,27 @@ export const TC066: CardData = {
       label: "BIFF + BLUF",
       sequence: "Lead with the bottom line inside the BIFF reply.",
       example: [
-        "\"Decision: the deadline remains Friday.\"",
-        "\"The file is in the shared folder.\"",
-        "\"I will respond to implementation questions only.\"",
+        '"Decision: the deadline remains Friday."',
+        '"The file is in the shared folder."',
+        '"I will respond to implementation questions only."',
       ],
     },
     {
       label: "BIFF + Clean request",
       sequence: "End the reply with one clear, single request.",
       example: [
-        "\"The revised timeline is below.\"",
-        "\"Please send the updated figures by noon.\"",
-        "\"I will circulate the final version once they arrive.\"",
+        '"The revised timeline is below."',
+        '"Please send the updated figures by noon."',
+        '"I will circulate the final version once they arrive."',
       ],
     },
     {
       label: "BIFF + Validate the concern",
       sequence: "Acknowledge a legitimate feeling, then contain the thread.",
       example: [
-        "\"I understand the delay is frustrating.\"",
-        "\"The revised delivery date is Thursday at 4 pm.\"",
-        "\"I will keep this thread to delivery details.\"",
+        '"I understand the delay is frustrating."',
+        '"The revised delivery date is Thursday at 4 pm."',
+        '"I will keep this thread to delivery details."',
       ],
     },
   ],
@@ -495,7 +571,8 @@ export const TC066: CardData = {
     "Would a neutral third party read this as reasonable — or should it be escalated instead?",
   ],
   influencePayoff: {
-    feeling: "\"This person stayed steady and fair, even under fire — and there was nothing there for me to attack.\"",
+    feeling:
+      '"This person stayed steady and fair, even under fire — and there was nothing there for me to attack."',
     principle:
       "People escalate when they feel pulled to defend their identity, competence, or motives. BIFF shifts your attention from 'How do I prove I am right?' to 'What accurate, useful reply is actually needed here?' — so there is far less for the other person to escalate against.",
     gains: [
@@ -509,43 +586,50 @@ export const TC066: CardData = {
     ],
     whyMostFail: [
       "They try to correct every accusation, turning a short reply into a legal brief.",
-      "They smuggle in a counterattack — \"as I already explained\" — and break the friendly part.",
+      'They smuggle in a counterattack — "as I already explained" — and break the friendly part.',
       "They reply too fast, letting the message's manufactured urgency pull heat into their words.",
       "They confuse firm with harsh, so the close lands as punishment rather than clarity.",
     ],
   },
   fieldTip: {
-    headline: "Do not answer the whole storm. Answer the useful weather report.",
+    headline:
+      "Do not answer the whole storm. Answer the useful weather report.",
     body: "When a message is loaded, look for the one practical point hiding inside it, then reply with one civil opening, one useful fact, and one firm next step. The best BIFF reply often feels almost too short before you send it — that is usually the sign you have it right. Memorable cue: Short. Factual. Civil. Closed.",
     example:
-      "Storm: \"You never keep your promises, fix this today.\" Weather report: the delivery date. Reply: \"I understand the delay is frustrating. The revised date is Thursday at 4 pm.\"",
+      'Storm: "You never keep your promises, fix this today." Weather report: the delivery date. Reply: "I understand the delay is frustrating. The revised date is Thursday at 4 pm."',
     dont: "Prove your character, diagnose theirs, or replay the history — the moment you do, it is no longer BIFF.",
     do: "Return to the one practical issue and close the loop.",
   },
   relatedTechniques: [
     {
       id: "TC044",
-      reason: "Both are concise. Use BLUF when the problem is order and clarity in a neutral briefing; use BIFF when the problem is heat and bait.",
+      reason:
+        "Both are concise. Use BLUF when the problem is order and clarity in a neutral briefing; use BIFF when the problem is heat and bait.",
     },
     {
       id: "TC053",
-      reason: "Both reduce blame. Use NVC / OFNR when the relationship is safe enough for a full feelings-needs-request; use BIFF when that sequence would inflame or overexpose.",
+      reason:
+        "Both reduce blame. Use NVC / OFNR when the relationship is safe enough for a full feelings-needs-request; use BIFF when that sequence would inflame or overexpose.",
     },
     {
       id: "TC014",
-      reason: "Friendly can be mistaken for validation. Validate the concern when the person needs to feel understood; use BIFF when the thread needs containment, not deeper acknowledgement.",
+      reason:
+        "Friendly can be mistaken for validation. Validate the concern when the person needs to feel understood; use BIFF when the thread needs containment, not deeper acknowledgement.",
     },
     {
       id: "TC052",
-      reason: "Both involve facts. Use SBI when you are initiating feedback about a specific behaviour and its impact; use BIFF when you are responding to accusations or conflict.",
+      reason:
+        "Both involve facts. Use SBI when you are initiating feedback about a specific behaviour and its impact; use BIFF when you are responding to accusations or conflict.",
     },
     {
       id: "TC045",
-      reason: "Both can provide information. Use Ask-tell-ask when you have consent and want learning; use BIFF when the person is hostile, misinformed, or baiting.",
+      reason:
+        "Both can provide information. Use Ask-tell-ask when you have consent and want learning; use BIFF when the person is hostile, misinformed, or baiting.",
     },
     {
       id: "TC069",
-      reason: "Both appear in disagreement. Clarify the Objection when it is genuine and worth exploring; use BIFF when it is baiting or repetitive.",
+      reason:
+        "Both appear in disagreement. Clarify the Objection when it is genuine and worth exploring; use BIFF when it is baiting or repetitive.",
     },
   ],
 };

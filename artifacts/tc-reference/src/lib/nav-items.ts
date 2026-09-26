@@ -9,11 +9,7 @@ import {
 } from "@/lib/drill-state";
 
 export type NavDestinationId =
-  | "library"
-  | "playbooks"
-  | "phrases"
-  | "favourites"
-  | "drill";
+  "library" | "playbooks" | "phrases" | "favourites" | "drill";
 
 export interface NavDestination {
   id: NavDestinationId;
@@ -92,8 +88,10 @@ export function useNavBadges(): Partial<Record<NavDestinationId, string>> {
   const { totalCount } = useFavourites();
   const drill = loadDrillState();
   const badges: Partial<Record<NavDestinationId, string>> = {};
-  if (totalCount > 0) badges.favourites = totalCount > 99 ? "99+" : String(totalCount);
-  if (isStreakActive(drill) && drill.streak > 0) badges.drill = String(drill.streak);
+  if (totalCount > 0)
+    badges.favourites = totalCount > 99 ? "99+" : String(totalCount);
+  if (isStreakActive(drill) && drill.streak > 0)
+    badges.drill = String(drill.streak);
   else if (isCompletedToday(drill)) badges.drill = "✓";
   return badges;
 }

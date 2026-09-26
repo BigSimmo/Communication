@@ -24,12 +24,23 @@ const SearchModal = lazy(() =>
   import("@/components/search-modal").then((m) => ({ default: m.SearchModal })),
 );
 
-const CARD_META: Record<string, { cardTitle: string; cardCategory: string }> = {};
+const CARD_META: Record<string, { cardTitle: string; cardCategory: string }> =
+  {};
 for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
   for (const card of cards) {
     CARD_META[card.id] = { cardTitle: card.title, cardCategory: category };
   }
 }
+
+// Header title per top-level route. The Library keeps the brand name; other
+// pages name themselves so the header always says where you are.
+const PAGE_TITLES: Record<string, string> = {
+  "/": "TC Library",
+  "/phrases": "Phrase Bank",
+  "/drill": "Daily Drill",
+  "/favourites": "Favourites",
+  "/playbooks": "Playbooks",
+};
 
 // Header actions share one quiet style. "brand" tints the icon amber for the
 // primary tool (Quick) and saved state; "active" marks an open panel.
@@ -109,12 +120,14 @@ export function AppHeader() {
   // overscroll so rubber banding can't make the header flicker.
   const compact = useScrollDirection(24, 12, location) === "down";
 
-  const cardId = location.startsWith("/card/") ? location.replace("/card/", "").split("?")[0] : null;
+  const cardId = location.startsWith("/card/")
+    ? location.replace("/card/", "").split("?")[0]
+    : null;
   const mode: "library" | "card" = cardId !== null ? "card" : "library";
   // The brand title is only the page heading on the Library route itself;
   // other pages (Phrases, Drill, Favourites) provide their own h1.
   const TitleTag: "h1" | "p" = location === "/" ? "h1" : "p";
-  const cardMeta = cardId ? CARD_META[cardId] ?? null : null;
+  const cardMeta = cardId ? (CARD_META[cardId] ?? null) : null;
 
   // Compact actions shrink to 28px and keep a full height hit area via CSS
   // (see .app-header[data-compact] in index.css).
@@ -131,6 +144,7 @@ export function AppHeader() {
   }, [headerHeight]);
 
   const isLibraryRoute = location === "/";
+  const pageTitle = PAGE_TITLES[location] ?? "TC Library";
 
   const searchButton = (testId: string) => (
     <HeaderIconButton
@@ -166,9 +180,11 @@ export function AppHeader() {
       onClick={toggle}
       className={`header-compact-hide ${className}`}
     >
-      {theme === "dark"
-        ? <Sun className="w-4 h-4" aria-hidden="true" />
-        : <Moon className="w-4 h-4" aria-hidden="true" />}
+      {theme === "dark" ? (
+        <Sun className="w-4 h-4" aria-hidden="true" />
+      ) : (
+        <Moon className="w-4 h-4" aria-hidden="true" />
+      )}
     </HeaderIconButton>
   );
 
@@ -187,7 +203,8 @@ export function AppHeader() {
           maxHeight: `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
           transform: "translateZ(0)",
           contain: "layout paint",
-          transition: "height 180ms ease, min-height 180ms ease, max-height 180ms ease",
+          transition:
+            "height 180ms ease, min-height 180ms ease, max-height 180ms ease",
         }}
         data-testid="app-header"
         data-compact={compact}
@@ -200,7 +217,6 @@ export function AppHeader() {
             paddingRight: "max(var(--hdr-px), env(safe-area-inset-right, 0px))",
           }}
         >
-
           {/* ── CARD MODE ── */}
           {mode === "card" && (
             <>
@@ -217,7 +233,10 @@ export function AppHeader() {
                 {/* The ID tag gives way to the title on narrow phones */}
                 <span
                   className="hidden sm:inline text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
-                  style={{ background: "var(--brand)", color: "var(--brand-contrast)" }}
+                  style={{
+                    background: "var(--brand)",
+                    color: "var(--brand-contrast)",
+                  }}
                 >
                   {cardId}
                 </span>
@@ -236,7 +255,11 @@ export function AppHeader() {
               <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
                 {cardId && (
                   <HeaderIconButton
-                    label={isCardFav(cardId) ? "Remove from favourites" : "Save to favourites"}
+                    label={
+                      isCardFav(cardId)
+                        ? "Remove from favourites"
+                        : "Save to favourites"
+                    }
                     testId="button-fav-card"
                     tone={isCardFav(cardId) ? "brand" : "default"}
                     onClick={() => toggleCard(cardId)}
@@ -274,7 +297,7 @@ export function AppHeader() {
               <div className="flex items-center gap-2.5 min-w-0">
                 <span
                   aria-hidden="true"
-                  className="flex items-center justify-center flex-shrink-0"
+                  className="flex md:hidden items-center justify-center flex-shrink-0"
                   style={{
                     width: compact ? 22 : 30,
                     height: compact ? 22 : 30,
@@ -306,7 +329,9 @@ export function AppHeader() {
                     }}
                     data-testid="library-subtitle"
                   >
-                    Technique Cards
+                    {PAGE_TITLES[location] && !isLibraryRoute
+                      ? "TC Library"
+                      : "Technique cards"}
                   </p>
                   <TitleTag
                     className="font-bold leading-none truncate"
@@ -317,7 +342,7 @@ export function AppHeader() {
                     }}
                     data-testid="library-title"
                   >
-                    TC Library
+                    {pageTitle}
                   </TitleTag>
                 </div>
               </div>
@@ -325,7 +350,11 @@ export function AppHeader() {
                 {/* On the Library the filter panel already holds search */}
                 {isLibraryRoute ? (
                   <HeaderIconButton
-                    label={headerDetailsOpen ? "Hide search and filters" : "Show search and filters"}
+                    label={
+                      headerDetailsOpen
+                        ? "Hide search and filters"
+                        : "Show search and filters"
+                    }
                     active={headerDetailsOpen}
                     expanded={headerDetailsOpen}
                     controls="library-header-details"

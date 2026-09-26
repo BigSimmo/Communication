@@ -9,7 +9,7 @@
  * to a monitor or screenshot to your phone: the core move, the one thing to do,
  * a handful of signature lines, and what to avoid. It complements the dense
  * <id>_Reference.pdf and the full multi-page <id>_Detailed_Guide.pdf, mirroring
- * TC001's designed one-card format for the other 30 cards.
+ * TC001's designed one-card format for every other card (97 of the 98).
  *
  * Content is curated straight from CARD_DATA in
  * artifacts/tc-reference/src/lib/cards.ts, so output is deterministic —
@@ -20,7 +20,11 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { PDFDocument, PDFFont, PDFPage, StandardFonts, rgb } from "pdf-lib";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
+const ROOT = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+  "..",
+);
 const OUT_BASE = process.env.CARD_DOWNLOADS_OUT_DIR
   ? path.resolve(process.env.CARD_DOWNLOADS_OUT_DIR)
   : path.join(ROOT, "artifacts", "tc-reference", "public", "cards");
@@ -39,10 +43,14 @@ interface CardData {
 }
 
 const cardsModule = (await import(
-  pathToFileURL(path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "cards.ts")).href
+  pathToFileURL(
+    path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "cards.ts"),
+  ).href
 )) as { CARD_DATA: Record<string, CardData> };
 const dataModule = (await import(
-  pathToFileURL(path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "data.ts")).href
+  pathToFileURL(
+    path.join(ROOT, "artifacts", "tc-reference", "src", "lib", "data.ts"),
+  ).href
 )) as { LIBRARY_CATEGORIES: Record<string, { id: string; title: string }[]> };
 
 const { CARD_DATA } = cardsModule;
@@ -70,16 +78,28 @@ function sanitize(text: string): string {
     .replace(/[^\x20-\x7E -ÿ–—‘’“”]/g, "?");
 }
 
-function fit(text: string, font: PDFFont, size: number, maxWidth: number): string {
+function fit(
+  text: string,
+  font: PDFFont,
+  size: number,
+  maxWidth: number,
+): string {
   text = sanitize(text);
   if (font.widthOfTextAtSize(text, size) <= maxWidth) return text;
   const ell = "…";
   let s = text;
-  while (s.length > 1 && font.widthOfTextAtSize(s + ell, size) > maxWidth) s = s.slice(0, -1);
+  while (s.length > 1 && font.widthOfTextAtSize(s + ell, size) > maxWidth)
+    s = s.slice(0, -1);
   return s.trimEnd() + ell;
 }
 
-function wrap(text: string, font: PDFFont, size: number, maxWidth: number, maxLines = 3): string[] {
+function wrap(
+  text: string,
+  font: PDFFont,
+  size: number,
+  maxWidth: number,
+  maxLines = 3,
+): string[] {
   const words = sanitize(text).split(/\s+/).filter(Boolean);
   const lines: string[] = [];
   let line = "";
@@ -99,7 +119,12 @@ function wrap(text: string, font: PDFFont, size: number, maxWidth: number, maxLi
     const joined = words.join(" ");
     const rendered = lines.join(" ");
     if (rendered.length < sanitize(joined).length) {
-      lines[maxLines - 1] = fit(lines[maxLines - 1] + " …", font, size, maxWidth);
+      lines[maxLines - 1] = fit(
+        lines[maxLines - 1] + " …",
+        font,
+        size,
+        maxWidth,
+      );
     }
   }
   return lines;
@@ -122,11 +147,35 @@ async function buildPdf(cardId: string, title: string, category: string) {
 
   // ── Header band ──
   const HEADER_H = 118;
-  page.drawRectangle({ x: 0, y: PAGE_H - HEADER_H, width: PAGE_W, height: HEADER_H, color: NAVY });
-  page.drawRectangle({ x: 0, y: PAGE_H - HEADER_H, width: PAGE_W, height: 4, color: AMBER });
+  page.drawRectangle({
+    x: 0,
+    y: PAGE_H - HEADER_H,
+    width: PAGE_W,
+    height: HEADER_H,
+    color: NAVY,
+  });
+  page.drawRectangle({
+    x: 0,
+    y: PAGE_H - HEADER_H,
+    width: PAGE_W,
+    height: 4,
+    color: AMBER,
+  });
 
-  page.drawRectangle({ x: MARGIN, y: PAGE_H - 46, width: 52, height: 20, color: AMBER });
-  page.drawText(cardId, { x: MARGIN + 7, y: PAGE_H - 41, size: 11, font: bold, color: NAVY });
+  page.drawRectangle({
+    x: MARGIN,
+    y: PAGE_H - 46,
+    width: 52,
+    height: 20,
+    color: AMBER,
+  });
+  page.drawText(cardId, {
+    x: MARGIN + 7,
+    y: PAGE_H - 41,
+    size: 11,
+    font: bold,
+    color: NAVY,
+  });
   page.drawText(fit(title, bold, 22, CONTENT_W - 70), {
     x: MARGIN + 64,
     y: PAGE_H - 44,
@@ -142,15 +191,29 @@ async function buildPdf(cardId: string, title: string, category: string) {
     color: rgb(0.72, 0.76, 0.82),
   });
   page.drawText(
-    sanitize(`Impact ${card.overview.impact}   ·   Difficulty ${card.overview.difficulty}   ·   Misuse risk ${card.overview.misuse}`),
-    { x: MARGIN, y: PAGE_H - 92, size: 9, font: bold, color: AMBER }
+    sanitize(
+      `Impact ${card.overview.impact}   ·   Difficulty ${card.overview.difficulty}   ·   Misuse risk ${card.overview.misuse}`,
+    ),
+    { x: MARGIN, y: PAGE_H - 92, size: 9, font: bold, color: AMBER },
   );
 
   let y = PAGE_H - HEADER_H - 26;
 
   const label = (text: string) => {
-    page.drawRectangle({ x: MARGIN, y: y - 1, width: 3, height: 11, color: AMBER });
-    page.drawText(sanitize(text.toUpperCase()), { x: MARGIN + 9, y, size: 9.5, font: bold, color: NAVY });
+    page.drawRectangle({
+      x: MARGIN,
+      y: y - 1,
+      width: 3,
+      height: 11,
+      color: AMBER,
+    });
+    page.drawText(sanitize(text.toUpperCase()), {
+      x: MARGIN + 9,
+      y,
+      size: 9.5,
+      font: bold,
+      color: NAVY,
+    });
     y -= 16;
   };
 
@@ -159,15 +222,32 @@ async function buildPdf(cardId: string, title: string, category: string) {
   const steps = card.overview.coreFormula.map(sanitize);
   const heroSize = 12.5;
   // Lay the formula out as "A -> B -> C", wrapping across lines if needed
-  const heroLines = wrap(steps.join("  ->  "), bold, heroSize, CONTENT_W - 24, 3);
+  const heroLines = wrap(
+    steps.join("  ->  "),
+    bold,
+    heroSize,
+    CONTENT_W - 24,
+    3,
+  );
   const heroBoxH = heroLines.length * (heroSize * 1.5) + 16;
   page.drawRectangle({
-    x: MARGIN, y: y - heroBoxH + 6, width: CONTENT_W, height: heroBoxH,
-    color: TINT, borderColor: AMBER, borderWidth: 0.8,
+    x: MARGIN,
+    y: y - heroBoxH + 6,
+    width: CONTENT_W,
+    height: heroBoxH,
+    color: TINT,
+    borderColor: AMBER,
+    borderWidth: 0.8,
   });
   let hy = y - heroSize;
   for (const line of heroLines) {
-    page.drawText(line, { x: MARGIN + 12, y: hy, size: heroSize, font: bold, color: AMBER_DEEP });
+    page.drawText(line, {
+      x: MARGIN + 12,
+      y: hy,
+      size: heroSize,
+      font: bold,
+      color: AMBER_DEEP,
+    });
     hy -= heroSize * 1.5;
   }
   y = y - heroBoxH - 6;
@@ -175,21 +255,53 @@ async function buildPdf(cardId: string, title: string, category: string) {
   // ── Start here (minimum viable move) ──
   y -= 8;
   label("Start here");
-  for (const line of wrap(card.overview.minimumViableMove, regular, 10.5, CONTENT_W, 3)) {
-    page.drawText(line, { x: MARGIN, y, size: 10.5, font: regular, color: INK });
+  for (const line of wrap(
+    card.overview.minimumViableMove,
+    regular,
+    10.5,
+    CONTENT_W,
+    3,
+  )) {
+    page.drawText(line, {
+      x: MARGIN,
+      y,
+      size: 10.5,
+      font: regular,
+      color: INK,
+    });
     y -= 10.5 * 1.4;
   }
 
   // ── Say this (signature phrases, one per group up to 6) ──
   y -= 12;
   label("Say this");
-  const picks = card.phraseBank.slice(0, 6).map((g) => ({ tone: g.label, phrase: g.phrases[0] }));
+  const picks = card.phraseBank
+    .slice(0, 6)
+    .map((g) => ({ tone: g.label, phrase: g.phrases[0] }));
   for (const p of picks) {
     const toneW = 96;
-    page.drawText(fit(p.tone, bold, 8, toneW - 6), { x: MARGIN, y, size: 8, font: bold, color: GREY });
-    const phraseLines = wrap(`"${p.phrase}"`, oblique, 10, CONTENT_W - toneW, 2);
+    page.drawText(fit(p.tone, bold, 8, toneW - 6), {
+      x: MARGIN,
+      y,
+      size: 8,
+      font: bold,
+      color: GREY,
+    });
+    const phraseLines = wrap(
+      `"${p.phrase}"`,
+      oblique,
+      10,
+      CONTENT_W - toneW,
+      2,
+    );
     phraseLines.forEach((line, i) => {
-      page.drawText(line, { x: MARGIN + toneW, y, size: 10, font: oblique, color: INK });
+      page.drawText(line, {
+        x: MARGIN + toneW,
+        y,
+        size: 10,
+        font: oblique,
+        color: INK,
+      });
       if (i < phraseLines.length - 1) y -= 10 * 1.35;
     });
     y -= 10 * 1.5;
@@ -202,8 +314,20 @@ async function buildPdf(cardId: string, title: string, category: string) {
   for (const a of avoids) {
     const lines = wrap(a, regular, 9.5, CONTENT_W - 14, 2);
     lines.forEach((line, i) => {
-      if (i === 0) page.drawCircle({ x: MARGIN + 4, y: y + 3, size: 1.5, color: AMBER_DEEP });
-      page.drawText(line, { x: MARGIN + 14, y, size: 9.5, font: regular, color: INK });
+      if (i === 0)
+        page.drawCircle({
+          x: MARGIN + 4,
+          y: y + 3,
+          size: 1.5,
+          color: AMBER_DEEP,
+        });
+      page.drawText(line, {
+        x: MARGIN + 14,
+        y,
+        size: 9.5,
+        font: regular,
+        color: INK,
+      });
       y -= 9.5 * 1.4;
     });
     y -= 2;
@@ -212,22 +336,51 @@ async function buildPdf(cardId: string, title: string, category: string) {
   // ── Field-tip closer ──
   if (card.fieldTip) {
     y -= 6;
-    page.drawLine({ start: { x: MARGIN, y: y + 6 }, end: { x: PAGE_W - MARGIN, y: y + 6 }, thickness: 0.6, color: HAIR });
+    page.drawLine({
+      start: { x: MARGIN, y: y + 6 },
+      end: { x: PAGE_W - MARGIN, y: y + 6 },
+      thickness: 0.6,
+      color: HAIR,
+    });
     y -= 6;
-    page.drawText("REMEMBER", { x: MARGIN, y, size: 8, font: bold, color: AMBER_DEEP });
+    page.drawText("REMEMBER", {
+      x: MARGIN,
+      y,
+      size: 8,
+      font: bold,
+      color: AMBER_DEEP,
+    });
     y -= 13;
     for (const line of wrap(card.fieldTip.headline, bold, 10.5, CONTENT_W, 2)) {
-      page.drawText(line, { x: MARGIN, y, size: 10.5, font: bold, color: NAVY });
+      page.drawText(line, {
+        x: MARGIN,
+        y,
+        size: 10.5,
+        font: bold,
+        color: NAVY,
+      });
       y -= 10.5 * 1.4;
     }
   }
 
   // ── Footer ──
   page.drawRectangle({ x: 0, y: 0, width: PAGE_W, height: 24, color: NAVY });
-  page.drawText(sanitize(`${cardId} · ${title}`), { x: MARGIN, y: 8, size: 8, font: bold, color: rgb(1, 1, 1) });
+  page.drawText(sanitize(`${cardId} · ${title}`), {
+    x: MARGIN,
+    y: 8,
+    size: 8,
+    font: bold,
+    color: rgb(1, 1, 1),
+  });
   page.drawText("TC Reference Tool · Quick Card", {
-    x: PAGE_W - MARGIN - regular.widthOfTextAtSize("TC Reference Tool · Quick Card", 8),
-    y: 8, size: 8, font: regular, color: rgb(0.72, 0.76, 0.82),
+    x:
+      PAGE_W -
+      MARGIN -
+      regular.widthOfTextAtSize("TC Reference Tool · Quick Card", 8),
+    y: 8,
+    size: 8,
+    font: regular,
+    color: rgb(0.72, 0.76, 0.82),
   });
 
   return doc.save();
@@ -242,7 +395,10 @@ let generated = 0;
 for (const cardId of Object.keys(CARD_DATA).sort()) {
   if (cardId === "TC001") continue; // ships a designed one-card already
   const meta = CARD_META[cardId];
-  if (!meta) console.warn(`WARNING: ${cardId} has no LIBRARY_CATEGORIES entry — using id as title`);
+  if (!meta)
+    console.warn(
+      `WARNING: ${cardId} has no LIBRARY_CATEGORIES entry — using id as title`,
+    );
   const { title, category } = meta ?? { title: cardId, category: "" };
   const bytes = await buildPdf(cardId, title, category);
   const dir = path.join(OUT_BASE, cardId);
@@ -250,6 +406,8 @@ for (const cardId of Object.keys(CARD_DATA).sort()) {
   const file = path.join(dir, `${cardId}_Quick_Card.pdf`);
   writeFileSync(file, bytes);
   generated++;
-  console.log(`${cardId} -> ${path.relative(ROOT, file)} (${(bytes.length / 1024).toFixed(1)} kB)`);
+  console.log(
+    `${cardId} -> ${path.relative(ROOT, file)} (${(bytes.length / 1024).toFixed(1)} kB)`,
+  );
 }
 console.log(`Generated ${generated} quick card PDFs.`);

@@ -79,19 +79,32 @@ export function saveFavouritesState(state: FavouritesState): void {
   } catch {}
 }
 
-export function toggleFavouriteCard(state: FavouritesState, cardId: string): FavouritesState {
+export function toggleFavouriteCard(
+  state: FavouritesState,
+  cardId: string,
+): FavouritesState {
   const has = state.cardIds.includes(cardId);
   const next: FavouritesState = has
-    ? { ...state, cardIds: state.cardIds.filter(id => id !== cardId) }
+    ? { ...state, cardIds: state.cardIds.filter((id) => id !== cardId) }
     : { ...state, cardIds: [...state.cardIds, cardId] };
   saveFavouritesState(next);
   return next;
 }
 
-export function toggleFavouritePhrase(state: FavouritesState, phrase: FavouritePhrase): FavouritesState {
-  const has = state.phrases.some(p => p.text === phrase.text && p.cardId === phrase.cardId);
+export function toggleFavouritePhrase(
+  state: FavouritesState,
+  phrase: FavouritePhrase,
+): FavouritesState {
+  const has = state.phrases.some(
+    (p) => p.text === phrase.text && p.cardId === phrase.cardId,
+  );
   const next: FavouritesState = has
-    ? { ...state, phrases: state.phrases.filter(p => !(p.text === phrase.text && p.cardId === phrase.cardId)) }
+    ? {
+        ...state,
+        phrases: state.phrases.filter(
+          (p) => !(p.text === phrase.text && p.cardId === phrase.cardId),
+        ),
+      }
     : { ...state, phrases: [...state.phrases, phrase] };
   saveFavouritesState(next);
   return next;
