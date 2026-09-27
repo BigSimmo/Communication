@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import NotFound from "@/pages/not-found";
 import Library from "@/pages/library";
 // Non-landing routes stay lazy so route UI loads only when first visited. Card
@@ -16,6 +16,7 @@ import { QuickModeProvider } from "@/lib/quick-mode";
 import { ThemeProvider } from "@/lib/theme";
 import { PdfProvider } from "@/lib/pdf-context";
 import { AppLayout } from "@/components/app-layout";
+import { AppErrorBoundary } from "@/components/app-error-boundary";
 
 function RouteFallback() {
   return (
@@ -51,6 +52,20 @@ function Router() {
   );
 }
 
+function RoutedContent() {
+  const [location] = useLocation();
+  // A caught crash clears when the route changes (e.g. "Go to library"). On
+  // the Library route the header owns the h1, so the fallback uses an h2.
+  return (
+    <AppErrorBoundary
+      resetKey={location}
+      headingLevel={location === "/" ? 2 : 1}
+    >
+      <Router />
+    </AppErrorBoundary>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
@@ -63,7 +78,7 @@ function App() {
                   base={import.meta.env.BASE_URL.replace(/\/$/, "")}
                 >
                   <AppLayout>
-                    <Router />
+                    <RoutedContent />
                   </AppLayout>
                 </WouterRouter>
               </PdfProvider>

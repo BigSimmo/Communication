@@ -15,6 +15,7 @@ A mobile-first reference app for 98 communication techniques. It runs entirely i
 - Quick Lookup overlay for fast in-conversation phrase recall, scoped to the open card with one tap to widen to all cards
 - Keyboard-accessible global search (`Cmd+K` / `Ctrl+K`), and left/right arrow keys to step between cards
 - Light/dark theme persistence
+- Back up and restore your data: export favourites, drill progress, playbooks and settings to a JSON file from the Favourites page, and import it on any device
 - Mobile-first navigation with a floating menu button, 44px touch targets and safe-area (notch) support
 - Installable PWA: the app shell works offline, and cards and downloads work offline once they have been opened while online
 
