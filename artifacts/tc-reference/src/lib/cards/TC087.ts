@@ -539,8 +539,7 @@ export const TC087: CardData = {
     },
     {
       label: "Following the energy",
-      sequence:
-        "Topic energy tracking → story invitation → exact-word pickup",
+      sequence: "Topic energy tracking → story invitation → exact-word pickup",
       example: [
         '"You\'ve mentioned the move a few times now."',
         '"How did the move come about?"',

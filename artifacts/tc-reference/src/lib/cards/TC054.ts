@@ -545,8 +545,7 @@ export const TC054: CardData = {
     },
     {
       label: "Warm up, then follow the energy",
-      sequence:
-        "Warm presence → Similarity signalling → Topic energy tracking",
+      sequence: "Warm presence → Similarity signalling → Topic energy tracking",
       example: [
         "Create low-pressure attention.",
         "Name one true overlap.",

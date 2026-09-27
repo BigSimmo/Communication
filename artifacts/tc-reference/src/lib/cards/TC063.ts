@@ -560,8 +560,7 @@ export const TC063: CardData = {
     },
     {
       label: "Decision quality",
-      sequence:
-        "TC044 BLUF → TC063 Make them the expert → TC013 Clean request",
+      sequence: "TC044 BLUF → TC063 Make them the expert → TC013 Clean request",
       example: [
         "We need to choose by Friday.",
         "You're closest to the data. What should we not miss?",

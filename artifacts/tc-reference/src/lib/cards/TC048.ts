@@ -132,7 +132,7 @@ export const TC048: CardData = {
       tag: "Making the ask explicit",
       tone: "Direct",
       phrases: [
-        "The real question here's this one, not the ten smaller ones around it.",
+        "The real question here is this one, not the ten smaller ones around it.",
         "So the decision in front of us is whether we [do X].",
         "Given all that, here's what I'd do.",
         "My answer is [X]. Happy to walk back through the reasoning if it helps.",

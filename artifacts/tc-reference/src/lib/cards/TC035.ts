@@ -56,7 +56,7 @@ export const TC035: CardData = {
   ],
   id: "TC035",
   whyItWorks:
-    "A strategic pause is a brief, intentional gap in speech, usually one to three seconds, placed just before or after a key line so that line can land. It works as conversational punctuation: a comma, a full stop, or a paragraph break that stops reactive filler from weakening your message. Because the important words are not buried under extra wording, they carry more weight. Because you are not rushing, you look composed rather than reactive. And because there is space after a question, the other person actually gets room to think. Paired with a relaxed face and normal breathing, it reads as taking care with the moment rather than performing control. It is distinct from long silence: a strategic pause is short punctuation around your own speaking, whereas strategic silence leaves the floor open for the other person to continue.",
+    "A strategic pause is a deliberate gap of one to three seconds placed just before or after a key line so that line can land. It works as punctuation: the important words aren't buried under filler, you look composed rather than reactive, and a question gets real thinking time. With a relaxed face and normal breathing it reads as care, not control. Unlike strategic silence, which hands the floor to the other person, a pause is short punctuation around your own speaking.",
   whatItIsNot: [
     "Not the silent treatment, intimidation, or awkward withholding to make someone chase your approval.",
     "Not performance drama or a fake-wisdom pose: the strongest versions sound ordinary, not staged.",
@@ -123,7 +123,7 @@ export const TC035: CardData = {
         "That's the part I don't want us to miss.",
         "My recommendation is to stop the rollout for a week.",
         "This is a boundary for me.",
-        "What matters most here's clarity.",
+        "What matters most here is clarity.",
         "That's the decision I'm making.",
       ],
     },
@@ -171,7 +171,7 @@ export const TC035: CardData = {
     },
     {
       id: "helping_conversation",
-      label: "Clinical-style / helping conversation",
+      label: "Helping conversation",
       tag: "Give room to feel",
       tone: "Warm",
       phrases: [
@@ -244,12 +244,12 @@ export const TC035: CardData = {
     {
       condition: "The other person starts talking",
       action: "Let them. The pause has done its job.",
-      phrase: "",
+      phrase: "Go on.",
     },
   ],
   ladder: [
     {
-      weak: "Answering immediately to prove competence",
+      weak: "Yes, obviously, because... (answers before thinking, to look competent)",
       better: "Let me think.",
       best: "Let me take a second so I answer properly. [pause]",
     },
@@ -259,7 +259,7 @@ export const TC035: CardData = {
       best: "I'm sorry. I should have handled that better. [pause] I interrupted before I understood.",
     },
     {
-      weak: "Rushing through the hard sentence",
+      weak: "The concern is sort of capacity, but it's fine, we'll manage somehow.",
       better: "The concern is capacity.",
       best: "The concern is capacity. [pause] We can't keep adding work without removing work.",
     },
@@ -318,8 +318,8 @@ export const TC035: CardData = {
       'Someone asks "What?" or "Why are you looking at me like that?" The pause is drawing more attention than the message.',
       "You feel pleased with the effect of the pause rather than focused on the conversation. Drop the performance.",
       "You add caveats straight after the key point, or answer your own question: the pause was too short.",
-      "They are already speaking freely: switch to Minimal encouragers or Strategic silence.",
-      "The moment has gone cold: return to Warm presence or a Full-attention signal.",
+      "They're already speaking freely: switch to Minimal encouragers (TC033) or Strategic silence (TC029).",
+      "The moment has gone cold: return to Warm presence (TC010) or a Full-attention signal (TC012).",
     ],
   },
   drill: [
@@ -399,7 +399,7 @@ export const TC035: CardData = {
       "Signals composure: you look less reactive when challenged.",
       "Improves clarity: the listener processes one point before the next arrives.",
       "Reduces overexplaining: you stop after the point instead of weakening it.",
-      "Creates answer space, after a question, the pause gives permission to think.",
+      "Creates answer space: after a question, the pause gives permission to think.",
       "Makes apologies cleaner: ownership is not immediately swallowed by justification.",
       "Supports autonomy: you are not pushing the other person to respond instantly.",
     ],
@@ -412,17 +412,17 @@ export const TC035: CardData = {
   },
   fieldTip: {
     headline: "Pause after the sentence you most want to explain.",
-    body: "A strategic pause is not empty space. It is a decision not to trample the moment with extra words. It works best when it is brief, warm, and attached to a real job. The most useful pause usually comes right after the line you feel most tempted to justify. Say the clean sentence, breathe once, and let the other person meet it before you add anything.",
+    body: "A pause isn't empty space. It's a decision not to trample the moment with extra words. The most useful one usually comes right after the line you feel most tempted to justify. Say the clean sentence, breathe once, and let the other person meet it before you add anything.",
     example:
-      '"The concern is capacity." [pause] Let it sit, then, only if needed, "So we remove work before adding more."',
-    dont: 'Fill the gap with "um, yeah, so..." or a rushed caveat.',
+      '"The concern is capacity." [pause] Then, only if needed: "So we remove work before adding more."',
+    dont: 'Don\'t fill the gap with "um, yeah, so..." or a rushed caveat.',
     do: "Soften your gaze, breathe once, and let the line land before you continue.",
   },
   method: [
     {
       step: "1",
       title: "Notice the moment that needs weight",
-      body: "Catch the point where timing will help, before an important answer, after a key sentence, after a real question, after an apology, before a boundary, between a headline and its detail, or just after the other person says something loaded.",
+      body: "Catch the moments where timing helps: before an important answer, after a key sentence, after a real question, after an apology, before a boundary, between a headline and its detail, or just after the other person says something loaded.",
       examples: [
         {
           label: "Cue",
@@ -447,7 +447,7 @@ export const TC035: CardData = {
     {
       step: "4",
       title: "Hold the pause warm, not heavy",
-      body: "Keep your face relaxed, your breathing normal, and your eye contact soft. A warm pause reads as care. A staring pause reads as pressure. That difference is what keeps the technique from becoming cringey.",
+      body: "Keep your face relaxed, your breathing normal, and your eye contact soft. A warm pause reads as care. A staring pause reads as pressure. That difference is what stops it feeling staged.",
       examples: [
         {
           label: "Watch",
@@ -465,13 +465,13 @@ export const TC035: CardData = {
     },
   ],
   liveThreadClues: [
-    "before an important answer",
-    "after a key sentence",
-    "after a real question",
-    "after an apology",
-    "before a boundary",
-    "between a headline and its detail",
-    "just after the other person says something loaded",
+    "You're about to give an important answer",
+    "You've just said the sentence that matters most",
+    "You've just asked a question that deserves real thought",
+    "You've just apologised and feel the urge to explain",
+    "You're about to state a boundary",
+    "You've given the headline and are about to add the detail",
+    "The other person has just said something loaded",
   ],
   depthDial: [
     {

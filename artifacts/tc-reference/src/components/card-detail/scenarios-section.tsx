@@ -3,7 +3,6 @@ import type { CardData } from "@/lib/card-types";
 import { useFavourites } from "@/lib/favourites-context";
 import { CARD_TITLE_MAP } from "./card-sections";
 import { SectionAccordion } from "./section-accordion";
-import { quoted } from "@/lib/utils";
 
 // ── Scenarios ──
 export function ScenariosSection({
@@ -39,7 +38,7 @@ export function ScenariosSection({
               {s.situation}
             </p>
             <p className="text-[13px] text-foreground/60 mb-3 italic">
-              {quoted(s.move)}
+              {s.move}
             </p>
             {/* Phrase and favourite share one line; the phrase wraps inside */}
             <div className="flex items-center gap-2">

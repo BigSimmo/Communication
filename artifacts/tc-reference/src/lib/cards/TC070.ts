@@ -130,7 +130,7 @@ export const TC070: CardData = {
       phrases: [
         "Given the unclear handoff, it makes sense the team felt exposed.",
         "That concern is understandable in a process where expectations kept changing.",
-        "A strong reaction here's not automatically overreaction. The conditions created real pressure.",
+        "A strong reaction here is not automatically overreaction. The conditions created real pressure.",
         "It makes sense that trust would be dented after repeated scope changes.",
         "Given the repeated changes, it makes sense people are frustrated.",
         "A strong reaction is understandable under that much ambiguity.",

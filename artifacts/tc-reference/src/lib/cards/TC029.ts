@@ -100,7 +100,7 @@ export const TC029: CardData = {
     {
       id: "supportive-openers",
       label: "Supportive pause openers",
-      tag: "Supportive pause openers",
+      tag: "Signal you're still with them",
       tone: "Quick",
       phrases: [
         "Take your time.",
@@ -114,7 +114,7 @@ export const TC029: CardData = {
     {
       id: "after-emotion",
       label: "After emotion",
-      tag: "After emotion",
+      tag: "Let the feeling land first",
       tone: "Warm",
       phrases: [
         "That sounds like it hit hard.",
@@ -242,14 +242,14 @@ export const TC029: CardData = {
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"My recommendation is option B, because... does that make sense? I mean, basically..." (asks, then fills the gap)',
+      better: '"My recommendation is option B." (then a short pause)',
+      best: '"My recommendation is option B." [pause] "What concerns would you have?" (then wait for the answer)',
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: "\"That's awful. Anyway, at least it's over now.\" (rushes past it)",
+      better: '"That sounds hard." (a brief pause, then moves on)',
+      best: '"That sounds hard." [pause, soft face] Let them keep going before you say anything else.',
     },
     {
       weak: "Fills every gap with words to kill the silence.",
@@ -304,9 +304,9 @@ export const TC029: CardData = {
     adjust: [
       "They look confused, awkward, exposed, or pressured: soften at once.",
       'They ask "What?" or seem unsure whether you heard them: reflect to show you did.',
-      'The pause starts to feel like a test. Name it: "I am just thinking for a second."',
+      'The pause starts to feel like a test. Name it: "I\'m just thinking for a second."',
       "The setting is light and the silence feels too intense: shorten it and ask something simpler.",
-      "You have gone quiet because you do not know what to say. Say that rather than hide it.",
+      "You've gone quiet because you don't know what to say. Say so rather than hide it.",
       "Move from deep or emotional back to something practical.",
       'Give an exit: "We can leave that there if you prefer."',
       "Clarify your point if the silence followed something vague.",
@@ -383,7 +383,7 @@ export const TC029: CardData = {
       "the response stays warm and specific rather than defensive",
       "the next sentence is a reflection, not a lecture",
     ],
-    note: 'The whole difference is one breath of restraint after "That is a fair concern."',
+    note: 'The whole difference is one breath of restraint after "That\'s a fair concern."',
   },
   influencePayoff: {
     feeling:
@@ -407,12 +407,12 @@ export const TC029: CardData = {
     ],
   },
   fieldTip: {
-    headline: "If the moment has weight, do not remove it with words.",
+    headline: "If the moment has weight, don't fill it with words.",
     body: "The instinct after something meaningful is to fill the gap: reassure, explain, move on. Resist it for one breath. The space is doing the work. Your next sentence can wait.",
     example:
       '"That sounds like it mattered." [pause] "What part is still with you?"',
     dont: '"No, it\'ll be fine, honestly, because..." Rushing to reassure.',
-    do: '"That is a fair concern." [pause], then let them keep going.',
+    do: '"That\'s a fair concern." [pause] Then let them keep going.',
   },
   method: [
     {
@@ -491,7 +491,7 @@ export const TC029: CardData = {
     {
       depth: "Negotiation",
       useWhen: "After a calibrated question or recommendation",
-      phrase: '"My recommendation is B." [pause], let it sit.',
+      phrase: '"My recommendation is B." [pause] Then let it sit.',
     },
   ],
   commonMistakes: [

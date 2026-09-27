@@ -98,7 +98,7 @@ export const TC028: CardData = {
     {
       id: "greetings_openings",
       label: "Greetings / openings",
-      tag: "Greetings / openings",
+      tag: "The first few seconds",
       tone: "Quick",
       phrases: [
         "Hey, good to see you.",
@@ -113,7 +113,7 @@ export const TC028: CardData = {
     {
       id: "warm_curiosity",
       label: "Warm curiosity",
-      tag: "Warm curiosity",
+      tag: "Interested, not interrogating",
       tone: "Warm",
       phrases: [
         "I'm curious how you're seeing it.",
@@ -127,7 +127,7 @@ export const TC028: CardData = {
     {
       id: "shy_guarded_person",
       label: "Shy / guarded person",
-      tag: "Shy / guarded person",
+      tag: "Low pressure, easy out",
       tone: "Warm",
       phrases: [
         "No pressure to answer in detail.",
@@ -141,7 +141,7 @@ export const TC028: CardData = {
     {
       id: "requests_action",
       label: "Requests / action",
-      tag: "Requests / action",
+      tag: "Warm but clear asks",
       tone: "Direct",
       phrases: [
         "Quick ask. Could you send that by Friday?",
@@ -155,7 +155,7 @@ export const TC028: CardData = {
     {
       id: "high_status_busy_person",
       label: "High-status / busy person",
-      tag: "High-status / busy person",
+      tag: "Brief and respectful of their time",
       tone: "Professional",
       phrases: [
         "I'll keep this brief.",
@@ -169,7 +169,7 @@ export const TC028: CardData = {
     {
       id: "disagreement_feedback",
       label: "Disagreement / feedback",
-      tag: "Disagreement / feedback",
+      tag: "Calm, not sharp",
       tone: "High-stakes",
       phrases: [
         "I see why that's the concern.",
@@ -183,7 +183,7 @@ export const TC028: CardData = {
     {
       id: "digital_voice_note",
       label: "Digital / voice note",
-      tag: "Digital / voice note",
+      tag: "When tone has to carry it",
       tone: "Quick",
       phrases: [
         "Keeping this short...",
@@ -191,13 +191,13 @@ export const TC028: CardData = {
         "No urgency on this.",
         "My short version is...",
         "Happy to clarify if this lands oddly in audio.",
-        "Reading this in a warm voice, not a flat one.",
+        "Easier to say this out loud than type it.",
       ],
     },
     {
       id: "recovery_reset",
       label: "Recovery / reset",
-      tag: "Recovery / reset",
+      tag: "When you sounded cold or rushed",
       tone: "Repair",
       phrases: [
         "That sounded colder than I meant.",
@@ -333,12 +333,12 @@ export const TC028: CardData = {
     {
       weak: '"Hey." (flat, distracted)',
       better: '"Hey, good to see you."',
-      best: '"Hey, good to see you.", with a small pause and a genuinely relaxed tone.',
+      best: '"Hey, good to see you." (small pause, relaxed tone)',
     },
     {
       weak: '"What?"',
       better: '"Yeah, what\'s up?"',
-      best: '"Yeah, of course. What\'s up?", with attention and no rush.',
+      best: '"Yeah, of course. What\'s up?" (full attention, no rush)',
     },
     {
       weak: '"Can you do this?"',
@@ -372,7 +372,7 @@ export const TC028: CardData = {
       'You: "Yeah, of course. What\'s up?"',
       'Person: "I wanted your view on something from work."',
       'You: "Sure. Talk me through it."',
-      "advanced...",
+      "Advanced version:",
       'Person: "Can I ask you something?"',
       'You: "Yeah. Take your time. What\'s going on?"',
       'Person: "It\'s a bit awkward."',
@@ -558,7 +558,7 @@ export const TC028: CardData = {
     {
       id: "TC010",
       reason:
-        "Both create felt safety. TC028 is specifically your default vocal tone. How the first seconds sound. TC010 Warm presence is the fuller package (body, attention, manner), of which voice is one part. Reach for TC028 when the fix is purely how you sound.",
+        "Both create felt safety. TC028 is your default vocal tone, how the first few seconds sound. TC010 Warm presence is the fuller package (face, body, attention and manner), and voice is one part of it. Reach for TC028 when the fix is purely how you sound.",
     },
     {
       id: "TC024",

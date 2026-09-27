@@ -158,7 +158,7 @@ export const TC084: CardData = {
       tone: "Quick",
       phrases: [
         "I may be reading this wrong, but the key value seems to be fairness.",
-        "Sounds like the main thread here's trust, not the single incident.",
+        "Sounds like the main thread here is trust, not the single incident.",
         "The bit you keep returning to seems to be being kept in the loop.",
         "It reads like fairness is the part that stung. Tell me if that's off.",
         "Happy to stay practical, but it sounds like respect is the real issue.",
@@ -398,7 +398,7 @@ export const TC084: CardData = {
       example: [
         "This one clearly meant a lot.",
         "It sounds like doing it properly is the part that mattered.",
-        "How you take it from here's completely your call.",
+        "How you take it from here is completely your call.",
       ],
     },
     {

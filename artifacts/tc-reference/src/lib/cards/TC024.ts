@@ -579,8 +579,7 @@ export const TC024: CardData = {
     },
     {
       label: "Professional chain",
-      sequence:
-        "Warm opening → BLUF → key reason → ask/check → summary check",
+      sequence: "Warm opening → BLUF → key reason → ask/check → summary check",
       example: [
         '"Good to connect. I\'ll give you the short version first."',
         '"My leaning is the simpler option now."',

@@ -530,7 +530,7 @@ export const TC020: CardData = {
     "No need to answer that if it's not useful.",
     "I jumped ahead there. Please leave it.",
     "Forget I asked. I'll find another route.",
-    "A no here's completely fine, honestly.",
+    "A no here is completely fine, honestly.",
   ],
   bestRecoveryLine:
     "Sorry, that came out heavier than I meant. Please treat it as completely optional.",

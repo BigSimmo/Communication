@@ -158,11 +158,11 @@ export const TC031: CardData = {
       tone: "Repair",
       phrases: [
         "Let me say that more simply.",
-        "I may be reading this wrong.",
+        "I got defensive. Let me answer the actual question.",
         "Let me back up and slow this down.",
         "That came out faster than I meant.",
-        "We can stay with this or move on. Your call.",
-        "Ignore that if it doesn't fit.",
+        "Sorry, I rushed that. Here's what I meant.",
+        "I talked over you there. Go ahead.",
       ],
     },
     {
@@ -187,7 +187,7 @@ export const TC031: CardData = {
       phrases: [
         "Give me a bit to answer this properly.",
         "Short version now, fuller version later if useful.",
-        "I may be reading this wrong, but this seems like the relevant thread.",
+        "Replying properly rather than quickly. The main point is...",
         "One thing at a time. Let me take the first.",
         "Let me come back to this clearly rather than fire off a quick reply.",
       ],
@@ -202,7 +202,7 @@ export const TC031: CardData = {
     {
       condition: "They pause thoughtfully",
       action: "Wait. Do not rush to fill the silence.",
-      phrase: "",
+      phrase: "Take your time.",
     },
     {
       condition: "They look uncomfortable or confused",
@@ -211,7 +211,7 @@ export const TC031: CardData = {
     },
     {
       condition: "They ask for advice",
-      action: "Switch to Permission-based advice.",
+      action: "Switch to Permission-based advice (TC027).",
       phrase: "Want my take, or just a sounding board?",
     },
     {
@@ -261,7 +261,7 @@ export const TC031: CardData = {
     {
       situation: "High-stakes / pushed for an instant answer",
       move: "Give direct clarity first, then slow down only if it lowers the pressure.",
-      phrase: "Straight answer: yes. Now let me explain why, slowly.",
+      phrase: "Straight answer: yes. Here's why.",
     },
     {
       situation: "Hard feedback landing on you",
@@ -279,10 +279,10 @@ export const TC031: CardData = {
       "The room feels a notch calmer.",
     ],
     adjust: [
-      "Short answers and politeness without energy.",
-      "Repeated topic shifts.",
+      "Short, polite answers with no energy behind them.",
+      "They keep changing the subject.",
       "They pull back, go quiet or look confused.",
-      "Defensiveness or refusal.",
+      "They get defensive or dig in.",
       "You feel yourself performing calm rather than being calm.",
       "The moment actually needs a fast, direct answer: switch to that.",
       "When in doubt, make the move smaller.",
@@ -464,11 +464,11 @@ export const TC031: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I may be reading that wrong.",
-    "We don't have to stay with that.",
+    "I'm not dodging. The straight answer is yes.",
+    "Sorry, that pause went on. Here's my answer.",
     "Let me say that more simply.",
-    "Ignore that if it doesn't fit.",
-    "What would be more useful right now?",
+    "I talked over you there. Go ahead.",
+    "Do you want the short answer or the full picture?",
     "That came out faster than I meant. Let me try again.",
     "Let me back up and take that one thing at a time.",
   ],
@@ -477,7 +477,7 @@ export const TC031: CardData = {
     {
       label: "Steady then clarify",
       sequence:
-        "Slow down under pressure → Summary check → Live-Thread Follow-Ups",
+        "Slow down under pressure → Summary check → Live thread follow-ups",
       example: [
         '"Let me slow that down. The main issue is the timeline."',
         '"So the timeline is the sticking point, not the budget?"',
