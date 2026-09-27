@@ -64,7 +64,8 @@ export default function CardDetail() {
   const [copiedPhrase, setCopiedPhrase] = useState<string | null>(null);
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const [whyOpen, setWhyOpen] = useState(false);
-  const [notForOpen, setNotForOpen] = useState(false);
+  // Open by default: knowing when not to use a move is safety-relevant.
+  const [notForOpen, setNotForOpen] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
   const pdfSheetRef = useRef<HTMLDivElement>(null);
 

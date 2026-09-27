@@ -25,7 +25,6 @@ export function PhrasesSection({
     <SectionAccordion
       id="phrases"
       label="Phrase bank"
-      color="var(--accent-blue)"
       subtitle={`${cardData.phraseBank.reduce((a, g) => a + g.phrases.length, 0)} phrases · ${cardData.phraseBank.length} groups`}
     >
       <div className="mb-4">

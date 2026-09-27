@@ -7,7 +7,6 @@ export function ChainsSection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="chains"
       label="Technique chains"
-      color="var(--accent-indigo)"
       subtitle="Combine this move into longer sequences"
     >
       <div className="space-y-4">

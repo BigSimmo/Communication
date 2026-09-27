@@ -16,7 +16,6 @@ export function ChecklistSection({
     <SectionAccordion
       id="checklist"
       label="After-action checklist"
-      color="var(--accent-emerald)"
       subtitle={`${checkedItems.size} / ${cardData.checklist.length} items checked`}
     >
       <div

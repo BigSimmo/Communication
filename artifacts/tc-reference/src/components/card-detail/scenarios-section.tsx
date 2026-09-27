@@ -22,7 +22,6 @@ export function ScenariosSection({
     <SectionAccordion
       id="scenarios"
       label="Scenario playbook"
-      color="var(--accent-teal)"
       subtitle={`${cardData.scenarios.length} real-world scenarios`}
     >
       <div className="space-y-3">

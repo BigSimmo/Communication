@@ -13,9 +13,10 @@ export function CardHeader({
   return (
     <>
       {/* ── Technique brief ──
-        The shared header already carries the card ID and title, so the
-        brief leads with the move itself plus the quickest weak/best
-        contrast; the full formula lives in Overview directly below. */}
+        Leads with the move itself plus the quickest weak/best contrast;
+        the full formula lives in Overview directly below. On phones the
+        header truncates the title behind its tools, so the brief repeats
+        it in full; from sm up the header shows it whole. */}
       <div className="px-3 md:px-4 pt-4">
         <div
           className="rounded-2xl p-4 sm:p-5 border relative overflow-hidden"
@@ -25,17 +26,25 @@ export function CardHeader({
             borderColor: "color-mix(in srgb, var(--brand) 18%, var(--fg-08))",
           }}
         >
-          {/* Visible title lives in the shared header (h1); keep the
-            section heading for the document outline. */}
-          <h2 className="sr-only">{CARD_TITLE_MAP[cardId] ?? cardId}</h2>
           <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
             <p
               className="text-[11px] font-bold tracking-[0.12em] uppercase"
               style={{ color: "var(--brand-text)" }}
-              data-testid="card-brief-category"
             >
-              {CARD_CATEGORY_MAP[cardId] ?? "Technique"}
+              <span className="sm:hidden">{cardId} · </span>
+              <span data-testid="card-brief-category">
+                {CARD_CATEGORY_MAP[cardId] ?? "Technique"}
+              </span>
             </p>
+            {/* The header h1 carries the title from sm up; on phones it is
+              truncated there, so this heading shows it whole. */}
+            <h2
+              className="w-full sm:sr-only text-[22px] font-bold leading-tight tracking-[-0.01em]"
+              style={{ color: "var(--fg-90)" }}
+              data-testid="card-brief-title"
+            >
+              {CARD_TITLE_MAP[cardId] ?? cardId}
+            </h2>
             <div className="flex items-center gap-1.5">
               <span
                 className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
@@ -66,7 +75,7 @@ export function CardHeader({
 
           <p
             className="text-[11px] font-bold tracking-wider uppercase mt-4 mb-1.5"
-            style={{ color: "var(--fg-45)" }}
+            style={{ color: "var(--fg-50)" }}
           >
             Minimum viable move
           </p>

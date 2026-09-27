@@ -16,7 +16,6 @@ export function MethodSection({
     <SectionAccordion
       id="method"
       label="The method"
-      color="var(--brand)"
       subtitle={`${cardData.method?.length ?? 0}-step guide`}
     >
       {cardData.fieldTip && (

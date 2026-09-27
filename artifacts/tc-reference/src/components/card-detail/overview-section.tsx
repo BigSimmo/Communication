@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, TriangleAlert } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { SectionAccordion } from "./section-accordion";
@@ -23,7 +23,6 @@ export function OverviewSection({
     <SectionAccordion
       id="overview"
       label="Overview"
-      color="var(--brand)"
       subtitle="Core formula, quick stats and when not to use it"
     >
       <div
@@ -131,11 +130,7 @@ export function OverviewSection({
               cardData.overview.impact,
               impactStyleFor(cardData.overview.impact).color,
             ],
-            [
-              "Difficulty",
-              cardData.overview.difficulty,
-              "var(--impact-medium)",
-            ],
+            ["Difficulty", cardData.overview.difficulty, "var(--fg-45)"],
             ["Misuse risk", cardData.overview.misuse, "var(--brand-text)"],
           ] as [string, string, string][]
         ).map(([k, v, c]) => (
@@ -190,47 +185,52 @@ export function OverviewSection({
       <div
         className="rounded-2xl overflow-hidden"
         style={{
-          background: "color-mix(in srgb, var(--accent-red) 6%, transparent)",
-          border:
-            "1px solid color-mix(in srgb, var(--accent-red) 16%, transparent)",
+          // A caution, not an error: neutral surface, amber marker.
+          background: "var(--fg-03)",
+          border: "1px solid var(--fg-08)",
+          borderLeft: "3px solid var(--brand)",
         }}
       >
         <button
           onClick={() => setNotForOpen((v) => !v)}
-          className="w-full flex items-center justify-between px-5 py-3.5 transition-colors active:bg-[var(--fg-03)]"
+          className="w-full flex items-center justify-between gap-2 px-4 py-3.5 transition-colors active:bg-[var(--fg-03)]"
           aria-expanded={notForOpen}
         >
-          <p
-            className="text-[11px] font-bold tracking-widest uppercase"
-            style={{ color: "var(--accent-red)" }}
-          >
-            When not to use
-          </p>
+          <span className="flex items-center gap-2">
+            <TriangleAlert
+              className="w-4 h-4 flex-shrink-0"
+              style={{ color: "var(--brand-text)" }}
+              aria-hidden="true"
+            />
+            <span
+              className="text-[13px] font-semibold"
+              style={{ color: "var(--fg-85)" }}
+            >
+              When not to use
+            </span>
+          </span>
           <ChevronDown
             className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
             style={{
-              color: "var(--accent-red)",
+              color: "var(--fg-50)",
               transform: notForOpen ? "rotate(180deg)" : "none",
             }}
             aria-hidden="true"
           />
         </button>
         {notForOpen && (
-          <div className="px-5 pb-4">
+          <div className="px-4 pb-4">
             <ul className="space-y-2">
               {cardData.notFor.map((item) => (
                 <li key={item} className="flex gap-2.5 items-start">
                   <div
                     className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-red) 50%, transparent)",
-                    }}
+                    style={{ background: "var(--fg-30)" }}
                     aria-hidden="true"
                   />
                   <p
                     className="text-[13px] leading-snug"
-                    style={{ color: "var(--fg-65)" }}
+                    style={{ color: "var(--fg-70)" }}
                   >
                     {item}
                   </p>

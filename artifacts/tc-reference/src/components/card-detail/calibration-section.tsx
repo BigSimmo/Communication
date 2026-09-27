@@ -8,7 +8,6 @@ export function CalibrationSection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="calibration"
       label="Calibration"
-      color="var(--accent-rose)"
       subtitle="Signs it is working and when to adjust"
     >
       <div className="grid grid-cols-1 gap-4">

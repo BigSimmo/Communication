@@ -116,7 +116,7 @@ export function PrevNextNav({
             >
               {dir} · {card.id}
             </span>
-            <span className="block text-[13px] font-semibold text-foreground/85 truncate">
+            <span className="block text-[13px] font-semibold leading-snug text-foreground/85 line-clamp-2 mt-0.5">
               {CARD_TITLE_MAP[card.id] ?? card.id}
             </span>
           </span>

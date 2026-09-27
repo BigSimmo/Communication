@@ -17,7 +17,6 @@ export function TreeSection({
     <SectionAccordion
       id="tree"
       label="Decision tree"
-      color="var(--accent-purple)"
       subtitle={`${cardData.decisionTree.length} situations and the move for each`}
     >
       {/* The rail is decoration; phones give its width back to the text */}

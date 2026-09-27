@@ -21,7 +21,6 @@ export function LadderSection({
     <SectionAccordion
       id="ladder"
       label="Weak → Better → Best"
-      color="var(--accent-orange)"
       subtitle={`${cardData.ladder.length} upgrade examples`}
     >
       <div className="space-y-4">

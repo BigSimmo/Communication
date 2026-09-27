@@ -16,7 +16,6 @@ export function MistakesSection({
     <SectionAccordion
       id="mistakes"
       label="Common mistakes"
-      color="var(--accent-red)"
       subtitle={`${cardData.commonMistakes?.length ?? 0} pitfalls and fixes`}
     >
       <div className="space-y-3">

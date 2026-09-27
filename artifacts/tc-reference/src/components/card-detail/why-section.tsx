@@ -9,7 +9,6 @@ export function WhySection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="why"
       label="Why it works"
-      color="var(--accent-purple)"
       subtitle="The principle and what it builds"
     >
       <div

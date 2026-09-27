@@ -21,7 +21,6 @@ export function RecoverySection({
     <SectionAccordion
       id="recovery"
       label="Recovery"
-      color="var(--accent-emerald)"
       subtitle="Reset scripts for when it lands badly"
     >
       {cardData.bestRecoveryLine && (
