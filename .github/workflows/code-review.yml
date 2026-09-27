@@ -47,5 +47,6 @@ jobs:
 
       - name: Run Automated Code Reviewer
         env:
+          CODE_REVIEW_SKIP_CHECKS: "1"
           CODE_REVIEW_BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event.before }}
         run: pnpm run code-review

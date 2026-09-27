@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate:downloads": "pnpm --filter @workspace/scripts run generate:card-downloads",
+    "generate:downloads": "node ../../scripts/ensure-card-downloads.mjs",
     "dev": "pnpm run generate:downloads && vite --config vite.config.ts --host 127.0.0.1",
     "build": "pnpm run generate:downloads && vite build --config vite.config.ts && pnpm --filter @workspace/scripts exec tsx ../artifacts/tc-reference/scripts/verify-card-build.ts",
     "serve": "vite preview --config vite.config.ts --host 127.0.0.1",
