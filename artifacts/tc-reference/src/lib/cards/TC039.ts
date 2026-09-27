@@ -266,8 +266,9 @@ export const TC039: CardData = {
     {
       situation: "Digital message",
       move: "Use one sentence only. Don't stack multiple prompts.",
-      phrase:
-        "Think we both want the same thing here: a clean handover."{
+      phrase: "Sounds like we both want this sorted before Friday.",
+    },
+    {
       situation: "High-stakes context",
       move: "Lead with direct clarity. Add common ground only if it lowers pressure and improves understanding.",
       phrase: "Even here, we both want this to be fair.",
@@ -519,7 +520,8 @@ export const TC039: CardData = {
     "That came out too strong.",
     "Maybe we want different things here. Tell me yours.",
   ],
-  bestRecoveryLine: "I may be reading that wrong. Is that actually something we share?",
+  bestRecoveryLine:
+    "I may be reading that wrong. Is that actually something we share?",
   chains: [
     {
       label: "Repair to request",
