@@ -366,7 +366,7 @@ export const TC073: CardData = {
       'A: "So the blocker is trust in enforcement, not the workflow itself."',
       'B: "Exactly."',
       "A: \"Then the useful question isn't 'can I convince you?' but 'what rule would make the workflow real?'\"",
-      'B: "Requests outside the system need manager approval. Otherwise we\'ll not believe it."',
+      'B: "Requests outside the system need manager approval. Otherwise we won\'t believe it."',
       'A: "Good. Let\'s design that condition before asking for buy-in."',
     ],
     note: "The move each time is the same: stop rebutting, name the resistance neutrally, ask one question, then let the answer change the plan.",

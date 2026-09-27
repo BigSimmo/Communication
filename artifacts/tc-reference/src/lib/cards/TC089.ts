@@ -106,7 +106,7 @@ export const TC089: CardData = {
       tone: "Quick",
       phrases: [
         "A quick no is fine.",
-        "A quick no is fine. I'll not chase it.",
+        "A quick no is fine. I won't chase it.",
         "If it doesn't help, we stop.",
         "First page only. No full review needed.",
         "One conversation. No need to decide today.",
@@ -249,7 +249,7 @@ export const TC089: CardData = {
       title: "Give a real exit or choice",
       body: "Make declining, pausing, revising, or choosing a smaller version explicitly acceptable, and mean it. The test is simple: would they still feel free to say no after your phrase? If not, you have added pressure, not reduced risk.",
       examples: [
-        { label: "Exit", text: '"A quick no is fine. I\'ll not chase it."' },
+        { label: "Exit", text: '"A quick no is fine. I won\'t chase it."' },
         {
           label: "Choice",
           text: '"You can revise it, pause it, or pick a smaller version."',
@@ -462,7 +462,7 @@ export const TC089: CardData = {
       mistake: "Vague comfort language",
       soundsLike: '"No pressure."',
       better:
-        '"A quick no is fine, and I\'ll not follow up again unless you ask."',
+        '"A quick no is fine, and I won\'t follow up again unless you ask."',
     },
     {
       mistake: "Making the person reassure you",
@@ -562,9 +562,9 @@ export const TC089: CardData = {
     headline: 'Do not say "no pressure" unless you can prove it.',
     body: 'Vague comfort words ("no pressure," "no risk," "it\'s nothing") ask the other person to trust you. A real risk-reduction phrase shows its working: it names exactly how the ask is smaller, safer, or easier to decline, so they can see the cap for themselves rather than take it on faith.',
     example:
-      '"A quick no is fine. I\'ll not chase it." / "First page only. No full review needed." / "One-week test. Rollback if it adds friction."',
+      '"A quick no is fine. I won\'t chase it." / "First page only. No full review needed." / "One-week test. Rollback if it adds friction."',
     dont: '"No pressure, just let me know your thoughts."',
-    do: '"A yes or no is enough. First page only, and I\'ll not follow up unless you ask."',
+    do: '"A yes or no is enough. First page only, and I won\'t follow up unless you ask."',
   },
   relatedTechniques: [
     {

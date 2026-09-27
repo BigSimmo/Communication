@@ -56,12 +56,11 @@ export const TC004: CardData = {
   ],
   id: "TC004",
   whyItWorks:
-    "Reflective listening is the habit of saying back the core meaning, feeling or concern in someone's words before you add your own content. You listen for the point underneath the words, reflect it briefly in your own plain language, and let them confirm, correct or deepen it. It works because people become more receptive once they feel understood: reflecting first lowers defensive pressure and improves accuracy, so no one has to defend, decode or rescue the conversation. Done well it sounds like ordinary adult speech, not a script or a performance.",
+    "Reflective listening is saying back the core meaning, feeling or concern in someone's words before you add your own. You reflect the point underneath briefly, in plain language, and let them confirm, correct or deepen it. It works because people become more receptive once they feel understood, and a quick check catches misunderstandings before you build on them.",
   whatItIsNot: [
     'It is not parroting, clinical mirroring, or saying "I hear you" on autopilot.',
     "It is not agreeing with everything or pretending to understand.",
-    "It is not manipulation, performance, emotional extraction or a way to force intimacy.",
-    "It is not something to keep pushing once they resist, shorten their answers or redirect, then you release it and follow the person.",
+    "It is not something to keep pushing. If they resist, shorten their answers or redirect, release it and follow them.",
   ],
   overview: {
     coreFormula: [
@@ -162,7 +161,7 @@ export const TC004: CardData = {
       phrases: [
         "I might have this wrong, but it sounds like the timing is the real issue.",
         "Correct me if I'm off. It seems the hard part was being left out.",
-        "Maybe the better way to say it's that you felt overlooked.",
+        "Maybe the better way to say it is that you felt overlooked.",
         "I don't want to put words in your mouth, but this sounds bigger than one meeting.",
         "So, if I'm reading you right, it's less about the task and more about the trust.",
         "Let me try that again. It sounds more like disappointment than anger.",

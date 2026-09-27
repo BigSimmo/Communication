@@ -79,7 +79,7 @@ export const TC010: CardData = {
     misuse:
       "The move fails when warmth becomes performance, intensity, over-smiling or intrusive familiarity.",
     bestFor: [
-      "First impressions, introductions, dates, networking, ward/clinic or workplace conversations, and social settings.",
+      "First impressions, introductions, dates, networking, workplace conversations, and social settings.",
       "Opening a conversation before asking, persuading, challenging, or giving feedback.",
       "Shy, guarded, stressed, high-status, or socially cautious people who need lower pressure.",
       "Repairing a slightly tense, awkward, or cold interaction.",
@@ -451,7 +451,7 @@ export const TC010: CardData = {
       examples: [
         {
           label: "Exit ramp",
-          text: "A short version is completely fine, only if you feel like saying.",
+          text: "A short version is completely fine. Only if you feel like saying.",
         },
       ],
     },
@@ -558,7 +558,7 @@ export const TC010: CardData = {
       sequence:
         "Warm presence → contextual opener → live-thread follow-up → reflective listening → specific appreciation.",
       example: [
-        '"Good to see you. No rush, how\'s the day been?"',
+        '"Good to see you. No rush. How\'s the day been?"',
         '"You mentioned the move went sideways. What was the sideways part?"',
         '"So the timing was the real headache."',
         '"I like how clearly you thought that through."',
@@ -602,7 +602,7 @@ export const TC010: CardData = {
     {
       id: "TC012",
       reason:
-        "Reach for this when the person mainly needs to know they have your focus. Full-attention signal makes attention explicit. Warm presence sets the overall safe, low-pressure tone.",
+        "Reach for Full-attention signal when the person mainly needs to know they have your focus. It makes attention explicit. Warm presence sets the overall safe, low-pressure tone.",
     },
     {
       id: "TC024",
@@ -612,7 +612,7 @@ export const TC010: CardData = {
     {
       id: "TC028",
       reason:
-        "Use this when the fix is specifically in your voice: pace, pitch, and steadiness. Warm presence is broader: face, body, timing, and words together.",
+        "Use Warm vocal baseline when the fix is specifically in your voice: pace, pitch, and steadiness. Warm presence is broader: face, body, timing, and words together.",
     },
     {
       id: "TC036",

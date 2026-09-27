@@ -121,7 +121,7 @@ export const TC008: CardData = {
         "Is that enough detail, or useful to go deeper?",
         "I can unpack that if helpful.",
         "I'll pause there.",
-        "That's the gist, want more?",
+        "That's the gist. Want more?",
       ],
     },
     {
@@ -286,7 +286,7 @@ export const TC008: CardData = {
     {
       situation: "After an awkward moment",
       move: "Name the over-explaining lightly and reset rather than piling on more words.",
-      phrase: "I'm overexplaining, let me simplify.",
+      phrase: "I'm overexplaining. Let me simplify.",
     },
     {
       situation: "When detail is genuinely needed",
@@ -546,7 +546,7 @@ export const TC008: CardData = {
     "I think I repeated myself there. The useful bit is X.",
     "Simple answer: X.",
   ],
-  bestRecoveryLine: "I'm overexplaining, short version is X.",
+  bestRecoveryLine: "I'm overexplaining. Short version: X.",
   chains: [
     {
       label: "Boundary chain",
@@ -564,7 +564,7 @@ export const TC008: CardData = {
       example: [
         '"Bottom line: I\'d go with B."',
         '"It solves the main issue with the least complexity."',
-        '"It fits what you said matters most. Keeping it simple."',
+        '"It fits what you said matters most: keeping it simple."',
         '"But it\'s your call."',
       ],
     },
@@ -594,7 +594,7 @@ export const TC008: CardData = {
     {
       id: "TC031",
       reason:
-        "Slow down under pressure: when the over-talking is driven by nerves, the fix is pace, not word-count, slow down first, then trim.",
+        "Slow down under pressure: when the over-talking is driven by nerves, the fix is pace, not word count. Slow down first, then trim.",
     },
     {
       id: "TC035",
@@ -609,12 +609,12 @@ export const TC008: CardData = {
     {
       id: "TC014",
       reason:
-        "Validate the concern: when the person needs their worry acknowledged first, a bare short answer will land cold, validate, then shorten.",
+        "Validate the concern: when the person needs their worry acknowledged first, a bare short answer will land cold. Validate, then shorten.",
     },
     {
       id: "TC044",
       reason:
-        "BLUF: the structured cousin for written and work contexts, lead with the bottom line, then support it.",
+        "BLUF: the structured cousin for written and work contexts. Lead with the bottom line, then support it.",
     },
     {
       id: "TC029",

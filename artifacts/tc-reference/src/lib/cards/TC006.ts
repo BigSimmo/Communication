@@ -68,7 +68,7 @@ export const TC006: CardData = {
       "Tentative cue + emotion or concern + optional reason, then pause.",
       "It sounds like this felt pretty unfair.",
       "I might be off, but part of this sounds disappointing.",
-      "Not just stressful: more like exhausting?",
+      "Not just stressful. More like exhausting?",
       "There seems to be a fairness piece here.",
       "You sound excited, but also a bit unsure.",
     ],
@@ -120,7 +120,7 @@ export const TC006: CardData = {
         "Part of this seems to be...",
         "It sounds like there's some...",
         "I may be off, but that seems...",
-        "Not angry exactly: more worn down?",
+        "Not angry exactly. More worn down?",
       ],
     },
     {
@@ -402,7 +402,7 @@ export const TC006: CardData = {
     headline: "Go one shade softer.",
     body: "Reach for a label a notch gentler than the emotion you think you're seeing, keep it tentative, then stop talking. An under-shot label is easy for someone to nudge upward. An over-shot one just makes them defend themselves instead of opening up.",
     example:
-      "'That sounds like it hit harder than you expected' invites them in. 'you must have been devastated' backs them into a corner.",
+      '"That sounds like it hit harder than you expected" invites them in. "You must have been devastated" backs them into a corner.',
     dont: "You must have been devastated.",
     do: "That sounds like it hit harder than you expected.",
   },
@@ -599,7 +599,7 @@ export const TC006: CardData = {
       example: [
         "You: You sound genuinely proud of this.",
         "You: What was the part that finally clicked?",
-        "You: Honestly, the way you stuck with it's impressive.",
+        "You: Honestly, the way you stuck with it is impressive.",
       ],
     },
   ],

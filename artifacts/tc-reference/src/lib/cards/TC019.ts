@@ -176,7 +176,7 @@ export const TC019: CardData = {
       tone: "High-stakes",
       phrases: [
         "Would it be useful if I checked the premise before I respond?",
-        "I'll take the smallest slice of your time, just one question?",
+        "I'll take the smallest slice of your time. Just one question?",
         "If it helps, I can narrow this to a single decision.",
         "I'll keep this to one ask so it's easy to weigh up.",
         "Only the part that needs your call. Nothing more.",
@@ -192,7 +192,7 @@ export const TC019: CardData = {
         "To make sure I answer the right thing: is it the date you need?",
         "Quick one. Could you confirm just the date?",
         "One small ask: can you send the file, not the summary?",
-        "Short version, yes or no on the first option?",
+        "Short version: yes or no on the first option?",
         "Just checking the one point before I reply properly: is X right?",
       ],
     },
@@ -317,7 +317,7 @@ export const TC019: CardData = {
     {
       day: "Day 4",
       title: "Practise the recovery",
-      task: 'In a low-stakes chat, deliberately over-ask, then use one recovery line to make it smaller: "Let me put that more simply, just the one thing."',
+      task: 'In a low-stakes chat, deliberately over-ask, then use one recovery line to make it smaller: "Let me make that smaller. Just the one thing."',
     },
     {
       day: "Day 5",
@@ -338,7 +338,7 @@ export const TC019: CardData = {
   checklist: [
     "Did I notice the cue and shrink the ask before speaking?",
     "Was the ask one concrete action, not a vague or large one?",
-    "Was the boundary honest, did I say what I was not asking for?",
+    "Was the boundary honest? Did I say what I was not asking for?",
     "Did I leave a genuine yes or no, without pressure?",
     "Did I watch their response and adjust?",
     "Did I repair quickly if it missed, rather than pushing?",
@@ -370,9 +370,8 @@ export const TC019: CardData = {
     principle:
       "People say yes more readily to a small, clear, bounded action than to a large or vague request, and a clean small yes builds the trust that makes the next ask easier.",
     gains: [
-      "Cleaner coordination",
-      "Less interpersonal friction",
-      "Lower defensiveness",
+      "A fast, low-cost yes",
+      "Less overwhelm for the other person",
       "Faster movement from intention to action",
       "A next step that feels earned, not pushed",
       "Trust that you won't overreach",
@@ -388,7 +387,7 @@ export const TC019: CardData = {
     headline: "Shrink the ask, not the honesty.",
     body: "A small ask only works when the boundary is real. If you say \"just the first paragraph\" but you're quietly hoping they'll do the whole thing, people feel it, and the next ask costs more. Make the small ask genuinely the whole ask.",
     example:
-      '"Could you look at just the first paragraph? No need to edit the rest.", and mean it.',
+      '"Could you look at just the first paragraph? No need to edit the rest." And mean it.',
     dont: "Don't use a small ask as a foot in the door for a bigger one you haven't named.",
     do: "Do let a small, honest yes stand on its own. Ask again separately if you need more.",
   },
@@ -516,17 +515,15 @@ export const TC019: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I may have read that wrong.",
-    "Let me put that more simply.",
-    "Let me make that smaller, just the one thing.",
-    "No need to go there if it's not useful.",
-    "I jumped ahead there.",
-    "What would be the more accurate way to ask that?",
-    "We can leave that and come back if needed.",
+    "Too big? Let me shrink it.",
+    "Let me make that smaller. Just the one thing.",
+    "I asked for more than I needed. Just the first part is fine.",
+    "What size of ask would actually be easy for you?",
+    "We can leave it for now. No problem at all.",
     "Ignore the rest: one part is genuinely all I need.",
   ],
   bestRecoveryLine:
-    "Let me make that smaller, just the one thing, and only if it's easy.",
+    "Let me make that smaller. Just the one thing, and only if it's easy.",
   chains: [
     {
       label: "Attention → ask → check",

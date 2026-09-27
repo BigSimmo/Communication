@@ -147,7 +147,7 @@ export const TC066: CardData = {
       tag: "A clear end or boundary",
       tone: "Direct",
       phrases: [
-        "I'll not discuss personal accusations by email.",
+        "I won't discuss personal accusations by email.",
         "I'll respond to new information, not repeated allegations.",
         "Please send any practical changes by Friday.",
         "This is my final reply on this point unless something new comes up.",
@@ -198,7 +198,7 @@ export const TC066: CardData = {
       tag: "Guarded, under fire, or looping",
       tone: "High-stakes",
       phrases: [
-        "I've read your message. I'll respond to the factual issue after reviewing the file. I'll not respond to personal claims.",
+        "I've read your message. I'll respond to the factual issue after reviewing the file. I won't respond to personal claims.",
         "The urgent point is noted. The current decision stands until we receive new evidence. Please send that evidence in one email by noon.",
         "I've answered the practical issue. The booking remains for Tuesday at 2 pm. I'll respond again if there's new scheduling information.",
         "The file was sent to the shared folder yesterday at 4:15 pm. I have resent the link below. Future document updates will stay in the shared folder.",
@@ -428,7 +428,7 @@ export const TC066: CardData = {
     },
     {
       mistake: "Making firmness sound punitive",
-      soundsLike: '"I\'ll not be responding to you again."',
+      soundsLike: '"I won\'t be responding to you again."',
       better: "\"I'll respond again when there's new information.\"",
     },
     {
@@ -480,7 +480,7 @@ export const TC066: CardData = {
     "Let me restate that more calmly: ___.",
     "My aim is clarity, not criticism. The agreed action is ___.",
     "I'm going to step back from the personal claims and return to the practical issue: ___.",
-    "I'll not debate motives by message. The next logistical step is ___.",
+    "I won't debate motives by message. The next logistical step is ___.",
     "I've answered the practical point. I'll respond again when there's new information.",
     "I'll review this and reply tomorrow.",
     "I'm not going to respond while the tone is heated. I'll come back to the logistics later.",

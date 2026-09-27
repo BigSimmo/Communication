@@ -522,7 +522,7 @@ export const TC091: CardData = {
       sequence:
         "Withhold the joke → steady presence (TC010) → reflect the feeling (TC004)",
       example: [
-        '"I\'ll not lighten this."',
+        '"I won\'t lighten this."',
         "Hold calm eye contact and an even tone.",
         '"It sounds like that really knocked you."',
       ],

@@ -110,7 +110,7 @@ export const TC015: CardData = {
         "Before I give suggestions: what's the part that's most annoying?",
         "I have a thought if you want it, but no pressure.",
         "Want me to help draft a reply, or are you just venting?",
-        "I'll not jump straight to fixing unless it's useful.",
+        "I won't jump straight to fixing unless it's useful.",
       ],
     },
     {
@@ -167,7 +167,7 @@ export const TC015: CardData = {
         "I can be useful or just be outraged with you. Your call.",
         "Do you want me in advice mode or friend mode?",
         "I can help solve it, but I also get if you just need to be annoyed for a minute.",
-        "That sounds miserable. I'll not try to silver-line it.",
+        "That sounds miserable. I won't try to silver-line it.",
       ],
     },
     {
@@ -209,7 +209,7 @@ export const TC015: CardData = {
       phrases: [
         "No need to solve it right now. I'm happy just to listen.",
         "We can keep this simple. Do you want ideas or just space?",
-        "I'll not push advice unless you want it.",
+        "I won't push advice unless you want it.",
         "It makes sense to take a moment before deciding.",
         "Would a small next step feel useful, or not yet?",
       ],
@@ -576,8 +576,6 @@ export const TC015: CardData = {
     "That came out like a lecture. The part I meant to ask is...",
     "I may be giving suggestions when you just need space. Which would help?",
     "Let me reset: what's the hardest part of this for you?",
-    "I may have framed that badly. Let me step back.",
-    "We can leave that if it isn't the useful thread.",
   ],
   bestRecoveryLine:
     "I jumped into fixing too quickly. Sorry, what do I need to understand first?",
@@ -589,7 +587,7 @@ export const TC015: CardData = {
       example: [
         "\"That's rubbish, I'm sorry.\"",
         '"Do you want solutions or solidarity?"',
-        "(they vent. You stay with it)",
+        "(they vent, and you stay with it)",
         '"So the galling part is being taken for granted."',
       ],
     },

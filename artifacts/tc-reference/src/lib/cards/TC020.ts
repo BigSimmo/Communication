@@ -161,11 +161,11 @@ export const TC020: CardData = {
       tag: "Async, one clean line",
       tone: "Quick",
       phrases: [
-        "To make sure I'm chasing the right thing. Is it the March version you need?",
+        "To make sure I'm chasing the right thing, is it the March version you need?",
         "Quick one: do you still have the deck? A link's perfect.",
         "No reply needed if it's already sorted.",
         "A thumbs-up is a fine answer.",
-        "Reply whenever, I've set it aside, not waiting on it.",
+        "Reply whenever. I'm not waiting on it.",
         "If it's easier to send a screenshot than explain, that works too.",
       ],
     },
@@ -177,8 +177,7 @@ export const TC020: CardData = {
       phrases: [
         "Sorry, that came out more urgent than I meant. Genuinely no rush.",
         "Ignore the deadline I put on that. Whenever is fine.",
-        "Let me put that more simply.",
-        "No need to answer that if it's not useful.",
+        "Too much? Just a yes or no is fine.",
         "I jumped ahead there. Please leave it if it's awkward.",
         "Forget I asked. I'll find another route.",
       ],
@@ -189,7 +188,7 @@ export const TC020: CardData = {
       tag: "Power imbalance",
       tone: "High-stakes",
       phrases: [
-        "Useful if I check the premise before I respond, or would you rather I just read it?",
+        "Would it help if I checked the brief first, or would you rather I just read it?",
         "Only if you're comfortable. No obligation either way.",
         "You're well within your rights to say no to this.",
         "I'd rather you said no than felt cornered into a yes.",
@@ -208,7 +207,7 @@ export const TC020: CardData = {
       condition: "The ask is unclear",
       action: "Use a check version before you ask for anything.",
       phrase:
-        "Just so I ask for the right thing. Is it the March file you mean?",
+        "Just so I ask for the right thing, is it the March file you mean?",
     },
     {
       condition: "They seem to resist or hesitate",
@@ -240,12 +239,12 @@ export const TC020: CardData = {
     {
       weak: "Just following up again. I really need this today.",
       better: "No rush, but if it's to hand, could you send it over?",
-      best: "Whenever suits, a link is plenty, and if someone else is better placed, feel free to pass it on.",
+      best: "Whenever suits. A link is plenty, and if someone else is better placed, feel free to pass it on.",
     },
     {
       weak: "Have you had a chance to look at my email yet?",
       better: "When you get a moment, a yes/no on this would really help.",
-      best: "No urgency, a one-line steer is all I need, and a no is completely fine.",
+      best: "No urgency. A one-line steer is all I need, and a no is completely fine.",
     },
   ],
   scenarios: [
@@ -276,7 +275,7 @@ export const TC020: CardData = {
       situation: "High-status or guarded person",
       move: "Make the move optional and low-pressure.",
       phrase:
-        "Only if it's useful. Would a quick premise-check help, or shall I just read it?",
+        "Only if it's useful. Would a quick look from me help, or would you rather I left it?",
     },
     {
       situation: "Close relationship",
@@ -362,7 +361,7 @@ export const TC020: CardData = {
     with: [
       "You: \"If you've got the document handy, could you send it? If it'd take digging, leave it and I'll find another route.\"",
       'Them: "I\'ve got it. Sending now."',
-      'You: "Thanks, only if it was easy."',
+      'You: "Thanks. And genuinely, if it ever takes digging, just say."',
       "Why this works:",
       'the effort is capped ("if it\'s handy")',
       "there's a real fallback, so a no costs them nothing",
@@ -376,9 +375,7 @@ export const TC020: CardData = {
     principle:
       "People respond more readily when replying costs them little and refusing costs them nothing.",
     gains: [
-      "Cleaner coordination",
-      "Less interpersonal friction",
-      "Lower defensiveness",
+      "Less awkwardness on both sides",
       "Faster, easier replies",
       "Fewer false yeses",
       "Goodwill preserved for the next ask",
@@ -526,8 +523,7 @@ export const TC020: CardData = {
   recoveryPhrases: [
     "Sorry, that came out more urgent than I meant.",
     "Ignore the deadline. Whenever suits is genuinely fine.",
-    "Let me put that more simply.",
-    "No need to answer that if it's not useful.",
+    "Too much? Just a yes or no is fine.",
     "I jumped ahead there. Please leave it.",
     "Forget I asked. I'll find another route.",
     "A no here is completely fine, honestly.",
@@ -541,7 +537,7 @@ export const TC020: CardData = {
       example: [
         "Give them your full attention and let them finish.",
         "\"If it's easy, could you send the figures? If not, I'll pull them.\"",
-        '"So the version you\'d send is the March one, have I got that right?"',
+        '"So the version you\'d send is the March one. Have I got that right?"',
       ],
     },
     {

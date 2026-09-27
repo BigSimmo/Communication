@@ -104,7 +104,7 @@ export const TC018: CardData = {
         "The way you laid that out made it easy to follow.",
         "Good call on the order of those points.",
         "That was a clean summary. Cheers.",
-        "Nicely handled, you kept it moving.",
+        "Nicely handled. You kept it moving.",
         "That one detail you added made the difference.",
       ],
     },
@@ -145,7 +145,7 @@ export const TC018: CardData = {
       tone: "Direct",
       phrases: [
         "Here's the concrete thing that helped: you made the next step clear.",
-        "One specific bit, your timing on that email stopped it escalating.",
+        "One specific bit: your timing on that email stopped it escalating.",
         "The useful part was the example you gave. It made it land.",
         "What worked was that you named the real problem, not the symptom.",
         "To be exact: grouping the questions at the end saved us a second call.",
@@ -162,7 +162,7 @@ export const TC018: CardData = {
         "That reply was clear and kind. Good balance.",
         "Thanks for the tidy handover notes. I picked it up in minutes.",
         "Your one-line summary at the top saved me scrolling. Appreciated.",
-        "Quick note, the checklist you added is going to help everyone.",
+        "Quick note: the checklist you added is going to help everyone.",
       ],
     },
     {
@@ -172,7 +172,7 @@ export const TC018: CardData = {
       tone: "High-stakes",
       phrases: [
         "I'll keep this brief because I know you'd rather not make a thing of it: that was well judged.",
-        "No need to respond, I just wanted you to know the fix you pushed held up.",
+        "No need to respond. I just wanted you to know the fix you pushed held up.",
         "Quietly, the way you defused that meeting took real skill.",
         "I won't labour it, but calling that risk early was the right move.",
         "If it's useful to hear, you read that room better than anyone.",
@@ -185,7 +185,7 @@ export const TC018: CardData = {
       tone: "Repair",
       phrases: [
         "I may have read that wrong. What actually helped from your side?",
-        "Let me put that more simply.",
+        "Sorry, that was a lot for a small thing. Short version: thank you.",
         "That came out more polished than I meant. I just wanted to say thanks.",
         "No need to make anything of it if it isn't useful.",
         "I jumped ahead there. What I meant was the specific bit that helped.",
@@ -503,11 +503,8 @@ export const TC018: CardData = {
   ],
   recoveryPhrases: [
     "I may have read that wrong.",
-    "Let me put that more simply.",
-    "No need to go there if it isn't useful.",
-    "I jumped ahead.",
-    "What would be the more accurate way to say it?",
-    "We can leave that and come back if needed.",
+    "Sorry, that was a lot for a small thing. Short version: thank you.",
+    "What was the part you were actually proudest of?",
     "That came out more polished than I meant. I just wanted to say thanks.",
   ],
   bestRecoveryLine:
@@ -538,7 +535,7 @@ export const TC018: CardData = {
       sequence: "TC018 Specific appreciation → TC021 Autonomy release",
       example: [
         '"Chasing the supplier twice is why we didn\'t slip. That mattered."',
-        '"No need to do anything with that, I just wanted you to know."',
+        '"No need to do anything with that. I just wanted you to know."',
       ],
     },
   ],

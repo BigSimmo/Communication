@@ -394,7 +394,7 @@ export const TC090: CardData = {
     headline:
       "Don't treat pain as a broken object. Treat it first as a human signal.",
     body: "The discipline isn't never fixing. It's not fixing yet. Hold the solution long enough for the person to feel met, and the fix, when it comes, will actually be wanted.",
-    example: "\"I'll not fix first. I'll understand first.\"",
+    example: "\"I won't fix first. I'll understand first.\"",
     dont: "Open with \"Here's what you should do...\" while they're still in the feeling.",
     do: 'Open with "I won\'t try to fix this yet. I can just stay with you in it for a minute."',
   },

@@ -139,7 +139,7 @@ export const TC098: CardData = {
         "That result was disappointing. Let's name that first, then look at what the data tells us.",
         "I hear the pressure. Let's acknowledge the load first, then sort what has to move.",
         "I get why that would land badly. The factual piece I should add is...",
-        "That's a poor experience to have. I'll not minimise it. The next practical step is...",
+        "That's a poor experience to have. I won't minimise it. The next practical step is...",
       ],
     },
     {

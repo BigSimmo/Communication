@@ -59,7 +59,6 @@ export const TC002: CardData = {
     "Support response over shift response is the habit of responding to the other person's experience before shifting to your own related story or idea. When a self-reference comes to mind, you first support their thread with acknowledgement, curiosity or appreciation, and only then decide whether your own point still adds anything. It works because people become receptive to you once they feel heard: a support response keeps their moment intact, while a shift response quietly tells them the floor was never really theirs.",
   whatItIsNot: [
     "It is not never talking about yourself, suppressing reciprocity, or performing endless questions. It is a sequencing discipline: their moment first, your contribution second if it still serves the conversation.",
-    "It is not manipulation, performance, emotional extraction or a way to force intimacy.",
     "It is not self-erasure or false modesty. Your story can still come. It just comes after theirs has landed.",
     "If the other person resists, shortens answers or redirects, release the technique and follow the person.",
   ],
@@ -357,7 +356,7 @@ export const TC002: CardData = {
       'Them: "The senior person challenged the premise in front of everyone."',
       'You: "So it wasn\'t just a bad talk. It turned into a public pressure moment."',
       "Them: \"Exactly. That's the part that's been eating at me.\"",
-      'You: "I\'ve had one of those too. But first. What would have made it feel survivable in the moment?"',
+      'You: "I\'ve had one of those too. But first, what would have made it feel survivable in the moment?"',
       "Why this works:",
       'supports the thread before any "me too"',
       "the invite question keeps them inside their own experience",
@@ -531,7 +530,7 @@ export const TC002: CardData = {
     "I'll park mine. Finish yours first.",
   ],
   bestRecoveryLine:
-    '"Actually, your bit is the important one here. What happened next?"',
+    "Actually, your bit is the important one here. What happened next?",
   chains: [
     {
       label: "Support → comment before question",
@@ -548,7 +547,7 @@ export const TC002: CardData = {
       example: [
         "They vent about a tangled week.",
         'You (support): "That sounds like a lot at once."',
-        "You (summary): \"So it's less the workload and more that no one's deciding, have I got that right?\"",
+        "You (summary): \"So it's less the workload and more that no one's deciding. Have I got that right?\"",
       ],
     },
     {

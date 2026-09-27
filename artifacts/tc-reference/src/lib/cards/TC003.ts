@@ -56,10 +56,9 @@ export const TC003: CardData = {
   ],
   id: "TC003",
   whyItWorks:
-    "Comment-before-question is the habit of adding one short, honest reaction to what someone just said before you ask your next question, so they feel met rather than interrogated. It is a timing and attention move: you notice the live moment, respond to it in plain language, then ask one thing and stop, which keeps the other person oriented and unpressured. Because they can tell you took in what they already said, the question lands as interest instead of a demand, and they answer more openly.",
+    "Comment-before-question is the habit of adding one short, honest reaction to what someone just said before you ask your next question, so they feel met rather than interrogated. Because they can tell you took in what they already said, the question lands as interest instead of a demand, and they answer more openly.",
   whatItIsNot: [
     "It is not padding, flattery, therapy-speak, fake intimacy or a trick to earn a question. The comment must be true, brief and connected.",
-    "It is not manipulation, performance, emotional extraction or a way to force intimacy.",
     "It is not a licence to keep talking. If the person resists, shortens their answers or redirects, release the technique and follow them.",
   ],
   overview: {
@@ -366,7 +365,7 @@ export const TC003: CardData = {
       "Why this works:",
       "the comment shows you took in the decision before probing it",
       "the question asks how it happened, not just why, so it invites the story",
-      "one comment, one question. Nothing stacked",
+      "one comment, one question, nothing stacked",
       "they open up instead of defending",
     ],
     note: "The poor version interrogates. The advanced version reacts first, then asks, and the person keeps talking.",
@@ -406,7 +405,7 @@ export const TC003: CardData = {
         { label: "They say", text: '"I ended up moving back home."' },
         {
           label: "The cue",
-          text: "a big change, said plainly. Worth acknowledging",
+          text: "A big change, said plainly, and worth acknowledging",
         },
       ],
     },
@@ -470,7 +469,7 @@ export const TC003: CardData = {
   depthDial: [
     {
       depth: "Light",
-      useWhen: "early or casual. Keep it feather-light",
+      useWhen: "early or casual, so keep it feather-light",
       phrase: '"Nice. What got you into it?"',
     },
     {
@@ -547,7 +546,7 @@ export const TC003: CardData = {
         'Them: "We finally moved house."',
         "You: \"That's a huge job. How's it feeling now it's done?\" (TC003)",
         'Them: "Exhausting but right."',
-        'You: "Exhausting how: the logistics, or the goodbyes?" (TC001)',
+        'You: "Exhausting how? The logistics, or the goodbyes?" (TC001)',
       ],
     },
     {

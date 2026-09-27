@@ -551,7 +551,7 @@ export const TC075: CardData = {
     "I don't mean that as a gold star. I mean I see the labour behind it.",
     "The effort is real, and the outcome still needs work. I want to keep both true.",
     "Recognition isn't enough here. We also need to adjust time, resources, or ownership.",
-    "Got it. I'll not make a big thing of it. I just wanted to register it once.",
+    "Got it. I won't make a big thing of it. I just wanted to register it once.",
   ],
   bestRecoveryLine:
     "The effort is real, and the outcome still needs work. I want to keep both true.",

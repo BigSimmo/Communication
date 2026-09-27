@@ -233,7 +233,7 @@ export const TC022: CardData = {
     {
       condition: "They seem embarrassed",
       action: "Drop the public attention. Switch to brief, private credit.",
-      phrase: "I'll not make a thing of it, but that was a good catch.",
+      phrase: "I won't make a thing of it, but that was a good catch.",
     },
     {
       condition: "They seem suspicious of it",
@@ -248,7 +248,7 @@ export const TC022: CardData = {
     {
       condition: "You will need to make a request later",
       action: "Separate the appreciation from the ask so it is not bait.",
-      phrase: "Separate thing, I'll come to the favour later.",
+      phrase: "Separate thing: I'll come to the favour later.",
     },
   ],
   ladder: [
@@ -305,7 +305,7 @@ export const TC022: CardData = {
     {
       situation: "They send a genuinely useful answer by text",
       move: "Name the effect their help had, briefly.",
-      phrase: "That helped, your summary made the next step clearer.",
+      phrase: "That helped. Your summary made the next step clearer.",
     },
   ],
   calibration: {
@@ -323,7 +323,7 @@ export const TC022: CardData = {
       "The praise sounds bigger than the actual behaviour.",
       "You notice yourself using praise to get something.",
       "Fix: make the praise smaller and more specific.",
-      'Fix: switch from praise to plain credit, "That point helped."',
+      'Fix: switch from praise to plain credit: "That point helped."',
       "Fix: move on rather than forcing them to receive it. Praise privately if needed.",
       "Fix: drop any attached request, and respect competence with a question instead of a compliment.",
     ],
@@ -421,7 +421,7 @@ export const TC022: CardData = {
   },
   fieldTip: {
     headline:
-      "Give status like a secure person: specific, honest, brief, and without waiting to be praised back.",
+      "Give status like a secure person: specific, brief, and without waiting for praise back.",
     body: "The most convincing status generosity is small and exact: one true thing, said once, then you carry on.",
     example: '"Your read on the constraint was the useful part today."',
     dont: "Do not follow the praise with an immediate favour, or explain at length why they are great.",

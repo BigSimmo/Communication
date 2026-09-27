@@ -68,7 +68,7 @@ export const TC009: CardData = {
       "Ask → listen → follow-up or reflect → optional brief share → return.",
       "Question + support response + small self-disclosure + return question.",
       '"I have a version of that too, but I want to hear yours first."',
-      '"That reminds me of something, but before I hijack it. What happened next?"',
+      '"That reminds me of something, but before I hijack it, what happened next?"',
     ],
     minimumViableMove:
       "Ask one real follow-up or reflect before sharing your related story.",
@@ -100,7 +100,7 @@ export const TC009: CardData = {
       tag: "Catch-yourself one-liners",
       tone: "Quick",
       phrases: [
-        "Before I make this about me. What happened next?",
+        "Before I make this about me, what happened next?",
         "I have a related story, but yours is the one I want to hear first.",
         "I nearly jumped in there. Go on.",
         "I want to stay with your version for a second.",
@@ -131,7 +131,7 @@ export const TC009: CardData = {
         "I've had a smaller version of that, but yours sounds more intense.",
         "That reminds me of something, but I'll keep it short.",
         "I relate to the uncertainty part. Mine was different, but I get the feeling.",
-        "I've a version of this too, not to compete, just because I recognise the pattern.",
+        "I've got a version of this too. Not to compete, just because I recognise the pattern.",
         "I'll give the two-sentence version, then I want to hear what happened next.",
         "My version was less dramatic, but the feeling was similar.",
       ],
@@ -230,7 +230,7 @@ export const TC009: CardData = {
     {
       condition: "You feel the urge to bridge to your own story.",
       action: "Give the two-sentence version, then return the floor.",
-      phrase: "I have a version of that too, but yours first, what did you do?",
+      phrase: "I have a version of that too, but yours first. What did you do?",
     },
     {
       condition: "You have shifted too far onto yourself.",
@@ -271,7 +271,7 @@ export const TC009: CardData = {
     {
       situation: "Conflict or objection",
       move: "Add validation and slow down. Do not weaponise the restraint.",
-      phrase: "Before I give my side. What mattered most to you here?",
+      phrase: "Before I give my side, what mattered most to you here?",
     },
     {
       situation: "Digital message",
@@ -343,7 +343,7 @@ export const TC009: CardData = {
     {
       day: "Day 7",
       title: "Recover on purpose",
-      task: "When you notice you've boomeranged, you will, practise naming it and returning the floor: 'I just made that about me, go on.' Notice how quickly it repairs the moment.",
+      task: "When you notice you've boomeranged (you will), practise naming it and returning the floor: 'I just made that about me. Go on.' Notice how quickly it repairs the moment.",
     },
   ],
   checklist: [
@@ -551,7 +551,7 @@ export const TC009: CardData = {
         '"That sounds like a good story."',
         '"What made it stand out?"',
         '"So the surprising part wasn\'t the obvious one."',
-        '"I relate to that, but back to yours, what did you do?"',
+        '"I relate to that, but back to yours. What did you do?"',
       ],
     },
     {

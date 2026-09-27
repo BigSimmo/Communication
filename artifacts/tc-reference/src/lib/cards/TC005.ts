@@ -61,13 +61,12 @@ export const TC005: CardData = {
     "It is not saying they are right, or endorsing inaccurate facts.",
     "It is not soothing someone into compliance, or dodging a boundary that needs to hold.",
     "It is not manipulation, performance, or a softener bolted on before a dismissal.",
-    "It is not emotional extraction or a way to force closeness.",
   ],
   overview: {
     coreFormula: [
       "Name what makes sense → avoid endorsing the claim → state your boundary or view separately → invite the next step.",
       "Short form: notice → name or respond → invite → calibrate → release.",
-      '"I can see why that landed that way", even though I read the decision differently.',
+      '"I can see why that landed that way, even though I read the decision differently."',
       "\"That's a reasonable concern to raise. The frustration makes sense. I don't see it the same way.\"",
       '"I can see why it felt dismissive. I don\'t think that was the intent, but the impact is worth talking through."',
     ],
@@ -365,7 +364,7 @@ export const TC005: CardData = {
       'Them: "You ignored my input."',
       'You: "I can see why it landed that way: the decision moved before you saw how your point was handled."',
       'Them: "Because you moved ahead without me."',
-      'You: "I don\'t agree that I ignored it, but I do think I should show you where it went."',
+      'You: "I don\'t agree that I ignored it. I do think I should show you where it went."',
       'Them: "That\'s what I wanted."',
       "Why this works:",
       "validates the impact without conceding the false claim",
@@ -468,7 +467,7 @@ export const TC005: CardData = {
   depthDial: [
     {
       depth: "Bare acknowledgement",
-      useWhen: "Low stakes. They mainly want to feel heard",
+      useWhen: "Low stakes, and they mainly want to feel heard",
       phrase: '"I can see why."',
     },
     {

@@ -302,7 +302,7 @@ export const TC007: CardData = {
       "They share the emotional or meaningful layer, not just the facts.",
       "They ask about your story later, once they feel heard.",
       "Other people in the group stay engaged rather than competing.",
-      'They land on "exactly". You named the part nobody else saw.',
+      'They say "exactly" because you named the part nobody else saw.',
     ],
     adjust: [
       "You have been talking longer than they did about their own story.",
@@ -454,7 +454,7 @@ export const TC007: CardData = {
         { label: "Bridge", text: '"I\'ve had a smaller version of that..."' },
         {
           label: "Bridge",
-          text: '"That resonates, " then straight back: "what did you do next?"',
+          text: '"That resonates." Then straight back: "What did you do next?"',
         },
       ],
     },
@@ -540,7 +540,7 @@ export const TC007: CardData = {
       example: [
         '"That sounds like it mattered. What made it important?"',
         '"So the recognition landed more than the title."',
-        '"I\'ve had a smaller version of that, anyway, what happened next?"',
+        '"I\'ve had a smaller version of that. Anyway, what happened next?"',
         '"Honestly, that\'s a great result."',
       ],
     },

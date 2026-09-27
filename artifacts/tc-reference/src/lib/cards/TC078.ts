@@ -503,7 +503,7 @@ export const TC078: CardData = {
     "That came out more intense than I meant. I was trying to keep the thread from getting lost.",
     "Let me put that more lightly: is X still relevant, or should we leave it?",
     "Fair, we don't need to unpack that.",
-    "Thanks for clarifying. I'll not force that thread.",
+    "Thanks for clarifying. I won't force that thread.",
     "I realise I jumped back too suddenly. Please finish the point you were making.",
     "You're right. The current decision matters more. Let's stay here.",
   ],
