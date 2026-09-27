@@ -177,7 +177,7 @@ export const TC042: CardData = {
       tag: "Check before you structure",
       tone: "High-stakes",
       phrases: [
-        "Before I lay this out. Is now the moment, or do you need something else first?",
+        "Before I lay this out, is now the moment, or do you need something else first?",
         "I can give you the clean version, but say if you'd rather just talk it through.",
         "Let me check this frame is useful before I run with it.",
         "I'll make one point and stop, because I know this matters.",
@@ -393,7 +393,7 @@ export const TC042: CardData = {
   ],
   example: {
     without: [
-      'Manager: "What do you think. Should we move the launch?"',
+      'Manager: "What do you think? Should we move the launch?"',
       'You: "My point is we should move the launch. The reason is the build isn\'t ready. For example, testing is behind. So my point is we should move the launch."',
       'Manager: "...Right. You said that twice."',
       'You: "To structure it: Point, Reason, Example, Point. The reason again is testing..."',
@@ -404,7 +404,7 @@ export const TC042: CardData = {
       "sounds rehearsed instead of thought-through",
     ],
     with: [
-      'Manager: "What do you think. Should we move the launch?"',
+      'Manager: "What do you think? Should we move the launch?"',
       "You: \"I'd move it a week. The build's solid but testing's a step behind. Staging failed twice this week. A week buys us a clean run.\"",
       'Manager: "A week\'s a lot. Can we do less?"',
       'You: "Fair. The real risk is the payment flow, not the whole build. If we just re-test that, we could hold the date."',
@@ -491,7 +491,7 @@ export const TC042: CardData = {
       sequence: "PREP → Summary check",
       example: [
         "Make the point cleanly.",
-        '"Just so we\'re aligned. What did you take from that?"',
+        '"Just so we\'re aligned, what did you take from that?"',
         "Fix any gap before moving on.",
       ],
     },

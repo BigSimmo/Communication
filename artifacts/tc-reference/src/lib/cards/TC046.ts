@@ -67,7 +67,7 @@ export const TC046: CardData = {
     coreFormula: [
       "Elicit → Provide → Elicit",
       'Elicit: "What do you already know about this?" or "Would it help to hear one option?"',
-      'Provide: one clear point, briefly, "The main thing is X."',
+      'Provide: one clear point, briefly: "The main thing is X."',
       'Elicit: "What do you make of that?" or "How does that fit your situation?"',
       'Minimum viable move: "Would it be useful to hear one option? The option is X. What do you make of that?"',
     ],
@@ -206,7 +206,7 @@ export const TC046: CardData = {
     {
       condition: "The listener needs to act",
       action: "End on one clean next step rather than more information.",
-      phrase: "So the next step is X, shall we start there?",
+      phrase: "So the next step is X. Shall we start there?",
     },
     {
       condition: "The listener already sounds clear",
@@ -216,7 +216,7 @@ export const TC046: CardData = {
     {
       condition: "The listener challenges the framing",
       action: "Drop the structure, summarise, and invite correction.",
-      phrase: "Fair, tell me where I've got this wrong.",
+      phrase: "Fair. Tell me where I've got this wrong.",
     },
   ],
   ladder: [
@@ -360,7 +360,7 @@ export const TC046: CardData = {
       "the opening question surfaces what they already have",
       "one clear option, offered briefly, not a lecture",
       "the closing question genuinely hands the decision back",
-      "the framework stays invisible. It just sounds like good advice",
+      "the framework stays invisible: it just sounds like good advice",
     ],
     note: "The structure did all the work in the second version precisely because you never mentioned it. Elicit, provide, elicit: organised in your head, spoken like a person.",
   },
@@ -479,19 +479,19 @@ export const TC046: CardData = {
     },
     {
       mistake: "Structuring over an emotional moment",
-      soundsLike: '"Let me give you three options". To someone who\'s upset',
+      soundsLike: '"Let me give you three options" (to someone who\'s upset)',
       better:
         '"That sounds really hard. Do you want ideas yet, or not right now?"',
     },
     {
       mistake: "Never checking it helped",
-      soundsLike: "delivering the point and moving straight on",
+      soundsLike: "Delivering the point and moving straight on",
       better: '"Did that clear it up, or muddy it?"',
     },
     {
       mistake: "Over-structuring",
-      soundsLike: "forcing every sentence into elicit, provide, elicit",
-      better: "one light loop, then back to ordinary conversation.",
+      soundsLike: "Forcing every sentence into elicit, provide, elicit",
+      better: "One light loop, then back to ordinary conversation.",
     },
   ],
   recoveryPhrases: [
@@ -511,14 +511,14 @@ export const TC046: CardData = {
       label: "Check it landed",
       sequence: "Elicit-provide-elicit → Summary check",
       example: [
-        'Run the loop, then: "Just so we\'re on the same page. What did you take from that?"',
+        'Run the loop, then: "Just so we\'re on the same page, what did you take from that?"',
       ],
     },
     {
       label: "Turn it into action",
       sequence: "Elicit-provide-elicit → Clean request",
       example: [
-        'Once the option is clear: "So, specifically. Could you send me the draft by Thursday?"',
+        'Once the option is clear: "So, specifically, could you send me the draft by Thursday?"',
       ],
     },
     {

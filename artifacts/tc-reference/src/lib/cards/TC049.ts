@@ -101,7 +101,7 @@ export const TC049: CardData = {
       tone: "Quick",
       phrases: [
         "Quick version: here's what happened, what I did, and what I took from it.",
-        "Short one, context, action, result, learning.",
+        "Short one: context, action, result, learning.",
         "Let me keep this to four beats.",
         "Give me thirty seconds and I'll walk it through.",
         "Here's the situation, then what I did about it.",
@@ -175,7 +175,7 @@ export const TC049: CardData = {
       tag: "Check before structuring",
       tone: "High-stakes",
       phrases: [
-        "Before I frame this. Is a structured version helpful, or would you rather just talk it through?",
+        "Before I frame this, is a structured version helpful, or would you rather just talk it through?",
         "I can lay this out clearly, but I want to hear you first.",
         "Let me check whether that structure is useful or if we should approach it another way.",
         "I'll keep this to one sentence per step, then pause.",
@@ -293,7 +293,7 @@ export const TC049: CardData = {
       'You: "The launch was slipping about two weeks. I cut scope to the one feature customers really needed and re-set the date with the team."',
       'You: "We shipped that core feature on time, and the extras followed a month later."',
       'You: "What I took from it was to agree the must-haves before we start, not halfway through."',
-      'Interviewer: "What would you\'ve done differently?"',
+      'Interviewer: "What would you have done differently?"',
       "You: \"Flagged the slip a week earlier. That's the bit I've changed since.\"",
       "Why this works:",
       "moves through context, action, result and learning without naming them",
@@ -460,7 +460,7 @@ export const TC049: CardData = {
     {
       situation: "Debrief after something went wrong",
       move: "Keep blame out of it and make the learning the point.",
-      phrase: "Less about who: more about what we now know for next time.",
+      phrase: "Less about who, more about what we now know for next time.",
     },
   ],
   decisionTree: [

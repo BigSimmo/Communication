@@ -104,7 +104,7 @@ export const TC045: CardData = {
         "Where are you with this already?",
         "What do you already know about it?",
         "What's your read on it?",
-        "Before I jump in. What's your starting point?",
+        "Before I jump in, what's your starting point?",
         "How much of the background have you got?",
         "What's your gut feeling on it?",
         "What have you tried so far?",
@@ -118,7 +118,7 @@ export const TC045: CardData = {
       phrases: [
         "I want to make sure this is actually useful to you.",
         "Tell me where you're up to and I'll fill the gaps.",
-        "I'd rather meet you where you're than talk over your head.",
+        "I'd rather meet you where you are than talk over your head.",
         "There's no wrong answer here. I just want your starting point.",
         "Whatever you already know, we can build from there.",
         "I'll keep this short, and you tell me if it helps.",
@@ -178,7 +178,7 @@ export const TC045: CardData = {
       tone: "High-stakes",
       phrases: [
         "Can I share what I'm seeing, and then hear your take?",
-        "Before I give feedback. What's your own read on how it went?",
+        "Before I give feedback, what's your own read on how it went?",
         "Here's the one thing I'd change. How does that sit with you?",
         "What have you been told so far?",
         "I'll tell you the main point plainly, then we can sit with it.",
@@ -213,7 +213,7 @@ export const TC045: CardData = {
     {
       condition: "The listener already understands",
       action: "Drop the Tell entirely. Confirm and move on.",
-      phrase: "Sounds like you've got it, anything I can add?",
+      phrase: "Sounds like you've got it. Anything I can add?",
     },
   ],
   ladder: [
@@ -337,7 +337,7 @@ export const TC045: CardData = {
   ],
   example: {
     without: [
-      'You: "Okay, so the way the new system works is. There are three modules, each has its own login, the reporting sits under the second one, you\'ll want to set your filters first, then the export is a CSV, and permissions are role-based, so..."',
+      'You: "Okay, so the way the new system works is, there are three modules, each has its own login, the reporting sits under the second one, you\'ll want to set your filters first, then the export is a CSV, and permissions are role-based, so..."',
       'Them: "...right."',
       'You: "...and you can schedule the export, and there\'s an archive view, and..."',
       'Them: "Sorry, which bit do I actually need?"',
@@ -348,11 +348,11 @@ export const TC045: CardData = {
       "the listener has to interrupt to find the signal",
     ],
     with: [
-      'You: "Before I explain. How much of the new system have you already used?"',
+      'You: "Before I explain, how much of the new system have you already used?"',
       'Them: "I\'ve logged in, but I got lost after that."',
       'You: "Got it. Then the one thing that matters: reporting lives under the second module, not the first. That\'s where most people get stuck."',
       'Them: "Ah, that\'s exactly where I stopped."',
-      'You: "Makes sense. How does that sit, do you want to try it now, or shall I walk you through the filters?"',
+      'You: "Makes sense. How does that sit? Do you want to try it now, or shall I walk you through the filters?"',
       "Them: \"Let me try it, and I'll shout if I'm stuck.\"",
       "Why this works:",
       "asks first, so the telling lands on the real gap",
@@ -452,7 +452,7 @@ export const TC045: CardData = {
     {
       depth: "One-line",
       useWhen: "quick check, low stakes",
-      phrase: '"Quick sense-check. Does this land?"',
+      phrase: '"Quick sense-check: does this land?"',
     },
     {
       depth: "Standard",
@@ -470,7 +470,8 @@ export const TC045: CardData = {
   commonMistakes: [
     {
       mistake: "Skipping the first Ask",
-      soundsLike: '"So let me explain how this works..." Straight into telling',
+      soundsLike:
+        '"So let me explain how this works..." (straight into telling)',
       better: '"What\'s your sense of this so far?" then tell.',
     },
     {
@@ -516,10 +517,10 @@ export const TC045: CardData = {
       label: "Clarity chain",
       sequence: "Ask-tell-ask → Summary check",
       example: [
-        '"So before I explain. What\'s your read?"',
+        '"So before I explain, what\'s your read?"',
         '"Here\'s the key point."',
         '"How does that land?"',
-        "\"Just so we're aligned. What's your takeaway?\"",
+        "\"Just so we're aligned, what's your takeaway?\"",
       ],
     },
     {

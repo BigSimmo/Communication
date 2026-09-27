@@ -56,7 +56,7 @@ export const TC054: CardData = {
   ],
   id: "TC054",
   whyItWorks:
-    "Similarity signalling means naming one real, modest overlap (a shared experience, preference, concern, value, constraint, context, or feeling) so the other person feels less socially distant, then handing the focus straight back to them or to the shared task. It is not a claim that you are the same. It is a clean affiliation cue that says there is at least one real point of contact here. It works because people relax when they sense genuine common ground, which lowers defensiveness, softens disagreement, and makes a new or transactional exchange feel more human, as long as the overlap is true and small enough not to sound like forced bonding.",
+    "Similarity signalling means naming one real, modest overlap (a shared experience, preference, concern, value or constraint) so the other person feels less socially distant, then handing the focus straight back to them or to the shared task. It is not a claim that you are the same, just a signal that there is one real point of contact. People relax when they sense genuine common ground, which lowers defensiveness and makes a new or transactional exchange feel more human, as long as the overlap is true and small.",
   whatItIsNot: [
     "Not forced rapport, and not pretending to share an experience you do not actually share.",
     "Not making the other person's story about you. It is a brief bridge, not a spotlight on your version.",
@@ -107,7 +107,7 @@ export const TC054: CardData = {
         "Different situation, but that one piece is familiar.",
         "I have a small version of that too.",
         "Same on that. What changed this time?",
-        "That tracks, I have run into the same thing.",
+        "That tracks. I've run into the same thing.",
       ],
     },
     {
@@ -119,7 +119,7 @@ export const TC054: CardData = {
         "I recognise that part. My version wasn't identical, but the uncertainty piece is familiar.",
         "I have a small version of that too. What was yours like?",
         "Same here on the preference for clear plans.",
-        "That makes sense to me. I have run into the same thing.",
+        "That makes sense to me. I've run into the same thing.",
         "I've had a version of that new-city recalibration. What has been the easiest part so far?",
         "Different situation, but I recognise the uncertainty piece. What has been weighing on you most?",
       ],
@@ -372,7 +372,7 @@ export const TC054: CardData = {
       'Colleague: "The timeline and the audience."',
       "Why the better version works: it signals the similarity briefly, then returns to their specifics.",
       'Colleague: "I\'m finding this project hard because the brief keeps shifting."',
-      "You: \"I don't want to overclaim the similarity, because you're closer to this than I am. But I recognise the moving-brief problem: it makes every decision feel provisional. What would stabilise it most, audience, timeline, or approval path?\"",
+      "You: \"I don't want to overclaim the similarity, because you're closer to this than I am. But I recognise the moving-brief problem: it makes every decision feel provisional. What would stabilise it most: audience, timeline or approval path?\"",
       'Colleague: "Approval path. If that were clear, the rest would be manageable."',
       'You: "That tracks. We share the same concern there: fewer invisible approvals. Let\'s make that the next ask."',
       "Why the advanced version works: it preserves the difference, signals one real overlap, narrows the problem, and chains into a clean next step.",
@@ -403,7 +403,7 @@ export const TC054: CardData = {
     headline: "Make the bridge small enough to be true.",
     body: 'The safest similarity signal is not "we\'re the same." It is "I recognise that one part." Name the overlap, protect the difference, and give the conversation back. If you feel eager to prove the similarity, you are probably about to make the moment about you: shrink the signal or skip it.',
     example:
-      '"I recognise that part, different situation, but that piece is familiar. What\'s it like on your side?"',
+      '"Different situation, but I recognise that part. What\'s it like on your side?"',
     dont: '"I know exactly how you feel."',
     do: '"I recognise that one part. What has it been like for you?"',
   },
@@ -446,7 +446,7 @@ export const TC054: CardData = {
       examples: [
         {
           label: "Phrasing",
-          text: '"I recognise that part" ("I have a version of that") "same constraint here": "we may be aligned on the goal"',
+          text: '"I recognise that part", "I\'ve had a version of that", "Same constraint here", "We may be aligned on the goal"',
         },
       ],
     },
@@ -596,7 +596,7 @@ export const TC054: CardData = {
     {
       id: "TC022",
       reason:
-        "Status generosity bridges through respect ('you have judgement, effort, or standing here.' Similarity signalling bridges through affiliation) 'we share this point.' If the point is their contribution, use TC022. If it is an overlap, use TC054.",
+        'Status generosity bridges through respect: "you have judgement, effort or standing here." Similarity signalling bridges through affiliation: "we share this point." If the point is their contribution, use TC022. If it is an overlap, use TC054.',
     },
     {
       id: "TC018",

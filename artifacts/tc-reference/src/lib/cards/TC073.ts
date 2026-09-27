@@ -486,7 +486,7 @@ export const TC073: CardData = {
       mistake: "Rebutting too soon",
       soundsLike: "\"Well, actually, here's why that's not a problem...\"",
       better:
-        '"Before I respond to that. What\'s the real blocker underneath it?"',
+        '"Before I respond to that, what\'s the real blocker underneath it?"',
     },
     {
       mistake: "Calling the resistance irrational",

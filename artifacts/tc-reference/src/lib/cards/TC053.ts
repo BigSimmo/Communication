@@ -192,11 +192,11 @@ export const TC053: CardData = {
       tone: "Quick",
       phrases: [
         "Quick note: two things landed late this week and it threw my planning.",
-        "Not urgent, I'd like ten minutes to talk through how the handover went.",
+        "Not urgent, but I'd like ten minutes to talk through how the handover went.",
         "One ask: could we confirm the date by Friday?",
-        "I'd rather say this in person than over text, free later?",
+        "I'd rather say this in person than over text. Are you free later?",
         "Short version: I felt out of the loop on the change. Can we reset how we flag these?",
-        "No drama, just want to name it and agree a fix.",
+        "No drama. I just want to name it and agree a fix.",
         "Sending this so it's not a surprise when we talk.",
       ],
     },
@@ -211,7 +211,8 @@ export const TC053: CardData = {
     {
       condition: "They're upset first",
       action: "Validate before you structure anything.",
-      phrase: "Before I get to the ask. That sounded genuinely rough.",
+      phrase:
+        "That sounded genuinely rough. Before I get to the ask, how are you doing?",
     },
     {
       condition: "They want the picture, not a formula",
@@ -243,7 +244,7 @@ export const TC053: CardData = {
     },
     {
       weak: 'Dresses a judgement up as an observation: "you always do this."',
-      better: "States a plain fact both of you'd recognise.",
+      better: "States a plain fact you would both recognise.",
       best: "Names the fact so cleanly the other person nods before you've even reached the feeling.",
     },
     {
@@ -480,7 +481,7 @@ export const TC053: CardData = {
     {
       depth: "Minimal",
       useWhen: "Low stakes or short on time",
-      phrase: '"When X happened I needed Y, could you do A?"',
+      phrase: '"When X happened I needed Y. Could you do A?"',
     },
     {
       depth: "Standard",
@@ -528,7 +529,7 @@ export const TC053: CardData = {
     },
     {
       mistake: "Structuring when they need comfort first",
-      soundsLike: "launching into the formula while they're still upset",
+      soundsLike: "Launching into the formula while they're still upset",
       better: '"That sounds genuinely hard." Validate, then structure.',
     },
   ],
@@ -550,7 +551,7 @@ export const TC053: CardData = {
       sequence: "Validate the concern → NVC / OFNR",
       example: [
         '"That sounds genuinely rough."',
-        '"So. When the deadline moved, I felt caught out, and I need earlier warning. Could we flag changes sooner?"',
+        '"So, when the deadline moved, I felt caught out, and I need earlier warning. Could we flag changes sooner?"',
       ],
     },
     {
@@ -607,7 +608,7 @@ export const TC053: CardData = {
     {
       id: "TC074",
       reason:
-        "DESC: the assertive-workplace cousin, OFNR leads with feelings and needs, DESC leads with described behaviour and consequences.",
+        "DESC: the assertive workplace cousin. OFNR leads with feelings and needs. DESC leads with described behaviour and consequences.",
     },
   ],
 };

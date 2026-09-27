@@ -106,7 +106,7 @@ export const TC048: CardData = {
         "Let me give you the frame first, then the detail.",
         "Give me thirty seconds to lay it out cleanly.",
         "Context, complication, then the call.",
-        "The point up front, the reasoning after, sound alright?",
+        "The point up front, the reasoning after. Sound alright?",
       ],
     },
     {
@@ -120,7 +120,7 @@ export const TC048: CardData = {
         "Two lines of background, then the decision we actually need to make.",
         "I'll set the scene, flag the risk, and put my recommendation at the end.",
         "For the email: a short paragraph of context, one of the problem, then the ask in bold.",
-        "The headline is the answer. Everything above it's just how I got there.",
+        "The headline is the answer. Everything above it is just how I got there.",
         "Here's the background you need, and here's the call I'm asking you to make.",
         "Let me frame the problem before I bring the recommendation.",
       ],
@@ -178,7 +178,7 @@ export const TC048: CardData = {
       phrases: [
         "There's a lot here, so let me keep it to one clear point at a time.",
         "I'll say the situation, then the problem, then stop so we can talk.",
-        "Before any structure. I know this one matters, so tell me what you need first.",
+        "Before any structure: I know this one matters, so tell me what you need first.",
         "One sentence each, then I'll pause: this is the situation. This is what's gone wrong.",
         "I'm not trying to manage you with a framework. I just want us clear on the problem.",
         "Let me name the real problem plainly, without dressing it up.",
@@ -379,7 +379,7 @@ export const TC048: CardData = {
     },
     {
       mistake: "Manufacturing a complication",
-      soundsLike: '"This is a huge problem". About a minor issue.',
+      soundsLike: '"This is a huge problem" (about a minor issue)',
       better: '"It\'s a small snag, but worth flagging: ..."',
     },
     {
@@ -421,7 +421,7 @@ export const TC048: CardData = {
       sequence: "SCQA → Summary check",
       example: [
         "Give the four-beat frame, then check it landed.",
-        '"Before we move on. What did you take as the main point?"',
+        '"Before we move on, what did you take as the main point?"',
       ],
     },
     {
@@ -429,7 +429,7 @@ export const TC048: CardData = {
       sequence: "SCQA → Clean request",
       example: [
         "Once the frame has made the problem clear, make the next step concrete.",
-        '"So. Can you approve the scope cut by Thursday?"',
+        '"So, can you approve the scope cut by Thursday?"',
       ],
     },
     {
@@ -445,7 +445,7 @@ export const TC048: CardData = {
       sequence: "Validate the concern → SCQA",
       example: [
         "When emotion is present, acknowledge it before you organise anything.",
-        "\"I know this deadline's been brutal. Can I lay out where we're and what I'd do?\"",
+        "\"I know this deadline's been brutal. Can I lay out where we are and what I'd do?\"",
       ],
     },
   ],

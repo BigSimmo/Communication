@@ -167,7 +167,7 @@ export const TC074: CardData = {
         "I'm not trying to diagnose your intention. I'm describing the behaviour I experienced.",
         "The part I need to be clear about is my next step, not controlling yours.",
         "Let me separate the facts from my reaction.",
-        "I skipped listening. Before I restate the request. What am I missing?",
+        "I skipped listening. Before I restate the request, what am I missing?",
         "That was too much at once. One-line version: when this happens, I need that, or I'll do this.",
       ],
     },

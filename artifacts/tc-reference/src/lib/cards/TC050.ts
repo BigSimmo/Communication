@@ -76,7 +76,7 @@ export const TC050: CardData = {
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      'It fails when you jump to "Now What?" before the meaning is understood, or when you announce the framework and force every sentence into it. So the structure starts to matter more than the person or the point.',
+      'It fails when you jump to "Now What?" before the meaning is understood, or when you announce the framework and force every sentence into it, so the structure starts to matter more than the person or the point.',
     bestFor: [
       "Debriefs and after-action reviews",
       "Supervision and coaching conversations",
@@ -105,7 +105,7 @@ export const TC050: CardData = {
         "Here's what happened, here's why it matters, here's the next step.",
         "Quick version: what, so what, now what.",
         "Let me keep this to three things.",
-        "So. What happened, then what it means, then what we do.",
+        "So: what happened, then what it means, then what we do.",
         "I'll be brief: fact, meaning, next step.",
         "Give me thirty seconds to lay this out.",
         "Short version first, then we adjust.",
@@ -210,7 +210,7 @@ export const TC050: CardData = {
       condition: "The listener is emotional or needs support",
       action: "Validate first and delay the framework until they feel heard.",
       phrase:
-        "Before we structure it. That sounds hard. Do you want to talk it through first?",
+        "That sounds hard. Before we structure it, do you want to talk it through first?",
     },
     {
       condition: "The listener needs a story or example",
@@ -486,17 +486,17 @@ export const TC050: CardData = {
     {
       mistake: 'Jumping to "Now What?" too early',
       soundsLike: '"So the fix is obviously X."',
-      better: '"Before the fix. What does this actually tell us?"',
+      better: '"Before the fix, what does this actually tell us?"',
     },
     {
       mistake: "Over-structuring",
-      soundsLike: "forcing every sentence into a step even after they're clear",
-      better: "dropping the structure the moment the point has landed",
+      soundsLike: "Forcing every sentence into a step even after they're clear",
+      better: "Drop the structure the moment the point has landed.",
     },
     {
       mistake: "Over-explaining",
-      soundsLike: "adding more background after the structure has done its job",
-      better: "stopping once the next step is clear",
+      soundsLike: "Adding more background after the structure has done its job",
+      better: "Stop once the next step is clear.",
     },
     {
       mistake: "Using it when emotion needs space",
@@ -506,7 +506,7 @@ export const TC050: CardData = {
     },
     {
       mistake: "Never checking it worked",
-      soundsLike: "moving on without looking up",
+      soundsLike: "Moving on without looking up",
       better: '"Does that land the way I meant it to?"',
     },
   ],
@@ -527,7 +527,7 @@ export const TC050: CardData = {
       sequence: "What? So what? Now what? → Summary check (TC011)",
       example: [
         '"So: setup is the drop-off, not demand, and the fix is onboarding."',
-        '"Before we move. Is that how you\'d put it too?"',
+        '"Before we move, is that how you\'d put it too?"',
       ],
     },
     {

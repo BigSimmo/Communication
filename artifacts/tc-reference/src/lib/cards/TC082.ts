@@ -502,7 +502,7 @@ export const TC082: CardData = {
     {
       mistake: "Advice too early",
       soundsLike: '"Here\'s what you should do..." before they finish.',
-      better: '"Before I jump in. What did you want me to notice?"',
+      better: '"Before I jump in, what did you want me to notice?"',
     },
     {
       mistake: "Making the bid about yourself",

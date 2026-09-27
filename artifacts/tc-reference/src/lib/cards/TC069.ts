@@ -547,7 +547,7 @@ export const TC069: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I answered the wrong objection. What should I've asked first?",
+    "I answered the wrong objection. What should I have asked first?",
     "I'm not trying to talk you out of it. I'm trying to understand what matters.",
     "No need to justify it. We can stop there.",
     "Let me make that simpler: is the concern more about timing, or trust?",

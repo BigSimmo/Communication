@@ -66,13 +66,13 @@ export const TC041: CardData = {
   overview: {
     coreFormula: [
       "Notice the shift → ask one low-pressure follow-up → watch for confirmation → follow or release.",
-      "You seemed a bit more interested when you mentioned that, want to go there for a second?",
+      "You seemed a bit more interested when you mentioned that. Want to go there for a second?",
       "That part seems most relevant. Should we focus there?",
-      "You had more to say about that part, want to stay with it, or go another direction?",
+      "You had more to say about that part. Want to stay with it, or go another direction?",
       "We don't have to stay on that. What part is actually worth focusing on?",
     ],
     minimumViableMove:
-      'Notice which topic draws more detail, warmth, or speed, then offer one light follow-up with an easy way out: "You had more to say about that part, want to stay with it, or go another direction?"',
+      'Notice which topic draws more detail, warmth, or speed, then offer one light follow-up with an easy way out: "You had more to say about that part. Want to stay with it, or go another direction?"',
     impact: "Low",
     difficulty: "Hard",
     misuse:
@@ -124,7 +124,7 @@ export const TC041: CardData = {
         "You had more to say about that. I'd genuinely like to hear it.",
         "There was more energy around that one. What draws you to it?",
         "That seems like the thread worth following. Tell me more?",
-        "You seemed a bit more interested when you mentioned that, want to go there for a second?",
+        "You seemed a bit more interested when you mentioned that. Want to go there for a second?",
       ],
     },
     {
@@ -199,7 +199,7 @@ export const TC041: CardData = {
         "Want to focus on the first thing or the second?",
         "That one reads like the interesting bit. Up to you though.",
         "I'll follow whichever's more useful. That one, maybe?",
-        "No rush, which part's worth getting into?",
+        "No rush. Which part's worth getting into?",
       ],
     },
   ],
@@ -207,7 +207,7 @@ export const TC041: CardData = {
     {
       condition: "Energy rises on a topic",
       action: "Ask one small follow-up and watch whether they add more.",
-      phrase: "You had more to say about that, want to stay with it?",
+      phrase: "You had more to say about that. Want to stay with it?",
     },
     {
       condition: "Energy drops",
@@ -219,7 +219,7 @@ export const TC041: CardData = {
     {
       condition: "Energy shifts to a new topic",
       action: "Follow the new thread. Don't drag your old question back.",
-      phrase: "That seems like the livelier bit now, shall we go there?",
+      phrase: "That seems like the livelier bit now. Shall we go there?",
     },
     {
       condition: "You're unsure which thread has energy",
@@ -279,13 +279,13 @@ export const TC041: CardData = {
       situation: "Social conversation",
       move: "They briefly brighten around a hobby or place: test it lightly and leave room to decline.",
       phrase:
-        "That trip sounds like the good bit, want to tell me about it, or move on?",
+        "That trip sounds like the good bit. Want to tell me about it, or move on?",
     },
     {
       situation: "Digital message",
       move: "The message has several topics: reflect the likely live thread and offer a small choice.",
       phrase:
-        "Sounds like the new role is the big thing, want to focus on that, or the move first?",
+        "Sounds like the new role is the big thing. Want to focus on that, or the move first?",
     },
     {
       situation: "Sensitive topic",
@@ -404,7 +404,7 @@ export const TC041: CardData = {
   fieldTip: {
     headline: "Follow energy, not your agenda.",
     body: "If the person gives more life to a topic, offer one step. If they don't take it, release. That single discipline keeps the technique respectful and stops it turning into a steering tactic. The best use often sounds completely ordinary, and one light test is enough.",
-    example: '"That part seems more useful, want to focus there?"',
+    example: '"That part seems more useful. Want to focus there?"',
     dont: 'Narrate their energy ("you lit up") or pull them back to the topic you prefer.',
     do: "Make one light observation, one invitation, then watch and follow their lead.",
   },
@@ -441,7 +441,7 @@ export const TC041: CardData = {
       examples: [
         {
           label: "Named",
-          text: '"You had more to say about that part, want to stay with it?"',
+          text: '"You had more to say about that part. Want to stay with it?"',
         },
         {
           label: "Silent",

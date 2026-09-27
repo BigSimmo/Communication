@@ -190,7 +190,7 @@ export const TC017: CardData = {
       tag: "One clean line",
       tone: "Quick",
       phrases: [
-        "To make sure I'm framing this right. Is trust the thing that matters most here?",
+        "To make sure I'm framing this right, is trust the thing that matters most here?",
         "Quick check: is this a fairness question or a speed question for you?",
         "Before I reply properly, which value should this decision protect?",
         "Useful if I name what I think matters to you, or would that overstep?",

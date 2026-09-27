@@ -69,7 +69,6 @@ export const TC044: CardData = {
       "Bottom line → key reason → implication → optional detail",
       "Bottom line: I recommend X. The reason is Y. The next step is Z.",
       "The main point is X. The rest is only support.",
-      "Use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
       'Say the answer, recommendation or ask in your first sentence, add one reason, then the next step: "I recommend X. The reason is Y. The next step is Z."',
@@ -104,7 +103,7 @@ export const TC044: CardData = {
       phrases: [
         "Bottom line: we should go with X.",
         "Short version: yes, with one condition.",
-        "Headline first, I recommend we ship on Friday.",
+        "Headline first: I recommend we ship on Friday.",
         "The answer is no, and here's the one reason.",
         "Quick one: I need a decision by three.",
         "In a sentence: option B is the safer bet.",
@@ -120,7 +119,7 @@ export const TC044: CardData = {
         "My recommendation is X. The main reason is Y. The next step would be Z.",
         "Bottom line up front: the launch is on track, with one risk to flag.",
         "Where we've landed: we go with the second supplier.",
-        "Status in one line. Green on scope, amber on timeline.",
+        "Status in one line: green on scope, amber on timeline.",
         "The decision I'm asking for is whether to approve the budget.",
         "If you take one thing from this: we need to move the deadline.",
         "Here's the recommendation, then the reasoning behind it.",
@@ -207,7 +206,7 @@ export const TC044: CardData = {
     {
       condition: "The listener needs support or is upset",
       action: "Validate first and delay the framework.",
-      phrase: "Before anything else. How are you doing with this?",
+      phrase: "Before anything else, how are you doing with this?",
     },
     {
       condition: "The listener needs a story or example",
@@ -296,8 +295,8 @@ export const TC044: CardData = {
       "The structure starts to sound defensive, salesy or performative.",
       "It is beginning to feel like a lecture rather than a conversation.",
       "You are compressing something that deserved more room.",
-      "Then: slow down, summarise, and invite correction instead of pushing harder.",
-      "Or drop the structure and just listen.",
+      "Fix: slow down, summarise, and invite correction instead of pushing harder.",
+      "Fix: drop the structure and just listen.",
     ],
   },
   drill: [
@@ -369,7 +368,7 @@ export const TC044: CardData = {
       "one clear reason, not the whole history",
       "states the implication and offers a next step",
       "keeps the detail optional, so the manager controls the depth",
-      "stays warm and plain. No framework announced",
+      "stays warm and plain, with no framework announced",
     ],
     note: "The advanced version organises the same facts with BLUF, but the manager never hears the scaffolding, only the clarity.",
   },
@@ -395,10 +394,10 @@ export const TC044: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not choreography.",
+    headline: "Answer first, detail on request.",
     body: "Use BLUF to organise your thinking before you speak, then let the scaffolding disappear. The other person should feel clarity, not watch you climb through a framework.",
     example:
-      'Instead of "Bottom line, key reason, implication...", just say: "Short version. We should delay, mainly because of capacity. Happy to explain."',
+      'Instead of "Bottom line, key reason, implication...", just say: "Short version: we should delay, mainly because of capacity. Happy to explain."',
     dont: "Announce the framework or force every sentence into it.",
     do: "Lead with the answer, give one reason, and leave the detail optional.",
   },
@@ -503,7 +502,7 @@ export const TC044: CardData = {
     },
     {
       mistake: "Forgetting to check whether the listener is actually clearer.",
-      soundsLike: "moving on the moment you've finished talking",
+      soundsLike: "Moving on the moment you've finished talking",
       better: '"Does that give you what you need, or should I fill in a gap?"',
     },
   ],
@@ -523,7 +522,7 @@ export const TC044: CardData = {
       sequence: "BLUF → Summary check",
       example: [
         '"Bottom line: I recommend we pause the rollout, mainly because of the security gap."',
-        '"Before I go on. Is that the read you were expecting, or does it surprise you?"',
+        '"Before I go on, is that the read you were expecting, or does it surprise you?"',
       ],
     },
     {

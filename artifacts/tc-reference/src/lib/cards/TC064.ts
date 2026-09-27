@@ -166,7 +166,7 @@ export const TC064: CardData = {
         "I may be off. Are you asking me to explain, fix, or just acknowledge it?",
         "Before I defend anything, what's the part you most want me to understand?",
         "Before I explain, did that land as unclear, unfair, or too abrupt?",
-        "Before I get defensive. What's the actual thing you need me to hear?",
+        "Before I get defensive, what's the actual thing you need me to hear?",
       ],
     },
     {

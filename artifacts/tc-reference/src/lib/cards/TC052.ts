@@ -136,7 +136,7 @@ export const TC052: CardData = {
         "In the last two standups the update ran long, and people started drifting before your part.",
         "When the deadline moved, I heard it from the client, not from you. It caught me flat-footed.",
         "In the report, the numbers and the summary didn't match, so I wasn't sure which to trust.",
-        "The structure I'm using is just situation, behaviour, impact. Tell me if it's off.",
+        "I'll keep this to what happened and what it caused. Tell me if I've got it wrong.",
       ],
     },
     {
@@ -176,7 +176,7 @@ export const TC052: CardData = {
       phrases: [
         "This one's a bit awkward to raise, so bear with me.",
         "I want to name something specific, not make it about who you are.",
-        "Before any feedback. How are you doing with all this?",
+        "Before any feedback, how are you doing with all this?",
         "I might have this wrong. Here's what I saw. Tell me what I'm missing.",
         "One thing, then I'll stop and hear you out.",
         "I'd rather say this plainly than let it sit between us.",
@@ -207,7 +207,8 @@ export const TC052: CardData = {
     {
       condition: "Emotion is running high",
       action: "Validate first and delay the framework until they feel heard.",
-      phrase: "Before anything structured. That sounded like a rough week.",
+      phrase:
+        "That sounded like a rough week. Before anything else, how are you doing?",
     },
     {
       condition: "They need a story or context, not a verdict",
@@ -470,12 +471,12 @@ export const TC052: CardData = {
     },
     {
       mistake: "Over-explaining after the point has landed",
-      soundsLike: "adding three more examples to prove you're right",
+      soundsLike: "Adding three more examples to prove you're right",
       better: '"That\'s it, really. I wanted you to see the effect."',
     },
     {
       mistake: "Structuring when emotion needs listening first",
-      soundsLike: "delivering tidy feedback to someone who's clearly upset",
+      soundsLike: "Delivering tidy feedback to someone who's clearly upset",
       better:
         '"That sounded like a hard week. Do you want to talk about it before I add anything?"',
     },
@@ -498,7 +499,7 @@ export const TC052: CardData = {
       example: [
         '"In the call, you answered before Priya finished. The client looked unsure."',
         '"What\'s your read on that?"',
-        '"So we\'re agreed the answer was fine, it was the timing, have I got that right?"',
+        '"So we\'re agreed the answer was fine and it was the timing. Have I got that right?"',
       ],
     },
     {

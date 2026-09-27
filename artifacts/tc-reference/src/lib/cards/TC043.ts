@@ -56,7 +56,7 @@ export const TC043: CardData = {
   ],
   id: "TC043",
   whyItWorks:
-    "OARS is the four core listening moves (Open questions, Affirmations, Reflections and Summaries) used flexibly to help someone think out loud. Rather than jumping to advice, you pick the move the moment needs: an open question to invite, an affirmation to recognise genuine effort, a reflection to show you have heard, a summary to tie it together. It works because people think more clearly and stay more willing when they feel understood first. The structure lowers cognitive load and the warmth earns trust, so any influence comes from clarity and respect rather than pressure.",
+    "OARS is the four core listening moves (Open questions, Affirmations, Reflections and Summaries) used flexibly to help someone think out loud. Rather than jumping to advice, you pick the move the moment needs: an open question to invite, an affirmation to recognise genuine effort, a reflection to show you've heard, a summary to tie it together. It works because people think more clearly and stay more willing when they feel understood first.",
   whatItIsNot: [
     "It is not a script to recite line by line: the four letters are options to choose from, not a running order you must complete every time.",
     "It is not a way to avoid listening, or to compress someone's emotion into a neat template.",
@@ -68,7 +68,7 @@ export const TC043: CardData = {
     coreFormula: [
       "Open → Affirm → Reflect → Summarise: pick the one move the moment needs.",
       'Open: "What matters most to you about this?"',
-      'Affirm: "You have clearly put real thought into this."',
+      'Affirm: "You\'ve clearly put real thought into this."',
       'Reflect: "So it sounds like the timing is the real sticking point."',
       'Summarise: "Let me pull that together and check I have it right."',
     ],
@@ -120,7 +120,7 @@ export const TC043: CardData = {
       tag: "Genuine recognition",
       tone: "Warm",
       phrases: [
-        "You have clearly put real thought into this.",
+        "You've clearly put real thought into this.",
         "That took some courage to raise.",
         "You've handled harder than this before.",
         "You care about getting this right. It shows.",
@@ -150,7 +150,7 @@ export const TC043: CardData = {
       tone: "Professional",
       phrases: [
         "Let me pull that together and check I have it right.",
-        "So the main things are the cost, the timing and the team, anything missing?",
+        "So the main things are the cost, the timing and the team. Anything missing?",
         "Where we've landed is X. Does that match how you see it?",
         "To sum up before we move on...",
         "So the real question underneath all this is...",
@@ -540,7 +540,7 @@ export const TC043: CardData = {
     },
     {
       mistake: "Never checking",
-      soundsLike: "moving on as though your reflection was obviously right",
+      soundsLike: "Moving on as though your reflection was obviously right",
       better: '"Have I got that right?"',
     },
   ],
@@ -569,7 +569,7 @@ export const TC043: CardData = {
       sequence: "OARS → Clean request (TC013)",
       example: [
         "Once the issue is clear, make the next ask specific.",
-        '"Given all that. Could you send me the revised dates by Thursday?"',
+        '"Given all that, could you send me the revised dates by Thursday?"',
       ],
     },
     {
