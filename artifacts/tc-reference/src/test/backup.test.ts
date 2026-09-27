@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   BACKUP_KEYS,
   BackupError,
@@ -126,5 +126,52 @@ describe("backup", () => {
     expect(backupFileName(new Date(2026, 8, 7, 12))).toBe(
       "tc-reference-backup-2026-09-07.json",
     );
+  });
+});
+
+describe("backup edge cases", () => {
+  beforeEach(() => localStorage.clear());
+  afterEach(() => vi.restoreAllMocks());
+
+  it("leaves invalid stored values out of an export so it restores", () => {
+    localStorage.setItem("tc_favourites", "[]");
+    localStorage.setItem("tc_theme", "sepia");
+    localStorage.setItem("tc_playbooks", "[]");
+    const backup = exportBackup();
+    expect(backup.data).toEqual({ tc_playbooks: [] });
+    expect(() => importBackup(JSON.stringify(backup))).not.toThrow();
+  });
+
+  it("restores every previous value when a write runs out of space", () => {
+    localStorage.setItem("tc_favourites", SAMPLE.tc_favourites);
+    localStorage.setItem("tc_playbooks", SAMPLE.tc_playbooks);
+    const setItem = Storage.prototype.setItem;
+    let quotaHit = false;
+    vi.spyOn(Storage.prototype, "setItem").mockImplementation(function (
+      this: Storage,
+      key: string,
+      value: string,
+    ) {
+      // Fail the first write of the large imported playbooks value only.
+      if (!quotaHit && key === "tc_playbooks" && value.length > 100) {
+        quotaHit = true;
+        throw new DOMException("full", "QuotaExceededError");
+      }
+      return setItem.call(this, key, value);
+    });
+    const big = [{ id: "p2", name: "x".repeat(200), steps: [] }];
+    expect(() =>
+      importBackup(
+        JSON.stringify({
+          app: "tc-reference",
+          version: 1,
+          exportedAt: "",
+          data: { tc_theme: "dark", tc_playbooks: big },
+        }),
+      ),
+    ).toThrow(/not changed/);
+    expect(localStorage.getItem("tc_favourites")).toBe(SAMPLE.tc_favourites);
+    expect(localStorage.getItem("tc_playbooks")).toBe(SAMPLE.tc_playbooks);
+    expect(localStorage.getItem("tc_theme")).toBeNull();
   });
 });

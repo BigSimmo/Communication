@@ -80,7 +80,15 @@ export function exportBackup(now: Date = new Date()): BackupFile {
   const data: BackupFile["data"] = {};
   for (const key of BACKUP_KEY_LIST) {
     const result = readKey(key);
-    if (result.ok) data[key] = result.value;
+    if (!result.ok) continue;
+    // Skip values import would reject (e.g. a stray [] or unknown theme), so
+    // an app-made backup always restores.
+    try {
+      serialiseValue(key, result.value);
+    } catch {
+      continue;
+    }
+    data[key] = result.value;
   }
   return {
     app: BACKUP_APP,
@@ -191,14 +199,28 @@ export function importBackup(json: string): ImportSummary {
       }
     }
   } catch {
-    for (const [key, value] of previous) {
+    // Remove every imported value first so a large one can't hold the space
+    // an earlier value needs, then put the previous values back.
+    let rolledBack = true;
+    for (const key of BACKUP_KEY_LIST) {
       try {
-        if (value === null) localStorage.removeItem(key);
-        else localStorage.setItem(key, value);
-      } catch {}
+        localStorage.removeItem(key);
+      } catch {
+        rolledBack = false;
+      }
+    }
+    for (const [key, value] of previous) {
+      if (value === null) continue;
+      try {
+        localStorage.setItem(key, value);
+      } catch {
+        rolledBack = false;
+      }
     }
     throw new BackupError(
-      "Couldn't save the backup (storage may be full). Your data was not changed.",
+      rolledBack
+        ? "Couldn't save the backup (storage may be full). Your data was not changed."
+        : "Couldn't save the backup, and some existing data couldn't be restored. Keep a copy of your latest backup file.",
     );
   }
   return { restored, cleared };
