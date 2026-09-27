@@ -193,7 +193,7 @@ export const TC050: CardData = {
       phrases: [
         "What happened: ... Why it matters: ... Next step: ...",
         "Three quick lines: fact, meaning, action.",
-        "TL;DR up top, then the detail if you want it.",
+        "Short version up top, then the detail if you want it.",
         "Labelling this so it's easy to scan: What / So what / Now what.",
         "Short one: here's the what, the so-what, and the next step.",
       ],

@@ -388,7 +388,7 @@ export default function Drill() {
               className="text-[13px] font-semibold"
               style={{ color: "var(--accent-green)" }}
             >
-              Great work — come back tomorrow
+              Great work. Come back tomorrow
             </p>
             {nextDrillEntry && (
               <p
@@ -412,7 +412,7 @@ export default function Drill() {
           <div className="grid grid-cols-3 gap-2">
             <button
               onClick={() => handleComplete("hard")}
-              aria-label={"Hard — review soon"}
+              aria-label={"Hard: review soon"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
                 borderColor:
@@ -429,7 +429,7 @@ export default function Drill() {
             </button>
             <button
               onClick={() => handleComplete("good")}
-              aria-label={"Good — review later"}
+              aria-label={"Good: review later"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
                 borderColor:
@@ -446,7 +446,7 @@ export default function Drill() {
             </button>
             <button
               onClick={() => handleComplete("easy")}
-              aria-label={"Easy — review much later"}
+              aria-label={"Easy: review much later"}
               className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
               style={{
                 borderColor:
@@ -549,7 +549,7 @@ export default function Drill() {
             style={{ color: "var(--fg-60)" }}
           >
             Each card has a 7-day practice plan. Complete today's task, then
-            come back tomorrow — one technique at a time, working through all{" "}
+            come back tomorrow for the next one, working through all{" "}
             {CARD_IDS.length} cards.
           </p>
         </div>

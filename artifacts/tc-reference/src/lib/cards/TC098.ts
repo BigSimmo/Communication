@@ -225,22 +225,22 @@ export const TC098: CardData = {
   ],
   ladder: [
     {
-      weak: '"They completely ignored me" → "No they didn\'t. They were just busy."',
+      weak: 'They say "They completely ignored me." You: "No they didn\'t. They were just busy."',
       better: '"That probably felt dismissive. They may also have been busy."',
       best: '"That probably felt dismissive. I want to stay with that first. Then we can check whether it was intentional or just timing."',
     },
     {
-      weak: '"This deadline is impossible" → "It\'s not impossible. We just need to prioritise."',
+      weak: 'They say "This deadline is impossible." You: "It\'s not impossible. We just need to prioritise."',
       better: '"I can hear the pressure. Let\'s prioritise."',
       best: '"I can hear the pressure, and it makes sense this feels too much right now. Let\'s name the load first, then separate what must be done from what can move."',
     },
     {
-      weak: '"Your team wasted my time" → "Actually, our records show we replied within policy."',
+      weak: 'They say "Your team wasted my time." You: "Actually, our records show we replied within policy."',
       better: '"I\'m sorry it felt like a waste of time. Our records show..."',
       best: "\"That's a frustrating experience, and I wouldn't want to feel bounced around either. I'll address the impact first, then check the record so we solve it accurately.\"",
     },
     {
-      weak: '"You never listen" → "That\'s not true. I listened yesterday."',
+      weak: 'They say "You never listen." You: "That\'s not true. I listened yesterday."',
       better: '"It sounds like you felt unheard."',
       best: '"It sounds like you felt unheard, and I want to take that seriously before defending myself. Can I reflect what I\'m hearing, then talk about the specific moments?"',
     },
@@ -443,7 +443,7 @@ export const TC098: CardData = {
       examples: [
         {
           label: "Weak vs better",
-          text: '"but our records show..." → "and I\'ll check the record so we get it right."',
+          text: 'Swap "but our records show..." for "and I\'ll check the record so we get it right."',
         },
       ],
     },

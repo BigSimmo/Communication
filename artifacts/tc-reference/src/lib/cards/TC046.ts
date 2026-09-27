@@ -221,7 +221,7 @@ export const TC046: CardData = {
   ],
   ladder: [
     {
-      weak: "Announces the framework and forces every sentence into Elicit → Provide → Elicit, sounding rehearsed.",
+      weak: "Announces the framework and forces every sentence into elicit, provide, elicit, sounding rehearsed.",
       better:
         "Uses the structure silently to organise one concise, easy-to-follow response.",
       best: "Uses it flexibly, drops it the moment it stops helping, and checks whether the listener is clearer, more heard, and better able to respond.",
