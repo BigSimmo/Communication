@@ -60,7 +60,7 @@ export const TC014: CardData = {
   whatItIsNot: [
     "It is not agreeing their conclusion is right, pretending to share their view, or flattering resistance.",
     "You validate the concern, not necessarily the conclusion, and never a false fact.",
-    "It is not a script for pressure, extraction or control.",
+    "It is not a delay tactic. Once you've acknowledged the worry, you still have to answer it.",
     "It is not a substitute for actually listening to the answer they give back.",
   ],
   overview: {
@@ -242,9 +242,9 @@ export const TC014: CardData = {
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"I hear you, but it\'ll be fine." (acknowledges, then dismisses)',
+      better: '"That\'s a fair concern." (then answers it)',
+      best: "\"That's a fair concern. If this felt rushed, I'd be cautious too. Is it the timing or the risk?\"",
     },
     {
       weak: "Validates, then immediately argues the conclusion.",
@@ -252,9 +252,9 @@ export const TC014: CardData = {
       best: "Validates, clarifies, and turns the objection into a smaller, workable step.",
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"Your feelings are completely valid." (validates everything, including a false conclusion)',
+      better: '"The worry makes sense, though I see the outcome differently."',
+      best: '"The worry makes sense. I see the outcome differently, and here\'s why. Which part feels most risky to you?"',
     },
   ],
   scenarios: [
@@ -374,6 +374,7 @@ export const TC014: CardData = {
       "You: \"That's a fair concern. If previous attempts have been messy, I'd be cautious too. Is the main worry that it will take too much time, or that people won't follow through?\"",
       'Person: "Mostly follow-through."',
       "You: \"Then I wouldn't suggest a broad rollout. I'd suggest a small trial with one clear owner.\"",
+      "A second objection:",
       'Person: "This sounds good on paper, but it will become another thing nobody maintains."',
       "You: \"That's probably the right thing to worry about. The idea isn't the hard part. Keeping it alive is. What would make maintenance realistic rather than wishful?\"",
       "Why this works:",
@@ -382,7 +383,7 @@ export const TC014: CardData = {
       "It converts resistance into design: smaller trial, clearer owner, lower risk.",
       "It keeps dignity intact, making the other person more willing to collaborate.",
     ],
-    note: "The advanced version should make the other person feel clearer, not managed.",
+    note: "The strong version grants that the worry is fair, finds out which part is real, then answers that part with a smaller, safer step.",
   },
   influencePayoff: {
     feeling: "They took my worry seriously instead of arguing me out of it.",
@@ -405,10 +406,10 @@ export const TC014: CardData = {
   },
   fieldTip: {
     headline:
-      "Validate the worry before you answer the worry: never validate false facts as true.",
-    body: "The goal is not to display skill. It is to make the next human moment easier. A concern held gently for one sentence stops being a wall and becomes a door.",
+      "Validate the worry before you answer it. Never validate a false fact.",
+    body: "A concern held gently for one sentence stops being a wall and becomes a door. Then walk through it: answer the worry they actually named, not the one you prepared for.",
     example:
-      'Concern: "This will just become another thing nobody maintains." → "That\'s probably the right thing to worry about. What would make maintenance realistic rather than wishful?"',
+      'They say: "This will just become another thing nobody maintains." You: "That\'s probably the right thing to worry about. What would make maintenance realistic rather than wishful?"',
     dont: "Don't rush to prove them wrong, and don't agree with a conclusion you think is false.",
     do: "Do name the concern, say why it makes sense, then bridge to a smaller, workable step.",
   },
@@ -464,14 +465,14 @@ export const TC014: CardData = {
     },
   ],
   liveThreadClues: [
-    "I do not think this will work...",
+    "I don't think this will work...",
     "Yes, but...",
-    "I am not sure about...",
+    "I'm not sure about...",
     "My worry is...",
     "This will just become...",
-    "It is going to take too much...",
+    "It's going to take too much...",
     "We tried this before and...",
-    "I do not have time for...",
+    "I don't have time for...",
   ],
   commonMistakes: [
     {
@@ -516,9 +517,9 @@ export const TC014: CardData = {
     "I can see the concern. I also see the conclusion differently.",
     "I may have over-acknowledged that. Here's my actual answer.",
     "I'm not saying the whole conclusion is right. I'm saying the worry makes sense.",
-    "I may have framed that badly.",
-    "Let me step back.",
-    "We can leave that if it's not the useful thread.",
+    "Fair point. I'll stop acknowledging and just answer.",
+    "You're right to push on that. Here's what I'd change.",
+    "I skipped past your concern. Let me come back to it.",
   ],
   bestRecoveryLine:
     "I may have over-acknowledged that. Here's my actual answer.",

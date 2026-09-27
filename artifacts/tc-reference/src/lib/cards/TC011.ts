@@ -60,7 +60,7 @@ export const TC011: CardData = {
   whatItIsNot: [
     "It is not a courtroom recap, a lecture, or a way to prove you were right all along.",
     'It is not "So basically..." followed by your own agenda.',
-    "It is not a script for pressure, extraction or control.",
+    "It is not a verdict. If they say you've got it wrong, take their version.",
     "It is not a substitute for actually listening to the response.",
   ],
   overview: {
@@ -73,7 +73,7 @@ export const TC011: CardData = {
       "Loop-breaking: I think we're circling two things: the decision itself, and how it was communicated.",
     ],
     minimumViableMove:
-      'Reflect back the one thing that matters most, then check it: "So the main thing is X, not just Y, have I got that right?"',
+      'Reflect back the one thing that matters most, then check it: "So the main thing is X, not just Y. Have I got that right?"',
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
@@ -205,7 +205,7 @@ export const TC011: CardData = {
       condition:
         "They have told a long or tangled story, or emotion is in the room.",
       action: "Use the minimum viable move: reflect the core, then check it.",
-      phrase: "So the main thing is X, not just Y, have I got that right?",
+      phrase: "So the main thing is X, not just Y. Have I got that right?",
     },
     {
       condition: "Distress is present, not just information.",
@@ -240,14 +240,14 @@ export const TC011: CardData = {
   ],
   ladder: [
     {
-      weak: "Uses the move mechanically or too often.",
-      better: "Uses the smallest useful version, then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"So basically you\'re unhappy with the process." (labels it and moves on)',
+      better: '"So the process is slow. Is that right?" (facts only)',
+      best: "\"So it's not just that it's slow. You've raised it again and again and nothing changes. Is that right?\"",
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary, skilled conversation.",
+      weak: "A paragraph-long replay of everything they said.",
+      better: '"So the main thing is the timeline."',
+      best: '"So the main thing is the timeline, not the budget. Have I got that right?"',
     },
     {
       weak: "Summarises the facts and stops there.",
@@ -341,7 +341,7 @@ export const TC011: CardData = {
     {
       day: "Day 6",
       title: "Practise the recovery",
-      task: 'When a summary lands wrong, use a recovery line: "That was more my agenda than yours, sorry. Let me back up.", and update to what they actually said.',
+      task: 'When a summary lands wrong, use a recovery line ("That was more my agenda than yours, sorry. Let me back up.") and update to what they actually said.',
     },
     {
       day: "Day 7",
@@ -379,7 +379,7 @@ export const TC011: CardData = {
       "names the meaning underneath the facts",
       "invites correction, then updates to their real answer",
     ],
-    note: "The advanced version should make the other person feel clearer, not managed.",
+    note: "The strong version is shorter than a full replay, reaches under the facts to what it meant, and hands them the pen to correct it.",
   },
   influencePayoff: {
     feeling:
@@ -404,11 +404,11 @@ export const TC011: CardData = {
   fieldTip: {
     headline:
       'A good summary check makes them think: "Yes. That\'s exactly what I was trying to say."',
-    body: "The goal is not to display skill. It is to make the next human moment easier. Keep the recap shorter than their original point, aim it at the meaning rather than the facts, and hand them the pen to correct you.",
+    body: "Keep the recap shorter than their original point, aim it at the meaning rather than the facts, and hand them the pen to correct you. If they have to repeat themselves after your summary, it missed.",
     example:
       '"Let me check I have the important part...", then stop and let them fix it.',
     do: 'Aim at the feeling or meaning underneath the facts, then check: "Have I got that right?"',
-    dont: "Do not use the recap as a runway for your own agenda.",
+    dont: "Don't use the recap as a runway for your own agenda.",
   },
   method: [
     {
@@ -475,7 +475,7 @@ export const TC011: CardData = {
     {
       mistake: "Making it too long",
       soundsLike: "A paragraph-length replay of everything they just said.",
-      better: '"So the core of it\'s X, have I got that right?"',
+      better: '"So the core of it is X. Have I got that right?"',
     },
     {
       mistake: "Sounding clinical or superior",

@@ -59,7 +59,7 @@ export const TC012: CardData = {
     "Full-attention signal is the deliberate move of showing someone they have your attention by removing the things competing for it (the phone, the laptop, the room, your next sentence) and orienting visibly toward them. It works because most people are used to being half-listened to, so the moment you put something down and turn toward them they feel safe enough to say the real thing. It is a small, respectful move in the moment, not a performance of listening.",
   whatItIsNot: [
     'It is not staring, performing deep listening, freezing your body, or saying "I\'m listening" while still checking your phone, laptop, the room, or your next thought.',
-    "It is not a script for pressure, extraction or control.",
+    "It is not a promise of unlimited time. If you only have two minutes, say so.",
     "It is not a substitute for actually listening to the response: the move only buys the attentive state, it does not replace hearing the answer.",
   ],
   overview: {
@@ -98,7 +98,7 @@ export const TC012: CardData = {
     {
       id: "quick-defaults",
       label: "Quick defaults",
-      tag: "Quick defaults",
+      tag: "Hand them the floor",
       tone: "Quick",
       phrases: [
         "Go on, I'm with you.",
@@ -112,7 +112,7 @@ export const TC012: CardData = {
     {
       id: "warm-human",
       label: "Warm and human",
-      tag: "Warm and human",
+      tag: "Put the task down",
       tone: "Warm",
       phrases: [
         "Hang on, let me put this away. I want to actually hear this.",
@@ -126,7 +126,7 @@ export const TC012: CardData = {
     {
       id: "social-dating",
       label: "Social / dating",
-      tag: "Social / dating",
+      tag: "Light and curious",
       tone: "Warm",
       phrases: [
         "Okay, that sounds like the real story.",
@@ -140,7 +140,7 @@ export const TC012: CardData = {
     {
       id: "professional-leadership",
       label: "Professional / leadership",
-      tag: "Professional / leadership",
+      tag: "Close the laptop",
       tone: "Professional",
       phrases: [
         "Let me close this laptop so I can focus.",
@@ -154,7 +154,7 @@ export const TC012: CardData = {
     {
       id: "high-status-busy",
       label: "High-status / busy person",
-      tag: "High-status / busy person",
+      tag: "Focused and brief",
       tone: "Direct",
       phrases: [
         "I'll be concise. What's the key thing you need me to understand?",
@@ -168,7 +168,7 @@ export const TC012: CardData = {
     {
       id: "digital-text",
       label: "Digital / text",
-      tag: "Digital / text",
+      tag: "When you can't reply properly yet",
       tone: "Professional",
       phrases: [
         "I want to reply properly, not quickly. I'll come back to this tonight.",
@@ -182,7 +182,7 @@ export const TC012: CardData = {
     {
       id: "conflict-repair",
       label: "Conflict / repair",
-      tag: "Conflict / repair",
+      tag: "After you were distracted",
       tone: "Repair",
       phrases: [
         "I think I was half-listening. Let me reset.",
@@ -196,8 +196,8 @@ export const TC012: CardData = {
     {
       id: "shy-guarded",
       label: "Shy or guarded person",
-      tag: "Shy or guarded person",
-      tone: "High-stakes",
+      tag: "Low pressure, no spotlight",
+      tone: "Warm",
       phrases: [
         "No rush.",
         "Take your time.",
@@ -246,14 +246,14 @@ export const TC012: CardData = {
   ],
   ladder: [
     {
-      weak: "Uses the move mechanically or too often, the same way every time.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"Mm, yeah, go on." (still typing)',
+      better: 'Stops typing: "Go on."',
+      best: 'Closes the laptop and turns toward them: "Go on, I\'m with you."',
     },
     {
       weak: 'Talks about listening ("I\'m really listening") while still half-distracted.',
-      better: "Performs one clear behavioural move: phone down, body turned.",
-      best: "Makes the move feel like ordinary skilled conversation rather than a signal.",
+      better: "Phone down, body turned, one short line.",
+      best: "The same, without announcing it, so it feels like ordinary conversation.",
     },
     {
       weak: "Holds fixed eye contact and waits for the person to perform.",
@@ -362,7 +362,7 @@ export const TC012: CardData = {
   example: {
     without: [
       "Person: I had a weird conversation with my manager today.",
-      "You: Yeah? *(still typing)*",
+      "You: Yeah? (still typing)",
       "Person: It just felt off.",
       "You: Hang on, I'm just replying to this message. Keep going.",
       "Why it's weak:",
@@ -389,7 +389,7 @@ export const TC012: CardData = {
       "You: So the words were positive, but the subtext felt like doubt.",
       "Person: Exactly.",
     ],
-    note: "The advanced version should make the other person feel clearer, not managed.",
+    note: 'The difference is physical first. The task goes down before any words, which is what makes "I want to actually hear this" believable.',
   },
   influencePayoff: {
     feeling:
@@ -412,11 +412,10 @@ export const TC012: CardData = {
     ],
   },
   fieldTip: {
-    headline:
-      "Attention is only credible once your behaviour removes what is competing for it.",
-    body: "Put something down before you try to get someone to open up. The physical act (phone away, screen closed, body turned) is what makes the words true. The goal is not to display skill. It is to make the next human moment easier.",
+    headline: "Put something down first.",
+    body: "Attention is only credible once your behaviour removes what's competing for it. The physical act (phone away, screen closed, body turned) is what makes the words true, so do it before you say anything.",
     example: "Hang on, let me put this down. I want to actually hear this.",
-    dont: 'Say "I\'m listening" while still scanning your phone.',
+    dont: "Don't say \"I'm listening\" while still scanning your phone.",
     do: "Clear the distraction first, then give one short line and actually listen.",
   },
   method: [
@@ -497,8 +496,10 @@ export const TC012: CardData = {
   commonMistakes: [
     {
       mistake: "Running the move on autopilot",
-      soundsLike: '"You have my full attention." Said the same way every time',
-      better: '"Go on, I\'m with you." Dropped naturally, only when it matters',
+      soundsLike:
+        '"You have my full attention." (said the same way every time)',
+      better:
+        '"Go on, I\'m with you." (dropped in naturally, only when it matters)',
     },
     {
       mistake: "Making it too long",
@@ -513,31 +514,31 @@ export const TC012: CardData = {
     },
     {
       mistake: "Ignoring the cues to stop",
-      soundsLike: "holding fixed eye contact while they shrink back",
+      soundsLike: "Holding fixed eye contact while they shrink back",
       better:
-        "soften your face, angle away slightly, and make a small comment instead of another question",
+        "Soften your face, angle away slightly, and make a small comment instead of another question.",
     },
     {
       mistake: "Steering toward your own agenda",
       soundsLike: '"I\'m all ears. So, about that thing I need from you..."',
       better:
-        "give the attention with nothing attached, and listen to where they take it",
+        "Give the attention with nothing attached, and listen to where they take it.",
     },
     {
       mistake: "Claiming attention you're not giving",
       soundsLike: '"I\'m listening," while still scanning your phone',
       better:
-        "put the phone down first: the behaviour is what makes the words true",
+        "Put the phone down first. The behaviour is what makes the words true.",
     },
   ],
   recoveryPhrases: [
     "Sorry, I was distracted. Can you say that again properly?",
-    "I missed the important bit, start from there again?",
+    "I missed the important bit. Can you start from there again?",
     "That deserved better attention than I gave it.",
     "I looked like I was listening, but I was still thinking about something else. Let me reset.",
     "I don't want to pretend I caught that when I didn't.",
     "I think my attention got split. I'm back with you now.",
-    "We can leave that if it's not the useful thread.",
+    "Sorry, I checked my phone. That was rude. Go on.",
   ],
   bestRecoveryLine:
     "I looked like I was listening, but I was still thinking about something else. Let me reset.",
@@ -549,7 +550,7 @@ export const TC012: CardData = {
       example: [
         '"Good to see you. Come in."',
         'Phone away, turned toward them: "Go on, I\'m with you."',
-        '"You said it was a strange week, strange how?"',
+        '"You said it was a strange week. Strange how?"',
         '"So it was less the workload and more the uncertainty."',
         '"I appreciate you telling me the honest version."',
       ],

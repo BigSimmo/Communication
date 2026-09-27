@@ -60,7 +60,7 @@ export const TC013: CardData = {
   whatItIsNot: [
     "It is not bluntness, pressure, passive-aggression, or overexplaining.",
     'It is not "Can you help?" with the real ask hidden underneath.',
-    "It is not a script for pressure, extraction or control.",
+    "It is not a demand. They can still say no or offer an alternative.",
     "It is not a substitute for listening to the response.",
     "A clean request is direct enough to be useful and warm enough to preserve goodwill.",
   ],
@@ -372,22 +372,21 @@ export const TC013: CardData = {
       'You: "I\'m trying to finalise this by Friday. Could you look over the one-page summary by Thursday afternoon and tell me if option B makes sense?"',
       'Them: "Yes, send it through."',
       'You (lighter version): "Quick ask, and a no is fine. Could you give me a one-line steer by Thursday on whether option B is sensible?"',
-      'Digital version: "Quick ask: could you reply yes/no by Friday on whether option B is acceptable? No detail needed unless there\'s a problem."',
+      'You (by text): "Quick ask: could you reply yes/no by Friday on whether option B is acceptable? No detail needed unless there\'s a problem."',
       "Why this works: the action, the deadline and the reason are all present, and there's an easy way to reply.",
     ],
-    note: "The advanced version should make the other person feel clearer, not managed.",
+    note: "The strong version puts the action, the deadline and the reason up front and gives an easy way to reply, so a yes takes one line.",
   },
   influencePayoff: {
     feeling: '"I know exactly what they need, and it\'s easy to say yes."',
     principle:
       "People cooperate more readily when a request is clear, because it removes cognitive load, ambiguity, status risk and decision friction.",
     gains: [
-      "Cooperation",
-      "Clarity",
-      "Faster replies",
-      "Perceived competence",
-      "Preserved goodwill",
-      "Momentum on stuck decisions",
+      "They can say yes, no or offer an alternative without decoding you",
+      "Faster replies, because answering takes seconds, not a meeting",
+      "You come across as organised and easy to help",
+      "Goodwill survives, because nothing is hidden or forced",
+      "Stuck decisions start moving again",
     ],
     whyMostFail: [
       'They stay vague ("Can you help?") so the other person has to reverse-engineer the ask.',
@@ -399,10 +398,10 @@ export const TC013: CardData = {
   fieldTip: {
     headline:
       "If the other person has to translate your request into an action, the request is not clean.",
-    body: "The goal is not to display skill. It is to make the next human moment easier: easy for them to answer, and easy for you to move forward.",
+    body: "Read your request as if you were busy and half-distracted. If you'd still know exactly what to do and by when, it's clean.",
     example:
       '"Could you send the final version by 3 pm Friday? A one-line yes is all I need."',
-    dont: "Wrap the ask in so much politeness or context that the action disappears.",
+    dont: "Don't wrap the ask in so much politeness or context that the action disappears.",
     do: "Put the action first, name the deadline and the reason, and leave an easy way to say no.",
   },
   method: [
@@ -501,11 +500,11 @@ export const TC013: CardData = {
     "I realise I buried the ask: the specific thing is...",
     "That was too vague. Let me simplify.",
     "No pressure if that timeline doesn't work.",
-    "What part of that's unclear or unrealistic?",
+    "What part of that is unclear or unrealistic?",
     "I think I made this sound bigger than it is. The only thing I need is...",
     "Let me separate the context from the ask.",
     "I may have framed that badly. Let me step back.",
-    "We can leave that if it's not the useful thread.",
+    "Sorry, that was a lot. Short version: could you do X by Friday?",
   ],
   bestRecoveryLine:
     "I realise I buried the ask: the specific thing I need is...",
@@ -548,10 +547,10 @@ export const TC013: CardData = {
       sequence:
         "Subject line → one-line context → clean ask → deadline → easy reply option",
       example: [
-        'Subject: "Quick decision needed. Option B"',
+        'Subject: "Quick decision needed: option B"',
         '"We\'re finalising Friday."',
         '"Could you confirm option B is acceptable?"',
-        '"By Thursday would be ideal: a yes/no is enough."',
+        '"By Thursday would be ideal. A yes/no is enough."',
       ],
     },
   ],
