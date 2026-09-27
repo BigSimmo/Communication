@@ -75,24 +75,34 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [visible, setVisible] = useState(false);
   const [results, setResults] = useState<RankedResult[]>([]);
-  const [searchLoading, setSearchLoading] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(
+    () => query.trim().length > 0,
+  );
   const [searchFailed, setSearchFailed] = useState(false);
+
+  // A new query starts a new search: reset the search status and keyboard
+  // selection during render rather than in an effect.
+  const [prevQuery, setPrevQuery] = useState(query);
+  if (query !== prevQuery) {
+    setPrevQuery(query);
+    setSelectedIndex(-1);
+    setSearchFailed(false);
+    if (query.trim()) {
+      setSearchLoading(true);
+    } else {
+      setResults([]);
+      setSearchLoading(false);
+    }
+  }
 
   const showRecents = query.trim().length === 0 && recents.length > 0;
   const showSmartStart = query.trim().length === 0;
 
   useEffect(() => {
     const trimmedQuery = query.trim();
-    if (!trimmedQuery) {
-      setResults([]);
-      setSearchLoading(false);
-      setSearchFailed(false);
-      return;
-    }
+    if (!trimmedQuery) return;
 
     let active = true;
-    setSearchLoading(true);
-    setSearchFailed(false);
     searchCards(trimmedQuery).then(
       (nextResults) => {
         if (!active) return;
@@ -144,10 +154,6 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
       }
     };
   }, []);
-
-  useEffect(() => {
-    setSelectedIndex(-1);
-  }, [query]);
 
   const handleClose = useCallback(() => {
     setVisible(false);

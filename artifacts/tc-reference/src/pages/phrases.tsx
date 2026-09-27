@@ -71,9 +71,15 @@ export default function Phrases() {
   }, [allPhrases, toneFilter, searchQuery]);
 
   // Reset the render window whenever the result set changes.
-  useEffect(() => {
+  // Adjusted during render (not in an effect) so the stale window never paints.
+  const [prevFilters, setPrevFilters] = useState({ toneFilter, searchQuery });
+  if (
+    prevFilters.toneFilter !== toneFilter ||
+    prevFilters.searchQuery !== searchQuery
+  ) {
+    setPrevFilters({ toneFilter, searchQuery });
     setVisibleCount(PAGE_SIZE);
-  }, [toneFilter, searchQuery]);
+  }
 
   const visible = filtered.slice(0, visibleCount);
   const hasMore = filtered.length > visibleCount;

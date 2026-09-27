@@ -53,6 +53,12 @@ export default function CardDetail() {
     data: CardData | null;
   } | null>(null);
   const [loadFailedCardId, setLoadFailedCardId] = useState<string | null>(null);
+  // A new card starts a fresh load: clear any earlier failure during render.
+  const [prevCardId, setPrevCardId] = useState(cardId);
+  if (cardId !== prevCardId) {
+    setPrevCardId(cardId);
+    setLoadFailedCardId(null);
+  }
   const cardData = loadedCard?.cardId === cardId ? loadedCard.data : null;
 
   const [expandedPhraseGroup, setExpandedPhraseGroup] = useState<string | null>(
@@ -86,7 +92,6 @@ export default function CardDetail() {
   useEffect(() => {
     if (!isKnownCard || !isLoaded) return;
     let active = true;
-    setLoadFailedCardId(null);
     loadCard(cardId).then(
       (data) => {
         if (!active) return;

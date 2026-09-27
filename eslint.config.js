@@ -35,10 +35,11 @@ export default tseslint.config(
   {
     files: ["artifacts/tc-reference/src/**/*.{ts,tsx}"],
     rules: {
-      // React Compiler rule; flags deliberate resets/syncs (e.g. reset paging when filters change) that work correctly here.
-      "react-hooks/set-state-in-effect": "warn",
-      // React Compiler rule; flags the deliberate latest-value ref pattern (ref.current = prop during render) used for scroll memory.
-      "react-hooks/refs": "warn",
+      // React Compiler rules, enforced: reset state during render (store the
+      // previous input and compare) or in event handlers, not in effects, and
+      // never read or write ref.current during render.
+      "react-hooks/set-state-in-effect": "error",
+      "react-hooks/refs": "error",
     },
   },
   {

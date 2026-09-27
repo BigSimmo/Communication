@@ -29,6 +29,23 @@ export function useScrollDirection(
   const accum = useRef(0);
   const ticking = useRef(false);
 
+  // Always report "up" again when the listener is re-initialised (e.g. when
+  // navigating back to the Library page) so the bar reappears immediately.
+  // Mount already starts at "up"; later changes reset during render.
+  const [prevDeps, setPrevDeps] = useState({
+    threshold,
+    flipThreshold,
+    resetKey,
+  });
+  if (
+    prevDeps.threshold !== threshold ||
+    prevDeps.flipThreshold !== flipThreshold ||
+    !Object.is(prevDeps.resetKey, resetKey)
+  ) {
+    setPrevDeps({ threshold, flipThreshold, resetKey });
+    setDirection("up");
+  }
+
   useEffect(() => {
     // Largest position the document can actually be scrolled to.
     const getMaxScroll = () =>
@@ -42,9 +59,6 @@ export function useScrollDirection(
     // doesn't produce a false "down" jump from 0 → actual scrollY.
     lastY.current = clampY();
     accum.current = 0;
-    // Always reset to "up" on mount / remount (i.e. when navigating
-    // back to the Library page) so the bar reappears immediately.
-    setDirection("up");
 
     const update = () => {
       ticking.current = false;

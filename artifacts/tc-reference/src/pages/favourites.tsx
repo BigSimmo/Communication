@@ -5,6 +5,7 @@ import { useFavourites } from "@/lib/favourites-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { impactStyleFor } from "@/lib/design-tokens";
+import { BackupSection } from "@/components/backup-section";
 
 const CARD_META: Record<
   string,
@@ -495,6 +496,8 @@ export default function Favourites() {
             )}
           </div>
         )}
+
+        <BackupSection />
       </div>
     </div>
   );

@@ -73,9 +73,15 @@ export default function Drill() {
       ? nextCard.data?.drill[state.dayIndex]
       : undefined;
 
+  // A new card starts a fresh load: clear any earlier failure during render.
+  const [prevCardId, setPrevCardId] = useState(cardId);
+  if (cardId !== prevCardId) {
+    setPrevCardId(cardId);
+    setLoadFailed(false);
+  }
+
   useEffect(() => {
     let active = true;
-    setLoadFailed(false);
     loadCard(cardId).then(
       (data) => {
         if (!active) return;
