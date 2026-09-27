@@ -71,7 +71,6 @@ export const TC043: CardData = {
       'Affirm: "You have clearly put real thought into this."',
       'Reflect: "So it sounds like the timing is the real sticking point."',
       'Summarise: "Let me pull that together and check I have it right."',
-      "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
       "Pick the single OARS move the moment needs (an open question, an affirmation, a reflection or a summary) and say it in plain words, without naming the framework.",
@@ -546,10 +545,10 @@ export const TC043: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "Sorry, that sounded like a checklist. Tell me in your own words.",
+    "I've asked a lot of questions. Let me just listen.",
+    "Let me stop summarising and hear what you actually think.",
+    "Was that summary right, or did I miss something?",
     "Forget the four steps. What do you actually need from me right now?",
     "Let me stop organising and just listen.",
     "I jumped to summarising before I'd really heard you. Say more.",

@@ -246,14 +246,15 @@ export const TC009: CardData = {
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"Have you been to Japan? I went last year and..." (asks only to tell their own story)',
+      better:
+        '"Have you been to Japan?" (listens briefly, then pivots to their own trip)',
+      best: '"Have you been to Japan?" Then one follow-up about their answer before sharing anything.',
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"How was your weekend? Mine was huge..."',
+      better: '"How was your weekend?" (then listens)',
+      best: '"How was your weekend?" Then "What was the best bit?" before mentioning yours.',
     },
   ],
   scenarios: [

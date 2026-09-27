@@ -70,7 +70,6 @@ export const TC046: CardData = {
       'Provide: one clear point, briefly, "The main thing is X."',
       'Elicit: "What do you make of that?" or "How does that fit your situation?"',
       'Minimum viable move: "Would it be useful to hear one option? The option is X. What do you make of that?"',
-      "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
       "Run one light loop silently: ask whether an option would help, give one clear point, then ask what they make of it, without ever naming the framework.",
@@ -386,7 +385,7 @@ export const TC046: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "Find out what they know before you add to it.",
     body: "Use Elicit-provide-elicit to organise your own thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. The clearest sign you're doing it well is that they never notice you did anything at all.",
     example:
       '"Would it help to hear one option? ... It\'s X. ... What do you make of that?" Three moves, no labels.',
@@ -496,16 +495,17 @@ export const TC046: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "I jumped straight to the information. What would be useful to know?",
+    "Sorry, that was a lecture. What's your take on it?",
+    "Let me check what you already know before I add anything.",
+    "How does that fit with what you'd heard before?",
     "Let me stop explaining and just hear your take.",
     "I think I answered a question you didn't ask. What did you actually want to know?",
     "That came out like a lecture, sorry. The one thing that matters is X.",
     "Ignore the scaffolding. What's your read on it?",
   ],
-  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
+  bestRecoveryLine:
+    "I jumped straight to the information. What would be useful to know?",
   chains: [
     {
       label: "Check it landed",

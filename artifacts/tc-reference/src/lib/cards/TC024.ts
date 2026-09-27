@@ -412,7 +412,7 @@ export const TC024: CardData = {
   },
   fieldTip: {
     headline: "Warm first, then clear.",
-    body: "The best warm opening makes the other person feel seen without making them wait for the point. Use it to clarify, respect and connect, not to pressure, corner or extract.",
+    body: "The best warm opening makes the other person feel seen without making them wait for the point.",
     example:
       '"Good to see you. I\'ll keep this simple. I wanted your read on one thing."',
     dont: "Open cheerful and chatty before serious content, then bury the ask at the very end.",

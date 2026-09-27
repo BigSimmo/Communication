@@ -242,14 +242,14 @@ export const TC023: CardData = {
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version, then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"Where was it?" (chases a surface fact)',
+      better: '"What happened?" (general)',
+      best: '"Draining how?" (picks up the loaded word)',
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"Draining? Why? Who? What did they do?" (a volley of questions)',
+      better: '"Draining how?"',
+      best: '"Draining how?" Then a pause, then a reflection of what they say.',
     },
   ],
   scenarios: [
@@ -391,8 +391,8 @@ export const TC023: CardData = {
     body: "The emotionally charged word is usually where the real conversation lives. Pick it up lightly, then let them define it: the value is in their explanation, not your interpretation.",
     example:
       'They say "It was technically fine, just draining." Follow "draining", not "where was it?"',
-    dont: "Use it to corner, flatter, extract or prove a point.",
-    do: "Use it to clarify, respect and connect.",
+    dont: "Don't turn their word into evidence against them.",
+    do: 'Pick the most loaded word and ask "[word] how?" with genuine curiosity.',
   },
   method: [
     {

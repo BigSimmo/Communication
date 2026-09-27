@@ -2,6 +2,12 @@ import { Check, Copy } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { SectionAccordion } from "./section-accordion";
 
+// Field-tip text often already opens with its own label ("Don't open with...",
+// "They say: ..."). Only add the chip label when the text doesn't carry one.
+function labelled(label: string, text: string, carries: RegExp): string {
+  return carries.test(text.trim()) ? text : `${label}: ${text}`;
+}
+
 // ── The Method ──
 export function MethodSection({
   cardData,
@@ -49,7 +55,11 @@ export function MethodSection({
               }}
             >
               <p className="text-[12px] italic text-foreground/60 mb-2">
-                They say {cardData.fieldTip.example}
+                {labelled(
+                  "Example",
+                  cardData.fieldTip.example,
+                  /^(they (say|said)|example)\b/i,
+                )}
               </p>
               <div className="flex flex-wrap gap-2">
                 {cardData.fieldTip.dont && (
@@ -63,7 +73,11 @@ export function MethodSection({
                       color: "var(--accent-red)",
                     }}
                   >
-                    Don't: {cardData.fieldTip.dont}
+                    {labelled(
+                      "Don't",
+                      cardData.fieldTip.dont,
+                      /^(don't|do not)\b/i,
+                    )}
                   </span>
                 )}
                 {cardData.fieldTip.do && (
@@ -77,7 +91,7 @@ export function MethodSection({
                       color: "var(--accent-green)",
                     }}
                   >
-                    Do: {cardData.fieldTip.do}
+                    {labelled("Do", cardData.fieldTip.do, /^do\b(?! not)/i)}
                   </span>
                 )}
               </div>

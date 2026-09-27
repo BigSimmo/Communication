@@ -174,8 +174,8 @@ export const TC047: CardData = {
       tag: "When it lands badly",
       tone: "Repair",
       phrases: [
-        "I made that too structured. Let me say it more simply.",
-        "That may not be the useful frame. Let me back up.",
+        "That was a long setup. Short version: here's what I did and how it turned out.",
+        "Let me skip to the result.",
         "Let me skip the background and get to what actually happened.",
         "I over-explained there: the key point is the result.",
         "That came out rehearsed. Here's the honest version.",
@@ -390,7 +390,7 @@ export const TC047: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "Spend most of the story on what you did.",
     body: "Use STAR to organise your thinking, then let the wording sound like an ordinary story. The other person should feel clarity, not choreography. Keep the order in your head and the labels out of your mouth.",
     example:
       '"Two weeks out, our supplier pulled out. I owned delivery, so I lined up three alternatives that afternoon, negotiated a rush order, and we still shipped on time."',
@@ -502,16 +502,17 @@ export const TC047: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "That was a long setup. Short version: here's what I did and how it turned out.",
+    "Let me skip to the result.",
+    "Too much background there. Here's the bit that matters.",
+    "Do you want the detail on what I did, or just the outcome?",
     "Let me skip the background and get to what actually happened.",
     "I over-explained there. The one thing that matters is the result.",
     "That came out like a rehearsed answer. Here's the honest version.",
     "Tell me if you'd rather I just gave you the short answer.",
   ],
-  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
+  bestRecoveryLine:
+    "That was a long setup. Short version: here's what I did and how it turned out.",
   chains: [
     {
       label: "Clarity chain",

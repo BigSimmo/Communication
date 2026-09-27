@@ -247,9 +247,9 @@ export const TC008: CardData = {
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often, clipping every answer short.",
-      better: "Uses the smallest useful version, then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"Yes, and the reason is... and also... and to be fair..." (keeps going)',
+      better: '"Yes. It\'s cheaper." (then keeps adding reasons)',
+      best: '"Yes. It\'s cheaper." Then stops and waits.',
     },
     {
       weak: "Blurts a short answer, then fills the silence with justifications.",
@@ -258,7 +258,7 @@ export const TC008: CardData = {
     },
     {
       weak: "Talks about being concise instead of just being concise.",
-      better: "Performs one clear behavioural move.",
+      better: "Stops after the point and one reason.",
       best: "Makes brevity feel like ordinary, confident conversation.",
     },
   ],

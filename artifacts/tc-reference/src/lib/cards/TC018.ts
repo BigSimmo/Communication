@@ -561,7 +561,7 @@ export const TC018: CardData = {
     {
       id: "TC075",
       reason:
-        "Acknowledge Effort recognises that someone tried. Use TC018 when you can point to the specific action and the effect it had, not just the effort.",
+        "Acknowledge effort recognises that someone tried. Use TC018 when you can point to the specific action and the effect it had, not just the effort.",
     },
     {
       id: "TC052",

@@ -423,7 +423,7 @@ export const TC025: CardData = {
   },
   fieldTip: {
     headline: "Use their words as handles, not hooks.",
-    body: "A handle helps them open the door. A hook makes them feel caught. Reuse their word to clarify, respect and connect: never to pressure, corner or extract.",
+    body: "A handle helps them open the door. A hook makes them feel caught. Reuse their word out of curiosity, never as evidence.",
     example:
       "They say 'It was technically fine, just off.' Pick up the live word: 'Off how?'",
     dont: "Quote their word back as evidence: 'But you said it was fine.'",

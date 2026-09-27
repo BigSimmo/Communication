@@ -70,7 +70,6 @@ export const TC050: CardData = {
       "So What? = why it matters, what it means, what changed.",
       "Now What? = the next small, concrete step.",
       "Minimum viable move: What happened? Why does it matter? What's the next small step?",
-      "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
       "Silently sort what you want to say into what happened, why it matters, and the next step, then say those three things in plain language, without naming the framework.",
@@ -396,7 +395,7 @@ export const TC050: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: 'Don\'t skip "So what?"',
     body: "Use What? So what? Now what? to organise your own thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. The moment you name the framework out loud, it stops working.",
     example:
       'Instead of "Let me do a What-So What-Now What here," just say: "Sign-ups were fine but setup wasn\'t. So the problem\'s onboarding, not demand. I\'d fix the first run before spending more on ads."',
@@ -512,10 +511,10 @@ export const TC050: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame here. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "I jumped to next steps too fast. What do you make of what happened?",
+    "Let me slow down. Why do you think that mattered?",
+    "Before we plan, let's agree what it means.",
+    "Does that read of it match yours?",
     "Let me start again with just what happened.",
     "I jumped to the next step too fast. What does this mean to you first?",
     "Forget the framing. What do you actually need from this?",

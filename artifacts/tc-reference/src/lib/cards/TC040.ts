@@ -59,7 +59,7 @@ export const TC040: CardData = {
     "Meaning reflection names the personal significance beneath what someone said, tentatively and respectfully, so the conversation touches what a detail meant to them, not only what happened. It works because people feel genuinely understood when you land on meaning rather than facts, and because tentative phrasing lets them accept, correct, or decline your read without being cornered.",
   whatItIsNot: [
     "It is not a trick, a performance, or a dominance move. It names meaning, it does not manufacture it.",
-    "It is not a way to extract more than the other person wants to give.",
+    "It is not telling someone what their experience meant. It's a guess they can correct.",
     "It is not a replacement for plain listening, context, judgement, or direct action when action is what is needed.",
     "It is not a verdict about who someone is. It is a hypothesis they are free to reject.",
   ],
@@ -501,7 +501,7 @@ export const TC040: CardData = {
     {
       label: "Word → meaning → check",
       sequence:
-        "TC023 Loaded-Word Follow-Up → TC040 Meaning reflection → TC011 Summary check",
+        "TC023 Loaded word follow-up → TC040 Meaning reflection → TC011 Summary check",
       example: [
         "\"You said 'dumped on'. Dumped on how?\" (loaded word)",
         '"It sounds like it meant you weren\'t trusted to be kept in the loop." (meaning)',

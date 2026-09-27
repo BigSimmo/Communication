@@ -69,7 +69,6 @@ export const TC048: CardData = {
       "Situation: where things stand. Complication: what has changed or gone wrong. Question: the decision it forces. Answer: what you recommend.",
       "Minimum viable move: Situation X. Complication Y. Question: what should we do? Answer: Z.",
       'Worked example: "We shipped on time (S). But support tickets have doubled (C). Do we pause new features to fix it (Q)? I\'d pause for two weeks (A)."',
-      "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
       "Say it in four short beats (the situation, the one complication that actually matters, the question it forces, and your answer) then speak it like a person, not a template.",
@@ -162,10 +161,10 @@ export const TC048: CardData = {
       tag: "Softening / recovery",
       tone: "Repair",
       phrases: [
-        "I made that too structured. Let me say it more simply.",
-        "That may not be the useful frame. Let me back up.",
-        "I don't want the structure to override the actual issue.",
-        "What part of that was useful, and what should we drop?",
+        "Let me skip the background. The question is X, and my answer is Y.",
+        "You know the context already. Here's my recommendation.",
+        "Let me get to the point: we need to decide X.",
+        "Is the question I'm answering the one you care about?",
         "That came out like a presentation. Here's what I actually mean.",
         "Forget the framework for a second. The honest version is this.",
         "I think I over-organised that. What did you actually need from me?",
@@ -406,15 +405,16 @@ export const TC048: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "Let me skip the background. The question is X, and my answer is Y.",
+    "You know the context already. Here's my recommendation.",
+    "Let me get to the point: we need to decide X.",
+    "Is the question I'm answering the one you care about?",
     "That came out like a presentation. Here's what I actually mean.",
     "Forget the framework for a second. The real problem is this.",
     "I think I over-organised that. What did you actually need from me?",
   ],
-  bestRecoveryLine: "I made that too structured. Let me just say what I mean.",
+  bestRecoveryLine:
+    "Let me skip the background. The question is X, and my answer is Y.",
   chains: [
     {
       label: "Structure then confirm",
@@ -540,7 +540,7 @@ export const TC048: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "Answer the question they'd actually ask.",
     body: "Use SCQA to organise your own thinking before you speak, then let the structure disappear. The other person should feel clarity, not choreography. They should never hear the framework, only a point that arrives in the right order.",
     example:
       "\"The migration's on track, but the vendor changed their API. So do we hold the date or cut a feature? I'd cut the feature.\"",

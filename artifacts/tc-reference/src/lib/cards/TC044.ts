@@ -508,15 +508,15 @@ export const TC044: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "Let me lead with the answer: it's X.",
+    "Too abrupt? Here's the one line of context.",
+    "Short version first, then detail only if you want it.",
+    "Is that enough, or do you want the reasoning?",
     "Sorry, that came out more clipped than I meant.",
     "Let me give you the context I skipped.",
     "I jumped to the bottom line. Do you want the reasoning behind it?",
   ],
-  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
+  bestRecoveryLine: "Let me lead with the answer: it's X.",
   chains: [
     {
       label: "Clarity chain",

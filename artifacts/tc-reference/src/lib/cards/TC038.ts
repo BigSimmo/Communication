@@ -59,7 +59,7 @@ export const TC038: CardData = {
     "Conversation threading is the practice of noticing a thread someone opened earlier (a topic, a feeling, or an unfinished point) and reopening it cleanly, without derailing the conversation you are currently in. It works because it changes the interaction at the level of timing, attention and response choice rather than adding a complicated script: the other person feels genuinely heard, the exchange stays on the thread that actually matters, and nothing important gets quietly dropped.",
   whatItIsNot: [
     "It is not a trick, a performance, a dominance move, or a shortcut around consent.",
-    "It is not a way to extract more than the other person wants to give.",
+    "It is not a way to drag someone back to a topic they've moved on from.",
     "It is not a replacement for listening, context, judgement, or direct action when action is what is needed.",
     "It is not reopening every loose end. That turns attention into an interrogation.",
   ],
@@ -491,7 +491,7 @@ export const TC038: CardData = {
     {
       label: "Notice, thread, confirm",
       sequence:
-        "Live-Thread Follow-Ups (TC001) → Conversation threading (TC038) → Summary check (TC011)",
+        "Live thread follow-ups (TC001) → Conversation threading (TC038) → Summary check (TC011)",
       example: [
         "They mention several things. You follow the live one in the moment (TC001).",
         "Later you reopen the thread that still matters (TC038).",
@@ -511,7 +511,7 @@ export const TC038: CardData = {
     {
       label: "Their word, thread, meaning",
       sequence:
-        "Exact-Word Pickup (TC025) → Conversation threading (TC038) → Meaning reflection (TC040)",
+        "Exact word pickup (TC025) → Conversation threading (TC038) → Meaning reflection (TC040)",
       example: [
         "You pick up the exact word they loaded with feeling (TC025).",
         "You reopen that thread when it won't add pressure (TC038).",
@@ -523,7 +523,7 @@ export const TC038: CardData = {
     {
       id: "TC001",
       reason:
-        "Live-Thread Follow-Ups follow the immediate, current thread. Conversation threading reopens or organises threads across time.",
+        "Live thread follow-ups follow the immediate, current thread. Conversation threading reopens or organises threads across time.",
     },
     {
       id: "TC041",
@@ -543,7 +543,7 @@ export const TC038: CardData = {
     {
       id: "TC025",
       reason:
-        "Exact-Word Pickup reuses their precise word in the moment. Conversation threading returns to the topic that word belonged to.",
+        "Exact word pickup reuses their precise word in the moment. Conversation threading returns to the topic that word belonged to.",
     },
     {
       id: "TC040",

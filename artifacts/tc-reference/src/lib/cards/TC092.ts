@@ -195,7 +195,7 @@ export const TC092: CardData = {
     {
       id: "micro",
       label: "Micro-phrases",
-      tag: "Micro-phrases",
+      tag: "Short lines for tense moments",
       tone: "Quick",
       phrases: [
         "Fair concern. Different conclusion.",

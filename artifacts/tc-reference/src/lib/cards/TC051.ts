@@ -70,7 +70,6 @@ export const TC051: CardData = {
       "Appreciate: acknowledge the contribution or feeling with a small, genuine signal.",
       "Summarise: reflect the core meaning back in one line.",
       "Ask: follow with one useful question that moves it forward.",
-      "Field rule: use the structure to organise thought, then speak like a person.",
     ],
     minimumViableMove:
       "Silently run the four steps, then say one line that reflects the core point back and asks a single useful question, without ever naming the framework.",
@@ -165,10 +164,10 @@ export const TC051: CardData = {
       tag: "Softening a mechanical moment",
       tone: "Repair",
       phrases: [
-        "I made that too structured. Let me say it more simply.",
-        "That may not be the useful frame. Let me back up.",
-        "I don't want the structure to override the actual issue.",
-        "What part of that was useful, and what should we drop?",
+        "Sorry, I cut in. Go on, I'm listening.",
+        "Let me say back what I heard before I respond.",
+        "I'm not trying to steer. Tell me more.",
+        "Did I summarise that fairly?",
         "Forget the tidy version. What actually matters to you here?",
         "Let me check whether that structure is helping or just sounding neat.",
         "Ignore my summary for a second. Did I miss the real point?",
@@ -386,7 +385,7 @@ export const TC051: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "Receive and summarise before you respond.",
     body: "Use RASA to organise your thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. They should never hear the four steps.",
     example:
       '"So the real issue is the uncertainty, not the workload. What would make it feel manageable?"',
@@ -480,15 +479,15 @@ export const TC051: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "Sorry, I cut in. Go on, I'm listening.",
+    "Let me say back what I heard before I respond.",
+    "I'm not trying to steer. Tell me more.",
+    "Did I summarise that fairly?",
     "Forget my tidy summary. What actually matters to you here?",
     "Let me try that again, less like a checklist.",
     "I think I summarised too soon. Say more.",
   ],
-  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
+  bestRecoveryLine: "Sorry, I cut in. Go on, I'm listening.",
   chains: [
     {
       label: "Clarify then confirm",

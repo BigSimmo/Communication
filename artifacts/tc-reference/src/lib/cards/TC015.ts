@@ -396,7 +396,7 @@ export const TC015: CardData = {
       "names the emotional meaning: being expected to absorb extra work",
       "distinguishes anger, overload and being taken for granted",
     ],
-    note: "The advanced version should make the other person feel clearer, not managed.",
+    note: "The strong version reflects first, checks what they want, and offers one suggestion only if it's invited.",
   },
   influencePayoff: {
     feeling: '"They actually listened before trying to fix me."',
@@ -419,7 +419,7 @@ export const TC015: CardData = {
   },
   fieldTip: {
     headline: "Earn the right to advise by showing you understand first.",
-    body: "The goal is not to display skill. It is to make the next human moment easier. Reflect the hard part, check what they actually want, and let one clean suggestion follow only if it is invited.",
+    body: "Reflect the hard part, check what they actually want, and let one clean suggestion follow only if it's invited.",
     dont: 'Do not open with "You should just..." or "Have you tried..." before you understand the feeling.',
     do: 'Do reflect once, then ask: "Do you want ideas, or do you want me to just hear you out for a minute?"',
   },
@@ -650,7 +650,7 @@ export const TC015: CardData = {
     {
       id: "TC067",
       reason:
-        "TC067 Advice Request is the other side of the exchange: recognising and responding cleanly when advice is genuinely being asked for, rather than assumed.",
+        "TC067 Advice request is the other side of the exchange: recognising and responding cleanly when advice is genuinely being asked for, rather than assumed.",
     },
   ],
 };

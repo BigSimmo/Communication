@@ -422,7 +422,7 @@ export const TC022: CardData = {
   fieldTip: {
     headline:
       "Give status like a secure person: specific, honest, brief, and without waiting to be praised back.",
-    body: "Use the move to clarify, respect and connect, not to pressure, corner or extract. The most convincing status generosity is small and exact: one true thing, said once, then you carry on.",
+    body: "The most convincing status generosity is small and exact: one true thing, said once, then you carry on.",
     example: '"Your read on the constraint was the useful part today."',
     dont: "Do not follow the praise with an immediate favour, or explain at length why they are great.",
     do: "Name one specific behaviour and its effect, then move on naturally.",

@@ -69,7 +69,6 @@ export const TC049: CardData = {
       "Context: what the situation was. Action: what you did. Result: what happened. Learning: what you took from it.",
       'Worked: "The launch was slipping. I cut scope to the core feature. We shipped on time. I now agree the must-haves up front."',
       "Minimum viable move: Context: X. Action: Y. Result: Z. Learning: L.",
-      "Best field rule: use the structure to organise thought, then speak like a person.",
     ],
     minimumViableMove:
       "Silently order your point as Context, Action, Result, Learning, then say it in four plain sentences without ever naming the framework.",
@@ -162,10 +161,10 @@ export const TC049: CardData = {
       tag: "Softening and recovery",
       tone: "Repair",
       phrases: [
-        "I made that too structured. Let me say it more simply.",
-        "That may not be the useful frame. Let me back up.",
-        "I don't want the structure to override the actual issue.",
-        "What part of that was useful, and what should we drop?",
+        "Let me cut to what I learned.",
+        "Too much context there. Here's what I actually did.",
+        "Short version: I did X, it worked, and next time I'd do Y.",
+        "Is the learning the useful part for you, or the result?",
         "Let me drop the scaffolding and just tell you what happened.",
         "I got a bit formulaic there: one plain sentence instead.",
       ],
@@ -325,7 +324,7 @@ export const TC049: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "The learning is the part people remember.",
     body: "Use CARL to organise your thinking, then take the scaffolding down before you speak. The whole thing turns on a learning specific enough to change what you do next time. That is what separates reflection from a nice-sounding recap.",
     example:
       '"We shipped the core feature on time. What I took from it was to agree the must-haves before we start."',
@@ -385,15 +384,15 @@ export const TC049: CardData = {
     ],
   },
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "Let me cut to what I learned.",
+    "Too much context there. Here's what I actually did.",
+    "Short version: I did X, it worked, and next time I'd do Y.",
+    "Is the learning the useful part for you, or the result?",
     "Let me drop the labels and just tell you what happened.",
     "I got a bit formulaic there. Here's the plain version.",
     "Forget the framework for a second: the real point is this.",
   ],
-  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
+  bestRecoveryLine: "Let me cut to what I learned.",
   chains: [
     {
       label: "Clarity chain",
@@ -522,7 +521,7 @@ export const TC049: CardData = {
     {
       day: "Day 6",
       title: "Practise a recovery",
-      task: 'Rehearse one recovery line so you can drop the scaffolding smoothly if it lands badly: e.g. "I made that too structured. Let me say it more simply."',
+      task: 'Rehearse one recovery line so you can drop the structure smoothly if it lands badly, such as "Let me cut to what I learned."',
     },
     {
       day: "Day 7",

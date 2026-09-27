@@ -69,7 +69,6 @@ export const TC045: CardData = {
       'Ask: "What\'s your sense of this so far?"',
       "Tell: the one point that matters, concisely.",
       'Ask: "How does that land?"',
-      "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
       "Ask one real question about where they are, tell one clear point, then ask what they make of it.",
@@ -163,10 +162,10 @@ export const TC045: CardData = {
       tag: "Reset and simplify",
       tone: "Repair",
       phrases: [
-        "I made that too structured. Let me say it more simply.",
-        "That may not be the useful frame. Let me back up.",
-        "I don't want the structure to override the actual issue.",
-        "What part of that was useful, and what should we drop?",
+        "I told you more than you needed. What do you already know about this?",
+        "Let me stop and check. What do you make of that so far?",
+        "You probably know this part. Stop me if so.",
+        "What part of that was new to you?",
         "Let me try that again in plain words.",
         "I think I lectured a bit there. What's the real question?",
         "Forget the framework. What do you actually need from me?",
@@ -385,7 +384,7 @@ export const TC045: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "Ask before you tell, and ask again after.",
     body: "Use Ask-tell-ask to organise your thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. If they can tell you're running a framework, you've made the structure louder than the point.",
     example:
       "\"What's your sense of this so far? Here's the key point. How does that land?\"",
@@ -436,7 +435,7 @@ export const TC045: CardData = {
       examples: [
         {
           label: "Reset",
-          text: '"I made that too structured. Let me say it more simply."',
+          text: '"I told you more than you needed. What do you already know about this?"',
         },
       ],
     },
@@ -502,15 +501,16 @@ export const TC045: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "I told you more than you needed. What do you already know about this?",
+    "Let me stop and check. What do you make of that so far?",
+    "You probably know this part. Stop me if so.",
+    "What part of that was new to you?",
     "I think I lectured a bit there. What's the real question for you?",
     "Let me try that again, shorter.",
     "Forget my explanation for a second. Where did I lose you?",
   ],
-  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
+  bestRecoveryLine:
+    "I told you more than you needed. What do you already know about this?",
   chains: [
     {
       label: "Clarity chain",

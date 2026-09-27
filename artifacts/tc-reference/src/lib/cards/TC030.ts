@@ -584,17 +584,17 @@ export const TC030: CardData = {
     {
       id: "TC001",
       reason:
-        "TC001 Live-Thread Follow-Ups follows the most alive part of the whole utterance. TC030 grabs one specific word or phrase, repeats it, then asks. Use TC001 when the energy is in the overall thread rather than a single word.",
+        "TC001 Live thread follow-ups follows the most alive part of the whole utterance. TC030 grabs one specific word or phrase, repeats it, then asks. Use TC001 when the energy is in the overall thread rather than a single word.",
     },
     {
       id: "TC023",
       reason:
-        "TC023 Loaded-Word Follow-Up zeroes in on a single emotionally charged word. TC030 can echo a longer phrase or idea and always attaches a forward question. Use TC023 when one loaded word is the whole story.",
+        "TC023 Loaded word follow-up zeroes in on a single emotionally charged word. TC030 can echo a longer phrase or idea and always attaches a forward question. Use TC023 when one loaded word is the whole story.",
     },
     {
       id: "TC025",
       reason:
-        "TC025 Exact-Word Pickup reuses their exact word to signal you were listening. TC030 echoes and then explicitly asks them to expand. Use TC025 for a lighter touch with no question attached.",
+        "TC025 Exact word pickup reuses their exact word to signal you were listening. TC030 echoes and then explicitly asks them to expand. Use TC025 for a lighter touch with no question attached.",
     },
     {
       id: "TC026",

@@ -401,7 +401,7 @@ export const TC053: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "Say it like a person, not a formula.",
     body: 'Keep the four steps in your head, not in your mouth. Nobody should be able to hear the framework. They should just notice the conversation got clearer and less sharp. The moment you announce "my need is...", it turns into a performance and they stop listening to you and start watching the technique.',
     example:
       '"When the deck went out without a review, I felt exposed. I need us to catch errors before clients do. Can we add a check step?"',
@@ -533,7 +533,7 @@ export const TC053: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me just say it plainly.",
+    "That sounded scripted. Plainly: I was upset, and I'd like X.",
     "That came out as blame, and I didn't mean it that way.",
     "Let me back up. What actually happened was...",
     "I don't want the framing to bulldoze your side of it.",
@@ -542,7 +542,8 @@ export const TC053: CardData = {
     "If this isn't the moment, we can pick it up later.",
     "That sounded like a lecture. Let me try again.",
   ],
-  bestRecoveryLine: "I made that too structured. Let me just say it plainly.",
+  bestRecoveryLine:
+    "That sounded scripted. Plainly: I was upset, and I'd like X.",
   chains: [
     {
       label: "Validate first, then structure",

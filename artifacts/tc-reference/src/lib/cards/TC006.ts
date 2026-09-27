@@ -627,12 +627,12 @@ export const TC006: CardData = {
     {
       id: "TC058",
       reason:
-        "Feeling-plus-need Reflection names the feeling and the unmet need behind it. Use it instead when the emotion is already clear and the useful move is to surface what they actually need.",
+        "Feeling-plus-need reflection names the feeling and the unmet need behind it. Use it instead when the emotion is already clear and the useful move is to surface what they actually need.",
     },
     {
       id: "TC061",
       reason:
-        "Tone Reflection mirrors the vocal or emotional tone rather than a specific emotion word. Use it instead when a feeling is clearly present but still too vague to name cleanly.",
+        "Tone reflection mirrors the vocal or emotional tone rather than a specific emotion word. Use it instead when a feeling is clearly present but still too vague to name cleanly.",
     },
   ],
 };

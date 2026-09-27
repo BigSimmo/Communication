@@ -573,12 +573,12 @@ export const TC026: CardData = {
     {
       id: "TC023",
       reason:
-        "TC023 Loaded-Word Follow-Up chases a single emotionally charged word to open feeling. TC026 echoes a short phrase and pauses. Use TC023 when the charge sits in one word, not a phrase.",
+        "TC023 Loaded word follow-up chases a single emotionally charged word to open feeling. TC026 echoes a short phrase and pauses. Use TC023 when the charge sits in one word, not a phrase.",
     },
     {
       id: "TC025",
       reason:
-        "TC025 Exact-Word Pickup reuses the person's exact word inside your own sentence to show you caught it. TC026 echoes the phrase back on its own and stops. Use TC025 when you want to keep talking. TC026 when you want them to.",
+        "TC025 Exact word pickup reuses the person's exact word inside your own sentence to show you caught it. TC026 echoes the phrase back on its own and stops. Use TC025 when you want to keep talking, TC026 when you want them to.",
     },
     {
       id: "TC030",
@@ -588,7 +588,7 @@ export const TC026: CardData = {
     {
       id: "TC038",
       reason:
-        "TC038 Conversation threading tracks and returns to threads across a longer conversation. TC026 is a single in-the-moment echo. Use TC038 to manage several threads. TC026 to open the one in front of you.",
+        "TC038 Conversation threading tracks and returns to threads across a longer conversation. TC026 is a single in-the-moment echo. Use TC038 to manage several threads, TC026 to open the one in front of you.",
     },
   ],
 };

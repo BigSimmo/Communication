@@ -352,14 +352,14 @@ export const TC001: CardData = {
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses the technique only when the cue is present, keeps the wording natural, and adjusts based on the response.",
+      weak: '"Oh cool. So what do you do for work?" (ignores what they just said)',
+      better: '"Weird how?" (then takes over with a story)',
+      best: '"Weird how?" Then listens and follows their answer.',
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"Tell me more." (generic, could follow anything)',
+      better: '"What was weird about it?"',
+      best: '"Technically fine, but weird? Weird how?" (picks up their exact word)',
     },
   ],
   example: {

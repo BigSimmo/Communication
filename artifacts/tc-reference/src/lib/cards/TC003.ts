@@ -583,7 +583,7 @@ export const TC003: CardData = {
     {
       id: "TC001",
       reason:
-        "TC001 Live-Thread Follow-Ups follows the most alive part of their answer. TC003 shapes the question you ask next so it doesn't land abruptly. Comment first (TC003), then follow the thread (TC001).",
+        "TC001 Live thread follow-ups follows the most alive part of their answer. TC003 shapes the question you ask next so it doesn't land abruptly. Comment first (TC003), then follow the thread (TC001).",
     },
     {
       id: "TC033",

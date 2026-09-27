@@ -516,7 +516,7 @@ export const TC033: CardData = {
     {
       label: "Draw out, then check",
       sequence:
-        "Minimal encouragers → Summary check (TC011) → Live-Thread Follow-Ups (TC001)",
+        "Minimal encouragers → Summary check (TC011) → Live thread follow-ups (TC001)",
       example: [
         'Person talks it out while you signal: "Mm... go on."',
         'You: "So the sticking point is really the timing."',

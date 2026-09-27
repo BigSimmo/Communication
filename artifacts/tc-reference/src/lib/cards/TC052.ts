@@ -69,7 +69,6 @@ export const TC052: CardData = {
       "In situation X, I noticed behaviour Y. The impact was Z.",
       "In this morning's client call, you answered before Priya finished. The client looked unsure who to follow.",
       "In the review, you flagged the risk early. It saved us a fortnight.",
-      "Best field rule: use the structure to organise thought, then speak like a person.",
     ],
     minimumViableMove:
       "Name one specific situation, the observable behaviour you actually saw, and the concrete impact it had, then stop and listen.",
@@ -161,10 +160,10 @@ export const TC052: CardData = {
       tag: "When it lands wrong",
       tone: "Repair",
       phrases: [
-        "I made that too structured. Let me say it more simply.",
-        "That may not be the useful frame. Let me back up.",
-        "I don't want the structure to override the actual issue.",
-        "What part of that was useful, and what should we drop?",
+        "That came out like a performance review. Let me just say what I noticed.",
+        "I'm talking about one moment, not about you as a person.",
+        "I might be missing context. What was going on from your side?",
+        "Is that how it looked to you?",
         "Let me check whether that's helpful, or if we should come at it another way.",
         "I can keep this short, and then we can adjust it together.",
       ],
@@ -398,7 +397,7 @@ export const TC052: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation",
+    headline: "Describe the moment, not the person.",
     body: "Use SBI to organise your thinking before you speak, then talk like a person. The other person should feel clarity, not choreography. The moment you announce the steps out loud, it stops being feedback and starts being a performance.",
     example:
       '"In yesterday\'s review, the update ran to fifteen minutes. People started drifting before the decision."',
@@ -482,15 +481,16 @@ export const TC052: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "That came out like a performance review. Let me just say what I noticed.",
+    "I'm talking about one moment, not about you as a person.",
+    "I might be missing context. What was going on from your side?",
+    "Is that how it looked to you?",
     "Let me try that again without the lecture.",
     "I think I described what I assumed, not what I actually saw. Let me stick to what happened.",
     "That came out more critical than I meant. The point is small.",
   ],
-  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
+  bestRecoveryLine:
+    "That came out like a performance review. Let me just say what I noticed.",
   chains: [
     {
       label: "Feedback then check",

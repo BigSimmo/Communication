@@ -582,17 +582,17 @@ export const TC020: CardData = {
     {
       id: "TC094",
       reason:
-        "Bounded Request puts firm limits on time or scope. Use Low-friction ask when the point is easing effort, not fencing the boundaries.",
+        "Bounded request puts firm limits on time or scope. Use Low-friction ask when the point is easing effort, not fencing the boundaries.",
     },
     {
       id: "TC072",
       reason:
-        "Low-Pressure Invitation opens a door without expecting a yes. Use Low-friction ask when you do want a specific action, just made cheap to give.",
+        "Low-pressure invitation opens a door without expecting a yes. Use Low-friction ask when you do want a specific action, just made cheap to give.",
     },
     {
       id: "TC088",
       reason:
-        "One-Screen Message keeps a written request short enough to answer at a glance. Use Low-friction ask when the friction is the cost of replying, not the length.",
+        "One-screen message keeps a written request short enough to answer at a glance. Use Low-friction ask when the friction is the cost of replying, not the length.",
     },
   ],
 };

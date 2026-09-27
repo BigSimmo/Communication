@@ -591,7 +591,7 @@ export const TC083: CardData = {
     {
       id: "TC089",
       reason:
-        "Risk Reduction mitigates a risk you already understand. Use TC083 first, when the blocking risk is still unclear and you need the other person to surface it.",
+        "Risk reduction mitigates a risk you already understand. Use TC083 first, when the blocking risk is still unclear and you need the other person to surface it.",
     },
     {
       id: "TC034",

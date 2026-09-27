@@ -70,7 +70,6 @@ export const TC042: CardData = {
       "Point: lead with the one thing that matters.",
       "Reason: give the single strongest why, not every why.",
       "Example: make it concrete with one case, not three.",
-      "Best field rule: use the structure to organise thought, then speak like a person.",
     ],
     minimumViableMove:
       "State your point in one sentence, give one reason, offer one concrete example, then land back on the point, without ever naming the framework.",
@@ -164,7 +163,7 @@ export const TC042: CardData = {
       tag: "Soften and simplify",
       tone: "Repair",
       phrases: [
-        "I made that too structured. Let me say it more simply.",
+        "That was a speech. Short version: I'd go with X.",
         "That came out like a mini-speech. The real point is just X.",
         "Let me back up. I don't think that was the useful frame.",
         "I don't want the structure to bury the actual issue.",
@@ -476,10 +475,10 @@ export const TC042: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured. Let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
+    "That was a speech. Short version: I'd go with X.",
+    "I've made my point. What's your read?",
+    "Let me drop the example and just give you the reason.",
+    "Did the example help, or should I just give you the bottom line?",
     "That came out like a mini-speech: the real point is just X.",
     "Sorry, I over-explained. Short version: X.",
     "Let me stop structuring and just listen for a minute.",
@@ -522,7 +521,7 @@ export const TC042: CardData = {
     },
   ],
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "Say the point twice: first and last.",
     body: "Use PREP to organise your thinking before you speak, then let it disappear. The other person should feel clarity, not choreography. If they can't tell you used a framework, you used it well.",
     example:
       "\"I'd move the launch a week. Testing's a step behind and staging failed twice. A week gives us a clean run.\"",
