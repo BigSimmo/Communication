@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation } from "wouter";
 import {
+  ArrowDown,
+  ArrowUp,
   Plus,
   Check,
   Trash2,
@@ -56,6 +58,23 @@ export default function Playbooks() {
     setSelectedCards([]);
     setEditingId(null);
     setIsEditing(true);
+  };
+
+  const handleMoveCard = (index: number, delta: -1 | 1) => {
+    setSelectedCards((prev) => {
+      const next = [...prev];
+      const [moved] = next.splice(index, 1);
+      next.splice(index + delta, 0, moved);
+      return next;
+    });
+  };
+
+  // A worked example so the empty state shows what a playbook looks like
+  const handleOpenExample = () => {
+    handleOpenCreate();
+    setName("Difficult conversation");
+    setDescription("Open warmly, confirm understanding, then make the ask.");
+    setSelectedCards(["TC024", "TC011", "TC013"]);
   };
 
   const handleOpenEdit = (pb: Playbook) => {
@@ -227,64 +246,132 @@ export default function Playbooks() {
                 WebkitOverflowScrolling: "touch",
               }}
             >
-              {ALL_CARDS.filter((card) => {
+              {Object.entries(LIBRARY_CATEGORIES).map(([category, cards]) => {
                 const q = pickerQuery.trim().toLowerCase();
-                return (
-                  !q ||
-                  card.id.toLowerCase().includes(q) ||
-                  card.title.toLowerCase().includes(q)
+                const matches = cards.filter(
+                  (card) =>
+                    !q ||
+                    card.id.toLowerCase().includes(q) ||
+                    card.title.toLowerCase().includes(q),
                 );
-              }).map((card) => {
-                const isSel = selectedCards.includes(card.id);
+                if (matches.length === 0) return null;
                 return (
-                  <button
-                    key={card.id}
-                    onClick={() => handleToggleCardSelection(card.id)}
-                    aria-pressed={isSel}
-                    className="flex items-center justify-between gap-2 text-left px-3 py-2 rounded-lg text-[12px] transition-colors"
-                    style={{
-                      minHeight: 40,
-                      background: isSel
-                        ? "color-mix(in srgb, var(--brand) 8%, transparent)"
-                        : "transparent",
-                    }}
-                  >
-                    <div>
-                      <span
-                        className="font-bold mr-1.5"
-                        style={{
-                          color: isSel ? "var(--brand-text)" : "var(--fg-40)",
-                        }}
-                      >
-                        {card.id}
-                      </span>
-                      <span
-                        style={{
-                          color: isSel ? "var(--fg-85)" : "var(--fg-60)",
-                        }}
-                      >
-                        {card.title}
-                      </span>
-                    </div>
-                    <div
-                      className="w-4 h-4 flex-shrink-0 rounded flex items-center justify-center border transition-colors"
-                      style={{
-                        borderColor: isSel ? "var(--brand)" : "var(--fg-20)",
-                        background: isSel ? "var(--brand)" : "transparent",
-                      }}
+                  <div key={category} className="flex flex-col gap-1.5">
+                    <p
+                      className="px-3 pt-2 text-[10px] font-bold uppercase tracking-wider"
+                      style={{ color: "var(--fg-50)" }}
                     >
-                      {isSel && (
-                        <Check
-                          className="w-3 h-3 stroke-[3px]"
-                          style={{ color: "var(--brand-contrast)" }}
-                        />
-                      )}
-                    </div>
-                  </button>
+                      {category}
+                    </p>
+                    {matches.map((card) => {
+                      const isSel = selectedCards.includes(card.id);
+                      return (
+                        <button
+                          key={card.id}
+                          onClick={() => handleToggleCardSelection(card.id)}
+                          aria-pressed={isSel}
+                          className="flex items-center justify-between gap-2 text-left px-3 py-2 rounded-lg text-[12px] transition-colors"
+                          style={{
+                            minHeight: 40,
+                            background: isSel
+                              ? "color-mix(in srgb, var(--brand) 8%, transparent)"
+                              : "transparent",
+                          }}
+                        >
+                          <div>
+                            <span
+                              className="font-bold mr-1.5"
+                              style={{
+                                color: isSel
+                                  ? "var(--brand-text)"
+                                  : "var(--fg-40)",
+                              }}
+                            >
+                              {card.id}
+                            </span>
+                            <span
+                              style={{
+                                color: isSel ? "var(--fg-85)" : "var(--fg-60)",
+                              }}
+                            >
+                              {card.title}
+                            </span>
+                          </div>
+                          <div
+                            className="w-4 h-4 flex-shrink-0 rounded flex items-center justify-center border transition-colors"
+                            style={{
+                              borderColor: isSel
+                                ? "var(--brand)"
+                                : "var(--fg-20)",
+                              background: isSel
+                                ? "var(--brand)"
+                                : "transparent",
+                            }}
+                          >
+                            {isSel && (
+                              <Check
+                                className="w-3 h-3 stroke-[3px]"
+                                style={{ color: "var(--brand-contrast)" }}
+                              />
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
                 );
               })}
             </div>
           </div>
+
+          {/* Playbooks are sequences, so let people set the running order */}
+          {selectedCards.length > 1 && (
+            <ol className="flex flex-col gap-1" aria-label="Playbook order">
+              {selectedCards.map((id, i) => {
+                const title = CARD_MAP[id]?.title ?? id;
+                return (
+                  <li
+                    key={id}
+                    className="flex items-center gap-2 text-[12px] rounded-lg pl-3 pr-1"
+                    style={{ background: "var(--fg-03)" }}
+                  >
+                    <span
+                      className="w-4 tabular-nums font-bold"
+                      style={{ color: "var(--brand-text)" }}
+                    >
+                      {i + 1}
+                    </span>
+                    <span
+                      className="flex-1 min-w-0 truncate"
+                      style={{ color: "var(--fg-80)" }}
+                    >
+                      {title}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleMoveCard(i, -1)}
+                      disabled={i === 0}
+                      aria-label={`Move ${title} earlier`}
+                      className="tap-target w-8 h-8 flex items-center justify-center rounded-full disabled:opacity-30"
+                      style={{ color: "var(--fg-60)" }}
+                    >
+                      <ArrowUp className="w-3.5 h-3.5" aria-hidden="true" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleMoveCard(i, 1)}
+                      disabled={i === selectedCards.length - 1}
+                      aria-label={`Move ${title} later`}
+                      className="tap-target w-8 h-8 flex items-center justify-center rounded-full disabled:opacity-30"
+                      style={{ color: "var(--fg-60)" }}
+                    >
+                      <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
 
           <button
             onClick={handleSave}
@@ -340,6 +427,13 @@ export default function Playbooks() {
                 }}
               >
                 Create playbook
+              </button>
+              <button
+                onClick={handleOpenExample}
+                className="text-[12px] font-semibold px-3 rounded-lg transition-colors hover:bg-[var(--fg-05)]"
+                style={{ minHeight: 40, color: "var(--fg-60)" }}
+              >
+                Start from an example
               </button>
             </div>
           ) : (

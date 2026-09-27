@@ -11,7 +11,7 @@ export function CalibrationSection({ cardData }: { cardData: CardData }) {
       subtitle="Signs it is working and when to adjust"
     >
       <div className="grid grid-cols-1 gap-4">
-        <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-4 sm:p-5 shadow-sm">
+        <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-4">
             <Check className="w-5 h-5 text-green-400" aria-hidden="true" />
             <p className="text-[14px] font-bold text-green-400 uppercase tracking-wide">
@@ -29,7 +29,7 @@ export function CalibrationSection({ cardData }: { cardData: CardData }) {
             ))}
           </ul>
         </div>
-        <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4 sm:p-5 shadow-sm">
+        <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-4">
             <Zap className="w-5 h-5 text-red-400" aria-hidden="true" />
             <p className="text-[14px] font-bold text-red-400 uppercase tracking-wide">

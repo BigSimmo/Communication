@@ -143,21 +143,6 @@ export default function Drill() {
       {/* ── Page header ── */}
       <div>
         <div className="flex items-center gap-3 mb-1.5">
-          <div
-            className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{
-              background:
-                "linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, transparent) 0%, color-mix(in srgb, var(--brand) 8%, transparent) 100%)",
-              border:
-                "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-            }}
-          >
-            <Dumbbell
-              className="w-4 h-4"
-              style={{ color: "var(--brand-text)" }}
-              aria-hidden="true"
-            />
-          </div>
           <h1
             className="text-[20px] font-bold leading-tight"
             style={{ color: "var(--fg-90)" }}
@@ -198,6 +183,21 @@ export default function Drill() {
             {streakActive && state.streak > 0
               ? `${state.streak} day streak`
               : "Start your streak"}
+          </span>
+          {/* A week of dots makes the streak something to see and extend */}
+          <span className="flex items-center gap-1 ml-1" aria-hidden="true">
+            {Array.from({ length: 7 }, (_, i) => (
+              <span
+                key={i}
+                className="w-1.5 h-1.5 rounded-full"
+                style={{
+                  background:
+                    streakActive && i < Math.min(state.streak, 7)
+                      ? "var(--brand)"
+                      : "var(--fg-15)",
+                }}
+              />
+            ))}
           </span>
         </div>
         <div className="flex items-center gap-2">

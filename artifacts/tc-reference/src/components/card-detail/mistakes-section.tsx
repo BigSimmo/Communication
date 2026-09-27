@@ -22,7 +22,7 @@ export function MistakesSection({
         {cardData.commonMistakes!.map((m) => (
           <div
             key={m.mistake}
-            className="rounded-2xl overflow-hidden shadow-sm"
+            className="rounded-2xl overflow-hidden"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-05)",

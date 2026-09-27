@@ -101,21 +101,6 @@ export default function Phrases() {
       {/* ── Page header ── */}
       <div className="px-4 md:px-6 pt-6 pb-4">
         <div className="flex items-center gap-3 mb-1.5">
-          <div
-            className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{
-              background:
-                "linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, transparent) 0%, color-mix(in srgb, var(--brand) 8%, transparent) 100%)",
-              border:
-                "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-            }}
-          >
-            <MessagesSquare
-              className="w-4 h-4"
-              style={{ color: "var(--brand-text)" }}
-              aria-hidden="true"
-            />
-          </div>
           <h1
             className="text-[20px] font-bold leading-tight"
             style={{ color: "var(--fg-90)" }}

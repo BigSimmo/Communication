@@ -13,7 +13,7 @@ export function PracticeSection({ cardData }: { cardData: CardData }) {
         {cardData.drill.map((d, i) => (
           <div
             key={i}
-            className="flex gap-4 items-start p-4 rounded-2xl shadow-sm"
+            className="flex gap-4 items-start p-4 rounded-2xl"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-05)",

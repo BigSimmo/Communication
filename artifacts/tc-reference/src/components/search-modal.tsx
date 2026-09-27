@@ -494,10 +494,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                         className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
                         style={{
                           background: result.loaded
-                            ? "var(--brand)"
+                            ? "color-mix(in srgb, var(--brand) 14%, transparent)"
                             : "var(--fg-08)",
                           color: result.loaded
-                            ? "var(--brand-contrast)"
+                            ? "var(--brand-text)"
                             : "var(--fg-30)",
                         }}
                       >

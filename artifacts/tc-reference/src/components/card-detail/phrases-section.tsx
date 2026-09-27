@@ -98,7 +98,7 @@ export function PhrasesSection({
             return (
               <div
                 key={group.id}
-                className="rounded-2xl overflow-hidden shadow-sm"
+                className="rounded-2xl overflow-hidden"
                 style={{
                   background: "var(--fg-03)",
                   border: "1px solid var(--fg-06)",

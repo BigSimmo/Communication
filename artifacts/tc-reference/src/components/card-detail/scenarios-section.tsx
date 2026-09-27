@@ -28,7 +28,7 @@ export function ScenariosSection({
         {cardData.scenarios.map((s, i) => (
           <div
             key={i}
-            className="rounded-2xl p-4 sm:p-5 shadow-sm"
+            className="rounded-2xl p-4 sm:p-5"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-06)",

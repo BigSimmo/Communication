@@ -35,7 +35,7 @@ export function TreeSection({
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
             </div>
             <div
-              className="rounded-2xl p-4 shadow-sm"
+              className="rounded-2xl p-4"
               style={{
                 background: "var(--fg-03)",
                 border: "1px solid var(--fg-06)",

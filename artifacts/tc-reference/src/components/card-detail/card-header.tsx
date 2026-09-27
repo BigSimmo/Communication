@@ -2,6 +2,22 @@ import type { CardData } from "@/lib/card-types";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { CARD_CATEGORY_MAP, CARD_TITLE_MAP } from "./card-sections";
 
+// The hero contrast should be words you could actually say. A few cards'
+// first ladder rung describes behaviour instead ("Uses the technique..."),
+// so fall back to the "You:" lines from the card's own worked example.
+function youLine(lines: string[] | undefined) {
+  const line = lines?.find((l) => /^You:\s*/.test(l));
+  return line?.replace(/^You:\s*/, "");
+}
+
+function briefContrast(cardData: CardData) {
+  const rung = cardData.ladder?.[0];
+  if (rung && /["“]/.test(`${rung.weak}${rung.best}`)) return rung;
+  const weak = youLine(cardData.example?.without);
+  const best = youLine(cardData.example?.with);
+  return weak && best ? { weak, best } : rung;
+}
+
 // ── Technique brief ──
 export function CardHeader({
   cardId,
@@ -10,6 +26,7 @@ export function CardHeader({
   cardId: string;
   cardData: CardData;
 }) {
+  const contrast = briefContrast(cardData);
   return (
     <>
       {/* ── Technique brief ──
@@ -86,59 +103,58 @@ export function CardHeader({
             {cardData.overview.minimumViableMove}
           </p>
 
-          {cardData.ladder?.[0] &&
-            (cardData.ladder[0].weak || cardData.ladder[0].best) && (
-              <div
-                className="mt-4 rounded-xl overflow-hidden text-[13px]"
-                style={{ border: "1px solid var(--fg-07)" }}
-                data-testid="card-brief-ladder"
-              >
-                {cardData.ladder[0].weak && (
-                  <div
-                    className="flex gap-2.5 px-3.5 py-2.5"
-                    style={{ background: "var(--fg-02)" }}
+          {contrast && (contrast.weak || contrast.best) && (
+            <div
+              className="mt-4 rounded-xl overflow-hidden text-[13px]"
+              style={{ border: "1px solid var(--fg-07)" }}
+              data-testid="card-brief-ladder"
+            >
+              {contrast.weak && (
+                <div
+                  className="flex gap-2.5 px-3.5 py-2.5"
+                  style={{ background: "var(--fg-02)" }}
+                >
+                  <span
+                    className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
+                    style={{ color: "var(--accent-red)" }}
                   >
-                    <span
-                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
-                      style={{ color: "var(--accent-red)" }}
-                    >
-                      Weak
-                    </span>
-                    <span
-                      className="min-w-0 leading-snug line-clamp-2"
-                      style={{ color: "var(--fg-55)" }}
-                    >
-                      {cardData.ladder[0].weak}
-                    </span>
-                  </div>
-                )}
-                {cardData.ladder[0].best && (
-                  <div
-                    className="flex gap-2.5 px-3.5 py-2.5"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-green) 7%, transparent)",
-                      borderTop: cardData.ladder[0].weak
-                        ? "1px solid var(--fg-06)"
-                        : undefined,
-                    }}
+                    Weak
+                  </span>
+                  <span
+                    className="min-w-0 leading-snug line-clamp-2"
+                    style={{ color: "var(--fg-55)" }}
                   >
-                    <span
-                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
-                      style={{ color: "var(--accent-green)" }}
-                    >
-                      Best
-                    </span>
-                    <span
-                      className="min-w-0 leading-snug font-medium line-clamp-3"
-                      style={{ color: "var(--fg-85)" }}
-                    >
-                      {cardData.ladder[0].best}
-                    </span>
-                  </div>
-                )}
-              </div>
-            )}
+                    {contrast.weak}
+                  </span>
+                </div>
+              )}
+              {contrast.best && (
+                <div
+                  className="flex gap-2.5 px-3.5 py-2.5"
+                  style={{
+                    background:
+                      "color-mix(in srgb, var(--accent-green) 7%, transparent)",
+                    borderTop: contrast.weak
+                      ? "1px solid var(--fg-06)"
+                      : undefined,
+                  }}
+                >
+                  <span
+                    className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
+                    style={{ color: "var(--accent-green)" }}
+                  >
+                    Best
+                  </span>
+                  <span
+                    className="min-w-0 leading-snug font-medium line-clamp-3"
+                    style={{ color: "var(--fg-85)" }}
+                  >
+                    {contrast.best}
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>

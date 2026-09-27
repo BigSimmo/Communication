@@ -103,7 +103,7 @@ export function BottomTabBar() {
                   className="tab-bar-icon relative flex items-center justify-center rounded-full"
                   style={{
                     background: active
-                      ? "color-mix(in srgb, var(--brand) 16%, transparent)"
+                      ? "color-mix(in srgb, var(--brand) 11%, transparent)"
                       : "transparent",
                   }}
                 >

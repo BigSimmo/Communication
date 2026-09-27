@@ -27,7 +27,7 @@ export function LadderSection({
         {cardData.ladder.map((row, i) => (
           <div
             key={i}
-            className="rounded-2xl overflow-hidden shadow-sm flex flex-col"
+            className="rounded-2xl overflow-hidden flex flex-col"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-05)",

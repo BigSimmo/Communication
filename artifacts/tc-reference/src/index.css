@@ -184,7 +184,7 @@
   --fg-60: rgba(255, 255, 255, 0.6);
   --fg-55: rgba(255, 255, 255, 0.55);
   --fg-50: rgba(255, 255, 255, 0.5);
-  --fg-45: rgba(255, 255, 255, 0.45);
+  --fg-45: rgba(255, 255, 255, 0.48);
   --fg-42: rgba(255, 255, 255, 0.42);
   --fg-40: rgba(255, 255, 255, 0.4);
   --fg-38: rgba(255, 255, 255, 0.38);
@@ -208,7 +208,7 @@
   --fg-02: rgba(255, 255, 255, 0.02);
 
   /* Surface backgrounds */
-  --surface-header: rgba(15, 23, 36, 0.93);
+  --surface-header: rgba(15, 23, 36, 0.96);
   --surface-float: rgba(15, 23, 36, 0.8);
   --surface-dd: hsl(217, 42%, 13%);
   --surface-sidebar: hsl(217, 42%, 10%);
@@ -328,11 +328,12 @@
   --fg-78: rgba(15, 23, 36, 0.78);
   --fg-75: rgba(15, 23, 36, 0.75);
   --fg-70: rgba(15, 23, 36, 0.7);
+  /* 45 to 55 are raised so small muted text meets WCAG AA (4.5:1) */
   --fg-65: rgba(15, 23, 36, 0.65);
   --fg-60: rgba(15, 23, 36, 0.6);
-  --fg-55: rgba(15, 23, 36, 0.55);
-  --fg-50: rgba(15, 23, 36, 0.5);
-  --fg-45: rgba(15, 23, 36, 0.45);
+  --fg-55: rgba(15, 23, 36, 0.65);
+  --fg-50: rgba(15, 23, 36, 0.62);
+  --fg-45: rgba(15, 23, 36, 0.6);
   --fg-42: rgba(15, 23, 36, 0.42);
   --fg-40: rgba(15, 23, 36, 0.4);
   --fg-38: rgba(15, 23, 36, 0.38);
@@ -355,7 +356,7 @@
   --fg-03: rgba(15, 23, 36, 0.03);
   --fg-02: rgba(15, 23, 36, 0.02);
 
-  --surface-header: rgba(248, 249, 251, 0.93);
+  --surface-header: rgba(248, 249, 251, 0.96);
   --surface-float: rgba(248, 249, 251, 0.88);
   --surface-dd: hsl(0, 0%, 99%);
   --surface-sidebar: hsl(210, 20%, 98%);
@@ -699,6 +700,13 @@
   [role="option"]:focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
+  }
+
+  /* Placeholder hints are read text too; keep them at AA contrast */
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--fg-55);
+    opacity: 1;
   }
 }
 
