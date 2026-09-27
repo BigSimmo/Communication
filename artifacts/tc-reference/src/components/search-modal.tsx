@@ -16,11 +16,11 @@ import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
 // Plain-language hint for where a non-title match was found. Title, ID and
 // category matches are self-evident from the row and get no hint.
 const MATCH_HINTS: Record<string, string> = {
-  "best-for": "Matches Best for",
-  formula: "Matches the core formula",
-  phrases: "Matches a phrase",
-  scenarios: "Matches a scenario",
-  explanation: "Matches Why it works",
+  "best-for": "Found in Best for",
+  formula: "Found in the core formula",
+  phrases: "Found in a phrase",
+  scenarios: "Found in a scenario",
+  explanation: "Found in Why it works",
 };
 
 interface SearchModalProps {
@@ -344,11 +344,18 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
               border: "1px solid var(--fg-09)",
             }}
           >
-            <X
-              className="w-4 h-4 [@media(pointer:fine)]:hidden"
+            {/* A word, not a second X beside the round Clear button, so the
+              two actions can't be confused on touch screens. */}
+            <span
+              className="text-[13px] font-semibold [@media(pointer:fine)]:hidden"
               aria-hidden="true"
-            />
-            <span className="hidden [@media(pointer:fine)]:inline text-[11px] font-semibold">
+            >
+              Cancel
+            </span>
+            <span
+              className="hidden [@media(pointer:fine)]:inline text-[11px] font-semibold"
+              aria-hidden="true"
+            >
               Esc
             </span>
           </button>
@@ -487,10 +494,10 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                         className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
                         style={{
                           background: result.loaded
-                            ? "var(--brand)"
+                            ? "color-mix(in srgb, var(--brand) 14%, transparent)"
                             : "var(--fg-08)",
                           color: result.loaded
-                            ? "var(--brand-contrast)"
+                            ? "var(--brand-text)"
                             : "var(--fg-30)",
                         }}
                       >

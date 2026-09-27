@@ -16,7 +16,6 @@ export function MethodSection({
     <SectionAccordion
       id="method"
       label="The method"
-      color="var(--brand)"
       subtitle={`${cardData.method?.length ?? 0}-step guide`}
     >
       {cardData.fieldTip && (
@@ -94,7 +93,7 @@ export function MethodSection({
           return (
             <li
               key={m.step}
-              className="rounded-2xl p-4 shadow-sm"
+              className="rounded-2xl p-4"
               style={{
                 background: "var(--fg-03)",
                 border: "1px solid var(--fg-06)",

@@ -184,7 +184,7 @@
   --fg-60: rgba(255, 255, 255, 0.6);
   --fg-55: rgba(255, 255, 255, 0.55);
   --fg-50: rgba(255, 255, 255, 0.5);
-  --fg-45: rgba(255, 255, 255, 0.45);
+  --fg-45: rgba(255, 255, 255, 0.48);
   --fg-42: rgba(255, 255, 255, 0.42);
   --fg-40: rgba(255, 255, 255, 0.4);
   --fg-38: rgba(255, 255, 255, 0.38);
@@ -208,10 +208,15 @@
   --fg-02: rgba(255, 255, 255, 0.02);
 
   /* Surface backgrounds */
-  --surface-header: rgba(15, 23, 36, 0.93);
+  --surface-header: rgba(15, 23, 36, 0.96);
   --surface-float: rgba(15, 23, 36, 0.8);
   --surface-dd: hsl(217, 42%, 13%);
   --surface-sidebar: hsl(217, 42%, 10%);
+  /* Raised list rows (Library cards): a faint lift in dark, true white in
+     light so rows separate from the page instead of greying into it. */
+  --surface-card: rgba(255, 255, 255, 0.03);
+  --surface-card-hover: rgba(255, 255, 255, 0.06);
+  --shadow-card: none;
 
   /* ── Brand accent (amber) ──
      --brand: raw brand hue for fills, tints, borders and glows (same in both
@@ -230,7 +235,7 @@
 
   /* ── Semantic metric colours (impact / difficulty / misuse badges) ── */
   --impact-high: #f59e0b;
-  --impact-medium: #60a5fa;
+  --impact-medium: var(--fg-80);
   --impact-low: var(--fg-65);
 
   /* ── Accent palette — section markers, ladder tiers, calibration.
@@ -323,11 +328,12 @@
   --fg-78: rgba(15, 23, 36, 0.78);
   --fg-75: rgba(15, 23, 36, 0.75);
   --fg-70: rgba(15, 23, 36, 0.7);
+  /* 45 to 55 are raised so small muted text meets WCAG AA (4.5:1) */
   --fg-65: rgba(15, 23, 36, 0.65);
   --fg-60: rgba(15, 23, 36, 0.6);
-  --fg-55: rgba(15, 23, 36, 0.55);
-  --fg-50: rgba(15, 23, 36, 0.5);
-  --fg-45: rgba(15, 23, 36, 0.45);
+  --fg-55: rgba(15, 23, 36, 0.65);
+  --fg-50: rgba(15, 23, 36, 0.62);
+  --fg-45: rgba(15, 23, 36, 0.6);
   --fg-42: rgba(15, 23, 36, 0.42);
   --fg-40: rgba(15, 23, 36, 0.4);
   --fg-38: rgba(15, 23, 36, 0.38);
@@ -350,10 +356,14 @@
   --fg-03: rgba(15, 23, 36, 0.03);
   --fg-02: rgba(15, 23, 36, 0.02);
 
-  --surface-header: rgba(248, 249, 251, 0.93);
+  --surface-header: rgba(248, 249, 251, 0.96);
   --surface-float: rgba(248, 249, 251, 0.88);
   --surface-dd: hsl(0, 0%, 99%);
   --surface-sidebar: hsl(210, 20%, 98%);
+  --surface-card: #ffffff;
+  --surface-card-hover: #f3f4f6;
+  --shadow-card:
+    0 1px 2px rgba(15, 23, 36, 0.04), 0 2px 6px -2px rgba(15, 23, 36, 0.06);
 
   /* Brand accent — amber text darkens for contrast on light surfaces:
      #b45309 is ~4.8:1 on the near-white background, meeting AA for the
@@ -362,7 +372,7 @@
 
   /* Semantic metric colours — darkened for contrast on light surfaces */
   --impact-high: #92400e;
-  --impact-medium: #1d4ed8;
+  --impact-medium: var(--fg-80);
   --impact-low: var(--fg-65);
 
   /* Accent palette — -600 shades for light-theme contrast */
@@ -690,6 +700,13 @@
   [role="option"]:focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
+  }
+
+  /* Placeholder hints are read text too; keep them at AA contrast */
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--fg-55);
+    opacity: 1;
   }
 }
 

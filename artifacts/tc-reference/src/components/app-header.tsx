@@ -367,7 +367,7 @@ export function AppHeader() {
                   searchButton("button-header-search")
                 )}
                 {quickButton}
-                {themeButton("button-theme-toggle", "hidden sm:inline-flex")}
+                {themeButton("button-theme-toggle", "inline-flex")}
               </div>
             </div>
           )}

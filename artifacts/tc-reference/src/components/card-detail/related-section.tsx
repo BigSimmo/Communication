@@ -15,7 +15,6 @@ export function RelatedSection({
     <SectionAccordion
       id="related"
       label="Related techniques"
-      color="var(--accent-blue)"
       subtitle={`${cardData.relatedTechniques?.length ?? 0} paired techniques`}
     >
       <div className="space-y-2">

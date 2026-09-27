@@ -16,7 +16,6 @@ export function ChecklistSection({
     <SectionAccordion
       id="checklist"
       label="After-action checklist"
-      color="var(--accent-emerald)"
       subtitle={`${checkedItems.size} / ${cardData.checklist.length} items checked`}
     >
       <div
@@ -47,7 +46,7 @@ export function ChecklistSection({
         </span>
       </div>
       <div
-        className="rounded-2xl overflow-hidden shadow-sm"
+        className="rounded-2xl overflow-hidden"
         style={{
           background: "var(--fg-03)",
           border: "1px solid var(--fg-05)",

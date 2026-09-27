@@ -14,13 +14,11 @@ export const AccordionContext = createContext<AccordionState | null>(null);
 export function SectionAccordion({
   id,
   label,
-  color,
   subtitle,
   children,
 }: {
   id: CardSection;
   label: string;
-  color: string;
   subtitle?: string;
   children: React.ReactNode;
 }) {
@@ -34,7 +32,7 @@ export function SectionAccordion({
       style={{
         background: open ? "var(--fg-03)" : "var(--fg-02)",
         border: open
-          ? `1px solid color-mix(in srgb, ${color} 22%, var(--fg-07))`
+          ? "1px solid color-mix(in srgb, var(--brand) 22%, var(--fg-07))"
           : "1px solid var(--fg-06)",
         scrollMarginTop:
           "calc(var(--app-header-height, 48px) + var(--card-nav-height, 56px) + 8px)",
@@ -53,8 +51,9 @@ export function SectionAccordion({
           <span
             className="w-1 rounded-full flex-shrink-0 self-stretch transition-opacity"
             style={{
-              background: color,
-              opacity: open ? 1 : 0.55,
+              // One accent for every section: the brand marks the open one,
+              // closed sections stay neutral so colour carries meaning.
+              background: open ? "var(--brand)" : "var(--fg-15)",
               minHeight: 18,
             }}
             aria-hidden="true"

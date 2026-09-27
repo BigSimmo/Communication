@@ -8,7 +8,6 @@ export function InPracticeSection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="inpractice"
       label="In practice"
-      color="var(--accent-green)"
       subtitle="The same moment without and with the technique"
     >
       <div className="space-y-3">

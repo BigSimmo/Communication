@@ -8,7 +8,6 @@ export function ResourcesSection({ cardData }: { cardData: CardData }) {
     <SectionAccordion
       id="resources"
       label="Downloads"
-      color="var(--accent-purple)"
       subtitle="PDFs and reference files"
     >
       <div

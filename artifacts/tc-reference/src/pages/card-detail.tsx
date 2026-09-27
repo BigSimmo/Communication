@@ -23,10 +23,7 @@ import {
 } from "@/components/card-detail/card-status";
 import { CardHeader } from "@/components/card-detail/card-header";
 import { SectionNav } from "@/components/card-detail/section-nav";
-import {
-  FloatingPrevNext,
-  PrevNextNav,
-} from "@/components/card-detail/prev-next-buttons";
+import { PrevNextNav } from "@/components/card-detail/prev-next-buttons";
 import { PdfViewerModal } from "@/components/card-detail/pdf-viewer-modal";
 import { OverviewSection } from "@/components/card-detail/overview-section";
 import { WhySection } from "@/components/card-detail/why-section";
@@ -64,7 +61,8 @@ export default function CardDetail() {
   const [copiedPhrase, setCopiedPhrase] = useState<string | null>(null);
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const [whyOpen, setWhyOpen] = useState(false);
-  const [notForOpen, setNotForOpen] = useState(false);
+  // Open by default: knowing when not to use a move is safety-relevant.
+  const [notForOpen, setNotForOpen] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
   const pdfSheetRef = useRef<HTMLDivElement>(null);
 
@@ -198,14 +196,29 @@ export default function CardDetail() {
   if (!cardData) {
     return (
       <div
-        className="flex items-center justify-center min-h-[60vh] px-8 text-center"
+        className="w-full max-w-2xl mx-auto px-3 md:px-4 pt-4 flex flex-col gap-2"
         role="status"
         aria-live="polite"
         aria-busy={loadFailedCardId !== cardId}
       >
-        {loadFailedCardId === cardId
-          ? "Card content is unavailable right now."
-          : "Loading card…"}
+        {loadFailedCardId === cardId ? (
+          <p className="py-24 px-8 text-center">
+            Card content is unavailable right now.
+          </p>
+        ) : (
+          <>
+            {/* Skeleton in the card's own shape so the page doesn't jump */}
+            {[176, 40, 64, 64, 64].map((h, i) => (
+              <div
+                key={i}
+                className={`animate-pulse ${i === 1 ? "rounded-full w-2/3 my-1" : "rounded-2xl"}`}
+                style={{ height: h, background: "var(--fg-05)" }}
+                aria-hidden="true"
+              />
+            ))}
+            <span className="sr-only">Loading card…</span>
+          </>
+        )}
       </div>
     );
   }
@@ -214,11 +227,6 @@ export default function CardDetail() {
 
   return (
     <AccordionContext.Provider value={{ openSections, toggleSection }}>
-      <FloatingPrevNext
-        prevCard={prevCard}
-        nextCard={nextCard}
-        setLocation={setLocation}
-      />
       <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
         <CardHeader cardId={cardId} cardData={cardData} />
 
@@ -237,10 +245,7 @@ export default function CardDetail() {
             );
             const allOpen = available.every((sec) => openSections.has(sec.id));
             return (
-              <div className="flex items-center justify-between px-1 pt-1">
-                <p className="text-[12px]" style={{ color: "var(--fg-50)" }}>
-                  {available.length} sections
-                </p>
+              <div className="flex items-center justify-end px-1 pt-1">
                 <button
                   type="button"
                   onClick={() =>
