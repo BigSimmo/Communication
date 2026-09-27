@@ -56,7 +56,7 @@ export const TC056: CardData = {
   ],
   id: "TC056",
   whyItWorks:
-    "Topic preference detection is noticing where someone's attention becomes more alive (more detail, emotion, pace, specificity, humour, questions, or callbacks) and then lightly checking whether they want to stay there. It is not guessing a hidden motive. It is reading observable signals and testing them with a respectful check. It works because people experience a conversation as better when the other person notices what has life for them and does not force a dead branch. You become easier to talk with not by asking more, but by testing interest and handing back the choice.",
+    "Topic preference detection is noticing where someone's attention becomes more alive (more detail, emotion, pace, specificity, humour, questions or callbacks) and then lightly checking whether they want to stay there. It is not guessing a hidden motive but reading observable signals and testing them with a respectful check. It works because people enjoy a conversation more when the other person notices what has life for them and does not force a dead branch. You become easier to talk with not by asking more, but by testing interest and handing back the choice.",
   whatItIsNot: [
     "It is not mind reading, profiling, persuasion hacking, or interrogation.",
     'It is not "I know what you really want to talk about." It is "I noticed more energy here. Is this a better place to stay?"',
@@ -227,7 +227,7 @@ export const TC056: CardData = {
     {
       condition: "They contract, or the topic matters but the timing is wrong",
       action: "Release it, or bookmark it with permission",
-      phrase: "Let's park that, shall we come back to it later?",
+      phrase: "Let's park that. Shall we come back to it later?",
     },
   ],
   ladder: [
@@ -483,7 +483,7 @@ export const TC056: CardData = {
     },
     {
       mistake: "Naming private material too bluntly",
-      soundsLike: "You went quiet on the divorce, want to get into that?",
+      soundsLike: "You went quiet on the divorce. Want to get into that?",
       better:
         "No need to go into anything personal. I just noticed it might matter.",
     },
@@ -542,7 +542,7 @@ export const TC056: CardData = {
       sequence: "TC034 Two-option questions → TC056 Topic preference detection",
       example: [
         '"Do you want to talk about the people side or the process side?"',
-        '"I noticed more energy around the people side, want to start there?"',
+        '"I noticed more energy around the people side. Want to start there?"',
       ],
     },
     {

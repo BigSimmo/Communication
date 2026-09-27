@@ -56,7 +56,7 @@ export const TC080: CardData = {
   ],
   id: "TC080",
   whyItWorks:
-    "NURSE is an empathy-response framework for the moment someone is signalling emotion and moving straight to facts, advice or defence would only make things worse. The letters are five possible responses (Name the emotion, show partial Understanding, Respect the effort or care underneath, offer realistic Support, and Explore what matters next) but the field move is never to recite all five. You notice the cue, choose the one or two statements that actually fit, say them plainly, and leave room. It works because a person who feels accurately seen can think, decide and collaborate again. Naming the feeling lowers defensive load and protects dignity, so the practical conversation can finally continue.",
+    "NURSE is an empathy framework for the moment someone is signalling emotion and moving straight to facts, advice or defence would make things worse. The letters are five possible responses: Name the emotion, show Understanding, Respect the effort or care underneath, offer realistic Support, and Explore what matters next. The field move is never to recite all five. Notice the cue, choose the one or two statements that fit, say them plainly and leave room, because a person who feels accurately seen can think, decide and collaborate again.",
   whatItIsNot: [
     "It is not a checklist to be recited in order. You usually need one or two letters, not all five.",
     'It is not pretending to understand everything. Skip "I know exactly how you feel" unless you genuinely share the context and have been invited to compare.',

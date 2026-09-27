@@ -71,7 +71,7 @@ export const TC078: CardData = {
       "You mentioned X before. That sounded important. Do you want to say more about it?",
       "Looping back to X for a second: what should I understand there?",
       "Before we move on, I want to return to X. Is that still worth unpacking?",
-      "Short version: Quick callback to X. What did you mean by that?",
+      'Short version: "Quick callback to X. What did you mean by that?"',
     ],
     minimumViableMove: "Can I come back to the part where you said X?",
     impact: "Low",
@@ -493,7 +493,7 @@ export const TC078: CardData = {
     },
     {
       mistake: "Ignoring the current thread",
-      soundsLike: "jumping back before they've finished the point",
+      soundsLike: "Jumping back before they've finished the point",
       better: "That makes sense, and before we move on, can I loop back to X?",
     },
   ],

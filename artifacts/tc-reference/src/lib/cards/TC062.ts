@@ -56,7 +56,7 @@ export const TC062: CardData = {
   ],
   id: "TC062",
   whyItWorks:
-    "Thread return is the move of cleanly coming back to an earlier open thread after the conversation has drifted, without making the drift wrong or making the other person feel dragged back. When a useful point gets displaced by a tangent, interruption, joke, or necessary side issue, you bridge back to it lightly, name it specifically, and give the person an easy choice to continue or move on. It works because returning to the thread that mattered but got lost signals that you were tracking meaning across the whole conversation, not just reacting to the last sentence, and that continuity earns trust while surfacing the real issue before you act on a shallow version of it.",
+    "Thread return means coming back cleanly to an earlier open thread after the conversation has drifted, without making the drift wrong. You bridge back lightly, name the thread specifically, and give the person an easy choice to continue or move on. It works because it shows you were tracking meaning across the whole conversation, not just the last sentence, and it surfaces the real issue before anyone acts on a shallow version of it.",
   whatItIsNot: [
     'It is not saying "anyway" in a dismissive tone, or yanking the conversation away from what the other person is saying right now.',
     "It is not cross-examination, agenda control, or topic policing.",
@@ -208,7 +208,7 @@ export const TC062: CardData = {
       condition: "The other person clearly closed it",
       action:
         "Do not reopen it without a safety, clarity, or consent reason, and then ask permission explicitly.",
-      phrase: "Only if useful, can we come back to that?",
+      phrase: "If it's useful, can we come back to that?",
     },
     {
       condition: "The current topic is more urgent or important",
@@ -373,7 +373,7 @@ export const TC062: CardData = {
       'B: "The launch piece sounds like it landed. Before we move past it, can I return to the timeline thread for a second?"',
       'B: "You said it got weird after the client changed direction. Was the hard part the changing priorities or the lack of clarity?"',
       'A: "The lack of clarity, definitely. Nobody wanted to own the trade-offs."',
-      'B: "So the issue wasn\'t the change itself, it was the unowned trade-offs. That seems important for next time."',
+      'B: "So the issue wasn\'t the change itself. It was the unowned trade-offs. That seems important for next time."',
     ],
     note: "B respects the current thread, bridges back without blame, offers a focused choice, then summarises the clarified meaning.",
   },

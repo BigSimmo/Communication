@@ -156,7 +156,7 @@ export const TC061: CardData = {
         "I want to check I'm not misreading the tone here.",
         "Is this a firm no, or a not-yet?",
         "Tell me if I've read the tone of this wrong.",
-        "I'd rather ask than assume the tone, which is closer?",
+        "I'd rather ask than assume the tone. Which is closer?",
         "Short version: are we frustrated, or just clarifying?",
       ],
     },
@@ -186,7 +186,7 @@ export const TC061: CardData = {
         "Got it, I over-read that. Let's stay with what you actually meant.",
         "That was my interpretation, not your statement. Let me reset.",
         "I don't want to put a feeling on you. How would you describe it?",
-        "That word was too strong. Something like caution or frustration might be closer, which is it?",
+        "That word was too strong. Something like caution or frustration might be closer. Which is it?",
         "We can keep this practical if naming the tone isn't useful.",
         "I didn't mean to spotlight you. Let me step back.",
         "We can stay practical if that's better. I just didn't want to miss the tone.",
@@ -495,12 +495,12 @@ export const TC061: CardData = {
     },
     {
       mistake: "Overdoing it until it feels performative",
-      soundsLike: "naming tone every few sentences",
+      soundsLike: "Naming tone every few sentences",
       better: "Save it for when the tone actually matters.",
     },
     {
       mistake: "Exposing someone in public",
-      soundsLike: "naming a vulnerable tone in front of others",
+      soundsLike: "Naming a vulnerable tone in front of others",
       better: "Raise it privately, or wait for a safer moment.",
     },
     {
@@ -510,7 +510,7 @@ export const TC061: CardData = {
     },
     {
       mistake: "Using it to slow-walk an urgent decision",
-      soundsLike: "reflecting tone while action is needed now",
+      soundsLike: "Reflecting tone while action is needed now",
       better:
         "Handle the immediate step first, then return to the tone if useful.",
     },

@@ -56,7 +56,7 @@ export const TC089: CardData = {
   ],
   id: "TC089",
   whyItWorks:
-    "Risk reduction is the move of making the next step feel safer before you ask someone to engage, decide, disagree, give feedback, try something, or tell you the truth. You lower the perceived downside (naming what is low-stakes, optional, reversible, private, time-bounded, or easy to decline) and then invite one small next move. It does not remove real risk. It makes the real risk clearer, smaller where possible, and easier to choose around. People often resist not the idea itself but the hidden risk of commitment, embarrassment, wasted time, or being locked into a path, so capping that downside honestly lets them engage accurately instead of defensively.",
+    "Risk reduction means making the next step feel safer before you ask someone to engage, decide, disagree, give feedback or tell you the truth. You lower the perceived downside by naming what is low-stakes, optional, reversible, private, time-bounded or easy to decline, then invite one small next move. It does not remove real risk. People often resist not the idea but the hidden cost of commitment, embarrassment or being locked in, so capping that downside honestly lets them engage accurately instead of defensively.",
   whatItIsNot: [
     'It is not false reassurance: saying "no risk" when there is real risk.',
     'It is not pressure in soft language: saying "no pressure" while implying a social cost for saying no.',
@@ -554,7 +554,7 @@ export const TC089: CardData = {
     "What risk did I actually notice, and did I name it tentatively, or just assume it?",
     "Did I reduce a real downside, or only use softer language?",
     "Was the next step small enough to be believable?",
-    "Was the exit real, could they decline with no cost?",
+    "Was the exit real? Could they decline at no cost?",
     "Did the person become more specific, relaxed, or honest, and did I stop when they declined?",
     "Did I make the choice clearer and safer, or make pressure sound polite?",
   ],

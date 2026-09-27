@@ -542,7 +542,7 @@ export const TC069: CardData = {
     },
     {
       mistake: "Pushing on after the concern is clear",
-      soundsLike: "one more question, then one more...",
+      soundsLike: "One more question, then one more...",
       better: "Stop clarifying once you understand. Accuracy, not pressure.",
     },
   ],

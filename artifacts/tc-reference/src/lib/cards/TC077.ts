@@ -56,7 +56,7 @@ export const TC077: CardData = {
   ],
   id: "TC077",
   whyItWorks:
-    "Agreement before disagreement is stating the part you can genuinely accept before you challenge, refine or reject another part of what was said. It is a sequencing move: mark the common ground or the valid piece first, then separate that from the exact point you do not accept. It works because disagreement usually fails in the first two seconds. If the other person hears only rejection, they defend the whole position. Naming the true yes first narrows the conflict to the specific contested part. It is not about being softer for its own sake. It is about being more accurate: this part is right, and this other part is where I diverge.",
+    "Agreement before disagreement means stating the part you can genuinely accept before you challenge, refine or reject another part of what was said. Mark the common ground or the valid piece first, then separate it from the exact point you do not accept. Disagreement usually fails in the first two seconds: if the other person hears only rejection, they defend the whole position. Naming the true yes first narrows the conflict to the contested part, which is not softer so much as more accurate.",
   whatItIsNot: [
     "It is not fake agreement: inventing a yes to make someone easier to persuade.",
     "It is not surrender: you can accept one premise while rejecting a conclusion, method, request, accusation or next step.",

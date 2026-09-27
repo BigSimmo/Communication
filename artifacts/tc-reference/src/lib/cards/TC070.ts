@@ -558,7 +558,7 @@ export const TC070: CardData = {
     {
       id: "TC040",
       reason:
-        'Meaning reflection deepens why an event matters. Careful normalising lowers shame about the reaction. "Why does this matter so much?" → TC040. "Am I wrong to feel this?" → TC070.',
+        'Meaning reflection deepens why an event matters. Careful normalising lowers shame about the reaction. "Why does this matter so much?" calls for TC040. "Am I wrong to feel this?" calls for TC070.',
     },
     {
       id: "TC064",
@@ -568,7 +568,7 @@ export const TC070: CardData = {
     {
       id: "TC075",
       reason:
-        "Both reduce shame. TC075 sees the effort or restraint they showed. TC070 sees the understandable reaction. Exhausted by what they did → TC075. Worried about what they feel → TC070.",
+        "Both reduce shame. TC075 sees the effort or restraint they showed. TC070 sees the understandable reaction. If they're exhausted by what they did, use TC075. If they're worried about what they feel, use TC070.",
     },
   ],
 };

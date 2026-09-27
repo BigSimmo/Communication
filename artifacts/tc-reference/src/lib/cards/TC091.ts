@@ -69,7 +69,7 @@ export const TC091: CardData = {
       "Care before clever: notice the joke impulse, check kindness, timing, and consent, choose the lowest-risk warm move, then repair fast if it misses.",
       "One-line rule: if the joke protects you more than it supports them, don't say it.",
       'Replacement line: "That sounds [hard / big / a lot]. I\'m with you. What would help right now?"',
-      "Humour-permission (only where trust already exists): \"I've a lighter thought, but I don't want to undercut this, want it, or should we stay here?\"",
+      'Humour-permission (only where trust already exists): "I have a lighter thought, but I don\'t want to undercut this. Want it, or should we stay here?"',
       "Default when unsure: acknowledge first, joke later.",
     ],
     minimumViableMove:
@@ -459,7 +459,7 @@ export const TC091: CardData = {
     {
       depth: "Ask permission",
       useWhen: "Some trust exists and you're unsure if levity would help",
-      phrase: "I've a lighter thought, want it, or should we stay here?",
+      phrase: "I have a lighter thought. Want it, or should we stay here?",
     },
     {
       depth: "Light, shared humour",

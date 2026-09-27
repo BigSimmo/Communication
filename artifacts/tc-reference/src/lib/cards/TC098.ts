@@ -56,7 +56,7 @@ export const TC098: CardData = {
   ],
   id: "TC098",
   whyItWorks:
-    "Emotion before facts means acknowledging the emotional impact of what someone is saying before you explain, correct, analyse, defend, or move into details. It is a response-ordering technique: when people are upset, facts land better once the feeling has been met. You are not abandoning accuracy. You are sequencing the response so accuracy does not sound like dismissal. Often one short, sincere sentence is enough. It matters most when the facts are true but badly timed, because a true fact delivered too early can sound like a refusal to care.",
+    "Emotion before facts means acknowledging the emotional impact of what someone is saying before you explain, correct, analyse, defend or move into details. It is a response-ordering technique: when people are upset, facts land better once the feeling has been met. You are not abandoning accuracy, only sequencing it so it does not sound like dismissal, and often one short, sincere sentence is enough. It matters most when the facts are true but badly timed, because a true fact delivered too early can sound like a refusal to care.",
   whatItIsNot: [
     "It is not agreeing with every claim. You can acknowledge the feeling and still correct the facts.",
     "It is not therapy language, forced intimacy, or a demand that people share more emotion than they want to.",
@@ -553,7 +553,7 @@ export const TC098: CardData = {
       example: [
         "When a conflict needs repair and a clear ask.",
         "Meet the emotion first, structure the issue with OFNR, then make one clean request.",
-        '"That landed badly, I get it. When the update came late, I felt stuck, could we agree to flag slips by Friday?"',
+        '"That landed badly, and I get it. When the update came late, I felt stuck. Could we agree to flag slips by Friday?"',
       ],
     },
   ],

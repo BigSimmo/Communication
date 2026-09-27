@@ -69,7 +69,7 @@ export const TC084: CardData = {
       "Value clue: what mattered in it, fairness, reliability, respect, craft, safety, belonging?",
       'Tentative phrase: "It sounds like..." / "Part of this may be..." / "I may be off, but..."',
       "Calibration: do they soften, add detail, clarify or correct?",
-      'Recovery: "I may be reading that wrong. Use your wording, not mine."',
+      'Recovery: "I might have the value wrong. Use your wording, not mine."',
     ],
     minimumViableMove:
       'Name one likely value tentatively and leave room for correction: "It sounds like the fairness piece really mattered there. Tell me if that\'s off."',
@@ -171,7 +171,7 @@ export const TC084: CardData = {
       tone: "Repair",
       phrases: [
         "Tell me if that's off.",
-        "I may be reading that wrong.",
+        "I might have named the wrong thing. What is it for you?",
         "Use your wording, not mine.",
         "That may be too strong a read.",
         "We don't have to frame it that way.",
@@ -360,7 +360,7 @@ export const TC084: CardData = {
     ],
   },
   recoveryPhrases: [
-    "I may be reading that wrong.",
+    "I might have the value wrong. What matters most here?",
     "Use your wording, not mine.",
     "That may be too strong a frame.",
     "Let me pull that back.",
@@ -369,7 +369,7 @@ export const TC084: CardData = {
     "We can stay with the practical side if that's more useful.",
     "What would be the more accurate word?",
   ],
-  bestRecoveryLine: "I may be reading that wrong. Use your wording, not mine.",
+  bestRecoveryLine: "I might have the value wrong. Use your wording, not mine.",
   chains: [
     {
       label: "Understand before you name",
@@ -388,7 +388,7 @@ export const TC084: CardData = {
       example: [
         "You sound genuinely let down.",
         "Part of this seems to be about being kept in the loop.",
-        "So the fix is earlier warning, not a different decision, have I got that right?",
+        "So the fix is earlier warning, not a different decision. Have I got that right?",
       ],
     },
     {

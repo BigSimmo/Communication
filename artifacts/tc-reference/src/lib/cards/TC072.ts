@@ -226,7 +226,7 @@ export const TC072: CardData = {
       condition: "Inviting a view, a reply, or a disclosure",
       action:
         "Invite the input and make passing, delaying, or going lighter equally acceptable.",
-      phrase: "If you've a quick thought I'd value it. If not, leave it.",
+      phrase: "If you have a quick thought, I'd value it. If not, leave it.",
     },
     {
       condition: "They hesitate or push back",
@@ -470,7 +470,8 @@ export const TC072: CardData = {
     {
       depth: "Share",
       useWhen: "Inviting a view in a group or meeting",
-      phrase: "If you've a view I'd value it. Also completely fine to pass.",
+      phrase:
+        "If you have a view, I'd value it. It's also completely fine to pass.",
     },
     {
       depth: "Reply",

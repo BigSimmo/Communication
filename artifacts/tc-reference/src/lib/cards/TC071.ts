@@ -67,8 +67,8 @@ export const TC071: CardData = {
   overview: {
     coreFormula: [
       "We got interrupted. You were saying [the specific thread]. Want to pick that back up?",
-      'Minimum: "You were saying [X], want to continue?"',
-      'High-care: "We got interrupted right as you got to [X]. I don\'t want to lose that if it still feels useful, want to come back to it?"',
+      'Minimum: "You were saying [X]. Want to continue?"',
+      'High-care: "We got interrupted right as you got to [X]. I don\'t want to lose that if it still feels useful. Want to come back to it?"',
       'Group: "Before we moved on, [Name] was making a point about [X]. [Name], do you want to finish that?"',
       'Release: "Or we can leave it there if the moment has passed."',
     ],
@@ -105,7 +105,7 @@ export const TC071: CardData = {
       tag: "Short one-line re-entries",
       tone: "Quick",
       phrases: [
-        "You were saying, want to pick that back up?",
+        "You were mid-thought. Want to pick that back up?",
         "We got pulled away. Carry on from where you were?",
         "You were mid-thought. Go on.",
         "You had the floor before that, finish it?",
@@ -120,7 +120,7 @@ export const TC071: CardData = {
       tag: "Warm re-entry with a friend",
       tone: "Warm",
       phrases: [
-        "You were telling me about your weekend before we got interrupted, want to keep going?",
+        "You were telling me about your weekend before we got interrupted. Want to keep going?",
         "I want to come back to what you were saying about your sister. What happened next?",
         "We got pulled off track. You were saying the trip felt different this time.",
         "I remember you were about to say why that mattered. Want to pick it back up?",
@@ -397,11 +397,11 @@ export const TC071: CardData = {
   },
   fieldTip: {
     headline: "Do not ask people to rebuild a thread you can restore for them.",
-    body: "Interruptions rarely erase the feeling. They erase the doorway back in. Hand the doorway back with one clean bridge: break, thread, choice. The internal cue is three words: Break → Thread → Choice.",
+    body: "Interruptions rarely erase the feeling. They erase the doorway back in. Hand the doorway back with one clean bridge: break, thread, choice.",
     example:
       '"We got interrupted. You were saying the handover got messy after Friday. Want to pick that back up?"',
     dont: '"Where were we?" It makes them do the remembering.',
-    do: 'Name the break, name the exact thread, then offer the choice, and if they decline, "All good, we can leave it there."',
+    do: 'Name the break, name the exact thread, then offer the choice. If they decline: "All good, we can leave it there."',
   },
   method: [
     {
@@ -511,7 +511,7 @@ export const TC071: CardData = {
       label: "Re-enter, then follow the thread",
       sequence: "TC071 → TC001 → TC040",
       example: [
-        '"You were saying the handover felt chaotic, want to pick that back up?"',
+        '"You were saying the handover felt chaotic. Want to pick that back up?"',
         '"What made it feel chaotic?"',
         '"So the real issue is trust in ownership."',
       ],

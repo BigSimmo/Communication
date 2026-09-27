@@ -56,7 +56,7 @@ export const TC087: CardData = {
   ],
   id: "TC087",
   whyItWorks:
-    'A story invitation asks someone to share the human sequence behind a statement, preference, decision, change, or reaction (the lead-up, turning point, context, obstacle, or lesson) rather than interrogating the facts. When a person hints that there is more behind what they said ("I left that role", "That year changed a lot", "I got into climbing"), you notice the cue, mark it lightly, offer one low-pressure invitation, then give them room to choose how much to tell. It works because people rarely present their full context on the first pass, and because people trust a listener who can hold the whole sequence behind a view instead of reacting only to the conclusion. Curiosity that protects autonomy earns far more openness than pressure ever does.',
+    'A story invitation asks someone to share the human sequence behind a statement, decision, change or reaction (the lead-up, turning point, obstacle or lesson) rather than interrogating the facts. When a person hints there is more behind what they said ("I left that role", "That year changed a lot"), notice the cue, offer one low-pressure invitation, then let them choose how much to tell. People rarely give their full context on the first pass, and they trust a listener who can hold the whole sequence instead of reacting only to the conclusion. Curiosity that protects autonomy earns far more openness than pressure.',
   whatItIsNot: [
     "It is not prying, extracting, or interviewing someone for content, and it is not a shortcut to intimacy.",
     "It is not a therapy technique, a trauma probe, or a sales discovery tactic.",
@@ -353,7 +353,7 @@ export const TC087: CardData = {
       'A: "I don\'t really work with that team anymore."',
       "B: \"Sounds like there's a bit behind that. Only if it's useful to get into, what led up to the change?\"",
       'A: "Yeah, the short version is the work kept shifting after we\'d agreed on scope."',
-      'B: "So it wasn\'t just the team, it was the pattern of moving scope."',
+      'B: "So it wasn\'t just the team. It was the pattern of moving scope."',
       'A: "Exactly. That\'s what wore me down."',
       "Why it works: B marks the cue, gives permission, invites one story, then reflects the sequence back. No prying, no blame.",
     ],

@@ -492,7 +492,7 @@ export const TC003: CardData = {
   commonMistakes: [
     {
       mistake: "The comment is longer than the question",
-      soundsLike: "a thirty-second preamble in front of a one-line question",
+      soundsLike: "A thirty-second preamble in front of a one-line question",
       better:
         'Keep the comment to a phrase: "That\'s a big shift. What changed?"',
     },
@@ -522,7 +522,7 @@ export const TC003: CardData = {
     },
     {
       mistake: "Faking the comment to earn the question",
-      soundsLike: "a warm-sounding line you don't actually mean",
+      soundsLike: "A warm-sounding line you don't actually mean",
       better:
         "If nothing genuine comes to mind, just ask the question plainly.",
     },

@@ -452,13 +452,13 @@ export const TC040: CardData = {
     },
     {
       mistake: "Using the move too many times in a row",
-      soundsLike: "reflecting meaning after every sentence",
-      better: "one reflection, then listen normally",
+      soundsLike: "Reflecting meaning after every sentence",
+      better: "One reflection, then listen normally",
     },
     {
       mistake: "Over-explaining after using it",
       soundsLike: '"What I mean by that, psychologically, is..."',
-      better: "say it once, then pause and let it sit",
+      better: "Say it once, then pause and let it sit",
     },
     {
       mistake: "Steering toward your own conclusion",
@@ -467,13 +467,13 @@ export const TC040: CardData = {
     },
     {
       mistake: "Ignoring a decline",
-      soundsLike: "pressing on after they change the subject",
+      soundsLike: "Pressing on after they change the subject",
       better: '"Fair enough, we can leave that."',
     },
     {
       mistake: "Mistaking politeness for engagement",
-      soundsLike: 'reading a flat "yeah" as a green light',
-      better: "watch tone and detail, not just the word",
+      soundsLike: 'Reading a flat "yeah" as a green light',
+      better: "Watch tone and detail, not just the word",
     },
   ],
   recoveryPhrases: [

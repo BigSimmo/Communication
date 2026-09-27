@@ -473,13 +473,13 @@ export const TC065: CardData = {
     },
     {
       mistake: "Bookmarking too many things",
-      soundsLike: "five saved threads and a cluttered agenda",
+      soundsLike: "Five saved threads and a cluttered agenda",
       better:
         '"We have three saved threads. Let\'s choose which matters most before we add more."',
     },
     {
       mistake: "Forgetting to return",
-      soundsLike: "the bookmark is never mentioned again",
+      soundsLike: "The bookmark is never mentioned again",
       better:
         'Return within the promised window, unprompted: "Earlier I bookmarked staffing. Let\'s take it now."',
     },
@@ -493,7 +493,7 @@ export const TC065: CardData = {
     {
       mistake: "Interrupting to bookmark too early",
       soundsLike:
-        "inserting a marker while they're about to finish the thread anyway",
+        "Inserting a marker while they're about to finish the thread anyway",
       better:
         "Let them finish, then save what's left: \"There's more there. I want to come back to it.\"",
     },

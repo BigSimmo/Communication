@@ -56,7 +56,7 @@ export const TC082: CardData = {
   ],
   id: "TC082",
   whyItWorks:
-    'Turn-toward bids means noticing a small bid for contact, attention, help, humour, acknowledgement, or shared focus, then giving it a clear, warm response instead of ignoring it, dismissing it, or competing with it. A bid is a small invitation for a response: sometimes obvious ("Can I show you something?"), more often indirect: a sigh, a joke, a side comment, a shared look, a photo, a question, a complaint, or a tiny update. It works because people rarely judge warmth by big speeches. They judge it by whether you noticed the small reach and did not make them fight for contact. Answered bids are trust deposits, and they compound.',
+    'Turn-toward bids means noticing a small bid for contact, attention, help, humour or acknowledgement, then giving it a clear, warm response instead of ignoring it, dismissing it or competing with it. Bids are sometimes obvious ("Can I show you something?") but more often indirect: a sigh, a joke, a side comment, a photo or a tiny update. People rarely judge warmth by big speeches. They judge it by whether you noticed the small reach, and answered bids build trust that compounds.',
   whatItIsNot: [
     "Not constant availability, and not letting every small signal override your task, boundary, or fatigue.",
     "Not interrogation: turning every bid into a long question chain.",
@@ -397,7 +397,7 @@ export const TC082: CardData = {
     headline: "Treat bids like door knocks, not alarms.",
     body: "You do not have to abandon everything when someone knocks, but you should not pretend you heard nothing. Look up. Name the signal. Give one real response. If you cannot enter now, promise a clean return and keep it. Small bids are trust deposits waiting for a response.",
     example:
-      '"I finally finished that thing." → "Nice, that was the one hanging over you, right?"',
+      'They say "I finally finished that thing." You: "Nice, that was the one hanging over you, right?"',
     dont: "Leave an effortful or vulnerable message at a bare emoji, or answer a bid for presence with logistics.",
     do: "Match the size and type of your response to the size and type of the bid.",
   },

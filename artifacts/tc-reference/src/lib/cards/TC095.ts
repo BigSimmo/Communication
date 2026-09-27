@@ -56,7 +56,7 @@ export const TC095: CardData = {
   ],
   id: "TC095",
   whyItWorks:
-    "DEAR MAN is an assertive-communication framework for getting a clear request, refusal or boundary into a hard conversation, without making the other person guess, sliding into blame, or collapsing into apology. Say what happened (Describe), how it affects you (Express), what you want or won't do (Assert) and the constructive reason (Reinforce). Then stay Mindful, Appear confident and Negotiate the workable details. It works because it compresses an emotionally loaded moment into a short sequence you can actually remember under pressure: facts and owned impact land better than labels and blame, and separating the non-negotiable core from the flexible details lets the other person cooperate without feeling cornered.",
+    "DEAR MAN is an assertive framework for getting a clear request, refusal or boundary into a hard conversation without making the other person guess, sliding into blame or collapsing into apology. Describe what happened, Express how it affects you, Assert what you want or won't do, and Reinforce the constructive reason. Then stay Mindful, Appear confident and Negotiate the workable details. It gives you a short sequence you can remember under pressure, and separating the non-negotiable core from the flexible details lets the other person cooperate without feeling cornered.",
   whatItIsNot: [
     "Not an ultimatum dressed up as respectful communication.",
     "Not a way to win an argument by sounding structured, or to force someone to accept your preferred outcome.",

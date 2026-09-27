@@ -56,7 +56,7 @@ export const TC094: CardData = {
   ],
   id: "TC094",
   whyItWorks:
-    "A bounded request asks for one specific thing inside a visible limit (around scope, time, effort, decision range, or an exit condition) so the other person can size up the ask quickly and answer freely. The real move is not politeness. It is making the cost of the request legible before they have to reply. Most people do not resist helping. They resist undefined obligation. When the limit is clear, they can estimate the effort, protect their time, and say yes, no, or 'a smaller version' honestly.",
+    'A bounded request asks for one specific thing inside a visible limit (scope, time, effort, decision range or an exit condition) so the other person can size up the ask quickly and answer freely. The real move is not politeness but making the cost of the request clear before they reply. Most people do not resist helping. They resist undefined obligation, and a clear limit lets them estimate the effort and say yes, no or "a smaller version" honestly.',
   whatItIsNot: [
     'A vague soft ask such as "Could you help with this sometime?"',
     "A pressure tactic disguised as a small ask.",
@@ -137,7 +137,7 @@ export const TC094: CardData = {
       phrases: [
         "Could you update the numbers on slides four to six? I'll handle wording and design.",
         "Could you draft the intro only? I'll write the rest.",
-        "I'm asking you to decide, not to build it, which direction do we take?",
+        "I'm asking you to decide, not to build it. Which direction do we take?",
         "Could you own the sign-in table from nine to nine-thirty? Nothing beyond that slot.",
         "Could you handle just the booking? I'll sort the agenda.",
         "The ask is the one email, not the whole thread. Could you send it today?",

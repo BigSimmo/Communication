@@ -56,7 +56,7 @@ export const TC060: CardData = {
   ],
   id: "TC060",
   whyItWorks:
-    "Positive assumption is starting from a respectful, benign reading of an ambiguous action before you ask, correct, or disagree. It is a framing move placed just before a potentially face-threatening question, correction, request, or boundary, and it quietly signals: I am not starting from the worst interpretation of you. It works because people explain far more honestly when they do not feel attacked before the facts are even understood: the charitable reading separates the person from the problem and buys a pause between annoyance and accusation, so accountability stays possible without starting from blame.",
+    "Positive assumption means starting from a respectful, benign reading of an ambiguous action before you ask, correct or disagree. Placed just before a question, correction, request or boundary, it quietly signals that you are not starting from the worst interpretation of them. It works because people explain far more honestly when they do not feel attacked before the facts are understood, so accountability stays possible without starting from blame.",
   whatItIsNot: [
     "Not blind optimism, forced trust, conflict avoidance, or fake praise. It does not pretend the behaviour is fine.",
     'Not a way to excuse harm: "You obviously meant well, so there\'s no problem."',

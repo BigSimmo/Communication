@@ -56,7 +56,7 @@ export const TC090: CardData = {
   ],
   id: "TC090",
   whyItWorks:
-    "Do-not-fix-yet discipline is the deliberate act of holding back solution mode while someone is still expressing, processing, or trying to feel understood. You notice the fixing impulse (advice, reassurance, a bright-side reframe, a plan, a comparison, a correction) and you visibly hold it, staying present and reflecting before you move to practical help. It works because people who bring a problem often fear being judged, corrected, rushed, or turned into an improvement project. When you can tolerate their reality without immediately making it about your answer, support feels safe rather than managerial, defensiveness drops, and any advice you offer later lands far better because the real need has become clear.",
+    "Do-not-fix-yet discipline means holding back solution mode while someone is still expressing, processing or trying to feel understood. You notice the fixing impulse (advice, reassurance, a bright-side reframe, a plan, a comparison) and visibly hold it, staying present and reflecting before you move to practical help. People who bring a problem often fear being judged, rushed or turned into an improvement project. When you can tolerate their reality first, support feels safe rather than managerial, and any advice you give later lands better because the real need is clear.",
   whatItIsNot: [
     "Not withholding help when direct, practical help is genuinely needed.",
     "Not pretending to listen while privately waiting to deliver your advice.",
@@ -548,7 +548,7 @@ export const TC090: CardData = {
         "TC011 Summary check → TC090 Do-Not-Fix-Yet → TC043 OARS → TC027 Permission-based advice → TC019 Small ask",
       example: [
         "Use when a team member is overloaded and you need to move from support to action without rushing them.",
-        "\"So the load's been relentless for weeks, have I got that right? I won't leap to fixes. ...Ready to pick one small thing to take off your plate?\"",
+        "\"So the load's been relentless for weeks. Have I got that right? I won't leap to fixes. ...Ready to pick one small thing to take off your plate?\"",
       ],
     },
     {

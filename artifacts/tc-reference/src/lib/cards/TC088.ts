@@ -56,7 +56,7 @@ export const TC088: CardData = {
   ],
   id: "TC088",
   whyItWorks:
-    "A one-screen message is a whole-message design discipline for email, chat, direct messages, comments and lightweight handovers. Instead of merely shortening, you design the message so the reader can see, in a single view, what this is, why it matters, what you need and how to answer. The usable pattern is purpose, then context, then ask, then reply path, then deadline or next step. It works by reducing cognitive load: the reader no longer has to assemble your intention from a long preface, several paragraphs, or a buried ask. That matters most when they are busy, mobile, multitasking, or deciding whether to open a longer attachment: the easier you make the next action to see, the sooner and more accurately they respond.",
+    "A one-screen message is a design discipline for email, chat, comments and light handovers. Instead of merely shortening, you build the message so the reader can see in a single view what this is, why it matters, what you need and how to answer: purpose, context, ask, reply path, then deadline or next step. It works by reducing cognitive load, because the reader no longer has to assemble your intention from a long preface or a buried ask. That matters most when they are busy, on mobile or deciding whether to open anything longer.",
   whatItIsNot: [
     "It is not blunt minimalism: a one-screen message can still be warm, respectful and context-aware.",
     "It is not a licence to omit material the reader genuinely needs to make a safe or informed decision.",

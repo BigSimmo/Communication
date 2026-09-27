@@ -534,7 +534,7 @@ export const TC086: CardData = {
     "That sounded scripted. I do mean it. I want to understand your side.",
     "Let me be more precise about what I actually agree with.",
     "I'm not saying I see every fact the same way. I do understand why it feels serious to you.",
-    "Fair concern, I do have a hope for a next step, and I don't want to hide that. I also want your choice to be real.",
+    "Fair concern. I do have a hope for a next step, and I don't want to hide that. I also want your choice to be real.",
     "This isn't working right now. I'd rather pause than make it worse. Can we come back when we both have more room?",
   ],
   bestRecoveryLine:

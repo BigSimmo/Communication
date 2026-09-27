@@ -56,7 +56,7 @@ export const TC076: CardData = {
   ],
   id: "TC076",
   whyItWorks:
-    "Interrogation avoidance means asking in a way that feels like an invitation, not a cross-examination. People often shut down not because a single question is bad, but because the sequence feels like a test: why, who, when, how much, what exactly, and why again. This technique keeps curiosity from tipping into pressure. You slow the exchange down, show your reason for asking, ask one soft question at a time, and make it legitimate to answer lightly or to pass. Because the person no longer has to defend themselves, they can answer with more honesty and precision, and you get better information while keeping their trust and dignity intact.",
+    "Interrogation avoidance means asking in a way that feels like an invitation, not a cross-examination. People rarely shut down over one bad question. They shut down when the sequence feels like a test: why, who, when, how much, and why again. Slow the exchange down, show your reason for asking, ask one soft question at a time, and make it legitimate to answer lightly or pass, so they can answer honestly without defending themselves.",
   whatItIsNot: [
     "Avoiding necessary clarity. Some situations genuinely need direct, factual questions.",
     "Letting harmful ambiguity stand. Safety, consent, legal, medical, and compliance contexts may require precise questioning.",

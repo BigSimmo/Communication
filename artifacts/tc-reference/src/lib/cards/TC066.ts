@@ -56,7 +56,7 @@ export const TC066: CardData = {
   ],
   id: "TC066",
   whyItWorks:
-    "BIFF stands for Brief, Informative, Friendly, Firm. It is a response structure for messages where the emotional heat is higher than the useful information: hostile emails, baiting texts, sprawling complaints, inaccurate claims. Instead of matching the tone or correcting every point, you answer only what actually needs a reply: a short, fact-focused, civil message that closes with a clear next step. It works because it changes what your reply invites next. A BIFF response is harder to attack, easier to understand, and easier for any third party to trust, and it removes the handles the other person could grab to keep the conflict going.",
+    "BIFF stands for Brief, Informative, Friendly, Firm. It is a response structure for messages where the emotional heat is higher than the useful information: hostile emails, baiting texts, sprawling complaints and inaccurate claims. Instead of matching the tone or correcting every point, you answer only what needs a reply, civilly, and close with a clear next step. A BIFF reply is harder to attack, easier to understand and easier for a third party to trust, and it removes the handles that keep the conflict going.",
   whatItIsNot: [
     "It is not a way to dodge accountability when you actually caused harm.",
     "It is not a substitute for empathy when someone needs real care rather than containment.",
@@ -397,9 +397,9 @@ export const TC066: CardData = {
   commonMistakes: [
     {
       mistake: "Correcting every accusation",
-      soundsLike: "a point-by-point rebuttal of all six claims",
+      soundsLike: "A point-by-point rebuttal of all six claims",
       better:
-        "answer only the factual point that matters now, and let the rest stand unaddressed",
+        "Answer only the factual point that matters now, and let the rest stand unaddressed",
     },
     {
       mistake: "Sounding icy instead of civil",
@@ -418,11 +418,11 @@ export const TC066: CardData = {
       soundsLike:
         "\"I'm so sorry, this is all my fault\" for something that wasn't",
       better:
-        "accurate accountability only. Apologise for what you actually did, and nothing more",
+        "Accurate accountability only. Apologise for what you actually did, and nothing more",
     },
     {
       mistake: "Ending without a firm next step",
-      soundsLike: "a brief, friendly note that simply stops",
+      soundsLike: "A brief, friendly note that simply stops",
       better:
         '"Please send the revised figures by Friday so I can update the deck."',
     },
@@ -433,8 +433,8 @@ export const TC066: CardData = {
     },
     {
       mistake: "Replying too quickly",
-      soundsLike: "a heated answer sent within a minute of the bait",
-      better: "draft the hot version privately, wait, then send the clean one",
+      soundsLike: "A heated answer sent within a minute of the bait",
+      better: "Draft the hot version privately, wait, then send the clean one",
     },
   ],
   scenarios: [

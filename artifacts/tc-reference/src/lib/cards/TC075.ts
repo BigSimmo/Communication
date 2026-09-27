@@ -56,7 +56,7 @@ export const TC075: CardData = {
   ],
   id: "TC075",
   whyItWorks:
-    'Acknowledge effort is a short, grounded recognition move: you notice the work behind someone\'s action (preparation, persistence, care, restraint, recovery, or emotional labour) and say so specifically before you evaluate the outcome, give advice, correct the work, or move on. It works because it changes the emotional economics of the exchange. Once people know the labour behind an outcome has been seen, they can take correction, next steps, or disappointment without hearing it as erasure. The key is not "good job". The key is: I see what this took.',
+    'Acknowledge effort is a short, grounded recognition move: you notice the work behind someone\'s action (preparation, persistence, care, restraint, recovery or emotional labour) and say so specifically before you evaluate the outcome, advise, correct or move on. It changes the emotional economics of the exchange. Once people know the labour behind an outcome has been seen, they can take correction, next steps or disappointment without hearing it as erasure. The key is not "good job" but "I see what this took."',
   whatItIsNot: [
     'Outcome praise: saying "this is excellent" when the real point is that they worked hard.',
     "A participation trophy: praising any attempt regardless of impact, standards, or responsibility.",

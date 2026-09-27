@@ -56,7 +56,7 @@ export const TC059: CardData = {
   ],
   id: "TC059",
   whyItWorks:
-    "Energy-based topic switching is a live conversation-management move: you read the visible cues (pace, specificity, warmth, attention, repetition, relief, and curiosity) and use them to decide when a topic has done its job, when a different thread has more life, or when the current line has gone stale or circular, then move on in a way that keeps dignity and flow. It is not just changing the subject. It has a respectful close, a bridge, and a calibration check. It works because you are responding to the conversation's live signal rather than your own agenda, so people feel more respected when a flat thread is closed cleanly instead of dragged.",
+    "Energy-based topic switching means reading visible cues (pace, detail, warmth, attention, repetition, relief, curiosity) to decide when a topic has done its job or gone stale, then moving on in a way that keeps dignity and flow. It is not just changing the subject: it has a respectful close, a bridge and a calibration check. It works because you respond to the conversation's live signal rather than your own agenda, so a flat thread is closed cleanly instead of dragged.",
   whatItIsNot: [
     "It is not avoiding accountability, escaping discomfort, or steering someone away from what they need to say.",
     "It is not a manipulation tactic for controlling attention or keeping the conversation entertaining for you.",
@@ -107,7 +107,7 @@ export const TC059: CardData = {
         "Want to switch to something lighter for a bit?",
         "Should we park this and pick up the next part?",
         "That feels mostly answered. Move on?",
-        "Good spot to leave it, shall we follow the livelier thread?",
+        "Good spot to leave it. Shall we follow the livelier thread?",
         "Enough on this, or is there more you want to say?",
       ],
     },
@@ -190,7 +190,7 @@ export const TC059: CardData = {
         "This thread feels mostly answered. I can park it and switch to the implementation question.",
         "I think this thread's answered. I'll park it unless you want more. Next useful question is timing.",
         "Happy to close this one out. Want me to open a fresh thread on delivery?",
-        "Parking this for now, shall we pick up the next question?",
+        "Parking this for now. Shall we pick up the next question?",
         "This one's wrapped, I think. Moving to timing unless you've got more.",
       ],
     },
@@ -236,7 +236,7 @@ export const TC059: CardData = {
     {
       weak: '"Anyway, moving on."',
       better: '"That may be enough on this topic. Want to switch gears?"',
-      best: '"I think this topic has probably done its job for now. The useful thread seems to be what happens next, shall we move there?"',
+      best: '"I think this topic has probably done its job for now. The useful thread seems to be what happens next. Shall we move there?"',
     },
     {
       weak: '"This is boring."',
@@ -407,7 +407,7 @@ export const TC059: CardData = {
       'Do not "change the subject." Close one door, point to the next, and let the other person help decide whether to walk through it.',
     body: "The cleanest switch is usually one sentence of respect plus one sentence of direction. You are not overriding the conversation. You are naming what it seems ready for and offering the next step as a choice.",
     example:
-      '"That may be enough on this for now. The live question seems to be X, want to go there?"',
+      '"That may be enough on this for now. The live question seems to be X. Want to go there?"',
     dont: '"Anyway, moving on." / "This is going nowhere."',
     do: '"I think this has done its job. Shall we follow the livelier thread?"',
   },

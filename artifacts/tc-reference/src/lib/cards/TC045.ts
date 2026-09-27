@@ -481,7 +481,7 @@ export const TC045: CardData = {
     },
     {
       mistake: "Letting the Tell become a lecture",
-      soundsLike: "a two-minute monologue with no pause",
+      soundsLike: "A two-minute monologue with no pause",
       better: '"The main point is X: the rest is only support."',
     },
     {
@@ -491,13 +491,13 @@ export const TC045: CardData = {
     },
     {
       mistake: "Using it when emotion needs listening first",
-      soundsLike: "structuring information while they're still upset",
+      soundsLike: "Structuring information while they're still upset",
       better: "Validate first, then ask if they want the information.",
     },
     {
       mistake: "Ignoring the answer to your first Ask",
       soundsLike:
-        "asking their starting point, then giving your standard spiel anyway",
+        "Asking their starting point, then giving your standard spiel anyway",
       better: "Let what they already know change what you tell.",
     },
   ],

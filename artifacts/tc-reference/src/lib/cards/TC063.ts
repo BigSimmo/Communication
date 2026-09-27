@@ -56,7 +56,7 @@ export const TC063: CardData = {
   ],
   id: "TC063",
   whyItWorks:
-    "Make them the expert is a status-giving rapport move: you notice that the other person has genuinely useful knowledge, experience, taste, lived context, or proximity to the facts, then you position them as the better source for that slice of the conversation and ask one narrow question that lets them teach from it. It works because it gives them a dignified, active role. Instead of competing for status, you lend it to them by making their perspective useful, and that builds warmth faster than praise because it is active: they are not merely being admired, they are being invited to contribute. People become more open once they feel their competence has actually been used, not just flattered.",
+    "Make them the expert is a status-giving rapport move. You notice that the other person has genuinely useful knowledge, experience or proximity to the facts, position them as the better source for that part of the conversation, and ask one narrow question that lets them teach. Instead of competing for status, you lend it to them. That builds warmth faster than praise because they are invited to contribute, not merely admired.",
   whatItIsNot: [
     "It is not fake flattery: calling someone brilliant when you do not mean it.",
     "It is not ego bait: making someone feel important so they will comply.",
@@ -352,7 +352,7 @@ export const TC063: CardData = {
     {
       day: "Day 7",
       title: "Full sequence under mild pressure",
-      task: "Run Notice → Name → Narrow → Listen → Credit in one higher-stakes conversation, keeping the decision yours. Log the green, yellow, or red cue you saw.",
+      task: "Run the full sequence (notice, name, narrow, listen, credit) in one higher-stakes conversation, keeping the decision yours. Log the green, yellow or red cue you saw.",
     },
   ],
   checklist: [

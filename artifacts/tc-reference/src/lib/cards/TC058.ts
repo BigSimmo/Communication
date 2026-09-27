@@ -193,7 +193,7 @@ export const TC058: CardData = {
       action:
         "Use plain reflective listening or a summary check instead of guessing a feeling.",
       phrase:
-        "So the main point is the timeline slipped, have I got that right?",
+        "So the main point is the timeline slipped. Have I got that right?",
     },
     {
       condition: "Feeling is clear but the need isn't",
@@ -271,7 +271,7 @@ export const TC058: CardData = {
       situation: "Digital message",
       move: "One sentence, no stacked prompts. Add a release line so it can't misread as a verdict.",
       phrase:
-        "Sounds frustrating, especially if what you needed was more notice before the decision. I may be reading that wrong.",
+        "Sounds frustrating, especially if what you needed was more notice before the decision. Is that close?",
     },
     {
       situation: "High-pressure moment",
@@ -397,9 +397,9 @@ export const TC058: CardData = {
   },
   fieldTip: {
     headline: "Name one feeling plus one need, then stop.",
-    body: "The best field version is: \"It sounds [feeling] because you needed [need]. I may be reading that wrong.\" Don't chase a perfect insight: the goal isn't to be impressive, it's to make the next response easier, safer, and more accurate. If the phrase wouldn't sound normal in your own voice, make it smaller.",
+    body: "The best field version is: \"It sounds [feeling] because you needed [need]. Is that close?\" Don't chase a perfect insight: the goal isn't to be impressive, it's to make the next response easier, safer, and more accurate. If the phrase wouldn't sound normal in your own voice, make it smaller.",
     example:
-      "It sounds frustrating because you needed more warning. I may be reading that wrong.",
+      "It sounds frustrating because you needed more warning. Is that close?",
     dont: "Stack three needs, or deliver it so confidently it sounds like a diagnosis.",
     do: "Offer one feeling and one concrete need, tentatively, then pause.",
   },
@@ -535,13 +535,14 @@ export const TC058: CardData = {
     "I may have named the feeling wrong.",
     "Let me not put words in your mouth.",
     "Maybe frustrated isn't the right word. What fits better?",
-    "I may have guessed the need wrong. Ignore that if it doesn't fit.",
+    "I may have guessed the need wrong. What did you actually need there?",
     "That sounded more formal than I meant. Let me say it plainly.",
     "I'm trying to understand, not analyse you.",
     "We can keep this practical. What would help most right now?",
     "You're right, the useful next step is action, not more reflection.",
   ],
-  bestRecoveryLine: "I may be reading that wrong.",
+  bestRecoveryLine:
+    "I may have the need wrong. What mattered most to you there?",
   chains: [
     {
       label: "Listen then land",

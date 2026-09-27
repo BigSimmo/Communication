@@ -514,7 +514,7 @@ export const TC002: CardData = {
     },
     {
       mistake: "Holding your story back so long it feels withholding",
-      soundsLike: "endless questions, zero disclosure",
+      soundsLike: "Endless questions, zero disclosure",
       better:
         "\"I've been there too. Happy to share what worked once you're done.\"",
     },

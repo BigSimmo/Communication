@@ -496,20 +496,20 @@ export const TC074: CardData = {
     },
     {
       mistake: "Skipping calibration",
-      soundsLike: "delivering all four steps, then moving straight on",
+      soundsLike: "Delivering all four steps, then moving straight on",
       better:
         '"How does that land?", then watch whether they can actually respond.',
     },
     {
       mistake: "Reaching for DESC too early",
-      soundsLike: "a boundary before you've understood the problem",
+      soundsLike: "A boundary before you've understood the problem",
       better:
-        "validate or ask first, and use DESC only if the boundary still stands.",
+        "Validate or ask first, and use DESC only if the boundary still stands.",
     },
     {
       mistake: "Over-polishing until it's a performance",
-      soundsLike: "a rehearsed, airless script",
-      better: "one plain sentence per step, in your own voice.",
+      soundsLike: "A rehearsed, airless script",
+      better: "One plain sentence per step, in your own voice.",
     },
   ],
   recoveryPhrases: [

@@ -500,7 +500,7 @@ export const TC019: CardData = {
     },
     {
       mistake: "Ignoring their correction",
-      soundsLike: 'pressing on after "actually, the summary is the useful bit"',
+      soundsLike: 'Pressing on after "actually, the summary is the useful bit"',
       better: '"Good point, just the summary, then."',
     },
     {
@@ -510,7 +510,7 @@ export const TC019: CardData = {
     },
     {
       mistake: "Missing urgency or fatigue",
-      soundsLike: "a five-minute ask when they're clearly slammed",
+      soundsLike: "A five-minute ask when they're clearly slammed",
       better: '"No rush at all. Whenever you next get a gap."',
     },
   ],

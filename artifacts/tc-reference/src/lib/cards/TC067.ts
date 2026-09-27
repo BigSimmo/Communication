@@ -56,7 +56,7 @@ export const TC067: CardData = {
   ],
   id: "TC067",
   whyItWorks:
-    "Advice request is the deliberate move of asking someone for a bounded piece of guidance because their experience, judgement, taste, role or perspective could genuinely help. It has five parts: name the specific context, give one true reason their view is useful, ask a single answerable question, make it easy to decline or answer briefly, then listen and take the answer in. It works because you treat the other person as capable and worth learning from without making them responsible for your outcome, so contributing feels voluntary rather than extracted. Their judgement feels seen, the ask is small enough to answer, and the request warms the relationship instead of loading it with obligation.",
+    "Advice request means asking someone for a bounded piece of guidance because their experience, judgement or perspective could genuinely help. Name the context, give one true reason their view is useful, ask a single answerable question, make it easy to decline, then listen and take the answer in. It works because you treat them as capable without making them responsible for your outcome, so contributing feels voluntary rather than extracted.",
   whatItIsNot: [
     "It is not fishing for validation while pretending to want advice.",
     "It is not outsourcing your judgement or making someone else responsible for your choice.",

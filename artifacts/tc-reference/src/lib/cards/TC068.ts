@@ -56,7 +56,7 @@ export const TC068: CardData = {
   ],
   id: "TC068",
   whyItWorks:
-    "Specific ask is the discipline of making a request answerable. Instead of reaching for a foggy word like 'help', 'thoughts', 'feedback' or 'a quick look', you name the exact action you want, the object or topic it applies to, the output you need back, and the timing or boundary that keeps it fair. It works because many requests fail before they are even considered: the other person cannot tell what the vague word actually means, so they stall, guess at the largest possible version, or give a hollow yes that later turns into delay or resentment. Naming the smallest clear action turns a foggy request into a manageable decision, while still leaving them free to say yes, no, not now, or 'here is a smaller version'.",
+    'Specific ask is the discipline of making a request answerable. Instead of a foggy word like "help", "thoughts" or "a quick look", you name the exact action, what it applies to, the output you need back and the timing. Vague requests stall because the other person cannot tell what you mean, so they guess at the largest version or give a hollow yes that turns into delay. The smallest clear action becomes a manageable decision they are still free to decline.',
   whatItIsNot: [
     "It is not a compliance tactic or a way to make refusal harder. Precision is not pressure.",
     "It is not over-specifying every detail until the other person has no room to think or contribute.",
@@ -517,8 +517,8 @@ export const TC068: CardData = {
     },
     {
       mistake: "Over-loading the ask with detail",
-      soundsLike: "a paragraph of context before anyone can find the question",
-      better: "one clean sentence: action, object, output, boundary.",
+      soundsLike: "A paragraph of context before anyone can find the question",
+      better: "One clean sentence: action, object, output, boundary.",
     },
     {
       mistake:
@@ -529,7 +529,7 @@ export const TC068: CardData = {
     },
     {
       mistake: "Treating silence as agreement",
-      soundsLike: "assuming a non-reply means yes",
+      soundsLike: "Assuming a non-reply means yes",
       better: '"I haven\'t heard back. Is this a yes, a no, or a not-now?"',
     },
   ],

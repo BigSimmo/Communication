@@ -56,7 +56,7 @@ export const TC092: CardData = {
   ],
   id: "TC092",
   whyItWorks:
-    "Face-saving disagreement is a dignity-preserving way to disagree: you protect the other person's standing while still naming a real difference. It has three parts: a truthful bridge (something reasonable, shared or valid in their view), a precise disagreement (the exact claim, plan, timing or criterion you see differently), and a collaborative landing (a way for them to revise or continue without a public climbdown). It works because many disagreements stick not because the content is impossible but because changing position feels like losing face. When people feel cornered they defend harder. When they keep their dignity they can inspect the facts calmly. The move does not remove the disagreement. It removes the unnecessary humiliation from it.",
+    "Face-saving disagreement protects the other person's standing while still naming a real difference. It has three parts: a truthful bridge (something reasonable or valid in their view), a precise disagreement (the exact claim, plan or criterion you see differently), and a collaborative landing that lets them revise without a public climbdown. Many disagreements stick not because the content is impossible but because changing position feels like losing face. The move does not remove the disagreement, only the unnecessary humiliation, so people can inspect the facts calmly instead of defending harder.",
   whatItIsNot: [
     "It is not fake agreement. You never pretend to accept a claim you think is wrong.",
     "It is not flattery: the bridge has to be grounded in something real: a shared goal, a valid concern, a legitimate constraint or a plausible reading.",

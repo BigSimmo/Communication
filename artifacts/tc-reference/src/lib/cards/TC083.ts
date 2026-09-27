@@ -56,7 +56,7 @@ export const TC083: CardData = {
   ],
   id: "TC083",
   whyItWorks:
-    'Asking what would make it workable is a collaborative feasibility question for moments when a request, plan, feedback point, or boundary meets friction. Instead of arguing for your version, you invite the other person to name the conditions, limits, changes, or supports that would make the next step viable. It works because it treats resistance as information about real constraints (timing, risk, workload, fairness, trust, authority, emotional load, or missing support) rather than as obstruction. Vague pushback becomes concrete conditions you can actually work with, and the person keeps the agency to say "nothing" or "not now."',
+    'Asking what would make it workable is a collaborative feasibility question for moments when a request, plan, feedback point or boundary meets friction. Instead of arguing for your version, you invite the other person to name the conditions, limits or supports that would make the next step viable. It treats resistance as information about real constraints (timing, risk, workload, fairness, trust, authority) rather than obstruction, so vague pushback becomes concrete conditions, and they keep the freedom to say "nothing" or "not now".',
   whatItIsNot: [
     'Not a disguised way to ask, "How can I make you say yes?"',
     "Not a replacement for accepting a clear boundary or a final no.",

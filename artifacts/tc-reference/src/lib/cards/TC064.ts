@@ -209,7 +209,7 @@ export const TC064: CardData = {
       condition: "They have already stated the meaning clearly",
       action:
         "Do not re-interpret: reflect, validate, summarise or act on what they actually said.",
-      phrase: "So the main thing is the timeline, have I got that right?",
+      phrase: "So the main thing is the timeline. Have I got that right?",
     },
     {
       condition: "Your read could embarrass, accuse, diagnose or corner them",
@@ -231,7 +231,7 @@ export const TC064: CardData = {
     {
       condition: "The meaning is now clear. Pick the next move",
       action:
-        "Feeling → emotional labelling. Concern → validate it. Ambivalence → double-sided reflection. Deeper value → meaning reflection. Next action → a clean request.",
+        "For a feeling, label the emotion. For a concern, validate it. For ambivalence, reflect both sides. For a deeper value, reflect the meaning. For a next action, make a clean request.",
       phrase: "Okay, so what would actually help here is...",
     },
   ],
@@ -485,8 +485,8 @@ export const TC064: CardData = {
     },
     {
       mistake: "Overusing the move until it feels clinical",
-      soundsLike: "checking the meaning of every ordinary sentence",
-      better: "save it for moments where a wrong read would actually cost you",
+      soundsLike: "Checking the meaning of every ordinary sentence",
+      better: "Save it for moments where a wrong read would actually cost you",
     },
     {
       mistake: "Using a check to dodge accountability",
@@ -496,8 +496,8 @@ export const TC064: CardData = {
     },
     {
       mistake: "Ignoring the answer once they give it",
-      soundsLike: "asking, then responding to your original guess anyway",
-      better: "let their correction change what you say next",
+      soundsLike: "Asking, then responding to your original guess anyway",
+      better: "Let their correction change what you say next",
     },
   ],
   recoveryPhrases: [

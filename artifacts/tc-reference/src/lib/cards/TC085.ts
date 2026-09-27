@@ -56,7 +56,7 @@ export const TC085: CardData = {
   ],
   id: "TC085",
   whyItWorks:
-    "Question-stacking restraint means asking one real question at a time. When you notice yourself piling up two, three or five questions in a single turn, you stop, name the reset if needed, choose the one anchor question that best opens the next useful answer, and let the person answer before you add a follow-up. It works because a single question tells the other person exactly where to put their attention: they can answer more fully, feel less examined, and give you cleaner information. A question stack does the opposite. It makes people triage, so they answer only the last or easiest question, get defensive, or shut down.",
+    "Question-stacking restraint means asking one real question at a time. When you notice yourself piling up questions in a single turn, stop, choose the one anchor question that best opens the next useful answer, and let the person answer before you add a follow-up. A single question tells them exactly where to put their attention, so they answer more fully and feel less examined. A stack makes people triage: they answer the last or easiest question, get defensive or shut down.",
   whatItIsNot: [
     "It is not avoiding questions or becoming passive, withholding useful curiosity, or making the other person do all the work.",
     "It is not controlling the conversation by asking only the question that serves you: the aim is clarity and ease, not extraction.",

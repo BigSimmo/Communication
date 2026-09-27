@@ -573,7 +573,7 @@ export const TC081: CardData = {
       sequence: "COIN → Summary check → Autonomy release",
       example: [
         '"...so next time, can we confirm dependencies before assigning the owner?"',
-        '"Just to check we\'re aligned. We lock dependencies first, then assign?"',
+        '"Just to check we\'re aligned: we lock dependencies first, then assign?"',
         "\"But if there's a better way to handle it your end, I'm open to that.\"",
       ],
     },

@@ -49,7 +49,7 @@ export const TC073: CardData = {
   ],
   id: "TC073",
   whyItWorks:
-    'Resistance-as-information means treating pushback (a pause, an objection, a delay, a "yes, but", a guarded answer) as useful data about a concern, constraint, value, risk, missing trust, or unmet condition, rather than as an enemy to defeat. The practical move is to notice the resistance, name it neutrally, and ask what it is telling you before you explain, defend, persuade, or walk away. It works because resistance met as a threat makes people argue, over-explain, or withdraw, which usually increases it. Resistance met as information lowers the temperature, brings the real blocker into view, and lets you adapt to the actual concern instead of a guessed one. The payoff is not that you become more forceful. It is that you become less blind.',
+    'Resistance as information means treating pushback (a pause, an objection, a delay, a "yes, but", a guarded answer) as data about a concern, constraint, value, risk or missing trust, rather than as an enemy to defeat. Notice the resistance, name it neutrally, and ask what it is telling you before you explain, defend, persuade or walk away. Met as a threat, resistance makes people argue or withdraw, which usually increases it. Met as information, it lowers the temperature and brings the real blocker into view, so you adapt to the actual concern instead of a guessed one.',
   whatItIsNot: [
     "Not a trick for overcoming objections or a sales pressure tactic.",
     "Not a way to make people justify their boundaries or explain their no.",
@@ -511,13 +511,13 @@ export const TC073: CardData = {
     {
       mistake: "Ignoring the answer",
       soundsLike:
-        "asking the concern, then pressing on with the same plan unchanged",
+        "Asking the concern, then pressing on with the same plan unchanged",
       better:
         '"You said the deadline is the issue, so let\'s change the deadline."',
     },
     {
       mistake: "Confusing delay with consent",
-      soundsLike: 'treating "not yet" as a quiet yes and moving ahead',
+      soundsLike: 'Treating "not yet" as a quiet yes and moving ahead',
       better:
         '"A not-yet isn\'t a yes. What condition would need to be met first?"',
     },

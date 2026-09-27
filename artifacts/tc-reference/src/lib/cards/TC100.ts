@@ -56,7 +56,7 @@ export const TC100: CardData = {
   ],
   id: "TC100",
   whyItWorks:
-    'The what-did-you-make-of-it question invites the other person\'s interpretation, conclusion, or takeaway from something they have already described. It sits between a fact question ("What happened?") and a feeling question ("How did you feel?"): it asks "What did you make of it?" and gives them room to say what the event meant, what they inferred, what surprised them, or what they are still unsure about. It works because it moves the exchange from event-reporting to meaning-sharing while leaving them in charge of the meaning: people feel cognitively respected when you ask for their judgement before supplying your own.',
+    'The what-did-you-make-of-it question invites the other person\'s interpretation, conclusion or takeaway from something they have already described. It sits between a fact question ("What happened?") and a feeling question ("How did you feel?"), giving them room to say what the event meant, what surprised them or what they are still unsure about. It moves the exchange from event-reporting to meaning-sharing while leaving them in charge of the meaning, and people feel respected when you ask for their judgement before supplying your own.',
   whatItIsNot: [
     "It is not a disguised opinion prompt where you already know the answer you want.",
     'It is not "what do you think?" used lazily when you have not actually listened.',
@@ -392,7 +392,7 @@ export const TC100: CardData = {
     body: "Use the question as a doorway, not a trap. The win is not getting a deep answer. It is giving the other person the first right to define what the event means to them.",
     example:
       "That sounds like a mixed signal. What did you make of it, or is it too early to tell?",
-    dont: 'Don\'t smuggle in your own verdict: "What did you make of it. They were rude, right?"',
+    dont: 'Don\'t smuggle in your own verdict: "What did you make of it? They were rude, right?"',
     do: 'Do keep it small and releasable: ask "What did you make of it?" then leave the silence.',
   },
   method: [
@@ -438,7 +438,7 @@ export const TC100: CardData = {
     {
       step: "6",
       title: "Follow their answer",
-      body: 'Follow their answer with a summary check, reflection, support, or a permission-based next step. Practical sequence: Anchor ("That sounds like an interesting moment") → Ask ("What did you make of it?") → Listen (do not fill the silence) → Reflect ("So your read is it was less about the deadline, more about trust") → Follow ("Do you want help thinking through what to do next, or mostly to unpack it?").',
+      body: 'Follow their answer with a summary check, reflection, support, or a permission-based next step. Practical sequence: anchor ("That sounds like an interesting moment"), ask ("What did you make of it?"), listen (do not fill the silence), reflect ("So your read is it was less about the deadline, more about trust"), then follow ("Do you want help thinking through what to do next, or mostly to unpack it?").',
     },
   ],
   liveThreadClues: [

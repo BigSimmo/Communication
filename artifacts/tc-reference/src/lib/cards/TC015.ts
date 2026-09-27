@@ -543,7 +543,7 @@ export const TC015: CardData = {
     },
     {
       mistake: "Making it too long",
-      soundsLike: "a paragraph of reflecting before they can get a word in",
+      soundsLike: "A paragraph of reflecting before they can get a word in",
       better: "One short reflection, then a pause.",
     },
     {
@@ -554,7 +554,7 @@ export const TC015: CardData = {
     {
       mistake: "Ignoring cues to stop",
       soundsLike:
-        'still mode-checking after they\'ve said "just tell me what to do"',
+        'Still mode-checking after they\'ve said "just tell me what to do"',
       better: "\"Okay. Here's what I'd actually do.\"",
     },
     {
