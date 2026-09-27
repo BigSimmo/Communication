@@ -56,12 +56,21 @@ export function useCardPdf({
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [pdfOpen]);
+  }, [pdfOpen, setPdfOpen]);
+
+  // Each time the viewer opens, start from a clean load state (set during
+  // render so the sheet never paints the previous open's error or loaded flag).
+  const [prevPdfOpen, setPrevPdfOpen] = useState(pdfOpen);
+  if (pdfOpen !== prevPdfOpen) {
+    setPrevPdfOpen(pdfOpen);
+    if (pdfOpen) {
+      setPdfError(false);
+      setPdfLoaded(false);
+    }
+  }
 
   useEffect(() => {
     if (!pdfOpen) return;
-    setPdfError(false);
-    setPdfLoaded(false);
     pdfLoadedRef.current = false;
     // Timeout fallback: many browsers fire onLoad (or nothing) instead of
     // onError when a PDF is blocked by X-Frame-Options or CSP. If the iframe

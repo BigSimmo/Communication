@@ -28,12 +28,26 @@ export function useCardSectionScroll({
   const [activeSection, setActiveSection] = useState<CardSection>(
     () => cardSectionMemory.get(cardId)?.section ?? "overview",
   );
-  // Ref updated synchronously on every render so persist effect never lags behind cardId
+  // Latest cardId for the persist effect below. Synced in an effect declared
+  // before that one, so the persist effect never lags behind cardId.
   const cardIdRef = useRef(cardId);
-  cardIdRef.current = cardId;
+  useEffect(() => {
+    cardIdRef.current = cardId;
+  }, [cardId]);
   const [openSections, setOpenSections] = useState<Set<CardSection>>(
     () => new Set<CardSection>(["overview"]),
   );
+
+  // When the viewed card changes, reset to overview-only during render; the
+  // restore effect below may then expand the card's saved section. A card
+  // with no saved section (or a saved "overview") also resets the active pill.
+  const [prevCardId, setPrevCardId] = useState(cardId);
+  if (cardId !== prevCardId) {
+    setPrevCardId(cardId);
+    setOpenSections(new Set<CardSection>(["overview"]));
+    const saved = cardSectionMemory.get(cardId);
+    if (!saved || saved.section === "overview") setActiveSection("overview");
+  }
   const scrollLockRef = useRef<string | null>(null);
   const intersectingRef = useRef<Set<string>>(new Set());
   // Tracks the latest window.scrollY via a passive listener so the cleanup
@@ -154,8 +168,7 @@ export function useCardSectionScroll({
 
   // Restore the saved section (and scroll position) when the viewed card changes
   useEffect(() => {
-    // Reset to overview-only on every card change; restore below may expand more
-    setOpenSections(new Set<CardSection>(["overview"]));
+    // Open sections and the overview fallback were reset during render above.
     const saved = cardSectionMemory.get(cardId);
     let timer: ReturnType<typeof setTimeout> | undefined;
     if (saved && saved.section !== "overview") {
@@ -173,8 +186,6 @@ export function useCardSectionScroll({
           scrollSectionIntoView(saved.section);
         }
       }, 60);
-    } else {
-      setActiveSection("overview");
     }
     return () => {
       // Persist the scroll position for the card we're leaving.
