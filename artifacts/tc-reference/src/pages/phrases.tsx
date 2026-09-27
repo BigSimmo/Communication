@@ -155,7 +155,14 @@ export default function Phrases() {
           {/* Row 1: Tone chips */}
           <div
             className="flex gap-2 overflow-x-auto py-1.5 px-4 md:px-6"
-            style={{ scrollbarWidth: "none" }}
+            style={{
+              scrollbarWidth: "none",
+              // Fade the trailing edge so off-screen tones read as scrollable
+              maskImage:
+                "linear-gradient(to right, #000 calc(100% - 32px), transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, #000 calc(100% - 32px), transparent)",
+            }}
             role="toolbar"
             aria-label="Filter by tone"
           >
@@ -325,7 +332,7 @@ export default function Phrases() {
       </div>
 
       {/* ── Phrase list ── */}
-      <div className="px-4 md:px-6 pb-8 space-y-2">
+      <div className="px-4 md:px-6 pb-8 space-y-1.5">
         {filtered.length === 0 ? (
           <div
             className="flex flex-col items-center gap-3 py-14 text-center"
@@ -428,7 +435,7 @@ function PhraseRow({
   return (
     <div
       data-testid={`phrase-row-${phrase.cardId}`}
-      className="w-full rounded-2xl px-4 py-3 transition-all duration-150"
+      className="w-full rounded-2xl pl-4 pr-2 pt-2.5 pb-1 transition-all duration-150"
       style={{
         background: copied
           ? "color-mix(in srgb, var(--brand) 9%, transparent)"
@@ -438,7 +445,7 @@ function PhraseRow({
           : "1px solid var(--fg-05)",
         // Skip painting off-screen rows — the bank runs to thousands of phrases.
         contentVisibility: "auto",
-        containIntrinsicSize: "auto 84px",
+        containIntrinsicSize: "auto 72px",
       }}
     >
       {/* Phrase text — tappable to copy */}
@@ -446,25 +453,23 @@ function PhraseRow({
         onClick={onCopy}
         aria-label={`Copy: ${phrase.text}`}
         data-testid={`phrase-copy-btn-${phrase.cardId}`}
-        className="w-full text-left text-[14px] leading-snug font-medium mb-2.5 transition-colors active:opacity-70"
+        className="w-full text-left text-[14px] leading-snug font-medium pr-2 transition-colors active:opacity-70"
         style={{ color: copied ? "var(--brand-text)" : "var(--fg-82)" }}
       >
         {phrase.text}
       </button>
 
-      {/* Meta row: tone badge + card badge | actions */}
-      <div className="flex items-center gap-2">
-        {/* Tone badge */}
+      {/* Meta caption: tone and source card | actions. Kept to one quiet
+        line so a phone screen shows twice as many phrases. */}
+      <div className="flex items-center gap-1">
         <span
-          className="text-[10px] font-bold tracking-wide px-2 py-0.5 rounded-full uppercase flex-shrink-0 max-w-[40%] truncate"
-          style={{
-            background: "color-mix(in srgb, var(--brand) 10%, transparent)",
-            color: "var(--brand-text)",
-            border:
-              "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
-          }}
+          className="text-[11px] font-semibold flex-shrink-0 max-w-[35%] truncate"
+          style={{ color: "var(--fg-50)" }}
         >
           {phrase.groupLabel}
+        </span>
+        <span aria-hidden="true" style={{ color: "var(--fg-30)" }}>
+          ·
         </span>
 
         {/* Card badge — links to card */}
@@ -472,7 +477,7 @@ function PhraseRow({
           onClick={onCardClick}
           aria-label={`View card ${phrase.cardId}: ${phrase.cardTitle}`}
           data-testid={`phrase-card-link-${phrase.cardId}`}
-          className="flex items-center gap-1.5 text-[12px] rounded-lg px-1.5 min-h-8 min-w-0 flex-1 transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)]"
+          className="flex items-center gap-1.5 text-[12px] rounded-lg px-1 min-h-8 min-w-0 flex-1 transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)]"
           style={{ color: "var(--fg-55)" }}
         >
           <span
@@ -491,7 +496,7 @@ function PhraseRow({
           onClick={onFav}
           aria-label={faved ? "Remove from favourites" : "Save to favourites"}
           data-testid={`phrase-fav-btn`}
-          className="tap-target w-10 h-10 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
           style={{
             background: faved
               ? "color-mix(in srgb, var(--brand) 12%, transparent)"
@@ -510,12 +515,11 @@ function PhraseRow({
           onClick={onCopy}
           aria-label={copied ? "Copied!" : `Copy phrase`}
           data-testid={`phrase-copy-icon-btn`}
-          className="tap-target w-10 h-10 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
           style={{
             background: copied
               ? "color-mix(in srgb, var(--brand) 12%, transparent)"
-              : "var(--fg-05)",
-            border: "1px solid var(--fg-07)",
+              : "transparent",
           }}
         >
           {copied ? (

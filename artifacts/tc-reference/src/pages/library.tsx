@@ -377,7 +377,7 @@ export default function Library() {
   );
 
   return (
-    <div className="flex flex-col bg-background w-full max-w-full min-w-0 overflow-x-clip sm:max-w-2xl sm:mx-auto">
+    <div className="flex flex-col bg-background w-full max-w-full min-w-0 overflow-x-clip sm:max-w-2xl lg:max-w-5xl sm:mx-auto">
       <div
         id="library-header-details"
         data-testid="library-header-details"
@@ -661,7 +661,7 @@ export default function Library() {
                   {cards.length}
                 </span>
               </h2>
-              <ul className="space-y-2">
+              <ul className="grid gap-2 lg:grid-cols-2">
                 {cards.map((card) => {
                   const badge = IMPACT_BADGE[card.impact];
                   const CategoryIcon = CATEGORY_ICON[cat] ?? BookOpen;

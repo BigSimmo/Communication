@@ -27,6 +27,7 @@ export default function Playbooks() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [selectedCards, setSelectedCards] = useState<string[]>([]);
+  const [pickerQuery, setPickerQuery] = useState("");
   const [deletingPlaybook, setDeletingPlaybook] = useState<Playbook | null>(
     null,
   );
@@ -164,7 +165,7 @@ export default function Playbooks() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g., Critical Meeting, Handling Feedback"
+              placeholder="e.g., Difficult feedback"
               className="w-full text-[13px] px-3.5 py-2.5 rounded-xl outline-none"
               style={{
                 background: "var(--fg-05)",
@@ -203,6 +204,20 @@ export default function Playbooks() {
             >
               Select Techniques ({selectedCards.length} selected)
             </label>
+            {/* 98 techniques is too many to scan, so let people narrow it */}
+            <input
+              type="search"
+              value={pickerQuery}
+              onChange={(e) => setPickerQuery(e.target.value)}
+              placeholder="Filter by name or TC code"
+              aria-label="Filter techniques"
+              className="w-full rounded-xl px-3.5 py-2.5 text-[14px] outline-none border focus:border-[var(--brand)]"
+              style={{
+                background: "var(--fg-03)",
+                borderColor: "var(--fg-08)",
+                color: "var(--fg-90)",
+              }}
+            />
             <div
               className="max-h-[220px] overflow-y-auto rounded-xl p-2 flex flex-col gap-1.5 border"
               style={{
@@ -212,7 +227,14 @@ export default function Playbooks() {
                 WebkitOverflowScrolling: "touch",
               }}
             >
-              {ALL_CARDS.map((card) => {
+              {ALL_CARDS.filter((card) => {
+                const q = pickerQuery.trim().toLowerCase();
+                return (
+                  !q ||
+                  card.id.toLowerCase().includes(q) ||
+                  card.title.toLowerCase().includes(q)
+                );
+              }).map((card) => {
                 const isSel = selectedCards.includes(card.id);
                 return (
                   <button

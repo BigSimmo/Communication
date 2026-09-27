@@ -90,147 +90,150 @@ export function PhrasesSection({
           .filter(
             (g) => expandedPhraseGroup === null || g.id === expandedPhraseGroup,
           )
-          .map((group) => (
-            <div
-              key={group.id}
-              className="rounded-2xl overflow-hidden shadow-sm"
-              style={{
-                background: "var(--fg-03)",
-                border: "1px solid var(--fg-06)",
-              }}
-              data-testid={`phrase-group-${group.id}`}
-            >
-              <button
-                onClick={() =>
-                  setExpandedPhraseGroup(
-                    expandedPhraseGroup === group.id ? null : group.id,
-                  )
-                }
-                aria-expanded={expandedPhraseGroup === group.id}
-                className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3 transition-colors"
-                style={{ minHeight: 52 }}
+          .map((group) => {
+            // "All groups" shows every phrase so nothing needs a second tap;
+            // a header or chip narrows the bank to that group.
+            const open =
+              expandedPhraseGroup === null || expandedPhraseGroup === group.id;
+            return (
+              <div
+                key={group.id}
+                className="rounded-2xl overflow-hidden shadow-sm"
+                style={{
+                  background: "var(--fg-03)",
+                  border: "1px solid var(--fg-06)",
+                }}
+                data-testid={`phrase-group-${group.id}`}
               >
-                <div className="text-left min-w-0">
-                  <p className="text-[14px] font-bold text-foreground/90">
-                    {group.label}
-                  </p>
-                  {/* Many cards reuse the label as the tag; skip the echo */}
-                  {group.tag && group.tag !== group.label && (
-                    <p className="text-[11px] text-foreground/50 mt-0.5">
-                      {group.tag}
+                <button
+                  onClick={() =>
+                    setExpandedPhraseGroup(
+                      expandedPhraseGroup === group.id ? null : group.id,
+                    )
+                  }
+                  aria-expanded={open}
+                  className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3 transition-colors"
+                  style={{ minHeight: 52 }}
+                >
+                  <div className="text-left min-w-0">
+                    <p className="text-[14px] font-bold text-foreground/90">
+                      {group.label}
                     </p>
-                  )}
-                </div>
-                <div className="flex items-center gap-3">
-                  <span
-                    className="text-[11px] font-bold text-foreground/60 px-2 py-1 rounded-full"
-                    style={{ background: "var(--fg-05)" }}
-                  >
-                    {group.phrases.length}
-                  </span>
-                  <ChevronRight
-                    className="w-4 h-4 text-foreground/40 transition-transform"
-                    style={{
-                      transform:
-                        expandedPhraseGroup === group.id
-                          ? "rotate(90deg)"
-                          : "none",
-                    }}
-                    aria-hidden="true"
-                  />
-                </div>
-              </button>
-              {expandedPhraseGroup === group.id && (
-                <div style={{ borderTop: "1px solid var(--fg-05)" }}>
-                  {group.phrases.map((phrase, i) => (
-                    <div
-                      key={i}
-                      className="w-full flex items-center justify-between px-5 py-3 text-left"
-                      style={{
-                        background:
-                          copiedPhrase === phrase
-                            ? "color-mix(in srgb, var(--brand) 7%, transparent)"
-                            : "transparent",
-                        borderBottom:
-                          i < group.phrases.length - 1
-                            ? "1px solid var(--fg-03)"
-                            : "none",
-                        minHeight: 52,
-                      }}
+                    {/* Many cards reuse the label as the tag; skip the echo */}
+                    {group.tag && group.tag !== group.label && (
+                      <p className="text-[11px] text-foreground/50 mt-0.5">
+                        {group.tag}
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="text-[11px] font-bold text-foreground/60 px-2 py-1 rounded-full"
+                      style={{ background: "var(--fg-05)" }}
                     >
-                      <p
-                        className="text-[13px] leading-snug pr-3 flex-1"
+                      {group.phrases.length}
+                    </span>
+                    <ChevronRight
+                      className="w-4 h-4 text-foreground/40 transition-transform"
+                      style={{
+                        transform: open ? "rotate(90deg)" : "none",
+                      }}
+                      aria-hidden="true"
+                    />
+                  </div>
+                </button>
+                {open && (
+                  <div style={{ borderTop: "1px solid var(--fg-05)" }}>
+                    {group.phrases.map((phrase, i) => (
+                      <div
+                        key={i}
+                        className="w-full flex items-center justify-between px-5 py-3 text-left"
                         style={{
-                          color:
+                          background:
                             copiedPhrase === phrase
-                              ? "var(--brand-text)"
-                              : "var(--fg-78)",
+                              ? "color-mix(in srgb, var(--brand) 7%, transparent)"
+                              : "transparent",
+                          borderBottom:
+                            i < group.phrases.length - 1
+                              ? "1px solid var(--fg-03)"
+                              : "none",
+                          minHeight: 52,
                         }}
                       >
-                        {phrase}
-                      </p>
-                      <div className="flex items-center gap-1 flex-shrink-0">
-                        <button
-                          onClick={() =>
-                            togglePhrase({
-                              cardId,
-                              cardTitle: CARD_TITLE_MAP[cardId] ?? cardId,
-                              groupLabel: group.label,
-                              text: phrase,
-                            })
-                          }
-                          aria-label={
-                            isPhrasesFav(cardId, phrase)
-                              ? "Remove from favourites"
-                              : "Save to favourites"
-                          }
-                          data-testid={`phrase-fav-${group.id}-${i}`}
-                          className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        <p
+                          className="text-[13px] leading-snug pr-3 flex-1"
                           style={{
-                            background: isPhrasesFav(cardId, phrase)
-                              ? "color-mix(in srgb, var(--brand) 10%, transparent)"
-                              : "transparent",
+                            color:
+                              copiedPhrase === phrase
+                                ? "var(--brand-text)"
+                                : "var(--fg-78)",
                           }}
                         >
-                          <Heart
-                            className="w-3.5 h-3.5"
-                            style={{
-                              color: isPhrasesFav(cardId, phrase)
-                                ? "var(--brand-text)"
-                                : "var(--fg-45)",
-                            }}
-                            fill={
-                              isPhrasesFav(cardId, phrase)
-                                ? "var(--brand-text)"
-                                : "none"
+                          {phrase}
+                        </p>
+                        <div className="flex items-center gap-1 flex-shrink-0">
+                          <button
+                            onClick={() =>
+                              togglePhrase({
+                                cardId,
+                                cardTitle: CARD_TITLE_MAP[cardId] ?? cardId,
+                                groupLabel: group.label,
+                                text: phrase,
+                              })
                             }
-                          />
-                        </button>
-                        <button
-                          onClick={() => handleCopy(phrase)}
-                          aria-label={`Copy: ${phrase}`}
-                          data-testid={`phrase-copy-${group.id}-${i}`}
-                          className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
-                        >
-                          {copiedPhrase === phrase ? (
-                            <Check
+                            aria-label={
+                              isPhrasesFav(cardId, phrase)
+                                ? "Remove from favourites"
+                                : "Save to favourites"
+                            }
+                            data-testid={`phrase-fav-${group.id}-${i}`}
+                            className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                            style={{
+                              background: isPhrasesFav(cardId, phrase)
+                                ? "color-mix(in srgb, var(--brand) 10%, transparent)"
+                                : "transparent",
+                            }}
+                          >
+                            <Heart
                               className="w-3.5 h-3.5"
-                              style={{ color: "var(--brand-text)" }}
+                              style={{
+                                color: isPhrasesFav(cardId, phrase)
+                                  ? "var(--brand-text)"
+                                  : "var(--fg-45)",
+                              }}
+                              fill={
+                                isPhrasesFav(cardId, phrase)
+                                  ? "var(--brand-text)"
+                                  : "none"
+                              }
                             />
-                          ) : (
-                            <Copy
-                              className="w-3.5 h-3.5"
-                              style={{ color: "var(--fg-45)" }}
-                            />
-                          )}
-                        </button>
+                          </button>
+                          <button
+                            onClick={() => handleCopy(phrase)}
+                            aria-label={`Copy: ${phrase}`}
+                            data-testid={`phrase-copy-${group.id}-${i}`}
+                            className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
+                          >
+                            {copiedPhrase === phrase ? (
+                              <Check
+                                className="w-3.5 h-3.5"
+                                style={{ color: "var(--brand-text)" }}
+                              />
+                            ) : (
+                              <Copy
+                                className="w-3.5 h-3.5"
+                                style={{ color: "var(--fg-45)" }}
+                              />
+                            )}
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
       </div>
     </SectionAccordion>
   );
