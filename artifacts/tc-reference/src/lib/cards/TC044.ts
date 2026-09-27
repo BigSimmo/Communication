@@ -56,7 +56,7 @@ export const TC044: CardData = {
   ],
   id: "TC044",
   whyItWorks:
-    "BLUF, Bottom Line Up Front, means leading with the answer, recommendation or ask, then giving only the support that is actually needed. Its shape is Bottom line → key reason → implication → optional detail. Putting the conclusion first reduces the listener's cognitive load, sequences the information so the most important part lands first, and lets a busy person understand, decide or act without wading through your reasoning to find the point. Its influence comes from clarity and respect, not from pressure.",
+    "BLUF, Bottom Line Up Front, means leading with the answer, recommendation or ask, then giving only the support that is actually needed. Its shape is Bottom line → key reason → implication → optional detail. Putting the conclusion first reduces the listener's cognitive load, sequences the information so the most important part lands first, and lets a busy person understand, decide or act without wading through your reasoning to find the point.",
   whatItIsNot: [
     "It is not a script to recite mechanically, one sentence per step.",
     "It is not a way to avoid listening, or to compress someone's emotion into a template.",

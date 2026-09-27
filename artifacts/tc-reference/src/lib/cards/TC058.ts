@@ -406,7 +406,7 @@ export const TC058: CardData = {
   method: [
     {
       step: "1",
-      title: "Perception",
+      title: "Notice the feeling cue",
       body: 'Notice the feeling cue before you name anything: tone, an intensity spike, hesitation, a repeated word, or a charged phrase like "again" or "after everyone else." You\'re looking for where the emotion actually sits, not just the facts being reported.',
       examples: [
         {

@@ -66,7 +66,7 @@ export const TC080: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Cue → Pause → Choose one NURSE move → Short empathy statement → Space → Calibrate → Next useful move.",
+      "NURSE: Name the emotion, Understand it, Respect the person, Support them, Explore further. Pick one move, say it plainly, then leave space.",
       "N, Name the emotion lightly, with room for correction.",
       "U, Show partial understanding without claiming to understand it all.",
       "R, Respect a specific effort, value or care the person has shown.",

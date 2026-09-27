@@ -414,7 +414,7 @@ export const TC060: CardData = {
   method: [
     {
       step: "1",
-      title: "Perception",
+      title: "Notice the ambiguous cue",
       body: "Notice the ambiguous cue or behaviour without bolting a negative story onto it. Separate what you can actually observe (a missed update, a blunt line, a slow reply) from the motive you're tempted to assign it.",
     },
     {
@@ -451,7 +451,7 @@ export const TC060: CardData = {
     },
     {
       step: "6",
-      title: "Chain",
+      title: "Move to a next step",
       body: "Move quickly into a clean request, validation without agreement, a summary check, or repair. Long reassurance after the assumption sounds like nervousness or manipulation.",
     },
   ],

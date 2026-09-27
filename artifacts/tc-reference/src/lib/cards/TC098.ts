@@ -385,7 +385,7 @@ export const TC098: CardData = {
   },
   fieldTip: {
     headline: "Put one human sentence before the factual one.",
-    body: 'If you can do nothing else, do that. A reliable default is: "That sounds [emotion or impact]. The detail I want to check is [fact]." Emotion-first is not fact-last: the goal is not to bury reality but to make it easier to hear. Remember the spine: Perception → Move → Phrase → Calibration → Recovery → Chain.',
+    body: 'If you can do nothing else, do that. A reliable default is: "That sounds [emotion or impact]. The detail I want to check is [fact]." Emotion-first is not fact-last. The goal isn\'t to bury reality but to make it easier to hear.',
     example:
       '"That sounds really stressful. The one detail I want to check is when the email actually went out."',
     dont: "Don't confuse emotion-first with fact-last, or let the acknowledgement become an excuse to avoid the facts.",

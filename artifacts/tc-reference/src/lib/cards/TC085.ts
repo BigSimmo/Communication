@@ -398,12 +398,12 @@ export const TC085: CardData = {
   method: [
     {
       step: "1",
-      title: "Perception",
+      title: "Notice the stack forming",
       body: 'Notice the signs of stacking: multiple question marks forming, "and also...", rising speed, or the urge to cover every angle before the person has answered anything. Catching the reflex early is most of the skill.',
     },
     {
       step: "2",
-      title: "Move",
+      title: "Pick one anchor question",
       body: "Choose one anchor question, usually the one that opens the story, clarifies the need, or names the next action. Everything else gets dropped or parked for later.",
       examples: [
         { label: "Story anchor", text: "What happened first?" },
@@ -421,22 +421,22 @@ export const TC085: CardData = {
     },
     {
       step: "3",
-      title: "Phrase",
+      title: "Reset out loud if you've stacked",
       body: 'If you have already stacked, name the reset out loud so the reset itself lowers pressure: "I just asked too many things at once. One question..." Naming it is often more disarming than the question that follows.',
     },
     {
       step: "4",
-      title: "Calibration",
+      title: "Watch how it lands",
       body: "After you ask, watch whether the person relaxes, answers with detail, corrects the frame, or still looks overloaded, and let that shape your next turn rather than your prepared list.",
     },
     {
       step: "5",
-      title: "Recovery",
+      title: "Back up lightly",
       body: 'If the pressure lands, apologise lightly and back up. The recovery should reduce demand, not add to it: do not apologise and then ask a fresh stack. "That came out like an interrogation. I\'m going to slow down."',
     },
     {
       step: "6",
-      title: "Chain",
+      title: "Follow the answer",
       body: "Combine with comment-before-question, reflective listening, a summary check, or a two-option question depending on the answer. Default to one question mark per turn: a two-option question can offer two choices but should still be one decision point.",
     },
   ],

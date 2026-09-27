@@ -421,7 +421,7 @@ export const TC050: CardData = {
     },
     {
       step: "3",
-      title: "So What?, find the meaning",
+      title: "So What?: find the meaning",
       body: "Say why it matters, what it means, what changed. This is the step people skip and the one that carries the value, so linger here before moving on.",
       examples: [
         {
@@ -432,7 +432,7 @@ export const TC050: CardData = {
     },
     {
       step: "4",
-      title: "Now What?, one small step",
+      title: "Now What?: one small step",
       body: "Name a single, concrete next step that follows from the meaning. Small and specific beats a grand plan, and it should feel like an obvious consequence rather than an imposed instruction.",
       examples: [
         {

@@ -66,7 +66,7 @@ export const TC066: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Civil opener + relevant fact + clear next step or limit.",
+      "Brief, Informative, Friendly, Firm: a short civil reply with the relevant facts and a clear close.",
       "Brief: one short paragraph. Informative: facts, not counter-claims. Friendly: civil language, no contempt. Firm: a clear end, boundary, or action.",
       "Thanks for the update. The report was sent at 4:15 pm yesterday. I'll resend it now, and use email for any further changes.",
       "I understand this is frustrating. The meeting is Thursday at 10 am. I'll discuss the agenda in the meeting, not by text.",

@@ -407,7 +407,7 @@ export const TC057: CardData = {
   method: [
     {
       step: "1",
-      title: "Perception",
+      title: "Spot a real overlap",
       body: "Notice a real overlap before you speak. Look for a shared goal, pressure, role, standard, concern, constraint, or relationship. If you can't point to something genuinely shared, don't manufacture it: discover it first.",
       examples: [
         {
@@ -418,7 +418,7 @@ export const TC057: CardData = {
     },
     {
       step: "2",
-      title: "Move",
+      title: "Name it modestly",
       body: 'Name the overlap modestly. Avoid grand claims and identity labels that may not fit. The smallest true "we" is the strongest one, because it\'s the hardest to argue with.',
       examples: [
         {
@@ -433,7 +433,7 @@ export const TC057: CardData = {
     },
     {
       step: "3",
-      title: "Phrase",
+      title: "Leave room for difference",
       body: "Say a same-side sentence that leaves room for difference: name the shared anchor, then add a clause that keeps the disagreement legitimate.",
       examples: [
         {
@@ -444,7 +444,7 @@ export const TC057: CardData = {
     },
     {
       step: "4",
-      title: "Calibration",
+      title: "Watch how it lands",
       body: "Watch whether they soften, clarify, correct, or resist. Correcting the wording while staying engaged is a good sign. Resisting the label itself is a signal to ease off and keep only the outcome.",
       examples: [
         {
@@ -455,7 +455,7 @@ export const TC057: CardData = {
     },
     {
       step: "5",
-      title: "Recovery",
+      title: "Make it optional if it misses",
       body: 'If the frame misses, step back and make it optional. Drop the label, keep the respect, and return to the concrete issue. Don\'t defend the "we".',
       examples: [
         {
@@ -466,7 +466,7 @@ export const TC057: CardData = {
     },
     {
       step: "6",
-      title: "Chain",
+      title: "Follow with a next step",
       body: "Follow the shared frame with a clean request, a summary check, a two-option question, or validation without agreement. The frame opens the door. The next move walks through it.",
       examples: [
         {

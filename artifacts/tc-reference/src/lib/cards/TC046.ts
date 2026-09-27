@@ -56,7 +56,7 @@ export const TC046: CardData = {
   ],
   id: "TC046",
   whyItWorks:
-    "Elicit-provide-elicit is a three-part way to share information or advice: first you draw out what the person already knows, wants or will allow (elicit), then you offer one clear point briefly (provide), then you ask what they make of it (elicit). It works because people absorb and act on information far better when it lands on ground they helped prepare. The opening elicit earns permission and shows you where to pitch the point. The brief provide respects their attention. The closing elicit hands the meaning back to them rather than imposing it. Its influence comes from clarity and respect, not from pressure.",
+    "Elicit-provide-elicit is a three-part way to share information or advice: first you draw out what the person already knows, wants or will allow (elicit), then you offer one clear point briefly (provide), then you ask what they make of it (elicit). It works because people absorb and act on information far better when it lands on ground they helped prepare. The opening elicit earns permission and shows you where to pitch the point. The brief provide respects their attention. The closing elicit hands the meaning back to them rather than imposing it.",
   whatItIsNot: [
     "It is not a script to recite mechanically: naming the steps out loud, or forcing every sentence into the pattern, defeats it.",
     "It is not a way to avoid listening, or to compress someone's emotion into a template.",

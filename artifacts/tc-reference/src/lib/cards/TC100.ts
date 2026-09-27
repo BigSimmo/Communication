@@ -398,17 +398,17 @@ export const TC100: CardData = {
   method: [
     {
       step: "1",
-      title: "Perception",
+      title: "Notice the untold meaning",
       body: "Notice that the person has described an event, result, exchange, signal, or reaction but has not yet said what they think it means. That gap (facts present, meaning absent) is the cue to switch from gathering to inviting.",
     },
     {
       step: "2",
-      title: "Move",
+      title: "Hold the fact-gathering",
       body: 'Pause the fact-gathering impulse. Instead of another "what happened next?", invite their interpretation. Jumping to advice or your own read here would be premature.',
     },
     {
       step: "3",
-      title: "Phrase",
+      title: "Ask one clean question",
       body: "Ask one clean meaning-making question: short, non-leading, and easy to decline. Match the register to the relationship and the setting.",
       examples: [
         { label: "Direct", text: "What did you make of it?" },
@@ -421,12 +421,12 @@ export const TC100: CardData = {
     },
     {
       step: "4",
-      title: "Calibration",
+      title: "Watch how it lands",
       body: "Watch whether they expand, pause thoughtfully, correct the framing, or look pressured. A good question creates room. A bad version creates a demand. Adjust to whichever you see.",
     },
     {
       step: "5",
-      title: "Recovery",
+      title: "Soften and release",
       body: 'If it lands too heavy, too analytical, or too soon, soften and release straight away. "I didn\'t mean [pressure]. I meant [curiosity]. We can [return to the facts / change topic]."',
       examples: [
         {
@@ -437,7 +437,7 @@ export const TC100: CardData = {
     },
     {
       step: "6",
-      title: "Chain",
+      title: "Follow their answer",
       body: 'Follow their answer with a summary check, reflection, support, or a permission-based next step. Practical sequence: Anchor ("That sounds like an interesting moment") → Ask ("What did you make of it?") → Listen (do not fill the silence) → Reflect ("So your read is it was less about the deadline, more about trust") → Follow ("Do you want help thinking through what to do next, or mostly to unpack it?").',
     },
   ],

@@ -389,17 +389,17 @@ export const TC074: CardData = {
   method: [
     {
       step: "1",
-      title: "Perception",
+      title: "Name the behaviour you can observe",
       body: "Notice a specific behaviour or pattern that affects safety, clarity, respect, time, quality or trust. If you can't name it observably, you're not ready for DESC yet.",
     },
     {
       step: "2",
-      title: "Move",
+      title: "Decide whether DESC fits yet",
       body: "Decide whether this needs a direct DESC statement or a softer neighbouring move first: validation, inquiry, or treating resistance as information. DESC too early can shut a conversation down.",
     },
     {
       step: "3",
-      title: "Phrase",
+      title: "Say one line per step",
       body: "Use one short clause for each step. Keep each in your own plain voice rather than a rehearsed script.",
       examples: [
         {
@@ -422,17 +422,17 @@ export const TC074: CardData = {
     },
     {
       step: "4",
-      title: "Calibration",
+      title: "Watch how it lands",
       body: "Watch whether the other person can understand the request, ask a clarifying question, negotiate, or choose a next step. If they get defensive, slow down and separate the facts from your interpretation.",
     },
     {
       step: "5",
-      title: "Recovery",
+      title: "Repair a consequence that sounds like a threat",
       body: "If your consequence sounds like a threat, repair it immediately and restate the boundary as your own next action, not control over them.",
     },
     {
       step: "6",
-      title: "Chain",
+      title: "Keep it two-way",
       body: "Follow DESC with autonomy release, a clean request, a summary check, or permission to disagree so the conversation stays human and two-way.",
     },
   ],

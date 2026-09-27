@@ -407,7 +407,7 @@ export const TC065: CardData = {
   method: [
     {
       step: "1",
-      title: "Perception",
+      title: "Spot the thread worth saving",
       body: "Notice the moment a valuable thread appears but does not need handling right now. The cue is a useful detail dropped mid-story, mid-agenda, or under time pressure: worth exploring, but wrong timing.",
       examples: [
         {
@@ -418,12 +418,12 @@ export const TC065: CardData = {
     },
     {
       step: "2",
-      title: "Move",
+      title: "Mark it without derailing",
       body: "Pause briefly and mark the point without making it the new centre of the conversation. You are placing a flag, not switching topics.",
     },
     {
       step: "3",
-      title: "Phrase",
+      title: "Say the bookmark",
       body: "Say a short bookmark (Marker, then Value, then Return path) and hand the floor back so the current thread continues.",
       examples: [
         { label: "Marker", text: '"I want to bookmark that..."' },
@@ -436,12 +436,12 @@ export const TC065: CardData = {
     },
     {
       step: "4",
-      title: "Calibration",
+      title: "Watch how it lands",
       body: "Watch whether they relax and continue, or look worried the point was dismissed. Relief means the bookmark landed. Doubt means the point may need attention now.",
     },
     {
       step: "5",
-      title: "Recovery",
+      title: "Strengthen the return path",
       body: "If they look concerned, strengthen the return path rather than defend yourself.",
       examples: [
         {
@@ -452,7 +452,7 @@ export const TC065: CardData = {
     },
     {
       step: "6",
-      title: "Chain",
+      title: "Come back to it later",
       body: "Later, reopen the bookmark explicitly with a thread return or callback bridge, so saving the point actually leads to answering it.",
     },
   ],

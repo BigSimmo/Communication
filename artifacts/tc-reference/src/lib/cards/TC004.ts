@@ -56,7 +56,7 @@ export const TC004: CardData = {
   ],
   id: "TC004",
   whyItWorks:
-    "Reflective listening is the habit of saying back the core meaning, feeling or concern in someone's words before you add your own content. You listen for the point underneath the words, reflect it briefly in your own plain language, and let them confirm, correct or deepen it. It is a timing and attention move: you notice the live moment and choose a response that keeps the other person oriented and unpressured. It works because people become more receptive once they feel understood: reflecting first lowers defensive pressure and improves accuracy, so no one has to defend, decode or rescue the conversation. Done well it sounds like ordinary adult speech, not a script or a performance.",
+    "Reflective listening is the habit of saying back the core meaning, feeling or concern in someone's words before you add your own content. You listen for the point underneath the words, reflect it briefly in your own plain language, and let them confirm, correct or deepen it. It works because people become more receptive once they feel understood: reflecting first lowers defensive pressure and improves accuracy, so no one has to defend, decode or rescue the conversation. Done well it sounds like ordinary adult speech, not a script or a performance.",
   whatItIsNot: [
     'It is not parroting, clinical mirroring, or saying "I hear you" on autopilot.',
     "It is not agreeing with everything or pretending to understand.",
