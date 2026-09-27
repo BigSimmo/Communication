@@ -116,8 +116,9 @@ pnpm --filter @workspace/tc-reference run build
 ```
 
 Card downloads (reference, guide and quick-card PDFs, phrase bank and Anki CSVs)
-are generated from the card source by `dev`, `build` and `test`, so they are not
-committed. TC001 and the OneCard/TwoCard PDFs are hand-made and stay in git. To
+are generated from the card source by `dev` and `build`, so they are not
+committed. `test` only generates them if they are missing, so repeat test runs
+stay fast; `test:full` always regenerates first. TC001 and the OneCard/TwoCard PDFs are hand-made and stay in git. To
 regenerate them on their own:
 
 ```bash
