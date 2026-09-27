@@ -1,4 +1,9 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import {
+  isRecord,
+  safeParseJSON,
+  sanitiseStringArray,
+} from "./storage-validation";
 
 export interface Playbook {
   id: string;
@@ -28,18 +33,49 @@ const PlaybookContext = createContext<PlaybookCtx | null>(null);
 
 const STORAGE_KEY = "tc_playbooks";
 
+/**
+ * Shape check for stored playbooks: keeps entries with a string id and name
+ * (description defaults to "", non-string card ids are dropped) and skips
+ * duplicate ids, which would otherwise collide as React keys and make
+ * update/delete act on several playbooks at once.
+ */
+export function sanitisePlaybooks(value: unknown): Playbook[] {
+  if (!Array.isArray(value)) return [];
+  const seen = new Set<string>();
+  const out: Playbook[] = [];
+  for (const entry of value) {
+    if (!isRecord(entry)) continue;
+    const { id, name, description } = entry;
+    if (typeof id !== "string" || !id || typeof name !== "string") continue;
+    if (seen.has(id)) continue;
+    seen.add(id);
+    out.push({
+      id,
+      name,
+      description: typeof description === "string" ? description : "",
+      cardIds: sanitiseStringArray(entry.cardIds),
+    });
+  }
+  return out;
+}
+
+function loadPlaybooks(): Playbook[] {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? sanitisePlaybooks(safeParseJSON(stored)) : [];
+  } catch {
+    return [];
+  }
+}
+
 export function PlaybookProvider({ children }: { children: React.ReactNode }) {
-  const [playbooks, setPlaybooks] = useState<Playbook[]>(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
-  });
+  const [playbooks, setPlaybooks] = useState<Playbook[]>(loadPlaybooks);
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(playbooks));
+    // Best-effort: private browsing / quota-exceeded must not crash the app.
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(playbooks));
+    } catch {}
   }, [playbooks]);
 
   const createPlaybook = (
