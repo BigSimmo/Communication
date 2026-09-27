@@ -197,7 +197,7 @@ export const TC033: CardData = {
       tone: "High-stakes",
       phrases: [
         "Okay. Go on.",
-        "I'm listening, take your time.",
+        "I'm listening. Take your time.",
         "Yeah. Keep going, I want to understand.",
         "Right. What else?",
         "I'm here. Say it however it comes out.",
@@ -243,10 +243,10 @@ export const TC033: CardData = {
     {
       weak: 'Filling the gap with your own take: "You\'re overthinking this."',
       better: '"Yeah."',
-      best: '"Yeah.", then silence, so the floor stays theirs.',
+      best: '"Yeah." Then silence, so the floor stays theirs.',
     },
     {
-      weak: 'Correcting them, "That\'s not right."',
+      weak: 'Correcting them: "That\'s not right."',
       better: '"Right."',
       best: '"I might be reading it wrong. Go on."',
     },
@@ -270,7 +270,7 @@ export const TC033: CardData = {
     {
       situation: "Digital / text",
       move: 'One sentence only: a single line that says "still here".',
-      phrase: "I'm listening, go on.",
+      phrase: "I'm listening. Go on.",
     },
     {
       situation: "High-stakes",
@@ -365,10 +365,10 @@ export const TC033: CardData = {
       'Person: "...and part of me thinks I\'ll regret it. Actually, I think I already know."',
       'You: "Right."',
       'Person: "Yeah. I\'ll talk to her tomorrow. That helps."',
-      'You: "Good, we can stay with it or leave it there, your call."',
+      'You: "Good. We can stay with it or leave it there. Your call."',
       "Why this works:",
       "each signal keeps the floor with them",
-      "no advice, no steering. They reach their own answer",
+      "no advice, no steering: they reach their own answer",
       'the small "good" and the release close it warmly, not abruptly',
     ],
     note: "The advanced version barely says anything. That's the point. The person solves it themselves because the space stayed open.",
@@ -395,7 +395,7 @@ export const TC033: CardData = {
     headline:
       "Encourage just enough that they never have to check you're still there.",
     body: "The whole skill is restraint. One small sound, then stop. If you find yourself adding a second and a third in a row, you've stopped listening and started performing.",
-    example: '"...and I didn\'t know what to say." → "Mm." (then nothing)',
+    example: '"...and I didn\'t know what to say." You: "Mm." (then nothing)',
     dont: '"Mm, yeah, right, totally, go on, uh-huh..." A pile-up that sounds impatient.',
     do: 'One "mm", then silence, and let it land.',
   },
@@ -467,7 +467,7 @@ export const TC033: CardData = {
     {
       depth: "Written line",
       useWhen: "Text or chat",
-      phrase: '"I\'m listening, go on."',
+      phrase: '"I\'m listening. Go on."',
     },
   ],
   commonMistakes: [
@@ -493,7 +493,7 @@ export const TC033: CardData = {
     },
     {
       mistake: "Encouraging when you've stopped listening",
-      soundsLike: '"Yeah, totally", to something you missed.',
+      soundsLike: '"Yeah, totally" to something you missed.',
       better: 'If you\'ve drifted, own it: "Sorry. Say that last part again?"',
     },
     {
@@ -503,11 +503,8 @@ export const TC033: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I may be reading that wrong.",
-    "We don't have to stay with that.",
-    "Let me say that more simply.",
-    "Ignore that if it doesn't fit.",
-    "What would be more useful right now?",
+    "No rush. We don't have to stay with this.",
+    "Do you want me to just listen, or would a thought help?",
     "Sorry, I drifted for a second. Say that again?",
     "I'll stop making the noises and just listen.",
   ],
@@ -540,7 +537,7 @@ export const TC033: CardData = {
       example: [
         '"Let\'s take this slowly."',
         '"Okay. Keep going."',
-        '"So what matters most here\'s being trusted."',
+        '"So what matters most here is being trusted."',
       ],
     },
   ],

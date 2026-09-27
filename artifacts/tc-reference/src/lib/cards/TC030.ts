@@ -135,7 +135,7 @@ export const TC030: CardData = {
       phrases: [
         "Chaotic in a fun way or a why-am-I-here way?",
         "Unexpectedly good? That needs the story.",
-        "Weirdly satisfying, weirdly how?",
+        "Weirdly satisfying. Weirdly how?",
         "That phrase is doing a lot of work. Explain.",
         "Good-intense or bad-intense?",
       ],
@@ -151,7 +151,7 @@ export const TC030: CardData = {
         "What does 'done properly' mean here?",
         "You mentioned 'alignment'. Alignment around what?",
         "When you say 'priority', what should we optimise for?",
-        "'Blocked', blocked by what?",
+        "'Blocked'. Blocked by what?",
       ],
     },
     {
@@ -298,7 +298,7 @@ export const TC030: CardData = {
     {
       weak: '"Tell me more."',
       better: '"What was that like?"',
-      best: '"You said it was weirdly intense, weirdly intense how?"',
+      best: '"You said it was weirdly intense. Weirdly intense how?"',
     },
     {
       weak: '"Why?"',
@@ -427,7 +427,7 @@ export const TC030: CardData = {
       sequence:
         "Warm comment → echo plus question → reflection → light self-disclosure",
       example: [
-        '"That sounds like a good problem to have. Oddly satisfying, oddly how?"',
+        '"That sounds like a good problem to have. Oddly satisfying. Oddly how?"',
         '"So it\'s satisfying because it finally clicked."',
         '"I get that. I chase that feeling more than the actual result."',
       ],
@@ -457,7 +457,7 @@ export const TC030: CardData = {
       sequence:
         "Warm opening → echo plus question → make them the expert → useful follow-up",
       example: [
-        "\"That sounds like a fascinating project. 'Messy middle', messy how?\"",
+        "\"That sounds like a fascinating project. 'Messy middle'. Messy how?\"",
         '"You clearly know this space. What do most people get wrong about it?"',
         '"Who should I be reading or talking to on that?"',
       ],
@@ -467,7 +467,7 @@ export const TC030: CardData = {
     {
       situation: "Casual conversation",
       move: "Break generic small talk by echoing the odd or loaded word.",
-      phrase: "Oddly satisfying, oddly how?",
+      phrase: "Oddly satisfying. Oddly how?",
     },
     {
       situation: "Professional discussion",
@@ -576,7 +576,7 @@ export const TC030: CardData = {
   fieldTip: {
     headline: "Echo the door, not every word.",
     body: "The skill is selection, not repetition. Most sentences have one word doing the real work: the one loaded with feeling, ambiguity or stakes. Echo that one, ask one small question, then leave the rest alone.",
-    example: '"It was fine, just... draining." → echo "draining", not "fine".',
+    example: '"It was fine, just... draining." Echo "draining", not "fine".',
     dont: "Echo every interesting word until you sound like an echo chamber.",
     do: "Pick the single phrase that opens the door, repeat it, ask one small question, then stop.",
   },

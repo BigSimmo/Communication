@@ -496,7 +496,7 @@ export const TC073: CardData = {
     {
       mistake: "Using therapy-speak",
       soundsLike: '"I sense resistance in your body."',
-      better: "\"Something in this isn't landing for you. What's it?\"",
+      better: '"Something in this isn\'t landing for you. What is it?"',
     },
     {
       mistake: "Over-categorising into a cage",

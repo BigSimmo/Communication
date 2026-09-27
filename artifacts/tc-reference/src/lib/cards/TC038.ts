@@ -56,7 +56,7 @@ export const TC038: CardData = {
   ],
   id: "TC038",
   whyItWorks:
-    "Conversation threading is the practice of noticing a thread someone opened earlier (a topic, a feeling, or an unfinished point) and reopening it cleanly, without derailing the conversation you are currently in. It works because it changes the interaction at the level of timing, attention and response choice rather than adding a complicated script: the other person feels genuinely heard, the exchange stays on the thread that actually matters, and nothing important gets quietly dropped.",
+    "Conversation threading is the practice of noticing a thread someone opened earlier (a topic, a feeling, or an unfinished point) and reopening it cleanly, without derailing the conversation you are currently in. It works because the other person feels genuinely heard, the exchange stays on the thread that actually matters, and nothing important gets quietly dropped.",
   whatItIsNot: [
     "It is not a trick, a performance, a dominance move, or a shortcut around consent.",
     "It is not a way to drag someone back to a topic they've moved on from.",
@@ -105,7 +105,7 @@ export const TC038: CardData = {
         "Before we move on, can I pick up something?",
         "Quick loop-back to what you said.",
         "Can I come back to that bit?",
-        "Earlier you mentioned the timing, still the key thing?",
+        "Earlier you mentioned the timing. Still the key thing?",
         "Mind if we return to the first thing you said?",
         "There's a thread I don't want to drop.",
       ],
@@ -151,7 +151,7 @@ export const TC038: CardData = {
         "There were two threads there: the workload and the uncertainty. Which one matters more?",
         "Earlier you mentioned the timing. Is that what made the whole thing harder?",
         "Is the main thread here the decision, or how it was handled?",
-        "A few things came up, which is the one to stay with?",
+        "A few things came up. Which is the one to stay with?",
         "You raised the deadline, the role, and the money. Where do we start?",
         "The real thread might be the trust part, not the schedule.",
         "Which of those is the one you actually want to talk about?",
@@ -272,7 +272,7 @@ export const TC038: CardData = {
       situation: "They mentioned several things at once",
       move: "Name the threads out loud and let them choose which one to stay with.",
       phrase:
-        "You raised a few things, which is the one that matters most right now?",
+        "You raised a few things. Which is the one that matters most right now?",
     },
   ],
   calibration: {
@@ -355,14 +355,14 @@ export const TC038: CardData = {
       "B: So the thread is being left alone with it, not only being busy.",
       "A: That's it.",
     ],
-    note: 'The advanced version reopens the earlier thread ("too much at once") and names the real meaning without taking control of it.',
+    note: 'The strong version picks up a word from earlier ("suddenly") and uses it to find the real thread, without taking control of it.',
   },
   influencePayoff: {
     feeling: '"They actually kept track of what mattered to me."',
     principle:
       "People open up more when they trust you will hold the thread rather than drop it. Continuity signals real attention, and it protects dignity because they can still accept, redirect, or decline without being cornered.",
     gains: [
-      "Better conversational accuracy",
+      "Nothing important gets quietly dropped",
       "Trust and a felt sense of being heard",
       "Less friction and less overtalking",
       "The conversation stays on the thread that matters",
@@ -476,14 +476,11 @@ export const TC038: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I may be reading that wrong.",
+    "Maybe that's not the thread. Where would you rather go?",
     "We don't have to stay with that.",
-    "Let me say that more simply.",
     "That came out too strong.",
-    "Ignore that if it doesn't fit.",
-    "We can go another direction.",
     "What would be more useful right now?",
-    "No pressure, happy to drop it.",
+    "No pressure. Happy to drop it.",
   ],
   bestRecoveryLine:
     "We don't have to stay with that. What would be more useful right now?",

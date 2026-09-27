@@ -56,7 +56,7 @@ export const TC039: CardData = {
   ],
   id: "TC039",
   whyItWorks:
-    "Common-ground discovery means finding one real shared point (a concern, value, experience, goal or constraint) and naming it lightly, without pretending sameness or forcing agreement. It works because it changes the conversation at the level of timing, attention and response choice rather than adding a script: the other person feels genuinely heard, friction drops, and a stuck exchange gets one honest overlap to build from.",
+    "Common-ground discovery means finding one real shared point (a concern, value, experience, goal or constraint) and naming it lightly, without pretending sameness or forcing agreement. It works because it gives a stuck exchange one honest overlap to build from: the other person feels heard, friction drops, and you can work on the difference from shared ground.",
   whatItIsNot: [
     "It is not a trick, a performance, a dominance move, or a shortcut around consent.",
     "It is not inventing similarity. If there's no real overlap, don't fake one.",
@@ -149,7 +149,7 @@ export const TC039: CardData = {
         "We may not agree on the cause, but we both want a cleaner next step.",
         "Can we build from the part we do agree on?",
         "The useful part might be this: we both want a workable next step.",
-        "Where we line up is the timing, can we work from that?",
+        "Where we line up is the timing. Can we work from that?",
         "If we both want it to be fair, let's start there.",
       ],
     },
@@ -173,11 +173,11 @@ export const TC039: CardData = {
       tag: "Written, one line",
       tone: "Quick",
       phrases: [
-        "I may be reading this wrong, but that seems like the key thread.",
-        "We can stay with that or move on. Your call.",
+        "Think we both want the same thing here: a clean handover.",
+        "We're on the same side on the timing, at least.",
         "The useful part may be this: we both want the same outcome.",
         "Sounds like we both want the same result, even if the route's different.",
-        "Feels like we agree on the goal, want to sort the how?",
+        "Feels like we agree on the goal. Want to sort the how?",
       ],
     },
     {
@@ -267,9 +267,7 @@ export const TC039: CardData = {
       situation: "Digital message",
       move: "Use one sentence only. Don't stack multiple prompts.",
       phrase:
-        "I may be reading this wrong, but that seems like the key thread.",
-    },
-    {
+        "Think we both want the same thing here: a clean handover."{
       situation: "High-stakes context",
       move: "Lead with direct clarity. Add common ground only if it lowers pressure and improves understanding.",
       phrase: "Even here, we both want this to be fair.",
@@ -371,10 +369,8 @@ export const TC039: CardData = {
     principle:
       "People soften once they can see one honest thing you both want. A real overlap lowers defensiveness faster than any argument.",
     gains: [
-      "Better conversational accuracy",
       "Trust",
       "Less friction",
-      "Less overtalking",
       "The conversation stays on the thread that matters",
       "Alignment without pretending full agreement",
       "Dignity preserved: they can accept, redirect, or decline without being cornered",
@@ -520,13 +516,10 @@ export const TC039: CardData = {
   recoveryPhrases: [
     "I may be reading that wrong.",
     "We don't have to stay with that.",
-    "Let me say that more simply.",
     "That came out too strong.",
-    "Ignore that if it doesn't fit.",
-    "We can go another direction.",
-    "What would be more useful right now?",
+    "Maybe we want different things here. Tell me yours.",
   ],
-  bestRecoveryLine: "I may be reading that wrong. Ignore it if it doesn't fit.",
+  bestRecoveryLine: "I may be reading that wrong. Is that actually something we share?",
   chains: [
     {
       label: "Repair to request",

@@ -399,7 +399,7 @@ export const TC064: CardData = {
       "If you would not want someone certain about that read of you, do not be certain about it for them.",
     body: 'The safety valve is the phrase "or something else." It keeps your read useful without trapping the other person inside the options you happened to think of.',
     example: "I may be reading this wrong. Is it A, B, or something else?",
-    dont: '"I sense your resistance here\'s really about control." Diagnostic and intrusive.',
+    dont: '"I sense your resistance here is really about control." Diagnostic and intrusive.',
     do: '"Can I check, is it the workload, the timing, or something I\'ve missed?"',
   },
   method: [

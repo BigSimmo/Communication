@@ -491,7 +491,7 @@ export const TC063: CardData = {
     {
       mistake: "Extraction disguised as respect",
       soundsLike: '"Could you write up your thinking on the whole strategy?"',
-      better: '"One caution from your side would really help. What\'s it?"',
+      better: '"One caution from your side would really help. What is it?"',
     },
     {
       mistake: "Status dump",

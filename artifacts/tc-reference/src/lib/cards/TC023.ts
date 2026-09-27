@@ -66,13 +66,13 @@ export const TC023: CardData = {
   overview: {
     coreFormula: [
       'Their word + "how?" "Weird how?" / "Intense how?" / "Messy how?"',
-      'Small comment first, "That sounds like the important word. Intense how?"',
-      "Meaning check, \"When you say 'freeing', what do you mean?\"",
-      'Two options, "Good-weird or bad-weird?" / "Exciting-intense or stressful-intense?"',
-      "For a decision, \"When you say 'risky', is the concern timing, cost, or quality?\"",
+      'Small comment first: "That sounds like the important word. Intense how?"',
+      "Meaning check: \"When you say 'freeing', what do you mean?\"",
+      'Two options: "Good-weird or bad-weird?" / "Exciting-intense or stressful-intense?"',
+      "For a decision: \"When you say 'risky', is the concern timing, cost, or quality?\"",
     ],
     minimumViableMove:
-      'Pick the word carrying the most emotional charge and ask "[word] how?" "Weird how?", "Intense how?", "Messy how?", "Freeing how?"',
+      'Pick the word carrying the most emotional charge and ask "[word] how?": "Weird how?", "Intense how?", "Messy how?", "Freeing how?"',
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
@@ -200,7 +200,7 @@ export const TC023: CardData = {
       tone: "High-stakes",
       phrases: [
         "No pressure to go into it, but when you say 'weird', what kind of weird?",
-        "Only if you want to unpack it, complicated how?",
+        "Only if you want to unpack it. Complicated how?",
         "Was it more awkward or more frustrating?",
         "What part of it felt most off?",
         "You don't have to explain the whole thing. I'm just curious what you meant by 'intense'.",
@@ -262,7 +262,7 @@ export const TC023: CardData = {
       situation:
         'Networking: they say "It\'s been a messy year for the industry."',
       move: "Offer a two-option version so they can point at what they mean.",
-      phrase: "Messy in what way, people, funding, or direction?",
+      phrase: "Messy in what way? People, funding, or direction?",
     },
     {
       situation: 'Workplace influence: they say "The plan feels risky."',
@@ -301,7 +301,7 @@ export const TC023: CardData = {
       "They change topic quickly.",
       "They look away, withdraw or seem embarrassed.",
       "You've echoed several words in a row without contributing.",
-      'Soften it: add a small comment before the question, or offer an exit, "No pressure if you don\'t want to unpack it."',
+      'Soften it: add a small comment before the question, or offer an exit: "No pressure if you don\'t want to unpack it."',
       'Move one step lighter, from meaning to fact, or switch from a question to a reflection: "So it felt off, but hard to name."',
     ],
   },
@@ -314,7 +314,7 @@ export const TC023: CardData = {
     {
       day: "Day 2",
       title: "Rehearse the move",
-      task: 'Say the minimum viable move out loud three times: pick a charged word and ask "[word] how?" "Weird how?", "Intense how?", "Messy how?" Make it sound casual, not clever.',
+      task: 'Say the minimum viable move out loud three times: pick a charged word and ask "[word] how?", such as "Weird how?", "Intense how?" or "Messy how?" Make it sound casual, not clever.',
     },
     {
       day: "Day 3",
@@ -372,7 +372,7 @@ export const TC023: CardData = {
     principle:
       "People become more open with you once they feel you've registered their meaning, not just their topic.",
     gains: [
-      "Makes people feel precisely heard. You noticed the word that carried their meaning, not just the surface topic.",
+      "Makes people feel precisely heard: you noticed the word that carried their meaning, not just the surface topic.",
       "Creates momentum: they don't have to invent a new topic. They simply explain their own word.",
       "Signals attention, curiosity and social intelligence without a long or clever question.",
       "Surfaces values, concerns, hidden objections, excitement or uncertainty before you persuade or advise.",
@@ -447,7 +447,7 @@ export const TC023: CardData = {
     '"intense" / "messy" / "strange"',
     '"freeing" / "surprising"',
     '"not what I expected"',
-    '"...but..." The charged word often lands right after',
+    '"...but..." (the charged word often lands right after it)',
   ],
   commonMistakes: [
     {
@@ -492,7 +492,7 @@ export const TC023: CardData = {
     "No pressure to unpack it. I just noticed that word.",
     "Let me ask that less clumsily.",
     "I may be reading too much into one word. What did you mean by it?",
-    "That came out like an interrogation. What I meant was, what kind of 'weird'?",
+    "That came out like an interrogation. What I meant was: what kind of 'weird'?",
     "We can leave it there if it's not worth going into.",
     "Ignore the question if it's too much. I didn't mean to put you on the spot.",
     "Fair enough, I'll stop analysing your word choice.",

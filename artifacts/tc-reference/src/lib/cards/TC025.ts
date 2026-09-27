@@ -67,7 +67,7 @@ export const TC025: CardData = {
   overview: {
     coreFormula: [
       "Exact phrase → small comment → natural follow-up.",
-      "You called it 'oddly freeing', freeing how?",
+      "You called it 'oddly freeing'. Freeing how?",
       "'Hidden rules' is a good phrase. What are you noticing?",
       "When you say 'messy', do you mean emotionally or logistically?",
       "'Not quite right' sounds specific. What was off?",
@@ -139,7 +139,7 @@ export const TC025: CardData = {
         "You described it as 'fragile'. Where's the fragility?",
         "What does 'cleaner' look like in this context?",
         "When you say 'blocked', is that a people issue, a process issue, or timing?",
-        "You called the plan 'ambitious', ambitious where, specifically?",
+        "You called the plan 'ambitious'. Ambitious where, specifically?",
       ],
     },
     {
@@ -174,7 +174,7 @@ export const TC025: CardData = {
       tag: "One exact phrase back",
       tone: "Quick",
       phrases: [
-        "'Oddly freeing' caught my eye, freeing how?",
+        "'Oddly freeing' caught my eye. Freeing how?",
         "When you say 'messy', do you mean emotionally or logistically?",
         "'Hidden rules' is a great phrase. What are the rules?",
         "That 'not quite right' bit sounds important.",
@@ -200,7 +200,7 @@ export const TC025: CardData = {
       tag: "Optional and low-pressure",
       tone: "High-stakes",
       phrases: [
-        "You used the word 'strange', only if you want to, strange how?",
+        "You used the word 'strange'. Only if you want to: strange how?",
         "I might be picking up the wrong word, but 'tiring' stood out.",
         "No pressure to go into it, but what did you mean by 'heavy'?",
         "You said 'fine-ish'. That sounds like there's a caveat.",
@@ -250,7 +250,7 @@ export const TC025: CardData = {
     {
       weak: "How was it?",
       better: "What was it like?",
-      best: "You called it 'oddly freeing', freeing how?",
+      best: "You called it 'oddly freeing'. Freeing how?",
     },
     {
       weak: "Why?",
@@ -293,7 +293,7 @@ export const TC025: CardData = {
     {
       situation: "Digital or text",
       move: "Quote one phrase briefly and ask a concise follow-up.",
-      phrase: "'Strange relief' caught my eye, relief how?",
+      phrase: "'Strange relief' caught my eye. Relief how?",
     },
     {
       situation: "High-status person",
@@ -389,7 +389,7 @@ export const TC025: CardData = {
     ],
     with: [
       "Person: The whole reorg has been oddly freeing, to be honest.",
-      "You: 'Oddly freeing' is interesting, freeing how?",
+      "You: 'Oddly freeing' is interesting. Freeing how?",
       "Person: I stopped waiting for permission on the small stuff.",
       "You: So it was less about the restructure and more about not needing sign-off?",
       "Person: Exactly. That's the part that actually changed.",
@@ -458,7 +458,7 @@ export const TC025: CardData = {
       examples: [
         {
           label: "Comment + question",
-          text: "'Oddly freeing' is interesting, freeing how?",
+          text: "'Oddly freeing' is interesting. Freeing how?",
         },
         {
           label: "Comment + question",
@@ -554,7 +554,7 @@ export const TC025: CardData = {
         "Listen for the phrase → ask about the exact word → let them clarify → follow the new thread",
       example: [
         "Them: 'It's been messy.'",
-        "You: 'Messy how. Emotionally or logistically?'",
+        "You: 'Messy how? Emotionally or logistically?'",
         "Them: 'Logistically. Three people own the same task.'",
         "You: 'Ah, so it's an ownership tangle, not a people problem.'",
       ],

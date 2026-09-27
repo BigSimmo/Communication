@@ -56,7 +56,7 @@ export const TC037: CardData = {
   ],
   id: "TC037",
   whyItWorks:
-    "Double-sided reflection is naming the two live sides of someone's mixed position in one balanced sentence, so they feel accurately understood without being pushed to choose. It works because it changes the conversation at the level of timing, attention and response choice rather than adding a script: once a person feels both halves of their ambivalence have been heard, the pressure to defend either half drops and they can think out loud instead of bracing.",
+    "Double-sided reflection is naming the two live sides of someone's mixed position in one balanced sentence, so they feel accurately understood without being pushed to choose. It works because once a person feels both halves of their ambivalence have been heard, the pressure to defend either half drops and they can think out loud instead of bracing.",
   whatItIsNot: [
     "It is not a trick, a performance, or a dominance move, and it is not a shortcut around consent.",
     "It is not a way to argue them toward the side you prefer.",
@@ -160,7 +160,7 @@ export const TC037: CardData = {
       tag: "Hedged / digital / low-pressure",
       tone: "Repair",
       phrases: [
-        "I may be reading this wrong, but that seems like the key thread.",
+        "I may be reading this wrong, but it sounds like both are true.",
         "We can stay with that, or move on. Your call.",
         "Tell me if this is off: you want both, and neither feels free.",
         "Maybe it's two things at once: the wanting and the worry.",
@@ -237,7 +237,7 @@ export const TC037: CardData = {
     {
       situation: "Casual conversation",
       move: "Use the minimum viable move and keep the tone light.",
-      phrase: "Part of you wants to go, and part of you'd rather stay in.",
+      phrase: "Part of you wants to go, and part of you would rather stay in.",
     },
     {
       situation: "Workplace conversation",
@@ -361,7 +361,7 @@ export const TC037: CardData = {
     principle:
       "People stop defending a position once they feel both sides of it have been heard. Naming the tension accurately lowers the need to argue and lets them think out loud.",
     gains: [
-      "Better conversational accuracy",
+      "They feel understood without being pushed to choose",
       "Trust",
       "Less friction and overtalking",
       "The person stays on the thread that matters",
@@ -487,11 +487,9 @@ export const TC037: CardData = {
   recoveryPhrases: [
     "I may be reading that wrong.",
     "We don't have to stay with that.",
-    "Let me say that more simply.",
     "That came out stronger than I meant.",
-    "Ignore that if it doesn't fit.",
-    "We can go another direction.",
-    "What would actually be useful right now?",
+    "Maybe it's really only one side. Which is it?",
+    "I didn't mean to make it sound like you have to choose.",
   ],
   bestRecoveryLine: "I may be reading that wrong. Tell me what actually fits.",
   chains: [

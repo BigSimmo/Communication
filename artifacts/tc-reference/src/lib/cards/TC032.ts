@@ -134,8 +134,8 @@ export const TC032: CardData = {
         "You said the Sydney team owns that call. Did you hear back?",
         "I know onboarding was your focus this quarter. How's it tracking?",
         "You mentioned Q3 was tight. Has that eased at all?",
-        "Before we start. How did the board session go? You had that Thursday.",
-        "You'd wanted to loop Priya in on this, shall I hold off until she's across it?",
+        "Before we start, how did the board session go? You had that Thursday.",
+        "You'd wanted to loop Priya in on this. Shall I hold off until she's across it?",
       ],
     },
     {
@@ -147,7 +147,7 @@ export const TC032: CardData = {
         "I may be misremembering, but was today the Sydney meeting?",
         "Correct me if I've got this wrong. You're leading the rollout?",
         "Was it Thursday you were flying out, or have I muddled that?",
-        "Remind me. Is it Kate or Katie you prefer?",
+        "Remind me, is it Kate or Katie you prefer?",
         "You said fortnightly, not weekly. Did I get that right?",
       ],
     },
@@ -171,7 +171,7 @@ export const TC032: CardData = {
       tag: "One sentence only",
       tone: "Quick",
       phrases: [
-        "I may be reading this wrong, but this seems like the relevant thread.",
+        "Saw the news about the new role. Hope it's going well.",
         "Hope the presentation went well on Thursday.",
         "Following up on the move. Did it all go smoothly?",
         "You mentioned this week was hectic, so no rush replying.",
@@ -465,7 +465,7 @@ export const TC032: CardData = {
     {
       depth: "Detail + feeling",
       useWhen: "real trust is present",
-      phrase: "You'd said the first month was full-on, has it eased?",
+      phrase: "You'd said the first month was full-on. Has it eased?",
     },
   ],
   commonMistakes: [
@@ -509,21 +509,19 @@ export const TC032: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I may be reading that wrong.",
-    "We don't have to stay with that.",
-    "Let me say that more simply.",
+    "I may have muddled that. What was it?",
+    "No need to get into it. I just thought of you.",
     "Ignore that if it doesn't fit.",
-    "What would be more useful right now?",
     "Sorry, I've mixed that up with someone else.",
     "No pressure to get into it.",
     "Forget I mentioned it if it's not the right time.",
   ],
-  bestRecoveryLine: "I may be reading that wrong. Ignore it if it doesn't fit.",
+  bestRecoveryLine: "I may have muddled that. Ignore it if it doesn't fit.",
   chains: [
     {
       label: "Reconnect and open up",
       sequence:
-        "Name and detail memory → Summary check → Live-Thread Follow-Up",
+        "Name and detail memory → Summary check → Live thread follow-ups",
       example: [
         '"Good to see you, Sam. You were mid-house-hunt last time."',
         '"So it sounds like the search is still on, but you\'ve narrowed the area?"',

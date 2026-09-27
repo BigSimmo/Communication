@@ -67,7 +67,7 @@ export const TC024: CardData = {
   overview: {
     coreFormula: [
       "Recognition + a small warm or context signal + a clean purpose bridge.",
-      "Good to see you. Quick one, I wanted to ask about Friday.",
+      "Good to see you. Quick one: I wanted to ask about Friday.",
       "Thanks for making time. I know your day is packed, so I'll keep this tight.",
       "Nice to meet you. I heard you're the person who knows this area well.",
       "Before I jump in, I appreciate you being open to talking this through.",
@@ -98,7 +98,7 @@ export const TC024: CardData = {
     {
       id: "quick_low_pressure",
       label: "Quick / low-pressure",
-      tag: "Quick / low-pressure phrases",
+      tag: "Brief and easy",
       tone: "Quick",
       phrases: [
         "Good to see you. Quick one...",
@@ -113,7 +113,7 @@ export const TC024: CardData = {
     {
       id: "social_casual",
       label: "Social / casual",
-      tag: "Social / casual phrases",
+      tag: "Friends and new people",
       tone: "Warm",
       phrases: [
         "Good to see you. How's your day actually been?",
@@ -128,7 +128,7 @@ export const TC024: CardData = {
     {
       id: "professional_workplace",
       label: "Professional / workplace",
-      tag: "Professional / workplace phrases",
+      tag: "Meetings and colleagues",
       tone: "Professional",
       phrases: [
         "Thanks for making time. The thing I wanted to cover is...",
@@ -143,7 +143,7 @@ export const TC024: CardData = {
     {
       id: "requests",
       label: "Requests",
-      tag: "Requests phrases",
+      tag: "Before you ask",
       tone: "Direct",
       phrases: [
         "Can I ask a small favour?",
@@ -157,7 +157,7 @@ export const TC024: CardData = {
     {
       id: "conflict_difficult_topics",
       label: "Conflict / difficult topics",
-      tag: "Conflict / difficult topics phrases",
+      tag: "Raising something hard",
       tone: "High-stakes",
       phrases: [
         "I want to raise this carefully, not make it heavier than it needs to be.",
@@ -171,7 +171,7 @@ export const TC024: CardData = {
     {
       id: "high_status_busy_person",
       label: "High-status / busy person",
-      tag: "High-status / busy person phrases",
+      tag: "Brief and relevant",
       tone: "Direct",
       phrases: [
         "I know your time is tight, so I'll be brief.",
@@ -185,10 +185,10 @@ export const TC024: CardData = {
     {
       id: "digital_text",
       label: "Digital / text",
-      tag: "Digital / text phrases",
+      tag: "One human line, then the ask",
       tone: "Quick",
       phrases: [
-        "Quick ask, no pressure if today is too full.",
+        "Quick ask. No pressure if today is too full.",
         "Thought of you because of your point about X.",
         "Hope your week is going okay. One specific question...",
         "Can I get your quick read on this?",
@@ -199,7 +199,7 @@ export const TC024: CardData = {
     {
       id: "re_open_after_silence",
       label: "Re-open after silence",
-      tag: "Re-open after silence phrases",
+      tag: "Picking a thread back up",
       tone: "Repair",
       phrases: [
         "Picking this back up from the other day...",
@@ -237,7 +237,7 @@ export const TC024: CardData = {
     {
       condition: "They seem irritated.",
       action: "Acknowledge the time or pressure, then shorten or defer.",
-      phrase: "I can tell it's a bad moment, shall I catch you later?",
+      phrase: "I can tell it's a bad moment. Shall I catch you later?",
     },
     {
       condition: "They engage with small talk.",
@@ -292,7 +292,7 @@ export const TC024: CardData = {
     {
       situation: "Digital message",
       move: "Lead with a brief human line, then a clear ask.",
-      phrase: "Quick ask, no pressure if today is full.",
+      phrase: "Quick ask. No pressure if today is full.",
     },
     {
       situation: "Re-opening after silence",
@@ -369,7 +369,7 @@ export const TC024: CardData = {
   example: {
     without: [
       "You: \"Hey, sorry, sorry, I know you're busy. I just wanted to maybe ask something quickly, if that's okay...\"",
-      'Person: "What\'s it?"',
+      'Person: "What is it?"',
       'You: "It\'s not a big deal, but..."',
       "Why it's weak:",
       "buries the ask under apology and hedging",
@@ -454,7 +454,7 @@ export const TC024: CardData = {
       title: "Bridge to purpose early",
       body: "After the warm signal, say clearly why you're there. Warmth without direction can feel inefficient or evasive.",
       examples: [
-        { label: "Bridge", text: "Quick one, I wanted to ask about Friday." },
+        { label: "Bridge", text: "Quick one: I wanted to ask about Friday." },
       ],
     },
     {
@@ -472,7 +472,7 @@ export const TC024: CardData = {
     '"What do you need?" Drop the warm-up and go straight to the ask.',
     "Clipped, one-word replies: shorten and get to the point.",
     "Phone in hand, half-turned away: lead with the bottom line.",
-    '"Good to see you too". There\'s room for a warm beat.',
+    '"Good to see you too." There\'s room for a warm beat.',
     "A heavy topic already in the air: match it, don't brighten it.",
   ],
   depthDial: [
@@ -564,7 +564,7 @@ export const TC024: CardData = {
       example: [
         '"Thanks for making time. Quick one."',
         '"Could you review the one-pager by Thursday?"',
-        '"No pressure if that\'s tight, just let me know either way."',
+        '"No pressure if that\'s tight. Just let me know either way."',
       ],
     },
     {

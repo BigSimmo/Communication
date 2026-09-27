@@ -186,8 +186,8 @@ export const TC040: CardData = {
       tag: "Written messages",
       tone: "Quick",
       phrases: [
-        "I may be reading this wrong, but that seems like the key thread.",
-        "We can stay with that or move on. Your call.",
+        "Sounds like it was more about trust than the delay. Am I close?",
+        "Happy to be told I've read this wrong.",
         "The useful part may be this: the bit about being trusted.",
         "Sounds like it mattered more than the message let on. Happy to be corrected.",
         "Reading between the lines, this seems to be about respect. Right?",
@@ -365,9 +365,9 @@ export const TC040: CardData = {
       "Why this works:",
       "names the significance, not just the facts",
       "phrases it tentatively so they can correct it",
-      "lets them lead. B tracks the thread, doesn't take it over",
+      "lets them lead: B tracks the thread without taking it over",
     ],
-    note: "The advanced version keeps the other person's thread alive without taking control of it.",
+    note: "The strong version names what it meant, not what happened, and leaves them free to correct it.",
   },
   influencePayoff: {
     feeling:
@@ -406,7 +406,7 @@ export const TC040: CardData = {
     {
       step: "2",
       title: "Infer the possible significance",
-      body: "Ask yourself quietly: what did this change or threaten for them, trust, respect, belonging, effort, safety, being seen? Pick the most likely one. You are forming a guess, not a diagnosis.",
+      body: "Ask yourself quietly: what did this change or threaten for them? Trust, respect, belonging, effort, safety, being seen? Pick the most likely one. You are forming a guess, not a diagnosis.",
     },
     {
       step: "3",
@@ -479,11 +479,7 @@ export const TC040: CardData = {
   recoveryPhrases: [
     "I may be reading that wrong.",
     "We don't have to stay with that.",
-    "Let me say that more simply.",
     "That came out stronger than I meant.",
-    "Ignore that if it doesn't fit.",
-    "We can go another direction.",
-    "What would be more useful right now?",
     "Forget the analysis. What actually happened next?",
   ],
   bestRecoveryLine: "I may be reading that wrong. Ignore it if it doesn't fit.",

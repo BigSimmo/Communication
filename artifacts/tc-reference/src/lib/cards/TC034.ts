@@ -122,7 +122,7 @@ export const TC034: CardData = {
         "No rush. Is it more the timing, or more the workload?",
         "Whatever's easier: quick summary, or the full story?",
         "Do you want me to just listen, or actually help think it through?",
-        "Happy either way, dig into it now, or leave it for later?",
+        "Happy either way. Dig into it now, or leave it for later?",
         "Is this a 'need advice' thing, or a 'need a minute' thing?",
         "Sounds like a lot. Is it one big thing, or lots of small ones?",
         "Would a chat help, or would some space be better?",
@@ -171,7 +171,7 @@ export const TC034: CardData = {
         "No pressure to pick either. I just wanted to make it easier to answer.",
         "Would it help to name it, or would you rather leave it?",
         "Say 'neither' if I've missed it.",
-        "We don't have to stay with that.",
+        "Or neither. Tell me in your own words.",
       ],
     },
     {
@@ -180,7 +180,7 @@ export const TC034: CardData = {
       tag: "Clarity first, then options",
       tone: "High-stakes",
       phrases: [
-        "Before we go further. Is this a today problem, or a this-week problem?",
+        "Before we go further, is this a today problem or a this-week problem?",
         "Do you want to solve it now, or cool off and come back to it?",
         "Is the sticking point the money, or the trust?",
         "Are we deciding this together, or do you need me to make the call?",
@@ -229,12 +229,12 @@ export const TC034: CardData = {
     {
       weak: "Tell me everything.",
       better: "Is it more timing or workload?",
-      best: "Is it more timing or workload?, only if that framing fits.",
+      best: "Is it more timing or workload? (only if that framing fits)",
     },
     {
       weak: "That's wrong.",
       better: "Short version or detailed version?",
-      best: "I might be reading it wrong, but, short version, or the detailed one?",
+      best: "I might be reading it wrong, but short version or the detailed one?",
     },
   ],
   scenarios: [
@@ -329,7 +329,7 @@ export const TC034: CardData = {
     },
   ],
   checklist: [
-    "Did I preserve their autonomy, was there a genuine way out?",
+    "Did I preserve their autonomy? Was there a genuine way out?",
     "Did I use one move rather than several?",
     "Did I watch the response instead of pushing on?",
     "Did I stop when the energy dropped?",
@@ -352,7 +352,7 @@ export const TC034: CardData = {
       "Person: \"Honestly, the timing. The work's fine, I just can't do it this week.\"",
       'You: "That helps. Do you want to decide the date now, or park it till tomorrow?"',
       "Person: \"Let's park it. I'll have a clearer head then.\"",
-      'You: "Good, we can stay with that or adjust."',
+      'You: "Good. We can stay with that or adjust."',
       "Why this works:",
       "turns a heavy open question into two easy paths",
       "the escape hatch keeps their autonomy intact",
@@ -385,7 +385,7 @@ export const TC034: CardData = {
     headline: "Two options should reduce effort, not remove freedom.",
     body: 'The pair is a doorway, not a cage. Always leave the door open with "or something else" so the other person can hand you the answer you didn\'t think of, which is usually the real one.',
     example:
-      '"Is it more the timing, or the workload, or something else?" → "Actually, it\'s neither. I just don\'t trust the plan."',
+      'You: "Is it more the timing, or the workload, or something else?" They say: "Actually, it\'s neither. I just don\'t trust the plan."',
     dont: "Don't offer two options that both lead where you want to go.",
     do: "Do make both options ones they'd be genuinely happy to pick, then add an exit.",
   },
@@ -432,8 +432,8 @@ export const TC034: CardData = {
     },
     {
       mistake: "Overusing the move",
-      soundsLike: "every reply framed as two options",
-      better: "one two-option question, then let them run",
+      soundsLike: "Every reply framed as two options",
+      better: "One two-option question, then let them run.",
     },
     {
       mistake: "Making it sound like a technique",
@@ -442,13 +442,13 @@ export const TC034: CardData = {
     },
     {
       mistake: "Ignoring the response",
-      soundsLike: "pushing on after they've gone quiet",
-      better: "pausing to watch, then following or releasing",
+      soundsLike: "Pushing on after they've gone quiet",
+      better: "Pause to watch, then follow or release.",
     },
     {
       mistake: "Using it to steer",
-      soundsLike: "two options that both lead to your agenda",
-      better: "two options they'd genuinely be happy with, plus an exit",
+      soundsLike: "Two options that both lead to your agenda",
+      better: "Two options they'd genuinely be happy with, plus an exit.",
     },
     {
       mistake: "Dropping the escape hatch",
@@ -462,21 +462,18 @@ export const TC034: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I might be reading that wrong.",
-    "We don't have to stay with that.",
-    "Let me say that more simply.",
+    "Or neither. Tell me in your own words.",
     "Ignore the options if neither fits.",
-    "What would be more useful right now?",
     "Forget the two. What's the honest answer?",
     "No pressure to pick either.",
   ],
   bestRecoveryLine:
-    "I might be reading that wrong. Ignore the options if neither fits.",
+    "Ignore the options if neither fits. What's the honest answer?",
   chains: [
     {
       label: "Clarify then explore",
       sequence:
-        "Two-Option Question → Summary check (TC011) → Live-Thread Follow-Up (TC001)",
+        "Two-option questions → Summary check (TC011) → Live thread follow-ups (TC001)",
       example: [
         '"Is it more timing or workload?"',
         '"So it\'s mainly the timing."',
@@ -486,7 +483,7 @@ export const TC034: CardData = {
     {
       label: "Reassure then release",
       sequence:
-        "Validation without agreement (TC005) → Two-Option Question → Autonomy release (TC021)",
+        "Validation without agreement (TC005) → Two-option questions → Autonomy release (TC021)",
       example: [
         '"I can see why that\'s stressful."',
         '"Do you want to decide today, or revisit tomorrow?"',
@@ -496,11 +493,11 @@ export const TC034: CardData = {
     {
       label: "Steady then narrow",
       sequence:
-        "Slow down under pressure (TC031) → Two-Option Question → Meaning reflection (TC040)",
+        "Slow down under pressure (TC031) → Two-option questions → Meaning reflection (TC040)",
       example: [
         '"Let\'s take this a step at a time."',
         '"Is the sticking point the plan, or the people?"',
-        '"So what really matters here\'s being trusted with it."',
+        '"So what really matters here is being trusted with it."',
       ],
     },
   ],

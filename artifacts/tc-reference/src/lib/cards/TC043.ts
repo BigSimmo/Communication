@@ -139,7 +139,7 @@ export const TC043: CardData = {
         "You're saying the work isn't the problem: the workload is.",
         "It seems like you're keener than you're letting on.",
         "What I'm hearing is that fairness matters more than speed here.",
-        "So part of this is excitement and part of it's nerves.",
+        "So part of this is excitement and part of it is nerves.",
         "Let me make sure I have it: you want in, just not yet.",
       ],
     },
