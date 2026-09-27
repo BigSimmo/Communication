@@ -6,7 +6,7 @@ export const TC056: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC056/TC056_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,12 +56,12 @@ export const TC056: CardData = {
   ],
   id: "TC056",
   whyItWorks:
-    "Topic preference detection is noticing where someone's attention becomes more alive — more detail, emotion, pace, specificity, humour, questions, or callbacks — and then lightly checking whether they want to stay there. It is not guessing a hidden motive; it is reading observable signals and testing them with a respectful check. It works because people experience a conversation as better when the other person notices what has life for them and does not force a dead branch. You become easier to talk with not by asking more, but by testing interest and handing back the choice.",
+    "Topic preference detection is noticing where someone's attention becomes more alive (more detail, emotion, pace, specificity, humour, questions, or callbacks) and then lightly checking whether they want to stay there. It is not guessing a hidden motive. It is reading observable signals and testing them with a respectful check. It works because people experience a conversation as better when the other person notices what has life for them and does not force a dead branch. You become easier to talk with not by asking more, but by testing interest and handing back the choice.",
   whatItIsNot: [
     "It is not mind reading, profiling, persuasion hacking, or interrogation.",
-    'It is not "I know what you really want to talk about." It is "I noticed more energy here — is this a better place to stay?"',
+    'It is not "I know what you really want to talk about." It is "I noticed more energy here. Is this a better place to stay?"',
     "It is not a reason to ignore a boundary or keep returning to a topic after someone has cooled or declined.",
-    "It is not simply asking more questions; more questions can feel like pressure. The distinctive move is a preference check that hands over the steering wheel.",
+    "It is not simply asking more questions. More questions can feel like pressure. The distinctive move is a preference check that hands over the steering wheel.",
   ],
   overview: {
     coreFormula: [
@@ -72,11 +72,11 @@ export const TC056: CardData = {
       "More energy showed up around [topic]. Stay there, or move on?",
     ],
     minimumViableMove:
-      'Notice the one topic that had more energy, name it softly, and hand over the choice: "You seemed more interested when we got to [topic] — want to stay there, or keep moving?"',
+      'Notice the one topic that had more energy, name it softly, and hand over the choice: "You seemed more interested when we got to [topic], want to stay there, or keep moving?"',
     impact: "Low",
     difficulty: "Medium",
     misuse:
-      'It fails when you treat a signal as proof and declare the person\'s preference — "You obviously want to talk about X" — which removes their choice and makes them feel analysed rather than heard. Overreading a small aside, or returning to a topic after they have cooled, does the same damage.',
+      'It fails when you treat a signal as proof and declare the person\'s preference ("You obviously want to talk about X") which removes their choice and makes them feel analysed rather than heard. Overreading a small aside, or returning to a topic after they have cooled, does the same damage.',
     bestFor: [
       "Open social conversations with several possible topics",
       "First meetings where the shared interest is still being found",
@@ -119,7 +119,7 @@ export const TC056: CardData = {
         "You seemed more animated when you mentioned [topic]. Want to stay there for a bit?",
         "You sounded a little brighter on the [topic] part. Want to talk about that, or is work the main thing?",
         "I noticed you smiled when [topic] came up. Is that a better thread?",
-        "We can keep going here, or go back to [topic] if that is more interesting.",
+        "We can keep going here, or go back to [topic] if that's more interesting.",
         "You had more detail on the climbing trip than on work. Want to stay with that?",
         "That sounds like the part you actually enjoy. Shall we start there?",
       ],
@@ -132,7 +132,7 @@ export const TC056: CardData = {
       phrases: [
         "The [topic] part seems to have more substance. Should we focus there?",
         "You gave more detail on [topic]. Is that where the real issue is?",
-        "I am hearing more energy around [topic] than [topic B]. Which should we prioritise?",
+        "I'm hearing more energy around [topic] than [topic B]. Which should we prioritise?",
         "Would it be useful to pause on [topic], or keep the agenda moving?",
         "The [topic] thread seems to have more signal than the timeline. Should we spend five minutes there?",
         "Implementation risk seems to be the more important thread. Should we cover that before budget?",
@@ -162,7 +162,7 @@ export const TC056: CardData = {
         "Seems like [topic] may be the more useful thread. I can follow that if you want.",
         "This part seems to have more detail for you. Want me to follow it?",
         "You came back to [topic] twice. Worth a proper thread?",
-        "Happy to stay on [topic] or answer the original question — whichever helps.",
+        "Happy to stay on [topic] or answer the original question. Whichever helps.",
       ],
     },
     {
@@ -171,13 +171,13 @@ export const TC056: CardData = {
       tag: "Guarded or consent-sensitive contexts",
       tone: "High-stakes",
       phrases: [
-        "I do not want to overread this. Is [topic] the key issue, or should I stay with the original point?",
+        "I don't want to overread this. Is [topic] the key issue, or should I stay with the original point?",
         "Only if useful: should we spend two minutes on [topic]?",
         "I may be misreading the signal. What would be most useful to focus on?",
-        "No need to go into it if it is private. I noticed [topic] might matter, so I wanted to check.",
+        "No need to go into it if it's private. I noticed [topic] might matter, so I wanted to check.",
         "We can leave that alone. I only named it because it seemed relevant.",
-        "If that is not a topic for now, we can move on.",
-        "Only if useful — we can skip this entirely.",
+        "If that's not a topic for now, we can move on.",
+        "Only if useful. We can skip this entirely.",
       ],
     },
     {
@@ -186,11 +186,11 @@ export const TC056: CardData = {
       tag: "Clean releases after a misread",
       tone: "Repair",
       phrases: [
-        "Got it — let's leave that.",
+        "Got it, let's leave that.",
         "That was my read, not yours. What should we focus on?",
         "I named it too strongly. Let me back up.",
         "We can leave that aside. What would be useful instead?",
-        "No pressure either way — happy to move on.",
+        "No pressure either way. Happy to move on.",
         "Fair enough. Which thread actually helps here?",
       ],
     },
@@ -205,9 +205,8 @@ export const TC056: CardData = {
     {
       condition:
         "The topic is private, unsafe, or outside the conversation's purpose",
-      action: "Do not pursue it; acknowledge lightly or move on",
-      phrase:
-        "That might be one for another time — no need to get into it now.",
+      action: "Do not pursue it. Acknowledge lightly or move on",
+      phrase: "That might be one for another time. No need to get into it now.",
     },
     {
       condition: "You cannot name the signal without sounding intrusive",
@@ -218,17 +217,17 @@ export const TC056: CardData = {
       condition: "They expand after the check",
       action:
         "Follow the thread and develop it with live-thread follow-ups or threading",
-      phrase: "Good — what changed in your view?",
+      phrase: "Good. What changed in your view?",
     },
     {
       condition: "They correct you",
       action: "Thank them and follow the correction, not your read",
-      phrase: "Thanks — so the real thread is [topic B]. Let's go there.",
+      phrase: "Thanks, so the real thread is [topic B]. Let's go there.",
     },
     {
       condition: "They contract, or the topic matters but the timing is wrong",
       action: "Release it, or bookmark it with permission",
-      phrase: "Let's park that — shall we come back to it later?",
+      phrase: "Let's park that, shall we come back to it later?",
     },
   ],
   ladder: [
@@ -265,13 +264,13 @@ export const TC056: CardData = {
     },
     {
       situation: "Mentoring or coaching",
-      move: "Test the animated thread gently; back off if it starts to feel too personal.",
+      move: "Test the animated thread gently. Back off if it starts to feel too personal.",
       phrase:
         "You sounded more alive on the mentoring piece. Is that where you want to look?",
     },
     {
       situation: "Digital chat",
-      move: "When a short thread suddenly gets a long, detailed reply, offer to follow it — and do not chase silence.",
+      move: "When a short thread suddenly gets a long, detailed reply, offer to follow it, and do not chase silence.",
       phrase:
         "This part seems to have more detail for you. Want me to follow this thread?",
     },
@@ -279,7 +278,7 @@ export const TC056: CardData = {
       situation: "High-power-difference setting",
       move: "Add extra consent so the check can be declined at no cost.",
       phrase:
-        "Only if useful — we can skip this. Is [topic] worth a couple of minutes?",
+        "Only if useful. We can skip this. Is [topic] worth a couple of minutes?",
     },
   ],
   calibration: {
@@ -293,11 +292,11 @@ export const TC056: CardData = {
     ],
     adjust: [
       "Polite but brief replies",
-      "Mixed signals — more detail but less warmth",
+      "Mixed signals: more detail but less warmth",
       "Humour that deflects rather than opens",
       "A glance away, a slower reply, or a digital delay",
       '"Sort of", "maybe", or "it\'s complicated"',
-      '"I don\'t want to get into that" — release the thread at once',
+      '"I don\'t want to get into that": release the thread at once',
       "Repeated short answers, or a topic shift after your check",
       "Silence that feels like shutdown rather than thought",
     ],
@@ -306,7 +305,7 @@ export const TC056: CardData = {
     {
       day: "Day 1",
       title: "Signal spotting",
-      task: "After one conversation, list three topics that came up. For each, write only the observable signals — detail, pace, tone, callback, question, example — and no guesses about motive.",
+      task: "After one conversation, list three topics that came up. For each, write only the observable signals (detail, pace, tone, callback, question, example) and no guesses about motive.",
     },
     {
       day: "Day 2",
@@ -321,12 +320,12 @@ export const TC056: CardData = {
     {
       day: "Day 4",
       title: "Release practice",
-      task: 'Rehearse three clean releases for "No, not really": "Got it — let\'s leave that", "Thanks, I misread it", and "What would be more useful?"',
+      task: 'Rehearse three clean releases for "No, not really": "Got it. Let\'s leave that", "Thanks, I misread it", and "What would be more useful?"',
     },
     {
       day: "Day 5",
       title: "Digital calibration",
-      task: "Review three text or email threads. Mark where reply length, specificity, or speed changed, and draft one preference check for each — sending it only if it would be welcome.",
+      task: "Review three text or email threads. Mark where reply length, specificity, or speed changed, and draft one preference check for each: sending it only if it would be welcome.",
     },
     {
       day: "Day 6",
@@ -336,11 +335,11 @@ export const TC056: CardData = {
     {
       day: "Day 7",
       title: "Compare and choose",
-      task: 'In a conversation with two live threads, name both and hand over the choice — "I\'m seeing [A] and [B]; which is more useful?" — then follow their answer, not your preference.',
+      task: 'In a conversation with two live threads, name both and hand over the choice ("I\'m seeing [A] and [B]. Which is more useful?") then follow their answer, not your preference.',
     },
   ],
   checklist: [
-    "What exact signal did I notice — and was it observable, not assumed?",
+    "What exact signal did I notice, and was it observable, not assumed?",
     "Did I compare it against this person's normal baseline?",
     "Did I name it tentatively and offer a genuine choice?",
     "Did I follow their answer instead of my preferred path?",
@@ -349,16 +348,16 @@ export const TC056: CardData = {
   ],
   example: {
     without: [
-      'A: "Work has been busy. I am also trying to get back into running."',
+      'A: "Work has been busy. I\'m also trying to get back into running."',
       'B: "You clearly care about running more. Tell me about that."',
       'A: "Not really, it was just an aside."',
-      "Why it is weak:",
+      "Why it's weak:",
       "overreads a small signal as proof",
       "removes the other person's choice",
       "leaves them correcting you instead of opening up",
     ],
     with: [
-      'A: "Work has been busy. I am also trying to get back into running."',
+      'A: "Work has been busy. I\'m also trying to get back into running."',
       'B: "You sounded a little brighter on the running part. Want to talk about that, or is work the main thing?"',
       'A: "Running is more fun to talk about, honestly."',
       'B: "Then let\'s start there. What got you back into it?"',
@@ -366,12 +365,12 @@ export const TC056: CardData = {
       "Advanced:",
       'A: "The launch is fine. The weird part is that the customer interviews changed how I see the whole roadmap."',
       'B: "The roadmap got a factual answer, but the customer-interview part had more energy. Is that the thread where the real learning is?"',
-      'A: "Yes. That is what I cannot stop thinking about."',
+      "A: \"Yes. That's what I can't stop thinking about.\"",
       'B: "Good. We can park the launch logistics and follow that for five minutes. What changed in your view?"',
-      'A: "We found the problem is not onboarding. It is confidence after setup."',
+      "A: \"We found the problem isn't onboarding. It's confidence after setup.\"",
       "Why the advanced version works: B compared two signals, named the likely preferred thread, gave a time-bounded path, and moved toward useful depth.",
     ],
-    note: "The better version tests a single signal; the advanced version compares two competing threads and time-boxes the one the person chooses.",
+    note: "The better version tests a single signal. The advanced version compares two competing threads and time-boxes the one the person chooses.",
   },
   influencePayoff: {
     feeling:
@@ -379,12 +378,12 @@ export const TC056: CardData = {
     principle:
       "People experience a conversation as better when the other person notices what has energy for them and does not force a dead branch. The influence is indirect: you become easier to talk with because you test interest rather than assuming it.",
     gains: [
-      "Ease — fewer strained questions and fewer abrupt topic jumps",
-      "Trust — the other person sees their signals being read with care",
-      "Depth — interesting threads are less likely to be missed",
-      "Efficiency — meetings and interviews reach useful material faster",
-      "Autonomy — they are invited to choose rather than steered",
-      "Relevance — the conversation lands on what matters to them, not just to you",
+      "Ease: fewer strained questions and fewer abrupt topic jumps",
+      "Trust: the other person sees their signals being read with care",
+      "Depth: interesting threads are less likely to be missed",
+      "Efficiency: meetings and interviews reach useful material faster",
+      "Autonomy: they are invited to choose rather than steered",
+      "Relevance: the conversation lands on what matters to them, not just to you",
     ],
     whyMostFail: [
       "They treat a signal as proof and declare the preference instead of testing it.",
@@ -395,7 +394,7 @@ export const TC056: CardData = {
   },
   fieldTip: {
     headline: "Give the steering wheel back.",
-    body: "Do not claim ownership of someone's preference. One version takes it; the other hands it back. The field rhythm is simple: notice the spark, name it softly, offer a choice, follow the answer.",
+    body: "Do not claim ownership of someone's preference. One version takes it. The other hands it back. The field rhythm is simple: notice the spark, name it softly, offer a choice, follow the answer.",
     example: 'Smallest usable move: "More energy on [topic]?"',
     dont: "You want to talk about X.",
     do: "X seemed to have more energy. Stay there, or move on?",
@@ -409,7 +408,7 @@ export const TC056: CardData = {
     {
       step: "2",
       title: "Compare against their baseline",
-      body: "Read the lift against how this person normally talks. A quiet person may show preference through one precise sentence; an expressive person may show it through sustained specificity. The signal is the change from their usual, not loudness in the abstract.",
+      body: "Read the lift against how this person normally talks. A quiet person may show preference through one precise sentence. An expressive person may show it through sustained specificity. The signal is the change from their usual, not loudness in the abstract.",
     },
     {
       step: "3",
@@ -469,13 +468,13 @@ export const TC056: CardData = {
       mistake: "Confusing your interest with theirs",
       soundsLike: "Ooh, tell me everything about the topic you happen to love.",
       better:
-        "That caught my interest — but is it the thread you'd rather follow?",
+        "That caught my interest, but is it the thread you'd rather follow?",
     },
     {
       mistake: "Chasing intensity, not preference",
-      soundsLike: "That sounded really emotional — let's dig into it.",
+      soundsLike: "That sounded really emotional. Let's dig into it.",
       better:
-        "That was intense; is it where you want to spend time, or just where the feeling was?",
+        "That was intense. Is it where you want to spend time, or just where the feeling was?",
     },
     {
       mistake: "Asking too many diagnostic questions",
@@ -484,19 +483,19 @@ export const TC056: CardData = {
     },
     {
       mistake: "Naming private material too bluntly",
-      soundsLike: "You went quiet on the divorce — want to get into that?",
+      soundsLike: "You went quiet on the divorce, want to get into that?",
       better:
-        "No need to go into anything personal; I just noticed it might matter.",
+        "No need to go into anything personal. I just noticed it might matter.",
     },
     {
       mistake: "Ignoring a decline",
       soundsLike: "Are you sure? It really seemed important.",
-      better: "Got it — let's leave that and move on.",
+      better: "Got it, let's leave that and move on.",
     },
     {
       mistake: "Moving too fast from detection to depth",
       soundsLike: "So what does this reveal about you?",
-      better: "Happy to stay with it lightly for now — no need to go deep.",
+      better: "Happy to stay with it lightly for now. No need to go deep.",
     },
     {
       mistake: "Overusing the technique",
@@ -507,16 +506,16 @@ export const TC056: CardData = {
   ],
   recoveryPhrases: [
     "I may have overread that. Let's leave it.",
-    "Thanks for correcting me — I'll stay with the original point.",
+    "Thanks for correcting me. I'll stay with the original point.",
     "That was my interpretation, not yours. What should we focus on?",
     "I don't mean to pry. We can skip it.",
     "No need to answer that if it isn't useful.",
     "I named it too strongly. Let me back up.",
-    "Got it — that was just context. What's the actual useful thread?",
+    "Got it, that was just context. What's the actual useful thread?",
     "Let's reset. What do you want to spend time on?",
   ],
   bestRecoveryLine:
-    "I may have overread that. Let's leave it — what would be more useful?",
+    "I may have overread that. Let's leave it. What would be more useful?",
   chains: [
     {
       label: "Soften, detect, develop",
@@ -525,7 +524,7 @@ export const TC056: CardData = {
       example: [
         '"That sounds like it took some thought."',
         '"You had a lot more detail on the customer side. Is that the thread to stay with?"',
-        '"Good — what changed your mind first?"',
+        '"Good. What changed your mind first?"',
       ],
     },
     {
@@ -543,7 +542,7 @@ export const TC056: CardData = {
       sequence: "TC034 Two-option questions → TC056 Topic preference detection",
       example: [
         '"Do you want to talk about the people side or the process side?"',
-        '"I noticed more energy around the people side — want to start there?"',
+        '"I noticed more energy around the people side, want to start there?"',
       ],
     },
     {
@@ -552,7 +551,7 @@ export const TC056: CardData = {
         "TC038 Conversation threading → TC056 Topic preference detection → TC065 Conversation bookmarking",
       example: [
         "Lay out the two or three live threads.",
-        '"The roadmap thread seems the most useful right now — agreed?"',
+        '"The roadmap thread seems the most useful right now, agreed?"',
         '"Let\'s bookmark the hiring thread for next time."',
       ],
     },
@@ -561,17 +560,17 @@ export const TC056: CardData = {
     {
       id: "TC041",
       reason:
-        "Topic energy tracking. TC041 monitors how energy moves across a whole conversation; TC056 turns that read into a choice about which thread to follow now. Tracking is not the same as choosing.",
+        "Topic energy tracking. TC041 monitors how energy moves across a whole conversation. TC056 turns that read into a choice about which thread to follow now. Tracking is not the same as choosing.",
     },
     {
       id: "TC059",
       reason:
-        "Energy-based topic switching. Detect the preferred topic first with TC056; switch to it with TC059 only once calibration confirms a better branch. Don't switch before testing preference.",
+        "Energy-based topic switching. Detect the preferred topic first with TC056. Switch to it with TC059 only once calibration confirms a better branch. Don't switch before testing preference.",
     },
     {
       id: "TC038",
       reason:
-        "Conversation threading. TC038 maps and weaves the live threads; TC056 infers which one is preferred. Map with TC038, then pick with TC056.",
+        "Conversation threading. TC038 maps and weaves the live threads. TC056 infers which one is preferred. Map with TC038, then pick with TC056.",
     },
     {
       id: "TC001",
@@ -581,12 +580,12 @@ export const TC056: CardData = {
     {
       id: "TC003",
       reason:
-        "Comment-before-question. TC003 softens the entry to a question; TC056 decides which topic to pursue. A warm comment is not itself a preference test.",
+        "Comment-before-question. TC003 softens the entry to a question. TC056 decides which topic to pursue. A warm comment is not itself a preference test.",
     },
     {
       id: "TC054",
       reason:
-        'Similarity signalling. Detect their preference first with TC056; signal a genuine commonality with TC054 only if it is real and useful. "They like this topic" is not "we are similar".',
+        'Similarity signalling. Detect their preference first with TC056. Signal a genuine commonality with TC054 only if it is real and useful. "They like this topic" is not "we are similar".',
     },
   ],
 };

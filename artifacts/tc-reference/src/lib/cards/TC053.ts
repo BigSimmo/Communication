@@ -6,7 +6,7 @@ export const TC053: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC053/TC053_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -58,21 +58,21 @@ export const TC053: CardData = {
   whyItWorks:
     "NVC / OFNR (Nonviolent Communication) is a four-part way of saying something hard: state a plain observation, name the feeling it stirred, connect that to the need underneath, then make one clear, doable request. Separating the fact from the feeling, the need and the ask keeps difficult expression from tipping into blame, so the other person can hear the point and act on it instead of defending themselves.",
   whatItIsNot: [
-    'It is not a script to recite mechanically — naming the steps out loud ("my feeling is…") kills it.',
+    'It is not a script to recite mechanically: naming the steps out loud ("my feeling is...") kills it.',
     "It is not a way to avoid listening, compress emotion into a template, or force the other person into your structure.",
-    "It is not polished blame — the failure mode is turning the framework into pressure, guilt or quiet moral superiority.",
+    "It is not polished blame: the failure mode is turning the framework into pressure, guilt or quiet moral superiority.",
     "It is not therapy, and it is not consent to process deep emotion the other person has not agreed to.",
-    "If the structure makes the conversation less humane, it is the wrong move — slow down and use something simpler.",
+    "If the structure makes the conversation less humane, it is the wrong move: slow down and use something simpler.",
   ],
   overview: {
     coreFormula: [
-      "Observation -> Feeling -> Need -> Request",
+      "Observation → Feeling → Need → Request",
       "When X happened, I felt Y, because I need Z. Would you be willing to do A?",
       '"When the report went out without my name on it, I felt overlooked, because credit matters to me. Would you add it before the next send?"',
       "Use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
-      "Say one plain observation, one feeling, the need under it, and one doable request — four short sentences, no jargon, no naming the steps.",
+      "Say one plain observation, one feeling, the need under it, and one doable request: four short sentences, no jargon, no naming the steps.",
     impact: "High",
     difficulty: "Hard",
     misuse:
@@ -87,7 +87,7 @@ export const TC053: CardData = {
     ],
   },
   notFor: [
-    "Physical safety or an immediate emergency — act first, talk later",
+    "Physical safety or an immediate emergency: act first, talk later",
     "When you would be weaponising vulnerability to get your way",
     "Manipulative or pressuring requests dressed up as needs",
     "The other person has not agreed to process deep emotion",
@@ -105,7 +105,7 @@ export const TC053: CardData = {
         "There's something I'd like to name, then ask you about.",
         "I'd rather say this than sit on it.",
         "Mind if I tell you what I noticed and what I'd like?",
-        "Here's the short version — stop me if I've got it wrong.",
+        "Here's the short version. Stop me if I've got it wrong.",
         "One thing's been on my mind. Can I say it?",
         "Small thing, but worth clearing up.",
       ],
@@ -116,13 +116,13 @@ export const TC053: CardData = {
       tag: "Clean observations",
       tone: "Professional",
       phrases: [
-        "When the meeting ran twenty minutes over…",
-        "The last three replies came back after midnight…",
-        "I noticed the report went out without my name on it…",
-        "Twice this week the plan changed after we'd agreed it…",
-        "When you said \"we'll see\" and then it didn't happen…",
-        'Not "you never listen" — "the last two times I raised this, we moved on quickly."',
-        "I'm working from what I saw, not what I assumed — tell me if I've misread it.",
+        "When the meeting ran twenty minutes over...",
+        "The last three replies came back after midnight...",
+        "I noticed the report went out without my name on it...",
+        "Twice this week the plan changed after we'd agreed it...",
+        "When you said \"we'll see\" and then it didn't happen...",
+        'Not "you never listen": "the last two times I raised this, we moved on quickly."',
+        "I'm working from what I saw, not what I assumed. Tell me if I've misread it.",
       ],
     },
     {
@@ -133,11 +133,11 @@ export const TC053: CardData = {
       phrases: [
         "I felt overlooked, and I think it's because being counted matters to me.",
         "I got anxious, mostly because I need a bit more certainty about timing.",
-        "Honestly, I felt hurt — I care about us being straight with each other.",
+        "Honestly, I felt hurt. I care about us being straight with each other.",
         "I ended up frustrated, because I really value being kept in the loop.",
         "I'm feeling stretched, and what I need is a little more warning.",
         "I felt shut out, and connection matters more to me than being right.",
-        "That left me uneasy — I work better when I know where I stand.",
+        "That left me uneasy. I work better when I know where I stand.",
       ],
     },
     {
@@ -162,10 +162,10 @@ export const TC053: CardData = {
       tone: "Repair",
       phrases: [
         "Have I got that right, or am I missing something?",
-        "That came out sharper than I meant — let me try again.",
-        "I'm not blaming you; I'm trying to sort this out with you.",
+        "That came out sharper than I meant. Let me try again.",
+        "I'm not blaming you. I'm trying to sort this out with you.",
         "If this isn't the moment, tell me and we'll pick it up later.",
-        "You don't have to agree — I just wanted to be honest about it.",
+        "You don't have to agree. I just wanted to be honest about it.",
         "Tell me how that lands from your side.",
         "I might be wrong about the why. What was actually going on?",
       ],
@@ -180,7 +180,7 @@ export const TC053: CardData = {
         "I want to get this right more than I want to win it.",
         "Here's the one thing I most need you to hear.",
         "I'm going to say the hard part plainly, then listen.",
-        "I'm not trying to score a point — I want us okay.",
+        "I'm not trying to score a point. I want us okay.",
         "Let's stick to what happened before we get to what it meant.",
         "If I've hurt you, I want to know that first.",
       ],
@@ -192,9 +192,9 @@ export const TC053: CardData = {
       tone: "Quick",
       phrases: [
         "Quick note: two things landed late this week and it threw my planning.",
-        "Not urgent — I'd like ten minutes to talk through how the handover went.",
+        "Not urgent, I'd like ten minutes to talk through how the handover went.",
         "One ask: could we confirm the date by Friday?",
-        "I'd rather say this in person than over text — free later?",
+        "I'd rather say this in person than over text, free later?",
         "Short version: I felt out of the loop on the change. Can we reset how we flag these?",
         "No drama, just want to name it and agree a fix.",
         "Sending this so it's not a surprise when we talk.",
@@ -205,13 +205,13 @@ export const TC053: CardData = {
     {
       condition: "They need it fast",
       action:
-        "Compress to the minimum move — one observation, one need, one request.",
-      phrase: "When X happened I felt Y; would you be willing to do A?",
+        "Compress to the minimum move: one observation, one need, one request.",
+      phrase: "When X happened I felt Y. Would you be willing to do A?",
     },
     {
       condition: "They're upset first",
       action: "Validate before you structure anything.",
-      phrase: "Before I get to the ask — that sounded genuinely rough.",
+      phrase: "Before I get to the ask. That sounded genuinely rough.",
     },
     {
       condition: "They want the picture, not a formula",
@@ -221,7 +221,7 @@ export const TC053: CardData = {
     {
       condition: "They need a decision or next step",
       action: "End on one clean, doable request.",
-      phrase: "So the one thing I'm asking is…",
+      phrase: "So the one thing I'm asking is...",
     },
     {
       condition: "They challenge the framing",
@@ -230,8 +230,8 @@ export const TC053: CardData = {
     },
     {
       condition: "Emotion is very high or safety is in question",
-      action: "Stop structuring; keep it human or step away.",
-      phrase: "Let's pause this — you matter more than the point.",
+      action: "Stop structuring. Keep it human or step away.",
+      phrase: "Let's pause this. You matter more than the point.",
     },
   ],
   ladder: [
@@ -242,27 +242,27 @@ export const TC053: CardData = {
       best: "Moves through the steps invisibly, then checks whether the other person feels clearer and more heard.",
     },
     {
-      weak: 'Dresses a judgement up as an observation — "you always do this."',
-      better: "States a plain fact both of you would recognise.",
+      weak: 'Dresses a judgement up as an observation: "you always do this."',
+      better: "States a plain fact both of you'd recognise.",
       best: "Names the fact so cleanly the other person nods before you've even reached the feeling.",
     },
     {
       weak: "Ends with a vague complaint or a flat demand.",
       better: "Ends with a specific, doable request.",
-      best: "Makes a request the other person can genuinely say no to — and means it.",
+      best: "Makes a request the other person can genuinely say no to, and means it.",
     },
   ],
   scenarios: [
     {
       situation: "Work meeting",
       move: "Compress to one observation and one request so it lands and moves on.",
-      phrase: "We agreed Tuesday, then it shifted twice — can we lock it now?",
+      phrase: "We agreed Tuesday, then it shifted twice. Can we lock it now?",
     },
     {
       situation: "Email",
       move: "Break the four steps into short, scannable lines the reader can take in at a glance.",
       phrase:
-        "What happened / how it left me / what I need / the ask — one line each.",
+        "What happened / how it left me / what I need / the ask: one line each.",
     },
     {
       situation: "Giving feedback",
@@ -279,12 +279,13 @@ export const TC053: CardData = {
       situation: "Setting a boundary",
       move: "Keep the observation neutral so the boundary doesn't read as an attack.",
       phrase:
-        "When calls come after nine I can't wind down — I need my evenings. Can we keep work to daytime?",
+        "When calls come after nine I can't wind down. I need my evenings. Can we keep work to daytime?",
     },
     {
       situation: "Repairing after a row",
       move: "Validate the hurt first, then use the structure lightly.",
-      phrase: "That landed badly and I get why. Here's what I actually meant…",
+      phrase:
+        "That landed badly and I get why. Here's what I actually meant...",
     },
   ],
   calibration: {
@@ -292,7 +293,7 @@ export const TC053: CardData = {
       "They become clearer and more specific in reply.",
       "They summarise your point back accurately.",
       "They offer a next step, or take one.",
-      "Their posture softens — less braced, more open.",
+      "Their posture softens: less braced, more open.",
       'They say something like "okay, that\'s fair" or "I hadn\'t seen it that way."',
       "The temperature drops rather than rises.",
       "They start telling you their side without defending.",
@@ -321,7 +322,7 @@ export const TC053: CardData = {
     {
       day: "Day 3",
       title: "Name feeling and need",
-      task: "Pick one recurring irritation. In a single sentence, name the feeling it stirs and the need sitting underneath it — no blame words allowed.",
+      task: "Pick one recurring irritation. In a single sentence, name the feeling it stirs and the need sitting underneath it. No blame words allowed.",
     },
     {
       day: "Day 4",
@@ -331,7 +332,7 @@ export const TC053: CardData = {
     {
       day: "Day 5",
       title: "Mechanical vs human",
-      task: "Say the same OFNR aloud twice — once naming the steps, once as ordinary speech — and note how much warmer the second sounds.",
+      task: "Say the same OFNR aloud twice (once naming the steps, once as ordinary speech) and note how much warmer the second sounds.",
     },
     {
       day: "Day 6",
@@ -347,7 +348,7 @@ export const TC053: CardData = {
   checklist: [
     "Did the structure serve the other person, or just make me sound polished?",
     "Was my observation a fact, or a judgement in disguise?",
-    "Did I name a real feeling and the need under it — not a demand?",
+    "Did I name a real feeling and the need under it, not a demand?",
     "Was there one clear request they could actually say no to?",
     "Did I stay human, or did I sound like I was reciting?",
     "If it landed badly, did I back up and simplify?",
@@ -356,7 +357,7 @@ export const TC053: CardData = {
     without: [
       'You: "You always do this. You never think about my time."',
       'Them: "Here we go. It\'s not a big deal."',
-      'You: "It IS a big deal. This is so typical of you."',
+      'You: "It\'s a big deal. This is so typical of you."',
       'Them: "Fine. Whatever you say."',
       "Why it's weak:",
       "opens with a judgement, not an observation",
@@ -366,8 +367,8 @@ export const TC053: CardData = {
     ],
     with: [
       'You: "Twice this week the plan changed after we\'d agreed it." (observation)',
-      'Them: "Yeah… work\'s been mad."',
-      'You: "I get that. Honestly it left me anxious — I lean on knowing what the evening looks like." (feeling + need)',
+      'Them: "Yeah... work\'s been mad."',
+      'You: "I get that. Honestly it left me anxious. I lean on knowing what the evening looks like." (feeling + need)',
       'Them: "I didn\'t realise it threw you that much."',
       'You: "It does. Would you be willing to text me by six if it\'s going to shift?" (request)',
       'Them: "Yeah, that\'s fair. I can do that."',
@@ -376,7 +377,7 @@ export const TC053: CardData = {
       "names the feeling and the need without blame",
       "ends on one clear, doable request they can accept",
     ],
-    note: 'The four steps stay invisible — no one says "observation" out loud. The structure lives in the speaker\'s head; the other person just feels heard and clear.',
+    note: 'The four steps stay invisible. No one says "observation" out loud. The structure lives in the speaker\'s head. The other person just feels heard and clear.',
   },
   influencePayoff: {
     feeling:
@@ -394,16 +395,16 @@ export const TC053: CardData = {
     ],
     whyMostFail: [
       'They smuggle a judgement into the "observation" and it reads as blame.',
-      'They use "needs" as leverage — a polished way to pressure.',
+      'They use "needs" as leverage: a polished way to pressure.',
       "They recite the steps out loud and the person feels processed.",
       "They forget the request, so venting quietly replaces resolving.",
     ],
   },
   fieldTip: {
     headline: "Scaffolding, not the conversation.",
-    body: 'Keep the four steps in your head, not in your mouth. Nobody should be able to hear the framework — they should just notice the conversation got clearer and less sharp. The moment you announce "my need is…", it turns into a performance and they stop listening to you and start watching the technique.',
+    body: 'Keep the four steps in your head, not in your mouth. Nobody should be able to hear the framework. They should just notice the conversation got clearer and less sharp. The moment you announce "my need is...", it turns into a performance and they stop listening to you and start watching the technique.',
     example:
-      '"When the deck went out without a review, I felt exposed — I need us to catch errors before clients do. Can we add a check step?"',
+      '"When the deck went out without a review, I felt exposed. I need us to catch errors before clients do. Can we add a check step?"',
     dont: "Don't narrate the steps (\"now I'm sharing my feeling\").",
     do: "Do let the fact, the feeling, the need and the ask arrive as ordinary sentences.",
   },
@@ -423,7 +424,7 @@ export const TC053: CardData = {
     {
       step: "2",
       title: "Name the feeling",
-      body: 'Say the emotion, and own it as yours — "I felt…", not "you made me…". A named feeling invites care; a blamed one invites defence.',
+      body: 'Say the emotion, and own it as yours: "I felt...", not "you made me...". A named feeling invites care. A blamed one invites defence.',
       examples: [
         { label: "Blame", text: '"You made me furious."' },
         { label: "Feeling", text: '"I felt let down."' },
@@ -432,7 +433,7 @@ export const TC053: CardData = {
     {
       step: "3",
       title: "Connect it to the need",
-      body: "The feeling points to a need — certainty, respect, rest, inclusion, reliability. Name it plainly so the request that follows makes sense.",
+      body: "The feeling points to a need: certainty, respect, rest, inclusion, reliability. Name it plainly so the request that follows makes sense.",
       examples: [
         { label: "Vague", text: '"I just need you to be better."' },
         {
@@ -458,7 +459,7 @@ export const TC053: CardData = {
       title: "Check, don't push",
       body: "If they look confused or resistant, summarise and invite correction rather than repeating the structure louder. The goal is a shared understanding, not a completed template.",
       examples: [
-        { label: "Push", text: '"As I said — observation, feeling, need…"' },
+        { label: "Push", text: '"As I said. Observation, feeling, need..."' },
         {
           label: "Check",
           text: '"Have I got this right, or am I missing your side?"',
@@ -469,17 +470,17 @@ export const TC053: CardData = {
   liveThreadClues: [
     '"always"',
     '"never"',
-    '"you made me…"',
+    '"you made me..."',
     '"typical"',
     '"you never listen"',
     '"obviously"',
-    '"you\'re being…"',
+    '"you\'re being..."',
   ],
   depthDial: [
     {
       depth: "Minimal",
       useWhen: "Low stakes or short on time",
-      phrase: '"When X happened I needed Y — could you do A?"',
+      phrase: '"When X happened I needed Y, could you do A?"',
     },
     {
       depth: "Standard",
@@ -516,62 +517,62 @@ export const TC053: CardData = {
     },
     {
       mistake: "A demand dressed as a request",
-      soundsLike: '"You will stop doing that."',
+      soundsLike: '"You\'ll stop doing that."',
       better: '"Would you be willing to stop doing that?"',
     },
     {
       mistake: "Reciting the steps out loud",
-      soundsLike: '"My observation is… my feeling is…"',
+      soundsLike: '"My observation is... my feeling is..."',
       better:
-        "Keep the structure in your head; let it come out as normal sentences.",
+        "Keep the structure in your head. Let it come out as normal sentences.",
     },
     {
       mistake: "Structuring when they need comfort first",
       soundsLike: "launching into the formula while they're still upset",
-      better: '"That sounds genuinely hard." — validate, then structure.',
+      better: '"That sounds genuinely hard." Validate, then structure.',
     },
   ],
   recoveryPhrases: [
-    "I made that too structured — let me just say it plainly.",
+    "I made that too structured. Let me just say it plainly.",
     "That came out as blame, and I didn't mean it that way.",
-    "Let me back up. What actually happened was…",
+    "Let me back up. What actually happened was...",
     "I don't want the framing to bulldoze your side of it.",
     "Have I misread this? Tell me where I'm wrong.",
-    "Forget how I said it — here's the one thing I'm asking.",
+    "Forget how I said it. Here's the one thing I'm asking.",
     "If this isn't the moment, we can pick it up later.",
     "That sounded like a lecture. Let me try again.",
   ],
-  bestRecoveryLine: "I made that too structured — let me just say it plainly.",
+  bestRecoveryLine: "I made that too structured. Let me just say it plainly.",
   chains: [
     {
       label: "Validate first, then structure",
-      sequence: "Validate the concern -> NVC / OFNR",
+      sequence: "Validate the concern → NVC / OFNR",
       example: [
         '"That sounds genuinely rough."',
-        '"So — when the deadline moved, I felt caught out, and I need earlier warning. Could we flag changes sooner?"',
+        '"So. When the deadline moved, I felt caught out, and I need earlier warning. Could we flag changes sooner?"',
       ],
     },
     {
       label: "Structure, then check",
-      sequence: "NVC / OFNR -> Summary check",
+      sequence: "NVC / OFNR → Summary check",
       example: [
-        '"When X happened I felt Y; I need Z. Would you do A?"',
+        '"When X happened I felt Y. I need Z. Would you do A?"',
         '"Have I got that right from your side?"',
       ],
     },
     {
       label: "Structure, then release",
-      sequence: "NVC / OFNR -> Autonomy release",
+      sequence: "NVC / OFNR → Autonomy release",
       example: [
-        '"…would you be willing to do A?"',
-        '"It\'s genuinely your call — I just wanted to ask straight."',
+        '"...would you be willing to do A?"',
+        '"It\'s genuinely your call. I just wanted to ask straight."',
       ],
     },
     {
       label: "Structure, then a clean ask",
-      sequence: "NVC / OFNR -> Clean request",
+      sequence: "NVC / OFNR → Clean request",
       example: [
-        '"…because I need a bit more notice."',
+        '"...because I need a bit more notice."',
         '"So the ask is: a text by six if it shifts."',
       ],
     },
@@ -580,7 +581,7 @@ export const TC053: CardData = {
     {
       id: "TC005",
       reason:
-        "Validation without agreement: validate first when emotion is high; reach for OFNR once they're ready to problem-solve rather than just be heard.",
+        "Validation without agreement: validate first when emotion is high. Reach for OFNR once they're ready to problem-solve rather than just be heard.",
     },
     {
       id: "TC014",
@@ -590,7 +591,7 @@ export const TC053: CardData = {
     {
       id: "TC013",
       reason:
-        "Clean request: OFNR builds the whole case; Clean request is just the doable ask — use it alone when no feeling or need needs airing.",
+        "Clean request: OFNR builds the whole case. Clean request is just the doable ask. Use it alone when no feeling or need needs airing.",
     },
     {
       id: "TC021",
@@ -600,12 +601,12 @@ export const TC053: CardData = {
     {
       id: "TC040",
       reason:
-        "Meaning reflection: use Meaning reflection to draw out their need; use OFNR to state your own clearly.",
+        "Meaning reflection: use Meaning reflection to draw out their need. Use OFNR to state your own clearly.",
     },
     {
       id: "TC074",
       reason:
-        "DESC: the assertive-workplace cousin — OFNR leads with feelings and needs, DESC leads with described behaviour and consequences.",
+        "DESC: the assertive-workplace cousin, OFNR leads with feelings and needs, DESC leads with described behaviour and consequences.",
     },
   ],
 };

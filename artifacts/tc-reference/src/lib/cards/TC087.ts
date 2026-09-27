@@ -6,7 +6,7 @@ export const TC087: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC087/TC087_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,12 +56,12 @@ export const TC087: CardData = {
   ],
   id: "TC087",
   whyItWorks:
-    'A story invitation asks someone to share the human sequence behind a statement, preference, decision, change, or reaction - the lead-up, turning point, context, obstacle, or lesson - rather than interrogating the facts. When a person hints that there is more behind what they said ("I left that role", "That year changed a lot", "I got into climbing"), you notice the cue, mark it lightly, offer one low-pressure invitation, then give them room to choose how much to tell. It works because people rarely present their full context on the first pass, and because people trust a listener who can hold the whole sequence behind a view instead of reacting only to the conclusion. Curiosity that protects autonomy earns far more openness than pressure ever does.',
+    'A story invitation asks someone to share the human sequence behind a statement, preference, decision, change, or reaction (the lead-up, turning point, context, obstacle, or lesson) rather than interrogating the facts. When a person hints that there is more behind what they said ("I left that role", "That year changed a lot", "I got into climbing"), you notice the cue, mark it lightly, offer one low-pressure invitation, then give them room to choose how much to tell. It works because people rarely present their full context on the first pass, and because people trust a listener who can hold the whole sequence behind a view instead of reacting only to the conclusion. Curiosity that protects autonomy earns far more openness than pressure ever does.',
   whatItIsNot: [
     "It is not prying, extracting, or interviewing someone for content, and it is not a shortcut to intimacy.",
     "It is not a therapy technique, a trauma probe, or a sales discovery tactic.",
     "It is not a way to make someone perform an entertaining anecdote on demand.",
-    'It is not a string of fact questions - "When did that happen? Who was there? What year was it?" narrows attention before the person has chosen the story they want to tell.',
+    'It is not a string of fact questions: "When did that happen? Who was there? What year was it?" narrows attention before the person has chosen the story they want to tell.',
   ],
   overview: {
     coreFormula: [
@@ -72,7 +72,7 @@ export const TC087: CardData = {
       "Only if it's not too much to get into, what's the story behind that?",
     ],
     minimumViableMove:
-      'Notice a genuine story cue, offer one warm, low-pressure invitation - "What\'s the story behind that?" - then stay quiet and let them choose how much to tell.',
+      'Notice a genuine story cue, offer one warm, low-pressure invitation ("What\'s the story behind that?") then stay quiet and let them choose how much to tell.',
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
@@ -119,7 +119,7 @@ export const TC087: CardData = {
         "How did that become a thing for you?",
         "What got you into that?",
         "What was the moment you realised that?",
-        "Sounds like there's a lot behind that - how did it come about?",
+        "Sounds like there's a lot behind that. How did it come about?",
         "What pulled you towards that in the first place?",
         "There's probably a story there. What was it like?",
         "What are you like when you're really into something?",
@@ -150,7 +150,7 @@ export const TC087: CardData = {
         "How did you land on that?",
         "What changed your mind on that?",
         "What's the main sequence, from the top?",
-        "Walk me through it - where did it start?",
+        "Walk me through it. Where did it start?",
         "What was going on around then?",
       ],
     },
@@ -163,7 +163,7 @@ export const TC087: CardData = {
         "Only if you want to go into it, what led up to that?",
         "Only if it's not too much to get into, what's the story behind that?",
         "We can stay practical, but is there a short version of how we got here?",
-        "You don't have to go into personal detail - what's the main sequence?",
+        "You don't have to go into personal detail. What's the main sequence?",
         "Only if it feels okay to say, what changed for you then?",
         "If you're comfortable sharing, what led up to that?",
         "Would it be okay to ask how that came about?",
@@ -175,12 +175,12 @@ export const TC087: CardData = {
       tag: "Softening if it doesn't land",
       tone: "Repair",
       phrases: [
-        "No need to go into it - I was just curious about the context.",
+        "No need to go into it. I was just curious about the context.",
         "We can leave it there. Thanks for the headline.",
         "Is there a story there, or is it not one for now?",
         "We can keep it high level if that's easier.",
         "No pressure either way.",
-        "Let me ask a more practical version - what should I know before responding?",
+        "Let me ask a more practical version. What should I know before responding?",
       ],
     },
     {
@@ -212,7 +212,7 @@ export const TC087: CardData = {
     {
       condition: "The cue is sensitive or possibly painful.",
       action: "Add permission and a clean release before inviting.",
-      phrase: "Only if you want to go there - what led up to that?",
+      phrase: "Only if you want to go there. What led up to that?",
     },
     {
       condition: "The cue is open and low-stakes.",
@@ -224,7 +224,7 @@ export const TC087: CardData = {
       action:
         "Listen, track the sequence, use minimal encouragers, then reflect the meaning back.",
       phrase:
-        "So it wasn't just the team - it was the pattern of shifting scope.",
+        "So it wasn't just the team. It was the pattern of shifting scope.",
     },
     {
       condition: "They stay brief or withdraw.",
@@ -234,20 +234,20 @@ export const TC087: CardData = {
   ],
   ladder: [
     {
-      weak: '"Why did you do that?" - sounds like a challenge and invites defence.',
-      better: '"What happened?" - open, but can sound abrupt or investigative.',
-      best: '"That sounds like it had a bit of a path behind it. What led up to it?" - marks the cue, lowers pressure, invites a sequence.',
+      weak: '"Why did you do that?" Sounds like a challenge and invites defence.',
+      better: '"What happened?" Open, but can sound abrupt or investigative.',
+      best: '"That sounds like it had a bit of a path behind it. What led up to it?" Marks the cue, lowers pressure, invites a sequence.',
     },
     {
-      weak: '"Tell me the whole story." - makes the person perform and assumes access.',
+      weak: '"Tell me the whole story." Makes the person perform and assumes access.',
       better:
-        '"What\'s the backstory?" - conversational, but can still feel nosy.',
-      best: '"Only if you want to go into it, what\'s the backstory there?" - preserves choice and offers a clean exit.',
+        '"What\'s the backstory?" Conversational, but can still feel nosy.',
+      best: '"Only if you want to go into it, what\'s the backstory there?" Preserves choice and offers a clean exit.',
     },
     {
-      weak: '"When exactly did that happen?" - jumps to facts before narrative.',
-      better: '"How did it start?" - invites the sequence.',
-      best: '"What was the first thing that shifted?" - narrows gently to the beginning without interrogating.',
+      weak: '"When exactly did that happen?" Jumps to facts before narrative.',
+      better: '"How did it start?" Invites the sequence.',
+      best: '"What was the first thing that shifted?" Narrows gently to the beginning without interrogating.',
     },
   ],
   scenarios: [
@@ -282,7 +282,7 @@ export const TC087: CardData = {
     working: [
       "They pause thoughtfully rather than shutting down.",
       "Their answer becomes more specific or animated.",
-      'They add chronology - "At first... then... eventually...".',
+      'They add chronology: "At first... then... eventually...".',
       "They volunteer feelings, values, or what was at stake.",
       "They lean in and speak a little faster.",
       "They ask for your view after telling the story.",
@@ -292,9 +292,9 @@ export const TC087: CardData = {
       "They look away, stiffen, laugh awkwardly, or change the topic.",
       'They correct your premise: "It\'s not really a story."',
       "They give a purely practical answer.",
-      "They say they don't want to get into it - stop and release.",
-      "The setting makes privacy impossible - keep it high level.",
-      "Your curiosity is running ahead of their comfort - back off.",
+      "They say they don't want to get into it: stop and release.",
+      "The setting makes privacy impossible. Keep it high level.",
+      "Your curiosity is running ahead of their comfort: back off.",
     ],
   },
   drill: [
@@ -326,7 +326,7 @@ export const TC087: CardData = {
     {
       day: "Day 6",
       title: "Calibrate live",
-      task: "Across today's conversations, practise reading the response - open, brief, or resistant - and choose continue, reflect, or release accordingly.",
+      task: "Across today's conversations, practise reading the response (open, brief, or resistant) and choose continue, reflect, or release accordingly.",
     },
     {
       day: "Day 7",
@@ -352,12 +352,12 @@ export const TC087: CardData = {
     with: [
       'A: "I don\'t really work with that team anymore."',
       "B: \"Sounds like there's a bit behind that. Only if it's useful to get into, what led up to the change?\"",
-      'A: "Yeah - the short version is the work kept shifting after we\'d agreed on scope."',
+      'A: "Yeah, the short version is the work kept shifting after we\'d agreed on scope."',
       'B: "So it wasn\'t just the team, it was the pattern of moving scope."',
       'A: "Exactly. That\'s what wore me down."',
-      "Why it works: B marks the cue, gives permission, invites one story, then reflects the sequence back - no prying, no blame.",
+      "Why it works: B marks the cue, gives permission, invites one story, then reflects the sequence back. No prying, no blame.",
     ],
-    note: 'The cooler middle version - "What led to the change?" - also works; it just lands a little flat. Marking the cue first is what adds the warmth.',
+    note: 'The cooler middle version ("What led to the change?") also works. It just lands a little flat. Marking the cue first is what adds the warmth.',
   },
   influencePayoff: {
     feeling: '"They understood the whole context, not just my conclusion."',
@@ -366,7 +366,7 @@ export const TC087: CardData = {
     gains: [
       "Reveals motivation without making the person defend themselves.",
       "Uncovers values, constraints, turning points, and unstated concerns.",
-      "Creates emotional pacing - the person chooses detail, depth, and tone.",
+      "Creates emotional pacing: the person chooses detail, depth, and tone.",
       "Prevents premature advice, because you hear the story before you solve.",
       "Builds rapport through genuine curiosity rather than performance.",
       "Leaves any later response better calibrated to what actually matters.",
@@ -381,16 +381,16 @@ export const TC087: CardData = {
   fieldTip: {
     headline:
       "A story invitation works best when it sounds like respect for context, not hunger for detail.",
-    body: "Use it the moment you sense a doorway - then stop. The silence after the invitation is what lets the other person decide whether the door opens. Fill that silence with a second question and you've quietly taken the choice back off them.",
-    example: '"There may be a story there - only if you want to tell it."',
-    dont: 'Fill the pause with "When was that? Who was involved?" - it turns an open door into an interrogation.',
+    body: "Use it the moment you sense a doorway, then stop. The silence after the invitation is what lets the other person decide whether the door opens. Fill that silence with a second question and you've quietly taken the choice back off them.",
+    example: '"There may be a story there, only if you want to tell it."',
+    dont: 'Fill the pause with "When was that? Who was involved?" It turns an open door into an interrogation.',
     do: "Ask once, warmly, then let the silence sit and follow whatever level they choose.",
   },
   method: [
     {
       step: "1",
       title: "Notice the story cue",
-      body: "Listen for a headline that implies a sequence rather than a single fact - a change, decision, turning point, or reaction the person has compressed into one line.",
+      body: "Listen for a headline that implies a sequence rather than a single fact: a change, decision, turning point, or reaction the person has compressed into one line.",
       examples: [
         { label: "Cue", text: '"I stopped doing that."' },
         { label: "Cue", text: '"I learned that the hard way."' },
@@ -424,7 +424,7 @@ export const TC087: CardData = {
     {
       step: "4",
       title: "Stop talking",
-      body: "Give the person real space to decide whether and how to answer. The silence is part of the move - don't stack a second question into it.",
+      body: "Give the person real space to decide whether and how to answer. The silence is part of the move. Don't stack a second question into it.",
     },
     {
       step: "5",
@@ -437,7 +437,7 @@ export const TC087: CardData = {
         },
         {
           label: "They stay brief",
-          text: '"Got it - that helps. We can leave it there."',
+          text: '"Got it, that helps. We can leave it there."',
         },
       ],
     },
@@ -479,7 +479,7 @@ export const TC087: CardData = {
       mistake: "Asking before there's a cue",
       soundsLike: '"So... what\'s your whole story?" out of nowhere.',
       better:
-        'Wait for a real cue, then: "That sounds like it had a bit behind it - what led up to it?"',
+        'Wait for a real cue, then: "That sounds like it had a bit behind it. What led up to it?"',
     },
     {
       mistake: "Asking from suspicion",
@@ -495,7 +495,7 @@ export const TC087: CardData = {
       mistake: "Chasing pain",
       soundsLike: '"But what actually happened to you?"',
       better:
-        '"Only if it feels okay to say - no need to go into the hard parts."',
+        '"Only if it feels okay to say. No need to go into the hard parts."',
     },
     {
       mistake: "Making it entertainment",
@@ -505,7 +505,7 @@ export const TC087: CardData = {
     {
       mistake: "Hijacking the sequence",
       soundsLike: '"Oh, the same thing happened to me..."',
-      better: '"Go on - what happened next?"',
+      better: '"Go on. What happened next?"',
     },
     {
       mistake: "Treating one layer as consent for all",
@@ -515,23 +515,23 @@ export const TC087: CardData = {
   ],
   recoveryPhrases: [
     "No need to go into it. I realise that may be more personal than I meant.",
-    "We can keep it high level - I was trying to understand the context, not pry.",
+    "We can keep it high level. I was trying to understand the context, not pry.",
     "Let me ask a more practical version: what should I know before responding?",
     "Makes sense. We can leave it there.",
-    "Thanks - I didn't want to over-ask.",
+    "Thanks, I didn't want to over-ask.",
     "I just stacked a few questions there. The main one is: what context matters most?",
     "I appreciate you trusting me with that. We don't have to keep unpacking it.",
     "Completely fine. I appreciate the headline.",
   ],
   bestRecoveryLine:
-    "No need to go into it - I was trying to understand the context, not pry.",
+    "No need to go into it. I was trying to understand the context, not pry.",
   chains: [
     {
       label: "Opening a new thread",
       sequence:
-        "Contextual opener -> story invitation -> minimal encouragers -> meaning reflection",
+        "Contextual opener → story invitation → minimal encouragers → meaning reflection",
       example: [
-        '"Funny running into you here - how do you know the host?"',
+        '"Funny running into you here. How do you know the host?"',
         '"Oh, you two go way back. What\'s the story there?"',
         '"Mm... go on."',
         '"So the friendship really started over that one trip."',
@@ -540,18 +540,18 @@ export const TC087: CardData = {
     {
       label: "Following the energy",
       sequence:
-        "Topic energy tracking -> story invitation -> exact-word pickup",
+        "Topic energy tracking → story invitation → exact-word pickup",
       example: [
         '"You\'ve mentioned the move a few times now."',
         '"How did the move come about?"',
-        "\"You said 'escape' - escape from what, exactly?\"",
+        "\"You said 'escape', escape from what, exactly?\"",
       ],
     },
     {
       label: "Safety before questions",
-      sequence: "Warm presence -> story invitation -> strategic silence",
+      sequence: "Warm presence → story invitation → strategic silence",
       example: [
-        '"No rush - we\'ve got time."',
+        '"No rush, we\'ve got time."',
         '"Only if you want to, what led up to it?"',
         "Then wait, and let the silence do the inviting.",
       ],
@@ -559,7 +559,7 @@ export const TC087: CardData = {
     {
       label: "Understand before solving",
       sequence:
-        "Premature-advice restraint -> story invitation -> permission-based advice",
+        "Premature-advice restraint → story invitation → permission-based advice",
       example: [
         '"Before I jump in with ideas -"',
         '"what led up to this from your side?"',
@@ -571,27 +571,27 @@ export const TC087: CardData = {
     {
       id: "TC038",
       reason:
-        "Both extend a topic. Invite a story when there's a hidden backstory behind a cue; thread instead when you're returning to an existing thread across turns.",
+        "Both extend a topic. Invite a story when there's a hidden backstory behind a cue. Thread instead when you're returning to an existing thread across turns.",
     },
     {
       id: "TC041",
       reason:
-        "Both follow energy. Track topic energy first when you're unsure which thread to open; invite the story once the energised cue is clear.",
+        "Both follow energy. Track topic energy first when you're unsure which thread to open. Invite the story once the energised cue is clear.",
     },
     {
       id: "TC025",
       reason:
-        "Both use the person's own wording. Pick up the exact word when one word carries the charge; invite the story when a whole event or arc is implied.",
+        "Both use the person's own wording. Pick up the exact word when one word carries the charge. Invite the story when a whole event or arc is implied.",
     },
     {
       id: "TC023",
       reason:
-        "Both go beneath the surface. Use loaded-word follow-up for the meaning of a charged word; use story invitation for the path behind it.",
+        "Both go beneath the surface. Use loaded-word follow-up for the meaning of a charged word. Use story invitation for the path behind it.",
     },
     {
       id: "TC030",
       reason:
-        "Both are easy continuers. Echo plus question is a light, local next question; story invitation opens a longer lane for the full arc.",
+        "Both are easy continuers. Echo plus question is a light, local next question. Story invitation opens a longer lane for the full arc.",
     },
     {
       id: "TC004",

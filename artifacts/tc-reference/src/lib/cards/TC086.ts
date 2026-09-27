@@ -6,7 +6,7 @@ export const TC086: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC086/TC086_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC086: CardData = {
   ],
   id: "TC086",
   whyItWorks:
-    "LEAP - Listen, Empathise, Agree, Partner - is a relationship-first sequence for moments when direct persuasion, correction, or advice would only harden resistance. Instead of the usual correct, explain, pressure, argue, you go the other way: enter their world, show that their experience makes sense from their side, name the one part you can honestly agree with, then invite a small next step that keeps their choice intact. It works by lowering threat - people who feel accurately heard and not shamed have far more room to think.",
+    "LEAP (Listen, Empathise, Agree, Partner) is a relationship-first sequence for moments when direct persuasion, correction, or advice would only harden resistance. Instead of the usual correct, explain, pressure, argue, you go the other way: enter their world, show that their experience makes sense from their side, name the one part you can honestly agree with, then invite a small next step that keeps their choice intact. It works by lowering threat: people who feel accurately heard and not shamed have far more room to think.",
   whatItIsNot: [
     "It is not agreement with every claim. You can empathise with a fear without endorsing a false belief, or agree that someone wants freedom without agreeing that every choice is safe.",
     'It is not a debate trick. If the hidden agenda is "pretend to listen so I can get my way," it turns manipulative and usually fails.',
@@ -66,18 +66,18 @@ export const TC086: CardData = {
   ],
   overview: {
     coreFormula: [
-      'Listen: "I want to understand this from your side. What is the part people keep missing?"',
+      'Listen: "I want to understand this from your side. What\'s the part people keep missing?"',
       'Empathise: "Given that, I can see why this feels risky / insulting / exhausting."',
       'Agree: "I agree you should have a real say in what happens next."',
       'Partner: "Can we find one step that protects that and still handles the concern?"',
       'Compact: "From your side, [their view]. I can see why [feeling] is there. I agree [true point]. Would you be open to [small next step]?"',
     ],
     minimumViableMove:
-      'Say "I want to understand your side before I respond - what matters most to you here?", reflect it back, name one honest thing you agree with, then ask "Would you be open to working out one next step together?"',
+      'Say "I want to understand your side before I respond. What matters most to you here?", reflect it back, name one honest thing you agree with, then ask "Would you be open to working out one next step together?"',
     impact: "Medium",
     difficulty: "Hard",
     misuse:
-      "LEAP fails when it becomes strategic empathy - the sequence used to hide pressure, sales intent, or coercion. If the empathy is not real, or you rush to Partner before any honest agreement has landed, the person feels managed rather than heard and defends their position harder.",
+      "LEAP fails when it becomes strategic empathy: the sequence used to hide pressure, sales intent, or coercion. If the empathy is not real, or you rush to Partner before any honest agreement has landed, the person feels managed rather than heard and defends their position harder.",
     bestFor: [
       "Someone rejects advice, help, feedback, or a proposed plan",
       "A disagreement has become personal or identity-protective",
@@ -133,11 +133,11 @@ export const TC086: CardData = {
       tone: "Warm",
       phrases: [
         "I agree that you should have a say in what happens next.",
-        "I agree that being talked over is not okay.",
+        "I agree that being talked over isn't okay.",
         "I agree that we need a plan that doesn't make this worse.",
         "I agree that trust has to come before any bigger step.",
         "I agree that the next step needs to feel workable, not forced.",
-        "I agree you should not feel managed by me.",
+        "I agree you shouldn't feel managed by me.",
       ],
     },
     {
@@ -163,7 +163,7 @@ export const TC086: CardData = {
         "Before I propose anything, I want to understand the constraint you're protecting.",
         "I agree any plan has to respect that constraint. Can we design around it?",
         "I can see why that would feel risky for the team.",
-        "It sounds like we're aligned on the timeline; can we work through the budget?",
+        "It sounds like we're aligned on the timeline. Can we work through the budget?",
         "Can we design around that constraint together?",
         "I'd rather understand your objection properly than argue past it.",
       ],
@@ -176,7 +176,7 @@ export const TC086: CardData = {
       phrases: [
         "I'm not here to corner you. I do need us to keep this safe.",
         "I can pause the argument. I can't ignore the risk.",
-        "We don't have to settle the whole issue now - only the next safe step.",
+        "We don't have to settle the whole issue now, only the next safe step.",
         "I want to respect your choice, and I also can't ignore immediate safety.",
         "What's the least intrusive safe step we can both live with?",
         "I want to do this with you, not to you.",
@@ -202,12 +202,12 @@ export const TC086: CardData = {
       action:
         "Prioritise safety, professional support, or escalation. Stay respectful, but don't rely on LEAP as the sole intervention.",
       phrase:
-        "I need us to keep everyone safe first; we can talk this through properly after.",
+        "I need us to keep everyone safe first. We can talk this through properly after.",
     },
     {
       condition: "They mainly want to be heard, not moved",
       action:
-        "Stay in Listen and Empathise; hold off on any Partner step until they settle.",
+        "Stay in Listen and Empathise. Hold off on any Partner step until they settle.",
       phrase:
         "I'm not going to push anything. I just want to understand this properly.",
     },
@@ -238,7 +238,7 @@ export const TC086: CardData = {
   ],
   ladder: [
     {
-      weak: '"You are wrong, but I am listening."',
+      weak: "\"You're wrong, but I'm listening.\"",
       better: '"I hear that you don\'t see it that way. What am I missing?"',
       best: '"From your side, this feels like people are deciding for you. I can see why that would make you resist. I agree you should have a say. Can we find one step that keeps your choice intact and still handles the concern?"',
     },
@@ -256,13 +256,13 @@ export const TC086: CardData = {
   scenarios: [
     {
       situation: "Family refuses support",
-      move: "Listen for what feels humiliating or controlling; protect dignity and choice before any next step.",
+      move: "Listen for what feels humiliating or controlling. Protect dignity and choice before any next step.",
       phrase:
         "I agree you should have a say. Could we choose one low-pressure next step together?",
     },
     {
       situation: "Workplace impasse",
-      move: "Reflect the constraint they're protecting - competence, fairness, risk - before proposing anything.",
+      move: "Reflect the constraint they're protecting (competence, fairness, risk) before proposing anything.",
       phrase:
         "I agree the plan has to respect the client risk you're seeing. Can we design around it?",
     },
@@ -286,7 +286,7 @@ export const TC086: CardData = {
     },
     {
       situation: "Safety-adjacent conversation",
-      move: "Preserve dignity while naming the safety boundary; don't let LEAP replace proper procedure.",
+      move: "Preserve dignity while naming the safety boundary. Don't let LEAP replace proper procedure.",
       phrase:
         "I want your choice involved as much as possible, and I can't ignore immediate safety. Let's pick the least intrusive safe step.",
     },
@@ -301,20 +301,20 @@ export const TC086: CardData = {
       "They start naming conditions instead of refusing everything.",
     ],
     adjust: [
-      "They get more rigid after you speak - slow down and re-listen.",
-      'They say "you\'re twisting my words" - check your reflection against their exact words.',
-      "Your agreement sounds too broad or dishonest - make it smaller and true.",
-      "They treat the partnership offer as a trap - return to Empathise and drop the ask.",
-      "You notice yourself steering rather than understanding - stop and reset.",
-      "They ask to stop, or it escalates towards danger - pause; safety over persuasion.",
-      "You can't stay respectful - say so and come back to it later.",
+      "They get more rigid after you speak: slow down and re-listen.",
+      'They say "you\'re twisting my words": check your reflection against their exact words.',
+      "Your agreement sounds too broad or dishonest. Make it smaller and true.",
+      "They treat the partnership offer as a trap: return to Empathise and drop the ask.",
+      "You notice yourself steering rather than understanding: stop and reset.",
+      "They ask to stop, or it escalates towards danger: pause. Safety over persuasion.",
+      "You can't stay respectful. Say so and come back to it later.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the signal",
-      task: 'Catch one real moment of resistance today - a correction loop, a flat refusal, a "you don\'t get it" - and just name it silently. No fixing, only noticing the cue.',
+      task: 'Catch one real moment of resistance today (a correction loop, a flat refusal, a "you don\'t get it") and just name it silently. No fixing, only noticing the cue.',
     },
     {
       day: "Day 2",
@@ -324,7 +324,7 @@ export const TC086: CardData = {
     {
       day: "Day 3",
       title: 'Empathise with no "but"',
-      task: 'Take a blunt line like "you need to stop this" and write the Empathise sentence - the feeling underneath it - with no "but" attached.',
+      task: 'Take a blunt line like "you need to stop this" and write the Empathise sentence, the feeling underneath it, with no "but" attached.',
     },
     {
       day: "Day 4",
@@ -339,7 +339,7 @@ export const TC086: CardData = {
     {
       day: "Day 6",
       title: "Four-line LEAP conversion",
-      task: "Convert one blunt statement into all four lines - Listen, Empathise, Agree, Partner - then say them aloud until they sound like you, not a script.",
+      task: "Convert one blunt statement into all four lines (Listen, Empathise, Agree, Partner) then say them aloud until they sound like you, not a script.",
     },
     {
       day: "Day 7",
@@ -368,7 +368,7 @@ export const TC086: CardData = {
       "Them: Fine.",
       "You: You feel like everyone's already decided there's a problem, and now every conversation sounds like a trap. You want people to stop using concern to control you. Is that close?",
       "Them: Yes. That's exactly it.",
-      "You: I can see why that makes you suspicious. I agree the next step has to be your choice, not a power struggle. My concern is safety, not winning. Would you pick between two low-pressure options - we call someone you trust together, or we set one check-in for tomorrow?",
+      "You: I can see why that makes you suspicious. I agree the next step has to be your choice, not a power struggle. My concern is safety, not winning. Would you pick between two low-pressure options, we call someone you trust together, or we set one check-in for tomorrow?",
       "Them: The check-in is fine.",
     ],
     note: "The poor version argues from facts and worry, so the other person has to defend their autonomy. The advanced version asks permission, reflects their side exactly, separates agreement from endorsement, names the boundary, and offers a choice-based step.",
@@ -377,13 +377,13 @@ export const TC086: CardData = {
     feeling:
       '"You may not agree with me, but you understood what mattered to me."',
     principle:
-      "When people feel judged, cornered, or corrected, they defend the position more fiercely. When they feel accurately heard and not shamed, they have more room to think - and cooperation starts to feel safer than the stalemate.",
+      "When people feel judged, cornered, or corrected, they defend the position more fiercely. When they feel accurately heard and not shamed, they have more room to think, and cooperation starts to feel safer than the stalemate.",
     gains: [
-      "Lower reactance - they don't have to fight you for their autonomy",
-      "Better information - listening surfaces the real fear, value, loss, or objection",
-      "More face-saving - agreeing on one small true point reduces the need to win",
-      "Higher trust - empathy before advice reads as respect, not tactics",
-      "More durable action - a step someone chooses is a step they'll actually own",
+      "Lower reactance: they don't have to fight you for their autonomy",
+      "Better information: listening surfaces the real fear, value, loss, or objection",
+      "More face-saving: agreeing on one small true point reduces the need to win",
+      "Higher trust: empathy before advice reads as respect, not tactics",
+      "More durable action: a step someone chooses is a step they'll actually own",
     ],
     whyMostFail: [
       "They hijack the topic or run the sequence mechanically, so it reads as a script.",
@@ -394,20 +394,20 @@ export const TC086: CardData = {
   },
   fieldTip: {
     headline: "Don't try to make them leap. You LEAP first.",
-    body: 'The move isn\'t "I listened, now comply." It\'s "I understand more accurately, I respect what matters, I can name honest common ground, and I\'m inviting a step we can both stand behind." When in doubt, shrink the Partner step - a small voluntary next step beats a large pressured plan.',
+    body: 'The move isn\'t "I listened, now comply." It\'s "I understand more accurately, I respect what matters, I can name honest common ground, and I\'m inviting a step we can both stand behind." When in doubt, shrink the Partner step: a small voluntary next step beats a large pressured plan.',
     dont: '"I\'ve heard you out, so now can we do it my way?"',
-    do: '"You may not agree with me - but did I understand what mattered to you?"',
+    do: '"You may not agree with me, but did I understand what mattered to you?"',
   },
   method: [
     {
       step: "1",
       title: "Notice the resistance, and stop arguing",
-      body: 'Correction loops, repeated objections, rigid certainty, sarcasm, silence, or "you just don\'t get it" are your cue. The instinct is to correct, explain, or push harder - do the opposite. Drop the rebuttal and shift from proving to understanding.',
+      body: 'Correction loops, repeated objections, rigid certainty, sarcasm, silence, or "you just don\'t get it" are your cue. The instinct is to correct, explain, or push harder. Do the opposite. Drop the rebuttal and shift from proving to understanding.',
     },
     {
       step: "2",
       title: "Listen for their world",
-      body: "Ask one clean question and let the answer breathe. Reflect their words back before you add any of your own - accuracy first, agreement later.",
+      body: "Ask one clean question and let the answer breathe. Reflect their words back before you add any of your own: accuracy first, agreement later.",
       examples: [
         {
           label: "Open",
@@ -419,24 +419,24 @@ export const TC086: CardData = {
     {
       step: "3",
       title: "Empathise with the human logic",
-      body: "Name the feeling or pressure that makes their position make sense - fear, frustration, exhaustion, pride, or a need for respect or control. Empathise with the experience, not necessarily the claim.",
+      body: "Name the feeling or pressure that makes their position make sense: fear, frustration, exhaustion, pride, or a need for respect or control. Empathise with the experience, not necessarily the claim.",
       examples: [
         { label: "Feeling", text: "That sounds exhausting to keep defending." },
         {
           label: "Not the claim",
-          text: '"I can see why that would feel frightening" - not "yes, everyone\'s against you."',
+          text: '"I can see why that would feel frightening", not "yes, everyone\'s against you."',
         },
       ],
     },
     {
       step: "4",
       title: "Agree on something true",
-      body: "Find one honest point of common ground - a value, goal, risk, boundary, or preference. It must be specific and real; a fake agreement gets felt. If you can't find one, name the shared aim instead of pretending.",
+      body: "Find one honest point of common ground: a value, goal, risk, boundary, or preference. It must be specific and real. A fake agreement gets felt. If you can't find one, name the shared aim instead of pretending.",
     },
     {
       step: "5",
       title: "Partner on the next step",
-      body: 'Invite a small step with choice built in. "Would you be open to..." or "What would feel workable?" - never "You need to...". When in doubt, shrink the step.',
+      body: 'Invite a small step with choice built in. "Would you be open to..." or "What would feel workable?" Never "You need to...". When in doubt, shrink the step.',
       examples: [
         {
           label: "Two options",
@@ -447,7 +447,7 @@ export const TC086: CardData = {
     {
       step: "6",
       title: "Keep boundaries visible",
-      body: "If there's real risk, hold partnership and limit together: \"I want to do this with you, not to you - and I also can't ignore a safety risk.\" Respecting autonomy doesn't mean dropping the boundary.",
+      body: "If there's real risk, hold partnership and limit together: \"I want to do this with you, not to you, and I also can't ignore a safety risk.\" Respecting autonomy doesn't mean dropping the boundary.",
     },
   ],
   liveThreadClues: [
@@ -487,7 +487,7 @@ export const TC086: CardData = {
   commonMistakes: [
     {
       mistake: "Fake agreement",
-      soundsLike: '"I totally agree" - when you don\'t.',
+      soundsLike: '"I totally agree", when you don\'t.',
       better:
         'Find a smaller point you can honestly stand behind: "I agree this shouldn\'t be rushed."',
     },
@@ -501,13 +501,13 @@ export const TC086: CardData = {
       mistake: "Empathising with the claim, not the experience",
       soundsLike: '"Yes, everyone really is plotting against you."',
       better:
-        '"I can see why that would feel frightening" - the feeling, not the fact.',
+        '"I can see why that would feel frightening": the feeling, not the fact.',
     },
     {
       mistake: 'Adding "but" too soon',
       soundsLike: '"I understand, but here\'s the thing..."',
       better:
-        'Two clean sentences: "I understand this matters to you. My concern is X - can we handle both?"',
+        'Two clean sentences: "I understand this matters to you. My concern is X. Can we handle both?"',
     },
     {
       mistake: "Rushing to Partner before Agree",
@@ -518,7 +518,7 @@ export const TC086: CardData = {
       mistake: "Making the Partner step too big",
       soundsLike: '"So you\'ll do the whole programme, then?"',
       better:
-        "Ask for the smallest safe next step - a single check-in beats a grand plan.",
+        "Ask for the smallest safe next step: a single check-in beats a grand plan.",
     },
     {
       mistake: "Treating clinical risk as a persuasion challenge",
@@ -531,18 +531,18 @@ export const TC086: CardData = {
     "I jumped ahead. Let me go back and understand first.",
     "I made that sound like a decision instead of a conversation.",
     "I pushed too fast. I can see why that felt like pressure.",
-    "That sounded scripted. I do mean it - I want to understand your side.",
+    "That sounded scripted. I do mean it. I want to understand your side.",
     "Let me be more precise about what I actually agree with.",
     "I'm not saying I see every fact the same way. I do understand why it feels serious to you.",
-    "Fair concern - I do have a hope for a next step, and I don't want to hide that. I also want your choice to be real.",
+    "Fair concern, I do have a hope for a next step, and I don't want to hide that. I also want your choice to be real.",
     "This isn't working right now. I'd rather pause than make it worse. Can we come back when we both have more room?",
   ],
   bestRecoveryLine:
-    "I pushed too fast. I can see why that felt like pressure. I agree we shouldn't make a rushed decision - could we reset and start with what you want protected?",
+    "I pushed too fast. I can see why that felt like pressure. I agree we shouldn't make a rushed decision. Could we reset and start with what you want protected?",
   chains: [
     {
       label: "Enter a tense conversation",
-      sequence: "Warm opening -> LEAP -> Autonomy release -> Small ask",
+      sequence: "Warm opening → LEAP → Autonomy release → Small ask",
       example: [
         "Use when the other person walks in expecting pressure.",
         "Open warm, run the full LEAP sequence, hand choice back, then make one small ask.",
@@ -550,7 +550,7 @@ export const TC086: CardData = {
     },
     {
       label: "Rebuild after over-questioning",
-      sequence: "Question-stacking restraint -> LEAP -> Story invitation",
+      sequence: "Question-stacking restraint → LEAP → Story invitation",
       example: [
         "Use when you've fired too many questions and trust has dipped.",
         "Stop stacking questions, run LEAP to lower the threat, then invite the fuller story.",
@@ -558,7 +558,7 @@ export const TC086: CardData = {
     },
     {
       label: "High emotion, information later",
-      sequence: "Emotional labelling -> LEAP -> Elicit-provide-elicit",
+      sequence: "Emotional labelling → LEAP → Elicit-provide-elicit",
       example: [
         "Use when feeling is high but facts may help once it settles.",
         "Name the emotion, run LEAP, then offer information only once they invite it.",
@@ -566,7 +566,7 @@ export const TC086: CardData = {
     },
     {
       label: "Autonomy plus real risk",
-      sequence: "LEAP -> Boundary statement -> Risk reduction",
+      sequence: "LEAP → Boundary statement → Risk reduction",
       example: [
         "Use when choice matters but harm or safety still has to be handled.",
         "Run LEAP, state the limit plainly, then agree the least intrusive safe step.",
@@ -577,7 +577,7 @@ export const TC086: CardData = {
     {
       id: "TC005",
       reason:
-        "Validation without agreement just acknowledges the feeling. Reach for LEAP when the moment also needs common ground and a shared next step; if validation alone is enough, stop there.",
+        "Validation without agreement just acknowledges the feeling. Reach for LEAP when the moment also needs common ground and a shared next step. If validation alone is enough, stop there.",
     },
     {
       id: "TC006",
@@ -592,12 +592,12 @@ export const TC086: CardData = {
     {
       id: "TC043",
       reason:
-        "OARS is the underlying skill set - open questions, affirmations, reflections, summaries. LEAP is the sequence that deploys those skills when resistance is high.",
+        "OARS is the underlying skill set: open questions, affirmations, reflections, summaries. LEAP is the sequence that deploys those skills when resistance is high.",
     },
     {
       id: "TC046",
       reason:
-        "Elicit-provide-elicit shares information once someone is open to it. If they're still defensive, run LEAP first; if they're already asking for information, use EPE.",
+        "Elicit-provide-elicit shares information once someone is open to it. If they're still defensive, run LEAP first. If they're already asking for information, use EPE.",
     },
     {
       id: "TC085",

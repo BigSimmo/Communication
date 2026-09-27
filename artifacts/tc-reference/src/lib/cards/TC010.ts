@@ -6,7 +6,7 @@ export const TC010: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC010/TC010_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,21 +56,21 @@ export const TC010: CardData = {
   ],
   id: "TC010",
   whyItWorks:
-    "Warm presence is the skill of making your attention, tone, pace, face, and body feel safe, receptive, and easy to approach. It works because warmth is not more talking - it lowers social threat while showing genuine interest and calm attention, so the other person can relax, open up, and take in whatever you say next.",
+    "Warm presence is the skill of making your attention, tone, pace, face, and body feel safe, receptive, and easy to approach. It works because warmth is not more talking. It lowers social threat while showing genuine interest and calm attention, so the other person can relax, open up, and take in whatever you say next.",
   whatItIsNot: [
     "It is not forced friendliness or people-pleasing.",
     "It is not excessive smiling or agreeing with everything.",
     "It is not trying to be liked at the cost of clarity.",
-    "It is not more talking - warmth is lowering social threat, not filling the air.",
-    "It is not a charm act you switch on; it is genuine, calm attention.",
+    "It is not more talking: warmth is lowering social threat, not filling the air.",
+    "It is not a charm act you switch on. It is genuine, calm attention.",
   ],
   overview: {
     coreFormula: [
-      "Good to see you. No rush - how has the day landed so far?",
+      "Good to see you. No rush. How has the day landed so far?",
       "I'm glad we get a minute properly. What's been taking most of your attention?",
       "Before I jump into my bit, how are you seeing it?",
       "No pressure to go deep, but I'm curious what your take is.",
-      "Settle -> orient -> warm opener -> low-pressure invitation -> responsive follow-up.",
+      "Settle → orient → warm opener → low-pressure invitation → responsive follow-up.",
     ],
     minimumViableMove:
       "Slow down, orient to them, and make one low-pressure warm comment before your question or point.",
@@ -90,8 +90,8 @@ export const TC010: CardData = {
     "The situation needs immediate directness, safety action, or a firm boundary before rapport.",
     "Warmth is becoming approval-seeking, flattery, over-smiling, or excessive accommodation.",
     "You are using warmth to hide an agenda or soften pressure rather than preserve real choice.",
-    "The other person is suspicious of charm; use calm clarity and consistency instead.",
-    "You need to say no, correct, or disagree; keep warmth, but do not dilute the message.",
+    "The other person is suspicious of charm. Use calm clarity and consistency instead.",
+    "You need to say no, correct, or disagree. Keep warmth, but do not dilute the message.",
   ],
   phraseBank: [
     {
@@ -103,7 +103,7 @@ export const TC010: CardData = {
         "Good to see you.",
         "I'm glad we actually get a minute properly.",
         "Nice to finally meet you properly.",
-        "I've heard good things - no pressure to live up to them.",
+        "I've heard good things. No pressure to live up to them.",
         "Before we get into the details, how has your day been landing?",
       ],
     },
@@ -113,7 +113,7 @@ export const TC010: CardData = {
       tag: "Reduce pressure / shy or guarded",
       tone: "Warm",
       phrases: [
-        "No rush - take your time.",
+        "No rush, take your time.",
         "No pressure if you don't want to get into it.",
         "We can keep this light.",
         "Only if you feel like saying.",
@@ -206,14 +206,14 @@ export const TC010: CardData = {
   decisionTree: [
     {
       condition:
-        "They are giving a warmth cue - a first meeting, an awkward or cold moment, or someone who seems guarded, stressed or cautious.",
+        "They are giving a warmth cue: a first meeting, an awkward or cold moment, or someone who seems guarded, stressed or cautious.",
       action:
         "Use the minimum viable move: slow down, orient, and make one low-pressure warm comment before your ask.",
-      phrase: "Good to see you. No rush - how has the day landed so far?",
+      phrase: "Good to see you. No rush. How has the day landed so far?",
     },
     {
       condition:
-        "There is no warmth cue - they want a direct answer, or the moment needs a boundary or safety action first.",
+        "There is no warmth cue. They want a direct answer, or the moment needs a boundary or safety action first.",
       action:
         "Skip the warm-up. Listen plainly or lead with clarity, then add warmth once the essential point is made.",
       phrase: "Let me be straight with you first, then we can talk it through.",
@@ -221,7 +221,7 @@ export const TC010: CardData = {
     {
       condition: "The warm opener landed and they relaxed or opened up.",
       action:
-        "Stay with their first real thread once; reflect it back before adding your own point.",
+        "Stay with their first real thread once. Reflect it back before adding your own point.",
       phrase: "So the people side is the main weight right now?",
     },
     {
@@ -236,14 +236,14 @@ export const TC010: CardData = {
         "You have already used warmth and it is starting to feel like performance or stalling.",
       action:
         "Do not repeat it mechanically. Switch to a clear summary, a direct request, or an ordinary contribution.",
-      phrase: "Alright - here's what I'd actually suggest we do.",
+      phrase: "Alright, here's what I'd actually suggest we do.",
     },
   ],
   ladder: [
     {
       weak: '"So what\'s the issue?"',
       better: '"Where should we start?"',
-      best: '"No rush - give me the rough version first. What\'s been taking most of your attention?"',
+      best: '"No rush, give me the rough version first. What\'s been taking most of your attention?"',
     },
     {
       weak: '"I need your answer quickly."',
@@ -253,7 +253,7 @@ export const TC010: CardData = {
     {
       weak: '"Tell me how you feel."',
       better: '"How has that been landing?"',
-      best: '"No pressure to make it neat - what\'s the honest version?"',
+      best: '"No pressure to make it neat. What\'s the honest version?"',
     },
     {
       weak: '"Relax, it\'s fine."',
@@ -265,7 +265,7 @@ export const TC010: CardData = {
     {
       situation: "Social conversation",
       move: "Use the smallest natural version so the other person feels heard without being analysed.",
-      phrase: "Good to see you. No rush - how's the day been?",
+      phrase: "Good to see you. No rush. How's the day been?",
     },
     {
       situation: "Professional discussion",
@@ -274,14 +274,14 @@ export const TC010: CardData = {
     },
     {
       situation: "Conflict or objection",
-      move: "Add validation and reduce speed; do not weaponise the warmth.",
+      move: "Add validation and reduce speed. Do not weaponise the warmth.",
       phrase:
         "Let's slow it down for a second. I want to understand before I respond.",
     },
     {
       situation: "Digital message",
       move: "Use one sentence. Avoid long explanations or stacked questions.",
-      phrase: "Quick thought - no pressure if it's not useful.",
+      phrase: "Quick thought, no pressure if it's not useful.",
     },
     {
       situation: "Shy or guarded person",
@@ -305,12 +305,12 @@ export const TC010: CardData = {
       'They say things like "Exactly", "That helps", or "Yeah, that\'s it".',
     ],
     adjust: [
-      "They give short answers or seem overwhelmed by your energy - lower the energy and slow your pace.",
-      "They look away or seem trapped - use fewer words and leave more space.",
-      "Your warmth is starting to feel like performance or people-pleasing - switch from warmth to calm clarity.",
-      "You are avoiding the real point to keep things pleasant - state the point directly, in a warm tone.",
-      "They seem suspicious of charm - drop the charm and rely on steady consistency instead.",
-      "You are smiling while the content is serious - let your face match the emotional tone.",
+      "They give short answers or seem overwhelmed by your energy: lower the energy and slow your pace.",
+      "They look away or seem trapped. Use fewer words and leave more space.",
+      "Your warmth is starting to feel like performance or people-pleasing: switch from warmth to calm clarity.",
+      "You are avoiding the real point to keep things pleasant: state the point directly, in a warm tone.",
+      "They seem suspicious of charm. Drop the charm and rely on steady consistency instead.",
+      "You are smiling while the content is serious. Let your face match the emotional tone.",
       "Ask a simpler, less personal question.",
       'Give an exit: "No pressure if not."',
     ],
@@ -344,7 +344,7 @@ export const TC010: CardData = {
     {
       day: "Day 6",
       title: "Warm and clear together",
-      task: "Have one conversation where you must give a boundary, correction, or firm ask. Keep your tone warm while stating the point cleanly - do not soften it into vagueness.",
+      task: "Have one conversation where you must give a boundary, correction, or firm ask. Keep your tone warm while stating the point cleanly. Do not soften it into vagueness.",
     },
     {
       day: "Day 7",
@@ -364,8 +364,8 @@ export const TC010: CardData = {
     without: [
       "Person: I'm not sure where to start.",
       "You: Okay, we need to get through this quickly. What exactly is the problem?",
-      "Why it is weak:",
-      "It rushes the person before they have settled.",
+      "Why it's weak:",
+      "It rushes the person before they've settled.",
       "It signals pressure and impatience, so they brace instead of opening up.",
       "It asks for the problem without making it safe to give a messy first answer.",
     ],
@@ -380,7 +380,7 @@ export const TC010: CardData = {
       "You: That's fine. No need to make it neat. Give me the messy version first.",
       "Person: Honestly, it's not one thing. It's the whole dynamic.",
       "You: So the issue is less a single event and more the atmosphere around it.",
-      "Person: Yes - that's exactly it.",
+      "Person: Yes, that's exactly it.",
       "Why it works:",
       "It reduces pressure before asking for detail.",
       "It gives permission for an imperfect answer.",
@@ -388,10 +388,10 @@ export const TC010: CardData = {
       "It sounds warm without becoming vague or overly soothing.",
       "It creates safety and momentum at the same time.",
     ],
-    note: "Warmth here is not softness for its own sake - it lowers the threat just enough that the real answer can surface.",
+    note: "Warmth here is not softness for its own sake. It lowers the threat just enough that the real answer can surface.",
   },
   influencePayoff: {
-    feeling: '"I can relax around this person - I don\'t have to perform."',
+    feeling: '"I can relax around this person. I don\'t have to perform."',
     principle:
       "People open up, trust you, and take in what you say when they first feel safe and unhurried in your presence.",
     gains: [
@@ -404,7 +404,7 @@ export const TC010: CardData = {
       "Awkward, tense, or cold moments thaw without anyone having to name it.",
     ],
     whyMostFail: [
-      "They turn warmth into performance - over-smiling, gushing, or charm that does not fit the moment.",
+      "They turn warmth into performance: over-smiling, gushing, or charm that does not fit the moment.",
       "They rush the first moment, opening with tasks or questions before the person has settled.",
       "They let warmth slide into approval-seeking, so the real ask, boundary, or point goes soft.",
       "They keep the same polished friendliness with everyone instead of matching the person and pace.",
@@ -412,7 +412,7 @@ export const TC010: CardData = {
   },
   fieldTip: {
     headline: "Warmth is safety, not friendliness.",
-    body: 'Warm presence is not "being extra friendly". It is making your attention feel safe, calm, and easy to receive. The work is mostly in your body and pace, not your words - settle yourself first and the right tone tends to follow.',
+    body: 'Warm presence is not "being extra friendly". It is making your attention feel safe, calm, and easy to receive. The work is mostly in your body and pace, not your words: settle yourself first and the right tone tends to follow.',
     example:
       "Before a hard conversation, take one slow breath and unclench your jaw before you say anything.",
     dont: "Arrive fast and bright, leading with the task before the person has landed.",
@@ -422,7 +422,7 @@ export const TC010: CardData = {
     {
       step: "1",
       title: "Settle yourself first",
-      body: "Before you speak, slow your breath, relax your jaw and shoulders, and let your face soften. Warm presence starts as nervous-system regulation, not word choice - if you are tense, no phrase will read as warm.",
+      body: "Before you speak, slow your breath, relax your jaw and shoulders, and let your face soften. Warm presence starts as nervous-system regulation, not word choice. If you are tense, no phrase will read as warm.",
     },
     {
       step: "2",
@@ -436,7 +436,7 @@ export const TC010: CardData = {
       examples: [
         {
           label: "Greeting",
-          text: "Good to see you. No rush - how's the day been?",
+          text: "Good to see you. No rush. How's the day been?",
         },
         {
           label: "Context",
@@ -451,7 +451,7 @@ export const TC010: CardData = {
       examples: [
         {
           label: "Exit ramp",
-          text: "A short version is completely fine - only if you feel like saying.",
+          text: "A short version is completely fine, only if you feel like saying.",
         },
       ],
     },
@@ -494,7 +494,7 @@ export const TC010: CardData = {
   commonMistakes: [
     {
       mistake: "Performative friendliness",
-      soundsLike: '"Hiiii! So amazing to see you!" when the tone does not fit.',
+      soundsLike: '"Hiiii! So amazing to see you!" when the tone doesn\'t fit.',
       better:
         'Use calm, proportionate warmth: "Good to see you. How\'s your day been?"',
     },
@@ -502,7 +502,7 @@ export const TC010: CardData = {
       mistake: "Over-smiling through serious content",
       soundsLike: "Smiling while they describe something stressful.",
       better:
-        "Let your face match the emotional tone. Warm does not mean cheerful.",
+        "Let your face match the emotional tone. Warm doesn't mean cheerful.",
     },
     {
       mistake: "Rushing the first moment",
@@ -547,7 +547,7 @@ export const TC010: CardData = {
     "I think I moved too quickly into the task.",
     "I don't want this to feel pressured.",
     "Let me reset and ask properly.",
-    "No pressure - we can slow this right down.",
+    "No pressure, we can slow this right down.",
     "Sorry, that was more clipped than I intended. Can we start that part again?",
   ],
   bestRecoveryLine:
@@ -556,9 +556,9 @@ export const TC010: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm presence -> contextual opener -> live-thread follow-up -> reflective listening -> specific appreciation.",
+        "Warm presence → contextual opener → live-thread follow-up → reflective listening → specific appreciation.",
       example: [
-        '"Good to see you - no rush, how\'s the day been?"',
+        '"Good to see you. No rush, how\'s the day been?"',
         '"You mentioned the move went sideways. What was the sideways part?"',
         '"So the timing was the real headache."',
         '"I like how clearly you thought that through."',
@@ -567,7 +567,7 @@ export const TC010: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Warm presence -> ask-before-tell -> values-based framing -> clean request -> autonomy release.",
+        "Warm presence → ask-before-tell → values-based framing → clean request → autonomy release.",
       example: [
         '"Before I give my view, how are you seeing it?"',
         "\"Given you care about getting this right, here's what I'd suggest.\"",
@@ -578,9 +578,9 @@ export const TC010: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Warm presence -> validate the concern -> slow down -> clarify objection -> shared-goal framing.",
+        "Warm presence → validate the concern → slow down → clarify objection → shared-goal framing.",
       example: [
-        '"Let\'s slow it down for a second - I want to understand before I respond."',
+        '"Let\'s slow it down for a second. I want to understand before I respond."',
         '"I can see there\'s a real concern underneath this."',
         '"What part of it worries you most?"',
         '"We both want the same outcome here."',
@@ -589,10 +589,10 @@ export const TC010: CardData = {
     {
       label: "Dating / social chain",
       sequence:
-        "Warm presence -> playful observation -> low-pressure follow-up -> reciprocal self-disclosure -> callback humour.",
+        "Warm presence → playful observation → low-pressure follow-up → reciprocal self-disclosure → callback humour.",
       example: [
         '"Okay, give me the non-boring version."',
-        '"That sounds like there\'s a story there - no pressure though."',
+        '"That sounds like there\'s a story there. No pressure though."',
         '"I\'m the same about that, honestly."',
         '"See, this is the non-boring version I was promised."',
       ],
@@ -602,7 +602,7 @@ export const TC010: CardData = {
     {
       id: "TC012",
       reason:
-        "Reach for this when the person mainly needs to know they have your focus. Full-attention signal makes attention explicit; Warm presence sets the overall safe, low-pressure tone.",
+        "Reach for this when the person mainly needs to know they have your focus. Full-attention signal makes attention explicit. Warm presence sets the overall safe, low-pressure tone.",
     },
     {
       id: "TC024",
@@ -612,7 +612,7 @@ export const TC010: CardData = {
     {
       id: "TC028",
       reason:
-        "Use this when the fix is specifically in your voice - pace, pitch, and steadiness. Warm presence is broader: face, body, timing, and words together.",
+        "Use this when the fix is specifically in your voice: pace, pitch, and steadiness. Warm presence is broader: face, body, timing, and words together.",
     },
     {
       id: "TC036",
@@ -622,7 +622,7 @@ export const TC010: CardData = {
     {
       id: "TC004",
       reason:
-        "Once they are talking, Reflective listening keeps the warmth alive by showing you have tracked what they said. Warm presence gets them talking; reflection keeps them going.",
+        "Once they are talking, Reflective listening keeps the warmth alive by showing you have tracked what they said. Warm presence gets them talking. Reflection keeps them going.",
     },
     {
       id: "TC072",

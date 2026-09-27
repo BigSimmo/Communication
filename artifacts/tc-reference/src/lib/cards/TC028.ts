@@ -6,7 +6,7 @@ export const TC028: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC028/TC028_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,27 +56,27 @@ export const TC028: CardData = {
   ],
   id: "TC028",
   whyItWorks:
-    "Warm vocal baseline is your default speaking tone when you want to be approachable — relaxed, clear, interested, unhurried and emotionally congruent. The warmth is not mainly in the words; it is in how the first few seconds of your voice make the other person feel: safe, respected and not pressured. That felt-safety registers before they have analysed a single word, which is why a warm baseline makes almost everything else you say easier to receive.",
+    "Warm vocal baseline is your default speaking tone when you want to be approachable: relaxed, clear, interested, unhurried and emotionally congruent. The warmth is not mainly in the words. It is in how the first few seconds of your voice make the other person feel: safe, respected and not pressured. That felt-safety registers before they have analysed a single word, which is why a warm baseline makes almost everything else you say easier to receive.",
   whatItIsNot: [
     "It is not a customer-service voice or forced cheerfulness.",
     "It is not a flirting tone, a therapy voice or a stage whisper.",
     "It is not over-softening, or trying to sound endlessly, unnaturally calm.",
-    "It is not extra words — warmth lives in tone, not in padding.",
+    "It is not extra words: warmth lives in tone, not in padding.",
   ],
   overview: {
     coreFormula: [
       "Formula: breath reset + slightly slower first line + warm interest + clean ending.",
       'Greeting: "Hey, good to see you." (slower, relaxed, genuine)',
       'Question: "How has your week actually been?" (curious, not interrogating)',
-      'Request: "Quick ask — could you look at this by Thursday?" (warm but clear)',
-      'Disagreement: "I see the concern. The part I see differently is…" (calm, not sharp)',
+      'Request: "Quick ask. Could you look at this by Thursday?" (warm but clear)',
+      'Disagreement: "I see the concern. The part I see differently is..." (calm, not sharp)',
     ],
     minimumViableMove:
       "Lower the tension, slow slightly, and add warmth to your first sentence before you respond.",
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
-      "Performing a fake soothing voice that sounds patronising, clinical or seductive — warmth as a role rather than a lowering of pressure.",
+      "Performing a fake soothing voice that sounds patronising, clinical or seductive: warmth as a role rather than a lowering of pressure.",
     bestFor: [
       "First impressions, greetings, introductions and re-openings after silence.",
       "Small talk, rapport, dating or social chemistry, and networking.",
@@ -104,10 +104,10 @@ export const TC028: CardData = {
         "Hey, good to see you.",
         "Nice to see you.",
         "I'm glad we got time to talk.",
-        "Good timing — I wanted to ask you about something.",
+        "Good timing, I wanted to ask you about something.",
         "Before we get into it, how are you going?",
         "Good to catch you.",
-        "Hey — how've you been?",
+        "Hey. How've you been?",
       ],
     },
     {
@@ -118,7 +118,7 @@ export const TC028: CardData = {
       phrases: [
         "I'm curious how you're seeing it.",
         "What's that been like from your side?",
-        "That sounds interesting — how did that come about?",
+        "That sounds interesting. How did that come about?",
         "What stood out most?",
         "What's the part people might miss?",
         "Tell me the bit you keep thinking about.",
@@ -144,10 +144,10 @@ export const TC028: CardData = {
       tag: "Requests / action",
       tone: "Direct",
       phrases: [
-        "Quick ask — could you send that by Friday?",
+        "Quick ask. Could you send that by Friday?",
         "Would you be open to one small thing?",
         "Could I get your view on this? Two minutes is enough.",
-        "No issue if not, but would you be willing to…",
+        "No issue if not, but would you be willing to...",
         "The useful version would be a yes or no by tomorrow.",
         "Small favour, and genuinely fine to say no.",
       ],
@@ -159,7 +159,7 @@ export const TC028: CardData = {
       tone: "Professional",
       phrases: [
         "I'll keep this brief.",
-        "Bottom line first…",
+        "Bottom line first...",
         "I've got one concise question.",
         "Would thirty seconds be enough for your read?",
         "I can send the short version after this.",
@@ -173,11 +173,11 @@ export const TC028: CardData = {
       tone: "High-stakes",
       phrases: [
         "I see why that's the concern.",
-        "The part I see differently is…",
+        "The part I see differently is...",
         "Small correction, because it matters.",
         "I don't want this to sound adversarial.",
         "Can I offer a different read?",
-        "I'm with you on most of this — one part I'd push on.",
+        "I'm with you on most of this: one part I'd push on.",
       ],
     },
     {
@@ -186,10 +186,10 @@ export const TC028: CardData = {
       tag: "Digital / voice note",
       tone: "Quick",
       phrases: [
-        "Keeping this short…",
+        "Keeping this short...",
         "Quick voice note, because tone matters here.",
         "No urgency on this.",
-        "My short version is…",
+        "My short version is...",
         "Happy to clarify if this lands oddly in audio.",
         "Reading this in a warm voice, not a flat one.",
       ],
@@ -202,10 +202,10 @@ export const TC028: CardData = {
       phrases: [
         "That sounded colder than I meant.",
         "Let me say that more plainly.",
-        "I came in a bit rushed — let me reset.",
+        "I came in a bit rushed. Let me reset.",
         "That was sharper than intended.",
         "I mean this warmly, not as pressure.",
-        "I'm trying not to overdo the tone — the simple version is…",
+        "I'm trying not to overdo the tone: the simple version is...",
       ],
     },
   ],
@@ -213,7 +213,7 @@ export const TC028: CardData = {
     {
       step: "1",
       title: "Reset before the first word",
-      body: "Exhale, drop your shoulders, unclench your jaw and let your face soften. Your first second sets the social frame — tension there leaks into every word that follows.",
+      body: "Exhale, drop your shoulders, unclench your jaw and let your face soften. Your first second sets the social frame: tension there leaks into every word that follows.",
     },
     {
       step: "2",
@@ -227,7 +227,7 @@ export const TC028: CardData = {
     {
       step: "3",
       title: "Use interested warmth, not performance",
-      body: "Let the tone carry genuine interest in the person. Avoid the customer-service voice, the therapist voice and the exaggerated upbeat voice — they read as a role, not as you.",
+      body: "Let the tone carry genuine interest in the person. Avoid the customer-service voice, the therapist voice and the exaggerated upbeat voice. They read as a role, not as you.",
       examples: [
         {
           label: "Performed",
@@ -242,12 +242,12 @@ export const TC028: CardData = {
     {
       step: "4",
       title: "Keep the words clear",
-      body: "Warmth should not blur the message. Use clean sentence endings; avoid trailing off, mumbling or padding the point out of existence.",
+      body: "Warmth should not blur the message. Use clean sentence endings. Avoid trailing off, mumbling or padding the point out of existence.",
     },
     {
       step: "5",
       title: "Match the moment",
-      body: "Light moments take a little vocal lift; serious moments take sober warmth; conflict takes low-intensity clarity. Warmth that ignores the mood reads as a mismatch.",
+      body: "Light moments take a little vocal lift. Serious moments take sober warmth. Conflict takes low-intensity clarity. Warmth that ignores the mood reads as a mismatch.",
     },
     {
       step: "6",
@@ -257,7 +257,7 @@ export const TC028: CardData = {
     {
       step: "7",
       title: "Calibrate and adjust",
-      body: "If they relax, continue. If they seem patronised, confused or impatient, reduce the softness and increase plain clarity — warmth is a dial, not a switch.",
+      body: "If they relax, continue. If they seem patronised, confused or impatient, reduce the softness and increase plain clarity: warmth is a dial, not a switch.",
     },
   ],
   liveThreadClues: [
@@ -272,7 +272,7 @@ export const TC028: CardData = {
     {
       depth: "Light lift",
       useWhen: "Casual, social, upbeat moments.",
-      phrase: '"Hey — good to see you." (a little warmth in the lift)',
+      phrase: '"Hey, good to see you." (a little warmth in the lift)',
     },
     {
       depth: "Everyday warm",
@@ -300,27 +300,27 @@ export const TC028: CardData = {
       condition: "They stay guarded",
       action:
         "Reduce intensity, ask less, and make the interaction lower pressure.",
-      phrase: '"No pressure — we can keep this light."',
+      phrase: '"No pressure, we can keep this light."',
     },
     {
       condition: "They seem patronised",
       action: "Drop the warmth down a notch and speak plainly.",
-      phrase: '"The simple version is…"',
+      phrase: '"The simple version is..."',
     },
     {
       condition: "They seem rushed",
       action: "Lead with the point, warmly, then stop.",
-      phrase: '"Bottom line first — then I\'ll let you go."',
+      phrase: '"Bottom line first, then I\'ll let you go."',
     },
     {
       condition: "They are upset",
       action:
-        "Use slower, sober warmth; avoid cheerfulness or forced positivity.",
+        "Use slower, sober warmth. Avoid cheerfulness or forced positivity.",
       phrase: '"Okay. I\'m with you. Take your time."',
     },
     {
       condition: "They ask you to repeat",
-      action: "Increase clarity and volume — don't just get softer.",
+      action: "Increase clarity and volume. Don't just get softer.",
       phrase: '"Let me say that more clearly."',
     },
     {
@@ -333,22 +333,22 @@ export const TC028: CardData = {
     {
       weak: '"Hey." (flat, distracted)',
       better: '"Hey, good to see you."',
-      best: '"Hey, good to see you." — with a small pause and a genuinely relaxed tone.',
+      best: '"Hey, good to see you.", with a small pause and a genuinely relaxed tone.',
     },
     {
       weak: '"What?"',
       better: '"Yeah, what\'s up?"',
-      best: '"Yeah, of course. What\'s up?" — with attention and no rush.',
+      best: '"Yeah, of course. What\'s up?", with attention and no rush.',
     },
     {
       weak: '"Can you do this?"',
-      better: '"Quick ask — could you do this by Friday?"',
-      best: '"Quick ask — could you do this by Friday? No issue if not."',
+      better: '"Quick ask. Could you do this by Friday?"',
+      best: '"Quick ask. Could you do this by Friday? No issue if not."',
     },
     {
       weak: '"No, I disagree."',
       better: '"I see the concern. I read it differently."',
-      best: '"I see why that\'s the concern. The part I see differently is…"',
+      best: '"I see why that\'s the concern. The part I see differently is..."',
     },
     {
       weak: 'Overly sweet: "No worries at all!!!"',
@@ -361,7 +361,7 @@ export const TC028: CardData = {
       'Person: "Can I ask you something?"',
       'You: "Yeah, what?"',
       'Person: "Never mind, it\'s fine."',
-      'You: "No, go on — I said what?"',
+      'You: "No, go on. I said what?"',
       "Why it's weak:",
       "the flat, clipped tone reads as irritation",
       "the person feels like a nuisance and retreats",
@@ -372,9 +372,9 @@ export const TC028: CardData = {
       'You: "Yeah, of course. What\'s up?"',
       'Person: "I wanted your view on something from work."',
       'You: "Sure. Talk me through it."',
-      "— advanced —",
+      "advanced...",
       'Person: "Can I ask you something?"',
-      'You: "Yeah. Take your time — what\'s going on?"',
+      'You: "Yeah. Take your time. What\'s going on?"',
       'Person: "It\'s a bit awkward."',
       'You: "That\'s fine. Give me the rough version first."',
       'Person: "I think I handled a meeting badly."',
@@ -387,7 +387,7 @@ export const TC028: CardData = {
     note: "The words barely change between the poor and advanced versions. The whole difference is tone: unhurried, warm and present rather than clipped.",
   },
   influencePayoff: {
-    feeling: '"That was easy to hear — I didn\'t feel judged or pushed."',
+    feeling: '"That was easy to hear. I didn\'t feel judged or pushed."',
     principle:
       "People become more receptive to your message when your voice signals safety before your words have to make their case.",
     gains: [
@@ -400,7 +400,7 @@ export const TC028: CardData = {
     ],
     whyMostFail: [
       "They perform a fake soothing voice that sounds patronising, clinical or seductive.",
-      "They add warmth as brightness — the customer-service voice — instead of lowering tension.",
+      "They add warmth as brightness, the customer-service voice, instead of lowering tension.",
       "They keep the warm tone when the content is serious, so it reads as a cheerful mismatch.",
       "They over-soften until the point blurs and they lose clarity or authority.",
     ],
@@ -408,7 +408,7 @@ export const TC028: CardData = {
   commonMistakes: [
     {
       mistake: "Customer-service warmth",
-      soundsLike: 'Too bright, too polished — "how can I help you today?"',
+      soundsLike: 'Too bright, too polished, "how can I help you today?"',
       better: "Use quiet, real interest rather than performative cheer.",
     },
     {
@@ -458,7 +458,7 @@ export const TC028: CardData = {
       "They pull away from too much friendliness.",
       "Fix: make the tone plainer, slow less, and increase clarity.",
       "Fix: lower the cheerfulness, use sober warmth, and use fewer words.",
-      'Fix: name and repair — "That sounded more performative than I meant."',
+      'Fix: name and repair, "That sounded more performative than I meant."',
     ],
   },
   recoveryPhrases: [
@@ -467,7 +467,7 @@ export const TC028: CardData = {
     "I came in a bit rushed. Let me reset.",
     "That was sharper than intended.",
     "I mean this warmly, not as pressure.",
-    "I'm trying not to overdo the tone — the simple version is…",
+    "I'm trying not to overdo the tone: the simple version is...",
   ],
   bestRecoveryLine: "That sounded colder than I meant.",
   scenarios: [
@@ -479,7 +479,7 @@ export const TC028: CardData = {
     {
       situation: "Busy senior person",
       move: "Warm but concise, no rambling.",
-      phrase: '"I\'ll keep this brief — one quick question."',
+      phrase: '"I\'ll keep this brief: one quick question."',
     },
     {
       situation: "Conflict",
@@ -508,7 +508,7 @@ export const TC028: CardData = {
       sequence:
         "Warm vocal baseline → warm opening → live-thread follow-up → reflection → specific appreciation",
       example: [
-        '"Hey, good to see you — how\'s your week actually been?"',
+        '"Hey, good to see you. How\'s your week actually been?"',
         '"That sounds like it mattered. What made it stand out?"',
         '"I really rate how clearly you think about this."',
       ],
@@ -518,8 +518,8 @@ export const TC028: CardData = {
       sequence:
         "Warm vocal baseline → clean request → autonomy release → next-action clarity",
       example: [
-        '"Quick ask — could you look at this by Thursday?"',
-        '"Totally your call, though — no issue if the timing\'s tight."',
+        '"Quick ask. Could you look at this by Thursday?"',
+        '"Totally your call, though. No issue if the timing\'s tight."',
         '"If yes, I\'ll send the one-pager straight after."',
       ],
     },
@@ -529,7 +529,7 @@ export const TC028: CardData = {
         "Warm vocal baseline → validate the concern → agreement before disagreement → soft challenge",
       example: [
         '"I see why that\'s the concern."',
-        "\"You're right that the timeline's tight — I'd agree there.\"",
+        "\"You're right that the timeline's tight. I'd agree there.\"",
         '"The part I\'d push on is the scope, not the deadline."',
       ],
     },
@@ -549,7 +549,7 @@ export const TC028: CardData = {
         "Warm vocal baseline → name the awkwardness → clarify intent → reset",
       example: [
         '"That came out sharper than I meant."',
-        '"What I was actually trying to say is…"',
+        '"What I was actually trying to say is..."',
         '"Let me start that again, properly."',
       ],
     },
@@ -558,34 +558,34 @@ export const TC028: CardData = {
     {
       id: "TC010",
       reason:
-        "Both create felt safety. TC028 is specifically your default vocal tone — how the first seconds sound. TC010 Warm presence is the fuller package (body, attention, manner), of which voice is one part. Reach for TC028 when the fix is purely how you sound.",
+        "Both create felt safety. TC028 is specifically your default vocal tone. How the first seconds sound. TC010 Warm presence is the fuller package (body, attention, manner), of which voice is one part. Reach for TC028 when the fix is purely how you sound.",
     },
     {
       id: "TC024",
       reason:
-        "TC024 Warm opening is a one-off warm way to start a specific conversation. TC028 is the steady tone you carry through all of it. Use TC024 for the first line; keep TC028 running underneath the whole exchange.",
+        "TC024 Warm opening is a one-off warm way to start a specific conversation. TC028 is the steady tone you carry through all of it. Use TC024 for the first line. Keep TC028 running underneath the whole exchange.",
     },
     {
       id: "TC012",
       reason:
-        "TC012 Full-attention signal shows you are fully attending — eyes, stillness, no phone. TC028 shapes how your voice lands. Use TC012 when the gap is that they don't feel listened to; use TC028 when the gap is that you sound rushed or cold.",
+        "TC012 Full-attention signal shows you are fully attending: eyes, stillness, no phone. TC028 shapes how your voice lands. Use TC012 when the gap is that they don't feel listened to. Use TC028 when the gap is that you sound rushed or cold.",
     },
     {
       id: "TC031",
       reason:
-        "TC031 Slow down under pressure is the emergency brake when you're activated — it drops your pace mid-heat. TC028 is the calm default you keep when nothing has gone wrong. Use TC031 to recover; use TC028 to set the baseline.",
+        "TC031 Slow down under pressure is the emergency brake when you're activated. It drops your pace mid-heat. TC028 is the calm default you keep when nothing has gone wrong. Use TC031 to recover. Use TC028 to set the baseline.",
     },
     {
       id: "TC035",
       reason:
-        "TC035 Strategic pause is a deliberate silence placed for effect or to let something land. TC028 uses small pauses only to keep warmth grounded. Use TC035 when the pause itself is the move; use TC028 when tone is.",
+        "TC035 Strategic pause is a deliberate silence placed for effect or to let something land. TC028 uses small pauses only to keep warmth grounded. Use TC035 when the pause itself is the move. Use TC028 when tone is.",
     },
   ],
   drill: [
     {
       day: "Day 1",
       title: "Notice your own tone",
-      task: "For one day, do nothing but notice the tone of your first sentence in each interaction. Silently rate each opener: rushed, flat or warm. No changing it yet — just build awareness.",
+      task: "For one day, do nothing but notice the tone of your first sentence in each interaction. Silently rate each opener: rushed, flat or warm. No changing it yet, just build awareness.",
     },
     {
       day: "Day 2",
@@ -600,7 +600,7 @@ export const TC028: CardData = {
     {
       day: "Day 4",
       title: "Warm a request",
-      task: 'Take three asks you\'d normally fire off and deliver each with a warm opener and a clean ending — e.g. "Quick ask — could you…? No issue if not."',
+      task: 'Take three asks you\'d normally fire off and deliver each with a warm opener and a clean ending: e.g. "Quick ask. Could you...? No issue if not."',
     },
     {
       day: "Day 5",
@@ -610,26 +610,26 @@ export const TC028: CardData = {
     {
       day: "Day 6",
       title: "Soften a hard message",
-      task: 'Deliver one piece of disagreement or feedback with low-intensity clarity: "I see why that\'s the concern. The part I see differently is…" Keep the point clear, the tone unhurried.',
+      task: 'Deliver one piece of disagreement or feedback with low-intensity clarity: "I see why that\'s the concern. The part I see differently is..." Keep the point clear, the tone unhurried.',
     },
     {
       day: "Day 7",
       title: "Calibrate and repair",
-      task: 'Through the day, watch for signs your warmth is landing or missing. When it misses, use one recovery line — "That sounded colder than I meant" — and reset the tone.',
+      task: 'Through the day, watch for signs your warmth is landing or missing. When it misses, use one recovery line ("That sounded colder than I meant") and reset the tone.',
     },
   ],
   checklist: [
     "Did I use the technique because the moment called for it, or because I wanted to perform warmth?",
     "Was my first sentence slower and less tense than my instinct?",
     "Did the person have more room after I spoke, or less?",
-    "Did I adjust — plainer, clearer, less soft — when they seemed patronised or confused?",
+    "Did I adjust (plainer, clearer, less soft) when they seemed patronised or confused?",
     "What neighbouring technique would have been better if this one missed?",
   ],
   fieldTip: {
     headline: "Warmth is subtraction, not addition.",
     body: "Warmth isn't extra words or a brighter voice. It's the absence of rush, tension and pressure in your first few seconds. Take those out and what's left already sounds warm.",
     example:
-      "Same words, two tones: \"Sure, what's up?\" — clipped, it says 'be quick'; unhurried, it says 'you're welcome here'.",
+      "Same words, two tones: \"Sure, what's up?\" Clipped, it says 'be quick'. Unhurried, it says 'you're welcome here'.",
     dont: "Don't add cheerfulness or padding to try to sound warm.",
     do: "Do exhale, slow the first line, and let the tension drop out of it.",
   },

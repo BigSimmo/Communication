@@ -6,7 +6,7 @@ export const TC049: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC049/TC049_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,16 +56,16 @@ export const TC049: CardData = {
   ],
   id: "TC049",
   whyItWorks:
-    "CARL is a structured way to tell the story of an experience: Context (what the situation was), Action (what you did), Result (what happened), Learning (what you took from it). Sequencing a reflection in those four beats makes it far easier for the listener to follow, while you still sound human, responsive and respectful. The influence comes from clarity, not pressure — a point someone can follow reads as clear thinking.",
+    "CARL is a structured way to tell the story of an experience: Context (what the situation was), Action (what you did), Result (what happened), Learning (what you took from it). Sequencing a reflection in those four beats makes it far easier for the listener to follow, while you still sound human, responsive and respectful. The influence comes from clarity, not pressure: a point someone can follow reads as clear thinking.",
   whatItIsNot: [
     "It is not a script to recite mechanically, and the letters are never meant to be said out loud.",
     "It is not a way to avoid listening, or to compress someone's emotion into a template.",
     "It is not a device for forcing the other person into your structure.",
-    "If the structure makes the conversation less humane, it is the wrong tool — slow down and use a simpler move.",
+    "If the structure makes the conversation less humane, it is the wrong tool: slow down and use a simpler move.",
   ],
   overview: {
     coreFormula: [
-      "Context -> Action -> Result -> Learning",
+      "Context → Action → Result → Learning",
       "Context: what the situation was. Action: what you did. Result: what happened. Learning: what you took from it.",
       'Worked: "The launch was slipping. I cut scope to the core feature. We shipped on time. I now agree the must-haves up front."',
       "Minimum viable move: Context: X. Action: Y. Result: Z. Learning: L.",
@@ -76,7 +76,7 @@ export const TC049: CardData = {
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "It fails when the structure becomes visible — announced out loud and recited mechanically — or when it ends on a vague lesson that changes no future behaviour. Then it sounds rehearsed rather than reflective, and the scaffolding replaces the substance.",
+      "It fails when the structure becomes visible, announced out loud and recited mechanically, or when it ends on a vague lesson that changes no future behaviour. Then it sounds rehearsed rather than reflective, and the scaffolding replaces the substance.",
     bestFor: [
       "Reflection and debriefs after an event",
       "Supervision and development conversations",
@@ -102,7 +102,7 @@ export const TC049: CardData = {
       tone: "Quick",
       phrases: [
         "Quick version: here's what happened, what I did, and what I took from it.",
-        "Short one — context, action, result, learning.",
+        "Short one, context, action, result, learning.",
         "Let me keep this to four beats.",
         "Give me thirty seconds and I'll walk it through.",
         "Here's the situation, then what I did about it.",
@@ -134,7 +134,7 @@ export const TC049: CardData = {
         "Context: where we were. Action: what we changed. Result: what shifted. Learning: what we'll carry forward.",
         "Here's the situation, what we did, the outcome, and the takeaway.",
         "I'll set the scene, then the decision, then the result.",
-        "The headline is the result; the rest is background.",
+        "The headline is the result. The rest is background.",
         "For the update: what happened, our response, where it landed.",
         "Let me label these so you can scan them.",
         "The learning we're taking into the next cycle is this.",
@@ -147,12 +147,12 @@ export const TC049: CardData = {
       tag: "Cutting to the core",
       tone: "Direct",
       phrases: [
-        "The main point is X; the rest is only support.",
+        "The main point is X. The rest is only support.",
         "Bottom line first, then the story behind it.",
         "Here's what I'd do differently next time.",
         "The result was Y, and here's why.",
         "I'll give you the lesson, then the evidence for it.",
-        "Skip to the learning — this is what changes now.",
+        "Skip to the learning. This is what changes now.",
         "One clean next step out of all of this.",
       ],
     },
@@ -162,12 +162,12 @@ export const TC049: CardData = {
       tag: "Softening and recovery",
       tone: "Repair",
       phrases: [
-        "I made that too structured — let me say it more simply.",
+        "I made that too structured. Let me say it more simply.",
         "That may not be the useful frame. Let me back up.",
         "I don't want the structure to override the actual issue.",
         "What part of that was useful, and what should we drop?",
         "Let me drop the scaffolding and just tell you what happened.",
-        "I got a bit formulaic there — one plain sentence instead.",
+        "I got a bit formulaic there: one plain sentence instead.",
       ],
     },
     {
@@ -176,11 +176,11 @@ export const TC049: CardData = {
       tag: "Check before structuring",
       tone: "High-stakes",
       phrases: [
-        "Before I frame this — is a structured version helpful, or would you rather just talk it through?",
+        "Before I frame this. Is a structured version helpful, or would you rather just talk it through?",
         "I can lay this out clearly, but I want to hear you first.",
         "Let me check whether that structure is useful or if we should approach it another way.",
         "I'll keep this to one sentence per step, then pause.",
-        "This one's heavy — tell me if the structure is getting in the way.",
+        "This one's heavy. Tell me if the structure is getting in the way.",
         "One line each, and stop me whenever.",
       ],
     },
@@ -207,7 +207,7 @@ export const TC049: CardData = {
     },
     {
       step: "2",
-      title: "Context — set the scene",
+      title: "Context: set the scene",
       body: "One line on the situation, no more. Enough for the listener to picture where you were.",
       examples: [
         {
@@ -218,7 +218,7 @@ export const TC049: CardData = {
     },
     {
       step: "3",
-      title: "Action — what you did",
+      title: "Action: what you did",
       body: "State the actual move you made, in plain language. This is the part that shows judgement.",
       examples: [
         {
@@ -229,19 +229,19 @@ export const TC049: CardData = {
     },
     {
       step: "4",
-      title: "Result — what happened",
+      title: "Result: what happened",
       body: "The consequence of your action, good or mixed. Keep it honest and specific.",
       examples: [
         {
           label: "Result",
-          text: '"We shipped that core feature on time; the extras followed a month later."',
+          text: '"We shipped that core feature on time. The extras followed a month later."',
         },
       ],
     },
     {
       step: "5",
-      title: "Learning — what changes now",
-      body: 'The point of CARL. Name a real learning that is specific enough to change future behaviour — not a vague "I learned a lot."',
+      title: "Learning: what changes now",
+      body: 'The point of CARL. Name a real learning that is specific enough to change future behaviour, not a vague "I learned a lot."',
       examples: [
         {
           label: "Learning",
@@ -283,7 +283,7 @@ export const TC049: CardData = {
       'Interviewer: "How did you handle the missed deadline?"',
       'You: "I\'ll use CARL for this. Context: the project was behind. Action: I took action. Result: there was a result. Learning: I learned something."',
       'You: "Context is important, so let me give you a bit more context..."',
-      "Why it is weak:",
+      "Why it's weak:",
       "announces the framework out loud",
       "forces empty labels with no real content",
       "keeps adding context after the point is made",
@@ -294,7 +294,7 @@ export const TC049: CardData = {
       'You: "The launch was slipping about two weeks. I cut scope to the one feature customers really needed and re-set the date with the team."',
       'You: "We shipped that core feature on time, and the extras followed a month later."',
       'You: "What I took from it was to agree the must-haves before we start, not halfway through."',
-      'Interviewer: "What would you have done differently?"',
+      'Interviewer: "What would you\'ve done differently?"',
       "You: \"Flagged the slip a week earlier. That's the bit I've changed since.\"",
       "Why this works:",
       "moves through context, action, result and learning without naming them",
@@ -326,9 +326,9 @@ export const TC049: CardData = {
   },
   fieldTip: {
     headline: "Scaffolding, not the conversation.",
-    body: "Use CARL to organise your thinking, then take the scaffolding down before you speak. The whole thing turns on a learning specific enough to change what you do next time — that is what separates reflection from a nice-sounding recap.",
+    body: "Use CARL to organise your thinking, then take the scaffolding down before you speak. The whole thing turns on a learning specific enough to change what you do next time. That is what separates reflection from a nice-sounding recap.",
     example:
-      '"We shipped the core feature on time; what I took from it was to agree the must-haves before we start."',
+      '"We shipped the core feature on time. What I took from it was to agree the must-haves before we start."',
     dont: 'Don\'t announce the framework or end on a vague "I learned a lot."',
     do: "Do keep each step to one plain sentence and make the learning concrete.",
   },
@@ -340,15 +340,15 @@ export const TC049: CardData = {
     },
     {
       mistake:
-        "Over-structuring — making CARL matter more than the person or the point",
+        "Over-structuring: making CARL matter more than the person or the point",
       soundsLike:
         "Forcing every sentence into Context / Action / Result / Learning.",
-      better: "Let the point lead; use the structure only to organise it.",
+      better: "Let the point lead. Use the structure only to organise it.",
     },
     {
       mistake: "Over-explaining after the point has landed",
       soundsLike: "Adding more context once the structure has done its job.",
-      better: "Stop once it is clear and give them room to respond.",
+      better: "Stop once it's clear and give them room to respond.",
     },
     {
       mistake: "Structuring when emotion is present",
@@ -376,28 +376,28 @@ export const TC049: CardData = {
       "The learning lands and they build on it.",
     ],
     adjust: [
-      "They look confused or go quiet — simplify or slow down.",
-      "They challenge the framing — check what they actually need.",
-      "They need the human context before the structure — give that first.",
-      "It starts to sound defensive or self-protective — drop the frame.",
-      "It sounds performative, salesy or like a lecture — stop.",
-      "Emotion rises — validate before you structure.",
+      "They look confused or go quiet: simplify or slow down.",
+      "They challenge the framing: check what they actually need.",
+      "They need the human context before the structure: give that first.",
+      "It starts to sound defensive or self-protective. Drop the frame.",
+      "It sounds performative, salesy or like a lecture: stop.",
+      "Emotion rises: validate before you structure.",
     ],
   },
   recoveryPhrases: [
-    "I made that too structured — let me say it more simply.",
+    "I made that too structured. Let me say it more simply.",
     "That may not be the useful frame. Let me back up.",
     "I don't want the structure to override the actual issue.",
     "What part of that was useful, and what should we drop?",
     "Let me drop the labels and just tell you what happened.",
-    "I got a bit formulaic there — here's the plain version.",
+    "I got a bit formulaic there. Here's the plain version.",
     "Forget the framework for a second: the real point is this.",
   ],
-  bestRecoveryLine: "I made that too structured — let me say it more simply.",
+  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
   chains: [
     {
       label: "Clarity chain",
-      sequence: "CARL -> Summary check",
+      sequence: "CARL → Summary check",
       example: [
         '"...and the learning was to agree scope up front."',
         '"Does that match what you were expecting to hear?"',
@@ -405,7 +405,7 @@ export const TC049: CardData = {
     },
     {
       label: "Action chain",
-      sequence: "CARL -> Clean request",
+      sequence: "CARL → Clean request",
       example: [
         '"...so the fix is a scope check at kickoff."',
         '"Could you add that to next week\'s agenda?"',
@@ -413,7 +413,7 @@ export const TC049: CardData = {
     },
     {
       label: "Autonomy chain",
-      sequence: "CARL -> Autonomy release",
+      sequence: "CARL → Autonomy release",
       example: [
         "\"That's what I'd take from it.\"",
         "\"But it's your call how you'd handle it.\"",
@@ -421,7 +421,7 @@ export const TC049: CardData = {
     },
     {
       label: "Emotion-first chain",
-      sequence: "Validate the concern -> CARL",
+      sequence: "Validate the concern → CARL",
       example: [
         '"That deadline sounded genuinely stressful."',
         "\"Here's what happened and what I'd change...\"",
@@ -431,7 +431,7 @@ export const TC049: CardData = {
   scenarios: [
     {
       situation: "Work meeting",
-      move: "Make one contribution concise and memorable — four beats, no labels.",
+      move: "Make one contribution concise and memorable: four beats, no labels.",
       phrase:
         "Here's the situation, what we did, where it landed, and what we'll carry forward.",
     },
@@ -450,7 +450,7 @@ export const TC049: CardData = {
       situation: "Job interview or competency answer",
       move: "Answer in four beats, end on the learning, then invite the follow-up.",
       phrase:
-        "The result was we shipped on time; the learning was to agree the must-haves early.",
+        "The result was we shipped on time. The learning was to agree the must-haves early.",
     },
     {
       situation: "Difficult conversation",
@@ -461,18 +461,18 @@ export const TC049: CardData = {
     {
       situation: "Debrief after something went wrong",
       move: "Keep blame out of it and make the learning the point.",
-      phrase: "Less about who — more about what we now know for next time.",
+      phrase: "Less about who: more about what we now know for next time.",
     },
   ],
   decisionTree: [
     {
       condition: "The listener needs speed",
-      action: "Use the shortest version — result first, one line each.",
+      action: "Use the shortest version: result first, one line each.",
       phrase: "Bottom line: we shipped on time. Quick why, if it's useful.",
     },
     {
       condition: "The listener needs support",
-      action: "Validate first; delay the framework until the emotion settles.",
+      action: "Validate first. Delay the framework until the emotion settles.",
       phrase:
         "That sounds like it was a lot. Want me to lay it out, or just talk it through?",
     },
@@ -490,29 +490,29 @@ export const TC049: CardData = {
       condition: "The listener looks confused",
       action:
         "Summarise and invite correction rather than pushing the structure harder.",
-      phrase: "Let me boil that down — did I make the point or muddy it?",
+      phrase: "Let me boil that down. Did I make the point or muddy it?",
     },
   ],
   drill: [
     {
       day: "Day 1",
       title: "Write it out",
-      task: "Take a real experience and write a 60-second response using Context -> Action -> Result -> Learning.",
+      task: "Take a real experience and write a 60-second response using Context → Action → Result → Learning.",
     },
     {
       day: "Day 2",
       title: "Cut it down",
-      task: "Cut yesterday's response by a third — down to about 30 seconds — without losing the core point.",
+      task: "Cut yesterday's response by a third, down to about 30 seconds, without losing the core point.",
     },
     {
       day: "Day 3",
       title: "Sharpen the learning",
-      task: 'Rewrite the Learning line so it names something specific that would change what you do next time; delete any "I learned a lot."',
+      task: 'Rewrite the Learning line so it names something specific that would change what you do next time. Delete any "I learned a lot."',
     },
     {
       day: "Day 4",
       title: "Two voices",
-      task: "Say it aloud twice — once as a visible structure with labels, once as plain speech. Notice how much better the plain version lands.",
+      task: "Say it aloud twice. Once as a visible structure with labels, once as plain speech. Notice how much better the plain version lands.",
     },
     {
       day: "Day 5",
@@ -522,12 +522,12 @@ export const TC049: CardData = {
     {
       day: "Day 6",
       title: "Practise a recovery",
-      task: 'Rehearse one recovery line so you can drop the scaffolding smoothly if it lands badly — e.g. "I made that too structured; let me say it more simply."',
+      task: 'Rehearse one recovery line so you can drop the scaffolding smoothly if it lands badly: e.g. "I made that too structured. Let me say it more simply."',
     },
     {
       day: "Day 7",
       title: "Use it live",
-      task: "In one real conversation, use CARL silently — four plain sentences, never named — and watch whether the listener becomes clearer.",
+      task: "In one real conversation, use CARL silently (four plain sentences, never named) and watch whether the listener becomes clearer.",
     },
   ],
   checklist: [
@@ -542,12 +542,12 @@ export const TC049: CardData = {
     {
       id: "TC047",
       reason:
-        "STAR (Situation, Task, Action, Result) is the interview cousin — reach for it when the emphasis is on what you did and delivered. Use CARL when the point of the story is the learning, not just the result.",
+        "STAR (Situation, Task, Action, Result) is the interview cousin: reach for it when the emphasis is on what you did and delivered. Use CARL when the point of the story is the learning, not just the result.",
     },
     {
       id: "TC050",
       reason:
-        "What? So what? Now what? is a lighter three-beat reflection. Use it for a quick debrief; use CARL when you also need the concrete action and result in between.",
+        "What? So what? Now what? is a lighter three-beat reflection. Use it for a quick debrief. Use CARL when you also need the concrete action and result in between.",
     },
     {
       id: "TC042",
@@ -557,7 +557,7 @@ export const TC049: CardData = {
     {
       id: "TC040",
       reason:
-        "Meaning reflection mirrors the meaning behind what someone else said. Use CARL to structure your own account; use Meaning reflection when the move is to reflect their point back.",
+        "Meaning reflection mirrors the meaning behind what someone else said. Use CARL to structure your own account. Use Meaning reflection when the move is to reflect their point back.",
     },
     {
       id: "TC048",

@@ -6,7 +6,7 @@ export const TC048: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC048/TC048_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,12 +56,12 @@ export const TC048: CardData = {
   ],
   id: "TC048",
   whyItWorks:
-    "SCQA is a way of organising what you say so the listener can follow it without effort: you frame the Situation, name the Complication that makes it matter, make the Question explicit, then give your Answer. It works because it hands the listener the shape of your point before asking them to judge it — they know where things stand, what has changed, what decision is on the table, and what you recommend, in the order the mind naturally wants them. Clarity, not pressure, is what makes it persuasive.",
+    "SCQA is a way of organising what you say so the listener can follow it without effort: you frame the Situation, name the Complication that makes it matter, make the Question explicit, then give your Answer. It works because it hands the listener the shape of your point before asking them to judge it. They know where things stand, what has changed, what decision is on the table, and what you recommend, in the order the mind naturally wants them. Clarity, not pressure, is what makes it persuasive.",
   whatItIsNot: [
     "It is not a script to recite mechanically or announce out loud.",
     "It is not a way to avoid listening, compress emotion into a template, or force the other person into your structure.",
-    "It is not a licence to manufacture drama — inflating a minor issue into a 'complication' for effect.",
-    "If the structure makes the conversation less humane, it is the wrong move; slow down and speak plainly instead.",
+    "It is not a licence to manufacture drama: inflating a minor issue into a 'complication' for effect.",
+    "If the structure makes the conversation less humane, it is the wrong move. Slow down and speak plainly instead.",
   ],
   overview: {
     coreFormula: [
@@ -72,11 +72,11 @@ export const TC048: CardData = {
       "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
-      "Say it in four short beats — the situation, the one complication that actually matters, the question it forces, and your answer — then speak it like a person, not a template.",
+      "Say it in four short beats (the situation, the one complication that actually matters, the question it forces, and your answer) then speak it like a person, not a template.",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "It fails when you manufacture drama — inflating a small issue into a 'complication' for effect — or when you announce the framework and force every sentence into it after the listener is already clear.",
+      "It fails when you manufacture drama (inflating a small issue into a 'complication' for effect) or when you announce the framework and force every sentence into it after the listener is already clear.",
     bestFor: [
       "Briefings and status updates",
       "Proposals and recommendations",
@@ -103,11 +103,11 @@ export const TC048: CardData = {
       phrases: [
         "Here's where we are, here's the snag, here's what I'd do.",
         "Short version: the setup, the catch, then my answer.",
-        "One situation, one problem, one recommendation — quickly.",
+        "One situation, one problem, one recommendation. Quickly.",
         "Let me give you the frame first, then the detail.",
         "Give me thirty seconds to lay it out cleanly.",
         "Context, complication, then the call.",
-        "The point up front, the reasoning after — sound alright?",
+        "The point up front, the reasoning after, sound alright?",
       ],
     },
     {
@@ -117,11 +117,11 @@ export const TC048: CardData = {
       tone: "Professional",
       phrases: [
         "Where we are: [situation]. What's changed: [complication]. The question this raises: [question]. My recommendation: [answer].",
-        "The situation's stable; the complication is the deadline; so the question is whether we cut scope; I think we should.",
+        "The situation's stable. The complication is the deadline. So the question is whether we cut scope. I think we should.",
         "Two lines of background, then the decision we actually need to make.",
         "I'll set the scene, flag the risk, and put my recommendation at the end.",
         "For the email: a short paragraph of context, one of the problem, then the ask in bold.",
-        "The headline is the answer; everything above it is just how I got there.",
+        "The headline is the answer. Everything above it's just how I got there.",
         "Here's the background you need, and here's the call I'm asking you to make.",
         "Let me frame the problem before I bring the recommendation.",
       ],
@@ -132,13 +132,13 @@ export const TC048: CardData = {
       tag: "Making the ask explicit",
       tone: "Direct",
       phrases: [
-        "The real question here is this one — not the ten smaller ones around it.",
+        "The real question here's this one, not the ten smaller ones around it.",
         "So the decision in front of us is whether we [do X].",
         "Given all that, here's what I'd do.",
-        "My answer is [X]; happy to walk back through the reasoning if it helps.",
+        "My answer is [X]. Happy to walk back through the reasoning if it helps.",
         "The one thing I need from you is a yes or no on [X].",
         "Let me name the actual question before we go any further.",
-        "That's the situation and the snag — so what should we do about it?",
+        "That's the situation and the snag. So what should we do about it?",
       ],
     },
     {
@@ -148,7 +148,7 @@ export const TC048: CardData = {
       tone: "Warm",
       phrases: [
         "Can I lay this out in a structured way, or would you rather just talk it through?",
-        "I've got a tidy version of this — tell me if that's useful or too neat.",
+        "I've got a tidy version of this. Tell me if that's useful or too neat.",
         "Before I organise it, is a clear summary what you're after right now?",
         "I'll keep it simple: here's the situation, here's the catch, here's my thought.",
         "Let me make this easy to follow rather than dumping it all at once.",
@@ -162,11 +162,11 @@ export const TC048: CardData = {
       tag: "Softening / recovery",
       tone: "Repair",
       phrases: [
-        "I made that too structured — let me say it more simply.",
+        "I made that too structured. Let me say it more simply.",
         "That may not be the useful frame. Let me back up.",
         "I don't want the structure to override the actual issue.",
         "What part of that was useful, and what should we drop?",
-        "That came out like a presentation — here's what I actually mean.",
+        "That came out like a presentation. Here's what I actually mean.",
         "Forget the framework for a second. The honest version is this.",
         "I think I over-organised that. What did you actually need from me?",
       ],
@@ -179,11 +179,11 @@ export const TC048: CardData = {
       phrases: [
         "There's a lot here, so let me keep it to one clear point at a time.",
         "I'll say the situation, then the problem, then stop so we can talk.",
-        "Before any structure — I know this one matters, so tell me what you need first.",
-        "One sentence each, then I'll pause: this is the situation; this is what's gone wrong.",
-        "I'm not trying to manage you with a framework — I just want us clear on the problem.",
+        "Before any structure. I know this one matters, so tell me what you need first.",
+        "One sentence each, then I'll pause: this is the situation. This is what's gone wrong.",
+        "I'm not trying to manage you with a framework. I just want us clear on the problem.",
         "Let me name the real problem plainly, without dressing it up.",
-        "The situation's hard and the complication's real — I'd rather work out the question together than hand you an answer.",
+        "The situation's hard and the complication's real. I'd rather work out the question together than hand you an answer.",
       ],
     },
   ],
@@ -191,12 +191,12 @@ export const TC048: CardData = {
     {
       step: "1",
       title: "Choose the frame on purpose",
-      body: "Decide whether structure actually helps here. SCQA suits briefings, proposals and problem-framing — not moments that need listening or warmth first. Never say the framework's name out loud; it is for your head, not the conversation.",
+      body: "Decide whether structure actually helps here. SCQA suits briefings, proposals and problem-framing, not moments that need listening or warmth first. Never say the framework's name out loud. It is for your head, not the conversation.",
     },
     {
       step: "2",
       title: "Set the situation",
-      body: "Give one or two lines of shared, neutral context — the ground you both already stand on. Keep it short; this is the setup, not the story.",
+      body: "Give one or two lines of shared, neutral context: the ground you both already stand on. Keep it short. This is the setup, not the story.",
       examples: [
         { label: "Situation", text: '"The migration\'s on track for Friday."' },
       ],
@@ -204,7 +204,7 @@ export const TC048: CardData = {
     {
       step: "3",
       title: "Name the one complication",
-      body: "State the single thing that has changed or gone wrong and makes this worth raising. One complication, not five — and resist inflating a minor issue for effect.",
+      body: "State the single thing that has changed or gone wrong and makes this worth raising. One complication, not five, and resist inflating a minor issue for effect.",
       examples: [
         {
           label: "Complication",
@@ -230,13 +230,13 @@ export const TC048: CardData = {
       examples: [
         {
           label: "Answer",
-          text: '"I\'d cut reporting and keep the date — we can add it next release. Happy to talk it through."',
+          text: '"I\'d cut reporting and keep the date. We can add it next release. Happy to talk it through."',
         },
       ],
     },
   ],
   liveThreadClues: [
-    '"Sorry — what\'s the actual point?"',
+    '"Sorry. What\'s the actual point?"',
     '"I\'m not following."',
     '"So what are you asking me to decide?"',
     '"Can you get to the bottom line?"',
@@ -253,12 +253,12 @@ export const TC048: CardData = {
     {
       depth: "Question + Answer",
       useWhen: "The situation is shared but the decision isn't named",
-      phrase: '"The question is whether we pause; I\'d pause."',
+      phrase: '"The question is whether we pause. I\'d pause."',
     },
     {
       depth: "Complication + Question + Answer",
       useWhen: "They know where things stand but not what's changed",
-      phrase: '"Tickets have doubled — do we pause? I think yes."',
+      phrase: '"Tickets have doubled. Do we pause? I think yes."',
     },
     {
       depth: "Full SCQA",
@@ -270,14 +270,14 @@ export const TC048: CardData = {
       depth: "Situation only, then stop",
       useWhen: "Emotion is high and you need to check in first",
       phrase:
-        '"Here\'s where things stand — how are you feeling about it before I go on?"',
+        '"Here\'s where things stand. How are you feeling about it before I go on?"',
     },
   ],
   decisionTree: [
     {
       condition: "The listener needs speed",
       action:
-        "Use the shortest version — answer first, structure only if they ask for it.",
+        "Use the shortest version: answer first, structure only if they ask for it.",
       phrase:
         '"Short answer: pause for two weeks. I can give you the why if you want it."',
     },
@@ -305,7 +305,7 @@ export const TC048: CardData = {
     },
     {
       condition: "The listener is already clear",
-      action: "Stop structuring — don't force the remaining steps.",
+      action: "Stop structuring: don't force the remaining steps.",
       phrase: "\"Sounds like you've got it. I'll leave it there.\"",
     },
   ],
@@ -319,7 +319,7 @@ export const TC048: CardData = {
   scenarios: [
     {
       situation: "Work meeting",
-      move: "Make a scattered contribution concise and memorable — one line per step.",
+      move: "Make a scattered contribution concise and memorable: one line per step.",
       phrase:
         "\"Here's where we are, here's the snag, here's the call, here's what I'd do.\"",
     },
@@ -327,7 +327,7 @@ export const TC048: CardData = {
       situation: "Email or written update",
       move: "Put each step in a short labelled paragraph or bullet so the reader can scan it.",
       phrase:
-        '"Background: … / What\'s changed: … / Decision needed: … / My recommendation: …"',
+        '"Background: ... / What\'s changed: ... / Decision needed: ... / My recommendation: ..."',
     },
     {
       situation: "Giving feedback",
@@ -343,7 +343,7 @@ export const TC048: CardData = {
     },
     {
       situation: "Someone is upset",
-      move: "Validate first; only structure once they feel heard.",
+      move: "Validate first. Only structure once they feel heard.",
       phrase:
         '"That sounds really frustrating. When you\'re ready, I can lay out where things stand."',
     },
@@ -351,7 +351,7 @@ export const TC048: CardData = {
       situation: "Pitching a proposal",
       move: "Lead from shared context to your recommendation without hiding the ask.",
       phrase:
-        "\"We agreed on the goal; here's the obstacle; here's the question; here's what I'd back.\"",
+        "\"We agreed on the goal. Here's the obstacle. Here's the question. Here's what I'd back.\"",
     },
   ],
   calibration: {
@@ -375,13 +375,13 @@ export const TC048: CardData = {
   commonMistakes: [
     {
       mistake: "Announcing the framework",
-      soundsLike: '"I\'m going to use SCQA here. Situation, colon…"',
-      better: '"Here\'s the short version…" — use the structure silently.',
+      soundsLike: '"I\'m going to use SCQA here. Situation, colon..."',
+      better: '"Here\'s the short version..." Use the structure silently.',
     },
     {
       mistake: "Manufacturing a complication",
-      soundsLike: '"This is a huge problem" — about a minor issue.',
-      better: '"It\'s a small snag, but worth flagging: …"',
+      soundsLike: '"This is a huge problem". About a minor issue.',
+      better: '"It\'s a small snag, but worth flagging: ..."',
     },
     {
       mistake: "Over-structuring",
@@ -406,22 +406,22 @@ export const TC048: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured — let me say it more simply.",
+    "I made that too structured. Let me say it more simply.",
     "That may not be the useful frame. Let me back up.",
     "I don't want the structure to override the actual issue.",
     "What part of that was useful, and what should we drop?",
-    "That came out like a presentation — here's what I actually mean.",
+    "That came out like a presentation. Here's what I actually mean.",
     "Forget the framework for a second. The real problem is this.",
     "I think I over-organised that. What did you actually need from me?",
   ],
-  bestRecoveryLine: "I made that too structured — let me just say what I mean.",
+  bestRecoveryLine: "I made that too structured. Let me just say what I mean.",
   chains: [
     {
       label: "Structure then confirm",
       sequence: "SCQA → Summary check",
       example: [
         "Give the four-beat frame, then check it landed.",
-        '"Before we move on — what did you take as the main point?"',
+        '"Before we move on. What did you take as the main point?"',
       ],
     },
     {
@@ -429,7 +429,7 @@ export const TC048: CardData = {
       sequence: "SCQA → Clean request",
       example: [
         "Once the frame has made the problem clear, make the next step concrete.",
-        '"So — can you approve the scope cut by Thursday?"',
+        '"So. Can you approve the scope cut by Thursday?"',
       ],
     },
     {
@@ -445,7 +445,7 @@ export const TC048: CardData = {
       sequence: "Validate the concern → SCQA",
       example: [
         "When emotion is present, acknowledge it before you organise anything.",
-        "\"I know this deadline's been brutal. Can I lay out where we are and what I'd do?\"",
+        "\"I know this deadline's been brutal. Can I lay out where we're and what I'd do?\"",
       ],
     },
   ],
@@ -453,7 +453,7 @@ export const TC048: CardData = {
     {
       day: "Day 1",
       title: "Spot the shape",
-      task: "Pick one briefing or email you receive today and label its Situation, Complication, Question and Answer — or note which of the four is missing.",
+      task: "Pick one briefing or email you receive today and label its Situation, Complication, Question and Answer, or note which of the four is missing.",
     },
     {
       day: "Day 2",
@@ -463,7 +463,7 @@ export const TC048: CardData = {
     {
       day: "Day 3",
       title: "Cut it down",
-      task: "Cut yesterday's response by a third — to about 30 seconds — without losing the core point.",
+      task: "Cut yesterday's response by a third, to about 30 seconds, without losing the core point.",
     },
     {
       day: "Day 4",
@@ -496,21 +496,21 @@ export const TC048: CardData = {
   ],
   example: {
     without: [
-      "You: \"So, um, a few things — the migration's mostly done, though there were issues with staging, and also the vendor's API changed, which affects the timeline, and I've been meaning to mention the budget too…\"",
-      'Manager: "Sorry — what do you actually need from me?"',
+      "You: \"So, um, a few things: the migration's mostly done, though there were issues with staging, and also the vendor's API changed, which affects the timeline, and I've been meaning to mention the budget too...\"",
+      'Manager: "Sorry. What do you actually need from me?"',
       "You: \"Well, it's complicated. There's a lot going on.\"",
-      "Why it is weak:",
+      "Why it's weak:",
       "buries the real decision under background",
       "never names the actual question",
       "leaves the listener to do the sorting",
       "sounds anxious rather than clear",
     ],
     with: [
-      'You: "Quick one — can I give you the shape of it in four lines?"',
+      'You: "Quick one. Can I give you the shape of it in four lines?"',
       'Manager: "Go for it."',
       'You: "The migration\'s on track for Friday. But the vendor changed their API last week, which adds about a week of work. So the question is whether we hold the launch date or cut the reporting feature."',
       'Manager: "And what do you think?"',
-      "You: \"I'd cut reporting and keep the date — we can add it next release. Happy to talk it through if you'd rather hold.\"",
+      "You: \"I'd cut reporting and keep the date. We can add it next release. Happy to talk it through if you'd rather hold.\"",
       "Manager: \"No, that's clear. Let's cut reporting.\"",
       "Why this works:",
       "names the situation, the snag and the decision in order",
@@ -523,11 +523,11 @@ export const TC048: CardData = {
   influencePayoff: {
     feeling: '"I know exactly what they\'re asking me and why it matters."',
     principle:
-      "People engage with a point more readily when they can see its shape — context, problem, question, answer — before they're asked to judge it.",
+      "People engage with a point more readily when they can see its shape (context, problem, question, answer) before they're asked to judge it.",
     gains: [
       "Lower cognitive load for the listener",
       "A clear path through your point",
-      "Better sequencing — what matters comes first",
+      "Better sequencing: what matters comes first",
       "Faster decisions because the question is explicit",
       "Credibility from clarity rather than volume",
       "Less back-and-forth working out what you meant",
@@ -541,9 +541,9 @@ export const TC048: CardData = {
   },
   fieldTip: {
     headline: "Scaffolding, not the conversation.",
-    body: "Use SCQA to organise your own thinking before you speak, then let the structure disappear. The other person should feel clarity, not choreography — they should never hear the framework, only a point that arrives in the right order.",
+    body: "Use SCQA to organise your own thinking before you speak, then let the structure disappear. The other person should feel clarity, not choreography. They should never hear the framework, only a point that arrives in the right order.",
     example:
-      "\"The migration's on track, but the vendor changed their API — so do we hold the date or cut a feature? I'd cut the feature.\"",
+      "\"The migration's on track, but the vendor changed their API. So do we hold the date or cut a feature? I'd cut the feature.\"",
     dont: "Don't announce the steps or force a sentence into each one.",
     do: "Do let the answer land first if that's all they need.",
   },
@@ -551,27 +551,27 @@ export const TC048: CardData = {
     {
       id: "TC044",
       reason:
-        "BLUF leads with the bottom line and adds support after; SCQA walks the listener from context to the answer. Use BLUF when they only need the conclusion; use SCQA when the problem needs framing first.",
+        "BLUF leads with the bottom line and adds support after. SCQA walks the listener from context to the answer. Use BLUF when they only need the conclusion. Use SCQA when the problem needs framing first.",
     },
     {
       id: "TC042",
       reason:
-        "PREP is point-first for a single opinion (Point, Reason, Example, Point); SCQA is problem-first for a decision. Use PREP to defend a view; use SCQA to frame a question and answer it.",
+        "PREP is point-first for a single opinion (Point, Reason, Example, Point). SCQA is problem-first for a decision. Use PREP to defend a view. Use SCQA to frame a question and answer it.",
     },
     {
       id: "TC047",
       reason:
-        "STAR narrates a past example (Situation, Task, Action, Result); SCQA frames a live problem and its answer. Use STAR to evidence what you did; use SCQA to drive a decision.",
+        "STAR narrates a past example (Situation, Task, Action, Result). SCQA frames a live problem and its answer. Use STAR to evidence what you did. Use SCQA to drive a decision.",
     },
     {
       id: "TC013",
       reason:
-        "Clean request makes a single clear ask; SCQA builds the case that leads to one. Use Clean request when the context is shared; use SCQA when you must first establish why the ask matters.",
+        "Clean request makes a single clear ask. SCQA builds the case that leads to one. Use Clean request when the context is shared. Use SCQA when you must first establish why the ask matters.",
     },
     {
       id: "TC049",
       reason:
-        "CARL is a reflective narrative (Context, Action, Result, Learning); SCQA is a forward-looking decision frame. Use CARL to debrief what happened; use SCQA to propose what to do next.",
+        "CARL is a reflective narrative (Context, Action, Result, Learning). SCQA is a forward-looking decision frame. Use CARL to debrief what happened. Use SCQA to propose what to do next.",
     },
   ],
 };

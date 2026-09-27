@@ -6,7 +6,7 @@ export const TC001: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC001/TC001_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -58,15 +58,15 @@ export const TC001: CardData = {
   whyItWorks:
     "A live-thread follow-up is a question or comment that follows the most emotionally alive, meaningful, surprising, funny, tense, proud, uncertain, or specific part of what someone just said. It works because people open up and warm to you when they feel you noticed the real part of what they said, not just the surface facts.",
   whatItIsNot: [
-    'It is not simply "ask more questions" - too many questions can feel like an interview.',
+    'It is not simply "ask more questions": too many questions can feel like an interview.',
     "It is not therapy-speak or clinical probing.",
     "It is not interrogation, or a trick to steer the person.",
-    "It is not a tactic - it is socially intelligent responsiveness.",
+    "It is not a tactic. It is socially intelligent responsiveness.",
   ],
   overview: {
     coreFormula: [
-      "The sequence: Notice -> Comment -> Ask -> Reflect -> Contribute.",
-      "Charged detail -> small comment -> one natural question.",
+      "The sequence: Notice → Comment → Ask → Reflect → Contribute.",
+      "Charged detail → small comment → one natural question.",
       "You said it was weirdly intense. Weirdly intense how?",
       "That sounds like it mattered. What made it important?",
       "You seemed to light up when you mentioned that. What do you like about it?",
@@ -210,7 +210,7 @@ export const TC001: CardData = {
     {
       step: "1",
       title: "Catch the live thread",
-      body: 'Listen for the word or detail carrying the most energy, not the most obvious fact. In "It was technically fine, just weird," the live thread is "weird" - so the natural follow-up is "Weird how?"',
+      body: 'Listen for the word or detail carrying the most energy, not the most obvious fact. In "It was technically fine, just weird," the live thread is "weird". So the natural follow-up is "Weird how?"',
       examples: [
         { label: "They say", text: "It was technically fine, just weird." },
         { label: "Live thread", text: "Weird how?" },
@@ -219,7 +219,7 @@ export const TC001: CardData = {
     {
       step: "2",
       title: "Comment before you question",
-      body: "A small comment makes the question warmer and less interrogative. The comment shows you noticed the nuance; the question invites them to expand.",
+      body: "A small comment makes the question warmer and less interrogative. The comment shows you noticed the nuance. The question invites them to expand.",
       examples: [
         { label: "Weak", text: "Why was it intense?" },
         {
@@ -244,7 +244,7 @@ export const TC001: CardData = {
     {
       step: "4",
       title: "Use the depth dial",
-      body: "Match the depth of your question to the trust in the room. Most everyday charisma lives in the middle - warm and personal, not overly deep. Use the depth dial to judge how far to reach.",
+      body: "Match the depth of your question to the trust in the room. Most everyday charisma lives in the middle: warm and personal, not overly deep. Use the depth dial to judge how far to reach.",
     },
     {
       step: "5",
@@ -265,7 +265,7 @@ export const TC001: CardData = {
       examples: [
         {
           label: "Contribute",
-          text: "I get that. New places are tiring - you're learning the job and the hidden rules at once.",
+          text: "I get that. New places are tiring. You're learning the job and the hidden rules at once.",
         },
         {
           label: "Contribute",
@@ -314,7 +314,7 @@ export const TC001: CardData = {
   decisionTree: [
     {
       condition:
-        "They give a cue this technique is built for - a charged word, vivid detail, or clear emotion.",
+        "They give a cue this technique is built for: a charged word, vivid detail, or clear emotion.",
       action:
         "Use the minimum viable move: one short follow-up on the most alive part.",
       phrase: "Weirdly intense how?",
@@ -323,7 +323,7 @@ export const TC001: CardData = {
       condition: "There is no live cue, or they want a straight answer.",
       action:
         "Listen normally, answer directly, or pick a neighbouring technique.",
-      phrase: "Fair enough - what do you need from me on it?",
+      phrase: "Fair enough. What do you need from me on it?",
     },
     {
       condition: "The move opened useful information or connection.",
@@ -332,21 +332,21 @@ export const TC001: CardData = {
     },
     {
       condition:
-        "The move landed flat - short answers, flat tone, a topic change.",
+        "The move landed flat: short answers, flat tone, a topic change.",
       action:
         "Reduce intensity, comment instead of asking, or move back to the task.",
-      phrase: "No pressure - I was just curious.",
+      phrase: "No pressure, I was just curious.",
     },
     {
       condition: "There is pressure, distress, or urgency.",
       action:
-        "Slow down and shorten under pressure; add warmth under distress; act directly under urgency.",
+        "Slow down and shorten under pressure. Add warmth under distress. Act directly under urgency.",
       phrase: "That sounds like a lot. What do you most need right now?",
     },
     {
       condition: "You have already used the move once or twice.",
       action:
-        "Do not repeat it mechanically - switch to a summary, a small contribution, or action.",
+        "Do not repeat it mechanically: switch to a summary, a small contribution, or action.",
       phrase: "Here's what I'm taking from this...",
     },
   ],
@@ -366,7 +366,7 @@ export const TC001: CardData = {
     without: [
       'Person: "I just started a new job."',
       'You: "Nice. I hated my first job. My boss was awful."',
-      "Why it is weak:",
+      "Why it's weak:",
       "Turns the conversation back to you.",
       "Misses the emotional opening.",
       "Gives them no reason to elaborate.",
@@ -389,7 +389,7 @@ export const TC001: CardData = {
       "Creates warmth without forcing intimacy.",
       'Gives them more to respond to than "How\'s the job?"',
     ],
-    note: 'Going one level deeper, you can push once more - "Intense because there\'s a lot to learn, or because you\'re still figuring out the people?" - then reflect: "The social map is usually the harder part. That\'s the real onboarding."',
+    note: 'Going one level deeper, you can push once more ("Intense because there\'s a lot to learn, or because you\'re still figuring out the people?") then reflect: "The social map is usually the harder part. That\'s the real onboarding."',
   },
   commonMistakes: [
     {
@@ -443,7 +443,7 @@ export const TC001: CardData = {
     adjust: [
       "Short answers or a flat tone.",
       "They look away, check their phone, or change the topic.",
-      "Polite but low-energy responses; they answer but do not elaborate.",
+      "Polite but low-energy responses. They answer but do not elaborate.",
       "They seem analysed or pressured.",
       "You have asked three questions without sharing anything.",
       "Fix it by asking less and commenting more, or sharing something small yourself.",
@@ -487,7 +487,7 @@ export const TC001: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm comment -> live-thread follow-up -> reflection -> light self-disclosure -> appreciation",
+        "Warm comment → live-thread follow-up → reflection → light self-disclosure → appreciation",
       example: [
         '"That sounds like a big shift."',
         '"What made you choose it?"',
@@ -499,7 +499,7 @@ export const TC001: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Understand goal -> ask follow-up about values -> frame suggestion around that value -> release pressure",
+        "Understand goal → ask follow-up about values → frame suggestion around that value → release pressure",
       example: [
         '"What are you hoping this solves?"',
         '"What matters most: speed, quality, or less stress?"',
@@ -510,7 +510,7 @@ export const TC001: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate -> live-thread follow-up -> clarify need -> propose next step",
+        "Validate → live-thread follow-up → clarify need → propose next step",
       example: [
         '"I can see why that felt frustrating."',
         '"What part bothered you most?"',
@@ -521,12 +521,12 @@ export const TC001: CardData = {
     {
       label: "Charisma chain",
       sequence:
-        "Playful observation -> live-thread follow-up -> reflection -> light humour",
+        "Playful observation → live-thread follow-up → reflection → light humour",
       example: [
         '"That sounds like the short version of a chaotic story."',
         '"What actually happened?"',
         '"So you were improvising the entire time."',
-        '"Respectfully, that is both impressive and concerning."',
+        '"Respectfully, that\'s both impressive and concerning."',
       ],
     },
   ],
@@ -543,7 +543,7 @@ export const TC001: CardData = {
     },
     {
       situation: "Conflict or objection",
-      move: "Add validation and reduce speed; do not weaponise the technique.",
+      move: "Add validation and reduce speed. Do not weaponise the technique.",
       phrase: "What did that mean to you when it happened?",
     },
     {
@@ -571,7 +571,7 @@ export const TC001: CardData = {
     {
       day: "Day 2",
       title: "Write the minimum viable move",
-      task: 'For each comment, write the smallest live-thread follow-up you could ask - often just "[word] how?"',
+      task: 'For each comment, write the smallest live-thread follow-up you could ask, often just "[word] how?"',
     },
     {
       day: "Day 3",
@@ -591,12 +591,12 @@ export const TC001: CardData = {
     {
       day: "Day 6",
       title: 'Run the "[word] how?" drill',
-      task: 'Across three conversations, listen for a loaded word and ask about it - "Weird how?", "Intense how?" - adding one warm comment before the question.',
+      task: 'Across three conversations, listen for a loaded word and ask about it ("Weird how?", "Intense how?") adding one warm comment before the question.',
     },
     {
       day: "Day 7",
       title: "Complete the sequence",
-      task: "Run the full sequence once - Notice, Comment, Ask, Reflect, Contribute - then review: did they give longer answers, and did you contribute after one or two follow-ups rather than interviewing them?",
+      task: "Run the full sequence once (Notice, Comment, Ask, Reflect, Contribute) then review: did they give longer answers, and did you contribute after one or two follow-ups rather than interviewing them?",
     },
   ],
   checklist: [
@@ -609,7 +609,7 @@ export const TC001: CardData = {
   ],
   fieldTip: {
     headline: "Follow emotional energy, not just information.",
-    body: "The best follow-up often comes from the word they load with feeling. That loaded word is the live thread - follow it rather than the surface facts.",
+    body: "The best follow-up often comes from the word they load with feeling. That loaded word is the live thread: follow it rather than the surface facts.",
     example: 'They say: "It was technically fine, just weird."',
     dont: "Where was it?",
     do: "Weird how?",
@@ -618,7 +618,7 @@ export const TC001: CardData = {
     {
       id: "TC023",
       reason:
-        "TC001 follows the most alive part of the whole utterance; use TC023 Loaded word follow-up when the energy sits in one specific loaded word.",
+        "TC001 follows the most alive part of the whole utterance. Use TC023 Loaded word follow-up when the energy sits in one specific loaded word.",
     },
     {
       id: "TC025",
@@ -633,7 +633,7 @@ export const TC001: CardData = {
     {
       id: "TC030",
       reason:
-        "Use TC030 Echo plus question when you want to echo their words first and then ask - a tighter, more structured cousin.",
+        "Use TC030 Echo plus question when you want to echo their words first and then ask: a tighter, more structured cousin.",
     },
     {
       id: "TC038",

@@ -6,7 +6,7 @@ export const TC039: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC039/TC039_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,12 +56,12 @@ export const TC039: CardData = {
   ],
   id: "TC039",
   whyItWorks:
-    "Common-ground discovery means finding one real shared point — a concern, value, experience, goal or constraint — and naming it lightly, without pretending sameness or forcing agreement. It works because it changes the conversation at the level of timing, attention and response choice rather than adding a script: the other person feels genuinely heard, friction drops, and a stuck exchange gets one honest overlap to build from.",
+    "Common-ground discovery means finding one real shared point (a concern, value, experience, goal or constraint) and naming it lightly, without pretending sameness or forcing agreement. It works because it changes the conversation at the level of timing, attention and response choice rather than adding a script: the other person feels genuinely heard, friction drops, and a stuck exchange gets one honest overlap to build from.",
   whatItIsNot: [
     "It is not a trick, a performance, a dominance move, or a shortcut around consent.",
     "It is not a way to extract more than the other person wants to give.",
     "It is not a replacement for listening, context, judgement, or direct action when direct action is needed.",
-    "It is not manufactured sameness — the overlap has to be real, or it quietly backfires.",
+    "It is not manufactured sameness: the overlap has to be real, or it quietly backfires.",
   ],
   overview: {
     coreFormula: [
@@ -149,7 +149,7 @@ export const TC039: CardData = {
         "We may not agree on the cause, but we both want a cleaner next step.",
         "Can we build from the part we do agree on?",
         "The useful part might be this: we both want a workable next step.",
-        "Where we line up is the timing — can we work from that?",
+        "Where we line up is the timing, can we work from that?",
         "If we both want it to be fair, let's start there.",
       ],
     },
@@ -159,10 +159,10 @@ export const TC039: CardData = {
       tag: "De-escalation phrases",
       tone: "Repair",
       phrases: [
-        "I don't want to pretend we see it the same way, but there is overlap in wanting a fair process.",
+        "I don't want to pretend we see it the same way, but there's overlap in wanting a fair process.",
         "We're on the same side of at least one thing here.",
-        "Neither of us wants this to blow up — can we start there?",
-        "I know we disagree on the how; I think we agree on the why.",
+        "Neither of us wants this to blow up. Can we start there?",
+        "I know we disagree on the how. I think we agree on the why.",
         "Let's not lose the thing we both actually want.",
         "Before we get into where we differ, we both want this sorted.",
       ],
@@ -174,10 +174,10 @@ export const TC039: CardData = {
       tone: "Quick",
       phrases: [
         "I may be reading this wrong, but that seems like the key thread.",
-        "We can stay with that or move on — your call.",
+        "We can stay with that or move on. Your call.",
         "The useful part may be this: we both want the same outcome.",
         "Sounds like we both want the same result, even if the route's different.",
-        "Feels like we agree on the goal — want to sort the how?",
+        "Feels like we agree on the goal, want to sort the how?",
       ],
     },
     {
@@ -186,7 +186,7 @@ export const TC039: CardData = {
       tag: "Low-trust phrases",
       tone: "High-stakes",
       phrases: [
-        "I'm not asking you to drop your position — I think we still share one concern.",
+        "I'm not asking you to drop your position. I think we still share one concern.",
         "Even here, we both want this to be fair.",
         "The last thing either of us wants is for this to get worse.",
         "We can hold our differences and still work the part we share.",
@@ -198,7 +198,7 @@ export const TC039: CardData = {
     {
       condition: "They add detail",
       action:
-        "Follow the same thread; build on the overlap they just extended.",
+        "Follow the same thread. Build on the overlap they just extended.",
       phrase: "Say more about that part.",
     },
     {
@@ -214,7 +214,7 @@ export const TC039: CardData = {
     },
     {
       condition: "They give a direct answer",
-      action: "Take it and move on — don't keep hunting for overlap.",
+      action: "Take it and move on. Don't keep hunting for overlap.",
       phrase: "",
     },
     {
@@ -254,7 +254,7 @@ export const TC039: CardData = {
     },
     {
       situation: "Workplace conversation",
-      move: "Keep the wording concise and non-performative; avoid emotional overreach.",
+      move: "Keep the wording concise and non-performative. Avoid emotional overreach.",
       phrase: "The shared goal seems to be making the next step workable.",
     },
     {
@@ -271,7 +271,7 @@ export const TC039: CardData = {
     },
     {
       situation: "High-stakes context",
-      move: "Lead with direct clarity; add common ground only if it lowers pressure and improves understanding.",
+      move: "Lead with direct clarity. Add common ground only if it lowers pressure and improves understanding.",
       phrase: "Even here, we both want this to be fair.",
     },
     {
@@ -297,7 +297,7 @@ export const TC039: CardData = {
       "Visible tension.",
       "Defensiveness or confusion.",
       "They withdraw or refuse directly.",
-      "The move makes the conversation feel less safe — make it smaller or release it.",
+      "The move makes the conversation feel less safe. Make it smaller or release it.",
     ],
   },
   drill: [
@@ -357,7 +357,7 @@ export const TC039: CardData = {
     with: [
       "A: It just felt like too much at once.",
       "B: That sounds like it had more weight than the facts alone. (better)",
-      "A: Yes — it felt like I was suddenly carrying all of it.",
+      "A: Yes, it felt like I was suddenly carrying all of it.",
       "A: It just felt like too much at once.",
       "B: It sounds like the hard part wasn't just the amount, but what it meant about being left with it. (advanced)",
       "A: Exactly. I could have handled the work if someone had acknowledged it.",
@@ -372,7 +372,7 @@ export const TC039: CardData = {
   influencePayoff: {
     feeling: '"This person is looking for what we share, not scoring points."',
     principle:
-      "People soften once they can see one honest thing you both want; a real overlap lowers defensiveness faster than any argument.",
+      "People soften once they can see one honest thing you both want. A real overlap lowers defensiveness faster than any argument.",
     gains: [
       "Better conversational accuracy",
       "Trust",
@@ -380,7 +380,7 @@ export const TC039: CardData = {
       "Less overtalking",
       "The conversation stays on the thread that matters",
       "Alignment without pretending full agreement",
-      "Dignity preserved — they can accept, redirect, or decline without being cornered",
+      "Dignity preserved: they can accept, redirect, or decline without being cornered",
     ],
     whyMostFail: [
       "They manufacture fake similarity, so the overlap rings hollow.",
@@ -393,14 +393,14 @@ export const TC039: CardData = {
     headline: "Common ground must be discovered, not invented.",
     body: "The overlap only works if it's real. If you have to reach for it or exaggerate it, the other person feels the stretch and trusts you less, not more. Wait until you actually hear a shared concern, value or goal, then name that and only that.",
     example: '"Different reasons, same concern about timing."',
-    dont: 'Manufacture sameness to smooth things over — "We\'re basically the same, you and me."',
-    do: 'Name the one real thing you both want — "We may not agree on the cause, but we both want a cleaner next step."',
+    dont: 'Manufacture sameness to smooth things over: "We\'re basically the same, you and me."',
+    do: 'Name the one real thing you both want: "We may not agree on the cause, but we both want a cleaner next step."',
   },
   method: [
     {
       step: "1",
       title: "Notice the shared thread",
-      body: "Listen underneath the disagreement for one real thing you both want — a concern, value, goal or constraint. Don't reach for it; wait until a genuine overlap actually surfaces.",
+      body: "Listen underneath the disagreement for one real thing you both want: a concern, value, goal or constraint. Don't reach for it. Wait until a genuine overlap actually surfaces.",
       examples: [
         { label: "Cue", text: '"I just don\'t want this to blow up."' },
         {
@@ -417,7 +417,7 @@ export const TC039: CardData = {
     {
       step: "3",
       title: "Say it in ordinary language",
-      body: 'Keep it plain and tentative — "seems", "sounds like", "I think". Tentative wording leaves them room to correct you instead of resisting you.',
+      body: 'Keep it plain and tentative: "seems", "sounds like", "I think". Tentative wording leaves them room to correct you instead of resisting you.',
       examples: [
         {
           label: "Too strong",
@@ -437,7 +437,7 @@ export const TC039: CardData = {
     {
       step: "5",
       title: "Follow their next signal",
-      body: "If they add detail or soften, build on the shared thread. If they correct the overlap, take the correction — a corrected overlap is usually the real one.",
+      body: "If they add detail or soften, build on the shared thread. If they correct the overlap, take the correction: a corrected overlap is usually the real one.",
     },
     {
       step: "6",
@@ -446,18 +446,18 @@ export const TC039: CardData = {
       examples: [
         {
           label: "Release",
-          text: '"I may be reading that wrong — we don\'t have to stay with it."',
+          text: '"I may be reading that wrong. We don\'t have to stay with it."',
         },
       ],
     },
   ],
   liveThreadClues: [
-    '"we both…"',
-    '"all I want is…"',
-    '"the last thing I want is…"',
-    '"no one wants…"',
+    '"we both..."',
+    '"all I want is..."',
+    '"the last thing I want is..."',
+    '"no one wants..."',
     '"I just want this to be fair."',
-    '"at the end of the day…"',
+    '"at the end of the day..."',
     '"same here."',
   ],
   depthDial: [
@@ -475,7 +475,7 @@ export const TC039: CardData = {
       depth: "Work",
       useWhen: "a decision or plan is on the table",
       phrase:
-        "Different reasons, same concern about timing — can we plan around that?",
+        "Different reasons, same concern about timing. Can we plan around that?",
     },
     {
       depth: "Guarded",
@@ -501,11 +501,11 @@ export const TC039: CardData = {
       mistake: "Using overlap to bypass a real disagreement",
       soundsLike: "\"We both want what's best, so let's just move on.\"",
       better:
-        '"We agree on the goal — can we stay with where we actually differ for a moment?"',
+        '"We agree on the goal. Can we stay with where we actually differ for a moment?"',
     },
     {
       mistake: "Using the move too many times in a row",
-      soundsLike: '"We both… and we both… and really we both…"',
+      soundsLike: '"We both... and we both... and really we both..."',
       better: "Name one honest overlap, then let it sit.",
     },
     {
@@ -517,7 +517,7 @@ export const TC039: CardData = {
       mistake: "Mistaking politeness or fatigue for agreement",
       soundsLike: '"Great, sounds like we\'re aligned!"',
       better:
-        '"I don\'t want to put words in your mouth — does that overlap actually feel real to you?"',
+        '"I don\'t want to put words in your mouth. Does that overlap actually feel real to you?"',
     },
   ],
   recoveryPhrases: [
@@ -529,8 +529,7 @@ export const TC039: CardData = {
     "We can go another direction.",
     "What would be more useful right now?",
   ],
-  bestRecoveryLine:
-    "I may be reading that wrong — ignore it if it doesn't fit.",
+  bestRecoveryLine: "I may be reading that wrong. Ignore it if it doesn't fit.",
   chains: [
     {
       label: "Repair to request",
@@ -559,7 +558,7 @@ export const TC039: CardData = {
       example: [
         '"You\'ve carried most of this, and it shows." (status generosity)',
         '"We both want it to land well." (common ground)',
-        '"So the plan is X, then Y — have I got that right?" (summary check)',
+        '"So the plan is X, then Y. Have I got that right?" (summary check)',
       ],
     },
   ],
@@ -567,17 +566,17 @@ export const TC039: CardData = {
     {
       id: "TC017",
       reason:
-        "Values-based framing uses one person's values to frame a point; common-ground discovery finds a point both people already share.",
+        "Values-based framing uses one person's values to frame a point. Common-ground discovery finds a point both people already share.",
     },
     {
       id: "TC005",
       reason:
-        "Validation acknowledges their concern without agreeing; common ground names a genuine overlap you can both build on.",
+        "Validation acknowledges their concern without agreeing. Common ground names a genuine overlap you can both build on.",
     },
     {
       id: "TC022",
       reason:
-        "Status generosity hands dignity to the other person; common ground finds the mutuality between you.",
+        "Status generosity hands dignity to the other person. Common ground finds the mutuality between you.",
     },
     {
       id: "TC014",
@@ -587,7 +586,7 @@ export const TC039: CardData = {
     {
       id: "TC077",
       reason:
-        "Agreement-before-disagreement leads with the point you agree on before pushing back; common-ground discovery is how you find that shared point in the first place.",
+        "Agreement-before-disagreement leads with the point you agree on before pushing back. Common-ground discovery is how you find that shared point in the first place.",
     },
   ],
 };

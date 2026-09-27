@@ -6,7 +6,7 @@ export const TC079: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC079/TC079_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,11 +56,11 @@ export const TC079: CardData = {
   ],
   id: "TC079",
   whyItWorks:
-    'Permission to disagree is asking for — or clearly signalling — a small conversational opening before you offer a different view. It works because it separates two things people usually fuse: the relationship signal and the content disagreement. The relationship signal says, "I am not attacking you"; the content sentence says, "Here is the one part I see differently." Pausing before contradiction makes the disagreement opt-in and bounded, so the other person can stay engaged long enough to consider it instead of defending their identity.',
+    'Permission to disagree is asking for, or clearly signalling, a small conversational opening before you offer a different view. It works because it separates two things people usually fuse: the relationship signal and the content disagreement. The relationship signal says, "I am not attacking you". The content sentence says, "Here is the one part I see differently." Pausing before contradiction makes the disagreement opt-in and bounded, so the other person can stay engaged long enough to consider it instead of defending their identity.',
   whatItIsNot: [
-    "Not permission as a ritual before you bulldoze — if they say no, slow down, defer, or ask what would help instead.",
-    "Not false agreement — you acknowledge without surrendering your point.",
-    'Not a polite disguise for contempt — "with all due respect" followed by a put-down is the opposite of this.',
+    "Not permission as a ritual before you bulldoze. If they say no, slow down, defer, or ask what would help instead.",
+    "Not false agreement: you acknowledge without surrendering your point.",
+    'Not a polite disguise for contempt: "with all due respect" followed by a put-down is the opposite of this.',
     "Not required when urgent safety, compliance or harm prevention needs a direct intervention first.",
   ],
   overview: {
@@ -72,11 +72,11 @@ export const TC079: CardData = {
       "Can I say this from a different angle? I hear why it feels that way, and I see one piece differently.",
     ],
     minimumViableMove:
-      'Ask for a small opening before you disagree — "Can I push back gently on one piece?" — then keep your first difference to a single bounded sentence and hand the floor back.',
+      'Ask for a small opening before you disagree ("Can I push back gently on one piece?") then keep your first difference to a single bounded sentence and hand the floor back.',
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      "It fails when permission becomes a ritual before you bulldoze anyway — asking to disagree and then delivering a long monologue, hiding contempt inside polite wording, over-asking until you sound timid, or treating consent as a licence to win rather than to examine.",
+      "It fails when permission becomes a ritual before you bulldoze anyway: asking to disagree and then delivering a long monologue, hiding contempt inside polite wording, over-asking until you sound timid, or treating consent as a licence to win rather than to examine.",
     bestFor: [
       "Emotionally loaded topics",
       "Hierarchy or status gaps",
@@ -119,8 +119,8 @@ export const TC079: CardData = {
       phrases: [
         "I agree with the goal. May I challenge one assumption?",
         "I respect the concern. The part I question is the inference.",
-        "I think we are aligned on the outcome and split on the route.",
-        "I am with you on the aim, and I differ on the route.",
+        "I think we're aligned on the outcome and split on the route.",
+        "I'm with you on the aim, and I differ on the route.",
         "I hear why it feels that way, and I see one piece differently.",
         "Can I say this from a different angle, without dismissing how it felt?",
         "You may well be right. Can I still test one part of it?",
@@ -134,9 +134,9 @@ export const TC079: CardData = {
       phrases: [
         "I agree with the outcome. Can I challenge one assumption about the deadline?",
         "May I challenge one assumption before we commit?",
-        "I think we are aligned on outcome, not yet on method.",
+        "I think we're aligned on outcome, not yet on method.",
         "Can I name one risk before we sign this off?",
-        "I support the direction. The piece I would press on is the sequencing.",
+        "I support the direction. The piece I'd press on is the sequencing.",
         "Before we lock this, can I offer one counterpoint?",
       ],
     },
@@ -147,12 +147,12 @@ export const TC079: CardData = {
       tone: "Direct",
       phrases: [
         "The part I see differently is the timeline, not the goal.",
-        "I am disagreeing with the risk estimate, not with the need to act.",
+        "I'm disagreeing with the risk estimate, not with the need to act.",
         "I question the assumption underneath it, not the concern itself.",
-        'The one thing I would push on is the word "doomed".',
-        "I agree the schedule is risky; I differ on calling it doomed.",
-        "My difference is narrow: it is the cause, not the experience.",
-        "I see one part differently — let me keep it to that.",
+        'The one thing I\'d push on is the word "doomed".',
+        "I agree the schedule is risky. I differ on calling it doomed.",
+        "My difference is narrow: it's the cause, not the experience.",
+        "I see one part differently. Let me keep it to that.",
       ],
     },
     {
@@ -161,12 +161,12 @@ export const TC079: CardData = {
       tag: "High-pressure",
       tone: "High-stakes",
       phrases: [
-        "I need to challenge one part so we do not miss a risk.",
-        "I am going to disagree with the timeline, not the intent.",
-        "For safety, I need to be direct: I do not think that assumption holds.",
+        "I need to challenge one part so we don't miss a risk.",
+        "I'm going to disagree with the timeline, not the intent.",
+        "For safety, I need to be direct: I don't think that assumption holds.",
         "Can I flag a concern before we lock this in?",
-        "I have to name one risk now, and then I will step back.",
-        "I am not blocking the decision; I am naming one thing we cannot un-know.",
+        "I have to name one risk now, and then I'll step back.",
+        "I'm not blocking the decision. I'm naming one thing we can't un-know.",
       ],
     },
     {
@@ -176,10 +176,10 @@ export const TC079: CardData = {
       tone: "Repair",
       phrases: [
         "That came out sharper than I meant. Let me restate it.",
-        "I am not questioning your motives; I am questioning this one inference.",
-        "I am not trying to erase your view — just to separate it from the part I see differently.",
+        "I'm not questioning your motives. I'm questioning this one inference.",
+        "I'm not trying to erase your view, just to separate it from the part I see differently.",
         "I gave too much of my case at once. What part do you want to respond to?",
-        "I pushed back too quickly. You had context I did not have.",
+        "I pushed back too quickly. You had context I didn't have.",
         "No problem. We can leave that for now.",
         "Let me say the disagreement more cleanly.",
         "The relationship matters more to me than winning this point.",
@@ -195,16 +195,16 @@ export const TC079: CardData = {
         "One possible counterpoint: the evidence may support a narrower claim.",
         "I may be missing context, but I see one risk differently.",
         "Can I flag a concern before we lock this?",
-        "Quick counterpoint, take it or leave it: I would sequence this the other way.",
-        "Happy to be wrong here — one thing gives me pause.",
+        "Quick counterpoint, take it or leave it: I'd sequence this the other way.",
+        "Happy to be wrong here: one thing gives me pause.",
       ],
     },
   ],
   decisionTree: [
     {
       condition: "There is an immediate safety or harm risk",
-      action: "Be direct first; repair the tone afterwards if needed.",
-      phrase: "For safety, I need to be direct: that assumption does not hold.",
+      action: "Be direct first. Repair the tone afterwards if needed.",
+      phrase: "For safety, I need to be direct: that assumption doesn't hold.",
     },
     {
       condition: "They are emotionally activated",
@@ -225,17 +225,17 @@ export const TC079: CardData = {
     {
       condition: "You have the floor and one clear point",
       action: "State a single bounded difference and hand the floor back.",
-      phrase: "I see one part differently — the timeline, not the goal.",
+      phrase: "I see one part differently: the timeline, not the goal.",
     },
     {
       condition: "It did not land",
-      action: "Recover, validate, or stop — do not push harder.",
+      action: "Recover, validate, or stop. Do not push harder.",
       phrase: "That came out sharper than I meant. Let me restate it.",
     },
   ],
   ladder: [
     {
-      weak: '"No, that is wrong."',
+      weak: '"No, that\'s wrong."',
       better: '"I see it differently."',
       best: '"Can I offer a different read on the risk? I think the issue is timing, not commitment."',
     },
@@ -245,14 +245,14 @@ export const TC079: CardData = {
       best: '"I respect the goal. May I challenge one assumption before we decide?"',
     },
     {
-      weak: '"You are overreacting."',
-      better: '"I am not sure I agree."',
+      weak: '"You\'re overreacting."',
+      better: '"I\'m not sure I agree."',
       best: '"Can I say how it looks from my side? I hear the concern, and I think the intent may be less hostile than it sounded."',
     },
     {
-      weak: '"That is not true."',
-      better: '"I think there is another interpretation."',
-      best: '"Can I separate two pieces? The experience is real; the cause may be different."',
+      weak: '"That\'s not true."',
+      better: '"I think there\'s another interpretation."',
+      best: '"Can I separate two pieces? The experience is real. The cause may be different."',
     },
   ],
   scenarios: [
@@ -266,25 +266,25 @@ export const TC079: CardData = {
       situation: "Disagreeing with a manager",
       move: "Ask for a read before the decision, then reframe from motive to structure.",
       phrase:
-        "Can I offer a different read before we decide? I think the issue is not motivation; it is unclear ownership.",
+        "Can I offer a different read before we decide? I think the issue isn't motivation. It's unclear ownership.",
     },
     {
       situation: "Client conversation",
       move: "Ask to push on one point and name the real blocker instead of the assumed one.",
       phrase:
-        "May I push back on one point? I do not think more features solve adoption; I think onboarding is the blocker.",
+        "May I push back on one point? I don't think more features solve adoption. I think onboarding is the blocker.",
     },
     {
       situation: "Friendship",
       move: "Ask for another angle and offer a gentler interpretation of the same facts.",
       phrase:
-        "Can I say this from another angle? I hear it felt dismissive, and I do not think they meant it as a rejection.",
+        "Can I say this from another angle? I hear it felt dismissive, and I don't think they meant it as a rejection.",
     },
     {
       situation: "Family conflict",
       move: "Name that you do not want a fight, make one point, then stop.",
       phrase:
-        "I do not want to argue. Can I name the one part I see differently and then stop?",
+        "I don't want to argue. Can I name the one part I see differently and then stop?",
     },
     {
       situation: "Digital thread",
@@ -305,11 +305,11 @@ export const TC079: CardData = {
     adjust: [
       "They get quieter or give clipped answers.",
       "They look away or repeat the same point.",
-      'They say "I do not want to argue" — switch to validation, a summary check, or a low-pressure invitation.',
-      "They explicitly decline — leave it for now and respect the no.",
-      "The exchange is escalating, or you feel contempt rising in yourself — pause.",
-      "Power dynamics make continued challenge unsafe — stop and choose another moment.",
-      "On a thread: no reply, a terse delayed reply, or a reaction-only response — slow down before adding another point.",
+      'They say "I do not want to argue": switch to validation, a summary check, or a low-pressure invitation.',
+      "They explicitly decline: leave it for now and respect the no.",
+      "The exchange is escalating, or you feel contempt rising in yourself: pause.",
+      "Power dynamics make continued challenge unsafe: stop and choose another moment.",
+      "On a thread: no reply, a terse delayed reply, or a reaction-only response, slow down before adding another point.",
     ],
   },
   drill: [
@@ -321,7 +321,7 @@ export const TC079: CardData = {
     {
       day: "Day 2",
       title: "Blunt to bounded",
-      task: 'Take three blunt lines — "No, that is wrong", "You are overreacting", "This plan makes no sense" — and rewrite each as permission + one bounded point + a return of choice.',
+      task: 'Take three blunt lines ("No, that is wrong", "You are overreacting", "This plan makes no sense") and rewrite each as permission + one bounded point + a return of choice.',
     },
     {
       day: "Day 3",
@@ -336,7 +336,7 @@ export const TC079: CardData = {
     {
       day: "Day 5",
       title: "Calibration log",
-      task: "After using the move, mark the other person's first response as continue, adjust, or stop — and write the one thing you would do next in each case.",
+      task: "After using the move, mark the other person's first response as continue, adjust, or stop, and write the one thing you would do next in each case.",
     },
     {
       day: "Day 6",
@@ -346,7 +346,7 @@ export const TC079: CardData = {
     {
       day: "Day 7",
       title: "Chain it",
-      task: "In a real disagreement, pair the move with one neighbour — validate first, or ask what would make it workable after — and notice whether the channel stayed open.",
+      task: "In a real disagreement, pair the move with one neighbour (validate first, or ask what would make it workable after) and notice whether the channel stayed open.",
     },
   ],
   checklist: [
@@ -354,16 +354,16 @@ export const TC079: CardData = {
     "Did I keep the disagreement to one specific point?",
     "Did I preserve their dignity, motive and agency?",
     'Did I avoid sarcasm, contempt and "polite" hostility?',
-    "Did I read whether they were open, hesitant or closed — and adjust?",
+    "Did I read whether they were open, hesitant or closed, and adjust?",
     "Did I recover quickly if my tone landed badly, or switch technique if permission was not the real move?",
   ],
   example: {
     without: [
       'A: "This launch is doomed."',
-      'B: "No it is not. You are being negative."',
-      'A: "I am being realistic."',
+      "B: \"No it's not. You're being negative.\"",
+      'A: "I\'m being realistic."',
       'B: "You always do this."',
-      "Why it is weak:",
+      "Why it's weak:",
       "attacks the person, not the claim",
       'meets a global word ("doomed") with another global word ("negative")',
       "turns a content gap into a fight about character",
@@ -374,25 +374,25 @@ export const TC079: CardData = {
       'B: "Can I push back gently on one piece?"',
       'A: "Okay."',
       'B: "I agree the schedule is risky. The part I see differently is the word doomed. The useful question is what scope we cut to make it viable."',
-      'A: "That is fair."',
+      'A: "That\'s fair."',
       "Why it works:",
       "asks for a small opening first, so the disagreement is opt-in",
       "keeps the agreement and the disagreement both explicit",
       "bounds the difference to one word and one question",
       "redirects from blame to a workable next step",
     ],
-    note: 'Personal version — A: "You did not care about what I said." B: "Can I say how it looked from my side without dismissing how it felt? I did care, and I can see my silence sent a different signal."',
+    note: 'Personal version: A: "You did not care about what I said." B: "Can I say how it looked from my side without dismissing how it felt? I did care, and I can see my silence sent a different signal."',
   },
   influencePayoff: {
     feeling: '"They are disagreeing with my idea, not with me."',
     principle:
-      "The payoff is not that people automatically accept your view — it is that they can stay engaged long enough to consider it. Lowering threat and preserving face lets someone take in a correction without having to defend their identity.",
+      "The payoff is not that people automatically accept your view. It is that they can stay engaged long enough to consider it. Lowering threat and preserving face lets someone take in a correction without having to defend their identity.",
     gains: [
       "Disagreement is heard as contribution, not attack",
       "Lower threat and defensiveness",
       "Preserved face and status",
       "The channel stays open for correction",
-      "Trust holds where influence depends on it — leadership, coaching, negotiation, family topics",
+      "Trust holds where influence depends on it: leadership, coaching, negotiation, family topics",
       "They stay in the conversation long enough to weigh your view",
     ],
     whyMostFail: [
@@ -404,15 +404,15 @@ export const TC079: CardData = {
   },
   fieldTip: {
     headline: "Ask permission for the doorway, not for your integrity.",
-    body: "You can stay completely honest and still make the disagreement easier to hear. The permission opens a door; it does not surrender your point. Use it when both the relationship and the point matter — if only one of the two matters, choose a lighter move.",
+    body: "You can stay completely honest and still make the disagreement easier to hear. The permission opens a door. It does not surrender your point. Use it when both the relationship and the point matter. If only one of the two matters, choose a lighter move.",
     example: 'Pocket phrase: "Can I offer a different read on one part?"',
-    dont: '"With all due respect, this makes no sense." — a permission wrapper around contempt.',
+    dont: '"With all due respect, this makes no sense." A permission wrapper around contempt.',
     do: '"I respect the goal. May I challenge one assumption before we decide?"',
   },
   method: [
     {
       step: "1",
-      title: "Perception — notice the risk",
+      title: "Perception: notice the risk",
       body: 'Before you contradict, read whether a flat "I disagree" would trigger status threat, defensiveness, shame, or derailment. The louder the stakes and the more public the room, the more the move earns its place.',
       examples: [
         {
@@ -421,14 +421,14 @@ export const TC079: CardData = {
         },
         {
           label: "Cue",
-          text: 'The claim is global — "doomed", "always", "makes no sense".',
+          text: 'The claim is global: "doomed", "always", "makes no sense".',
         },
       ],
     },
     {
       step: "2",
-      title: "Move — ask for a small opening",
-      body: "Use one sentence to make the disagreement opt-in. Keep it genuine, not a ritual; if they say no, you slow down rather than bulldoze.",
+      title: "Move: ask for a small opening",
+      body: "Use one sentence to make the disagreement opt-in. Keep it genuine, not a ritual. If they say no, you slow down rather than bulldoze.",
       examples: [
         { label: "Say", text: '"Can I offer a different read on one part?"' },
         { label: "Warm", text: '"Can I push back gently on one piece?"' },
@@ -436,8 +436,8 @@ export const TC079: CardData = {
     },
     {
       step: "3",
-      title: "Phrase — bound one point",
-      body: "State a single, specific difference. Name what you agree with, then the one thing you see differently — the assumption, the inference, the timeline, the risk estimate, not the person.",
+      title: "Phrase: bound one point",
+      body: "State a single, specific difference. Name what you agree with, then the one thing you see differently: the assumption, the inference, the timeline, the risk estimate, not the person.",
       examples: [
         {
           label: "Bounded",
@@ -447,23 +447,23 @@ export const TC079: CardData = {
     },
     {
       step: "4",
-      title: "Calibration — read the response",
-      body: "Watch for permission, openness, hesitation, withdrawal, irritation or curiosity. Continue only while there is enough conversational consent; if they close, switch to validation or a low-pressure invitation.",
+      title: "Calibration: read the response",
+      body: "Watch for permission, openness, hesitation, withdrawal, irritation or curiosity. Continue only while there is enough conversational consent. If they close, switch to validation or a low-pressure invitation.",
     },
     {
       step: "5",
-      title: "Recovery — own the impact",
+      title: "Recovery: own the impact",
       body: "If it lands badly, repair the tone quickly and separate the idea from the person.",
       examples: [
         {
           label: "Repair",
-          text: '"That came out sharper than I meant. I am trying to separate the idea from you."',
+          text: '"That came out sharper than I meant. I\'m trying to separate the idea from you."',
         },
       ],
     },
     {
       step: "6",
-      title: "Chain — add structure if needed",
+      title: "Chain: add structure if needed",
       body: "Pair with validation, autonomy release, a clean request, or SBI when the disagreement needs evidence, choice or a concrete next action.",
     },
   ],
@@ -472,15 +472,16 @@ export const TC079: CardData = {
     "The topic is emotionally loaded or the room is public",
     "They are doubling down or repeating the same point",
     'You feel the urge to say a flat "no" or "that\'s wrong"',
-    'The claim is global — "doomed", "always", "never", "makes no sense"',
-    'Identity language creeps in — "you don\'t care", "you never listen"',
+    'The claim is global: "doomed", "always", "never", "makes no sense"',
+    'Identity language creeps in: "you don\'t care", "you never listen"',
   ],
   commonMistakes: [
     {
       mistake: "Asking, then monologuing",
-      soundsLike: '"Can I push back? So, first… and another thing… and also…"',
+      soundsLike:
+        '"Can I push back? So, first... and another thing... and also..."',
       better:
-        '"Can I push back on one piece? I think it is timing, not commitment."',
+        '"Can I push back on one piece? I think it\'s timing, not commitment."',
     },
     {
       mistake: "Contempt in polite wording",
@@ -495,7 +496,7 @@ export const TC079: CardData = {
     },
     {
       mistake: "Treating permission as a licence to win",
-      soundsLike: '"You said I could disagree, so here is why you are wrong."',
+      soundsLike: "\"You said I could disagree, so here's why you're wrong.\"",
       better: '"Can I test one assumption? I might be missing something."',
     },
     {
@@ -508,17 +509,17 @@ export const TC079: CardData = {
       soundsLike:
         '"Can I offer a different read?" while a real risk is unfolding',
       better:
-        '"For safety, I need to be direct: that assumption does not hold."',
+        '"For safety, I need to be direct: that assumption doesn\'t hold."',
     },
   ],
   recoveryPhrases: [
     "That came out sharper than I meant. Let me restate it as one specific concern.",
-    "I am not trying to erase your view. I want to separate the part I agree with from the part I see differently.",
+    "I'm not trying to erase your view. I want to separate the part I agree with from the part I see differently.",
     "I gave too much of my case at once. What part do you want to respond to?",
     "No problem. We can leave that for now.",
-    "I pushed back too quickly. You had context I did not have.",
+    "I pushed back too quickly. You had context I didn't have.",
     "I want to pause. The relationship matters more than winning this point.",
-    "I am not questioning your motives; I am questioning this one inference.",
+    "I'm not questioning your motives. I'm questioning this one inference.",
   ],
   bestRecoveryLine:
     "That came out sharper than I meant. Let me restate it as one specific concern.",
@@ -544,7 +545,7 @@ export const TC079: CardData = {
       sequence: "Permission to disagree → Autonomy release",
       example: [
         '"I see it differently."',
-        '"But you do not have to take my view as final."',
+        '"But you don\'t have to take my view as final."',
       ],
     },
     {
@@ -585,7 +586,7 @@ export const TC079: CardData = {
     {
       id: "TC083",
       reason:
-        "Ask what would make it workable: use that to turn a rejected plan into a smaller workable one — chain it after this once the difference is on the table.",
+        "Ask what would make it workable: use that to turn a rejected plan into a smaller workable one, chain it after this once the difference is on the table.",
     },
   ],
 };

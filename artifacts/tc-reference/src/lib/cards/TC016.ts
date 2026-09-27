@@ -6,7 +6,7 @@ export const TC016: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC016/TC016_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC016: CardData = {
   ],
   id: "TC016",
   whyItWorks:
-    "Active-constructive responding means meeting someone's good news with visible interest, a specific note of what is good about it, and one follow-up that helps them relive or expand the moment - treating good news as a thread to join, not a cue to change the subject. It works because how you respond to a person's wins shapes the relationship as much as how you respond to their setbacks. When you actively share their positive emotion, they feel seen, the good moment lasts longer, and the bond gets stronger. A flat \"nice\" or a quick pivot to your own story quietly tells them their news did not really matter to you.",
+    "Active-constructive responding means meeting someone's good news with visible interest, a specific note of what is good about it, and one follow-up that helps them relive or expand the moment: treating good news as a thread to join, not a cue to change the subject. It works because how you respond to a person's wins shapes the relationship as much as how you respond to their setbacks. When you actively share their positive emotion, they feel seen, the good moment lasts longer, and the bond gets stronger. A flat \"nice\" or a quick pivot to your own story quietly tells them their news did not really matter to you.",
   whatItIsNot: [
     'It is not generic praise or a flat "nice" before moving on.',
     "It is not stealing the spotlight or turning their news into your own story.",
@@ -65,18 +65,18 @@ export const TC016: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice the good news -> show real interest -> name a specific positive part -> ask one energising follow-up -> stay with their answer.",
-      "That is genuinely good news - what was the best part of it?",
-      "That is a proper milestone. What moment made it feel real?",
+      "Notice the good news → show real interest → name a specific positive part → ask one energising follow-up → stay with their answer.",
+      "That's genuinely good news. What was the best part of it?",
+      "That's a proper milestone. What moment made it feel real?",
       "You worked hard for that. How did you find out?",
-      "That sounds like a real win - what made it land for you?",
+      "That sounds like a real win. What made it land for you?",
     ],
     minimumViableMove:
-      'Catch the good news, resist the reflexive "nice", and say one warm, specific line with a single follow-up: "That is genuinely good news - what was the best part of it?"',
+      'Catch the good news, resist the reflexive "nice", and say one warm, specific line with a single follow-up: "That is genuinely good news. What was the best part of it?"',
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
-      "The move fails when you hijack the topic, turn their news into your own story, jump straight to problems, or perform enthusiasm mechanically - celebration that is really about you stops feeling like celebration.",
+      "The move fails when you hijack the topic, turn their news into your own story, jump straight to problems, or perform enthusiasm mechanically: celebration that is really about you stops feeling like celebration.",
     bestFor: [
       "Good news and wins",
       "Promotions and milestones",
@@ -117,12 +117,12 @@ export const TC016: CardData = {
       tag: "One clean line",
       tone: "Quick",
       phrases: [
-        "That's brilliant news - genuinely pleased for you.",
+        "That's brilliant news. Genuinely pleased for you.",
         "Amazing. Tell me how it happened when you've got a sec.",
         "That's such good news to wake up to.",
-        "So happy for you - what's the first thing you did?",
+        "So happy for you. What's the first thing you did?",
         "Been hoping this would come through for you. Congratulations.",
-        "This deserves more than a thumbs-up - properly well done.",
+        "This deserves more than a thumbs-up. Properly well done.",
       ],
     },
     {
@@ -131,7 +131,7 @@ export const TC016: CardData = {
       tag: "Warmth and feeling",
       tone: "Warm",
       phrases: [
-        "That's lovely - you must be so pleased.",
+        "That's lovely, you must be so pleased.",
         "You worked hard for that.",
         "That's worth enjoying for a second.",
         "I'm really glad this landed for you.",
@@ -162,9 +162,9 @@ export const TC016: CardData = {
       tag: "Work and results",
       tone: "Professional",
       phrases: [
-        "Landing that is a real result - what made the difference?",
+        "Landing that's a real result. What made the difference?",
         "That's a strong outcome. What are you most pleased with?",
-        "Big milestone for the team - how did it come together?",
+        "Big milestone for the team. How did it come together?",
         "That's worth marking properly. What was the turning point?",
         "Genuinely good work on that. What are you taking from it?",
         "That's the sort of win that gets noticed. How does it feel?",
@@ -176,11 +176,11 @@ export const TC016: CardData = {
       tag: "Low-pressure celebration",
       tone: "High-stakes",
       phrases: [
-        "That's a good result - happy to hear more if you feel like sharing.",
-        "First things first - that's a real win. We can sort the rest after.",
+        "That's a good result. Happy to hear more if you feel like sharing.",
+        "First things first. That's a real win. We can sort the rest after.",
         "No pressure to make a thing of it, but I'm genuinely glad for you.",
-        "Sounds like good news with a catch - what's the good part first?",
-        "Only if you want to get into it - how are you feeling about it?",
+        "Sounds like good news with a catch. What's the good part first?",
+        "Only if you want to get into it. How are you feeling about it?",
         "I don't want to overdo it, but quietly, well done.",
       ],
     },
@@ -190,10 +190,10 @@ export const TC016: CardData = {
       tag: "When it misses",
       tone: "Repair",
       phrases: [
-        "I may have read that wrong - what's the honest version?",
+        "I may have read that wrong. What's the honest version?",
         "Let me put that more simply.",
         "No need to go there if it's not useful.",
-        "I jumped ahead there - sorry.",
+        "I jumped ahead there. Sorry.",
         "I don't want to make a bigger deal of it than you want.",
         "We can leave that and come back to it if it helps.",
       ],
@@ -202,8 +202,8 @@ export const TC016: CardData = {
   decisionTree: [
     {
       condition: "They're still sharing the news",
-      action: "Don't interrupt; let them finish, then respond.",
-      phrase: "Go on - what happened next?",
+      action: "Don't interrupt. Let them finish, then respond.",
+      phrase: "Go on. What happened next?",
     },
     {
       condition: "You're not sure which part they're most pleased about",
@@ -214,18 +214,18 @@ export const TC016: CardData = {
       condition: "The news is mixed or they seem unsure",
       action: "Match their actual feeling rather than forcing enthusiasm.",
       phrase:
-        "How are you feeling about it - pleased, or more complicated than that?",
+        "How are you feeling about it, pleased, or more complicated than that?",
     },
     {
       condition: "They lean in and expand",
-      action: "Stay with it; ask one more genuine question.",
+      action: "Stay with it. Ask one more genuine question.",
       phrase: "What made it finally click?",
     },
     {
       condition: "They shrink, correct you, or go flat",
       action: "Ease off and repair.",
       phrase:
-        "I may have made more of that than you wanted - tell me where to land.",
+        "I may have made more of that than you wanted. Tell me where to land.",
     },
     {
       condition: "They start hinting they want help or advice",
@@ -237,53 +237,53 @@ export const TC016: CardData = {
   ladder: [
     {
       weak: "Nice. Anyway, about the meeting...",
-      better: "That's great news - what was the best part?",
-      best: "That's a proper win. You've been working toward that for months - what was the moment you realised it had actually happened?",
+      better: "That's great news. What was the best part?",
+      best: "That's a proper win. You've been working toward that for months. What was the moment you realised it had actually happened?",
     },
     {
       weak: "Nice one.",
       better: "Congrats! That's great.",
-      best: "That's brilliant - you earned that. What's the first thing you did when you found out?",
+      best: "That's brilliant, you earned that. What's the first thing you did when you found out?",
     },
     {
       weak: "Well done.",
       better: "Well done, that's a big deal.",
-      best: "Well done - I know how much the client side was worrying you, so getting that sign-off must feel great.",
+      best: "Well done, I know how much the client side was worrying you, so getting that sign-off must feel great.",
     },
   ],
   scenarios: [
     {
       situation: "Social conversation",
-      move: "Keep it warm and brief; share the feeling and ask one light follow-up.",
-      phrase: "That's great - what's the first thing you did when you heard?",
+      move: "Keep it warm and brief. Share the feeling and ask one light follow-up.",
+      phrase: "That's great. What's the first thing you did when you heard?",
     },
     {
       situation: "Professional / work win",
       move: "Name the specific achievement, then hand it back to them.",
       phrase:
-        "Landing that account is a big deal - what made the difference in the end?",
+        "Landing that account is a big deal. What made the difference in the end?",
     },
     {
       situation: "Digital / text",
       move: "Write one clean, specific line and avoid overexplaining.",
       phrase:
-        "That's brilliant news - genuinely pleased for you. How did it come about?",
+        "That's brilliant news, genuinely pleased for you. How did it come about?",
     },
     {
       situation: "Guarded or high-status person",
       move: "Make the celebration optional and low-pressure.",
       phrase:
-        "That's a good result - happy to hear more if you feel like sharing.",
+        "That's a good result. Happy to hear more if you feel like sharing.",
     },
     {
       situation: "Close relationship",
-      move: "Drop the technique feel; use ordinary, unpolished words.",
-      phrase: "Oh, that's the best news - come here, tell me everything.",
+      move: "Drop the technique feel. Use ordinary, unpolished words.",
+      phrase: "Oh, that's the best news. Come here, tell me everything.",
     },
     {
       situation: "Mixed news (good with a catch)",
-      move: "Celebrate the good part first; hold the problem for later.",
-      phrase: "First - that's a real win. We can sort the logistics after.",
+      move: "Celebrate the good part first. Hold the problem for later.",
+      phrase: "First, that's a real win. We can sort the logistics after.",
     },
   ],
   calibration: {
@@ -308,7 +308,7 @@ export const TC016: CardData = {
     {
       day: "Day 1",
       title: "Spot the cue",
-      task: "Through the day, notice every time someone shares good news, however small. Just count them - don't change what you do yet.",
+      task: "Through the day, notice every time someone shares good news, however small. Just count them: don't change what you do yet.",
     },
     {
       day: "Day 2",
@@ -333,12 +333,12 @@ export const TC016: CardData = {
     {
       day: "Day 6",
       title: "Read the response",
-      task: "Do it again, and this time watch the calibration cue - did they expand and relax, or shrink? Adjust in the moment.",
+      task: "Do it again, and this time watch the calibration cue, did they expand and relax, or shrink? Adjust in the moment.",
     },
     {
       day: "Day 7",
       title: "Recover on purpose",
-      task: 'Practise one recovery line after a response that lands flat, so repairing feels natural: "I may have read that wrong - what\'s the honest version?"',
+      task: 'Practise one recovery line after a response that lands flat, so repairing feels natural: "I may have read that wrong. What\'s the honest version?"',
     },
   ],
   checklist: [
@@ -361,12 +361,12 @@ export const TC016: CardData = {
     ],
     with: [
       "A: I got the role.",
-      "B: That is excellent. What was the best part of finding out?",
+      "B: That's excellent. What was the best part of finding out?",
       "A: Honestly, calling my mum.",
       "B: That's lovely. What did she say?",
       "- or, going a step deeper -",
       "A: I got the role.",
-      "B: That is a proper milestone. You sounded unsure last month, so I'm really glad this landed. What moment made it feel real?",
+      "B: That's a proper milestone. You sounded unsure last month, so I'm really glad this landed. What moment made it feel real?",
       "A: When they said they wanted me specifically.",
       "Why this works:",
       "shares the emotion instead of deflecting",
@@ -376,7 +376,7 @@ export const TC016: CardData = {
     note: 'The best version references what the win cost them ("you sounded unsure last month"), which makes the celebration feel earned rather than automatic.',
   },
   influencePayoff: {
-    feeling: '"They were genuinely happy for me - it wasn\'t just about them."',
+    feeling: '"They were genuinely happy for me. It wasn\'t just about them."',
     principle:
       "How you respond to someone's good news shapes the bond as much as how you respond to their bad news. Sharing a person's positive emotion tells them the relationship is a safe place to bring good things.",
     gains: [
@@ -398,7 +398,7 @@ export const TC016: CardData = {
     headline: "Join the good news, don't change the subject.",
     body: "The strongest version of this move points at what the win cost them. Referencing the effort or worry behind it turns automatic congratulations into celebration that feels earned and personal.",
     example:
-      "You sounded unsure about this last month - so getting it must feel brilliant. What moment made it real?",
+      "You sounded unsure about this last month. So getting it must feel brilliant. What moment made it real?",
     dont: "Nice. Anyway, did you see the email about Thursday?",
     do: "That's a proper win. What are you most pleased about?",
   },
@@ -406,22 +406,22 @@ export const TC016: CardData = {
     {
       step: "1",
       title: "Notice the cue",
-      body: 'Catch the moment someone offers good news - it is often a small bid to see whether you\'ll share the feeling. Good-news openers sound like "guess what", "I finally...", "it actually happened", "I got the...". The cue is the invitation; the rest of the move only works if you spot it.',
+      body: 'Catch the moment someone offers good news. It is often a small bid to see whether you\'ll share the feeling. Good-news openers sound like "guess what", "I finally...", "it actually happened", "I got the...". The cue is the invitation. The rest of the move only works if you spot it.',
     },
     {
       step: "2",
       title: "Pause before the reflexive response",
-      body: 'The default replies - a flat "nice", your own similar story, or a jump to logistics - all quietly deflate the moment. A half-second pause is enough to choose the celebrating version instead of the automatic one.',
+      body: 'The default replies (a flat "nice", your own similar story, or a jump to logistics) all quietly deflate the moment. A half-second pause is enough to choose the celebrating version instead of the automatic one.',
     },
     {
       step: "3",
       title: "Show interest and name the specific part",
-      body: 'Say what is genuinely good about it, and be specific rather than generic.\nGeneric:\n"That\'s great."\nSpecific:\n"That\'s a proper milestone - you\'ve been working toward that for months."\nNaming the real thing shows you were actually listening.',
+      body: 'Say what is genuinely good about it, and be specific rather than generic.\nGeneric:\n"That\'s great."\nSpecific:\n"That\'s a proper milestone. You\'ve been working toward that for months."\nNaming the real thing shows you were actually listening.',
     },
     {
       step: "4",
       title: "Ask one energising follow-up",
-      body: 'One warm question invites them to relive and expand the moment.\nExamples:\n"What was the best part of finding out?"\n"Who did you tell first?"\n"What moment made it feel real?"\nKeep it to one - a string of questions turns celebration into an interview.',
+      body: 'One warm question invites them to relive and expand the moment.\nExamples:\n"What was the best part of finding out?"\n"Who did you tell first?"\n"What moment made it feel real?"\nKeep it to one: a string of questions turns celebration into an interview.',
     },
     {
       step: "5",
@@ -431,7 +431,7 @@ export const TC016: CardData = {
     {
       step: "6",
       title: "Watch, and repair if it misses",
-      body: "If they expand and relax, you're on track. If they shrink, correct you, or go flat, ease off quickly.\nRecovery:\n\"I may have read that wrong - what's the honest version?\"\nRepairing well matters more than getting it perfect first time.",
+      body: "If they expand and relax, you're on track. If they shrink, correct you, or go flat, ease off quickly.\nRecovery:\n\"I may have read that wrong. What's the honest version?\"\nRepairing well matters more than getting it perfect first time.",
     },
   ],
   liveThreadClues: [
@@ -446,17 +446,17 @@ export const TC016: CardData = {
   commonMistakes: [
     {
       mistake: "One-upping with your own story",
-      soundsLike: '"Nice - I applied for something like that once."',
+      soundsLike: '"Nice, I applied for something like that once."',
       better: '"That\'s brilliant. What was the best part of finding out?"',
     },
     {
       mistake: "The flat acknowledgement",
       soundsLike: '"Cool. Anyway, about the meeting..."',
-      better: '"That\'s a proper win - tell me how it happened."',
+      better: '"That\'s a proper win. Tell me how it happened."',
     },
     {
       mistake: "Jumping straight to problems",
-      soundsLike: '"Great - have you thought about the extra hours though?"',
+      soundsLike: '"Great. Have you thought about the extra hours though?"',
       better:
         "\"That's great news. Let's enjoy it before we get into logistics.\"",
     },
@@ -469,13 +469,12 @@ export const TC016: CardData = {
     {
       mistake: "Sounding performative or scripted",
       soundsLike: '"I\'m actively delighted to celebrate your success."',
-      better: "\"Ah, that's great - what's the first thing you did?\"",
+      better: "\"Ah, that's great. What's the first thing you did?\"",
     },
     {
       mistake: "Ignoring their correction",
       soundsLike: "keeping the praise going after they've gone quiet",
-      better:
-        '"I may have made too much of that - what\'s the honest version?"',
+      better: '"I may have made too much of that. What\'s the honest version?"',
     },
     {
       mistake: "Making it about your own performance",
@@ -490,37 +489,37 @@ export const TC016: CardData = {
     "I jumped ahead there.",
     "What would be the more accurate way to say it?",
     "We can leave that and come back if it helps.",
-    "I don't want to make a bigger deal of it than you want - tell me where to land.",
-    "That came out more over-the-top than I meant; I'm just genuinely pleased for you.",
+    "I don't want to make a bigger deal of it than you want. Tell me where to land.",
+    "That came out more over-the-top than I meant. I'm just genuinely pleased for you.",
   ],
-  bestRecoveryLine: "I may have read that wrong - what's the honest version?",
+  bestRecoveryLine: "I may have read that wrong. What's the honest version?",
   chains: [
     {
       label: "Full celebration",
       sequence:
-        "Full-attention signal -> Active-constructive responding -> Summary check",
+        "Full-attention signal → Active-constructive responding → Summary check",
       example: [
         "Put your phone down and turn toward them.",
-        '"That\'s a real win - what was the best part of finding out?"',
+        '"That\'s a real win. What was the best part of finding out?"',
         '"So the part that meant the most was them asking for you by name."',
       ],
     },
     {
       label: "Celebrate before advising",
       sequence:
-        "Reflective listening -> Active-constructive responding -> Permission-based advice",
+        "Reflective listening → Active-constructive responding → Permission-based advice",
       example: [
         '"So you weren\'t sure it would come through, and now it has."',
-        '"That\'s brilliant - you earned that. What are you most pleased about?"',
+        '"That\'s brilliant, you earned that. What are you most pleased about?"',
         '"Do you want to think through the next bit together, or just enjoy it for now?"',
       ],
     },
     {
       label: "Low-pressure celebration",
-      sequence: "Active-constructive responding -> Autonomy release",
+      sequence: "Active-constructive responding → Autonomy release",
       example: [
-        '"That\'s genuinely good news - what made it land for you?"',
-        '"No pressure to make a thing of it - I\'m just really glad for you."',
+        '"That\'s genuinely good news. What made it land for you?"',
+        '"No pressure to make a thing of it. I\'m just really glad for you."',
       ],
     },
   ],
@@ -533,7 +532,7 @@ export const TC016: CardData = {
     {
       id: "TC096",
       reason:
-        "Capitalisation extension keeps a shared positive moment going over time. TC016 is the in-the-moment response; reach for TC096 to stretch the good feeling out afterwards.",
+        "Capitalisation extension keeps a shared positive moment going over time. TC016 is the in-the-moment response. Reach for TC096 to stretch the good feeling out afterwards.",
     },
     {
       id: "TC018",

@@ -6,7 +6,7 @@ export const TC100: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC100/TC100_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,21 +56,21 @@ export const TC100: CardData = {
   ],
   id: "TC100",
   whyItWorks:
-    'The what-did-you-make-of-it question invites the other person\'s interpretation, conclusion, or takeaway from something they have already described. It sits between a fact question ("What happened?") and a feeling question ("How did you feel?"): it asks "What did you make of it?" and gives them room to say what the event meant, what they inferred, what surprised them, or what they are still unsure about. It works because it moves the exchange from event-reporting to meaning-sharing while leaving them in charge of the meaning - people feel cognitively respected when you ask for their judgement before supplying your own.',
+    'The what-did-you-make-of-it question invites the other person\'s interpretation, conclusion, or takeaway from something they have already described. It sits between a fact question ("What happened?") and a feeling question ("How did you feel?"): it asks "What did you make of it?" and gives them room to say what the event meant, what they inferred, what surprised them, or what they are still unsure about. It works because it moves the exchange from event-reporting to meaning-sharing while leaving them in charge of the meaning: people feel cognitively respected when you ask for their judgement before supplying your own.',
   whatItIsNot: [
     "It is not a disguised opinion prompt where you already know the answer you want.",
     'It is not "what do you think?" used lazily when you have not actually listened.',
     "It is not cross-examination, therapy-speak, fishing for gossip, or a way to make someone justify their reaction.",
-    "It is not a demand for a polished conclusion - they may still be confused, conflicted, or undecided, and that counts as an answer.",
-    "It is not a replacement for safety, facts, logistics, or consent; if the moment is urgent or distressing, support first and release the question the instant they decline.",
+    "It is not a demand for a polished conclusion. They may still be confused, conflicted, or undecided, and that counts as an answer.",
+    "It is not a replacement for safety, facts, logistics, or consent. If the moment is urgent or distressing, support first and release the question the instant they decline.",
   ],
   overview: {
     coreFormula: [
-      "Event cue -> light acknowledgement -> interpretation question -> silence -> follow their read.",
+      "Event cue → light acknowledgement → interpretation question → silence → follow their read.",
       "That was [brief neutral acknowledgement]. What did you make of it?",
       "When [event] happened, what was your read on it?",
-      "No need to have a neat answer - what is your read so far?",
-      "What is your interpretation of what happened there?",
+      "No need to have a neat answer. What's your read so far?",
+      "What's your interpretation of what happened there?",
     ],
     minimumViableMove:
       'After they have described an event but before they have interpreted it, ask one clean meaning-making question: "What did you make of it?"',
@@ -111,8 +111,8 @@ export const TC100: CardData = {
         "What do you think was going on there?",
         "What stood out as the meaning of it?",
         "What did that signal to you?",
-        "What is your sense of it now?",
-        "What is your read on what it might mean?",
+        "What's your sense of it now?",
+        "What's your read on what it might mean?",
       ],
     },
     {
@@ -121,10 +121,10 @@ export const TC100: CardData = {
       tag: "Protects uncertainty",
       tone: "Warm",
       phrases: [
-        "No need for a polished answer - what is your read so far?",
+        "No need for a polished answer. What's your read so far?",
         "If you had to guess, what did you make of it?",
         "What did you take from it, if anything?",
-        "Maybe it is too soon to know, but what sense are you making of it?",
+        "Maybe it's too soon to know, but what sense are you making of it?",
         "What are you leaning toward as the explanation?",
         "What sense are you making of it so far?",
       ],
@@ -135,7 +135,7 @@ export const TC100: CardData = {
       tag: "After ambiguous stories",
       tone: "Warm",
       phrases: [
-        "That is a strange one. What did you make of it?",
+        "That's a strange one. What did you make of it?",
         "What was your vibe on that?",
         "Did it feel like a good sign, a weird sign, or too early to tell?",
         "What did you think it meant?",
@@ -148,12 +148,12 @@ export const TC100: CardData = {
       tag: "Reviews and debriefs",
       tone: "Professional",
       phrases: [
-        "What is your read on the meeting?",
+        "What's your read on the meeting?",
         "What did you take away from that feedback?",
         "How are you interpreting the client's response?",
         "What do you think that result is telling us?",
-        "What is the signal beneath the noise here?",
-        "What is your interpretation of what happened there?",
+        "What's the signal beneath the noise here?",
+        "What's your interpretation of what happened there?",
       ],
     },
     {
@@ -165,7 +165,7 @@ export const TC100: CardData = {
         "What did you make of that message?",
         "How are you reading their reply?",
         "What do you think they meant by that?",
-        "What is your read before we decide how to respond?",
+        "What's your read before we decide how to respond?",
         "Interesting. What did you make of that?",
       ],
     },
@@ -189,9 +189,9 @@ export const TC100: CardData = {
       tone: "Repair",
       phrases: [
         "No pressure to analyse it.",
-        "Could be nothing; I was just curious how you read it.",
-        "We can stay with the facts if that is easier.",
-        "If you are not sure yet, that is a complete answer.",
+        "Could be nothing. I was just curious how you read it.",
+        "We can stay with the facts if that's easier.",
+        "If you're not sure yet, that's a complete answer.",
         "Too early to tell is a complete answer.",
       ],
     },
@@ -206,7 +206,7 @@ export const TC100: CardData = {
     {
       condition:
         "They have not described an event yet, or you still lack basic facts",
-      action: "Hold the question; listen or ask what happened first.",
+      action: "Hold the question. Listen or ask what happened first.",
       phrase: "What happened next?",
     },
     {
@@ -228,19 +228,19 @@ export const TC100: CardData = {
     {
       condition: "They resist, tense up, or change topic",
       action: "Recover and release the question straight away.",
-      phrase: "No pressure - we can leave it.",
+      phrase: "No pressure, we can leave it.",
     },
   ],
   ladder: [
     {
       weak: "They were obviously being passive-aggressive. What do you think?",
       better: "What did you make of it?",
-      best: "That sounds like a mixed signal. What did you make of it - or is it too early to tell?",
+      best: "That sounds like a mixed signal. What did you make of it, or is it too early to tell?",
     },
     {
       weak: "So what does that actually mean?",
       better: "What do you think it means?",
-      best: "What is your read on what it might mean?",
+      best: "What's your read on what it might mean?",
     },
     {
       weak: "Were they trying to undermine you?",
@@ -250,38 +250,38 @@ export const TC100: CardData = {
     {
       weak: "Why would they even do that?",
       better: "What did you make of that?",
-      best: "What did you make of that - careless, intentional, or hard to tell?",
+      best: "What did you make of that, careless, intentional, or hard to tell?",
     },
   ],
   scenarios: [
     {
       situation: "A friend describes an odd interaction",
-      move: "They gave facts but no interpretation; reflect their read, not your theory.",
-      phrase: "That is a strange one. What did you make of it?",
+      move: "They gave facts but no interpretation. Reflect their read, not your theory.",
+      phrase: "That's a strange one. What did you make of it?",
     },
     {
       situation: "A colleague describes a mixed meeting",
-      move: "The signal is ambiguous; summary-check before you offer advice.",
+      move: "The signal is ambiguous. Summary-check before you offer advice.",
       phrase: "What was your read on the meeting?",
     },
     {
       situation: "A partner says a comment bothered them",
-      move: "They may need interpretation and care; listen, validate impact, repair.",
+      move: "They may need interpretation and care. Listen, validate impact, repair.",
       phrase: "When I said that, what did you make of it?",
     },
     {
       situation: "A client sends a vague response",
-      move: "The team is guessing meaning; separate evidence from inference.",
+      move: "The team is guessing meaning. Separate evidence from inference.",
       phrase: "Before we reply, what do you make of their response?",
     },
     {
       situation: "A digital message feels unclear",
-      move: "People over-read tone; add uncertainty afterwards so nobody spirals.",
+      move: "People over-read tone. Add uncertainty afterwards so nobody spirals.",
       phrase: "How are you reading that message?",
     },
     {
       situation: "A learning debrief",
-      move: "They described what happened; turn their insight into one experiment.",
+      move: "They described what happened. Turn their insight into one experiment.",
       phrase: "What do you think that result is telling you?",
     },
   ],
@@ -300,16 +300,16 @@ export const TC100: CardData = {
       'They ask "What do you mean?"',
       "They return to facts instead of interpretation.",
       "They seem to need support before analysis.",
-      "They shorten, deflect, tense up, or change topic - stop here.",
-      "The topic touches safety, trauma, legal, medical, or acute conflict - stop and support.",
-      "You notice you are asking to satisfy your own curiosity - drop it.",
+      "They shorten, deflect, tense up, or change topic: stop here.",
+      "The topic touches safety, trauma, legal, medical, or acute conflict: stop and support.",
+      "You notice you are asking to satisfy your own curiosity. Drop it.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the gap",
-      task: "Notice three moments where someone describes an event but not what they made of it. Just notice the gap; say nothing yet.",
+      task: "Notice three moments where someone describes an event but not what they made of it. Just notice the gap. Say nothing yet.",
     },
     {
       day: "Day 2",
@@ -319,7 +319,7 @@ export const TC100: CardData = {
     {
       day: "Day 3",
       title: "Three registers",
-      task: 'For one event, write a direct, a soft, and a contextual version - e.g. "What did you make of it?", "What is your read so far, if any?", "When they said that, what did you take from it?"',
+      task: 'For one event, write a direct, a soft, and a contextual version: e.g. "What did you make of it?", "What is your read so far, if any?", "When they said that, what did you take from it?"',
     },
     {
       day: "Day 4",
@@ -329,7 +329,7 @@ export const TC100: CardData = {
     {
       day: "Day 5",
       title: "Add the recovery",
-      task: 'After each question, write one release phrase - "No pressure to analyse it" or "Too early to tell is fine" - so the ask is always easy to decline.',
+      task: 'After each question, write one release phrase ("No pressure to analyse it" or "Too early to tell is fine") so the ask is always easy to decline.',
     },
     {
       day: "Day 6",
@@ -348,7 +348,7 @@ export const TC100: CardData = {
     "Did I keep my own interpretation until after theirs?",
     'Did I let "I don\'t know yet" stand as a valid answer?',
     "Did I follow their read instead of steering them to mine?",
-    "Did I notice whether the question created space or pressure - and recover if it landed heavy?",
+    "Did I notice whether the question created space or pressure, and recover if it landed heavy?",
   ],
   example: {
     without: [
@@ -359,14 +359,14 @@ export const TC100: CardData = {
       "Why it's poor: you over-interpret, remove their agency, and force an ambiguous signal into a fixed conclusion.",
     ],
     with: [
-      'You: "That sounds like a mixed signal - positive on the output, cautious about the process. What did you make of it, or is it too early to tell?"',
+      'You: "That sounds like a mixed signal, positive on the output, cautious about the process. What did you make of it, or is it too early to tell?"',
       'Colleague: "I think they liked the work but are worried no one owns the handoff."',
       'You: "So the concern is less about quality, more about accountability."',
-      'Colleague: "That\'s my read too - a warning before it becomes a problem."',
+      'Colleague: "That\'s my read too: a warning before it becomes a problem."',
       'You: "So it\'s not a rejection, more a prompt to clarify ownership before next time. Want help turning that into a next step?"',
       "Why it works: you name the ambiguity, protect their uncertainty, summarise their read, then ask permission before shifting to action.",
     ],
-    note: "Context: a colleague says the director praised the project, then said the team needs to tighten ownership before the next review. The facts are clear; the meaning is not.",
+    note: "Context: a colleague says the director praised the project, then said the team needs to tighten ownership before the next review. The facts are clear. The meaning is not.",
   },
   influencePayoff: {
     feeling: '"They wanted to know how I saw it, not just what happened."',
@@ -389,17 +389,17 @@ export const TC100: CardData = {
   },
   fieldTip: {
     headline: "Ask for their read before offering yours.",
-    body: "Use the question as a doorway, not a trap. The win is not getting a deep answer - it is giving the other person the first right to define what the event means to them.",
+    body: "Use the question as a doorway, not a trap. The win is not getting a deep answer. It is giving the other person the first right to define what the event means to them.",
     example:
-      "That sounds like a mixed signal. What did you make of it - or is it too early to tell?",
-    dont: 'Don\'t smuggle in your own verdict: "What did you make of it - they were rude, right?"',
+      "That sounds like a mixed signal. What did you make of it, or is it too early to tell?",
+    dont: 'Don\'t smuggle in your own verdict: "What did you make of it. They were rude, right?"',
     do: 'Do keep it small and releasable: ask "What did you make of it?" then leave the silence.',
   },
   method: [
     {
       step: "1",
       title: "Perception",
-      body: "Notice that the person has described an event, result, exchange, signal, or reaction but has not yet said what they think it means. That gap - facts present, meaning absent - is the cue to switch from gathering to inviting.",
+      body: "Notice that the person has described an event, result, exchange, signal, or reaction but has not yet said what they think it means. That gap (facts present, meaning absent) is the cue to switch from gathering to inviting.",
     },
     {
       step: "2",
@@ -409,10 +409,10 @@ export const TC100: CardData = {
     {
       step: "3",
       title: "Phrase",
-      body: "Ask one clean meaning-making question - short, non-leading, and easy to decline. Match the register to the relationship and the setting.",
+      body: "Ask one clean meaning-making question: short, non-leading, and easy to decline. Match the register to the relationship and the setting.",
       examples: [
         { label: "Direct", text: "What did you make of it?" },
-        { label: "Soft", text: "What is your read so far, if any?" },
+        { label: "Soft", text: "What's your read so far, if any?" },
         {
           label: "Contextual",
           text: "When they said that, what did you take from it?",
@@ -422,23 +422,23 @@ export const TC100: CardData = {
     {
       step: "4",
       title: "Calibration",
-      body: "Watch whether they expand, pause thoughtfully, correct the framing, or look pressured. A good question creates room; a bad version creates a demand. Adjust to whichever you see.",
+      body: "Watch whether they expand, pause thoughtfully, correct the framing, or look pressured. A good question creates room. A bad version creates a demand. Adjust to whichever you see.",
     },
     {
       step: "5",
       title: "Recovery",
-      body: 'If it lands too heavy, too analytical, or too soon, soften and release straight away. "I didn\'t mean [pressure]; I meant [curiosity]. We can [return to the facts / change topic]."',
+      body: 'If it lands too heavy, too analytical, or too soon, soften and release straight away. "I didn\'t mean [pressure]. I meant [curiosity]. We can [return to the facts / change topic]."',
       examples: [
         {
           label: "Release",
-          text: "No need for a neat answer - I was just curious what your read was.",
+          text: "No need for a neat answer. I was just curious what your read was.",
         },
       ],
     },
     {
       step: "6",
       title: "Chain",
-      body: 'Follow their answer with a summary check, reflection, support, or a permission-based next step. Practical sequence: Anchor ("That sounds like an interesting moment") -> Ask ("What did you make of it?") -> Listen (do not fill the silence) -> Reflect ("So your read is it was less about the deadline, more about trust") -> Follow ("Do you want help thinking through what to do next, or mostly to unpack it?").',
+      body: 'Follow their answer with a summary check, reflection, support, or a permission-based next step. Practical sequence: Anchor ("That sounds like an interesting moment") → Ask ("What did you make of it?") → Listen (do not fill the silence) → Reflect ("So your read is it was less about the deadline, more about trust") → Follow ("Do you want help thinking through what to do next, or mostly to unpack it?").',
     },
   ],
   liveThreadClues: [
@@ -457,8 +457,8 @@ export const TC100: CardData = {
     },
     {
       mistake: "Smuggling in your own answer",
-      soundsLike: '"What did you make of it - they were rude, right?"',
-      better: '"What did you make of it?" - then stop talking',
+      soundsLike: '"What did you make of it, they were rude, right?"',
+      better: '"What did you make of it?", then stop talking',
     },
     {
       mistake: "Using a sceptical tone",
@@ -483,7 +483,7 @@ export const TC100: CardData = {
     {
       mistake: "Ignoring a clear boundary",
       soundsLike: 'Pressing on after "I don\'t want to get into it"',
-      better: '"No problem - we can leave it there."',
+      better: '"No problem, we can leave it there."',
     },
     {
       mistake: "Overusing it until every story is a debrief",
@@ -493,29 +493,29 @@ export const TC100: CardData = {
   ],
   recoveryPhrases: [
     "No pressure to have an answer.",
-    "That may be too soon to interpret - we can just stay with what happened.",
-    "I didn't mean that as a challenge; I was curious about your read.",
+    "That may be too soon to interpret. We can just stay with what happened.",
+    "I didn't mean that as a challenge. I was curious about your read.",
     "Let me soften that: what's your sense of it so far?",
     "If \"I don't know yet\" is the answer, that's completely fine.",
-    "I may be getting ahead of the story - what happened next?",
+    "I may be getting ahead of the story. What happened next?",
     "I'm not trying to put you on the spot.",
     "I realise I gave my interpretation too fast. What's your read?",
   ],
   bestRecoveryLine:
-    "No need for a neat answer - I was just curious what your read was.",
+    "No need for a neat answer. I was just curious what your read was.",
   chains: [
     {
-      label: "Comment -> meaning question -> summary check",
-      sequence: "TC003 -> TC100 -> TC011",
+      label: "Comment → meaning question → summary check",
+      sequence: "TC003 → TC100 → TC011",
       example: [
         'TC003 Comment-before-question: "That sounds like a mixed signal."',
         'TC100: "What did you make of it?"',
-        'TC011 Summary check: "So your read is they back the idea but don\'t trust the handoff yet - right?"',
+        'TC011 Summary check: "So your read is they back the idea but don\'t trust the handoff yet. Right?"',
       ],
     },
     {
-      label: "Energy tracking -> meaning question -> permission-based advice",
-      sequence: "TC041 -> TC100 -> TC027",
+      label: "Energy tracking → meaning question → permission-based advice",
+      sequence: "TC041 → TC100 → TC027",
       example: [
         "TC041 Topic energy tracking: notice they light up about one part of the story.",
         'TC100: "That part seems to stand out. What did you make of it?"',
@@ -523,17 +523,17 @@ export const TC100: CardData = {
       ],
     },
     {
-      label: "Echo plus question -> meaning question -> clean request",
-      sequence: "TC030 -> TC100 -> TC013",
+      label: "Echo plus question → meaning question → clean request",
+      sequence: "TC030 → TC100 → TC013",
       example: [
-        "TC030 Echo plus question: \"'Weirdly formal' - what felt formal?\"",
+        "TC030 Echo plus question: \"'Weirdly formal'. What felt formal?\"",
         'TC100: "What did you make of that shift?"',
         'TC013 Clean request: "Could you send me the message so I can see the wording?"',
       ],
     },
     {
-      label: "Meaning reflection -> meaning question -> autonomy release",
-      sequence: "TC040 -> TC100 -> TC021",
+      label: "Meaning reflection → meaning question → autonomy release",
+      sequence: "TC040 → TC100 → TC021",
       example: [
         'TC040 Meaning reflection: "It sounds like the bigger issue is trust."',
         'TC100: "Is that your read too, or do you make something else of it?"',
@@ -545,32 +545,32 @@ export const TC100: CardData = {
     {
       id: "TC003",
       reason:
-        "TC003 warms any question with a brief comment first; TC100 is the specific meaning-making question. Use TC003 to shape the doorway, TC100 to choose what's behind it.",
+        "TC003 warms any question with a brief comment first. TC100 is the specific meaning-making question. Use TC003 to shape the doorway, TC100 to choose what's behind it.",
     },
     {
       id: "TC011",
       reason:
-        "TC011 checks whether you understood what they already said; TC100 invites the interpretation they haven't voiced yet. Check with TC011, ask with TC100.",
+        "TC011 checks whether you understood what they already said. TC100 invites the interpretation they haven't voiced yet. Check with TC011, ask with TC100.",
     },
     {
       id: "TC030",
       reason:
-        'TC030 deepens one exact phrase ("that phrase - say more"); TC100 asks what a whole event or signal meant ("that moment - what do you make of it?").',
+        'TC030 deepens one exact phrase ("that phrase. Say more"). TC100 asks what a whole event or signal meant ("that moment. What do you make of it?").',
     },
     {
       id: "TC034",
       reason:
-        "TC034 offers two paths plus an escape hatch when the field is too broad; TC100 keeps the field open. Narrow with TC034, stay open with TC100.",
+        "TC034 offers two paths plus an escape hatch when the field is too broad. TC100 keeps the field open. Narrow with TC034, stay open with TC100.",
     },
     {
       id: "TC040",
       reason:
-        "TC040 reflects meaning they have already implied; TC100 asks them to generate it. TC100 asks, TC040 reflects.",
+        "TC040 reflects meaning they have already implied. TC100 asks them to generate it. TC100 asks, TC040 reflects.",
     },
     {
       id: "TC041",
       reason:
-        "TC041 selects which live topic to follow; TC100 asks what the selected event meant. TC041 is the selector, TC100 the sense-making question.",
+        "TC041 selects which live topic to follow. TC100 asks what the selected event meant. TC041 is the selector, TC100 the sense-making question.",
     },
   ],
 };

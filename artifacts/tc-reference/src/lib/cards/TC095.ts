@@ -6,7 +6,7 @@ export const TC095: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC095/TC095_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,20 +56,20 @@ export const TC095: CardData = {
   ],
   id: "TC095",
   whyItWorks:
-    "DEAR MAN is an assertive-communication framework for getting a clear request, refusal or boundary into a hard conversation — without making the other person guess, sliding into blame, or collapsing into apology. Say what happened (Describe), how it affects you (Express), what you want or won't do (Assert) and the constructive reason (Reinforce); then stay Mindful, Appear confident and Negotiate the workable details. It works because it compresses an emotionally loaded moment into a short sequence you can actually remember under pressure: facts and owned impact land better than labels and blame, and separating the non-negotiable core from the flexible details lets the other person cooperate without feeling cornered.",
+    "DEAR MAN is an assertive-communication framework for getting a clear request, refusal or boundary into a hard conversation, without making the other person guess, sliding into blame, or collapsing into apology. Say what happened (Describe), how it affects you (Express), what you want or won't do (Assert) and the constructive reason (Reinforce). Then stay Mindful, Appear confident and Negotiate the workable details. It works because it compresses an emotionally loaded moment into a short sequence you can actually remember under pressure: facts and owned impact land better than labels and blame, and separating the non-negotiable core from the flexible details lets the other person cooperate without feeling cornered.",
   whatItIsNot: [
     "Not an ultimatum dressed up as respectful communication.",
     "Not a way to win an argument by sounding structured, or to force someone to accept your preferred outcome.",
     "Not a substitute for listening, apology or repair when you caused the harm.",
     "Not a reason to keep engaging with someone who is threatening, abusive or unsafe.",
-    "Not a way to turn every preference into a demand — a clear ask does not entitle you to compliance.",
+    "Not a way to turn every preference into a demand: a clear ask does not entitle you to compliance.",
   ],
   overview: {
     coreFormula: [
       "Full sequence: Describe → Express → Assert → Reinforce, then stay Mindful, Appear confident, Negotiate.",
       "Minimum viable move: facts → impact → ask or no → why it helps.",
-      "Four-sentence form: “When X happened, Y was the effect. I need Z. That would help because A. I can flex on B, but the main ask is Z.”",
-      "Boundary form: “When X happens, it creates Y. I can't do Z. What I can do is A. If that doesn't work, we need another plan.”",
+      'Four-sentence form: "When X happened, Y was the effect. I need Z. That would help because A. I can flex on B, but the main ask is Z."',
+      "Boundary form: \"When X happens, it creates Y. I can't do Z. What I can do is A. If that doesn't work, we need another plan.\"",
       "Field rule: be precise about the request and flexible about the route.",
     ],
     minimumViableMove:
@@ -77,7 +77,7 @@ export const TC095: CardData = {
     impact: "Medium",
     difficulty: "Hard",
     misuse:
-      "It fails when clarity curdles into pressure — turning Assert into a demand, Mindful into stubborn repetition, or reaching for the structure when the moment actually needs listening, apology or repair.",
+      "It fails when clarity curdles into pressure: turning Assert into a demand, Mindful into stubborn repetition, or reaching for the structure when the moment actually needs listening, apology or repair.",
     bestFor: [
       "Asking for a specific change in behaviour.",
       "Saying no to a request without over-explaining.",
@@ -103,7 +103,7 @@ export const TC095: CardData = {
       tone: "Quick",
       phrases: [
         "Here's what happened, and here's what I need.",
-        "The main ask is this — I can flex on the rest.",
+        "The main ask is this. I can flex on the rest.",
         "Can we settle this one thing before we leave the meeting?",
         "Short version: I need it by noon tomorrow.",
         "I can't do the whole thing, but I can do part of it.",
@@ -112,7 +112,7 @@ export const TC095: CardData = {
     },
     {
       id: "describe",
-      label: "Describe — facts without blame",
+      label: "Describe: facts without blame",
       tag: "Naming the facts",
       tone: "Professional",
       phrases: [
@@ -120,12 +120,12 @@ export const TC095: CardData = {
         "The agreement was that I'd handle the slides and you'd send the figures.",
         "I got the change request after the final version had already gone out.",
         "You asked me to cover Saturday with one day's notice.",
-        "The figures came in Thursday afternoon; the deadline was Friday morning.",
+        "The figures came in Thursday afternoon. The deadline was Friday morning.",
       ],
     },
     {
       id: "express",
-      label: "Express — own the impact",
+      label: "Express: own the impact",
       tag: "Owning the effect",
       tone: "Warm",
       phrases: [
@@ -138,7 +138,7 @@ export const TC095: CardData = {
     },
     {
       id: "assert",
-      label: "Assert — the ask or the no",
+      label: "Assert: the ask or the no",
       tag: "Direct request / refusal",
       tone: "Direct",
       phrases: [
@@ -153,7 +153,7 @@ export const TC095: CardData = {
     },
     {
       id: "reinforce",
-      label: "Reinforce — why it helps",
+      label: "Reinforce: why it helps",
       tag: "The constructive reason",
       tone: "Professional",
       phrases: [
@@ -166,11 +166,11 @@ export const TC095: CardData = {
     },
     {
       id: "mindful",
-      label: "Mindful — stay with the point",
+      label: "Mindful: stay with the point",
       tag: "Returning under deflection",
       tone: "High-stakes",
       phrases: [
-        "I hear there are other issues. I'm happy to discuss those after this — right now I need to settle the deadline.",
+        "I hear there are other issues. I'm happy to discuss those after this. Right now I need to settle the deadline.",
         "I'm not debating intent. I'm asking for the handoff to happen by 2 pm.",
         "We can come back to the wider history. The decision in front of us is the timing.",
         "We can discuss that separately. Right now I'm talking about this one thing.",
@@ -181,17 +181,17 @@ export const TC095: CardData = {
     },
     {
       id: "negotiate",
-      label: "Negotiate — flexible detail, stable core",
+      label: "Negotiate: flexible detail, stable core",
       tag: "Workable alternatives",
       tone: "Repair",
       phrases: [
         "I can't do Saturday, but I can help find someone else today.",
-        "I need the draft by noon; if it's not all ready, send the sections that are done.",
+        "I need the draft by noon. If it's not all ready, send the sections that are done.",
         "I can't say yes to that scope, but I can do a smaller version by Friday.",
         "What option would meet your need without putting this back on me?",
-        "Core figures by noon works; the appendix by 4 pm is fine if you flag what's unfinished.",
+        "Core figures by noon works. The appendix by 4 pm is fine if you flag what's unfinished.",
         "I can review one section by 4 pm, or help find who else has capacity.",
-        "Let me put this in writing: here's what happened, here's the effect, and here's what I need by when — if that timing doesn't work, propose an alternative first.",
+        "Let me put this in writing: here's what happened, here's the effect, and here's what I need by when. If that timing doesn't work, propose an alternative first.",
       ],
     },
   ],
@@ -209,7 +209,7 @@ export const TC095: CardData = {
     },
     {
       condition: "The main need is validation or repair, not a request",
-      action: "Validate, apologise or listen first; hold the ask for now.",
+      action: "Validate, apologise or listen first. Hold the ask for now.",
       phrase: "I can see this is frustrating. Can we start there?",
     },
     {
@@ -232,60 +232,60 @@ export const TC095: CardData = {
   ],
   ladder: [
     {
-      weak: "I guess I'll just do it again. (a hint wrapped in resentment — the ask never lands)",
+      weak: "I guess I'll just do it again. (a hint wrapped in resentment: the ask never lands)",
       better:
         "Please send it earlier next time. (clearer, but vague on timing and reason)",
-      best: "The last two sets came in under a day before deadline, which leaves me rushing. I need them by noon the day before — that cuts the error risk. If the appendix is late, send the core figures first.",
+      best: "The last two sets came in under a day before deadline, which leaves me rushing. I need them by noon the day before. That cuts the error risk. If the appendix is late, send the core figures first.",
     },
     {
-      weak: "You clearly don't care about my time. (blame-first — the facts get buried)",
+      weak: "You clearly don't care about my time. (blame-first, the facts get buried)",
       better:
         "I can't cover Saturday because I have a prior commitment. (direct boundary, brief reason)",
-      best: "You asked me to cover Saturday with a day's notice. I'm already committed and it puts me in a bind. I can't take this Saturday. If requests come earlier I can usually help — and I can help you message the group today.",
+      best: "You asked me to cover Saturday with a day's notice. I'm already committed and it puts me in a bind. I can't take this Saturday. If requests come earlier I can usually help, and I can help you message the group today.",
     },
     {
       weak: "It's fine, don't worry about it. (withdraws while resentment builds)",
       better:
         "Can we talk about how the handoffs are going? (opens it, but there's no actual ask)",
-      best: "When changes come in after final approval, the published version can end up inconsistent. Please route changes through the review thread from now on — that keeps us all working from the same version.",
+      best: "When changes come in after final approval, the published version can end up inconsistent. Please route changes through the review thread from now on. That keeps us all working from the same version.",
     },
   ],
   scenarios: [
     {
-      situation: "Workplace deadline — repeated late inputs",
+      situation: "Workplace deadline: repeated late inputs",
       move: "Run the full sequence, then negotiate one flexible detail while the deadline itself holds.",
       phrase:
-        "The last two inputs arrived under a day before deadline, which leaves me rushing. I need them by noon the day before — if the appendix is late, send the core figures first.",
+        "The last two inputs arrived under a day before deadline, which leaves me rushing. I need them by noon the day before. If the appendix is late, send the core figures first.",
     },
     {
       situation: "A friend asks for repeated favours",
       move: "Acknowledge you want to help, name the pattern, then give a clear no with an earlier-notice offer.",
       phrase:
-        "You've asked me to cover transport three times this month. I care about helping, but it's affecting my own schedule. I can't drive this weekend — if you ask earlier next time, I can tell you what's realistic.",
+        "You've asked me to cover transport three times this month. I care about helping, but it's affecting my own schedule. I can't drive this weekend. If you ask earlier next time, I can tell you what's realistic.",
     },
     {
       situation: "A family boundary at dinner",
       move: "Describe the recurring moment, own the feeling, state the limit, offer a private alternative.",
       phrase:
-        "When the conversation turns to my finances at dinner, I feel exposed. I'm not going to discuss my budget at family meals — I'm happy to talk privately if there's a practical concern.",
+        "When the conversation turns to my finances at dinner, I feel exposed. I'm not going to discuss my budget at family meals. I'm happy to talk privately if there's a practical concern.",
     },
     {
       situation: "A written or digital message",
       move: "Put the facts, impact and ask in one clear message and route future changes cleanly.",
       phrase:
-        "To keep this clear: the file was changed after approval, so the published version may be inconsistent. Please route any further changes through the review thread — that keeps everyone on the same version.",
+        "To keep this clear: the file was changed after approval, so the published version may be inconsistent. Please route any further changes through the review thread. That keeps everyone on the same version.",
     },
     {
       situation: "Saying no to extra work when you're at capacity",
       move: "Acknowledge the urgency, state the limit, offer a smaller concrete alternative.",
       phrase:
-        "I know this is urgent. I'm already committed to two things today, so I can't take the whole task — I can review one section by 4 pm or help find who else has capacity.",
+        "I know this is urgent. I'm already committed to two things today, so I can't take the whole task. I can review one section by 4 pm or help find who else has capacity.",
     },
     {
       situation: "High-emotion conflict",
-      move: "Validate the feeling first, then step into a single held request; don't weaponise the structure.",
+      move: "Validate the feeling first, then step into a single held request. Don't weaponise the structure.",
       phrase:
-        "I can see this is frustrating. I still need to stay with the decision about Saturday — I can't attend, and I can talk about alternatives for next week.",
+        "I can see this is frustrating. I still need to stay with the decision about Saturday. I can't attend, and I can talk about alternatives for next week.",
     },
   ],
   calibration: {
@@ -298,14 +298,14 @@ export const TC095: CardData = {
       "Afterwards, they know exactly what you're asking, why it matters, what's flexible and what isn't.",
     ],
     adjust: [
-      "They seem genuinely surprised by the facts — slow down and check shared understanding.",
-      "Your request is landing as too large or too vague — tighten it to one sentence.",
-      "They raise a legitimate constraint — fold it into the negotiation rather than talking over it.",
-      "Your tone is starting to sound prosecutorial — soften the delivery, keep the ask.",
-      "The moment needs validation, apology or context before the ask — give that first.",
-      "Repetition is turning into pressure — stop restating and pause.",
-      "The conversation is looping with no new information — move to your exit line.",
-      "The person becomes threatening, or the issue needs a formal process — disengage; DEAR MAN isn't the tool.",
+      "They seem genuinely surprised by the facts: slow down and check shared understanding.",
+      "Your request is landing as too large or too vague: tighten it to one sentence.",
+      "They raise a legitimate constraint: fold it into the negotiation rather than talking over it.",
+      "Your tone is starting to sound prosecutorial: soften the delivery, keep the ask.",
+      "The moment needs validation, apology or context before the ask: give that first.",
+      "Repetition is turning into pressure: stop restating and pause.",
+      "The conversation is looping with no new information: move to your exit line.",
+      "The person becomes threatening, or the issue needs a formal process: disengage. DEAR MAN isn't the tool.",
     ],
   },
   drill: [
@@ -317,12 +317,12 @@ export const TC095: CardData = {
     {
       day: "Day 2",
       title: "Draft the four DEAR sentences",
-      task: "Write one line each for Describe, Express, Assert and Reinforce. Keep Describe to observable facts only — no motives or character claims.",
+      task: "Write one line each for Describe, Express, Assert and Reinforce. Keep Describe to observable facts only. No motives or character claims.",
     },
     {
       day: "Day 3",
       title: "Sharpen the Assert",
-      task: "Cut the Assert sentence until you can say it in one breath. Strip any blame, and swap “you have to” for “I need” or “I can't.”",
+      task: 'Cut the Assert sentence until you can say it in one breath. Strip any blame, and swap "you have to" for "I need" or "I can\'t."',
     },
     {
       day: "Day 4",
@@ -337,7 +337,7 @@ export const TC095: CardData = {
     {
       day: "Day 6",
       title: "Pressure-test it",
-      task: "Have a partner (or yourself) deflect with “Why are you making this a big deal?” or “You do this too.” Practise one calm return line, then your exit line.",
+      task: 'Have a partner (or yourself) deflect with "Why are you making this a big deal?" or "You do this too." Practise one calm return line, then your exit line.',
     },
     {
       day: "Day 7",
@@ -355,38 +355,38 @@ export const TC095: CardData = {
   ],
   example: {
     without: [
-      "You: You always do this — you dump things on me at the last second and expect me to rescue it.",
+      "You: You always do this. You dump things on me at the last second and expect me to rescue it.",
       "Colleague: That's not fair. I've been busy too.",
       "You: Whatever. I'll just fix it like usual.",
-      "Why it fails: the real ask is buried under blame; the speaker escalates, then collapses. There is no clean request left for anyone to act on.",
+      "Why it fails: the real ask is buried under blame. The speaker escalates, then collapses. There's no clean request left for anyone to act on.",
     ],
     with: [
-      "You: The last two figure sets came in less than a day before the deadline. That leaves me rushing the final review, and I'm concerned it raises the error risk. For the next report, I need the figures by noon the day before — that gives us both time to catch problems.",
+      "You: The last two figure sets came in less than a day before the deadline. That leaves me rushing the final review, and I'm concerned it raises the error risk. For the next report, I need the figures by noon the day before. That gives us both time to catch problems.",
       "Colleague: You don't understand how long the figures take.",
       "You: I hear that they take time, and I'm not questioning the effort. I'm staying with the handoff point: I need them by noon the day before, or I need to know earlier that the deadline has to move.",
       "Colleague: Could I send the core figures by noon and the appendix later?",
-      "You: Yes — core figures by noon works. Appendix by 4 pm is fine if you flag anything unfinished.",
-      "Why it works: facts, owned impact and a direct ask; no argument about intent; one calm restatement; then a negotiated detail that leaves the core deadline intact.",
+      "You: Yes, core figures by noon works. Appendix by 4 pm is fine if you flag anything unfinished.",
+      "Why it works: facts, owned impact and a direct ask. No argument about intent. One calm restatement. Then a negotiated detail that leaves the core deadline intact.",
     ],
-    note: "The advanced version never argues about intent. It repeats the core ask once, stays factual, and negotiates only the flexible detail — the deadline itself holds.",
+    note: "The advanced version never argues about intent. It repeats the core ask once, stays factual, and negotiates only the flexible detail: the deadline itself holds.",
   },
   influencePayoff: {
     feeling:
-      "They come away knowing exactly what you're asking, why it matters, and what can flex — instead of having to decode a hint or brace against blame.",
+      "They come away knowing exactly what you're asking, why it matters, and what can flex, instead of having to decode a hint or brace against blame.",
     principle:
-      "Facts and owned impact land better than labels and blame; separating the non-negotiable core from the flexible details lets people cooperate without feeling cornered.",
+      "Facts and owned impact land better than labels and blame. Separating the non-negotiable core from the flexible details lets people cooperate without feeling cornered.",
     gains: [
-      "Clarity — they can tell what issue you're raising and what you want.",
-      "Lower defensiveness — owned impact invites a response instead of a counter-attack.",
-      "Self-respect — you don't have to hint, over-apologise or explode to be heard.",
-      "Relationship protection — the ask is direct, but the constructive reason is on the table.",
-      "Negotiability — the framework separates the hard limit from the details that can move.",
-      "Repeatability — a short script you can actually hold together under pressure.",
+      "Clarity: they can tell what issue you're raising and what you want.",
+      "Lower defensiveness: owned impact invites a response instead of a counter-attack.",
+      "Self-respect: you don't have to hint, over-apologise or explode to be heard.",
+      "Relationship protection: the ask is direct, but the constructive reason is on the table.",
+      "Negotiability: the framework separates the hard limit from the details that can move.",
+      "Repeatability: a short script you can actually hold together under pressure.",
     ],
     whyMostFail: [
       "They turn Assert into pressure and Mindful into stubborn repetition.",
       "They deliver it mechanically, as a script, instead of also listening.",
-      "They run it too late — once they're already furious, the structure comes out as punishment.",
+      "They run it too late. Once they're already furious, the structure comes out as punishment.",
       "They reach for it when the real need was validation, apology or repair.",
     ],
   },
@@ -402,7 +402,7 @@ export const TC095: CardData = {
     {
       step: "1",
       title: "Choose one objective",
-      body: "Before you speak, write the single sentence you want understood. If you have three objectives, pick the one that matters most — trying to land all of them at once is how the point gets lost.",
+      body: "Before you speak, write the single sentence you want understood. If you have three objectives, pick the one that matters most: trying to land all of them at once is how the point gets lost.",
       examples: [
         {
           label: "Request",
@@ -413,8 +413,8 @@ export const TC095: CardData = {
     },
     {
       step: "2",
-      title: "Describe — the facts only",
-      body: "Name what actually happened in observable terms, with no mind-reading or character claims. Facts are hard to argue with; labels invite a defence.",
+      title: "Describe: the facts only",
+      body: "Name what actually happened in observable terms, with no mind-reading or character claims. Facts are hard to argue with. Labels invite a defence.",
       examples: [
         {
           label: "Facts",
@@ -425,13 +425,13 @@ export const TC095: CardData = {
     },
     {
       step: "3",
-      title: "Express — the owned effect",
-      body: "State the impact in a short, owned sentence: “That put me under time pressure,” or “I felt blindsided.” Own it as your experience rather than a verdict on them — impact lands, accusation rebounds.",
+      title: "Express: the owned effect",
+      body: 'State the impact in a short, owned sentence: "That put me under time pressure," or "I felt blindsided." Own it as your experience rather than a verdict on them: impact lands, accusation rebounds.',
     },
     {
       step: "4",
-      title: "Assert — the ask or the no",
-      body: "Say it directly and keep it short enough to repeat in one breath. Prefer “I need” and “I can't” over “you have to” — the second escalates faster.",
+      title: "Assert: the ask or the no",
+      body: 'Say it directly and keep it short enough to repeat in one breath. Prefer "I need" and "I can\'t" over "you have to": the second escalates faster.',
       examples: [
         { label: "Ask", text: "Please send the figures by 2 pm today." },
         { label: "No", text: "I'm not available for Saturday." },
@@ -439,17 +439,17 @@ export const TC095: CardData = {
     },
     {
       step: "5",
-      title: "Reinforce — the constructive reason",
-      body: "Name the benefit briefly so cooperation makes sense: “That gives us time to catch problems,” or “That keeps the schedule fair.” One line — a five-minute justification starts to sound like a sales pitch.",
+      title: "Reinforce: the constructive reason",
+      body: 'Name the benefit briefly so cooperation makes sense: "That gives us time to catch problems," or "That keeps the schedule fair." One line: a five-minute justification starts to sound like a sales pitch.',
     },
     {
       step: "6",
       title: "Hold it: Mindful, steady, negotiable",
-      body: "If the conversation drifts, return to the point once or twice without adding a new accusation. Keep your voice firm but not sharp — steadiness isn't coldness. Stay flexible on timing, format or sequence while protecting the core ask; if it turns circular or unsafe, use your exit line.",
+      body: "If the conversation drifts, return to the point once or twice without adding a new accusation. Keep your voice firm but not sharp: steadiness isn't coldness. Stay flexible on timing, format or sequence while protecting the core ask. If it turns circular or unsafe, use your exit line.",
       examples: [
         {
           label: "Return",
-          text: "I'm not debating intent — I'm asking for the handoff by 2 pm.",
+          text: "I'm not debating intent. I'm asking for the handoff by 2 pm.",
         },
         { label: "Exit", text: "I'll pause here and come back to this later." },
       ],
@@ -465,7 +465,7 @@ export const TC095: CardData = {
   depthDial: [
     {
       depth: "One clean line",
-      useWhen: "No real friction — a simple ask will do.",
+      useWhen: "No real friction: a simple ask will do.",
       phrase: "Please send the figures by 2 pm.",
     },
     {
@@ -498,7 +498,7 @@ export const TC095: CardData = {
       mistake: "Starting with Express instead of Describe",
       soundsLike: "I feel completely disrespected and taken for granted.",
       better:
-        "The figures came in Thursday; the deadline was Friday. That left me rushing the review.",
+        "The figures came in Thursday. The deadline was Friday. That left me rushing the review.",
     },
     {
       mistake: "Turning Assert into a demand",
@@ -508,14 +508,14 @@ export const TC095: CardData = {
     {
       mistake: "Over-reinforcing until it sounds like a sales pitch",
       soundsLike: "A five-minute explanation of every reason it would help.",
-      better: "That gives us time to catch problems — that's the main reason.",
+      better: "That gives us time to catch problems. That's the main reason.",
     },
     {
       mistake: "Using Mindful as stonewalling",
       soundsLike:
         "Repeating the ask while ignoring a genuine constraint they've raised.",
       better:
-        "I hear the figures take time — let's build that in. I still need them by noon.",
+        "I hear the figures take time. Let's build that in. I still need them by noon.",
     },
     {
       mistake: "Appearing confident by sounding cold",
@@ -532,15 +532,15 @@ export const TC095: CardData = {
       soundsLike:
         "Launching the script while furious, or asserting when you caused the problem.",
       better:
-        "I got that wrong — let me own it first, then we can sort the handoff.",
+        "I got that wrong. Let me own it first, then we can sort the handoff.",
     },
   ],
   recoveryPhrases: [
-    "I started too sharply — let me restate that with the facts first.",
+    "I started too sharply. Let me restate that with the facts first.",
     "I'm not trying to accuse you. I'm trying to make the handoff workable.",
     "I made that sound like a demand. The core request is the noon handoff, and I'm open on the rest.",
-    "I hear there's more context — let me understand that before I repeat the ask.",
-    "I don't want to pressure you. You can say no; I still need to be clear about what I can and can't do.",
+    "I hear there's more context. Let me understand that before I repeat the ask.",
+    "I don't want to pressure you. You can say no. I still need to be clear about what I can and can't do.",
     "We're getting off track. The issue I'm trying to resolve is the deadline.",
     "This is becoming circular. I'll pause and come back when we can stay with the decision.",
     "I can see that landed badly. What I meant was: here's the impact, and here's the request.",
@@ -553,7 +553,7 @@ export const TC095: CardData = {
       sequence: "SBI → DEAR MAN",
       example: [
         "SBI: In the last two reports, the figures arrived under a day before deadline, which left the review rushed.",
-        "DEAR MAN: So for the next one I need them by noon the day before — that cuts the error risk.",
+        "DEAR MAN: So for the next one I need them by noon the day before. That cuts the error risk.",
       ],
     },
     {
@@ -569,7 +569,7 @@ export const TC095: CardData = {
       sequence: "Clean request → DEAR MAN",
       example: [
         "Please send the figures earlier next time.",
-        "If it's brushed off: The last two came in under a day before deadline, which leaves me rushing. I need them by noon the day before — if the appendix is late, send the core figures first.",
+        "If it's brushed off: The last two came in under a day before deadline, which leaves me rushing. I need them by noon the day before. If the appendix is late, send the core figures first.",
       ],
     },
     {
@@ -577,7 +577,7 @@ export const TC095: CardData = {
       sequence: "DEAR MAN → Autonomy release",
       example: [
         "I need the draft by noon, because that gives us time to catch issues.",
-        "You may not be able to agree to that — I still need to be clear about what I can and can't take on.",
+        "You may not be able to agree to that. I still need to be clear about what I can and can't take on.",
       ],
     },
   ],
@@ -585,32 +585,32 @@ export const TC095: CardData = {
     {
       id: "TC013",
       reason:
-        "Clean request: a single direct ask. Use it when one sentence will do; step up to DEAR MAN when facts, impact, reason and negotiation are all needed.",
+        "Clean request: a single direct ask. Use it when one sentence will do. Step up to DEAR MAN when facts, impact, reason and negotiation are all needed.",
     },
     {
       id: "TC094",
       reason:
-        "Bounded request: both create clear asks. Use Bounded request when the problem is too much scope, time or decision load; use DEAR MAN when the whole interpersonal exchange is the hard part.",
+        "Bounded request: both create clear asks. Use Bounded request when the problem is too much scope, time or decision load. Use DEAR MAN when the whole interpersonal exchange is the hard part.",
     },
     {
       id: "TC052",
       reason:
-        "SBI (Situation-Behaviour-Impact) can feed the Describe and Express steps. Use SBI when the move is feedback only; continue into DEAR MAN when you also need a clear ask or no.",
+        "SBI (Situation-Behaviour-Impact) can feed the Describe and Express steps. Use SBI when the move is feedback only. Continue into DEAR MAN when you also need a clear ask or no.",
     },
     {
       id: "TC053",
       reason:
-        "NVC / OFNR: both use facts, feelings and requests. Use OFNR when the conversation needs needs-language and empathy; use DEAR MAN when it needs a firmer ask or refusal with negotiation.",
+        "NVC / OFNR: both use facts, feelings and requests. Use OFNR when the conversation needs needs-language and empathy. Use DEAR MAN when it needs a firmer ask or refusal with negotiation.",
     },
     {
       id: "TC045",
       reason:
-        "Ask-tell-ask: use it when the objective is to explain and check understanding; use DEAR MAN when the objective is a request, refusal or boundary.",
+        "Ask-tell-ask: use it when the objective is to explain and check understanding. Use DEAR MAN when the objective is a request, refusal or boundary.",
     },
     {
       id: "TC027",
       reason:
-        "Permission-based advice: use it when you're offering a suggestion (“Would it be useful if...”); use DEAR MAN when you're stating your own need (“I need” / “I can't”).",
+        'Permission-based advice: use it when you\'re offering a suggestion ("Would it be useful if..."). Use DEAR MAN when you\'re stating your own need ("I need" / "I can\'t").',
     },
   ],
 };

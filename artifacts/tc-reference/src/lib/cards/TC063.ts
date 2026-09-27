@@ -6,7 +6,7 @@ export const TC063: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC063/TC063_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -58,7 +58,7 @@ export const TC063: CardData = {
   whyItWorks:
     "Make them the expert is a status-giving rapport move: you notice that the other person has genuinely useful knowledge, experience, taste, lived context, or proximity to the facts, then you position them as the better source for that slice of the conversation and ask one narrow question that lets them teach from it. It works because it gives them a dignified, active role. Instead of competing for status, you lend it to them by making their perspective useful, and that builds warmth faster than praise because it is active: they are not merely being admired, they are being invited to contribute. People become more open once they feel their competence has actually been used, not just flattered.",
   whatItIsNot: [
-    "It is not fake flattery - calling someone brilliant when you do not mean it.",
+    "It is not fake flattery: calling someone brilliant when you do not mean it.",
     "It is not ego bait: making someone feel important so they will comply.",
     "It is not free-consulting extraction, asking for a lot of unpaid labour under the cover of admiration.",
     "It is not weaponised humility, where you fake ignorance so the other person lowers their guard.",
@@ -67,14 +67,14 @@ export const TC063: CardData = {
   overview: {
     coreFormula: [
       "You have [real basis]. What [small, concrete question] should I check first?",
-      "You know this better than I do - what should I notice first?",
-      "You have worked with these customers. What usually matters most?",
-      "I have a tentative view, but you are closer to it. What would you challenge in my read?",
-      "You are closest to the facts. What should we not miss before we act?",
-      'Respectful close: "That helps - I had not separated those two issues."',
+      "You know this better than I do. What should I notice first?",
+      "You've worked with these customers. What usually matters most?",
+      "I have a tentative view, but you're closer to it. What would you challenge in my read?",
+      "You're closest to the facts. What should we not miss before we act?",
+      'Respectful close: "That helps. I hadn\'t separated those two issues."',
     ],
     minimumViableMove:
-      'Name one real domain where they have more context than you, then ask one small, answerable question: "You know this better than I do - what should I notice first?"',
+      'Name one real domain where they have more context than you, then ask one small, answerable question: "You know this better than I do. What should I notice first?"',
     impact: "Medium",
     difficulty: "Medium",
     misuse:
@@ -105,12 +105,12 @@ export const TC063: CardData = {
       tag: "Social & rapport",
       tone: "Warm",
       phrases: [
-        "You know this world better than I do - what should I notice first?",
-        "You have more reps with this than me. What is the part outsiders usually miss?",
-        "I have not lived that, so I do not want to guess. How would you explain it?",
+        "You know this world better than I do. What should I notice first?",
+        "You have more reps with this than me. What's the part outsiders usually miss?",
+        "I've not lived that, so I don't want to guess. How would you explain it?",
         "You have good taste in this area. What makes that one work?",
-        "You have seen this from the inside. What is the real issue?",
-        "You have been around this scene for years. Where would you start?",
+        "You've seen this from the inside. What's the real issue?",
+        "You've been around this scene for years. Where would you start?",
         "You clearly care about this. What do most people get wrong about it?",
       ],
     },
@@ -120,12 +120,12 @@ export const TC063: CardData = {
       tag: "Work & meetings",
       tone: "Professional",
       phrases: [
-        "You have been closer to this than I have. What would you look at first?",
+        "You've been closer to this than I have. What would you look at first?",
         "You know this system better than me. What am I missing?",
-        "You have the operator view here. What is the signal versus the noise?",
+        "You have the operator view here. What's the signal versus the noise?",
         "I trust your read on this domain. What should we be careful not to oversimplify?",
-        "Before I form a view, I would like your take. What matters most here?",
-        "You have the customer view here. What is the mood I may be missing?",
+        "Before I form a view, I'd like your take. What matters most here?",
+        "You have the customer view here. What's the mood I may be missing?",
         "You have dealt with this kind of client before. What usually matters most?",
       ],
     },
@@ -135,12 +135,12 @@ export const TC063: CardData = {
       tag: "Small, decision-owning asks",
       tone: "Direct",
       phrases: [
-        "I will own the decision, but I need your read first. What is the strongest caution?",
+        "I'll own the decision, but I need your read first. What's the strongest caution?",
         "What would you check before we decide?",
-        "What is the one distinction beginners usually miss?",
-        "I have a tentative view, but you are closer to it. What would you challenge in it?",
-        "What is the risk I might be underweighting?",
-        "You are closest to the handoff. What is the practical snag I may miss?",
+        "What's the one distinction beginners usually miss?",
+        "I have a tentative view, but you're closer to it. What would you challenge in it?",
+        "What's the risk I might be underweighting?",
+        "You're closest to the handoff. What's the practical snag I may miss?",
         "What constraint should shape this decision?",
       ],
     },
@@ -150,13 +150,13 @@ export const TC063: CardData = {
       tag: "Pressure & live calls",
       tone: "High-stakes",
       phrases: [
-        "You are closest to the facts. What is the safest first read?",
-        "I do not want to make this abstract. From your view, what matters now?",
+        "You're closest to the facts. What's the safest first read?",
+        "I don't want to make this abstract. From your view, what matters now?",
         "You have the ground-level read. What should we not miss?",
-        "I can make the call, but I need your expertise first. What is your recommendation?",
+        "I can make the call, but I need your expertise first. What's your recommendation?",
         "Before we move, what would you flag from your side?",
-        "You are closest to the data. What should we not miss before we act?",
-        "We have to choose soon. From where you sit, what is the biggest risk?",
+        "You're closest to the data. What should we not miss before we act?",
+        "We have to choose soon. From where you sit, what's the biggest risk?",
       ],
     },
     {
@@ -168,9 +168,9 @@ export const TC063: CardData = {
         "What am I missing?",
         "What would you check first?",
         "What do outsiders miss?",
-        "What is the hidden constraint?",
+        "What's the hidden constraint?",
         "What would you not oversimplify?",
-        "You know this area better than I do - what is the simplest way to think about it?",
+        "You know this area better than I do. What's the simplest way to think about it?",
         "Can I sanity-check this with you? What would an informed person see that I might miss?",
       ],
     },
@@ -180,12 +180,12 @@ export const TC063: CardData = {
       tag: "Closing the loop",
       tone: "Warm",
       phrases: [
-        "That helps - I had not separated those two issues.",
+        "That helps, I hadn't separated those two issues.",
         "Useful distinction. I was treating that as one problem.",
-        "That changes how I would approach it.",
+        "That changes how I'd approach it.",
         "I had been looking at only one side of that.",
-        "I will factor that in - thank you for the steer.",
-        "That is the part I would have missed. Good catch.",
+        "I'll factor that in. Thank you for the steer.",
+        "That's the part I'd have missed. Good catch.",
       ],
     },
     {
@@ -194,13 +194,13 @@ export const TC063: CardData = {
       tag: "Repair & easy exits",
       tone: "Repair",
       phrases: [
-        "I may have put you on the spot. You do not have to answer that.",
-        "Let me narrow that - I am only asking for the first thing you would check.",
-        "I did not mean to outsource the work to you. I am trying to understand your read.",
-        "That came out like flattery. I meant: you have useful context I do not have.",
-        "We can skip that if it is not easy to answer right now.",
-        "I will own the decision. I am asking for your read before I choose.",
-        "Only if you are comfortable answering - otherwise I should do my own homework first.",
+        "I may have put you on the spot. You don't have to answer that.",
+        "Let me narrow that. I'm only asking for the first thing you'd check.",
+        "I didn't mean to outsource the work to you. I'm trying to understand your read.",
+        "That came out like flattery. I meant: you have useful context I don't have.",
+        "We can skip that if it's not easy to answer right now.",
+        "I'll own the decision. I'm asking for your read before I choose.",
+        "Only if you're comfortable answering. Otherwise I should do my own homework first.",
       ],
     },
   ],
@@ -208,12 +208,12 @@ export const TC063: CardData = {
     {
       condition: "They have a real vantage point on this",
       action: "Name it lightly and ask one narrow question.",
-      phrase: "You know this better than I do - what should I notice first?",
+      phrase: "You know this better than I do. What should I notice first?",
     },
     {
       condition: "You cannot name the expertise specifically",
       action:
-        'Do not overclaim; hedge to "more context" rather than inventing a frame.',
+        'Do not overclaim. Hedge to "more context" rather than inventing a frame.',
       phrase:
         "You may have more context on this than I do. What stands out to you?",
     },
@@ -221,45 +221,45 @@ export const TC063: CardData = {
       condition: "The question would take more than a minute to answer",
       action: "Narrow it before you ask.",
       phrase:
-        "Let me make that smaller - what is one thing I should check first?",
+        "Let me make that smaller. What's one thing I should check first?",
     },
     {
       condition: "They respond with energy",
       action: "Listen, ask one follow-up, then credit the insight.",
-      phrase: "That helps - I had not separated those two issues.",
+      phrase: "That helps, I hadn't separated those two issues.",
     },
     {
       condition: "They look burdened, unsure, or put on the spot",
       action: "Give an easy exit and stop pushing.",
       phrase:
-        "No pressure to answer that - I may be asking too much for this moment.",
+        "No pressure to answer that. I may be asking too much for this moment.",
     },
     {
       condition: "You are still responsible for the decision or the work",
-      action: "Keep ownership; ask for their read, not their verdict.",
-      phrase: "I will own the decision; I am asking for your read first.",
+      action: "Keep ownership. Ask for their read, not their verdict.",
+      phrase: "I'll own the decision. I'm asking for your read first.",
     },
   ],
   ladder: [
     {
-      weak: '"You are the expert, so tell me what to do."',
+      weak: '"You\'re the expert, so tell me what to do."',
       better: '"You know more about this than I do. What do you think?"',
-      best: '"You have worked with this customer type for years. What would you check before we decide?"',
+      best: '"You\'ve worked with this customer type for years. What would you check before we decide?"',
     },
     {
-      weak: '"Wow, you are a genius at this."',
+      weak: '"Wow, you\'re a genius at this."',
       better: '"You have good judgement here."',
-      best: '"Your read on these trade-offs is usually sharp. What is the risk I might be underweighting?"',
+      best: '"Your read on these trade-offs is usually sharp. What\'s the risk I might be underweighting?"',
     },
     {
       weak: '"Explain this whole field to me."',
       better: '"Can you explain the basics?"',
-      best: '"What is the one distinction beginners usually miss?"',
+      best: '"What\'s the one distinction beginners usually miss?"',
     },
     {
-      weak: '"I do not know, you decide."',
+      weak: '"I don\'t know, you decide."',
       better: '"You probably know the better path."',
-      best: '"I will own the decision, but I need your subject-matter read first. What is the strongest caution?"',
+      best: "\"I'll own the decision, but I need your subject-matter read first. What's the strongest caution?\"",
     },
   ],
   scenarios: [
@@ -279,13 +279,13 @@ export const TC063: CardData = {
       situation: "A junior teammate is close to execution",
       move: "Name their proximity privately, in a way that does not expose them politically.",
       phrase:
-        "You are closest to the handoff. What is the practical snag I may miss?",
+        "You're closest to the handoff. What's the practical snag I may miss?",
     },
     {
       situation: "Cultural or identity context",
-      move: "Offer an easy exit first and ask about assumptions - never as a spokesperson for a group.",
+      move: "Offer an easy exit first and ask about assumptions: never as a spokesperson for a group.",
       phrase:
-        "Only if you are comfortable answering: is there an assumption here I should avoid?",
+        "Only if you're comfortable answering: is there an assumption here I should avoid?",
     },
     {
       situation: "A technical expert in a meeting",
@@ -305,24 +305,24 @@ export const TC063: CardData = {
       "Their face or tone warms after being asked.",
       "They correct a misconception without getting defensive.",
       "They add nuance, examples, exceptions, or practical cautions.",
-      "They ask what you are trying to do - they are engaging with the problem.",
+      "They ask what you are trying to do. They are engaging with the problem.",
       "They offer a principle, not just a fact.",
     ],
     adjust: [
-      "They answer but only briefly - narrow the question.",
-      "They seem unsure whether you are flattering them - say plainly you want their read.",
-      "They give a useful answer but look time-pressured - take it and let them go.",
-      'They ask "What exactly do you need?" - make the ask smaller and concrete.',
-      'They deflect with "not my area" or "hard to say" - stop and thank them.',
-      "They look burdened, exposed, or put on the spot - give an exit.",
-      "The topic touches identity, privacy, or confidential ground - do your own homework instead.",
+      "They answer but only briefly: narrow the question.",
+      "They seem unsure whether you are flattering them. Say plainly you want their read.",
+      "They give a useful answer but look time-pressured. Take it and let them go.",
+      'They ask "What exactly do you need?" Make the ask smaller and concrete.',
+      'They deflect with "not my area" or "hard to say": stop and thank them.',
+      "They look burdened, exposed, or put on the spot: give an exit.",
+      "The topic touches identity, privacy, or confidential ground. Do your own homework instead.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the real basis",
-      task: "List five people you will speak with this week and name the one real slice of expertise, taste, or proximity each genuinely has. No inventing - if there is no real basis, leave it blank.",
+      task: "List five people you will speak with this week and name the one real slice of expertise, taste, or proximity each genuinely has. No inventing. If there is no real basis, leave it blank.",
     },
     {
       day: "Day 2",
@@ -352,7 +352,7 @@ export const TC063: CardData = {
     {
       day: "Day 7",
       title: "Full sequence under mild pressure",
-      task: "Run Notice -> Name -> Narrow -> Listen -> Credit in one higher-stakes conversation, keeping the decision yours. Log the green, yellow, or red cue you saw.",
+      task: "Run Notice → Name → Narrow → Listen → Credit in one higher-stakes conversation, keeping the decision yours. Log the green, yellow, or red cue you saw.",
     },
   ],
   checklist: [
@@ -366,28 +366,28 @@ export const TC063: CardData = {
   example: {
     without: [
       "Alex: The migration plan is going to affect the support team a lot.",
-      "Jordan: You are the support expert, so just tell us what to do.",
-      "Alex: That is a big question. I do not know if I can answer it like that.",
+      "Jordan: You're the support expert, so just tell us what to do.",
+      "Alex: That's a big question. I don't know if I can answer it like that.",
       "Why it fails: Jordan dumps responsibility, asks far too broadly, and turns expertise into a burden.",
     ],
     with: [
       "Alex: The migration plan is going to affect the support team a lot.",
       "Jordan: I have a tentative view, but you have the ground-level read. What would you challenge in this plan before I take it to the group?",
-      "Alex: The timeline assumes customers read the email. Many will not. Support will become the announcement channel.",
-      "Jordan: That is an important distinction - communication sent is not communication received. What would you add to reduce that load?",
+      "Alex: The timeline assumes customers read the email. Many won't. Support will become the announcement channel.",
+      "Jordan: That's an important distinction, communication sent isn't communication received. What would you add to reduce that load?",
       "Alex: A banner in-product and a support macro for the first three days.",
-      "Jordan: Good. I will add both, and I will credit you for the support-risk read.",
+      "Jordan: Good. I'll add both, and I'll credit you for the support-risk read.",
       "Why it works: the frame is real, the question is narrow, Jordan keeps the decision, invites correction, and credits the contribution.",
     ],
-    note: 'The mid-strength version works too: "You are closer to support than I am. What is the first thing we should check before we lock the plan?" - real basis, narrow ask, credit at the end.',
+    note: 'The mid-strength version works too: "You are closer to support than I am. What is the first thing we should check before we lock the plan?" Real basis, narrow ask, credit at the end.',
   },
   influencePayoff: {
     feeling: '"My competence was seen and put to use, not just admired."',
     principle:
-      "People become more receptive when they feel their perspective has been genuinely used, not merely praised. Instead of competing for status, you lend it - which builds warmth faster than praise because it is active: they are invited to contribute, not just admired.",
+      "People become more receptive when they feel their perspective has been genuinely used, not merely praised. Instead of competing for status, you lend it, which builds warmth faster than praise because it is active: they are invited to contribute, not just admired.",
     gains: [
       "Rapport and trust, because you are not pretending to know everything",
-      "Perceived humility - you can defer without disappearing",
+      "Perceived humility: you can defer without disappearing",
       "Better information, because experts correct your blind spots",
       "Conversational energy, because people enjoy explaining a domain they care about",
       "Cooperation, because the exchange starts with respect rather than demand",
@@ -402,9 +402,9 @@ export const TC063: CardData = {
   },
   fieldTip: {
     headline: "Make the expert role smaller than the person.",
-    body: '"You know this part better than I do" lands better than "you are the expert." Honour real knowledge; do not manufacture status. Ask small, listen fully, credit the useful distinction, and keep responsibility for your own choices.',
+    body: '"You know this part better than I do" lands better than "you are the expert." Honour real knowledge. Do not manufacture status. Ask small, listen fully, credit the useful distinction, and keep responsibility for your own choices.',
     example:
-      "You have more context on this than I do - what should I check first?",
+      "You have more context on this than I do. What should I check first?",
     dont: "You are the genius here. Tell me exactly what to do.",
     do: "You have seen this up close. What is the first thing I should check?",
   },
@@ -421,7 +421,7 @@ export const TC063: CardData = {
       examples: [
         {
           label: "Proximity",
-          text: "You have been closer to this than I have...",
+          text: "You've been closer to this than I have...",
         },
         {
           label: "System knowledge",
@@ -437,9 +437,9 @@ export const TC063: CardData = {
       body: "Make the question small enough to answer in under a minute. One narrow ask beats a request to teach the whole subject.",
       examples: [
         { label: "Check", text: "What would you check first?" },
-        { label: "Blind spot", text: "What is the part outsiders miss?" },
+        { label: "Blind spot", text: "What's the part outsiders miss?" },
         { label: "Caution", text: "What should I not oversimplify?" },
-        { label: "Constraint", text: "What is the real constraint?" },
+        { label: "Constraint", text: "What's the real constraint?" },
       ],
     },
     {
@@ -454,7 +454,7 @@ export const TC063: CardData = {
       examples: [
         {
           label: "Separated issues",
-          text: "That helps - I had not separated those two issues.",
+          text: "That helps, I hadn't separated those two issues.",
         },
         {
           label: "One problem",
@@ -462,7 +462,7 @@ export const TC063: CardData = {
         },
         {
           label: "Changed approach",
-          text: "That changes how I would approach it.",
+          text: "That changes how I'd approach it.",
         },
       ],
     },
@@ -480,34 +480,34 @@ export const TC063: CardData = {
   commonMistakes: [
     {
       mistake: "Vague worship",
-      soundsLike: '"You are amazing at this."',
+      soundsLike: '"You\'re amazing at this."',
       better: '"You know the pricing history here. What did we try before?"',
     },
     {
       mistake: "Over-broad ask",
       soundsLike: '"Teach me everything about this."',
-      better: '"What is the one thing I should check first?"',
+      better: '"What\'s the one thing I should check first?"',
     },
     {
       mistake: "Extraction disguised as respect",
       soundsLike: '"Could you write up your thinking on the whole strategy?"',
-      better: '"One caution from your side would really help - what is it?"',
+      better: '"One caution from your side would really help. What\'s it?"',
     },
     {
       mistake: "Status dump",
       soundsLike: '"You decide, you know best."',
-      better: '"I will make the call - what should I not miss first?"',
+      better: '"I\'ll make the call. What should I not miss first?"',
     },
     {
       mistake: "Category trap",
       soundsLike: '"As someone from that background, what do you all think?"',
       better:
-        '"Only if you are comfortable: is there an assumption I should avoid?"',
+        '"Only if you\'re comfortable: is there an assumption I should avoid?"',
     },
     {
       mistake: "Immediate self-centering",
-      soundsLike: '"Good point - anyway, that is what I already assumed."',
-      better: '"That reframes it for me - I had it as one problem."',
+      soundsLike: '"Good point, anyway, that\'s what I already assumed."',
+      better: '"That reframes it for me. I had it as one problem."',
     },
     {
       mistake: "No credit loop",
@@ -516,56 +516,56 @@ export const TC063: CardData = {
     },
   ],
   recoveryPhrases: [
-    "That came out bigger than I meant. I just mean you have direct context I do not have.",
-    "Let me say that more plainly: you have seen this up close. What should I not miss?",
-    "Let me narrow it. What is the first thing you would check?",
-    "I do not need the whole answer - one caution would help.",
+    "That came out bigger than I meant. I just mean you have direct context I don't have.",
+    "Let me say that more plainly: you've seen this up close. What should I not miss?",
+    "Let me narrow it. What's the first thing you'd check?",
+    "I don't need the whole answer: one caution would help.",
     "No pressure to answer that. We can skip it.",
-    "I may be asking for too much work. I will do the first pass and come back with a sharper question.",
-    "I will own the decision. I am asking for your read before I choose.",
-    "Only if you are comfortable answering - otherwise I should do my own homework first.",
+    "I may be asking for too much work. I'll do the first pass and come back with a sharper question.",
+    "I'll own the decision. I'm asking for your read before I choose.",
+    "Only if you're comfortable answering. Otherwise I should do my own homework first.",
   ],
   bestRecoveryLine:
-    "I may have put you on the spot. You do not have to answer that.",
+    "I may have put you on the spot. You don't have to answer that.",
   chains: [
     {
       label: "Warm entry into expertise",
       sequence:
-        "TC036 Contextual opener -> TC063 Make them the expert -> TC011 Summary check",
+        "TC036 Contextual opener → TC063 Make them the expert → TC011 Summary check",
       example: [
         "Open from the present context.",
-        "You have been closest to the rollout. What is one thing we should check first?",
-        "So the concern is not launch day, it is week-one support load - did I get that right?",
+        "You've been closest to the rollout. What's one thing we should check first?",
+        "So the concern isn't launch day, it's week-one support load. Did I get that right?",
       ],
     },
     {
       label: "Respectful disagreement",
       sequence:
-        "TC005 Validation without agreement -> TC063 Make them the expert -> TC037 Double-sided reflection",
+        "TC005 Validation without agreement → TC063 Make them the expert → TC037 Double-sided reflection",
       example: [
         "I can see why that risk matters.",
-        "You have seen the vendor side more than I have - what usually causes the delay?",
+        "You've seen the vendor side more than I have. What usually causes the delay?",
         "So on one side speed matters, and on the other the hidden dependency is approval time.",
       ],
     },
     {
       label: "Learning without extracting",
       sequence:
-        "TC021 Autonomy release -> TC063 Make them the expert -> TC018 Specific appreciation",
+        "TC021 Autonomy release → TC063 Make them the expert → TC018 Specific appreciation",
       example: [
-        "Only if it is easy to answer:",
-        "you know this community better than I do. What is one assumption I should avoid?",
-        "That distinction is useful - especially the point about not treating the group as uniform.",
+        "Only if it's easy to answer:",
+        "you know this community better than I do. What's one assumption I should avoid?",
+        "That distinction is useful, especially the point about not treating the group as uniform.",
       ],
     },
     {
       label: "Decision quality",
       sequence:
-        "TC044 BLUF -> TC063 Make them the expert -> TC013 Clean request",
+        "TC044 BLUF → TC063 Make them the expert → TC013 Clean request",
       example: [
         "We need to choose by Friday.",
-        "You are closest to the data. What should we not miss?",
-        "Could you send me the two metrics you would use?",
+        "You're closest to the data. What should we not miss?",
+        "Could you send me the two metrics you'd use?",
       ],
     },
   ],
@@ -573,32 +573,32 @@ export const TC063: CardData = {
     {
       id: "TC022",
       reason:
-        "Both raise the other person's status; use TC063 when you are inviting their judgement through a specific expert question, and TC022 when you are simply crediting, deferring, or acknowledging contribution more broadly.",
+        "Both raise the other person's status. Use TC063 when you are inviting their judgement through a specific expert question, and TC022 when you are simply crediting, deferring, or acknowledging contribution more broadly.",
     },
     {
       id: "TC039",
       reason:
-        "Common-ground discovery narrows distance through similarity; TC063 narrows it by respecting useful difference. Use this when you need their distinct perspective, not shared overlap.",
+        "Common-ground discovery narrows distance through similarity. TC063 narrows it by respecting useful difference. Use this when you need their distinct perspective, not shared overlap.",
     },
     {
       id: "TC054",
       reason:
-        'Similarity signalling says "we have something in common"; expert-positioning says "you know something I should learn from." Use TC063 when respectful deference is the more honest move.',
+        'Similarity signalling says "we have something in common". Expert-positioning says "you know something I should learn from." Use TC063 when respectful deference is the more honest move.',
     },
     {
       id: "TC018",
       reason:
-        'Specific appreciation names something they did well; TC063 turns that into a concrete invitation to teach. If the next move is "that was strong," appreciate; if it is "how did you think about that," use this.',
+        'Specific appreciation names something they did well. TC063 turns that into a concrete invitation to teach. If the next move is "that was strong," appreciate. If it is "how did you think about that," use this.',
     },
     {
       id: "TC067",
       reason:
-        "Every expert-positioning move can contain an advice request, but not every advice request makes them the expert. Use TC063 when rapport and dignity matter as much as the answer; use TC067 when the ask is transactional.",
+        "Every expert-positioning move can contain an advice request, but not every advice request makes them the expert. Use TC063 when rapport and dignity matter as much as the answer. Use TC067 when the ask is transactional.",
     },
     {
       id: "TC027",
       reason:
-        'One asks to learn, the other asks permission to advise. If your next sentence starts with "Can I offer...", use TC027; if it starts with "You know this better...", use this package.',
+        'One asks to learn, the other asks permission to advise. If your next sentence starts with "Can I offer...", use TC027. If it starts with "You know this better...", use this package.',
     },
   ],
 };

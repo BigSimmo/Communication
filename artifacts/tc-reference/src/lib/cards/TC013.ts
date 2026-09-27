@@ -6,7 +6,7 @@ export const TC013: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC013/TC013_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC013: CardData = {
   ],
   id: "TC013",
   whyItWorks:
-    "A clean request asks directly for the specific action you want, with just enough context and no hidden pressure. It works because it removes the load the other person would otherwise carry — the guessing about what you need, by when, and how much it matters. When the ask is clear, people can say yes, no, or offer a workable alternative without friction, and you come across as organised, respectful and easy to help.",
+    "A clean request asks directly for the specific action you want, with just enough context and no hidden pressure. It works because it removes the load the other person would otherwise carry: the guessing about what you need, by when, and how much it matters. When the ask is clear, people can say yes, no, or offer a workable alternative without friction, and you come across as organised, respectful and easy to help.",
   whatItIsNot: [
     "It is not bluntness, pressure, passive-aggression, or overexplaining.",
     'It is not "Can you help?" with the real ask hidden underneath.',
@@ -76,7 +76,7 @@ export const TC013: CardData = {
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
-      'It fails when the request stays vague ("Can you help?") or turns to pressure ("I need this now") without context, reason, realism or an easy way to respond — which reads as demanding rather than clear.',
+      'It fails when the request stays vague ("Can you help?") or turns to pressure ("I need this now") without context, reason, realism or an easy way to respond, which reads as demanding rather than clear.',
     bestFor: [
       "Work requests",
       "Asking busy or high-status people for help",
@@ -134,7 +134,7 @@ export const TC013: CardData = {
         "If easier, just pick 1, 2, or 3.",
         "Could you send the file name and deadline in one message?",
         "One sentence is enough.",
-        "No need for detail — just whether this direction is okay.",
+        "No need for detail, just whether this direction is okay.",
       ],
     },
     {
@@ -147,7 +147,7 @@ export const TC013: CardData = {
         "One line of direction would be enough.",
         "Would it be useful if I sent a concise version for review?",
         "The only decision I need from you is...",
-        "If this is not your call, who is the right person?",
+        "If this isn't your call, who's the right person?",
       ],
     },
     {
@@ -156,9 +156,9 @@ export const TC013: CardData = {
       tag: "Optional & goodwill",
       tone: "Warm",
       phrases: [
-        "Only if it is easy.",
+        "Only if it's easy.",
         "No issue if not.",
-        "If now is not a good time, I can ask someone else.",
+        "If now isn't a good time, I can ask someone else.",
         "Would you be up for...?",
         "Completely fine if the answer is no.",
         "Could you send me that link later? No rush.",
@@ -184,10 +184,10 @@ export const TC013: CardData = {
       tag: "Shared logistics",
       tone: "Warm",
       phrases: [
-        "Could we decide this tonight so it is not hanging over us?",
+        "Could we decide this tonight so it's not hanging over us?",
         "Could you handle the booking and I'll do the transport?",
         "What would be a fair split from your side?",
-        "Can we agree who is doing what by when?",
+        "Can we agree who's doing what by when?",
         "Would you rather do X or Y?",
       ],
     },
@@ -201,7 +201,7 @@ export const TC013: CardData = {
         "Let me make this easier to answer.",
         "That sounded more demanding than intended.",
         "I buried the ask in too much context.",
-        "No pressure if that timeline does not work.",
+        "No pressure if that timeline doesn't work.",
         "A no is okay. I just wanted to ask clearly.",
       ],
     },
@@ -211,12 +211,12 @@ export const TC013: CardData = {
       condition: "If they say yes",
       action: "Confirm who does what and by when, and thank them specifically.",
       phrase:
-        "Great — so you'll send the reviewed page by Thursday and I'll finalise Friday. Thank you.",
+        "Great, so you'll send the reviewed page by Thursday and I'll finalise Friday. Thank you.",
     },
     {
       condition: "If they say no",
       action:
-        "Accept it cleanly; ask about an alternative only if appropriate.",
+        "Accept it cleanly. Ask about an alternative only if appropriate.",
       phrase: "Completely fine. Thanks for telling me straight.",
     },
     {
@@ -238,7 +238,7 @@ export const TC013: CardData = {
       condition: "If they counteroffer",
       action: "Clarify the new action and close the loop.",
       phrase:
-        "That works — so you'll do X by Monday instead. Shall I confirm that?",
+        "That works, so you'll do X by Monday instead. Shall I confirm that?",
     },
   ],
   ladder: [
@@ -276,7 +276,7 @@ export const TC013: CardData = {
     },
     {
       situation: "High-status person",
-      move: "Respect their time; narrow it to a single decision.",
+      move: "Respect their time. Narrow it to a single decision.",
       phrase: "The only decision I need is A or B.",
     },
     {
@@ -357,7 +357,7 @@ export const TC013: CardData = {
     "Did I ask for one clear action?",
     "Did I name the timeframe?",
     "Did I explain why it mattered without overexplaining?",
-    "Did I make the response easy — a yes/no or a simple choice?",
+    "Did I make the response easy, a yes/no or a simple choice?",
     "Did I preserve choice if the ask was genuinely optional?",
     "Did I confirm the next step, and notice whether it actually helped?",
   ],
@@ -366,14 +366,14 @@ export const TC013: CardData = {
       'You: "Can you help with this?"',
       'Them: "Maybe. What do you need?"',
       'You: "Just whatever you think."',
-      "Why it is weak: the other person has to discover the task, the effort, the deadline and what a good result even looks like.",
+      "Why it's weak: the other person has to discover the task, the effort, the deadline and what a good result even looks like.",
     ],
     with: [
       'You: "I\'m trying to finalise this by Friday. Could you look over the one-page summary by Thursday afternoon and tell me if option B makes sense?"',
       'Them: "Yes, send it through."',
-      'You (lighter version): "Quick ask, and a no is fine — could you give me a one-line steer by Thursday on whether option B is sensible?"',
+      'You (lighter version): "Quick ask, and a no is fine. Could you give me a one-line steer by Thursday on whether option B is sensible?"',
       'Digital version: "Quick ask: could you reply yes/no by Friday on whether option B is acceptable? No detail needed unless there\'s a problem."',
-      "Why this works: the action, the deadline and the reason are all present, and there is an easy way to reply.",
+      "Why this works: the action, the deadline and the reason are all present, and there's an easy way to reply.",
     ],
     note: "The advanced version should make the other person feel clearer, not managed.",
   },
@@ -390,8 +390,8 @@ export const TC013: CardData = {
       "Momentum on stuck decisions",
     ],
     whyMostFail: [
-      'They stay vague — "Can you help?" — so the other person has to reverse-engineer the ask.',
-      'They apply pressure — "I need this now" — without context, reason or realism.',
+      'They stay vague ("Can you help?") so the other person has to reverse-engineer the ask.',
+      'They apply pressure ("I need this now") without context, reason or realism.',
       "They bury the action under two paragraphs of context.",
       "They leave no easy response path, so the reply feels effortful and gets delayed.",
     ],
@@ -399,7 +399,7 @@ export const TC013: CardData = {
   fieldTip: {
     headline:
       "If the other person has to translate your request into an action, the request is not clean.",
-    body: "The goal is not to display skill. It is to make the next human moment easier — easy for them to answer, and easy for you to move forward.",
+    body: "The goal is not to display skill. It is to make the next human moment easier: easy for them to answer, and easy for you to move forward.",
     example:
       '"Could you send the final version by 3 pm Friday? A one-line yes is all I need."',
     dont: "Wrap the ask in so much politeness or context that the action disappears.",
@@ -409,7 +409,7 @@ export const TC013: CardData = {
     {
       step: "1",
       title: "Notice the cue",
-      body: "Clean request fits when you genuinely need someone to do something specific and the moment calls for clarity — not when you simply want to look capable. If you have not yet worked out what you want, sort that out before you ask.",
+      body: "Clean request fits when you genuinely need someone to do something specific and the moment calls for clarity, not when you simply want to look capable. If you have not yet worked out what you want, sort that out before you ask.",
     },
     {
       step: "2",
@@ -442,7 +442,7 @@ export const TC013: CardData = {
     {
       step: "5",
       title: "Adjust warmth, directness or brevity",
-      body: "Read how it landed. If they look confused, make it smaller and clearer. If they seem pressured, release it — a no is fine. If they are on board, keep going.",
+      body: "Read how it landed. If they look confused, make it smaller and clearer. If they seem pressured, release it: a no is fine. If they are on board, keep going.",
     },
     {
       step: "6",
@@ -451,7 +451,7 @@ export const TC013: CardData = {
       examples: [
         {
           label: "Close",
-          text: "Great — you'll send it by Thursday and I'll finalise Friday. Thank you.",
+          text: "Great, you'll send it by Thursday and I'll finalise Friday. Thank you.",
         },
       ],
     },
@@ -483,7 +483,7 @@ export const TC013: CardData = {
     },
     {
       mistake: "False urgency",
-      soundsLike: '"I need this urgently" when it is not actually urgent.',
+      soundsLike: '"I need this urgently" when it\'s not actually urgent.',
       better: "Name the real deadline and why it matters.",
     },
     {
@@ -498,44 +498,44 @@ export const TC013: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I realise I buried the ask — the specific thing is...",
+    "I realise I buried the ask: the specific thing is...",
     "That was too vague. Let me simplify.",
-    "No pressure if that timeline does not work.",
-    "What part of that is unclear or unrealistic?",
+    "No pressure if that timeline doesn't work.",
+    "What part of that's unclear or unrealistic?",
     "I think I made this sound bigger than it is. The only thing I need is...",
     "Let me separate the context from the ask.",
-    "I may have framed that badly — let me step back.",
-    "We can leave that if it is not the useful thread.",
+    "I may have framed that badly. Let me step back.",
+    "We can leave that if it's not the useful thread.",
   ],
   bestRecoveryLine:
-    "I realise I buried the ask — the specific thing I need is...",
+    "I realise I buried the ask: the specific thing I need is...",
   chains: [
     {
       label: "Rapport chain",
       sequence:
-        "Warm presence -> clean request -> autonomy release -> appreciation",
+        "Warm presence → clean request → autonomy release → appreciation",
       example: [
-        '"Good to see you — quick one."',
+        '"Good to see you. Quick one."',
         '"Could you send the signed form by Thursday?"',
-        '"No rush if today is mad; just let me know."',
+        '"No rush if today is mad. Just let me know."',
         '"Thanks, that genuinely helps."',
       ],
     },
     {
       label: "Influence chain",
       sequence:
-        "Understand their goal -> clean request -> reduce friction -> confirm next step",
+        "Understand their goal → clean request → reduce friction → confirm next step",
       example: [
         '"You want this shipped without another delay, right?"',
         '"Could you approve the one-pager by midday?"',
         "\"I've attached it so it's a two-minute read.\"",
-        "\"Great — you'll approve by midday and I'll ship this afternoon.\"",
+        "\"Great, you'll approve by midday and I'll ship this afternoon.\"",
       ],
     },
     {
       label: "Conflict chain",
       sequence:
-        "Validate concern -> define request -> offer choice -> check fairness",
+        "Validate concern → define request → offer choice → check fairness",
       example: [
         '"I get that the timing feels tight."',
         '"Could we lock who does what by Friday?"',
@@ -546,12 +546,12 @@ export const TC013: CardData = {
     {
       label: "Digital chain",
       sequence:
-        "Subject line -> one-line context -> clean ask -> deadline -> easy reply option",
+        "Subject line → one-line context → clean ask → deadline → easy reply option",
       example: [
-        'Subject: "Quick decision needed — option B"',
+        'Subject: "Quick decision needed. Option B"',
         '"We\'re finalising Friday."',
         '"Could you confirm option B is acceptable?"',
-        '"By Thursday would be ideal — a yes/no is enough."',
+        '"By Thursday would be ideal: a yes/no is enough."',
       ],
     },
   ],
@@ -559,27 +559,27 @@ export const TC013: CardData = {
     {
       id: "TC019",
       reason:
-        "Small ask shrinks the scope so it is easier to accept; use Clean request when the ask is the right size but needs to be stated clearly and answerably.",
+        "Small ask shrinks the scope so it is easier to accept. Use Clean request when the ask is the right size but needs to be stated clearly and answerably.",
     },
     {
       id: "TC020",
       reason:
-        "Low-friction ask removes the effort or ambiguity around responding; Clean request focuses on naming the exact action and timeframe.",
+        "Low-friction ask removes the effort or ambiguity around responding. Clean request focuses on naming the exact action and timeframe.",
     },
     {
       id: "TC034",
       reason:
-        "Two-option questions offer two clear choices when an open-ended ask would stall; use Clean request when a single specific action is what you need.",
+        "Two-option questions offer two clear choices when an open-ended ask would stall. Use Clean request when a single specific action is what you need.",
     },
     {
       id: "TC021",
       reason:
-        "Autonomy release explicitly hands the choice back so a no stays safe; pair it after a Clean request to keep the ask free of pressure.",
+        "Autonomy release explicitly hands the choice back so a no stays safe. Pair it after a Clean request to keep the ask free of pressure.",
     },
     {
       id: "TC018",
       reason:
-        "Specific appreciation thanks the person for the exact thing they did; it is the natural close once a clean request is answered.",
+        "Specific appreciation thanks the person for the exact thing they did. It is the natural close once a clean request is answered.",
     },
   ],
 };

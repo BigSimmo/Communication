@@ -6,7 +6,7 @@ export const TC052: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC052/TC052_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,12 +56,12 @@ export const TC052: CardData = {
   ],
   id: "TC052",
   whyItWorks:
-    "SBI gives feedback by naming three things in order: the specific Situation, the observable Behaviour, and its concrete Impact — without attacking character or intention. Naming the moment tells the person exactly what you mean; describing what they did rather than what you assume they meant keeps them from getting defensive; stating the impact shows why it matters. Sequenced this way, feedback is easier to take in and harder to argue with, because you are describing what happened rather than judging who they are.",
+    "SBI gives feedback by naming three things in order: the specific Situation, the observable Behaviour, and its concrete Impact, without attacking character or intention. Naming the moment tells the person exactly what you mean. Describing what they did rather than what you assume they meant keeps them from getting defensive. Stating the impact shows why it matters. Sequenced this way, feedback is easier to take in and harder to argue with, because you are describing what happened rather than judging who they are.",
   whatItIsNot: [
     "It is not a script to recite mechanically, or a model to announce out loud.",
     "It is not a way to avoid listening or to compress someone's feelings into a template.",
-    "It is not a licence to deliver a verdict — the person still gets to respond.",
-    "If the structure makes the conversation less humane, it is the wrong tool; slow down and use a simpler move.",
+    "It is not a licence to deliver a verdict: the person still gets to respond.",
+    "If the structure makes the conversation less humane, it is the wrong tool. Slow down and use a simpler move.",
   ],
   overview: {
     coreFormula: [
@@ -72,11 +72,11 @@ export const TC052: CardData = {
       "Best field rule: use the structure to organise thought, then speak like a person.",
     ],
     minimumViableMove:
-      "Name one specific situation, the observable behaviour you actually saw, and the concrete impact it had — then stop and listen.",
+      "Name one specific situation, the observable behaviour you actually saw, and the concrete impact it had, then stop and listen.",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      'The move fails when you slip from describing behaviour into judging character or assuming motive — "you were careless", "you didn\'t care" — instead of naming what was observable, or when you announce the framework and force every sentence into it after the point has already landed.',
+      'The move fails when you slip from describing behaviour into judging character or assuming motive ("you were careless", "you didn\'t care") instead of naming what was observable, or when you announce the framework and force every sentence into it after the point has already landed.',
     bestFor: [
       "Specific feedback that needs to be concrete, not a vague impression",
       "Workplace coaching, supervision and one-to-ones",
@@ -92,7 +92,7 @@ export const TC052: CardData = {
     "Shame-heavy conversations that need warmth before structure",
     "Vague impressions you cannot tie to an observable behaviour",
     "Moments where you cannot name a specific situation",
-    "Power imbalance, distress, grief or anger — slow down first",
+    "Power imbalance, distress, grief or anger: slow down first",
     "High-stakes decisions that need discussion, not a verdict",
     "When physical safety or an emergency takes priority",
   ],
@@ -109,7 +109,7 @@ export const TC052: CardData = {
         "In situation X, I noticed behaviour Y. The impact was Z.",
         "Short version: the timing was the issue, not the idea.",
         "Two minutes of feedback, then I'll listen.",
-        "Quick observation — no drama attached.",
+        "Quick observation, no drama attached.",
       ],
     },
     {
@@ -118,7 +118,7 @@ export const TC052: CardData = {
       tag: "Positive SBI",
       tone: "Warm",
       phrases: [
-        "In the review, you flagged the risk early — it saved us a fortnight.",
+        "In the review, you flagged the risk early. It saved us a fortnight.",
         "When the call went sideways, you stayed calm. It settled the whole room.",
         "You rewrote the summary before I asked. It made my morning far easier.",
         "In standup you credited Priya's fix. She's been walking taller since.",
@@ -137,7 +137,7 @@ export const TC052: CardData = {
         "In the last two standups the update ran long, and people started drifting before your part.",
         "When the deadline moved, I heard it from the client, not from you. It caught me flat-footed.",
         "In the report, the numbers and the summary didn't match, so I wasn't sure which to trust.",
-        "The structure I'm using is just situation, behaviour, impact — tell me if it's off.",
+        "The structure I'm using is just situation, behaviour, impact. Tell me if it's off.",
       ],
     },
     {
@@ -161,7 +161,7 @@ export const TC052: CardData = {
       tag: "When it lands wrong",
       tone: "Repair",
       phrases: [
-        "I made that too structured — let me say it more simply.",
+        "I made that too structured. Let me say it more simply.",
         "That may not be the useful frame. Let me back up.",
         "I don't want the structure to override the actual issue.",
         "What part of that was useful, and what should we drop?",
@@ -177,8 +177,8 @@ export const TC052: CardData = {
       phrases: [
         "This one's a bit awkward to raise, so bear with me.",
         "I want to name something specific, not make it about who you are.",
-        "Before any feedback — how are you doing with all this?",
-        "I might have this wrong. Here's what I saw; tell me what I'm missing.",
+        "Before any feedback. How are you doing with all this?",
+        "I might have this wrong. Here's what I saw. Tell me what I'm missing.",
         "One thing, then I'll stop and hear you out.",
         "I'd rather say this plainly than let it sit between us.",
       ],
@@ -191,9 +191,9 @@ export const TC052: CardData = {
       phrases: [
         "Situation: the launch email. Behaviour: the link 404'd. Impact: thirty replies asking where to go.",
         "Flagging one thing from today so it doesn't get lost.",
-        "Short note, not a big deal — just want it on your radar.",
+        "Short note, not a big deal, just want it on your radar.",
         "In the doc, the deadline in section 3 contradicts the timeline up top.",
-        "No need to reply tonight — quick feedback for tomorrow.",
+        "No need to reply tonight. Quick feedback for tomorrow.",
         "Two lines: what I saw, and why it matters. Then your call.",
       ],
     },
@@ -201,14 +201,14 @@ export const TC052: CardData = {
   decisionTree: [
     {
       condition: "They need it fast",
-      action: "Use the shortest SBI — one line per step, no preamble.",
+      action: "Use the shortest SBI: one line per step, no preamble.",
       phrase:
         "Quick one: in the call, you cut in early, and the client hesitated.",
     },
     {
       condition: "Emotion is running high",
       action: "Validate first and delay the framework until they feel heard.",
-      phrase: "Before anything structured — that sounded like a rough week.",
+      phrase: "Before anything structured. That sounded like a rough week.",
     },
     {
       condition: "They need a story or context, not a verdict",
@@ -280,7 +280,7 @@ export const TC052: CardData = {
       situation: "High emotion or power imbalance",
       move: "Validate first, keep the structure light, and hand control back at the end.",
       phrase:
-        "This might be hard to hear — I'll say what I saw, then it's over to you.",
+        "This might be hard to hear. I'll say what I saw, then it's over to you.",
     },
   ],
   calibration: {
@@ -288,7 +288,7 @@ export const TC052: CardData = {
       "They become clearer and ask a more specific question.",
       "They summarise your point back accurately.",
       "They move straight to a next step.",
-      "Their manner opens — they nod, lean in, or start taking notes.",
+      "Their manner opens: they nod, lean in, or start taking notes.",
       "They add their own side of the situation without getting defensive.",
       "The conversation gets shorter, not longer.",
     ],
@@ -311,7 +311,7 @@ export const TC052: CardData = {
     {
       day: "Day 2",
       title: "Strip out character",
-      task: 'Rewrite each Behaviour line so it names only what was observable — no motive, no "lazy", "careless" or "didn\'t care".',
+      task: 'Rewrite each Behaviour line so it names only what was observable. No motive, no "lazy", "careless" or "didn\'t care".',
     },
     {
       day: "Day 3",
@@ -331,7 +331,7 @@ export const TC052: CardData = {
     {
       day: "Day 6",
       title: "Use it for praise",
-      task: "Give one real piece of positive feedback with SBI — name the exact behaviour and the effect it had.",
+      task: "Give one real piece of positive feedback with SBI. Name the exact behaviour and the effect it had.",
     },
     {
       day: "Day 7",
@@ -353,7 +353,7 @@ export const TC052: CardData = {
       'Colleague: "Unprofessional how? That\'s a bit harsh."',
       "You: \"I don't know, you just weren't on it. It wasn't great.\"",
       'Colleague: "Right..." (goes quiet, defensive)',
-      "Why it is weak:",
+      "Why it's weak:",
       'judges character ("unprofessional", "not on it") instead of naming behaviour',
       "gives no specific situation, so they can't picture the moment",
       "leaves the impact vague, so there's nothing to act on",
@@ -363,10 +363,10 @@ export const TC052: CardData = {
       'You: "Can I flag one thing from the client call this morning?"',
       'Colleague: "Sure."',
       'You: "When they asked about the delay, you answered before Priya finished her point. The client looked unsure which of you to follow."',
-      'Colleague: "Ah — I didn\'t realise I cut across her."',
+      'Colleague: "Ah, I didn\'t realise I cut across her."',
       'You: "Yeah. No drama, I just wanted you to see the effect."',
       "Colleague: \"That's fair. I get keen and jump in. I'll watch it.\"",
-      'You: "Honestly the answer itself was good — it was only the timing."',
+      'You: "Honestly the answer itself was good. It was only the timing."',
       'Colleague: "Got it. I\'ll let people land their point first."',
       "Why this works:",
       "names the exact situation, so the moment is clear",
@@ -374,15 +374,15 @@ export const TC052: CardData = {
       "states a concrete impact and then stops",
       "adds warmth and a note of praise, so it lands as help, not attack",
     ],
-    note: "The poor version judges the person; the strong version describes a moment. Same concern, opposite reception.",
+    note: "The poor version judges the person. The strong version describes a moment. Same concern, opposite reception.",
   },
   influencePayoff: {
     feeling:
-      '"They told me exactly what happened and why it mattered — not what\'s wrong with me."',
+      '"They told me exactly what happened and why it mattered, not what\'s wrong with me."',
     principle:
-      "People stay open to feedback when it describes their behaviour rather than their character — you can change what you did far more easily than who you are.",
+      "People stay open to feedback when it describes their behaviour rather than their character. You can change what you did far more easily than who you are.",
     gains: [
-      "Clarity — the person knows the exact moment you mean",
+      "Clarity: the person knows the exact moment you mean",
       "Lower defensiveness, because you name behaviour, not motive",
       "A concrete impact they can actually act on",
       "Feedback that is fair and hard to argue with",
@@ -391,7 +391,7 @@ export const TC052: CardData = {
       "Trust, because you are specific instead of sweeping",
     ],
     whyMostFail: [
-      'They slide from behaviour into character judgement — "you were careless" instead of "the figures weren\'t checked".',
+      'They slide from behaviour into character judgement: "you were careless" instead of "the figures weren\'t checked".',
       "They leave the impact vague, so there's nothing to change.",
       "They recite the framework aloud and sound rehearsed instead of human.",
       "They keep talking past the point instead of pausing to listen.",
@@ -403,7 +403,7 @@ export const TC052: CardData = {
     example:
       '"In yesterday\'s review, the update ran to fifteen minutes. People started drifting before the decision."',
     dont: 'Don\'t say: "Using the SBI model, the situation was... the behaviour was... the impact was..."',
-    do: "Do keep the structure invisible — name the moment, the behaviour and the effect, then stop and listen.",
+    do: "Do keep the structure invisible. Name the moment, the behaviour and the effect, then stop and listen.",
   },
   method: [
     {
@@ -414,7 +414,7 @@ export const TC052: CardData = {
     {
       step: "2",
       title: "Name the Situation",
-      body: 'Pin the exact moment so the person can picture it. "Lately" or "in meetings" is too loose; a single, specific occasion is what makes the rest land.',
+      body: 'Pin the exact moment so the person can picture it. "Lately" or "in meetings" is too loose. A single, specific occasion is what makes the rest land.',
       examples: [
         { label: "Too vague", text: '"Lately, in meetings..."' },
         { label: "Specific", text: '"In this morning\'s client call..."' },
@@ -423,7 +423,7 @@ export const TC052: CardData = {
     {
       step: "3",
       title: "Describe the Behaviour",
-      body: 'Say what was observable — what a camera would have caught — not the motive or character behind it. Watch for trap words like "always", "never", "lazy", "careless" or "bad attitude": they signal you\'ve drifted from behaviour into judgement.',
+      body: 'Say what was observable, what a camera would have caught, not the motive or character behind it. Watch for trap words like "always", "never", "lazy", "careless" or "bad attitude": they signal you\'ve drifted from behaviour into judgement.',
       examples: [
         { label: "Character", text: '"You were dismissive."' },
         { label: "Behaviour", text: '"You answered before she\'d finished."' },
@@ -432,7 +432,7 @@ export const TC052: CardData = {
     {
       step: "4",
       title: "State the Impact",
-      body: "Name the concrete effect — on the work, the client, the team or you — and then stop. The silence after the impact is where the person starts to respond.",
+      body: "Name the concrete effect (on the work, the client, the team or you) and then stop. The silence after the impact is where the person starts to respond.",
       examples: [
         { label: "Vague", text: '"It wasn\'t great."' },
         {
@@ -478,27 +478,27 @@ export const TC052: CardData = {
       mistake: "Structuring when emotion needs listening first",
       soundsLike: "delivering tidy feedback to someone who's clearly upset",
       better:
-        '"That sounded like a hard week — do you want to talk about it before I add anything?"',
+        '"That sounded like a hard week. Do you want to talk about it before I add anything?"',
     },
   ],
   recoveryPhrases: [
-    "I made that too structured — let me say it more simply.",
+    "I made that too structured. Let me say it more simply.",
     "That may not be the useful frame. Let me back up.",
     "I don't want the structure to override the actual issue.",
     "What part of that was useful, and what should we drop?",
     "Let me try that again without the lecture.",
-    "I think I described what I assumed, not what I actually saw — let me stick to what happened.",
-    "That came out more critical than I meant; the point is small.",
+    "I think I described what I assumed, not what I actually saw. Let me stick to what happened.",
+    "That came out more critical than I meant. The point is small.",
   ],
-  bestRecoveryLine: "I made that too structured — let me say it more simply.",
+  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
   chains: [
     {
       label: "Feedback then check",
       sequence: "SBI → Summary check",
       example: [
-        '"In the call, you answered before Priya finished; the client looked unsure."',
+        '"In the call, you answered before Priya finished. The client looked unsure."',
         '"What\'s your read on that?"',
-        '"So we\'re agreed the answer was fine, it was the timing — have I got that right?"',
+        '"So we\'re agreed the answer was fine, it was the timing, have I got that right?"',
       ],
     },
     {
@@ -513,8 +513,8 @@ export const TC052: CardData = {
       label: "Feedback then hand back control",
       sequence: "SBI → Autonomy release",
       example: [
-        '"When the deadline moved, I heard it from the client, not you — it caught me flat-footed."',
-        '"How you keep me looped in is your call; I just need to not be the last to know."',
+        '"When the deadline moved, I heard it from the client, not you. It caught me flat-footed."',
+        '"How you keep me looped in is your call. I just need to not be the last to know."',
       ],
     },
     {
@@ -522,7 +522,7 @@ export const TC052: CardData = {
       sequence: "Validation → SBI",
       example: [
         '"That sounded like a genuinely rough week."',
-        "\"When you're ready — one thing from the review I'd like to name.\"",
+        "\"When you're ready: one thing from the review I'd like to name.\"",
         '"In the feedback round, the tone came across as personal, and a couple of people went quiet."',
       ],
     },
@@ -541,7 +541,7 @@ export const TC052: CardData = {
     {
       id: "TC013",
       reason:
-        "Clean request: SBI names what happened and why it mattered; Clean request states what you'd like next. Pair them — feedback, then a specific ask.",
+        "Clean request: SBI names what happened and why it mattered. Clean request states what you'd like next. Pair them: feedback, then a specific ask.",
     },
     {
       id: "TC011",

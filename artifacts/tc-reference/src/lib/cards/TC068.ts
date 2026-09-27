@@ -6,7 +6,7 @@ export const TC068: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC068/TC068_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -61,13 +61,13 @@ export const TC068: CardData = {
     "It is not a compliance tactic or a way to make refusal harder. Precision is not pressure.",
     "It is not over-specifying every detail until the other person has no room to think or contribute.",
     "It is not a shortcut around context, consent, relationship repair or fair compensation.",
-    "It is not the same as a small ask; a request can be perfectly specific and still too large.",
+    "It is not the same as a small ask. A request can be perfectly specific and still too large.",
     "It is not 'just be more direct' delivered in a blunt or status-heavy way.",
   ],
   overview: {
     coreFormula: [
-      "Context in one line -> specific action -> specific object -> specific output -> boundary or opt-out.",
-      'Full: "Because [context], could you [action] [object] and send me [output] by [time]? No problem if that is not feasible."',
+      "Context in one line → specific action → specific object → specific output → boundary or opt-out.",
+      'Full: "Because [context], could you [action] [object] and send me [output] by [time]? No problem if that\'s not feasible."',
       'Minimum: "Could you [action] [object] and tell me [output]?"',
       'Pressure-safe: "Would it be reasonable to ask you to [action] [object] by [time]? If not, I can adjust the ask."',
     ],
@@ -178,11 +178,11 @@ export const TC068: CardData = {
       tag: "Boundary-safe, autonomy-preserving asks",
       tone: "Repair",
       phrases: [
-        "No problem if the answer is no; I mainly wanted to make the ask clear.",
+        "No problem if the answer is no. I mainly wanted to make the ask clear.",
         "Would it be reasonable to ask for a five-minute read of the first page only?",
         "If that timing doesn't work, just tell me what does.",
         "If this isn't realistic, I can ask someone else.",
-        "Only if you have the capacity; otherwise ignore this.",
+        "Only if you have the capacity. Otherwise ignore this.",
         "I'd rather you were honest than say yes and resent it.",
         "Say the word and I'll take this off your list.",
       ],
@@ -216,7 +216,7 @@ export const TC068: CardData = {
     {
       condition: "You can't name the exact action",
       action:
-        "Clarify your own need first; don't outsource the thinking to them.",
+        "Clarify your own need first. Don't outsource the thinking to them.",
       phrase: "Give me a second to work out what I'm actually asking.",
     },
     {
@@ -313,7 +313,7 @@ export const TC068: CardData = {
     {
       day: "Day 1",
       title: "Spot the vague asks",
-      task: "List five requests you made recently that started with 'help', 'thoughts', 'feedback', 'support' or 'can we talk?'. Just collect them; don't fix them yet.",
+      task: "List five requests you made recently that started with 'help', 'thoughts', 'feedback', 'support' or 'can we talk?'. Just collect them. Don't fix them yet.",
     },
     {
       day: "Day 2",
@@ -368,7 +368,7 @@ export const TC068: CardData = {
       "A: Thank you. Confusing points only, no need for a full edit.",
       "Advanced. A: I'm trying to send the proposal by Friday. Could you spend ten minutes on the pricing section only and send me the one objection a client is most likely to raise? If that's not realistic, I can ask Lee instead.",
       "B: Ten minutes is fine. I'll send the likely objection after lunch.",
-      "A: Perfect. One objection is enough; I'm not asking for a full review.",
+      "A: Perfect. One objection is enough. I'm not asking for a full review.",
       "Why it works: it names the action (review), object (pricing section), output (one likely objection) and boundary (ten minutes, by Friday), and offers a clean fallback.",
     ],
     note: "The advanced version adds context, a tight boundary and an easy exit, so the precision reads as consideration rather than command.",
@@ -548,7 +548,7 @@ export const TC068: CardData = {
   chains: [
     {
       label: "Decision under pressure",
-      sequence: "BLUF -> Specific ask -> Autonomy release",
+      sequence: "BLUF → Specific ask → Autonomy release",
       example: [
         '"Bottom line: I need a decision on the launch date."',
         '"Could you choose to move it or hold it by 3 pm?"',
@@ -557,7 +557,7 @@ export const TC068: CardData = {
     },
     {
       label: "Listen first, then ask",
-      sequence: "Reflective listening -> Specific ask",
+      sequence: "Reflective listening → Specific ask",
       example: [
         '"It sounds like speed matters more than polish right now."',
         '"Could you tell me the one risk that would make you stop the launch?"',
@@ -565,7 +565,7 @@ export const TC068: CardData = {
     },
     {
       label: "Shrink, then specify",
-      sequence: "Small ask -> Specific ask",
+      sequence: "Small ask → Specific ask",
       example: [
         '"This is smaller than it looks, just one section."',
         '"Could you read the pricing page and send me the single likeliest objection?"',
@@ -573,7 +573,7 @@ export const TC068: CardData = {
     },
     {
       label: "Confirm, then ask",
-      sequence: "Summary check -> Specific ask",
+      sequence: "Summary check → Specific ask",
       example: [
         '"So we agree the timeline holds and only the budget is open."',
         '"Could you tell me the one budget line you\'d cut first?"',
@@ -599,7 +599,7 @@ export const TC068: CardData = {
     {
       id: "TC034",
       reason:
-        "Two-option questions. If you can accept either path, offer two options; if one exact output is needed, make one specific ask.",
+        "Two-option questions. If you can accept either path, offer two options. If one exact output is needed, make one specific ask.",
     },
     {
       id: "TC044",
@@ -609,7 +609,7 @@ export const TC068: CardData = {
     {
       id: "TC067",
       reason:
-        "Advice request. TC067 asks for advice specifically; Specific ask can request advice, a decision, a review, a reply or a next step.",
+        "Advice request. TC067 asks for advice specifically. Specific ask can request advice, a decision, a review, a reply or a next step.",
     },
   ],
 };

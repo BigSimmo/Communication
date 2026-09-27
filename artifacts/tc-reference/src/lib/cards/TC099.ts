@@ -6,7 +6,7 @@ export const TC099: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC099/TC099_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -62,22 +62,22 @@ export const TC099: CardData = {
     "It is not making yourself smaller so others feel comfortable, or apologising for good news.",
     'It is not forcing a "balanced" self-insult after every positive update.',
     "It is not turning every win into team credit when your own work genuinely mattered.",
-    "It is not a ban on advocating for yourself in interviews, reviews, or a professional bio — the goal is to be clean, not invisible.",
+    "It is not a ban on advocating for yourself in interviews, reviews, or a professional bio: the goal is to be clean, not invisible.",
   ],
   overview: {
     coreFormula: [
       "Permission or context + clean win + honest feeling + proportionate context + release.",
-      "Can I share a win? I got the fellowship. I am really pleased because it was a long process.",
-      "Good news: the launch landed well. I am proud of the team and relieved the preparation paid off.",
-      "I got invited to speak at the conference. I am excited and a little nervous.",
-      "The client renewed. I am glad the work created enough trust to continue.",
+      "Can I share a win? I got the fellowship. I'm really pleased because it was a long process.",
+      "Good news: the launch landed well. I'm proud of the team and relieved the preparation paid off.",
+      "I got invited to speak at the conference. I'm excited and a little nervous.",
+      "The client renewed. I'm glad the work created enough trust to continue.",
     ],
     minimumViableMove:
       "I have a win to share: [specific win]. I am pleased about it.",
     impact: "Low",
     difficulty: "Easy-Medium",
     misuse:
-      "Indirect status extraction — making the listener supply admiration, reassurance, or envy because you would not name the achievement plainly. It also fails if you hijack someone else's moment, or deliver even the clean version so mechanically that the share becomes its own performance.",
+      "Indirect status extraction: making the listener supply admiration, reassurance, or envy because you would not name the achievement plainly. It also fails if you hijack someone else's moment, or deliver even the clean version so mechanically that the share becomes its own performance.",
     bestFor: [
       "Sharing good news with friends, colleagues, family, or an online audience",
       "Updating others on a promotion, award, acceptance, media mention, result, or growing demand",
@@ -104,10 +104,10 @@ export const TC099: CardData = {
         "I have a win to share: I got the offer.",
         "Good news: it went well.",
         "Can I share something good?",
-        "I am proud of this one.",
-        "Small win — I wanted to tell you directly.",
+        "I'm proud of this one.",
+        "Small win, I wanted to tell you directly.",
         "This meant a lot to me.",
-        "I will keep it short: it landed well.",
+        "I'll keep it short: it landed well.",
         "Quick bit of good news, if you have a second.",
       ],
     },
@@ -117,11 +117,11 @@ export const TC099: CardData = {
       tag: "Warm, simple disclosure",
       tone: "Warm",
       phrases: [
-        "I wanted to tell you directly: I got accepted. I am really happy about it.",
-        "There is good news in my week, and I wanted to share it with you.",
-        "I am grateful, and still taking it in.",
+        "I wanted to tell you directly: I got accepted. I'm really happy about it.",
+        "There's good news in my week, and I wanted to share it with you.",
+        "I'm grateful, and still taking it in.",
         "It means a lot, and I wanted you to be one of the first to know.",
-        "I am really pleased about this, and I wanted to share it with you specifically.",
+        "I'm really pleased about this, and I wanted to share it with you specifically.",
         "This one mattered to me, so I wanted to say it out loud.",
       ],
     },
@@ -131,12 +131,12 @@ export const TC099: CardData = {
       tag: "Factual, credit-aware",
       tone: "Professional",
       phrases: [
-        "The project landed well with the client. I am glad the work was useful.",
+        "The project landed well with the client. I'm glad the work was useful.",
         "The presentation landed well, and people have asked for the deck.",
-        "I am pleased with the recognition, and it reflects the group effort behind it.",
-        "Good update: the article is out today. I am grateful to everyone who shaped it.",
-        "I want to credit the team for the prep — it made the difference.",
-        "The client renewed. I am glad the work created enough trust to continue.",
+        "I'm pleased with the recognition, and it reflects the group effort behind it.",
+        "Good update: the article is out today. I'm grateful to everyone who shaped it.",
+        "I want to credit the team for the prep. It made the difference.",
+        "The client renewed. I'm glad the work created enough trust to continue.",
       ],
     },
     {
@@ -145,12 +145,12 @@ export const TC099: CardData = {
       tag: "Direct answers, reviews, interviews",
       tone: "Direct",
       phrases: [
-        "Yes, it went well. I am proud of the result, and I am still taking in what it means.",
+        "Yes, it went well. I'm proud of the result, and I'm still taking in what it means.",
         "The rollout reduced rework, and I learned that earlier stakeholder checks matter.",
-        "I am proud of the work, and I can own it without inflating it.",
-        "Here is the evidence, the impact, and what I would do differently.",
-        "I am not fishing for reassurance; I just wanted to share the update plainly.",
-        "I got the role. I am pleased, and I want to be clear about what I contributed.",
+        "I'm proud of the work, and I can own it without inflating it.",
+        "Here's the evidence, the impact, and what I'd do differently.",
+        "I'm not fishing for reassurance. I just wanted to share the update plainly.",
+        "I got the role. I'm pleased, and I want to be clear about what I contributed.",
       ],
     },
     {
@@ -159,11 +159,11 @@ export const TC099: CardData = {
       tag: "Softening and self-correction",
       tone: "Repair",
       phrases: [
-        "That sounded more like a humblebrag than I intended. Cleaner version: I am happy about it.",
-        "Let me say that without the cover: I got the opportunity, and I am grateful.",
-        "I do not want to make you manage my modesty — I am just pleased about it.",
-        "I framed that as a complaint, but it is genuinely good news.",
-        "I will pause there; I do not need you to reassure me.",
+        "That sounded more like a humblebrag than I intended. Cleaner version: I'm happy about it.",
+        "Let me say that without the cover: I got the opportunity, and I'm grateful.",
+        "I don't want to make you manage my modesty. I'm just pleased about it.",
+        "I framed that as a complaint, but it's genuinely good news.",
+        "I'll pause there. I don't need you to reassure me.",
       ],
     },
     {
@@ -173,10 +173,10 @@ export const TC099: CardData = {
       tone: "Warm",
       phrases: [
         "Thanks for letting me share that. What has been going well on your side?",
-        "That is the short version — how has your week been?",
-        "The credit is shared. I would love to hear how your project is going.",
-        "No need to make a big thing of it; I just wanted to share the news.",
-        "That is my update — enough about me. What is new with you?",
+        "That's the short version. How has your week been?",
+        "The credit is shared. I'd love to hear how your project is going.",
+        "No need to make a big thing of it. I just wanted to share the news.",
+        "That's my update, enough about me. What's new with you?",
       ],
     },
     {
@@ -185,11 +185,11 @@ export const TC099: CardData = {
       tag: "Sharing near someone else's news",
       tone: "High-stakes",
       phrases: [
-        "That is excellent — you worked hard for it. I have a related update too, but I want to hear your story first.",
+        "That's excellent, you worked hard for it. I have a related update too, but I want to hear your story first.",
         "I have some good news as well, though now is your moment, not mine.",
-        "I will hold my news for later; today is about yours.",
-        "If it is welcome, I have a small win too — but only if you have space for it.",
-        "I do not want my update to crowd the room, so I will keep it brief.",
+        "I'll hold my news for later. Today is about yours.",
+        "If it's welcome, I have a small win too, but only if you have space for it.",
+        "I don't want my update to crowd the room, so I'll keep it brief.",
       ],
     },
   ],
@@ -203,14 +203,14 @@ export const TC099: CardData = {
     {
       condition: "Does this moment belong to someone else's news?",
       action:
-        "If yes, celebrate theirs and wait — this is a no-one-upping moment. If no, continue.",
-      phrase: "That is excellent. I want to hear your story first.",
+        "If yes, celebrate theirs and wait. This is a no-one-upping moment. If no, continue.",
+      phrase: "That's excellent. I want to hear your story first.",
     },
     {
       condition:
         "Am I tempted to frame the win as a complaint, embarrassment, or burden?",
       action: "Strip the cover and state the win directly.",
-      phrase: "Cleaner version: I got the role, and I am pleased.",
+      phrase: "Cleaner version: I got the role, and I'm pleased.",
     },
     {
       condition: "Is the listener available and in the right mode for this?",
@@ -222,13 +222,13 @@ export const TC099: CardData = {
       condition: "How is the listener responding?",
       action:
         "Engaged: add one concrete line. Thin response: thank them and move on. Discomfort: recover and return focus.",
-      phrase: "Thanks — that is the short version. How about you?",
+      phrase: "Thanks, that's the short version. How about you?",
     },
     {
       condition: "Am I still waiting for admiration?",
       action:
-        "If yes, stop expanding; if you need support, ask for it honestly and separately. If no, carry on normally.",
-      phrase: "I am not fishing for reassurance; I just wanted to share it.",
+        "If yes, stop expanding. If you need support, ask for it honestly and separately. If no, carry on normally.",
+      phrase: "I'm not fishing for reassurance. I just wanted to share it.",
     },
   ],
   ladder: [
@@ -236,25 +236,25 @@ export const TC099: CardData = {
       weak: "Ugh, now I have to deal with all these congrats messages.",
       better:
         "I got promoted, which is good news, though the attention feels a bit odd.",
-      best: "I got promoted. I am pleased and still adjusting to the attention. Thanks for letting me share it.",
+      best: "I got promoted. I'm pleased and still adjusting to the attention. Thanks for letting me share it.",
     },
     {
       weak: "Apparently my presentation was amazing and now everyone wants the deck.",
       better:
         "The presentation landed well and people have asked for the deck.",
-      best: "The presentation landed well. I am glad it helped, and I am sending the deck round for anyone who wants it.",
+      best: "The presentation landed well. I'm glad it helped, and I'm sending the deck round for anyone who wants it.",
     },
     {
       weak: "I hate being too booked because people keep asking me to lead things.",
       better:
-        "I have had more requests lately, which is flattering and hard to manage.",
-      best: "I am getting more requests lately. I am grateful for the trust, and I need to be selective with my time.",
+        "I've had more requests lately, which is flattering and hard to manage.",
+      best: "I'm getting more requests lately. I'm grateful for the trust, and I need to be selective with my time.",
     },
     {
       weak: "So embarrassing, they put my award photo everywhere.",
       better:
         "They shared the award photo publicly, which feels exposed but also meaningful.",
-      best: "The award photo is public now. I feel a bit exposed, but I am proud of the work behind it.",
+      best: "The award photo is public now. I feel a bit exposed, but I'm proud of the work behind it.",
     },
   ],
   scenarios: [
@@ -262,37 +262,37 @@ export const TC099: CardData = {
       situation: "Friend catch-up",
       move: "Ask for room, state the win, add one line of meaning, then return the floor to them.",
       phrase:
-        "Can I share a win? I got the grant. I am proud because it was a long process. What has been good on your side?",
+        "Can I share a win? I got the grant. I'm proud because it was a long process. What has been good on your side?",
     },
     {
       situation: "Team meeting",
       move: "Give the result, name the specific contribution, and credit accurately without erasing yourself.",
       phrase:
-        "The client response was strong. I am pleased with the outcome, and the prep from Priya and Leo made the difference.",
+        "The client response was strong. I'm pleased with the outcome, and the prep from Priya and Leo made the difference.",
     },
     {
       situation: "Networking post",
-      move: 'Use direct good-news language with gratitude and context; skip the complaint cover and the word "humbled".',
+      move: 'Use direct good-news language with gratitude and context. Skip the complaint cover and the word "humbled".',
       phrase:
-        "Good news: the paper is live. I am grateful to the reviewers and collaborators who strengthened it.",
+        "Good news: the paper is live. I'm grateful to the reviewers and collaborators who strengthened it.",
     },
     {
       situation: "After someone else's success",
-      move: "Celebrate theirs first; add your related news only if it is clearly invited or relevant.",
+      move: "Celebrate theirs first. Add your related news only if it is clearly invited or relevant.",
       phrase:
-        "That is excellent — you worked hard for it. I have a related update too, but I want to hear your story first.",
+        "That's excellent, you worked hard for it. I have a related update too, but I want to hear your story first.",
     },
     {
       situation: "Performance review",
       move: "State evidence, impact, and learning without apology or false modesty.",
       phrase:
-        "The rollout reduced rework by 18 percent. I am proud of the result, and I learned that earlier stakeholder checks matter.",
+        "The rollout reduced rework by 18 percent. I'm proud of the result, and I learned that earlier stakeholder checks matter.",
     },
     {
       situation: "Family or old friends",
       move: "Use warm, simple disclosure and make no demand for admiration.",
       phrase:
-        "I wanted to tell you directly: I got accepted. I am really happy about it.",
+        "I wanted to tell you directly: I got accepted. I'm really happy about it.",
     },
   ],
   calibration: {
@@ -307,11 +307,11 @@ export const TC099: CardData = {
     adjust: [
       'They give a polite but thin response, or say "nice" without following up.',
       "They look away, check the time, or shift posture.",
-      "They are hurried or in a different emotional mode — shorten to one line.",
-      "The moment actually belongs to someone else's news — hand it back.",
-      "Your share starts turning into comparison or superiority — stop and reset.",
-      "You notice yourself waiting for praise — stop expanding, and ask for support honestly if you need it.",
-      "The achievement intersects with something painful for them — pivot to them.",
+      "They are hurried or in a different emotional mode: shorten to one line.",
+      "The moment actually belongs to someone else's news: hand it back.",
+      "Your share starts turning into comparison or superiority: stop and reset.",
+      "You notice yourself waiting for praise: stop expanding, and ask for support honestly if you need it.",
+      "The achievement intersects with something painful for them: pivot to them.",
     ],
   },
   drill: [
@@ -328,17 +328,17 @@ export const TC099: CardData = {
     {
       day: "Day 3",
       title: "One-breath share",
-      task: "Take one real recent win and say it aloud in a single breath — event, feeling, one context line, stop. Notice the urge to keep justifying, and resist it.",
+      task: "Take one real recent win and say it aloud in a single breath: event, feeling, one context line, stop. Notice the urge to keep justifying, and resist it.",
     },
     {
       day: "Day 4",
       title: "Add the release",
-      task: 'Practise ending each clean share with a genuine return line, e.g. "That is the short version — how has your week been?" Keep it only if it feels real, not like a social tax.',
+      task: 'Practise ending each clean share with a genuine return line, e.g. "That is the short version. How has your week been?" Keep it only if it feels real, not like a social tax.',
     },
     {
       day: "Day 5",
       title: "Recovery reps",
-      task: 'Rehearse three repairs out loud, e.g. "That came out like a humblebrag — cleaner version: I am happy about it." Practise naming the miss once and then stopping.',
+      task: 'Rehearse three repairs out loud, e.g. "That came out like a humblebrag. Cleaner version: I am happy about it." Practise naming the miss once and then stopping.',
     },
     {
       day: "Day 6",
@@ -348,13 +348,13 @@ export const TC099: CardData = {
     {
       day: "Day 7",
       title: "Share it for real",
-      task: "In a real conversation, share one genuine win using win + feeling + one context line, then hand the floor back. Score it 0–5: concrete win, honest feeling, no complaint cover, no comparison, ending releases pressure.",
+      task: "In a real conversation, share one genuine win using win + feeling + one context line, then hand the floor back. Score it 0-5: concrete win, honest feeling, no complaint cover, no comparison, ending releases pressure.",
     },
   ],
   checklist: [
     "Did I state the achievement plainly, without hiding it in complaint, fake modesty, or embarrassment?",
     "Was the share proportionate to the relationship and the moment?",
-    "Did I add only true credit and useful context — no comparison or superiority?",
+    "Did I add only true credit and useful context, no comparison or superiority?",
     "Did I avoid making the listener reassure me or supply admiration?",
     "Did I stop after the clean share unless they invited more, and return focus genuinely?",
     "Would the sentence still feel respectful if the listener had not praised me back?",
@@ -362,34 +362,34 @@ export const TC099: CardData = {
   example: {
     without: [
       "Ari: How has your week been?",
-      "Sam: Exhausting. The senior team keeps inviting me into strategy meetings now. I guess that is what happens when your project is the only one getting traction.",
+      "Sam: Exhausting. The senior team keeps inviting me into strategy meetings now. I guess that's what happens when your project is the only one getting traction.",
       "Ari: Right.",
-      "Sam: It is honestly annoying being trusted this much.",
+      "Sam: It's honestly annoying being trusted this much.",
       "Why it fails: Sam turns status into complaint, adds a comparison that lowers others, and leaves Ari to manage an implied request for admiration.",
     ],
     with: [
       "Ari: How has your week been?",
       "Sam: Can I share a win without making it weird?",
       "Ari: Yes.",
-      "Sam: The project got senior-team attention, and I have been asked into the next strategy cycle. I am proud because the team worked hard on the evidence. I am also trying not to overfill my week.",
+      "Sam: The project got senior-team attention, and I've been asked into the next strategy cycle. I'm proud because the team worked hard on the evidence. I'm also trying not to overfill my week.",
       "Ari: That sounds deserved.",
-      "Sam: Thanks. The credit is definitely shared. I would like to hear about your launch too — how did the first week land?",
+      "Sam: Thanks. The credit is definitely shared. I'd like to hear about your launch too. How did the first week land?",
       "Why it works: Sam asks for room, shares cleanly, gives real credit, names one honest tension, and returns interest.",
     ],
     note: "The simpler 'better' version works too: \"My project got noticed by the senior team, so I have been invited into a few strategy meetings. I am pleased, and I am figuring out the time load.\" State the win, add one honest pressure point, release the floor.",
   },
   influencePayoff: {
     feeling:
-      '"They told me something good and let me simply be glad for them — no decoding, no performance."',
+      '"They told me something good and let me simply be glad for them. No decoding, no performance."',
     principle:
       "People find you easier to like, celebrate, and believe when your good news arrives as clean information rather than a hidden request for admiration.",
     gains: [
-      "Reduced status threat — the listener never feels tricked into admiring you",
-      "Clarity — your actual message is visible instead of coded",
-      "Warmth — the share feels human rather than performative",
-      "Credibility — you can own good work without inflation",
-      "Protected relationships — people are not used as an audience for disguised self-praise",
-      "Cleaner self-advocacy — you can name evidence, outcomes, and contribution without apology",
+      "Reduced status threat: the listener never feels tricked into admiring you",
+      "Clarity: your actual message is visible instead of coded",
+      "Warmth: the share feels human rather than performative",
+      "Credibility: you can own good work without inflation",
+      "Protected relationships: people are not used as an audience for disguised self-praise",
+      "Cleaner self-advocacy: you can name evidence, outcomes, and contribution without apology",
     ],
     whyMostFail: [
       "They disguise the win as a complaint or burden and wait for the listener to infer the status.",
@@ -414,18 +414,18 @@ export const TC099: CardData = {
       examples: [
         {
           label: "Cover",
-          text: "It is so annoying that everyone keeps asking me to speak.",
+          text: "It's so annoying that everyone keeps asking me to speak.",
         },
         {
           label: "Underneath",
-          text: "People want to hear from me — that is the actual news.",
+          text: "People want to hear from me. That's the actual news.",
         },
       ],
     },
     {
       step: "2",
       title: "Name the actual event",
-      body: 'Say what happened in concrete terms — "I got the role", "the paper was accepted", "the client renewed". Concrete beats coded every time, and it spares the listener from guessing.',
+      body: 'Say what happened in concrete terms: "I got the role", "the paper was accepted", "the client renewed". Concrete beats coded every time, and it spares the listener from guessing.',
     },
     {
       step: "3",
@@ -434,11 +434,11 @@ export const TC099: CardData = {
       examples: [
         {
           label: "Enough",
-          text: "I am really pleased because it was a long process.",
+          text: "I'm really pleased because it was a long process.",
         },
         {
           label: "Too much",
-          text: "I mean, it was partly luck, and the timing, and honestly anyone could have…",
+          text: "I mean, it was partly luck, and the timing, and honestly anyone could have...",
         },
       ],
     },
@@ -450,7 +450,7 @@ export const TC099: CardData = {
     {
       step: "5",
       title: "Calibrate and release",
-      body: "Watch the listener. If they engage, add one concrete line. If they flatten, or the moment is not yours to hold, thank them and hand the floor back. The discipline is proportion — one clean sentence usually lands better than a disguised five-sentence performance.",
+      body: "Watch the listener. If they engage, add one concrete line. If they flatten, or the moment is not yours to hold, thank them and hand the floor back. The discipline is proportion: one clean sentence usually lands better than a disguised five-sentence performance.",
       examples: [
         {
           label: "Pattern",
@@ -460,21 +460,21 @@ export const TC099: CardData = {
     },
   ],
   liveThreadClues: [
-    "ugh…",
-    "so embarrassing…",
-    "I hate that…",
-    "I guess it is nice, but…",
-    "not a big deal, but…",
-    "I do not even know why they picked me…",
-    "it is so annoying that everyone keeps…",
-    "apparently I…",
+    "ugh...",
+    "so embarrassing...",
+    "I hate that...",
+    "I guess it is nice, but...",
+    "not a big deal, but...",
+    "I do not even know why they picked me...",
+    "it is so annoying that everyone keeps...",
+    "apparently I...",
   ],
   commonMistakes: [
     {
       mistake: "Complaint camouflage",
-      soundsLike: "It is so annoying that everyone keeps asking me to speak.",
+      soundsLike: "It's so annoying that everyone keeps asking me to speak.",
       better:
-        "I have been asked to speak a fair bit lately. I am pleased people want to hear it.",
+        "I've been asked to speak a fair bit lately. I'm pleased people want to hear it.",
     },
     {
       mistake: "Fake minimising",
@@ -484,25 +484,25 @@ export const TC099: CardData = {
     {
       mistake: "Comparison leak",
       soundsLike: "Apparently I was the only one who actually understood it.",
-      better: "The work landed well, and I am proud of how it turned out.",
+      better: "The work landed well, and I'm proud of how it turned out.",
     },
     {
       mistake: "Credit laundering",
       soundsLike: "Oh, it was all the team, I did basically nothing.",
       better:
-        "The team did real work on the prep, and I am proud of my part in it.",
+        "The team did real work on the prep, and I'm proud of my part in it.",
     },
     {
       mistake: "Apology padding",
       soundsLike:
-        "Sorry, I hate even bringing this up, it is so self-indulgent…",
+        "Sorry, I hate even bringing this up, it's so self-indulgent...",
       better: "I have some good news I wanted to share directly.",
     },
     {
       mistake: "Endless context",
       soundsLike:
-        "…and to be fair it was partly luck, and the timing, and the team, and…",
-      better: "I got the role. I am pleased. That is the short version.",
+        "...and to be fair it was partly luck, and the timing, and the team, and...",
+      better: "I got the role. I'm pleased. That's the short version.",
     },
     {
       mistake: "Audience mismatch",
@@ -513,22 +513,22 @@ export const TC099: CardData = {
     },
   ],
   recoveryPhrases: [
-    "That came out more self-congratulatory than I meant. Cleaner version: I am happy about it.",
-    "I think I framed that as a complaint when it is really good news — the honest version is that I am pleased.",
-    "I do not want to make you manage my modesty. I am proud of the result.",
-    "Let me restate that without the weird cover: I got the opportunity, and I am grateful.",
-    "I realise that sounded like I was fishing for reassurance. I do not need you to fix it — I just wanted to share.",
-    "I may have taken too much space with that. I will pause there.",
-    "That was not the right moment for my update. I want to come back to what you were saying.",
+    "That came out more self-congratulatory than I meant. Cleaner version: I'm happy about it.",
+    "I think I framed that as a complaint when it's really good news: the honest version is that I'm pleased.",
+    "I don't want to make you manage my modesty. I'm proud of the result.",
+    "Let me restate that without the weird cover: I got the opportunity, and I'm grateful.",
+    "I realise that sounded like I was fishing for reassurance. I don't need you to fix it. I just wanted to share.",
+    "I may have taken too much space with that. I'll pause there.",
+    "That wasn't the right moment for my update. I want to come back to what you were saying.",
   ],
   bestRecoveryLine:
-    "That came out more self-congratulatory than I meant. Cleaner version: I am happy about it.",
+    "That came out more self-congratulatory than I meant. Cleaner version: I'm happy about it.",
   chains: [
     {
       label: "Warm open, then share, then return",
       sequence: "Warm opening → Humblebrag avoidance → Return focus",
       example: [
-        "Can I share a small win? I got accepted, and I am really happy about it.",
+        "Can I share a small win? I got accepted, and I'm really happy about it.",
         "What has been happening on your side?",
       ],
     },
@@ -537,7 +537,7 @@ export const TC099: CardData = {
       sequence:
         "Humblebrag avoidance → Specific appreciation (TC018) → Status generosity (TC022)",
       example: [
-        "The client response was strong, and I am pleased with it.",
+        "The client response was strong, and I'm pleased with it.",
         "Priya's prep on the evidence is what made it land.",
         "Honestly, she should present the next one.",
       ],
@@ -546,8 +546,8 @@ export const TC099: CardData = {
       label: "Their moment first, yours later",
       sequence: "No one-upping (TC007) → Humblebrag avoidance",
       example: [
-        "That is a huge result — tell me how it happened.",
-        "I have a related bit of good news too, if there is room for it later.",
+        "That's a huge result. Tell me how it happened.",
+        "I have a related bit of good news too, if there's room for it later.",
       ],
     },
     {
@@ -555,7 +555,7 @@ export const TC099: CardData = {
       sequence: "No-overexplaining (TC008) → Humblebrag avoidance",
       example: [
         "Short version, no disclaimers:",
-        "I got the role, and I am proud of the work that got me there.",
+        "I got the role, and I'm proud of the work that got me there.",
       ],
     },
   ],
@@ -563,32 +563,32 @@ export const TC099: CardData = {
     {
       id: "TC007",
       reason:
-        "No one-upping discipline. Use TC099 to share your own win cleanly; use TC007 when someone else has the floor and you are tempted to top their story. Ask who holds the conversational spotlight right now.",
+        "No one-upping discipline. Use TC099 to share your own win cleanly. Use TC007 when someone else has the floor and you are tempted to top their story. Ask who holds the conversational spotlight right now.",
     },
     {
       id: "TC008",
       reason:
-        "No-overexplaining discipline. Use TC099 when a win is buried under disclaimers and false modesty; use TC008 when the problem is simply volume rather than disguised status. Trim for volume, disclose cleanly for cover.",
+        "No-overexplaining discipline. Use TC099 when a win is buried under disclaimers and false modesty. Use TC008 when the problem is simply volume rather than disguised status. Trim for volume, disclose cleanly for cover.",
     },
     {
       id: "TC009",
       reason:
-        "Anti-boomerasking discipline. Use TC099 when you would state a win plainly; use TC009 when you catch yourself asking a question that only exists as a doorway to your own achievement.",
+        "Anti-boomerasking discipline. Use TC099 when you would state a win plainly. Use TC009 when you catch yourself asking a question that only exists as a doorway to your own achievement.",
     },
     {
       id: "TC018",
       reason:
-        "Specific appreciation. Use TC099 for clean self-disclosure; use TC018 when the main move is to name someone else's concrete contribution. Vague credit is where humility turns performative.",
+        "Specific appreciation. Use TC099 for clean self-disclosure. Use TC018 when the main move is to name someone else's concrete contribution. Vague credit is where humility turns performative.",
     },
     {
       id: "TC022",
       reason:
-        "Status generosity. Use TC099 when your own news could crowd the room; use TC022 when you want to actively lift another person's standing. After one clean share, shift to genuine credit or curiosity.",
+        "Status generosity. Use TC099 when your own news could crowd the room. Use TC022 when you want to actively lift another person's standing. After one clean share, shift to genuine credit or curiosity.",
     },
     {
       id: "TC091",
       reason:
-        "Forced-humour restraint. Use TC099 when a win is hidden behind self-deprecation or an awkward joke; use TC091 when the pressure is comedy rather than status. If the joke exists to make them praise you, it is a humblebrag.",
+        "Forced-humour restraint. Use TC099 when a win is hidden behind self-deprecation or an awkward joke. Use TC091 when the pressure is comedy rather than status. If the joke exists to make them praise you, it is a humblebrag.",
     },
   ],
 };

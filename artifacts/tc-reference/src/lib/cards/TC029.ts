@@ -6,7 +6,7 @@ export const TC029: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC029/TC029_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,11 +56,11 @@ export const TC029: CardData = {
   ],
   id: "TC029",
   whyItWorks:
-    "Strategic silence is a brief, warm, intentional pause after something important — a meaningful question, a reflection, a disclosure, an objection, a request, or a key point — so the other person has room to think, feel, continue, or decide. It is warm attention plus restraint: your face, posture, and tone keep signalling that you are present and listening, not rushing them. It works because the second answer is usually more honest and specific than the first, important words are given time to land rather than being buried, and you come across as calmer and less needy for not scrambling to prove, rescue, fix, or fill every gap.",
+    "Strategic silence is a brief, warm, intentional pause after something important (a meaningful question, a reflection, a disclosure, an objection, a request, or a key point) so the other person has room to think, feel, continue, or decide. It is warm attention plus restraint: your face, posture, and tone keep signalling that you are present and listening, not rushing them. It works because the second answer is usually more honest and specific than the first, important words are given time to land rather than being buried, and you come across as calmer and less needy for not scrambling to prove, rescue, fix, or fill every gap.",
   whatItIsNot: [
     "It is not awkward freezing, stonewalling, sulking, intimidation, or passive-aggression.",
-    "It is not a trick to force a confession or compliance — if it feels cold, punishing, or superior, it damages trust.",
-    "It is not making the other person guess what you want; you are clear first, then you pause.",
+    "It is not a trick to force a confession or compliance. If it feels cold, punishing, or superior, it damages trust.",
+    "It is not making the other person guess what you want. You are clear first, then you pause.",
     "It works when the silence feels like space. It fails the moment it feels like pressure.",
   ],
   overview: {
@@ -105,9 +105,9 @@ export const TC029: CardData = {
       phrases: [
         "Take your time.",
         "No rush.",
-        "I am with you.",
-        "I am just thinking for a second.",
-        "You do not have to answer immediately.",
+        "I'm with you.",
+        "I'm just thinking for a second.",
+        "You don't have to answer immediately.",
         "Let that sit for a moment.",
       ],
     },
@@ -118,11 +118,11 @@ export const TC029: CardData = {
       tone: "Warm",
       phrases: [
         "That sounds like it hit hard.",
-        "I do not want to rush past that.",
+        "I don't want to rush past that.",
         "That sounds like it stayed with you.",
         "What part is still sitting with you?",
         "That makes sense that you needed a second.",
-        "There is no rush to put words to it.",
+        "There's no rush to put words to it.",
       ],
     },
     {
@@ -134,7 +134,7 @@ export const TC029: CardData = {
         "What was the real issue there? [pause]",
         "What do you make of that? [pause]",
         "What would make this workable? [pause]",
-        "What are you worried I am not seeing? [pause]",
+        "What are you worried I'm not seeing? [pause]",
         "What does your instinct say? [pause]",
       ],
     },
@@ -144,11 +144,11 @@ export const TC029: CardData = {
       tag: "Work, meetings, recommendations",
       tone: "Professional",
       phrases: [
-        "I will pause there because that is the key trade-off.",
-        "I do not want to over-talk the recommendation.",
-        "I will stop there and hear your concern.",
+        "I'll pause there because that's the key trade-off.",
+        "I don't want to over-talk the recommendation.",
+        "I'll stop there and hear your concern.",
         "Bottom line: I recommend X. [pause]",
-        "What is your reaction? [pause]",
+        "What's your reaction? [pause]",
         "Let me put the option on the table and then hear you.",
       ],
     },
@@ -159,11 +159,11 @@ export const TC029: CardData = {
       tone: "High-stakes",
       phrases: [
         "I hear the concern. [pause]",
-        "I do not want to respond too quickly and miss the point.",
+        "I don't want to respond too quickly and miss the point.",
         "Take a second. What feels most unresolved?",
-        "I am not ignoring you — I am trying not to react too fast.",
-        "That is a fair thing to pause on.",
-        "Let us both take a breath before we carry on.",
+        "I'm not ignoring you. I'm trying not to react too fast.",
+        "That's a fair thing to pause on.",
+        "Let's both take a breath before we carry on.",
       ],
     },
     {
@@ -172,10 +172,10 @@ export const TC029: CardData = {
       tag: "Concise, invites challenge",
       tone: "Direct",
       phrases: [
-        "I will keep it brief and pause there.",
+        "I'll keep it brief and pause there.",
         "Your read? [pause]",
         "What would you challenge? [pause]",
-        "I will stop there rather than over-explain.",
+        "I'll stop there rather than over-explain.",
         "Happy to be challenged. [pause]",
       ],
     },
@@ -185,10 +185,10 @@ export const TC029: CardData = {
       tag: "Messages and email",
       tone: "Quick",
       phrases: [
-        "No need to reply quickly — worth thinking about.",
+        "No need to reply quickly. Worth thinking about.",
         "Leaving that with you rather than over-explaining.",
         "Take your time. A short reply is fine.",
-        "I will stop there so this does not become a wall of text.",
+        "I'll stop there so this doesn't become a wall of text.",
         "Happy to pause there and hear your reaction.",
       ],
     },
@@ -200,8 +200,8 @@ export const TC029: CardData = {
       phrases: [
         "Sorry, I went quiet because I was thinking, not judging.",
         "That pause probably felt more intense than I meant.",
-        "I did not want to rush past that, but we can move on.",
-        "I am not trying to put you on the spot.",
+        "I didn't want to rush past that, but we can move on.",
+        "I'm not trying to put you on the spot.",
         "I was giving that space, but I may have overdone it.",
         "No pressure to answer quickly.",
       ],
@@ -222,7 +222,7 @@ export const TC029: CardData = {
     {
       condition: "They look uncomfortable or exposed",
       action: "Soften immediately and give them an exit.",
-      phrase: "No pressure — we can move on.",
+      phrase: "No pressure, we can move on.",
     },
     {
       condition: "They ask what you mean",
@@ -232,7 +232,7 @@ export const TC029: CardData = {
     {
       condition: "They become defensive",
       action: "Return to validation or autonomy release.",
-      phrase: "It is completely your call — I just wanted to understand it.",
+      phrase: "It's completely your call. I just wanted to understand it.",
     },
     {
       condition: "They turn the question back to you",
@@ -268,7 +268,7 @@ export const TC029: CardData = {
       situation: "Making a professional recommendation",
       move: "Make the recommendation once, then stop.",
       phrase:
-        "My recommendation is option B because it reduces risk. I will pause there — what concerns would you have?",
+        "My recommendation is option B because it reduces risk. I'll pause there. What concerns would you have?",
     },
     {
       situation: "Conflict",
@@ -284,12 +284,12 @@ export const TC029: CardData = {
     {
       situation: "High-status or busy person",
       move: "Be concise and do not over-justify.",
-      phrase: "Bottom line: I would choose X. Happy to be challenged. [pause]",
+      phrase: "Bottom line: I'd choose X. Happy to be challenged. [pause]",
     },
     {
       situation: "Shy or guarded person",
       move: "Use a shorter pause plus an exit.",
-      phrase: "No rush. You do not have to go into it if you would rather not.",
+      phrase: "No rush. You don't have to go into it if you'd rather not.",
     },
   ],
   calibration: {
@@ -302,11 +302,11 @@ export const TC029: CardData = {
       'They say "Actually..." or "The real issue is...".',
     ],
     adjust: [
-      "They look confused, awkward, exposed, or pressured — soften at once.",
-      'They ask "What?" or seem unsure whether you heard them — reflect to show you did.',
-      'The pause starts to feel like a test — name it: "I am just thinking for a second."',
-      "The setting is light and the silence feels too intense — shorten it and ask something simpler.",
-      "You have gone quiet because you do not know what to say — say that rather than hide it.",
+      "They look confused, awkward, exposed, or pressured: soften at once.",
+      'They ask "What?" or seem unsure whether you heard them: reflect to show you did.',
+      'The pause starts to feel like a test. Name it: "I am just thinking for a second."',
+      "The setting is light and the silence feels too intense: shorten it and ask something simpler.",
+      "You have gone quiet because you do not know what to say. Say that rather than hide it.",
       "Move from deep or emotional back to something practical.",
       'Give an exit: "We can leave that there if you prefer."',
       "Clarify your point if the silence followed something vague.",
@@ -316,7 +316,7 @@ export const TC029: CardData = {
     {
       day: "Day 1",
       title: "Notice the urge",
-      task: "Through the day, just notice the moments you rush to fill a silence. Change nothing yet — count how often you fill gaps.",
+      task: "Through the day, just notice the moments you rush to fill a silence. Change nothing yet: count how often you fill gaps.",
     },
     {
       day: "Day 2",
@@ -341,7 +341,7 @@ export const TC029: CardData = {
     {
       day: "Day 6",
       title: "Recover cleanly",
-      task: 'When a pause lands awkwardly, use one recovery line — "I went quiet because I was thinking, not judging" — and carry on.',
+      task: 'When a pause lands awkwardly, use one recovery line ("I went quiet because I was thinking, not judging") and carry on.',
     },
     {
       day: "Day 7",
@@ -359,24 +359,24 @@ export const TC029: CardData = {
   ],
   example: {
     without: [
-      "Person: I think I am worried this will create more work.",
-      "You: No, it will be fine — the first step is simple, and once that is done it should not be hard, and honestly it saves time later...",
-      "Why it is weak:",
+      "Person: I think I'm worried this will create more work.",
+      "You: No, it will be fine. The first step is simple, and once that's done it shouldn't be hard, and honestly it saves time later...",
+      "Why it's weak:",
       "fills the silence with reassurance before the concern is even understood",
       "buries the real worry under persuasion",
-      "leaves the person no room to say what is actually bothering them",
+      "leaves the person no room to say what's actually bothering them",
     ],
     with: [
-      "Person: I think I am worried this will create more work.",
-      "You: That is a fair concern.",
+      "Person: I think I'm worried this will create more work.",
+      "You: That's a fair concern.",
       "You: [pause]",
-      "Person: Mostly I am worried it becomes another thing I have to manage.",
-      "You: So the concern is not the task itself — it is the ongoing ownership?",
-      "Person: I am not sure I want to commit to this.",
-      "You: That makes sense. It is not a small decision.",
+      "Person: Mostly I'm worried it becomes another thing I have to manage.",
+      "You: So the concern isn't the task itself. It's the ongoing ownership?",
+      "Person: I'm not sure I want to commit to this.",
+      "You: That makes sense. It's not a small decision.",
       "You: [pause]",
       "Person: I think I need to know what the exit option is.",
-      "You: That is the useful question. Let us make the exit path explicit before deciding.",
+      "You: That's the useful question. Let's make the exit path explicit before deciding.",
       "Why this works:",
       "the pause stops immediate persuasion from crowding the concern",
       "it lets the person reveal the real issue beneath the first answer",
@@ -392,7 +392,7 @@ export const TC029: CardData = {
       "People reveal more in the space you leave them than in the space you fill. Restraint reads as confidence and respect.",
     gains: [
       "You seem calmer, less needy, and more present.",
-      "The other person gets room to elaborate — the second answer is often more honest and useful.",
+      "The other person gets room to elaborate: the second answer is often more honest and useful.",
       "Important words are given time to land instead of being buried.",
       "In persuasion, the pause gives people time to process rather than defend.",
       "You overexplain less and offer premature advice less.",
@@ -401,24 +401,24 @@ export const TC029: CardData = {
     ],
     whyMostFail: [
       "They use silence as pressure, punishment, superiority, or a way to make the other person fill the discomfort.",
-      "The pause goes cold — a blank stare with no warmth or softener.",
+      "The pause goes cold: a blank stare with no warmth or softener.",
       "They hold it too long, so a light moment turns strange and theatrical.",
       "They pause after something vague, so the other person is left guessing rather than thinking.",
     ],
   },
   fieldTip: {
     headline: "If the moment has weight, do not remove it with words.",
-    body: "The instinct after something meaningful is to fill the gap — reassure, explain, move on. Resist it for one breath. The space is doing the work; your next sentence can wait.",
+    body: "The instinct after something meaningful is to fill the gap: reassure, explain, move on. Resist it for one breath. The space is doing the work. Your next sentence can wait.",
     example:
       '"That sounds like it mattered." [pause] "What part is still with you?"',
-    dont: '"No, it\'ll be fine, honestly, because..." — rushing to reassure.',
-    do: '"That is a fair concern." [pause] — then let them keep going.',
+    dont: '"No, it\'ll be fine, honestly, because..." Rushing to reassure.',
+    do: '"That is a fair concern." [pause], then let them keep going.',
   },
   method: [
     {
       step: "1",
       title: "Spot the moment",
-      body: "Use silence after emotion, conflict, a meaningful answer, a clear request, or a strong question. Do not scatter it randomly — silence only lands where the moment already has weight.",
+      body: "Use silence after emotion, conflict, a meaningful answer, a clear request, or a strong question. Do not scatter it randomly: silence only lands where the moment already has weight.",
     },
     {
       step: "2",
@@ -428,7 +428,7 @@ export const TC029: CardData = {
     {
       step: "3",
       title: "Say one useful thing",
-      body: "Ask a question, reflect, validate, or make the point — then stop. The pause works precisely because the sentence before it is complete.",
+      body: "Ask a question, reflect, validate, or make the point, then stop. The pause works precisely because the sentence before it is complete.",
       examples: [
         {
           label: "Complete sentence, then stop",
@@ -453,7 +453,7 @@ export const TC029: CardData = {
       examples: [
         {
           label: "Low-pressure re-entry",
-          text: '"Take your time." / "I am just thinking." / "What are you thinking?"',
+          text: '"Take your time." / "I\'m just thinking." / "What are you thinking?"',
         },
       ],
     },
@@ -475,7 +475,7 @@ export const TC029: CardData = {
     {
       depth: "Light",
       useWhen: "Casual chat or a busy person",
-      phrase: 'One beat, then move on: "Anyway — your read?"',
+      phrase: 'One beat, then move on: "Anyway. Your read?"',
     },
     {
       depth: "Warm",
@@ -486,12 +486,12 @@ export const TC029: CardData = {
       depth: "Deep",
       useWhen: "Something vulnerable or a real decision",
       phrase:
-        'Reflect, then hold a few seconds: "I do not want to rush past that."',
+        'Reflect, then hold a few seconds: "I don\'t want to rush past that."',
     },
     {
       depth: "Negotiation",
       useWhen: "After a calibrated question or recommendation",
-      phrase: '"My recommendation is B." [pause] — let it sit.',
+      phrase: '"My recommendation is B." [pause], let it sit.',
     },
   ],
   commonMistakes: [
@@ -534,9 +534,9 @@ export const TC029: CardData = {
   recoveryPhrases: [
     "Sorry, I went quiet because I was thinking, not judging.",
     "That pause probably felt more intense than I meant.",
-    "I did not want to rush past that, but we can move on.",
+    "I didn't want to rush past that, but we can move on.",
     "Let me say that more clearly.",
-    "I am not trying to put you on the spot.",
+    "I'm not trying to put you on the spot.",
     "No pressure to answer quickly.",
     "I was giving that space, but I may have overdone it.",
   ],
@@ -568,7 +568,7 @@ export const TC029: CardData = {
         "Clean request → autonomy release → strategic silence → handle the response",
       example: [
         '"Could you take the Friday slot?"',
-        '"It is genuinely your call." [pause]',
+        '"It\'s genuinely your call." [pause]',
         "Then let them answer without filling the gap.",
       ],
     },
@@ -577,7 +577,7 @@ export const TC029: CardData = {
       sequence:
         "Values-based framing → concise recommendation → strategic silence → invite concerns",
       example: [
-        '"Since the priority is reducing risk, I would choose option B." [pause]',
+        '"Since the priority is reducing risk, I\'d choose option B." [pause]',
         '"What concerns would you have?"',
       ],
     },
@@ -586,27 +586,27 @@ export const TC029: CardData = {
     {
       id: "TC035",
       reason:
-        "The closest neighbour. TC035 Strategic pause is the micro-pause for emphasis or timing within your own delivery; TC029 is the fuller silence you leave for the other person to think, feel, or continue.",
+        "The closest neighbour. TC035 Strategic pause is the micro-pause for emphasis or timing within your own delivery. TC029 is the fuller silence you leave for the other person to think, feel, or continue.",
     },
     {
       id: "TC031",
       reason:
-        "Both create space. Use TC029 to leave a warm gap after a meaningful point; use TC031 Slow down under pressure when your own pace is the problem and you need to deliberately slow while under pressure.",
+        "Both create space. Use TC029 to leave a warm gap after a meaningful point. Use TC031 Slow down under pressure when your own pace is the problem and you need to deliberately slow while under pressure.",
     },
     {
       id: "TC033",
       reason:
-        'Use TC029 to give full silence; use TC033 Minimal encouragers when a small "mm", "go on", or nod keeps them talking better than complete quiet would.',
+        'Use TC029 to give full silence. Use TC033 Minimal encouragers when a small "mm", "go on", or nod keeps them talking better than complete quiet would.',
     },
     {
       id: "TC004",
       reason:
-        "Often paired. Use TC004 Reflective listening to say back what you heard; use TC029 for the pause right after, so the reflection has room to land.",
+        "Often paired. Use TC004 Reflective listening to say back what you heard. Use TC029 for the pause right after, so the reflection has room to land.",
     },
     {
       id: "TC090",
       reason:
-        "Use TC090 Do-not-fix-yet discipline to resist jumping to solutions; use TC029 as the concrete move — the pause — that holds that space open instead of filling it with advice.",
+        "Use TC090 Do-not-fix-yet discipline to resist jumping to solutions. Use TC029 as the concrete move, the pause, that holds that space open instead of filling it with advice.",
     },
   ],
 };

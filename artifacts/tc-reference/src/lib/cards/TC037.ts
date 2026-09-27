@@ -6,7 +6,7 @@ export const TC037: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC037/TC037_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -65,10 +65,10 @@ export const TC037: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice the tension -> reflect side A -> reflect side B -> keep both respectful -> pause for correction or elaboration.",
+      "Notice the tension → reflect side A → reflect side B → keep both respectful → pause for correction or elaboration.",
       "Part of you wants one thing, and part of you is worried about the cost.",
-      "You can see the upside, and you are also tracking the risk.",
-      "You want to say yes, and you are noticing what it would cost.",
+      "You can see the upside, and you're also tracking the risk.",
+      "You want to say yes, and you're noticing what it would cost.",
       "Two sides, one balanced sentence, then silence.",
     ],
     minimumViableMove:
@@ -161,12 +161,12 @@ export const TC037: CardData = {
       tone: "Repair",
       phrases: [
         "I may be reading this wrong, but that seems like the key thread.",
-        "We can stay with that, or move on - your call.",
+        "We can stay with that, or move on. Your call.",
         "Tell me if this is off: you want both, and neither feels free.",
-        "Maybe it's two things at once - the wanting and the worry.",
+        "Maybe it's two things at once: the wanting and the worry.",
         "If I've got this wrong, say so.",
-        "It might be that part of you agrees and part of you doesn't - does that fit?",
-        "No need to land it now; it sounds like both are true.",
+        "It might be that part of you agrees and part of you doesn't. Does that fit?",
+        "No need to land it now. It sounds like both are true.",
       ],
     },
     {
@@ -187,7 +187,7 @@ export const TC037: CardData = {
   decisionTree: [
     {
       condition: "They add detail after your reflection",
-      action: "Stay on that thread; don't open a new one.",
+      action: "Stay on that thread. Don't open a new one.",
       phrase: "So the harder part was being left with it.",
     },
     {
@@ -218,8 +218,8 @@ export const TC037: CardData = {
   ],
   ladder: [
     {
-      weak: "You are overthinking it.",
-      better: "You are torn about it.",
+      weak: "You're overthinking it.",
+      better: "You're torn about it.",
       best: "Part of you wants the change, and part of you is protecting what still matters.",
     },
     {
@@ -237,7 +237,7 @@ export const TC037: CardData = {
     {
       situation: "Casual conversation",
       move: "Use the minimum viable move and keep the tone light.",
-      phrase: "Part of you wants to go, and part of you would rather stay in.",
+      phrase: "Part of you wants to go, and part of you'd rather stay in.",
     },
     {
       situation: "Workplace conversation",
@@ -254,17 +254,17 @@ export const TC037: CardData = {
       situation: "Digital message",
       move: "One sentence only. Don't stack multiple prompts.",
       phrase:
-        "Sounds like you want in, and the timing's the real problem - is that it?",
+        "Sounds like you want in, and the timing's the real problem. Is that it?",
     },
     {
       situation: "High-stakes context",
-      move: "Lead with direct clarity; add the reflection only if it lowers pressure and improves understanding.",
+      move: "Lead with direct clarity. Add the reflection only if it lowers pressure and improves understanding.",
       phrase:
         "You need this handled today, and you also don't want it to blow up.",
     },
     {
       situation: "Someone circling a decision",
-      move: "Name both sides once, then leave room; don't push a resolution.",
+      move: "Name both sides once, then leave room. Don't push a resolution.",
       phrase: "You want to leave, and you don't want to have wasted the years.",
     },
   ],
@@ -284,14 +284,14 @@ export const TC037: CardData = {
       "Forced laughter or visible tension.",
       "They get defensive or confused.",
       "They withdraw or refuse outright.",
-      "The move makes the conversation feel less safe - make it smaller or drop it.",
+      "The move makes the conversation feel less safe. Make it smaller or drop it.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the tension",
-      task: "Notice three moments today where someone sounds torn between two things. Just write down the two sides - don't respond yet.",
+      task: "Notice three moments today where someone sounds torn between two things. Just write down the two sides. Don't respond yet.",
     },
     {
       day: "Day 2",
@@ -336,7 +336,7 @@ export const TC037: CardData = {
     without: [
       "A: It just felt like too much at once.",
       "B: Why did you let it get like that? You should have said something earlier.",
-      "Why it is weak:",
+      "Why it's weak:",
       "jumps to blame instead of the feeling",
       "names only one side and turns it into a fault",
       "gives them nothing true to agree with",
@@ -344,12 +344,12 @@ export const TC037: CardData = {
     with: [
       "A: It just felt like too much at once.",
       "B: That sounds like it carried more weight than the facts alone.",
-      "A: Yes - it felt like I was suddenly carrying all of it.",
+      "A: Yes, it felt like I was suddenly carrying all of it.",
       "B: So the hard part wasn't only the amount, but being left with it on your own.",
       "A: Exactly. I could have handled the work if someone had just acknowledged it.",
       "B: So it's the being-left-alone part, not only being busy.",
       "Why this works:",
-      "names both live sides - the load and what it meant",
+      "names both live sides: the load and what it meant",
       "stays tentative, so they can correct it",
       "keeps their thread alive without taking it over",
     ],
@@ -357,7 +357,7 @@ export const TC037: CardData = {
   },
   influencePayoff: {
     feeling:
-      '"They actually get it - both halves, not just the convenient one."',
+      '"They actually get it. Both halves, not just the convenient one."',
     principle:
       "People stop defending a position once they feel both sides of it have been heard. Naming the tension accurately lowers the need to argue and lets them think out loud.",
     gains: [
@@ -365,7 +365,7 @@ export const TC037: CardData = {
       "Trust",
       "Less friction and overtalking",
       "The person stays on the thread that matters",
-      "Dignity - they can accept, redirect, or decline without being cornered",
+      "Dignity: they can accept, redirect, or decline without being cornered",
       "Room to think instead of defend",
     ],
     whyMostFail: [
@@ -377,7 +377,7 @@ export const TC037: CardData = {
   },
   fieldTip: {
     headline: "Hold both sides gently.",
-    body: "The goal is accuracy, not resolution. You are not solving the tension or nudging them off the fence - you are naming it clearly enough that they can look at it. Keep the sentence balanced, tentative, and short, then stop talking.",
+    body: "The goal is accuracy, not resolution. You are not solving the tension or nudging them off the fence. You are naming it clearly enough that they can look at it. Keep the sentence balanced, tentative, and short, then stop talking.",
     example:
       '"You want to take it, and you don\'t want what it would cost you."',
     dont: "Don't tack on advice or lean the sentence toward the side you'd choose.",
@@ -404,7 +404,7 @@ export const TC037: CardData = {
     {
       step: "3",
       title: "Name both sides in one balanced sentence",
-      body: "Reflect side A and side B in ordinary language, giving each equal weight. Keep it tentative - 'It sounds like...', 'Part of you...'. No lecture, no diagnosis.",
+      body: "Reflect side A and side B in ordinary language, giving each equal weight. Keep it tentative: 'It sounds like...', 'Part of you...'. No lecture, no diagnosis.",
       examples: [
         {
           label: "Clinical",
@@ -424,7 +424,7 @@ export const TC037: CardData = {
     {
       step: "5",
       title: "Follow their next signal",
-      body: "If they add detail, stay on that thread. If they correct you, take the correction - being a little wrong out loud is fine, and often it draws out the truer version.",
+      body: "If they add detail, stay on that thread. If they correct you, take the correction: being a little wrong out loud is fine, and often it draws out the truer version.",
     },
     {
       step: "6",
@@ -456,8 +456,7 @@ export const TC037: CardData = {
     {
       mistake: "Ignoring a decline or topic change",
       soundsLike: "Reflecting both sides again after they've clearly moved on",
-      better:
-        'Follow their exit: "Fair enough - where do you want to take it?"',
+      better: 'Follow their exit: "Fair enough. Where do you want to take it?"',
     },
     {
       mistake: "Over-explaining after the reflection",
@@ -476,7 +475,7 @@ export const TC037: CardData = {
       mistake: "Forcing false balance",
       soundsLike:
         "Giving equal weight to real harm and to a reasonable concern",
-      better: "Name the harm directly; don't dress it up as two fair sides.",
+      better: "Name the harm directly. Don't dress it up as two fair sides.",
     },
     {
       mistake: "Reading politeness as engagement",
@@ -494,12 +493,12 @@ export const TC037: CardData = {
     "We can go another direction.",
     "What would actually be useful right now?",
   ],
-  bestRecoveryLine: "I may be reading that wrong - tell me what actually fits.",
+  bestRecoveryLine: "I may be reading that wrong. Tell me what actually fits.",
   chains: [
     {
       label: "Hear it, then hold the silence",
       sequence:
-        "TC004 Reflective listening -> TC037 Double-sided reflection -> TC029 Strategic silence",
+        "TC004 Reflective listening → TC037 Double-sided reflection → TC029 Strategic silence",
       example: [
         '"So it really knocked you."',
         '"Part of you wants to push on, and part of you needs a break first."',
@@ -509,7 +508,7 @@ export const TC037: CardData = {
     {
       label: "Both sides, then hand it back",
       sequence:
-        "TC005 Validation without agreement -> TC037 Double-sided reflection -> TC021 Autonomy release",
+        "TC005 Validation without agreement → TC037 Double-sided reflection → TC021 Autonomy release",
       example: [
         '"It makes sense you\'d be wary."',
         '"You want to trust it, and you\'re not there yet."',
@@ -519,11 +518,11 @@ export const TC037: CardData = {
     {
       label: "Meaning first, then confirm",
       sequence:
-        "TC040 Meaning reflection -> TC037 Double-sided reflection -> TC011 Summary check",
+        "TC040 Meaning reflection → TC037 Double-sided reflection → TC011 Summary check",
       example: [
         '"Sounds like it was about respect, not the money."',
         '"You want the apology, and you\'re not sure it would land."',
-        '"So - heard properly first, then talk numbers. Have I got that right?"',
+        '"So, heard properly first, then talk numbers. Have I got that right?"',
       ],
     },
   ],
@@ -531,22 +530,22 @@ export const TC037: CardData = {
     {
       id: "TC004",
       reason:
-        "Reflective listening mirrors one clear meaning; use Double-sided reflection when two live sides are both present.",
+        "Reflective listening mirrors one clear meaning. Use Double-sided reflection when two live sides are both present.",
     },
     {
       id: "TC040",
       reason:
-        "Meaning reflection captures why something matters; Double-sided reflection captures the ambivalence or tension between two pulls.",
+        "Meaning reflection captures why something matters. Double-sided reflection captures the ambivalence or tension between two pulls.",
     },
     {
       id: "TC005",
       reason:
-        "Validation without agreement supports a concern without endorsing it; Double-sided reflection maps both halves of a mixed position.",
+        "Validation without agreement supports a concern without endorsing it. Double-sided reflection maps both halves of a mixed position.",
     },
     {
       id: "TC011",
       reason:
-        "Summary check confirms the broad understanding; Double-sided reflection names one specific internal conflict.",
+        "Summary check confirms the broad understanding. Double-sided reflection names one specific internal conflict.",
     },
     {
       id: "TC027",
@@ -556,7 +555,7 @@ export const TC037: CardData = {
     {
       id: "TC058",
       reason:
-        "Feeling-plus-need reflection names one feeling and the need under it; Double-sided reflection names two competing pulls at once.",
+        "Feeling-plus-need reflection names one feeling and the need under it. Double-sided reflection names two competing pulls at once.",
     },
   ],
 };

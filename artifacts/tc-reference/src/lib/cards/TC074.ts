@@ -6,7 +6,7 @@ export const TC074: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC074/TC074_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,19 +56,19 @@ export const TC074: CardData = {
   ],
   id: "TC074",
   whyItWorks:
-    "DESC is a four-step way to make an assertive request or set a boundary without it turning into blame, threat or a character judgement. You Describe the observable behaviour, Express its effect, Specify the concrete change you want, and name the Consequence — a clear next step or choice, not a punishment. It works because it separates observation from judgement, feeling from accusation, request from demand, and consequence from punishment, which lowers defensiveness and makes your concern easy to understand and easy to respond to.",
+    "DESC is a four-step way to make an assertive request or set a boundary without it turning into blame, threat or a character judgement. You Describe the observable behaviour, Express its effect, Specify the concrete change you want, and name the Consequence: a clear next step or choice, not a punishment. It works because it separates observation from judgement, feeling from accusation, request from demand, and consequence from punishment, which lowers defensiveness and makes your concern easy to understand and easy to respond to.",
   whatItIsNot: [
     "It is not a script for cornering someone into agreement.",
     "It is not a way to dress up a threat, ultimatum, punishment, sales close, seduction move, or power play.",
     "It is not a substitute for listening when the other person is distressed, unsafe, ashamed, grieving or too escalated to process structure.",
-    "It is not the right move when you cannot name the behaviour specifically — use reflection, inquiry, or a clean request first.",
+    "It is not the right move when you cannot name the behaviour specifically. Use reflection, inquiry, or a clean request first.",
   ],
   overview: {
     coreFormula: [
-      'D — Describe: name the observable behaviour. "In the last two meetings, the decision changed after we\'d already agreed the scope."',
-      'E — Express: name the effect, not the motive. "That makes it hard to plan the work and keep the team aligned."',
-      'S — Specify: ask for the concrete change. "I need scope changes flagged before the meeting ends."',
-      "C — Consequence: name your next step, not a punishment. \"If that isn't possible, I'll pause implementation until we have it in writing.\"",
+      'D, Describe: name the observable behaviour. "In the last two meetings, the decision changed after we\'d already agreed the scope."',
+      'E, Express: name the effect, not the motive. "That makes it hard to plan the work and keep the team aligned."',
+      'S, Specify: ask for the concrete change. "I need scope changes flagged before the meeting ends."',
+      "C, Consequence: name your next step, not a punishment. \"If that isn't possible, I'll pause implementation until we have it in writing.\"",
       "Skeleton: \"When [behaviour] happens, it affects [impact]. I need [specific change]. If that can't happen, I'll [my own next step].\"",
     ],
     minimumViableMove:
@@ -88,13 +88,13 @@ export const TC074: CardData = {
     ],
   },
   notFor: [
-    "There is immediate danger, harassment or a crisis — use formal support, documentation or safety planning",
+    "There is immediate danger, harassment or a crisis. Use formal support, documentation or safety planning",
     "A power imbalance means a private, direct conversation could increase harm",
     "You cannot yet name the behaviour specifically",
     "The other person is too distressed, ashamed or escalated to take in structure",
     "Your real aim is to win, shame, punish or test loyalty",
     "You are too escalated to stay respectful",
-    "The ask is small and one-off — a clean request is enough",
+    "The ask is small and one-off: a clean request is enough",
   ],
   phraseBank: [
     {
@@ -106,8 +106,8 @@ export const TC074: CardData = {
         "When that keeps happening, it affects the work. I need one clear change. If it can't happen, I'll take the next step myself.",
         "Can I name a pattern I'm seeing and make one request?",
         "Quick one: when the scope changes mid-task, I lose the day.",
-        "One ask — send changes in writing, and I'll re-quote before I continue.",
-        "I need it by Thursday; after that it moves to the next cycle.",
+        "One ask, send changes in writing, and I'll re-quote before I continue.",
+        "I need it by Thursday. After that it moves to the next cycle.",
         "Small thing, but it keeps happening. Can we sort it?",
         "Two-line version: this happens, I need that, or I'll do this.",
       ],
@@ -120,10 +120,10 @@ export const TC074: CardData = {
       phrases: [
         "I'm raising this because I want us to work well together.",
         "I want to keep helping, and I also need the scope to stay stable.",
-        "None of this is about blame — I just want us on the same page.",
-        "I value your input; I'm asking about timing, not shutting it down.",
+        "None of this is about blame. I just want us on the same page.",
+        "I value your input. I'm asking about timing, not shutting it down.",
         "I'd rather say this now than let it quietly build up.",
-        "I want your pushback — it makes the plan better.",
+        "I want your pushback. It makes the plan better.",
         "This matters to me because the working relationship matters.",
       ],
     },
@@ -134,10 +134,10 @@ export const TC074: CardData = {
       tone: "Professional",
       phrases: [
         "When the draft comes in after the review window, I can't give it proper attention. I need it by Tuesday noon. If it's later, it moves to the next review cycle.",
-        "When side conversations happen while someone is presenting, it splits attention. Let's hold questions until the end; put anything urgent in the chat.",
+        "When side conversations happen while someone is presenting, it splits attention. Let's hold questions until the end. Put anything urgent in the chat.",
         "When I get several urgent pings without context, I lose time guessing priority. Please include the deadline and the decision needed. If I don't have that, I'll treat it as normal priority.",
-        "When requirements change after sign-off, the timeline and cost change too. Please send changes in writing; if the scope changes, I'll send an updated estimate before continuing.",
-        "When approval comes after the deadline, I can't protect quality. I need it by Thursday; if it's later, launch moves to the next cycle.",
+        "When requirements change after sign-off, the timeline and cost change too. Please send changes in writing. If the scope changes, I'll send an updated estimate before continuing.",
+        "When approval comes after the deadline, I can't protect quality. I need it by Thursday. If it's later, launch moves to the next cycle.",
         "In the last two meetings the decision changed after we'd agreed the scope. That makes it hard to plan. I need scope changes flagged before we close.",
       ],
     },
@@ -151,7 +151,7 @@ export const TC074: CardData = {
         "I need the scope settled before I begin.",
         "Please send changes in writing.",
         "I can do this if the scope stays fixed. If it changes again today, I'll pause and replan.",
-        "Please clear your dishes before bed; if they're still there in the morning, I'll leave them on your side rather than doing them.",
+        "Please clear your dishes before bed. If they're still there in the morning, I'll leave them on your side rather than doing them.",
         "Let me know as soon as you're unsure about plans. If it's last-minute again, I'll wait for you to suggest the next one.",
         'If the concern is urgent, say "I need to interrupt for a risk," and I\'ll pause.',
       ],
@@ -162,12 +162,12 @@ export const TC074: CardData = {
       tag: "When the tone lands hard",
       tone: "Repair",
       phrases: [
-        "That came out sharper than I intended — I'm not threatening you, I'm being clear about what I can and can't do.",
+        "That came out sharper than I intended. I'm not threatening you, I'm being clear about what I can and can't do.",
         "I made that sound more like a threat than a boundary. Let me restate it.",
-        "I'm not trying to diagnose your intention; I'm describing the behaviour I experienced.",
+        "I'm not trying to diagnose your intention. I'm describing the behaviour I experienced.",
         "The part I need to be clear about is my next step, not controlling yours.",
         "Let me separate the facts from my reaction.",
-        "I skipped listening. Before I restate the request — what am I missing?",
+        "I skipped listening. Before I restate the request. What am I missing?",
         "That was too much at once. One-line version: when this happens, I need that, or I'll do this.",
       ],
     },
@@ -177,12 +177,12 @@ export const TC074: CardData = {
       tag: "Under resistance or when it lands heavily",
       tone: "High-stakes",
       phrases: [
-        "You can absolutely challenge it — I'm asking for sequencing, not silence. Finish first, challenge second.",
-        "I can hear the consequence landed heavily; the request still matters, and I want to make it fair.",
+        "You can absolutely challenge it. I'm asking for sequencing, not silence. Finish first, challenge second.",
+        "I can hear the consequence landed heavily. The request still matters, and I want to make it fair.",
         "I'm not asking you to agree, only to hear what I need.",
         "If we can't settle this here, I'll take it to the next step rather than keep going in circles.",
         "Let's slow down. Here's the behaviour I mean, without the label.",
-        "You can decide how you want to handle it; I'm being clear about what I'll do next.",
+        "You can decide how you want to handle it. I'm being clear about what I'll do next.",
       ],
     },
   ],
@@ -206,8 +206,8 @@ export const TC074: CardData = {
     {
       condition: "They're distressed or escalated",
       action:
-        "Validate or pause first; use a shorter DESC only if it's still needed.",
-      phrase: "Let's take a breath — I do want to sort this out with you.",
+        "Validate or pause first. Use a shorter DESC only if it's still needed.",
+      phrase: "Let's take a breath. I do want to sort this out with you.",
     },
     {
       condition: "The consequence would be punitive or unsafe",
@@ -219,7 +219,7 @@ export const TC074: CardData = {
     {
       condition: "They understand and agree",
       action: "Summarise the next step and stop talking.",
-      phrase: "Great — so you'll flag scope before we close, and we're set.",
+      phrase: "Great, so you'll flag scope before we close, and we're set.",
     },
   ],
   ladder: [
@@ -232,7 +232,7 @@ export const TC074: CardData = {
     {
       weak: "Overloading the other person with a long case file of everything they've ever done.",
       better: "Naming one concrete pattern.",
-      best: "Naming one pattern, one impact, one request and one respectful next step — then pausing for their response.",
+      best: "Naming one pattern, one impact, one request and one respectful next step, then pausing for their response.",
     },
   ],
   scenarios: [
@@ -240,37 +240,37 @@ export const TC074: CardData = {
       situation: "Workplace delay",
       move: "Name the deadline impact and make the fallback a process, not a punishment.",
       phrase:
-        "When approval comes after the deadline, I can't protect quality. I need it by Thursday; if it's later, launch moves to the next cycle.",
+        "When approval comes after the deadline, I can't protect quality. I need it by Thursday. If it's later, launch moves to the next cycle.",
     },
     {
       situation: "Household boundary",
       move: "State the agreement, the effect, and your own next action.",
       phrase:
-        "When dishes are left overnight after we agreed to clear them, I start the day frustrated. Please clear yours before bed; if they're still there, I'll move them to your side rather than doing them.",
+        "When dishes are left overnight after we agreed to clear them, I start the day frustrated. Please clear yours before bed. If they're still there, I'll move them to your side rather than doing them.",
     },
     {
       situation: "Friendship",
       move: "Describe the pattern and set a boundary about your own effort, not a threat.",
       phrase:
-        "When plans are cancelled once I'm already on the way, I feel disrespected. Please tell me as soon as you're unsure; if it's last-minute again, I'll wait for you to suggest the next plan.",
+        "When plans are cancelled once I'm already on the way, I feel disrespected. Please tell me as soon as you're unsure. If it's last-minute again, I'll wait for you to suggest the next plan.",
     },
     {
       situation: "Client scope creep",
       move: "Turn the consequence into a transparent process.",
       phrase:
-        "When new requirements are added after sign-off, the estimate changes. Please send changes in writing; if scope changes, I'll pause and quote the revision before continuing.",
+        "When new requirements are added after sign-off, the estimate changes. Please send changes in writing. If scope changes, I'll pause and quote the revision before continuing.",
     },
     {
       situation: "Digital overload",
       move: "Ask for the context you need and set a default if it's missing.",
       phrase:
-        "When I get multiple urgent messages without context, I can't triage. Please include the deadline and decision needed; if not, I'll respond in the normal queue.",
+        "When I get multiple urgent messages without context, I can't triage. Please include the deadline and decision needed. If not, I'll respond in the normal queue.",
     },
     {
       situation: "Team disagreement",
       move: "Sequence the input and leave a clear channel for genuine risk.",
       phrase:
-        "When objections come before the proposal is complete, the group misses the full logic. Please hold objections until the summary slide; if there's a critical risk, name it as a risk and I'll pause.",
+        "When objections come before the proposal is complete, the group misses the full logic. Please hold objections until the summary slide. If there's a critical risk, name it as a risk and I'll pause.",
     },
   ],
   calibration: {
@@ -283,12 +283,12 @@ export const TC074: CardData = {
       "The tone stays two-way rather than defensive.",
     ],
     adjust: [
-      "They argue about your tone rather than the request — slow down and restate the observable behaviour.",
-      'They go quiet or look embarrassed — add warmth: "I\'m raising this because I want us to work well together."',
-      "They fixate only on the consequence — separate the facts from your reaction and re-anchor the request.",
-      "There's repair needed under the request — lead with the relationship before the boundary.",
-      "They have less power than you — check the consequence is proportionate, transparent and not punitive.",
-      "It turns unsafe, humiliating, circular or hostile — stop, take a break, document, or escalate to a formal process.",
+      "They argue about your tone rather than the request: slow down and restate the observable behaviour.",
+      'They go quiet or look embarrassed: add warmth: "I\'m raising this because I want us to work well together."',
+      "They fixate only on the consequence: separate the facts from your reaction and re-anchor the request.",
+      "There's repair needed under the request: lead with the relationship before the boundary.",
+      "They have less power than you: check the consequence is proportionate, transparent and not punitive.",
+      "It turns unsafe, humiliating, circular or hostile: stop, take a break, document, or escalate to a formal process.",
     ],
   },
   drill: [
@@ -315,7 +315,7 @@ export const TC074: CardData = {
     {
       day: "Day 5",
       title: "Boundary, not punishment",
-      task: "Rewrite the Consequence as your own next action — what you'll do — rather than a threat about what they'll suffer.",
+      task: "Rewrite the Consequence as your own next action, what you'll do, rather than a threat about what they'll suffer.",
     },
     {
       day: "Day 6",
@@ -325,7 +325,7 @@ export const TC074: CardData = {
     {
       day: "Day 7",
       title: "Add the calibration line",
-      task: 'End with one line that hands back choice — "How does that land?" or "What am I missing?" — and use the whole thing once in a real conversation.',
+      task: 'End with one line that hands back choice ("How does that land?" or "What am I missing?") and use the whole thing once in a real conversation.',
     },
   ],
   checklist: [
@@ -334,7 +334,7 @@ export const TC074: CardData = {
     "Was my request specific, observable and proportionate?",
     "Was the consequence a respectful next step rather than a threat?",
     "Did I leave room for correction, context or negotiation?",
-    "Did I avoid using the frame to pressure, corner, sell, punish or dominate — and did I know when to stop, document or escalate instead?",
+    "Did I avoid using the frame to pressure, corner, sell, punish or dominate, and did I know when to stop, document or escalate instead?",
   ],
   example: {
     without: [
@@ -347,20 +347,20 @@ export const TC074: CardData = {
     ],
     with: [
       "You (better): \"In today's meeting, you interrupted me twice while I was explaining the timeline. I felt dismissed and it made it harder to finish the update. Please let me complete the timeline before challenging it. If you have concerns, I'll make time for them straight after.\"",
-      "You (advanced): \"I want your pushback — it improves the plan — and I need the timing to work. When the timeline got interrupted twice today before I'd finished, I lost the thread and the group didn't get the full picture. Please let me finish first, then challenge the assumptions. If something's urgent, say 'I need to interrupt for a risk,' and I'll pause.\"",
+      "You (advanced): \"I want your pushback, it improves the plan, and I need the timing to work. When the timeline got interrupted twice today before I'd finished, I lost the thread and the group didn't get the full picture. Please let me finish first, then challenge the assumptions. If something's urgent, say 'I need to interrupt for a risk,' and I'll pause.\"",
       'Them: "So I can\'t say anything now?"',
-      'You (recovery): "You can absolutely challenge it. I\'m asking for sequencing, not silence — finish first, challenge second."',
+      'You (recovery): "You can absolutely challenge it. I\'m asking for sequencing, not silence. Finish first, challenge second."',
       "Why this works:",
       "describes the behaviour, not the character",
       "names the impact without blaming motive",
       "specifies exactly what changes, and gives a route for genuine urgency",
       "keeps the consequence about sequencing, not punishment",
     ],
-    note: "The poor version hands the other person a label to argue about; the strong version hands them something concrete to say yes to.",
+    note: "The poor version hands the other person a label to argue about. The strong version hands them something concrete to say yes to.",
   },
   influencePayoff: {
     feeling:
-      '"I know exactly what they need and why — and I still have a real choice."',
+      '"I know exactly what they need and why, and I still have a real choice."',
     principle:
       "People respond to a request they can understand and answer. Clarity and fairness move people where pressure only hardens them.",
     gains: [
@@ -383,8 +383,8 @@ export const TC074: CardData = {
     body: "The other person should leave knowing exactly what happened, why it matters, what you're asking for, and what you'll do next if the pattern continues. Use the structure to become clearer, not colder.",
     example:
       'Threat: "Do that again and you\'ll regret it." Boundary: "If it happens again, I\'ll pause the discussion and reschedule with an agenda."',
-    do: "Keep the consequence about your own next action — what you will do.",
-    dont: "Don't make the consequence leverage over them — what they will suffer.",
+    do: "Keep the consequence about your own next action. What you will do.",
+    dont: "Don't make the consequence leverage over them. What they will suffer.",
   },
   method: [
     {
@@ -395,7 +395,7 @@ export const TC074: CardData = {
     {
       step: "2",
       title: "Move",
-      body: "Decide whether this needs a direct DESC statement or a softer neighbouring move first — validation, inquiry, or treating resistance as information. DESC too early can shut a conversation down.",
+      body: "Decide whether this needs a direct DESC statement or a softer neighbouring move first: validation, inquiry, or treating resistance as information. DESC too early can shut a conversation down.",
     },
     {
       step: "3",
@@ -462,14 +462,14 @@ export const TC074: CardData = {
       useWhen:
         "a repeated pattern needs a clear behaviour change and a boundary",
       phrase:
-        "In the last two meetings the scope changed after we'd agreed it. That makes it hard to plan. I need changes flagged before we close; if not, I'll pause until it's confirmed in writing.",
+        "In the last two meetings the scope changed after we'd agreed it. That makes it hard to plan. I need changes flagged before we close. If not, I'll pause until it's confirmed in writing.",
     },
     {
       depth: "Full + warmth",
       useWhen:
         "the relationship matters and repair is needed alongside the request",
       phrase:
-        "I want to keep helping and I need the scope stable. When it changes after I start, quality drops. Please confirm before I begin; if it changes, I'll pause and re-quote.",
+        "I want to keep helping and I need the scope stable. When it changes after I start, quality drops. Please confirm before I begin. If it changes, I'll pause and re-quote.",
     },
   ],
   commonMistakes: [
@@ -498,7 +498,7 @@ export const TC074: CardData = {
       mistake: "Skipping calibration",
       soundsLike: "delivering all four steps, then moving straight on",
       better:
-        '"How does that land?" — then watch whether they can actually respond.',
+        '"How does that land?", then watch whether they can actually respond.',
     },
     {
       mistake: "Reaching for DESC too early",
@@ -530,7 +530,7 @@ export const TC074: CardData = {
         "Acknowledge the concern first, then Describe, Specify and set the boundary.",
       example: [
         '"I know the deadline moved and that wasn\'t on you."',
-        "\"And when the draft still comes in after the review window, I can't do it justice. I need it by Tuesday noon; if it's later, it moves to the next cycle.\"",
+        "\"And when the draft still comes in after the review window, I can't do it justice. I need it by Tuesday noon. If it's later, it moves to the next cycle.\"",
       ],
     },
     {
@@ -539,7 +539,7 @@ export const TC074: CardData = {
         "Explore the pushback first; if the boundary still stands, state DESC cleanly.",
       example: [
         '"Say more about what makes the timing hard."',
-        '"That helps. I still need the scope confirmed before I start — if it shifts, I\'ll pause and re-quote."',
+        '"That helps. I still need the scope confirmed before I start. If it shifts, I\'ll pause and re-quote."',
       ],
     },
     {
@@ -547,8 +547,8 @@ export const TC074: CardData = {
       sequence:
         "State the request and boundary, then hand back the choice so it doesn't read as coercion.",
       example: [
-        '"Please send changes in writing; if the scope grows, I\'ll re-estimate before continuing."',
-        "\"You can decide how you want to handle it — I'm just being clear about what I'll do next.\"",
+        '"Please send changes in writing. If the scope grows, I\'ll re-estimate before continuing."',
+        "\"You can decide how you want to handle it. I'm just being clear about what I'll do next.\"",
       ],
     },
     {
@@ -564,32 +564,32 @@ export const TC074: CardData = {
     {
       id: "TC013",
       reason:
-        "DESC vs Clean request: use DESC when context, impact and a consequence matter; use a clean request when the ask can stand alone. The common trap is reaching for full DESC on a simple, low-stakes favour.",
+        "DESC vs Clean request: use DESC when context, impact and a consequence matter. Use a clean request when the ask can stand alone. The common trap is reaching for full DESC on a simple, low-stakes favour.",
     },
     {
       id: "TC052",
       reason:
-        "DESC vs SBI: both start with observable behaviour. Use SBI when the task is feedback clarity (situation, behaviour, impact); use DESC when you must also specify what changes next and name a boundary.",
+        "DESC vs SBI: both start with observable behaviour. Use SBI when the task is feedback clarity (situation, behaviour, impact). Use DESC when you must also specify what changes next and name a boundary.",
     },
     {
       id: "TC053",
       reason:
-        "DESC vs NVC / OFNR: both include an observation and a request. Choose NVC when needs, feelings and mutual understanding come first; choose DESC when a firm boundary and a practical consequence come first.",
+        "DESC vs NVC / OFNR: both include an observation and a request. Choose NVC when needs, feelings and mutual understanding come first. Choose DESC when a firm boundary and a practical consequence come first.",
     },
     {
       id: "TC073",
       reason:
-        "DESC vs Resistance-as-information: explore the pushback first when the problem is unclear; move to DESC only once you understand the resistance and the boundary still stands.",
+        "DESC vs Resistance-as-information: explore the pushback first when the problem is unclear. Move to DESC only once you understand the resistance and the boundary still stands.",
     },
     {
       id: "TC021",
       reason:
-        "DESC → Autonomy release: follow DESC with autonomy release so the consequence doesn't read as coercion — 'you can decide how to handle it; I'm just clear on what I'll do next.'",
+        "DESC → Autonomy release: follow DESC with autonomy release so the consequence doesn't read as coercion, 'you can decide how to handle it. I'm just clear on what I'll do next.'",
     },
     {
       id: "TC081",
       reason:
-        "DESC vs COIN: both are feedback mnemonics. Choose COIN when context, observation, impact and next action are enough; choose DESC when a boundary or consequence is the essential differentiator.",
+        "DESC vs COIN: both are feedback mnemonics. Choose COIN when context, observation, impact and next action are enough. Choose DESC when a boundary or consequence is the essential differentiator.",
     },
   ],
 };

@@ -6,7 +6,7 @@ export const TC043: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC043/TC043_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,17 +56,17 @@ export const TC043: CardData = {
   ],
   id: "TC043",
   whyItWorks:
-    "OARS is the four core listening moves — Open questions, Affirmations, Reflections and Summaries — used flexibly to help someone think out loud. Rather than jumping to advice, you pick the move the moment needs: an open question to invite, an affirmation to recognise genuine effort, a reflection to show you have heard, a summary to tie it together. It works because people think more clearly and stay more willing when they feel understood first. The structure lowers cognitive load and the warmth earns trust, so any influence comes from clarity and respect rather than pressure.",
+    "OARS is the four core listening moves (Open questions, Affirmations, Reflections and Summaries) used flexibly to help someone think out loud. Rather than jumping to advice, you pick the move the moment needs: an open question to invite, an affirmation to recognise genuine effort, a reflection to show you have heard, a summary to tie it together. It works because people think more clearly and stay more willing when they feel understood first. The structure lowers cognitive load and the warmth earns trust, so any influence comes from clarity and respect rather than pressure.",
   whatItIsNot: [
-    "It is not a script to recite line by line — the four letters are options to choose from, not a running order you must complete every time.",
+    "It is not a script to recite line by line: the four letters are options to choose from, not a running order you must complete every time.",
     "It is not a way to avoid listening, or to compress someone's emotion into a neat template.",
-    "It is not a tool for steering someone to your conclusion; the affirmations and reflections have to be genuine, not tactical.",
+    "It is not a tool for steering someone to your conclusion. The affirmations and reflections have to be genuine, not tactical.",
     "It is not a substitute for a straight answer when someone has clearly asked for one.",
     "If the structure is making the conversation less human, that is the signal to drop it, not to push it harder.",
   ],
   overview: {
     coreFormula: [
-      "Open -> Affirm -> Reflect -> Summarise: pick the one move the moment needs.",
+      "Open → Affirm → Reflect → Summarise: pick the one move the moment needs.",
       'Open: "What matters most to you about this?"',
       'Affirm: "You have clearly put real thought into this."',
       'Reflect: "So it sounds like the timing is the real sticking point."',
@@ -74,11 +74,11 @@ export const TC043: CardData = {
       "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
-      "Pick the single OARS move the moment needs — an open question, an affirmation, a reflection or a summary — and say it in plain words, without naming the framework.",
+      "Pick the single OARS move the moment needs (an open question, an affirmation, a reflection or a summary) and say it in plain words, without naming the framework.",
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      "Reciting all four steps mechanically so the person feels processed by a template rather than heard — running the structure even after they are already clear.",
+      "Reciting all four steps mechanically so the person feels processed by a template rather than heard: running the structure even after they are already clear.",
     bestFor: [
       "Coaching and mentoring conversations",
       "Supportive chats where someone is thinking a problem through",
@@ -108,10 +108,10 @@ export const TC043: CardData = {
         "What matters most to you about this?",
         "How would you like this to go?",
         "What have you already tried?",
-        "What is making this a hard call?",
+        "What's making this a hard call?",
         "What would a good outcome look like for you?",
         "Where would you like to start?",
-        "What is the part you keep coming back to?",
+        "What's the part you keep coming back to?",
         "What would need to be true for this to work?",
       ],
     },
@@ -123,10 +123,10 @@ export const TC043: CardData = {
       phrases: [
         "You have clearly put real thought into this.",
         "That took some courage to raise.",
-        "You have handled harder than this before.",
-        "You care about getting this right — it shows.",
+        "You've handled harder than this before.",
+        "You care about getting this right. It shows.",
         "You worked through that carefully before deciding.",
-        "It says something that you are even asking the question.",
+        "It says something that you're even asking the question.",
         "You stuck with it when it got messy.",
       ],
     },
@@ -137,10 +137,10 @@ export const TC043: CardData = {
       tone: "Warm",
       phrases: [
         "So it sounds like the timing is the real sticking point.",
-        "You are saying the work is not the problem — the workload is.",
-        "It seems like you are keener than you are letting on.",
-        "What I am hearing is that fairness matters more than speed here.",
-        "So part of this is excitement and part of it is nerves.",
+        "You're saying the work isn't the problem: the workload is.",
+        "It seems like you're keener than you're letting on.",
+        "What I'm hearing is that fairness matters more than speed here.",
+        "So part of this is excitement and part of it's nerves.",
         "Let me make sure I have it: you want in, just not yet.",
       ],
     },
@@ -151,8 +151,8 @@ export const TC043: CardData = {
       tone: "Professional",
       phrases: [
         "Let me pull that together and check I have it right.",
-        "So the main things are the cost, the timing and the team — anything missing?",
-        "Where we have landed is X. Does that match how you see it?",
+        "So the main things are the cost, the timing and the team, anything missing?",
+        "Where we've landed is X. Does that match how you see it?",
         "To sum up before we move on...",
         "So the real question underneath all this is...",
         "Have I got that right?",
@@ -170,7 +170,7 @@ export const TC043: CardData = {
         "And then?",
         "What else?",
         "In what way?",
-        "Mm — keep going.",
+        "Mm, keep going.",
         "So...?",
       ],
     },
@@ -181,7 +181,7 @@ export const TC043: CardData = {
       tone: "Repair",
       phrases: [
         "Let me say that more simply.",
-        "I think I over-structured that — here is the short version.",
+        "I think I over-structured that. Here's the short version.",
         "Ignore the framework for a second: what do you actually need?",
         "That may not be the right frame. Can we back up?",
         "What part of that helped, and what should we drop?",
@@ -195,10 +195,10 @@ export const TC043: CardData = {
       tone: "High-stakes",
       phrases: [
         "That sounds really hard. We don't have to organise it yet.",
-        "Take your time — there is no rush to sort this into steps.",
+        "Take your time. There's no rush to sort this into steps.",
         "Before anything else: how are you doing with it?",
         "I just want to understand it properly before we go anywhere.",
-        "We can work out what to do once you have said it all.",
+        "We can work out what to do once you've said it all.",
         "You don't have to have this figured out to talk it through.",
       ],
     },
@@ -207,13 +207,13 @@ export const TC043: CardData = {
     {
       condition: "They need speed",
       action:
-        "Skip to the shortest version — one reflection and a summary, no full loop.",
+        "Skip to the shortest version: one reflection and a summary, no full loop.",
       phrase: "So the key point is the deadline. What do you want to do?",
     },
     {
       condition: "They are carrying emotion",
-      action: "Validate first; delay the structure until they feel heard.",
-      phrase: "That sounds hard. Tell me what is going on.",
+      action: "Validate first. Delay the structure until they feel heard.",
+      phrase: "That sounds hard. Tell me what's going on.",
     },
     {
       condition: "They want a story or worked example",
@@ -227,8 +227,8 @@ export const TC043: CardData = {
     },
     {
       condition: "They are already clear",
-      action: "Drop OARS — don't run steps they don't need.",
-      phrase: "Sounds like you have got it. Anything you need from me?",
+      action: "Drop OARS: don't run steps they don't need.",
+      phrase: "Sounds like you've got it. Anything you need from me?",
     },
   ],
   ladder: [
@@ -243,9 +243,9 @@ export const TC043: CardData = {
       best: "Letting reflections carry most of the weight, with questions used sparingly.",
     },
     {
-      weak: 'Generic praise — "Great job."',
-      better: 'Naming what they did — "You worked through that carefully."',
-      best: 'Affirming the value behind it — "You clearly care about getting this right for them."',
+      weak: 'Generic praise, "Great job."',
+      better: 'Naming what they did: "You worked through that carefully."',
+      best: 'Affirming the value behind it: "You clearly care about getting this right for them."',
     },
   ],
   scenarios: [
@@ -253,13 +253,13 @@ export const TC043: CardData = {
       situation: "Work meeting",
       move: "Use OARS to make a contribution concise and land it, then check.",
       phrase:
-        "Sounds like we agree on the timeline; the open question is budget. Have I read that right?",
+        "Sounds like we agree on the timeline. The open question is budget. Have I read that right?",
     },
     {
       situation: "Email or written message",
       move: "Put each move into a short, scannable line rather than a wall of text.",
       phrase:
-        "Quick summary, one question, one suggested next step — tell me if I have missed anything.",
+        "Quick summary, one question, one suggested next step. Tell me if I've missed anything.",
     },
     {
       situation: "Giving feedback",
@@ -271,7 +271,7 @@ export const TC043: CardData = {
       situation: "Coaching a decision",
       move: "Open and reflect before offering any view of your own.",
       phrase:
-        "What is pulling you each way? ... So it is the risk, not the role, that is the snag.",
+        "What's pulling you each way? ... So it's the risk, not the role, that's the snag.",
     },
     {
       situation: "Difficult conversation",
@@ -281,15 +281,14 @@ export const TC043: CardData = {
     },
     {
       situation: "Someone venting",
-      move: "Reflect and affirm; hold the summary until they are ready for it.",
-      phrase:
-        "That sounds exhausting. You have kept it together through a lot.",
+      move: "Reflect and affirm. Hold the summary until they are ready for it.",
+      phrase: "That sounds exhausting. You've kept it together through a lot.",
     },
   ],
   calibration: {
     working: [
       "They become clearer or more specific.",
-      'They say "yes, exactly" — or correct a small detail, which also means they feel heard.',
+      'They say "yes, exactly", or correct a small detail, which also means they feel heard.',
       "They summarise the point back to you accurately.",
       "They move from circling the problem to choosing a next step.",
       "They open up more than they had been.",
@@ -301,14 +300,14 @@ export const TC043: CardData = {
       "They clearly need the human context before any structure.",
       "It starts to sound defensive, performative or salesy.",
       "You are doing more of the talking than they are.",
-      "You have reflected twice and they still feel unheard — drop the structure and just listen.",
+      "You have reflected twice and they still feel unheard. Drop the structure and just listen.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the four moves",
-      task: "In a conversation you are part of or overhear, silently label each thing said as an Open question, Affirmation, Reflection, Summary — or none of them.",
+      task: "In a conversation you are part of or overhear, silently label each thing said as an Open question, Affirmation, Reflection, Summary, or none of them.",
     },
     {
       day: "Day 2",
@@ -318,7 +317,7 @@ export const TC043: CardData = {
     {
       day: "Day 3",
       title: "One honest affirmation",
-      task: "Once today, name something specific a person actually did well — their effort or a value it showed, not generic praise.",
+      task: "Once today, name something specific a person actually did well. Their effort or a value it showed, not generic praise.",
     },
     {
       day: "Day 4",
@@ -352,40 +351,40 @@ export const TC043: CardData = {
   example: {
     without: [
       'Person: "I\'m not sure I should put myself forward to lead the rollout."',
-      'You: "You should definitely do it — it\'s a great opportunity. Just say yes."',
+      'You: "You should definitely do it. It\'s a great opportunity. Just say yes."',
       'Person: "Maybe. There\'s a lot on though."',
-      "You: \"Everyone's busy. You'll be fine — I'll tell them you're keen.\"",
+      "You: \"Everyone's busy. You'll be fine. I'll tell them you're keen.\"",
       "Why it's weak:",
       "jumps straight to advice",
-      "never finds out what is actually holding them back",
+      "never finds out what's actually holding them back",
       "decides for them instead of with them",
     ],
     with: [
       'Person: "I\'m not sure I should put myself forward to lead the rollout."',
       'You: "What\'s making you hesitate?" (open)',
       'Person: "I want it, but the timing\'s rough with everything else on."',
-      'You: "So you\'re drawn to it — the hesitation is the timing, not the role." (reflection)',
+      'You: "So you\'re drawn to it: the hesitation is the timing, not the role." (reflection)',
       'Person: "Exactly. If it were next quarter I\'d say yes without thinking."',
       'You: "You carried the last two launches really well, so I don\'t doubt you could." (affirmation)',
-      'Person: "Thanks. I think I could — I\'d just need to drop something else."',
+      'Person: "Thanks. I think I could. I\'d just need to drop something else."',
       'You: "So: you want the role, you can do the role, and the real question is what comes off your plate. Have I got that right?" (summary)',
-      'Person: "Yeah — that\'s it. Let me look at what I can hand over."',
+      'Person: "Yeah, that\'s it. Let me look at what I can hand over."',
       "Why this works:",
       "opens instead of instructing",
       "reflects the real sticking point back to them",
       "affirms a genuine track record, not empty praise",
       "summarises so they own the decision",
     ],
-    note: "The four moves are not announced or run in strict order — they are chosen as the moment needs, and the summary hands the decision back to them.",
+    note: "The four moves are not announced or run in strict order. They are chosen as the moment needs, and the summary hands the decision back to them.",
   },
   influencePayoff: {
     feeling:
-      '"They actually understood what I was getting at — and I feel clearer than before we talked."',
+      '"They actually understood what I was getting at, and I feel clearer than before we talked."',
     principle:
-      "People think and decide better when they feel understood first; being received makes them more open to what comes next.",
+      "People think and decide better when they feel understood first. Being received makes them more open to what comes next.",
     gains: [
       "A clearer path through their own thinking",
-      "Lower cognitive load — they don't have to hold everything at once",
+      "Lower cognitive load: they don't have to hold everything at once",
       "The sense of being heard rather than managed",
       "Trust that carries into the harder part of the conversation",
       "Better decisions, because they reached them rather than being pushed",
@@ -403,7 +402,7 @@ export const TC043: CardData = {
     headline: "Scaffolding, not choreography",
     body: "Use the four moves to organise your thinking, then take the scaffolding down before you speak. The other person should feel clarity and warmth, never the sense that they are being walked through a technique.",
     example:
-      "\"So it's the timing, not the role. You've handled bigger. What would make room for it?\" — that is Open, Affirm and Reflect with not a single seam showing.",
+      "\"So it's the timing, not the role. You've handled bigger. What would make room for it?\" That's Open, Affirm and Reflect with not a single seam showing.",
     dont: "Don't announce the steps, and don't run all four when one would do.",
     do: "Do pick the single move the moment needs, and drop the structure the instant it stops helping.",
   },
@@ -411,22 +410,22 @@ export const TC043: CardData = {
     {
       step: "1",
       title: "Decide if OARS fits",
-      body: "Choose the framework only when it will actually help — someone thinking a problem through, not someone who has asked for a straight answer. Don't name it out loud.",
+      body: "Choose the framework only when it will actually help: someone thinking a problem through, not someone who has asked for a straight answer. Don't name it out loud.",
       examples: [
         {
           label: "Fits",
-          text: "They are weighing something up and talking in circles.",
+          text: "They're weighing something up and talking in circles.",
         },
         {
           label: "Doesn't fit",
-          text: 'They have asked "just tell me what you\'d do."',
+          text: "They've asked \"just tell me what you'd do.\"",
         },
       ],
     },
     {
       step: "2",
       title: "Open",
-      body: "Ask a question that invites their thinking rather than a yes or no. Open questions do most of the early work — they hand the floor back to the person.",
+      body: "Ask a question that invites their thinking rather than a yes or no. Open questions do most of the early work. They hand the floor back to the person.",
       examples: [
         { label: "Open", text: '"What matters most to you about this?"' },
         { label: "Too closed", text: '"So you\'re going to take it, right?"' },
@@ -435,7 +434,7 @@ export const TC043: CardData = {
     {
       step: "3",
       title: "Affirm",
-      body: "Notice genuine effort, strength or value — specifically, not with empty praise. Affirmations build the trust that makes reflections and summaries land.",
+      body: "Notice genuine effort, strength or value: specifically, not with empty praise. Affirmations build the trust that makes reflections and summaries land.",
       examples: [
         {
           label: "Genuine",
@@ -447,12 +446,12 @@ export const TC043: CardData = {
     {
       step: "4",
       title: "Reflect",
-      body: "Say back what you heard them mean, so they feel tracked and can correct you. A reflection is a statement, not a question — it shows understanding rather than testing it.",
+      body: "Say back what you heard them mean, so they feel tracked and can correct you. A reflection is a statement, not a question. It shows understanding rather than testing it.",
       examples: [
         { label: "Simple", text: '"So the timing is the real issue."' },
         {
           label: "Double-sided",
-          text: '"Part of you wants it; part of you isn\'t ready."',
+          text: '"Part of you wants it. Part of you isn\'t ready."',
         },
       ],
     },
@@ -470,20 +469,20 @@ export const TC043: CardData = {
     {
       step: "6",
       title: "Adapt or drop it",
-      body: "If they look confused or resistant, don't push the structure harder — summarise, invite correction, or drop the framework and simply listen.",
+      body: "If they look confused or resistant, don't push the structure harder: summarise, invite correction, or drop the framework and simply listen.",
       examples: [
         {
           label: "Recover",
-          text: '"Let me say that more simply — what do you actually need right now?"',
+          text: '"Let me say that more simply. What do you actually need right now?"',
         },
       ],
     },
   ],
   liveThreadClues: [
-    '"I don\'t really know where to start..." — reach for an open question.',
-    '"I\'ve been trying so hard..." — reach for an affirmation.',
-    '"It\'s complicated..." — reach for a reflection.',
-    "They have given you a lot at once — reach for a summary.",
+    '"I don\'t really know where to start..." Reach for an open question.',
+    '"I\'ve been trying so hard..." Reach for an affirmation.',
+    '"It\'s complicated..." Reach for a reflection.',
+    "They have given you a lot at once: reach for a summary.",
     "They are thinking aloud, not asking for an answer.",
     "They keep circling the same worry.",
     "They pause, as if waiting to be understood before they go on.",
@@ -506,7 +505,7 @@ export const TC043: CardData = {
     },
     {
       depth: "Meaning",
-      useWhen: "Strong trust; reflect the value beneath the words",
+      useWhen: "Strong trust. Reflect the value beneath the words",
       phrase: "It matters to you to do this properly, not just quickly.",
     },
   ],
@@ -516,13 +515,13 @@ export const TC043: CardData = {
       soundsLike:
         '"Okay, open question... now an affirmation... now a reflection..."',
       better:
-        '"What matters most to you here?" — one move, chosen for the moment.',
+        '"What matters most to you here?" One move, chosen for the moment.',
     },
     {
       mistake: "Only asking questions",
       soundsLike: '"Why? And then what? And how did that go?"',
       better:
-        '"So the hard part was the timing." — a reflection between the questions.',
+        '"So the hard part was the timing." A reflection between the questions.',
     },
     {
       mistake: "Empty affirmations",
@@ -531,8 +530,8 @@ export const TC043: CardData = {
     },
     {
       mistake: "Structure over emotion",
-      soundsLike: '"Let me summarise the key points..." while they are upset.',
-      better: '"That sounds really hard. Take your time." — validate first.',
+      soundsLike: '"Let me summarise the key points..." while they\'re upset.',
+      better: '"That sounds really hard. Take your time." Validate first.',
     },
     {
       mistake: "Over-explaining after the point has landed",
@@ -547,20 +546,20 @@ export const TC043: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured — let me say it more simply.",
+    "I made that too structured. Let me say it more simply.",
     "That may not be the useful frame. Let me back up.",
     "I don't want the structure to override the actual issue.",
     "What part of that was useful, and what should we drop?",
-    "Forget the four steps — what do you actually need from me right now?",
+    "Forget the four steps. What do you actually need from me right now?",
     "Let me stop organising and just listen.",
     "I jumped to summarising before I'd really heard you. Say more.",
   ],
   bestRecoveryLine:
-    "Forget the four steps — what do you actually need from me right now?",
+    "Forget the four steps. What do you actually need from me right now?",
   chains: [
     {
       label: "Structure then check",
-      sequence: "OARS -> Summary check (TC011)",
+      sequence: "OARS → Summary check (TC011)",
       example: [
         "Move through the moves, then confirm you both heard the same thing.",
         '"So the main point is the timeline slipping. Is that how you\'d put it too?"',
@@ -568,26 +567,26 @@ export const TC043: CardData = {
     },
     {
       label: "Structure then ask",
-      sequence: "OARS -> Clean request (TC013)",
+      sequence: "OARS → Clean request (TC013)",
       example: [
         "Once the issue is clear, make the next ask specific.",
-        '"Given all that — could you send me the revised dates by Thursday?"',
+        '"Given all that. Could you send me the revised dates by Thursday?"',
       ],
     },
     {
       label: "Structure then release",
-      sequence: "OARS -> Autonomy release (TC021)",
+      sequence: "OARS → Autonomy release (TC021)",
       example: [
         "After summarising, hand the choice back.",
-        "\"That's how it looks to me — but it's genuinely your call.\"",
+        "\"That's how it looks to me, but it's genuinely your call.\"",
       ],
     },
     {
       label: "Validate then structure",
-      sequence: "Validate the concern (TC014) -> OARS",
+      sequence: "Validate the concern (TC014) → OARS",
       example: [
         "If emotion is high, acknowledge it first, then organise the thinking.",
-        "\"That's a lot to carry. When you're ready — what matters most to sort out first?\"",
+        "\"That's a lot to carry. When you're ready, what matters most to sort out first?\"",
       ],
     },
   ],
@@ -595,27 +594,27 @@ export const TC043: CardData = {
     {
       id: "TC004",
       reason:
-        "Reflective listening is the R in OARS on its own. Reach for OARS when you want the full open-affirm-reflect-summarise loop; use plain reflective listening when a single reflection is all the moment needs.",
+        "Reflective listening is the R in OARS on its own. Reach for OARS when you want the full open-affirm-reflect-summarise loop. Use plain reflective listening when a single reflection is all the moment needs.",
     },
     {
       id: "TC011",
       reason:
-        "Summary check is the S in OARS as a standalone move. Use OARS to work through the whole conversation; use a summary check when you only need to confirm you both heard the same thing.",
+        "Summary check is the S in OARS as a standalone move. Use OARS to work through the whole conversation. Use a summary check when you only need to confirm you both heard the same thing.",
     },
     {
       id: "TC006",
       reason:
-        "Emotional labelling names the feeling directly. Use OARS to organise thinking; label the emotion first when the feeling is the thing that needs naming before anything else.",
+        "Emotional labelling names the feeling directly. Use OARS to organise thinking. Label the emotion first when the feeling is the thing that needs naming before anything else.",
     },
     {
       id: "TC033",
       reason:
-        'Minimal encouragers are the lightest possible O — "go on", "say more". Use OARS when you are actively shaping the conversation; use minimal encouragers when you just need to keep them talking.',
+        'Minimal encouragers are the lightest possible O: "go on", "say more". Use OARS when you are actively shaping the conversation. Use minimal encouragers when you just need to keep them talking.',
     },
     {
       id: "TC046",
       reason:
-        "Elicit-provide-elicit is for when you do need to give information. OARS keeps you in listening mode; EPE is the disciplined way to slot advice in without lecturing — ask, offer, then ask again.",
+        "Elicit-provide-elicit is for when you do need to give information. OARS keeps you in listening mode. EPE is the disciplined way to slot advice in without lecturing. Ask, offer, then ask again.",
     },
   ],
 };

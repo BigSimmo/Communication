@@ -6,7 +6,7 @@ export const TC093: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC093/TC093_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,10 +56,10 @@ export const TC093: CardData = {
   ],
   id: "TC093",
   whyItWorks:
-    'The How-so prompt is a compact elaboration question: when someone gives a claim, reaction, preference or vague conclusion, you ask a short, warm "How so?" that invites the mechanism, example or reasoning behind it. It works because it lets the speaker define their own meaning instead of you guessing or debating — a single short prompt often surfaces the real criterion faster than a long explanation or a stack of detailed questions, and the person feels understood rather than cross-examined.',
+    'The How-so prompt is a compact elaboration question: when someone gives a claim, reaction, preference or vague conclusion, you ask a short, warm "How so?" that invites the mechanism, example or reasoning behind it. It works because it lets the speaker define their own meaning instead of you guessing or debating: a single short prompt often surfaces the real criterion faster than a long explanation or a stack of detailed questions, and the person feels understood rather than cross-examined.',
   whatItIsNot: [
     '"How so?" said with a sceptical tone that really means "prove it."',
-    '"How could you possibly think that?" — a challenge dressed up as a question.',
+    '"How could you possibly think that?" A challenge dressed up as a question.',
     'Asking "why?" over and over, which tends to sound accusatory or abstract.',
     "A repetitive interrogation after the person has already answered.",
     "A Socratic trap or a disguised objection that makes someone defend themselves.",
@@ -67,9 +67,9 @@ export const TC093: CardData = {
   overview: {
     coreFormula: [
       "You said the second option feels safer. How so?",
-      "You are worried the launch will slip. How do you see that happening?",
+      "You're worried the launch will slip. How do you see that happening?",
       "You said the tone felt different. How did it come across?",
-      "You think the client is not ready. How are you reading that?",
+      "You think the client isn't ready. How are you reading that?",
       "You said this matters more than speed. How does that show up in the decision?",
     ],
     minimumViableMove:
@@ -135,13 +135,13 @@ export const TC093: CardData = {
       tag: "Text and email prompts",
       tone: "Direct",
       phrases: [
-        "Can you say how you are reading that?",
+        "Can you say how you're reading that?",
         "What makes it feel that way? How is it showing up?",
         "Could you give one example of how that happens?",
         "How would that change the decision from your view?",
-        "Can you say how you are seeing the issue — is it audience fit, timing, or execution risk?",
+        "Can you say how you're seeing the issue, is it audience fit, timing, or execution risk?",
         "How does that pain show up day to day?",
-        "What is the main thing pointing you there?",
+        "What's the main thing pointing you there?",
       ],
     },
     {
@@ -166,11 +166,11 @@ export const TC093: CardData = {
       tone: "High-stakes",
       phrases: [
         "I want to understand before I respond. How so?",
-        "Can you walk me through how you are seeing it?",
-        "What is the path from the issue to that concern?",
+        "Can you walk me through how you're seeing it?",
+        "What's the path from the issue to that concern?",
         "How would you define the risk here?",
         "What would make that outcome more likely?",
-        "Before I push back, can you walk me through how you are seeing it?",
+        "Before I push back, can you walk me through how you're seeing it?",
         "I want to understand your read before I respond. How are you seeing it?",
       ],
     },
@@ -180,12 +180,12 @@ export const TC093: CardData = {
       tag: "Repair the frame",
       tone: "Repair",
       phrases: [
-        "I may not have the full picture — how so?",
+        "I may not have the full picture. How so?",
         "Help me understand the shape of it. How is it showing up?",
-        "I am not challenging it; I am trying to understand how it works.",
+        "I'm not challenging it. I'm trying to understand how it works.",
         "That sounds important. How is it showing up?",
         "I want to understand before responding. How do you mean?",
-        "No pressure to unpack everything — how is that showing up?",
+        "No pressure to unpack everything. How is that showing up?",
       ],
     },
   ],
@@ -198,7 +198,7 @@ export const TC093: CardData = {
     {
       condition: "One word is doing the main work",
       action: "Pick up that exact word first, then ask how.",
-      phrase: 'You said "fragile" — how is it fragile?',
+      phrase: 'You said "fragile". How is it fragile?',
     },
     {
       condition: "You need reasoning, mechanism or an example",
@@ -212,13 +212,13 @@ export const TC093: CardData = {
     },
     {
       condition: "They tighten or sound defensive",
-      action: "Repair the frame before asking again; do not repeat the prompt.",
-      phrase: "I am not challenging it — I am trying to understand.",
+      action: "Repair the frame before asking again. Do not repeat the prompt.",
+      phrase: "I'm not challenging it. I'm trying to understand.",
     },
     {
       condition: "Enough is clear now",
-      action: "Stop asking and respond; if not, ask one narrower how-question.",
-      phrase: "What is the main thing pointing you there?",
+      action: "Stop asking and respond. If not, ask one narrower how-question.",
+      phrase: "What's the main thing pointing you there?",
     },
   ],
   ladder: [
@@ -228,7 +228,7 @@ export const TC093: CardData = {
       best: "I want to understand your read before I respond. How are you seeing it?",
     },
     {
-      weak: "What is the problem now?",
+      weak: "What's the problem now?",
       better: "How so?",
       best: "What are you noticing that makes it feel risky?",
     },
@@ -240,35 +240,35 @@ export const TC093: CardData = {
     {
       weak: "How is that true?",
       better: "How are you reading it?",
-      best: "Before I push back, can you walk me through how you are seeing it?",
+      best: "Before I push back, can you walk me through how you're seeing it?",
     },
   ],
   scenarios: [
     {
-      situation: 'Team disagreement — "This timeline is unrealistic."',
-      move: "Ask how it breaks down; listen for dependency, capacity or stakeholder timing, then reflect the real blocker.",
+      situation: 'Team disagreement: "This timeline is unrealistic."',
+      move: "Ask how it breaks down. Listen for dependency, capacity or stakeholder timing, then reflect the real blocker.",
       phrase: "How do you see it breaking down?",
     },
     {
-      situation: 'Customer discovery — "The old tool is painful."',
-      move: "Ask how the pain shows up day to day; listen for frequency, cost and workarounds.",
+      situation: 'Customer discovery: "The old tool is painful."',
+      move: "Ask how the pain shows up day to day. Listen for frequency, cost and workarounds.",
       phrase: "How does that pain show up day to day?",
     },
     {
-      situation: 'Personal support — "I just feel disconnected lately."',
-      move: "Soften, then ask how it has been showing up; listen for routine, mood and energy before naming it.",
+      situation: 'Personal support: "I just feel disconnected lately."',
+      move: "Soften, then ask how it has been showing up. Listen for routine, mood and energy before naming it.",
       phrase: "How has that been showing up?",
     },
     {
-      situation: 'Leadership decision — "The team is not ready."',
-      move: "Ask how they are reading readiness; listen for skill, confidence and alignment, then look for a small signal.",
+      situation: 'Leadership decision: "The team is not ready."',
+      move: "Ask how they are reading readiness. Listen for skill, confidence and alignment, then look for a small signal.",
       phrase: "How are you reading readiness?",
     },
     {
-      situation: 'Digital message — "I am not sure this direction works."',
+      situation: 'Digital message: "I am not sure this direction works."',
       move: "Reply with a category-offering how-question so they can name the type of concern, then respond to the category.",
       phrase:
-        "Can you say how you are seeing the issue — is it audience fit, timing, or execution risk?",
+        "Can you say how you're seeing the issue, is it audience fit, timing, or execution risk?",
     },
     {
       situation: 'Sensitive one-to-one where "why?" would sound sharp',
@@ -286,20 +286,20 @@ export const TC093: CardData = {
       "They move from a vague label to a concrete cause.",
     ],
     adjust: [
-      'They answer defensively ("I just think that, okay?") — repair the frame before asking again.',
-      'They ask "What do you mean?" or seem unsure how much detail you want — narrow the question.',
-      "The answer becomes circular — stop and reflect what you already have.",
-      "They look like they feel judged — add warmth or drop the thread.",
-      "They give a clear answer and are ready for a response — stop asking and reply.",
-      "They signal privacy or fatigue — let it rest.",
-      "The moment needs a decision or action — move to the next step instead of exploring.",
+      'They answer defensively ("I just think that, okay?"): repair the frame before asking again.',
+      'They ask "What do you mean?" or seem unsure how much detail you want: narrow the question.',
+      "The answer becomes circular: stop and reflect what you already have.",
+      "They look like they feel judged: add warmth or drop the thread.",
+      "They give a clear answer and are ready for a response: stop asking and reply.",
+      "They signal privacy or fatigue. Let it rest.",
+      "The moment needs a decision or action: move to the next step instead of exploring.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Notice the compression",
-      task: "Through the day, catch three vague statements — a preference, a concern and a reaction — and just note them. Do not respond yet; only practise recognising when something is compressed.",
+      task: "Through the day, catch three vague statements (a preference, a concern and a reaction) and just note them. Do not respond yet. Only practise recognising when something is compressed.",
     },
     {
       day: "Day 2",
@@ -309,7 +309,7 @@ export const TC093: CardData = {
     {
       day: "Day 3",
       title: "Say it warmly",
-      task: "Say each prompt aloud twice — once flat, once curious. Keep only the warm version and notice how tone alone changes it from challenge to invitation.",
+      task: "Say each prompt aloud twice. Once flat, once curious. Keep only the warm version and notice how tone alone changes it from challenge to invitation.",
     },
     {
       day: "Day 4",
@@ -329,7 +329,7 @@ export const TC093: CardData = {
     {
       day: "Day 7",
       title: "Ask, then move",
-      task: "Use How-so to open, reflect what you heard, then chain into a next step — a summary, a bounded request or permission-based advice. Stop asking once enough is clear.",
+      task: "Use How-so to open, reflect what you heard, then chain into a next step: a summary, a bounded request or permission-based advice. Stop asking once enough is clear.",
     },
   ],
   checklist: [
@@ -342,28 +342,28 @@ export const TC093: CardData = {
   ],
   example: {
     without: [
-      'A: "I do not think the client is ready for the new proposal."',
+      'A: "I don\'t think the client is ready for the new proposal."',
       'B: "Why not? They asked for it. We already discussed this."',
-      'A: "I know, but I still think it is too early."',
-      'B: "That does not make sense."',
+      'A: "I know, but I still think it\'s too early."',
+      'B: "That doesn\'t make sense."',
       "Why it fails: B treats the concern as a claim to defeat, not a signal to understand.",
     ],
     with: [
-      'A: "I do not think the client is ready for the new proposal."',
+      'A: "I don\'t think the client is ready for the new proposal."',
       'B: "How so?"',
       'A: "They keep asking about basics we covered weeks ago."',
-      'B: "So the issue is not interest; it is readiness and retention."',
+      "B: \"So the issue isn't interest. It's readiness and retention.\"",
       'A: "Exactly."',
-      'Advanced: "I want to understand that before we decide. How are you reading their readiness?" — then reflect: "So it might land with the sponsor but fail with the users who implement it."',
+      'Advanced: "I want to understand that before we decide. How are you reading their readiness?", then reflect: "So it might land with the sponsor but fail with the users who implement it."',
       'B: "Would a short readiness check before the proposal reduce that risk?"',
       "Why it works: B asks for the mechanism, reflects the real concern, and chains into risk reduction rather than premature persuasion.",
     ],
-    note: "The poor version defends against the concern; the strong version treats it as information and asks for the path behind it.",
+    note: "The poor version defends against the concern. The strong version treats it as information and asks for the path behind it.",
   },
   influencePayoff: {
     feeling: '"They wanted to understand my thinking, not win against it."',
     principle:
-      "A single short prompt often surfaces more useful information than a long explanation or a multi-part question — its power comes from restraint.",
+      "A single short prompt often surfaces more useful information than a long explanation or a multi-part question: its power comes from restraint.",
     gains: [
       "Clarity without pressure",
       "The reasoning behind a preference, made visible",
@@ -382,7 +382,7 @@ export const TC093: CardData = {
   },
   fieldTip: {
     headline: 'Put a cushion before "How so?" when the stakes are high.',
-    body: 'A bare "How so?" can read as a trap when tension is high. A short respect signal in front tells them the question is not an attack — and the silence after it does the real work.',
+    body: 'A bare "How so?" can read as a trap when tension is high. A short respect signal in front tells them the question is not an attack, and the silence after it does the real work.',
     dont: "How so?",
     do: "I want to understand your read before I respond. How are you seeing it?",
   },
@@ -390,13 +390,13 @@ export const TC093: CardData = {
     {
       step: "1",
       title: "Catch the compressed statement",
-      body: 'Listen for a conclusion, reaction, preference or concern that has not been unpacked — "that felt off," "they are not ready," "I like the second one." That is your cue.',
+      body: 'Listen for a conclusion, reaction, preference or concern that has not been unpacked: "that felt off," "they are not ready," "I like the second one." That is your cue.',
       examples: [{ label: "Cue", text: '"That meeting felt strange."' }],
     },
     {
       step: "2",
       title: "Choose the right level",
-      body: "Ask broadly if the whole statement is vague; ask specifically if one word or claim is carrying the weight. Broad opens the door; narrow sharpens the focus.",
+      body: "Ask broadly if the whole statement is vague. Ask specifically if one word or claim is carrying the weight. Broad opens the door. Narrow sharpens the focus.",
       examples: [
         { label: "Broad", text: "How so?" },
         { label: "Narrow", text: "How did it feel strange?" },
@@ -479,13 +479,13 @@ export const TC093: CardData = {
       mistake: "Using a sceptical tone",
       soundsLike: '"How so?" delivered sharply, meaning "prove it."',
       better:
-        '"I want to understand how you are seeing it" — curious and unhurried.',
+        '"I want to understand how you\'re seeing it". Curious and unhurried.',
     },
     {
       mistake: "Overusing the same phrase",
       soundsLike: '"How so?" ... "How so?" ... "How so?"',
       better:
-        'Vary it: "How does that show up?" then "What is the main thing pointing you there?"',
+        'Vary it: "How does that show up?" then "What\'s the main thing pointing you there?"',
     },
     {
       mistake: "Asking too broadly when the issue is specific",
@@ -495,12 +495,12 @@ export const TC093: CardData = {
     {
       mistake: "Stacking questions",
       soundsLike: '"How so, what happened, who said what, and why?"',
-      better: 'Ask one: "How so?" — then wait.',
+      better: 'Ask one: "How so?", then wait.',
     },
     {
       mistake: "Interrupting the answer",
       soundsLike: "Jumping in before they finish the thought.",
-      better: "Let the silence run; the value comes after the question.",
+      better: "Let the silence run. The value comes after the question.",
     },
     {
       mistake: "Using it to stall",
@@ -519,16 +519,16 @@ export const TC093: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I am not challenging it — I am trying to understand the shape of it.",
+    "I'm not challenging it. I'm trying to understand the shape of it.",
     "That came out sharper than I meant. How is it showing up from your side?",
-    "You do not need to justify it. I am just trying to understand what you are noticing.",
-    "Let me soften that — what is the main thing pointing you that way?",
+    "You don't need to justify it. I'm just trying to understand what you're noticing.",
+    "Let me soften that. What's the main thing pointing you that way?",
     "I might be missing context. What part should I understand first?",
-    "We can pause there if it is not useful to unpack.",
-    "Thanks, that gives me the picture. I do not need more detail than you want to share.",
+    "We can pause there if it's not useful to unpack.",
+    "Thanks, that gives me the picture. I don't need more detail than you want to share.",
   ],
   bestRecoveryLine:
-    "I am not challenging it — I am trying to understand the shape of it.",
+    "I'm not challenging it. I'm trying to understand the shape of it.",
   chains: [
     {
       label: "Open then reflect",
@@ -579,7 +579,7 @@ export const TC093: CardData = {
     {
       id: "TC025",
       reason:
-        "Mirror the exact wording when the phrase itself matters; ask How-so when it is the reasoning behind the words, not the words, that you need.",
+        "Mirror the exact wording when the phrase itself matters. Ask How-so when it is the reasoning behind the words, not the words, that you need.",
     },
     {
       id: "TC034",
@@ -589,12 +589,12 @@ export const TC093: CardData = {
     {
       id: "TC087",
       reason:
-        'Invite a story for sequence and scene ("what happened?"); ask How-so for the mechanism or criterion behind a claim.',
+        'Invite a story for sequence and scene ("what happened?"). Ask How-so for the mechanism or criterion behind a claim.',
     },
     {
       id: "TC100",
       reason:
-        "Ask what they made of an event for their interpretation; ask How-so for the path and mechanics behind the statement.",
+        "Ask what they made of an event for their interpretation. Ask How-so for the path and mechanics behind the statement.",
     },
   ],
 };

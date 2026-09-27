@@ -6,7 +6,7 @@ export const TC076: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC076/TC076_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -123,7 +123,7 @@ export const TC076: CardData = {
         "That sounds like a lot to carry. If one question is okay, what would be useful from me?",
         "Thanks for trusting me with that. I'll ask gently: what do you need right now?",
         "I'm curious, but no pressure to go into it. What drew you to that?",
-        "That sounds heavy. I won't dig; would it help to talk about what comes next?",
+        "That sounds heavy. I won't dig. Would it help to talk about what comes next?",
         "Only if you want to: was that more of a relief or more of a loss?",
         "No pressure to unpack it. What matters most to you at the moment?",
       ],
@@ -153,8 +153,8 @@ export const TC076: CardData = {
       phrases: [
         "Answer whichever is easiest: timing, budget, or scope?",
         "No need for a long reply. Was the main issue timing, tone, or something else?",
-        "I sent too many questions; just answer the first one if it's useful.",
-        "This might be easier live; no pressure to unpack it by text.",
+        "I sent too many questions. Just answer the first one if it's useful.",
+        "This might be easier live. No pressure to unpack it by text.",
         "You can ignore this if it's too much to type. What was the headline?",
         "Give me the short version and I'll follow up only if I need to.",
         "Whichever is simpler to answer is fine by me.",
@@ -172,7 +172,7 @@ export const TC076: CardData = {
         "I asked that too sharply. Let me reframe it.",
         "We can leave this if it feels like too much.",
         "That sounded accusatory. What I meant was: what were you working with?",
-        "I asked that badly; I'm looking for context, not a defence.",
+        "I asked that badly. I'm looking for context, not a defence.",
         "The general version is enough. We don't need the private details.",
         "I'll follow your lead on whether this is worth discussing.",
       ],
@@ -197,7 +197,7 @@ export const TC076: CardData = {
     {
       condition: "Do I actually need this information?",
       action:
-        "If no, don't ask; offer presence, validation, or silence. If yes, continue.",
+        "If no, don't ask. Offer presence, validation, or silence. If yes, continue.",
       phrase: "You don't have to explain anything. I'm just here.",
     },
     {
@@ -262,7 +262,7 @@ export const TC076: CardData = {
         "Personal disclosure: they share something vulnerable and your curiosity jumps ahead.",
       move: "Reflect the weight, ask permission, then ask one support-oriented question.",
       phrase:
-        "That sounds heavy. I won't dig; would it help to talk about what you need next?",
+        "That sounds heavy. I won't dig. Would it help to talk about what you need next?",
     },
     {
       situation:
@@ -307,7 +307,7 @@ export const TC076: CardData = {
       "They deflect with a joke or change the subject.",
       "Defensive wording creeps in: 'It wasn't like that' or 'Why are you asking?'",
       "Posture closes: less eye contact, folded arms, a flatter tone.",
-      "A direct boundary appears ('I don't want to talk about it'); stop and leave it.",
+      "A direct boundary appears ('I don't want to talk about it'). Stop and leave it.",
       "You notice your questions keep circling back to the same private point.",
       "It has become about your need to know rather than their willingness to share.",
     ],
@@ -346,7 +346,7 @@ export const TC076: CardData = {
     {
       day: "Day 7",
       title: "Practise the repair",
-      task: "Rehearse one recovery line until it sounds natural ('That sounded like an interrogation; let me slow down'), then use it the next time a question lands too sharply.",
+      task: "Rehearse one recovery line until it sounds natural ('That sounded like an interrogation. Let me slow down'), then use it the next time a question lands too sharply.",
     },
   ],
   checklist: [
@@ -403,7 +403,7 @@ export const TC076: CardData = {
   },
   fieldTip: {
     headline: "One question lands better than five.",
-    body: "If your curiosity is racing, don't speed the conversation up; slow yourself down. Make one human comment, ask the one question that matters, and give the person an easy way to answer less.",
+    body: "If your curiosity is racing, don't speed the conversation up. Slow yourself down. Make one human comment, ask the one question that matters, and give the person an easy way to answer less.",
     example:
       "Pocket phrase: 'I don't want this to feel like an interview. One small question, and you can skip it: what matters most here?'",
     dont: "Don't stack 'why, who, when, how much' and assume a soft tone is enough.",
@@ -486,7 +486,7 @@ export const TC076: CardData = {
     {
       mistake: "Treating silence as permission to ask more",
       soundsLike: "Filling every pause with another question.",
-      better: '"Take your time; there\'s no rush."',
+      better: '"Take your time. There\'s no rush."',
     },
     {
       mistake: "Confusing warmth with entitlement",
@@ -496,26 +496,26 @@ export const TC076: CardData = {
     {
       mistake: "Continuing after a boundary",
       soundsLike: "Rephrasing the same ask a slightly different way.",
-      better: '"Fair enough; I\'ll leave that one."',
+      better: '"Fair enough. I\'ll leave that one."',
     },
   ],
   recoveryPhrases: [
-    "That sounded like an interrogation. Sorry; let me slow down.",
+    "That sounded like an interrogation. Sorry. Let me slow down.",
     "You don't have to answer all of that. I asked too many questions.",
     "I'm realising that may be too personal. We can leave it.",
     "Let me ask the useful part only.",
     "I'm not asking who failed. I'm trying to understand what made it hard.",
     "That sounded accusatory. What I meant was: what were you working with?",
-    "The general version is enough; we don't need the private details.",
+    "The general version is enough. We don't need the private details.",
     "No need to answer now. I'll follow your lead on whether this is worth discussing.",
   ],
   bestRecoveryLine:
-    "That came out like a cross-examination. Sorry; let me ask the useful part only.",
+    "That came out like a cross-examination. Sorry. Let me ask the useful part only.",
   chains: [
     {
       label: "Stiff-conversation warm-up",
       sequence:
-        "Warm presence -> Comment-before-question -> Interrogation avoidance",
+        "Warm presence → Comment-before-question → Interrogation avoidance",
       example: [
         "It's good to actually catch up properly.",
         "That project sounded full-on.",
@@ -525,9 +525,9 @@ export const TC076: CardData = {
     {
       label: "Meaningful-phrase follow",
       sequence:
-        "Exact-word pickup -> Interrogation avoidance -> Echo plus question",
+        "Exact-word pickup → Interrogation avoidance → Echo plus question",
       example: [
-        "You said 'mismatch'; that word stood out.",
+        "You said 'mismatch'. That word stood out.",
         "I won't dig into all of it.",
         "Mismatch how: the work, or the people?",
       ],
@@ -535,7 +535,7 @@ export const TC076: CardData = {
     {
       label: "Conflict clarity",
       sequence:
-        "Validation without agreement -> Interrogation avoidance -> Clarify objection",
+        "Validation without agreement → Interrogation avoidance → Clarify objection",
       example: [
         "I can see why that landed badly.",
         "I want to understand, not cross-examine you.",
@@ -544,7 +544,7 @@ export const TC076: CardData = {
     },
     {
       label: "Professional next step",
-      sequence: "Summary check -> Interrogation avoidance -> Clean request",
+      sequence: "Summary check → Interrogation avoidance → Clean request",
       example: [
         "So the timeline held but the scope grew.",
         "I'm after the cause, not the culprit: what most changed the plan?",
@@ -556,32 +556,32 @@ export const TC076: CardData = {
     {
       id: "TC003",
       reason:
-        "Both soften questions. Use TC003 to take the edge off a single abrupt question; use TC076 when a whole sequence risks feeling like a cross-examination.",
+        "Both soften questions. Use TC003 to take the edge off a single abrupt question. Use TC076 when a whole sequence risks feeling like a cross-examination.",
     },
     {
       id: "TC085",
       reason:
-        "Question-stacking is one interrogation trigger. Use TC085 for pure quantity control; use TC076 for the wider job of protecting motive, pace, privacy, and dignity.",
+        "Question-stacking is one interrogation trigger. Use TC085 for pure quantity control. Use TC076 for the wider job of protecting motive, pace, privacy, and dignity.",
     },
     {
       id: "TC072",
       reason:
-        "A low-pressure invitation is often one phrase inside TC076. Use TC072 to invite optional participation; use TC076 for the whole question sequence.",
+        "A low-pressure invitation is often one phrase inside TC076. Use TC072 to invite optional participation. Use TC076 for the whole question sequence.",
     },
     {
       id: "TC034",
       reason:
-        "Two options can reduce load or, if leading, still corner someone. Use TC034 when options create ease; fall back to TC076 when they create pressure.",
+        "Two options can reduce load or, if leading, still corner someone. Use TC034 when options create ease. Fall back to TC076 when they create pressure.",
     },
     {
       id: "TC009",
       reason:
-        "Boomerasking is self-turning; interrogation is pressure-turning. Use TC009 when your move risks becoming about you; use TC076 when their answer feels demanded.",
+        "Boomerasking is self-turning. Interrogation is pressure-turning. Use TC009 when your move risks becoming about you. Use TC076 when their answer feels demanded.",
     },
     {
       id: "TC045",
       reason:
-        "TC045 is an information-sharing structure. Use it when you're giving information and checking understanding; use TC076 when you need them to share something personal or sensitive.",
+        "TC045 is an information-sharing structure. Use it when you're giving information and checking understanding. Use TC076 when you need them to share something personal or sensitive.",
     },
   ],
 };

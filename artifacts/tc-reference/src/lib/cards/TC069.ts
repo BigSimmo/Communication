@@ -6,7 +6,7 @@ export const TC069: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC069/TC069_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,29 +56,29 @@ export const TC069: CardData = {
   ],
   id: "TC069",
   whyItWorks:
-    "Clarify objection is the deliberate move of slowing down when resistance appears and asking what the objection is really about before you answer it. When someone pushes back, you don't answer the objection you assume they mean — you ask one small, neutral question that locates the real concern: risk, cost, timing, trust, fairness, workload, or a missing detail. It works because most objections are compressed signals, not finished arguments, and naming the actual concern lets you respond accurately instead of arguing with a guess.",
+    "Clarify objection is the deliberate move of slowing down when resistance appears and asking what the objection is really about before you answer it. When someone pushes back, you don't answer the objection you assume they mean. You ask one small, neutral question that locates the real concern: risk, cost, timing, trust, fairness, workload, or a missing detail. It works because most objections are compressed signals, not finished arguments, and naming the actual concern lets you respond accurately instead of arguing with a guess.",
   whatItIsNot: [
     "It is not objection-handling as a pressure tactic, or talking someone out of a no.",
     "It is not debating, correcting, cornering, or asking a chain of questions until they give in.",
     "It is not pretending to listen while you quietly load your rebuttal.",
     "It is not labelling someone as resistant, difficult, irrational, or scared.",
-    "It is not a substitute for accepting a clear boundary — if the objection is a final no, respect it.",
+    "It is not a substitute for accepting a clear boundary. If the objection is a final no, respect it.",
   ],
   overview: {
     coreFormula: [
-      "Cue -> Pause -> Clarify -> Name -> Check -> Respond.",
+      "Cue → Pause → Clarify → Name → Check → Respond.",
       "Cue: notice the objection without treating it as a threat.",
       "Pause: resist the reflex to explain or rebut.",
       "Clarify: ask one short neutral question about the real concern.",
-      'Name: reflect the concern in their words — "So the main issue is timeline risk."',
+      'Name: reflect the concern in their words, "So the main issue is timeline risk."',
       "Check, then respond: confirm you have it right, then answer the actual concern or accept the boundary.",
     ],
     minimumViableMove:
-      'When resistance appears, ask one short neutral question — "What part of that is the main concern?" — then pause and listen before you respond.',
+      'When resistance appears, ask one short neutral question ("What part of that is the main concern?") then pause and listen before you respond.',
     impact: "High",
     difficulty: "Medium",
     misuse:
-      "It fails when you answer the objection you guessed at instead of clarifying the real one, which leaves the person feeling managed or misunderstood. It tips into manipulation if the questions are used to corner someone, wear resistance down, or extract a concession — use it to understand and respect the concern, not to override a no.",
+      "It fails when you answer the objection you guessed at instead of clarifying the real one, which leaves the person feeling managed or misunderstood. It tips into manipulation if the questions are used to corner someone, wear resistance down, or extract a concession. Use it to understand and respect the concern, not to override a no.",
     bestFor: [
       'Vague pushback like "I\'m not sure" or "That won\'t work"',
       '"Too risky", "I don\'t like it", or "We tried that"',
@@ -104,7 +104,7 @@ export const TC069: CardData = {
       tag: "Short one-liners",
       tone: "Quick",
       phrases: [
-        "What part of that is the main concern?",
+        "What part of that's the main concern?",
         "What's the main worry here?",
         "What's the sticking point?",
         "Which bit feels off?",
@@ -121,7 +121,7 @@ export const TC069: CardData = {
       tone: "Warm",
       phrases: [
         "Help me understand what feels off about it.",
-        "I want to get this right — what's the concern underneath it?",
+        "I want to get this right. What's the concern underneath it?",
         "No rush. What's making you hesitate?",
         "What matters most to you here?",
         "Fair enough. What would you need to feel okay about it?",
@@ -167,10 +167,10 @@ export const TC069: CardData = {
       phrases: [
         "Is the frustrating part the outcome, the delay, or how it was communicated?",
         "Is the main issue the original problem, or how we handled it after?",
-        "I may have answered the wrong thing — what was the concern you wanted me to hear?",
+        "I may have answered the wrong thing. What was the concern you wanted me to hear?",
         "I jumped ahead. Before options, what's the core concern?",
         "Let me make that simpler: is the concern more about timing, or trust?",
-        "I'm not trying to talk you out of it — I'm trying to understand what matters.",
+        "I'm not trying to talk you out of it. I'm trying to understand what matters.",
         "No need to justify it. I just want to understand, not argue.",
       ],
     },
@@ -183,7 +183,7 @@ export const TC069: CardData = {
         "You don't have to justify the no. If it's useful, I'd like to understand which concern matters most.",
         "Let me slow down. What's the non-negotiable issue here?",
         "I'll respect your no. If you want to say, is there a specific concern you'd want me to understand?",
-        "Before I try to answer, can I separate the concerns — is it evidence, risk, trust, or the precedent it sets?",
+        "Before I try to answer, can I separate the concerns. Is it evidence, risk, trust, or the precedent it sets?",
         "When you say this doesn't feel right, is it about trust, timing, or feeling pressured?",
         "This matters, so I'd rather get it right than get it fast. What's the real objection?",
         "If this is a firm no, tell me and I'll stop. If not, what's the concern?",
@@ -199,7 +199,7 @@ export const TC069: CardData = {
     {
       condition: "The objection is vague, compressed, or ambiguous",
       action: "Ask one neutral clarifying question about the concern.",
-      phrase: "What part of that is the main concern?",
+      phrase: "What part of that's the main concern?",
     },
     {
       condition: "They named a specific concern",
@@ -213,21 +213,21 @@ export const TC069: CardData = {
     },
     {
       condition: "The concern is about trust, fairness, or past harm",
-      action: "Slow down; validate or repair before problem-solving.",
+      action: "Slow down. Validate or repair before problem-solving.",
       phrase: "That makes sense given what happened last time.",
     },
     {
       condition: "Your question landed badly",
       action: "Recover and give them room.",
-      phrase: "No need to justify it — I'm trying to understand, not argue.",
+      phrase: "No need to justify it. I'm trying to understand, not argue.",
     },
   ],
   ladder: [
     {
       weak: '"Why not?" This sounds like a challenge and makes the person defend themselves.',
       better:
-        '"What is your hesitation?" This opens the door, but can still sound slightly evaluative.',
-      best: '"What part of that is the main concern?" This focuses on the issue rather than the person.',
+        '"What\'s your hesitation?" This opens the door, but can still sound slightly evaluative.',
+      best: '"What part of that\'s the main concern?" This focuses on the issue rather than the person.',
     },
     {
       weak: '"That\'s not really a problem." This dismisses the objection outright.',
@@ -318,7 +318,7 @@ export const TC069: CardData = {
     {
       day: "Day 3",
       title: "Tone calibration",
-      task: 'Say "What part of that is the main concern?" out loud in three tones — defensive, clinical, and warm. Record yourself if you can. Keep only the warm version.',
+      task: 'Say "What part of that is the main concern?" out loud in three tones: defensive, clinical, and warm. Record yourself if you can. Keep only the warm version.',
     },
     {
       day: "Day 4",
@@ -338,7 +338,7 @@ export const TC069: CardData = {
     {
       day: "Day 7",
       title: "Live run",
-      task: "In one real conversation where someone pushes back, make exactly one clarifying move, reflect the concern back, then respond to the actual concern — and notice whether the exchange got more accurate.",
+      task: "In one real conversation where someone pushes back, make exactly one clarifying move, reflect the concern back, then respond to the actual concern, and notice whether the exchange got more accurate.",
     },
   ],
   checklist: [
@@ -347,7 +347,7 @@ export const TC069: CardData = {
     "Did I ask about the concern, not the person?",
     "Did I reflect the actual concern back in their words?",
     "Did I stop after one question when they needed space?",
-    "Did I protect autonomy, dignity, and safety — and respect a clear no?",
+    "Did I protect autonomy, dignity, and safety, and respect a clear no?",
   ],
   example: {
     without: [
@@ -363,14 +363,14 @@ export const TC069: CardData = {
       'A: "I don\'t think this plan will work."',
       'B: "What part feels least workable?"',
       'A: "The timeline. We can do the work, but not by Friday."',
-      "B: \"So the issue isn't the plan itself — it's the deadline.\"",
+      "B: \"So the issue isn't the plan itself. It's the deadline.\"",
       "Why this is better:",
       "B locates the category before solving anything",
       "the real concern (the deadline) is now on the table",
       'A: "I\'m not comfortable approving this."',
       'B: "Before I answer, can I separate the concerns? Is the main issue evidence, risk ownership, stakeholder trust, or the precedent it sets?"',
       'A: "Stakeholder trust. Last time we changed direction, people felt blindsided."',
-      "B: \"That's useful. So the objection isn't only the decision — it's the rollout risk. Would a consultation step before approval help, or is the concern stronger than that?\"",
+      "B: \"That's useful. So the objection isn't only the decision. It's the rollout risk. Would a consultation step before approval help, or is the concern stronger than that?\"",
       "Why this is advanced:",
       "B clarifies, reflects it back, and checks before responding",
       "B respects autonomy and doesn't force agreement",
@@ -383,25 +383,25 @@ export const TC069: CardData = {
     principle:
       "People drop their guard when their resistance is treated as information worth understanding, not an obstacle to remove.",
     gains: [
-      "Less wasted persuasion — you stop answering the wrong issue.",
+      "Less wasted persuasion: you stop answering the wrong issue.",
       "Dignity is protected: the other person is treated as someone with a reason, not an obstacle.",
       "Defensiveness drops, because your first response to resistance is curiosity rather than rebuttal.",
       "Cleaner problem-solving: once the real concern is named, the next move can be smaller and more useful.",
       "The influence comes from accuracy and respect, not pressure.",
-      "The outcome stays honest — agreement, a better option, a boundary, or a clean no.",
+      "The outcome stays honest: agreement, a better option, a boundary, or a clean no.",
     ],
     whyMostFail: [
       "They answer the objection they guessed at instead of the one the person actually has.",
       "They fire off several clarifying questions in a row until it feels like an interrogation.",
       "They clarify only to load a better rebuttal, so the curiosity is fake.",
-      'They label the concern too early — "So you\'re afraid of change" — instead of letting the person name it.',
+      'They label the concern too early ("So you\'re afraid of change") instead of letting the person name it.',
     ],
   },
   fieldTip: {
     headline:
-      "Don't answer the first shape of the objection — clarify the concern underneath it.",
-    body: "The first thing someone objects to is rarely the whole story. Ask one neutral question, then wait — the wait is part of the technique. If the answer turns out to be a firm no, the best use of the move is to stop.",
-    example: "What part of that is the main concern?",
+      "Don't answer the first shape of the objection: clarify the concern underneath it.",
+    body: "The first thing someone objects to is rarely the whole story. Ask one neutral question, then wait: the wait is part of the technique. If the answer turns out to be a firm no, the best use of the move is to stop.",
+    example: "What part of that's the main concern?",
     dont: "Rebut the objection you assumed they meant.",
     do: "Ask one question, name the real concern, then respond to that.",
   },
@@ -420,10 +420,10 @@ export const TC069: CardData = {
     {
       step: "2",
       title: "Pause instead of answering",
-      body: "Don't answer immediately. The reflex is to explain, reassure, or rebut — resist it. One breath of pause is what separates clarifying from arguing. Choose a single neutral question rather than a defence.",
+      body: "Don't answer immediately. The reflex is to explain, reassure, or rebut: resist it. One breath of pause is what separates clarifying from arguing. Choose a single neutral question rather than a defence.",
       examples: [
         { label: "Instead of", text: "\"It'll be fine, here's why...\"" },
-        { label: "Try", text: '"What part of that is the main concern?"' },
+        { label: "Try", text: '"What part of that\'s the main concern?"' },
       ],
     },
     {
@@ -438,7 +438,7 @@ export const TC069: CardData = {
     {
       step: "4",
       title: "Name the category",
-      body: "As they answer, place the concern: risk, trust, cost, timing, fairness, control, workload, values, or evidence. Naming the category — out loud or to yourself — is what makes the next move accurate.",
+      body: "As they answer, place the concern: risk, trust, cost, timing, fairness, control, workload, values, or evidence. Naming the category, out loud or to yourself, is what makes the next move accurate.",
       examples: [
         {
           label: "Name it",
@@ -449,18 +449,18 @@ export const TC069: CardData = {
     {
       step: "5",
       title: "Reflect and check before you respond",
-      body: "Say the concern back in their words and confirm it before answering. Only once they agree do you respond to the actual concern — or accept the boundary.",
+      body: "Say the concern back in their words and confirm it before answering. Only once they agree do you respond to the actual concern, or accept the boundary.",
       examples: [
         {
           label: "Check",
-          text: '"So the main concern is the deadline — have I got that right?"',
+          text: '"So the main concern is the deadline, have I got that right?"',
         },
       ],
     },
     {
       step: "6",
       title: "Recover or chain",
-      body: 'If the question felt too pointed, give them room: "No need to justify it — I\'m just trying to understand what matters most." Once the concern is clear, chain into the right next move: validate it, answer headline-first, make a specific ask, or release the pressure.',
+      body: 'If the question felt too pointed, give them room: "No need to justify it. I\'m just trying to understand what matters most." Once the concern is clear, chain into the right next move: validate it, answer headline-first, make a specific ask, or release the pressure.',
       examples: [
         {
           label: "Recover",
@@ -493,7 +493,7 @@ export const TC069: CardData = {
     {
       depth: "Neutral",
       useWhen: "ordinary pushback where you just need the concern",
-      phrase: "What part of that is the main concern?",
+      phrase: "What part of that's the main concern?",
     },
     {
       depth: "Structured",
@@ -505,7 +505,7 @@ export const TC069: CardData = {
     {
       mistake: 'Asking "Why?" like a cross-examination',
       soundsLike: '"Why would you object to that?"',
-      better: '"What part of that is the main concern?"',
+      better: '"What part of that\'s the main concern?"',
     },
     {
       mistake: "Stacking clarifying questions until it's an interrogation",
@@ -525,7 +525,7 @@ export const TC069: CardData = {
     },
     {
       mistake: "Turning a clear no into a problem to solve",
-      soundsLike: '"I hear your no — so how do we get you to yes?"',
+      soundsLike: '"I hear your no. So how do we get you to yes?"',
       better: '"Understood. I\'ll respect that."',
     },
     {
@@ -543,12 +543,12 @@ export const TC069: CardData = {
     {
       mistake: "Pushing on after the concern is clear",
       soundsLike: "one more question, then one more...",
-      better: "Stop clarifying once you understand — accuracy, not pressure.",
+      better: "Stop clarifying once you understand. Accuracy, not pressure.",
     },
   ],
   recoveryPhrases: [
-    "I answered the wrong objection. What should I have asked first?",
-    "I'm not trying to talk you out of it — I'm trying to understand what matters.",
+    "I answered the wrong objection. What should I've asked first?",
+    "I'm not trying to talk you out of it. I'm trying to understand what matters.",
     "No need to justify it. We can stop there.",
     "Let me make that simpler: is the concern more about timing, or trust?",
     "I jumped ahead. Before options, what's the core concern?",
@@ -556,14 +556,14 @@ export const TC069: CardData = {
     "That's landing more sharply than I meant. Let me pause and listen first.",
   ],
   bestRecoveryLine:
-    "No need to justify it — I'm trying to understand, not argue.",
+    "No need to justify it. I'm trying to understand, not argue.",
   chains: [
     {
       label: "Clarify then acknowledge",
-      sequence: "Clarify objection -> Validate the concern (TC014) -> BLUF",
+      sequence: "Clarify objection → Validate the concern (TC014) → BLUF",
       example: [
         '"What part feels least workable?"',
-        '"The timeline — not by Friday."',
+        '"The timeline, not by Friday."',
         "\"That's fair, the deadline's genuinely tight.\"",
         '"Here\'s the shortest path: we move the launch to Monday."',
       ],
@@ -571,27 +571,27 @@ export const TC069: CardData = {
     {
       label: "Clarify then hold your line",
       sequence:
-        "Clarify objection -> Validation without agreement (TC005) -> Specific ask (TC068)",
+        "Clarify objection → Validation without agreement (TC005) → Specific ask (TC068)",
       example: [
         '"Is the worry the cost, or the timing?"',
         '"The cost."',
         '"I get why the number feels high."',
-        '"I\'d still like to go ahead at this price — can we?"',
+        '"I\'d still like to go ahead at this price. Can we?"',
       ],
     },
     {
       label: "Clarify then release the pressure",
-      sequence: "Clarify objection -> Autonomy release",
+      sequence: "Clarify objection → Autonomy release",
       example: [
         '"What\'s the real hesitation?"',
         '"I need to think it over."',
         '"That\'s completely fine."',
-        '"You don\'t have to decide now — take the week."',
+        '"You don\'t have to decide now. Take the week."',
       ],
     },
     {
       label: "Clarify then ask permission",
-      sequence: "Clarify objection -> Permission to disagree (TC079)",
+      sequence: "Clarify objection → Permission to disagree (TC079)",
       example: [
         '"Is it the plan, or the risk attached to it?"',
         '"The risk."',
@@ -604,32 +604,32 @@ export const TC069: CardData = {
     {
       id: "TC014",
       reason:
-        "Clarify first when the objection isn't clear enough to validate accurately; use TC014 to acknowledge a concern that's already clear. The trap is validating a guessed concern.",
+        "Clarify first when the objection isn't clear enough to validate accurately. Use TC014 to acknowledge a concern that's already clear. The trap is validating a guessed concern.",
     },
     {
       id: "TC005",
       reason:
-        "Use TC069 to find what they're objecting to; use TC005 when you understand the concern but don't agree with the conclusion. Clarify first, then validate without agreeing.",
+        "Use TC069 to find what they're objecting to. Use TC005 when you understand the concern but don't agree with the conclusion. Clarify first, then validate without agreeing.",
     },
     {
       id: "TC068",
       reason:
-        "If you're the one asking, use TC068's specific ask; if they push back, switch to TC069 to locate the objection. Don't mistake a weak request for a real objection.",
+        "If you're the one asking, use TC068's specific ask. If they push back, switch to TC069 to locate the objection. Don't mistake a weak request for a real objection.",
     },
     {
       id: "TC073",
       reason:
-        "TC069 gets the one objection in front of you now; TC073 reads resistance as a pattern across the whole interaction. One question versus pattern-reading.",
+        "TC069 gets the one objection in front of you now. TC073 reads resistance as a pattern across the whole interaction. One question versus pattern-reading.",
     },
     {
       id: "TC077",
       reason:
-        "Clarify first when the objection is vague; lead with TC077's shared point when the common ground is already obvious.",
+        "Clarify first when the objection is vague. Lead with TC077's shared point when the common ground is already obvious.",
     },
     {
       id: "TC079",
       reason:
-        "Once the concern is clear and you hold a different view, use TC079 to ask consent before pushing back — especially when the objection is personal or values-based.",
+        "Once the concern is clear and you hold a different view, use TC079 to ask consent before pushing back, especially when the objection is personal or values-based.",
     },
   ],
 };

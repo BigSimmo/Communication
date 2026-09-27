@@ -6,7 +6,7 @@ export const TC042: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC042/TC042_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -61,11 +61,11 @@ export const TC042: CardData = {
     "PREP is not a script to recite mechanically, and you never name the framework out loud.",
     "It is not a way to avoid listening, or to compress someone's emotion into a template.",
     "It is not a tool for forcing the other person into your structure.",
-    "If the structure makes the conversation less humane, it is the wrong move — slow down and say it plainly.",
+    "If the structure makes the conversation less humane, it is the wrong move: slow down and say it plainly.",
   ],
   overview: {
     coreFormula: [
-      "Point -> Reason -> Example -> Point",
+      "Point → Reason → Example → Point",
       "My point is X. The reason is Y. For example, Z. So the short answer is X.",
       "Point: lead with the one thing that matters.",
       "Reason: give the single strongest why, not every why.",
@@ -73,11 +73,11 @@ export const TC042: CardData = {
       "Best field rule: use the structure to organise thought, then speak like a person.",
     ],
     minimumViableMove:
-      "State your point in one sentence, give one reason, offer one concrete example, then land back on the point — without ever naming the framework.",
+      "State your point in one sentence, give one reason, offer one concrete example, then land back on the point, without ever naming the framework.",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "The move fails when you turn a concise structure into a rigid mini-speech — announcing the framework, forcing every sentence into it, and carrying on after the listener is already clear.",
+      "The move fails when you turn a concise structure into a rigid mini-speech: announcing the framework, forcing every sentence into it, and carrying on after the listener is already clear.",
     bestFor: [
       "Concise recommendations",
       "Explaining a decision or your reasoning",
@@ -92,7 +92,7 @@ export const TC042: CardData = {
     "Active conflict",
     "Exploratory listening, where you should be drawing them out",
     "When the other person needs validation first",
-    "Sensitive material — shame, grief, anger or distress",
+    "Sensitive material: shame, grief, anger or distress",
     "Real power imbalance or a high-stakes decision, where care matters more than tidiness",
     "When physical safety or an immediate emergency takes priority",
   ],
@@ -120,13 +120,13 @@ export const TC042: CardData = {
       tone: "Professional",
       phrases: [
         "My recommendation is X. The reason is Y. For example, Z. So my vote is X.",
-        "The point is we should move the deadline. Testing isn't ready — staging failed twice this week. So I'd push it a week.",
+        "The point is we should move the deadline. Testing isn't ready. Staging failed twice this week. So I'd push it a week.",
         "In short, I'd go with option B: it's cheaper to run, and the March trial proved that out.",
         "My read is we're aligned on scope, just not on timing.",
         "One point for the record: the risk sits in the handover, not the build.",
-        "Here's my answer, the reason behind it, and one example — then I'll stop.",
+        "Here's my answer, the reason behind it, and one example, then I'll stop.",
         "I'll give you a recommendation and a reason, and leave the decision with you.",
-        "The main point is X; everything else is just support for it.",
+        "The main point is X. Everything else is just support for it.",
       ],
     },
     {
@@ -140,7 +140,7 @@ export const TC042: CardData = {
         "Let me give you the point before the detail.",
         "Here's what I think, and the single reason I think it.",
         "I'll make the point once, clearly, then it's yours.",
-        "The point stands on one example — here it is.",
+        "The point stands on one example. Here it is.",
         "That's my position. Reason and example if you want them.",
       ],
     },
@@ -152,9 +152,9 @@ export const TC042: CardData = {
       phrases: [
         "Can I give you the short version, then fill in whatever's useful?",
         "I'll keep this simple and we can dig into any part of it.",
-        "Here's where I've landed — tell me if I've missed something.",
+        "Here's where I've landed. Tell me if I've missed something.",
         "Let me lay it out plainly, then it's over to you.",
-        "I want to be clear, not to lecture — pull me up if I overdo it.",
+        "I want to be clear, not to lecture. Pull me up if I overdo it.",
         "Short and rough first, then we refine it together.",
       ],
     },
@@ -164,9 +164,9 @@ export const TC042: CardData = {
       tag: "Soften and simplify",
       tone: "Repair",
       phrases: [
-        "I made that too structured — let me say it more simply.",
+        "I made that too structured. Let me say it more simply.",
         "That came out like a mini-speech. The real point is just X.",
-        "Let me back up — I don't think that was the useful frame.",
+        "Let me back up. I don't think that was the useful frame.",
         "I don't want the structure to bury the actual issue.",
         "Which part of that was useful, and what should we drop?",
         "Sorry, I over-explained. Short version: X.",
@@ -178,12 +178,12 @@ export const TC042: CardData = {
       tag: "Check before you structure",
       tone: "High-stakes",
       phrases: [
-        "Before I lay this out — is now the moment, or do you need something else first?",
+        "Before I lay this out. Is now the moment, or do you need something else first?",
         "I can give you the clean version, but say if you'd rather just talk it through.",
         "Let me check this frame is useful before I run with it.",
         "I'll make one point and stop, because I know this matters.",
         "If the tidy answer feels cold here, tell me and I'll drop it.",
-        "One point, then I'll listen — I don't want to talk over this.",
+        "One point, then I'll listen. I don't want to talk over this.",
       ],
     },
   ],
@@ -191,12 +191,12 @@ export const TC042: CardData = {
     {
       step: "1",
       title: "Choose the moment",
-      body: "Decide whether structure serves this moment at all. If emotion is high, or the person needs to be heard first, skip the framework and listen. PREP is for when someone wants a clear point, a recommendation or an answer — not when they want comfort.",
+      body: "Decide whether structure serves this moment at all. If emotion is high, or the person needs to be heard first, skip the framework and listen. PREP is for when someone wants a clear point, a recommendation or an answer, not when they want comfort.",
     },
     {
       step: "2",
       title: "Point",
-      body: 'Lead with the single thing that matters, in one plain sentence. Say it before the reasoning, not after. "I\'d move the launch a week" — not three minutes of background that finally arrives at the point.',
+      body: 'Lead with the single thing that matters, in one plain sentence. Say it before the reasoning, not after. "I\'d move the launch a week", not three minutes of background that finally arrives at the point.',
     },
     {
       step: "3",
@@ -206,7 +206,7 @@ export const TC042: CardData = {
     {
       step: "4",
       title: "Example",
-      body: 'Make it concrete with one example, not three. One vivid case does the work; a pile of examples buries the point. "Staging failed twice this week."',
+      body: 'Make it concrete with one example, not three. One vivid case does the work. A pile of examples buries the point. "Staging failed twice this week."',
     },
     {
       step: "5",
@@ -232,13 +232,13 @@ export const TC042: CardData = {
     {
       depth: "Point + reason",
       useWhen: "They need the why",
-      phrase: "Move it a week — testing's a step behind.",
+      phrase: "Move it a week. Testing's a step behind.",
     },
     {
       depth: "Full PREP",
       useWhen: "They need convincing",
       phrase:
-        "Move it a week. Testing's behind; staging failed twice. So: a week.",
+        "Move it a week. Testing's behind. Staging failed twice. So: a week.",
     },
     {
       depth: "PREP + next step",
@@ -249,14 +249,14 @@ export const TC042: CardData = {
   decisionTree: [
     {
       condition: "The listener needs speed",
-      action: "Use the shortest version — the point alone, BLUF-level brevity.",
+      action: "Use the shortest version: the point alone, BLUF-level brevity.",
       phrase: "Short answer: move it a week. Detail if you want it.",
     },
     {
       condition: "The listener needs convincing",
-      action: "Use the full Point -> Reason -> Example -> Point.",
+      action: "Use the full Point → Reason → Example → Point.",
       phrase:
-        "Move it a week — testing's behind, staging failed twice. So a week.",
+        "Move it a week. Testing's behind, staging failed twice. So a week.",
     },
     {
       condition: "The listener needs support",
@@ -283,7 +283,7 @@ export const TC042: CardData = {
     {
       weak: 'Announces "I\'ll use PREP here" out loud.',
       better: "Drops the label and just makes the point cleanly.",
-      best: "Structure is invisible; it sounds like a clear person thinking well.",
+      best: "Structure is invisible. It sounds like a clear person thinking well.",
     },
     {
       weak: "Piles on three examples and loses the point.",
@@ -294,7 +294,7 @@ export const TC042: CardData = {
   scenarios: [
     {
       situation: "Work meeting",
-      move: "Make your contribution concise and memorable — one point, one reason, one example, then hand back.",
+      move: "Make your contribution concise and memorable: one point, one reason, one example, then hand back.",
       phrase:
         "I'd hold the date. The risk is only in payments, and we can re-test that today.",
     },
@@ -306,7 +306,7 @@ export const TC042: CardData = {
     },
     {
       situation: "Giving feedback",
-      move: "Check what kind of feedback would help before you structure it — don't lead with a tidy framework into an open wound.",
+      move: "Check what kind of feedback would help before you structure it. Don't lead with a tidy framework into an open wound.",
       phrase: "Want the quick version or the full picture? Either's fine.",
     },
     {
@@ -317,15 +317,15 @@ export const TC042: CardData = {
     },
     {
       situation: "Interview answer",
-      move: "Answer the question, give your reason, offer one concrete example, then close on the answer — don't drift.",
+      move: "Answer the question, give your reason, offer one concrete example, then close on the answer. Don't drift.",
       phrase:
-        "Yes. My strength is untangling messy problems — for instance, the migration last year — so that's where I'd add value.",
+        "Yes. My strength is untangling messy problems (for instance, the migration last year) so that's where I'd add value.",
     },
     {
       situation: "Quick update to a busy manager",
-      move: "Lead with the point and the one thing they need to know; skip the build-up entirely.",
+      move: "Lead with the point and the one thing they need to know. Skip the build-up entirely.",
       phrase:
-        "We're on track bar one risk — payments testing — and I've got a plan for it.",
+        "We're on track bar one risk, payments testing, and I've got a plan for it.",
     },
   ],
   calibration: {
@@ -343,15 +343,15 @@ export const TC042: CardData = {
       "They seem to need the human context before the structure.",
       "You're still talking after the point has landed.",
       "It starts to sound defensive, performative or salesy.",
-      "It's tipping into a lecture — stop and hand back.",
-      "Emotion is rising and the tidiness feels cold — validate first.",
+      "It's tipping into a lecture: stop and hand back.",
+      "Emotion is rising and the tidiness feels cold: validate first.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Draft it",
-      task: "Take a real topic and write a 60-second answer using Point -> Reason -> Example -> Point.",
+      task: "Take a real topic and write a 60-second answer using Point → Reason → Example → Point.",
     },
     {
       day: "Day 2",
@@ -361,7 +361,7 @@ export const TC042: CardData = {
     {
       day: "Day 3",
       title: "Say it two ways",
-      task: "Read it aloud once as visible structure, once as plain speech — and keep the plain one.",
+      task: "Read it aloud once as visible structure, once as plain speech, and keep the plain one.",
     },
     {
       day: "Day 4",
@@ -381,7 +381,7 @@ export const TC042: CardData = {
     {
       day: "Day 7",
       title: "Practise the recovery",
-      task: "Rehearse one recovery line for when it lands as a mini-speech — and use it if it does.",
+      task: "Rehearse one recovery line for when it lands as a mini-speech, and use it if it does.",
     },
   ],
   checklist: [
@@ -394,10 +394,10 @@ export const TC042: CardData = {
   ],
   example: {
     without: [
-      'Manager: "What do you think — should we move the launch?"',
+      'Manager: "What do you think. Should we move the launch?"',
       'You: "My point is we should move the launch. The reason is the build isn\'t ready. For example, testing is behind. So my point is we should move the launch."',
-      'Manager: "…Right. You said that twice."',
-      'You: "To structure it: Point, Reason, Example, Point. The reason again is testing—"',
+      'Manager: "...Right. You said that twice."',
+      'You: "To structure it: Point, Reason, Example, Point. The reason again is testing..."',
       "Why it's weak:",
       "announces and repeats the framework",
       "forces every sentence into the template",
@@ -405,8 +405,8 @@ export const TC042: CardData = {
       "sounds rehearsed instead of thought-through",
     ],
     with: [
-      'Manager: "What do you think — should we move the launch?"',
-      "You: \"I'd move it a week. The build's solid but testing's a step behind — staging failed twice this week. A week buys us a clean run.\"",
+      'Manager: "What do you think. Should we move the launch?"',
+      "You: \"I'd move it a week. The build's solid but testing's a step behind. Staging failed twice this week. A week buys us a clean run.\"",
       'Manager: "A week\'s a lot. Can we do less?"',
       'You: "Fair. The real risk is the payment flow, not the whole build. If we just re-test that, we could hold the date."',
       'Manager: "Let\'s do that."',
@@ -421,14 +421,14 @@ export const TC042: CardData = {
   influencePayoff: {
     feeling: '"I know exactly what they\'re saying, and why."',
     principle:
-      "People follow a point more easily when they are handed the point first and the support second — not the other way around.",
+      "People follow a point more easily when they are handed the point first and the support second, not the other way around.",
     gains: [
-      "Clarity — the listener knows what matters first.",
-      "Lower cognitive load — less to hold in their head.",
-      "Better sequencing — reason and example arrive in order.",
-      "Faster decisions — they can act without decoding you.",
-      "Credibility — you sound organised, not rehearsed.",
-      "Respect — you're not making them dig for the point.",
+      "Clarity: the listener knows what matters first.",
+      "Lower cognitive load: less to hold in their head.",
+      "Better sequencing: reason and example arrive in order.",
+      "Faster decisions: they can act without decoding you.",
+      "Credibility: you sound organised, not rehearsed.",
+      "Respect: you're not making them dig for the point.",
     ],
     whyMostFail: [
       "They name the framework out loud and it sounds like a technique.",
@@ -440,9 +440,9 @@ export const TC042: CardData = {
   commonMistakes: [
     {
       mistake:
-        "Over-structuring — making the framework more important than the point.",
-      soundsLike: '"Point one. Reason. Example. And back to my point…"',
-      better: "\"I'd move the launch — testing's behind.\"",
+        "Over-structuring: making the framework more important than the point.",
+      soundsLike: '"Point one. Reason. Example. And back to my point..."',
+      better: "\"I'd move the launch. Testing's behind.\"",
     },
     {
       mistake: "Naming the framework out loud.",
@@ -451,12 +451,12 @@ export const TC042: CardData = {
     },
     {
       mistake: "Over-explaining after the point has landed.",
-      soundsLike: '"…and also, for context, back in Q1…"',
+      soundsLike: '"...and also, for context, back in Q1..."',
       better: "Stop once they're clear and hand it back.",
     },
     {
       mistake: "Repeating the point when nobody needed it repeated.",
-      soundsLike: '"So, again, my point is…"',
+      soundsLike: '"So, again, my point is..."',
       better: "Say it once, well, and let it sit.",
     },
     {
@@ -466,7 +466,7 @@ export const TC042: CardData = {
     },
     {
       mistake: "Piling on examples to prove the point.",
-      soundsLike: '"For example… and another example… and also…"',
+      soundsLike: '"For example... and another example... and also..."',
       better: "Pick the one example that lands.",
     },
     {
@@ -476,37 +476,37 @@ export const TC042: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured — let me say it more simply.",
+    "I made that too structured. Let me say it more simply.",
     "That may not be the useful frame. Let me back up.",
     "I don't want the structure to override the actual issue.",
     "What part of that was useful, and what should we drop?",
-    "That came out like a mini-speech — the real point is just X.",
+    "That came out like a mini-speech: the real point is just X.",
     "Sorry, I over-explained. Short version: X.",
     "Let me stop structuring and just listen for a minute.",
   ],
   bestRecoveryLine:
-    "That came out like a mini-speech — the real point is just X.",
+    "That came out like a mini-speech: the real point is just X.",
   chains: [
     {
       label: "Clarity check",
-      sequence: "PREP -> Summary check",
+      sequence: "PREP → Summary check",
       example: [
         "Make the point cleanly.",
-        '"Just so we\'re aligned — what did you take from that?"',
+        '"Just so we\'re aligned. What did you take from that?"',
         "Fix any gap before moving on.",
       ],
     },
     {
       label: "Point into ask",
-      sequence: "PREP -> Clean request",
+      sequence: "PREP → Clean request",
       example: [
-        "\"I'd move the launch a week — testing's behind.\"",
+        "\"I'd move the launch a week. Testing's behind.\"",
         '"So, concretely: can you push the announce date to the 14th?"',
       ],
     },
     {
       label: "Point then room",
-      sequence: "PREP -> Autonomy release",
+      sequence: "PREP → Autonomy release",
       example: [
         "Make the point and give the reason.",
         "\"That's my read, but it's your call.\"",
@@ -514,10 +514,10 @@ export const TC042: CardData = {
     },
     {
       label: "Feelings first",
-      sequence: "Validation -> PREP",
+      sequence: "Validation → PREP",
       example: [
-        '"Yeah, this deadline\'s brutal — I get it."',
-        'Then: "Here\'s what I think we do, and why…"',
+        '"Yeah, this deadline\'s brutal. I get it."',
+        'Then: "Here\'s what I think we do, and why..."',
       ],
     },
   ],
@@ -525,7 +525,7 @@ export const TC042: CardData = {
     headline: "Scaffolding, not the conversation.",
     body: "Use PREP to organise your thinking before you speak, then let it disappear. The other person should feel clarity, not choreography. If they can't tell you used a framework, you used it well.",
     example:
-      "\"I'd move the launch a week — testing's a step behind and staging failed twice. A week gives us a clean run.\"",
+      "\"I'd move the launch a week. Testing's a step behind and staging failed twice. A week gives us a clean run.\"",
     dont: 'Announce "I\'ll use PREP here," or repeat the point once it has clearly landed.',
     do: "Lead with the point, back it with one reason and one example, then stop.",
   },
@@ -533,27 +533,27 @@ export const TC042: CardData = {
     {
       id: "TC044",
       reason:
-        "BLUF: both lead with the point. Use PREP when you also need a reason and an example to convince; use BLUF when the bottom line alone is enough.",
+        "BLUF: both lead with the point. Use PREP when you also need a reason and an example to convince. Use BLUF when the bottom line alone is enough.",
     },
     {
       id: "TC047",
       reason:
-        "STAR structures a story (Situation, Task, Action, Result). Use PREP for a crisp recommendation; use STAR when the listener needs the narrative behind a result.",
+        "STAR structures a story (Situation, Task, Action, Result). Use PREP for a crisp recommendation. Use STAR when the listener needs the narrative behind a result.",
     },
     {
       id: "TC048",
       reason:
-        "SCQA frames a problem before the answer (Situation, Complication, Question, Answer). Use PREP to make a point; use SCQA when you first need to set up why the question matters.",
+        "SCQA frames a problem before the answer (Situation, Complication, Question, Answer). Use PREP to make a point. Use SCQA when you first need to set up why the question matters.",
     },
     {
       id: "TC049",
       reason:
-        "CARL is another story structure (Context, Action, Result, Learning). Use PREP for a concise point; use CARL when reflection or the lesson is the focus.",
+        "CARL is another story structure (Context, Action, Result, Learning). Use PREP for a concise point. Use CARL when reflection or the lesson is the focus.",
     },
     {
       id: "TC013",
       reason:
-        "Clean request: use PREP when making and supporting a point is the need; use Clean request when the moment really calls for a single specific ask.",
+        "Clean request: use PREP when making and supporting a point is the need. Use Clean request when the moment really calls for a single specific ask.",
     },
   ],
 };

@@ -6,7 +6,7 @@ export const TC008: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC008/TC008_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -60,12 +60,12 @@ export const TC008: CardData = {
   whatItIsNot: [
     "It is not being abrupt, withholding context, or acting mysterious.",
     "It is not giving less information than the situation requires.",
-    "It is not a rule to always be brief - it is knowing when your point has already landed.",
+    "It is not a rule to always be brief. It is knowing when your point has already landed.",
     "It is giving enough, then stopping cleanly.",
   ],
   overview: {
     coreFormula: [
-      "Point -> one reason -> optional example -> pause or check.",
+      "Point → one reason → optional example → pause or check.",
       "My view is X. The main reason is Y. [pause]",
       "Short version: X. The detail is Y if useful.",
       "I'd do X, mainly because Y. Happy to unpack it if helpful.",
@@ -76,7 +76,7 @@ export const TC008: CardData = {
     impact: "Low",
     difficulty: "Medium",
     misuse:
-      "The move fails when brevity becomes evasive, cold or under-informative - when you use fewer words to dodge accountability rather than to be clearer.",
+      "The move fails when brevity becomes evasive, cold or under-informative, when you use fewer words to dodge accountability rather than to be clearer.",
     bestFor: [
       "Workplace updates, meetings and senior conversations",
       "Dating and social conversation where over-talking kills ease",
@@ -121,7 +121,7 @@ export const TC008: CardData = {
         "Is that enough detail, or useful to go deeper?",
         "I can unpack that if helpful.",
         "I'll pause there.",
-        "That's the gist - want more?",
+        "That's the gist, want more?",
       ],
     },
     {
@@ -148,7 +148,7 @@ export const TC008: CardData = {
         "The decision I'd make is X.",
         "The main risk is Y.",
         "The next step is X by Friday.",
-        "My recommendation is X; the trade-off is Y.",
+        "My recommendation is X. The trade-off is Y.",
         "Headline first: we're on track. Detail if you want it.",
       ],
     },
@@ -159,7 +159,7 @@ export const TC008: CardData = {
       tone: "Warm",
       phrases: [
         "Simple answer: yes.",
-        "I liked it. Not because it was perfect - because it felt easy.",
+        "I liked it. Not because it was perfect, because it felt easy.",
         "I'll spare you the essay: I'm into it.",
         "Short version: I had a good time.",
         "I could overanalyse it, but the honest answer is X.",
@@ -190,8 +190,8 @@ export const TC008: CardData = {
         "Short version: I can do Thursday.",
         "I'm out this week, but keen another time.",
         "Main thought: choose option B.",
-        "No long explanation - I just don't think that works for me.",
-        "On it - done by Thursday.",
+        "No long explanation. I just don't think that works for me.",
+        "On it, done by Thursday.",
       ],
     },
     {
@@ -205,7 +205,7 @@ export const TC008: CardData = {
         "I'm giving too much detail. The point is X.",
         "I'll stop there before I turn this into a TED Talk.",
         "Simple version: X. Happy to expand if useful.",
-        "Ignore the ramble - the point is X.",
+        "Ignore the ramble: the point is X.",
       ],
     },
   ],
@@ -218,14 +218,14 @@ export const TC008: CardData = {
     {
       condition: 'They look genuinely confused or ask "what do you mean?"',
       action:
-        "Add one clarifying reason or example - don't just repeat the same words.",
+        "Add one clarifying reason or example. Don't just repeat the same words.",
       phrase: "Let me put it another way: the key thing is X.",
     },
     {
       condition: "They actually ask for your full reasoning",
       action:
-        "Give the longer version in one clean layer; staying terse here reads as evasive.",
-      phrase: "Happy to walk through it - the main factors are...",
+        "Give the longer version in one clean layer. Staying terse here reads as evasive.",
+      phrase: "Happy to walk through it: the main factors are...",
     },
     {
       condition:
@@ -237,7 +237,7 @@ export const TC008: CardData = {
     {
       condition: "Your short answer risks sounding cold",
       action: "Add one warm line, not five defensive ones.",
-      phrase: "Short answer is no - but I'm really glad you asked me.",
+      phrase: "Short answer is no, but I'm really glad you asked me.",
     },
     {
       condition: "You've already landed the point and are now rephrasing it",
@@ -265,7 +265,7 @@ export const TC008: CardData = {
   scenarios: [
     {
       situation: "High-status or senior person",
-      move: "Lead with the answer, then one reason. Rambling doesn't read as respect - it reads as nerves.",
+      move: "Lead with the answer, then one reason. Rambling doesn't read as respect. It reads as nerves.",
       phrase: "My recommendation is X. The main reason is Y.",
     },
     {
@@ -281,12 +281,12 @@ export const TC008: CardData = {
     {
       situation: "Digital or text",
       move: "Shorter is usually warmer than a defensive paragraph. Add one human line if needed.",
-      phrase: "Can't make Thursday - free most of next week though.",
+      phrase: "Can't make Thursday. Free most of next week though.",
     },
     {
       situation: "After an awkward moment",
       move: "Name the over-explaining lightly and reset rather than piling on more words.",
-      phrase: "I'm overexplaining - let me simplify.",
+      phrase: "I'm overexplaining, let me simplify.",
     },
     {
       situation: "When detail is genuinely needed",
@@ -304,12 +304,12 @@ export const TC008: CardData = {
       "They summarise your point back accurately.",
     ],
     adjust: [
-      'They look confused or ask "wait, what do you mean?" - add one clarifying reason.',
-      "Your brevity sounded cold and they seem hurt - add a warm line.",
-      "They ask for your reasoning and you're withholding it - give the longer version.",
-      "You're using shortness to dodge accountability - say the real thing plainly.",
-      "They need detail for a practical decision - offer the full picture.",
-      "You feel yourself getting abrupt or dismissive - slow down and add warmth.",
+      'They look confused or ask "wait, what do you mean?" Add one clarifying reason.',
+      "Your brevity sounded cold and they seem hurt: add a warm line.",
+      "They ask for your reasoning and you're withholding it: give the longer version.",
+      "You're using shortness to dodge accountability. Say the real thing plainly.",
+      "They need detail for a practical decision: offer the full picture.",
+      "You feel yourself getting abrupt or dismissive: slow down and add warmth.",
       'If unsure whether it lands as blunt, say: "I\'m keeping it short, not trying to be blunt."',
     ],
   },
@@ -317,7 +317,7 @@ export const TC008: CardData = {
     {
       day: "Day 1",
       title: "Spot the urge",
-      task: "Through the day, just notice the moments where you keep talking after your point has already landed. Change nothing yet - only count them.",
+      task: "Through the day, just notice the moments where you keep talking after your point has already landed. Change nothing yet, only count them.",
     },
     {
       day: "Day 2",
@@ -347,7 +347,7 @@ export const TC008: CardData = {
     {
       day: "Day 7",
       title: "Repair on the fly",
-      task: 'Next time you catch yourself over-explaining, name it and reset out loud: "I\'m overexplaining - short version is X."',
+      task: 'Next time you catch yourself over-explaining, name it and reset out loud: "I\'m overexplaining. Short version is X."',
     },
   ],
   checklist: [
@@ -363,7 +363,7 @@ export const TC008: CardData = {
       'Person: "Can you make Friday?"',
       "You: \"Um, maybe not. I mean, I've got a thing in the morning, then another thing that might run late, and I'm not sure about traffic, plus I don't want to promise and then let you down...\"",
       'Person: "So... no?"',
-      "Why it is weak:",
+      "Why it's weak:",
       "buries a simple answer under anxious detail",
       "the listener has to dig out what you actually mean",
       "the over-explaining reads as unsure, not considerate",
@@ -372,7 +372,7 @@ export const TC008: CardData = {
       'Person: "Can you make Friday?"',
       'You: "I can\'t do Friday, but I can do Monday afternoon."',
       'Person: "Monday works."',
-      'You: "Great - I\'ll lock it in."',
+      'You: "Great, I\'ll lock it in."',
       "Why this works:",
       "answers first, offers the alternative, then stops",
       "no apology-spiral and no traffic report",
@@ -381,7 +381,7 @@ export const TC008: CardData = {
       'You: "Bottom line: B solves the main problem with the least added complexity. The trade-off is it\'s less flexible later. Happy to walk through the long version if useful."',
       "Person: \"No, that's clear. Let's go with B.\"",
       "Why this works:",
-      "headline, one reason, one honest trade-off, then an offer - not a lecture",
+      "headline, one reason, one honest trade-off, then an offer, not a lecture",
       "leaves the door open without forcing the detail on them",
     ],
     note: "Same discipline in both: answer, one reason, then stop and hand over.",
@@ -415,7 +415,7 @@ export const TC008: CardData = {
     {
       step: "1",
       title: "Lead with the point",
-      body: "State the actual answer, recommendation or boundary first. Skip the long warm-up - the preamble is usually anxiety, not information.",
+      body: "State the actual answer, recommendation or boundary first. Skip the long warm-up: the preamble is usually anxiety, not information.",
       examples: [
         {
           label: "Weak",
@@ -444,7 +444,7 @@ export const TC008: CardData = {
       examples: [
         {
           label: "Landing signal",
-          text: 'They say "got it" or start answering - that\'s your cue to stop.',
+          text: 'They say "got it" or start answering. That\'s your cue to stop.',
         },
       ],
     },
@@ -456,12 +456,12 @@ export const TC008: CardData = {
     {
       step: "6",
       title: "Add detail only by invitation",
-      body: "If they ask, expand in one clean second layer. Don't dump everything at once - offer it in tiers, shortest first.",
+      body: "If they ask, expand in one clean second layer. Don't dump everything at once: offer it in tiers, shortest first.",
     },
     {
       step: "7",
       title: "Repair if you overdo it",
-      body: 'If you catch yourself rambling, name it lightly and reset: "I\'m overexplaining - short version is X." A clean reset costs nothing and buys back your credibility.',
+      body: 'If you catch yourself rambling, name it lightly and reset: "I\'m overexplaining. Short version is X." A clean reset costs nothing and buys back your credibility.',
     },
   ],
   liveThreadClues: [
@@ -546,31 +546,31 @@ export const TC008: CardData = {
     "I think I repeated myself there. The useful bit is X.",
     "Simple answer: X.",
   ],
-  bestRecoveryLine: "I'm overexplaining - short version is X.",
+  bestRecoveryLine: "I'm overexplaining, short version is X.",
   chains: [
     {
       label: "Boundary chain",
-      sequence: "Warmth -> clean no -> alternative -> stop explaining",
+      sequence: "Warmth → clean no → alternative → stop explaining",
       example: [
         '"I\'d genuinely love to help with this."',
         '"I can\'t take it on right now, though."',
         '"I could point you to Sam, who knows the area."',
-        "Then stop - no apology paragraph.",
+        "Then stop, no apology paragraph.",
       ],
     },
     {
       label: "Influence chain",
-      sequence: "BLUF -> one reason -> values frame -> autonomy release",
+      sequence: "BLUF → one reason → values frame → autonomy release",
       example: [
         '"Bottom line: I\'d go with B."',
         '"It solves the main issue with the least complexity."',
-        '"It fits what you said matters most - keeping it simple."',
+        '"It fits what you said matters most. Keeping it simple."',
         '"But it\'s your call."',
       ],
     },
     {
       label: "Leadership chain",
-      sequence: "Headline -> rationale -> next action -> check obstacles",
+      sequence: "Headline → rationale → next action → check obstacles",
       example: [
         '"We\'re on track for Friday."',
         '"The one risk is the vendor sign-off."',
@@ -581,7 +581,7 @@ export const TC008: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate -> key concern -> one reason -> pause -> clarify if needed",
+        "Validate → key concern → one reason → pause → clarify if needed",
       example: [
         '"I get why you\'d want to ship now."',
         '"My one concern is the data migration."',
@@ -594,7 +594,7 @@ export const TC008: CardData = {
     {
       id: "TC031",
       reason:
-        "Slow down under pressure: when the over-talking is driven by nerves, the fix is pace, not word-count - slow down first, then trim.",
+        "Slow down under pressure: when the over-talking is driven by nerves, the fix is pace, not word-count, slow down first, then trim.",
     },
     {
       id: "TC035",
@@ -609,12 +609,12 @@ export const TC008: CardData = {
     {
       id: "TC014",
       reason:
-        "Validate the concern: when the person needs their worry acknowledged first, a bare short answer will land cold - validate, then shorten.",
+        "Validate the concern: when the person needs their worry acknowledged first, a bare short answer will land cold, validate, then shorten.",
     },
     {
       id: "TC044",
       reason:
-        "BLUF: the structured cousin for written and work contexts - lead with the bottom line, then support it.",
+        "BLUF: the structured cousin for written and work contexts, lead with the bottom line, then support it.",
     },
     {
       id: "TC029",

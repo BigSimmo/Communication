@@ -6,7 +6,7 @@ export const TC015: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC015/TC015_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -66,10 +66,10 @@ export const TC015: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Reflect first -> mode check -> permissioned suggestion -> fit check.",
+      "Reflect first → mode check → permissioned suggestion → fit check.",
       '"That sounds [hard part]. Do you want me to listen, help think it through, or suggest options?"',
-      '"I have one thought, but I do not want to steamroll you. Useful, or not yet?"',
-      "Operating rhythm: notice -> small move -> pause -> calibrate -> follow or release.",
+      '"I have one thought, but I don\'t want to steamroll you. Useful, or not yet?"',
+      "Operating rhythm: notice → small move → pause → calibrate → follow or release.",
     ],
     minimumViableMove:
       'Reflect once, then ask: "Do you want ideas, or do you want me to just hear you out for a minute?"',
@@ -104,13 +104,13 @@ export const TC015: CardData = {
         "Before I try to solve it, that sounds really frustrating.",
         "I'm going to resist advice-mode for a second.",
         "Let me make sure I understand the hard part first.",
-        "I do not want to fix too fast and miss the point.",
+        "I don't want to fix too fast and miss the point.",
         "That sounds like a lot. Do you want a sounding board or suggestions?",
         "That sounds rough. Do you want advice or just a sympathetic witness?",
-        "Before I give suggestions: what is the part that is most annoying?",
+        "Before I give suggestions: what's the part that's most annoying?",
         "I have a thought if you want it, but no pressure.",
         "Want me to help draft a reply, or are you just venting?",
-        "I will not jump straight to fixing unless it is useful.",
+        "I'll not jump straight to fixing unless it's useful.",
       ],
     },
     {
@@ -133,9 +133,9 @@ export const TC015: CardData = {
       tone: "Warm",
       phrases: [
         "The hard part sounds less like the task and more like feeling unsupported.",
-        "It sounds like you are not short on ideas; you are tired of carrying it.",
+        "It sounds like you're not short on ideas. You're tired of carrying it.",
         "That sounds frustrating because it was avoidable.",
-        "It sounds like the unfairness is the part that is sticking.",
+        "It sounds like the unfairness is the part that's sticking.",
         "So this is less about what happened and more about what it meant.",
       ],
     },
@@ -149,12 +149,12 @@ export const TC015: CardData = {
         "Would it help if I offered a possible next step?",
         "Can I give you a practical option, or would that be too soon?",
         "My instinct is one thing, but I want to check you want advice first.",
-        "I can give you the short version of what I would try, if useful.",
-        "Okay, if we are in problem-solving mode, I would start small.",
-        "Given what you have said, I would not try to fix the whole thing today.",
-        "The move I would consider is one small change first.",
+        "I can give you the short version of what I'd try, if useful.",
+        "Okay, if we're in problem-solving mode, I'd start small.",
+        "Given what you've said, I wouldn't try to fix the whole thing today.",
+        "The move I'd consider is one small change first.",
         "The lowest-friction next step might be to name the pattern, not the incident.",
-        "The part I would protect first is your standing, not the deadline.",
+        "The part I'd protect first is your standing, not the deadline.",
       ],
     },
     {
@@ -167,7 +167,7 @@ export const TC015: CardData = {
         "I can be useful or just be outraged with you. Your call.",
         "Do you want me in advice mode or friend mode?",
         "I can help solve it, but I also get if you just need to be annoyed for a minute.",
-        "That sounds miserable. I will not try to silver-line it.",
+        "That sounds miserable. I'll not try to silver-line it.",
       ],
     },
     {
@@ -183,7 +183,7 @@ export const TC015: CardData = {
         "If you want options, I can give two possible paths.",
         "Before I recommend, what constraint matters most?",
         "Do you want a quick read or a few options?",
-        "I will hold advice until I know the outcome you are after.",
+        "I'll hold advice until I know the outcome you're after.",
         "What are you optimising for here?",
         "My concise suggestion, if useful, is to solve one part and revisit the rest.",
       ],
@@ -195,7 +195,7 @@ export const TC015: CardData = {
       tone: "High-stakes",
       phrases: [
         "I might be moving too quickly to solution mode. What do I need to understand first?",
-        "I do not want to talk you out of the feeling. What part matters most?",
+        "I don't want to talk you out of the feeling. What part matters most?",
         "Before I respond, I want to separate what happened from what it meant.",
         "I can see why advice might feel dismissive right now.",
         "Let me slow down and hear the concern properly.",
@@ -207,9 +207,9 @@ export const TC015: CardData = {
       tag: "Low pressure",
       tone: "Repair",
       phrases: [
-        "No need to solve it right now. I am happy just to listen.",
+        "No need to solve it right now. I'm happy just to listen.",
         "We can keep this simple. Do you want ideas or just space?",
-        "I will not push advice unless you want it.",
+        "I'll not push advice unless you want it.",
         "It makes sense to take a moment before deciding.",
         "Would a small next step feel useful, or not yet?",
       ],
@@ -230,13 +230,13 @@ export const TC015: CardData = {
       condition: "They reject your advice",
       action:
         "You probably advised too early or solved the wrong problem. Ask what matters most.",
-      phrase: '"Fair. What is the part that actually matters here?"',
+      phrase: '"Fair. What\'s the part that actually matters here?"',
     },
     {
       condition: "They keep repeating the issue",
       action: "Summarise and ask whether they want to problem-solve now.",
       phrase:
-        '"You have come back to this a few times. Want to think through a next step?"',
+        '"You\'ve come back to this a few times. Want to think through a next step?"',
     },
     {
       condition: "Urgent action is needed",
@@ -267,9 +267,9 @@ export const TC015: CardData = {
       best: '"I can see why that would get under your skin. It sounds less like workload and more like being taken for granted."',
     },
     {
-      weak: '"Here is what I would do."',
+      weak: "\"Here's what I'd do.\"",
       better: '"Want my read?"',
-      best: '"I have one practical thought, but I do not want to steamroll you. Useful, or not yet?"',
+      best: '"I have one practical thought, but I don\'t want to steamroll you. Useful, or not yet?"',
     },
   ],
   scenarios: [
@@ -281,7 +281,7 @@ export const TC015: CardData = {
     {
       situation: "Partner upset",
       move: "Do not fix the feeling. Show you are with them first.",
-      phrase: '"I\'m here. Tell me the part that is bothering you most."',
+      phrase: "\"I'm here. Tell me the part that's bothering you most.\"",
     },
     {
       situation: "Colleague at work",
@@ -374,7 +374,7 @@ export const TC015: CardData = {
     without: [
       'Person: "Work was awful today. My manager dumped another project on me."',
       'You: "You should just tell them no. You need better boundaries."',
-      "Why it is weak:",
+      "Why it's weak:",
       "jumps straight to fixing before understanding",
       "tells them what to do, which lands as criticism",
       "misses the real feeling, being taken for granted",
@@ -383,15 +383,15 @@ export const TC015: CardData = {
     with: [
       'Person: "Work was awful today. My manager dumped another project on me."',
       'You: "That sounds exhausting. Is this a venting moment, or do you want help thinking through what to say?"',
-      'Person: "Mostly venting. I am just so annoyed."',
-      'You: "Fair. It sounds like the worst part is not just the extra work, but that it was assumed you would absorb it."',
+      'Person: "Mostly venting. I\'m just so annoyed."',
+      "You: \"Fair. It sounds like the worst part isn't just the extra work, but that it was assumed you'd absorb it.\"",
       "Advanced:",
       'Person: "Work was awful today. My manager dumped another project on me."',
       'You: "That sounds like the kind of thing where advice too fast would be annoying. Is the main feeling anger, overload, or being taken for granted?"',
       'Person: "Taken for granted."',
-      'You: "That makes sense. Then the real issue is not just workload; it is respect and expectation-setting. If you want later, we can think about how to say that without escalating it."',
+      "You: \"That makes sense. Then the real issue isn't just workload. It's respect and expectation-setting. If you want later, we can think about how to say that without escalating it.\"",
       "Why this works:",
-      "does not rush to fixing, so they need not defend their distress",
+      "doesn't rush to fixing, so they need not defend their distress",
       "asks what mode of support they actually want",
       "names the emotional meaning: being expected to absorb extra work",
       "distinguishes anger, overload and being taken for granted",
@@ -559,14 +559,14 @@ export const TC015: CardData = {
     },
     {
       mistake: "Steering toward your own agenda",
-      soundsLike: '"Well, what I would do is..." (before they asked)',
+      soundsLike: '"Well, what I\'d do is..." (before they asked)',
       better: '"What are you hoping to protect here?"',
     },
     {
       mistake: "Stalling when action is needed",
       soundsLike: '"But how are you feeling about it?" during an emergency',
       better:
-        '"Let\'s deal with the urgent bit now; we can talk properly after."',
+        '"Let\'s deal with the urgent bit now. We can talk properly after."',
     },
   ],
   recoveryPhrases: [
@@ -585,18 +585,18 @@ export const TC015: CardData = {
     {
       label: "Friendship chain",
       sequence:
-        'Validate -> "solutions or solidarity?" -> let them vent -> reflect -> contribute lightly',
+        'Validate → "solutions or solidarity?" → let them vent → reflect → contribute lightly',
       example: [
         "\"That's rubbish, I'm sorry.\"",
         '"Do you want solutions or solidarity?"',
-        "(they vent; you stay with it)",
+        "(they vent. You stay with it)",
         '"So the galling part is being taken for granted."',
       ],
     },
     {
       label: "Workplace chain",
       sequence:
-        "Clarify outcome -> ask if advice is wanted -> give one concise option -> check fit",
+        "Clarify outcome → ask if advice is wanted → give one concise option → check fit",
       example: [
         '"What are you trying to protect here?"',
         '"Want a recommendation, or shall we map it first?"',
@@ -607,7 +607,7 @@ export const TC015: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Pause -> validate the concern -> don't fix or defend -> ask what needs understanding -> respond",
+        "Pause → validate the concern → don't fix or defend → ask what needs understanding → respond",
       example: [
         '"Let me slow down."',
         '"I can see why that felt dismissive."',
@@ -617,7 +617,7 @@ export const TC015: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Understand goal -> identify constraint -> permissioned advice -> small next step -> release",
+        "Understand goal → identify constraint → permissioned advice → small next step → release",
       example: [
         '"What matters most to you here?"',
         '"So the constraint is time, not money."',
@@ -630,22 +630,22 @@ export const TC015: CardData = {
     {
       id: "TC090",
       reason:
-        "Closest sibling. TC090 Do-not-fix-yet is the raw discipline of not jumping to a solution; TC015 adds the mode-check and the permissioned hand-off into advice once it is wanted.",
+        "Closest sibling. TC090 Do-not-fix-yet is the raw discipline of not jumping to a solution. TC015 adds the mode-check and the permissioned hand-off into advice once it is wanted.",
     },
     {
       id: "TC027",
       reason:
-        "TC027 Permission-based advice is the moment you ask to give advice; TC015 is the earlier restraint that holds advice back until the person is actually understood.",
+        "TC027 Permission-based advice is the moment you ask to give advice. TC015 is the earlier restraint that holds advice back until the person is actually understood.",
     },
     {
       id: "TC021",
       reason:
-        'TC021 Autonomy release hands the decision back explicitly ("it\'s your call") after you advise; TC015 is about not advising too soon in the first place.',
+        'TC021 Autonomy release hands the decision back explicitly ("it\'s your call") after you advise. TC015 is about not advising too soon in the first place.',
     },
     {
       id: "TC037",
       reason:
-        "TC037 Double-sided reflection is the specific reflecting move that buys you time; TC015 is the broader restraint that decides whether to reflect or advise at all.",
+        "TC037 Double-sided reflection is the specific reflecting move that buys you time. TC015 is the broader restraint that decides whether to reflect or advise at all.",
     },
     {
       id: "TC067",

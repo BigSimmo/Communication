@@ -6,7 +6,7 @@ export const TC044: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC044/TC044_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,19 +56,19 @@ export const TC044: CardData = {
   ],
   id: "TC044",
   whyItWorks:
-    "BLUF — Bottom Line Up Front — means leading with the answer, recommendation or ask, then giving only the support that is actually needed. Its shape is Bottom line -> key reason -> implication -> optional detail. Putting the conclusion first reduces the listener's cognitive load, sequences the information so the most important part lands first, and lets a busy person understand, decide or act without wading through your reasoning to find the point. Its influence comes from clarity and respect, not from pressure.",
+    "BLUF, Bottom Line Up Front, means leading with the answer, recommendation or ask, then giving only the support that is actually needed. Its shape is Bottom line → key reason → implication → optional detail. Putting the conclusion first reduces the listener's cognitive load, sequences the information so the most important part lands first, and lets a busy person understand, decide or act without wading through your reasoning to find the point. Its influence comes from clarity and respect, not from pressure.",
   whatItIsNot: [
     "It is not a script to recite mechanically, one sentence per step.",
     "It is not a way to avoid listening, or to compress someone's emotion into a template.",
     "It is not a tool for forcing the other person into your structure.",
-    "It is not bluntness for its own sake — skipping the context or empathy a moment needs is a misuse, not the technique.",
+    "It is not bluntness for its own sake: skipping the context or empathy a moment needs is a misuse, not the technique.",
     "If the structure makes the conversation less humane, that is the signal to slow down and use a simpler move.",
   ],
   overview: {
     coreFormula: [
-      "Bottom line -> key reason -> implication -> optional detail",
+      "Bottom line → key reason → implication → optional detail",
       "Bottom line: I recommend X. The reason is Y. The next step is Z.",
-      "The main point is X; the rest is only support.",
+      "The main point is X. The rest is only support.",
       "Use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
@@ -76,7 +76,7 @@ export const TC044: CardData = {
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
-      "It fails when you become abrupt — skipping the context or empathy the moment needed — or when you announce the framework and force every sentence into it until it sounds like a lecture rather than a person.",
+      "It fails when you become abrupt, skipping the context or empathy the moment needed, or when you announce the framework and force every sentence into it until it sounds like a lecture rather than a person.",
     bestFor: [
       "Briefings and status updates",
       "Emails people will only skim",
@@ -104,7 +104,7 @@ export const TC044: CardData = {
       phrases: [
         "Bottom line: we should go with X.",
         "Short version: yes, with one condition.",
-        "Headline first — I recommend we ship on Friday.",
+        "Headline first, I recommend we ship on Friday.",
         "The answer is no, and here's the one reason.",
         "Quick one: I need a decision by three.",
         "In a sentence: option B is the safer bet.",
@@ -120,7 +120,7 @@ export const TC044: CardData = {
         "My recommendation is X. The main reason is Y. The next step would be Z.",
         "Bottom line up front: the launch is on track, with one risk to flag.",
         "Where we've landed: we go with the second supplier.",
-        "Status in one line — green on scope, amber on timeline.",
+        "Status in one line. Green on scope, amber on timeline.",
         "The decision I'm asking for is whether to approve the budget.",
         "If you take one thing from this: we need to move the deadline.",
         "Here's the recommendation, then the reasoning behind it.",
@@ -134,10 +134,10 @@ export const TC044: CardData = {
       phrases: [
         "What I need from you is a yes or no by Thursday.",
         "The ask is simple: sign off on the revised plan.",
-        "Next step is yours — approve, or tell me what's missing.",
+        "Next step is yours. Approve, or tell me what's missing.",
         "I recommend we stop the project. Here's why.",
         "One decision today: in or out.",
-        "The main point is X; everything else is just support.",
+        "The main point is X. Everything else is just support.",
         "Let me lead with the ask, then explain.",
       ],
     },
@@ -147,7 +147,7 @@ export const TC044: CardData = {
       tag: "Scannable messages",
       tone: "Professional",
       phrases: [
-        "Approval needed by Friday to hold the launch date — detail below.",
+        "Approval needed by Friday to hold the launch date. Detail below.",
         "Bottom line first, background at the bottom if you want it.",
         "Three lines: what I need, why, and by when.",
         "I've put the ask in the first sentence so you can scan the rest.",
@@ -164,7 +164,7 @@ export const TC044: CardData = {
         "I'll keep this short out of respect for your time.",
         "Let me give you the headline first, then as much detail as you want.",
         "I know you're busy, so bottom line first.",
-        "Here's the gist — stop me and I'll expand wherever's useful.",
+        "Here's the gist. Stop me and I'll expand wherever's useful.",
         "I'll lead with what matters, and you can pull on any thread.",
         "Short version now, and I'm happy to go deeper whenever suits.",
       ],
@@ -175,12 +175,12 @@ export const TC044: CardData = {
       tag: "Softening the structure",
       tone: "Repair",
       phrases: [
-        "Let me check that's a useful way to frame it — or should we come at it differently?",
+        "Let me check that's a useful way to frame it, or should we come at it differently?",
         "I can keep this short, then we adjust together.",
         "Tell me if you'd rather I slow down and give the background first.",
         "If the headline-first approach isn't landing, say so and I'll switch.",
         "Happy to unpack any part that felt too compressed.",
-        "That may not be the right frame — let me back up.",
+        "That may not be the right frame. Let me back up.",
       ],
     },
     {
@@ -192,22 +192,22 @@ export const TC044: CardData = {
         "One sentence, then I'll pause: the project isn't going ahead.",
         "I'll say the main thing plainly, then we can sit with it.",
         "Here's the decision, and I want to hear your reaction before I add anything.",
-        "The hard part first — the answer is no. The reason matters, so let me explain.",
+        "The hard part first: the answer is no. The reason matters, so let me explain.",
         "I'll be direct, because you deserve a straight answer.",
-        "The role's being cut. I want to talk it through properly — take your time.",
+        "The role's being cut. I want to talk it through properly. Take your time.",
       ],
     },
   ],
   decisionTree: [
     {
       condition: "The listener needs speed",
-      action: "Use the shortest version — bottom line only.",
+      action: "Use the shortest version: bottom line only.",
       phrase: "In one line: yes, do it.",
     },
     {
       condition: "The listener needs support or is upset",
       action: "Validate first and delay the framework.",
-      phrase: "Before anything else — how are you doing with this?",
+      phrase: "Before anything else. How are you doing with this?",
     },
     {
       condition: "The listener needs a story or example",
@@ -223,12 +223,12 @@ export const TC044: CardData = {
       condition: "The listener looks confused",
       action:
         "Summarise and invite correction rather than pushing the structure harder.",
-      phrase: "Let me put that a simpler way — tell me where it's not landing.",
+      phrase: "Let me put that a simpler way. Tell me where it's not landing.",
     },
   ],
   ladder: [
     {
-      weak: 'Announces the framework — "I\'ll BLUF this" — and forces every sentence into it.',
+      weak: 'Announces the framework ("I\'ll BLUF this") and forces every sentence into it.',
       better: "Uses BLUF silently to organise a concise response.",
       best: "Uses BLUF flexibly, then checks whether the listener is clearer and better able to respond.",
     },
@@ -240,7 +240,7 @@ export const TC044: CardData = {
     {
       weak: "Cuts context so hard it sounds abrupt or cold.",
       better: "Keeps it brief but adds one line of context.",
-      best: "Stays brief and human — clear without sounding clipped.",
+      best: "Stays brief and human. Clear without sounding clipped.",
     },
   ],
   scenarios: [
@@ -254,7 +254,7 @@ export const TC044: CardData = {
       situation: "Email",
       move: "Put the ask in the first sentence and the detail below, so it can be scanned.",
       phrase:
-        "Approval needed by Friday to hold the launch date — detail below.",
+        "Approval needed by Friday to hold the launch date. Detail below.",
     },
     {
       situation: "Giving feedback",
@@ -265,12 +265,12 @@ export const TC044: CardData = {
       situation: "Difficult conversation",
       move: "One sentence per step, then pause and listen.",
       phrase:
-        "The role's being cut. I want to talk it through properly — take your time.",
+        "The role's being cut. I want to talk it through properly. Take your time.",
     },
     {
       situation: "Urgent decision",
       move: "Give the recommendation and the one deciding factor, nothing else.",
-      phrase: "Go with the backup supplier — ours can't hit the date.",
+      phrase: "Go with the backup supplier. Ours can't hit the date.",
     },
     {
       situation: "Handover",
@@ -304,7 +304,7 @@ export const TC044: CardData = {
     {
       day: "Day 1",
       title: "Spot the bottom line",
-      task: "Take three things you need to say this week and write the single bottom-line sentence for each — the answer, not the wind-up.",
+      task: "Take three things you need to say this week and write the single bottom-line sentence for each: the answer, not the wind-up.",
     },
     {
       day: "Day 2",
@@ -350,8 +350,8 @@ export const TC044: CardData = {
       'Manager: "Where are we on the migration?"',
       'You: "So, back in March we scoped three options, then the vendor changed their pricing, the team had a couple of holidays, there was the security review..."',
       'Manager: "...and?"',
-      'You: "Right — bottom line, key reason, implication, optional detail — the bottom line is it\'s delayed, the key reason is capacity, the implication is the date moves, the optional detail is..."',
-      "Why it is weak:",
+      'You: "Right (bottom line, key reason, implication, optional detail) the bottom line is it\'s delayed, the key reason is capacity, the implication is the date moves, the optional detail is..."',
+      "Why it's weak:",
       "makes the manager dig for the answer they actually asked for",
       "then names the framework out loud and sounds rehearsed",
       "forces every clause into the template",
@@ -369,13 +369,13 @@ export const TC044: CardData = {
       "one clear reason, not the whole history",
       "states the implication and offers a next step",
       "keeps the detail optional, so the manager controls the depth",
-      "stays warm and plain — no framework announced",
+      "stays warm and plain. No framework announced",
     ],
-    note: "The advanced version organises the same facts with BLUF, but the manager never hears the scaffolding — only the clarity.",
+    note: "The advanced version organises the same facts with BLUF, but the manager never hears the scaffolding, only the clarity.",
   },
   influencePayoff: {
     feeling:
-      '"I know exactly what they\'re asking of me and why — I can act on this."',
+      '"I know exactly what they\'re asking of me and why. I can act on this."',
     principle:
       "People engage more readily with a point when they can see, from the first sentence, where it is going.",
     gains: [
@@ -398,7 +398,7 @@ export const TC044: CardData = {
     headline: "Scaffolding, not choreography.",
     body: "Use BLUF to organise your thinking before you speak, then let the scaffolding disappear. The other person should feel clarity, not watch you climb through a framework.",
     example:
-      'Instead of "Bottom line, key reason, implication...", just say: "Short version — we should delay, mainly because of capacity. Happy to explain."',
+      'Instead of "Bottom line, key reason, implication...", just say: "Short version. We should delay, mainly because of capacity. Happy to explain."',
     dont: "Announce the framework or force every sentence into it.",
     do: "Lead with the answer, give one reason, and leave the detail optional.",
   },
@@ -416,7 +416,7 @@ export const TC044: CardData = {
     {
       step: "3",
       title: "Give the key reason",
-      body: 'Add the single most important reason — not the whole background.\nExample: "...because we lost a developer to the security review."\nOne reason is usually enough for the listener to accept or question the point.',
+      body: 'Add the single most important reason, not the whole background.\nExample: "...because we lost a developer to the security review."\nOne reason is usually enough for the listener to accept or question the point.',
     },
     {
       step: "4",
@@ -467,9 +467,9 @@ export const TC044: CardData = {
   commonMistakes: [
     {
       mistake:
-        "Over-structuring — making the framework more important than the point.",
+        "Over-structuring: making the framework more important than the point.",
       soundsLike:
-        '"Bottom line, key reason, implication, optional detail — so, bottom line..."',
+        '"Bottom line, key reason, implication, optional detail. So, bottom line..."',
       better: '"Short version: we should delay. Main reason is capacity."',
     },
     {
@@ -508,27 +508,27 @@ export const TC044: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured — let me say it more simply.",
+    "I made that too structured. Let me say it more simply.",
     "That may not be the useful frame. Let me back up.",
     "I don't want the structure to override the actual issue.",
     "What part of that was useful, and what should we drop?",
     "Sorry, that came out more clipped than I meant.",
     "Let me give you the context I skipped.",
-    "I jumped to the bottom line — do you want the reasoning behind it?",
+    "I jumped to the bottom line. Do you want the reasoning behind it?",
   ],
-  bestRecoveryLine: "I made that too structured — let me say it more simply.",
+  bestRecoveryLine: "I made that too structured. Let me say it more simply.",
   chains: [
     {
       label: "Clarity chain",
-      sequence: "BLUF -> Summary check",
+      sequence: "BLUF → Summary check",
       example: [
         '"Bottom line: I recommend we pause the rollout, mainly because of the security gap."',
-        '"Before I go on — is that the read you were expecting, or does it surprise you?"',
+        '"Before I go on. Is that the read you were expecting, or does it surprise you?"',
       ],
     },
     {
       label: "Action chain",
-      sequence: "BLUF -> Clean request",
+      sequence: "BLUF → Clean request",
       example: [
         '"The headline is we\'re two weeks behind."',
         '"So the ask is: can you free up one developer until the 20th?"',
@@ -536,15 +536,15 @@ export const TC044: CardData = {
     },
     {
       label: "Respect chain",
-      sequence: "BLUF -> Autonomy release",
+      sequence: "BLUF → Autonomy release",
       example: [
         '"My recommendation is option B, because it\'s lower risk."',
-        "\"But it's your call — you're closer to the client than I am.\"",
+        "\"But it's your call. You're closer to the client than I am.\"",
       ],
     },
     {
       label: "Emotion-first chain",
-      sequence: "Validation -> BLUF",
+      sequence: "Validation → BLUF",
       example: [
         '"I can see this deadline is stressing everyone, and that\'s fair."',
         "\"So here's where I've landed: we drop the third feature and ship the rest on time.\"",
@@ -555,17 +555,17 @@ export const TC044: CardData = {
     {
       id: "TC042",
       reason:
-        "PREP (Point, Reason, Example, Point) also leads with the conclusion, but loops back to restate it and leans on an example. Reach for BLUF when speed and the bare answer matter most; reach for PREP when a memorable example and a closing restatement will land better.",
+        "PREP (Point, Reason, Example, Point) also leads with the conclusion, but loops back to restate it and leans on an example. Reach for BLUF when speed and the bare answer matter most. Reach for PREP when a memorable example and a closing restatement will land better.",
     },
     {
       id: "TC048",
       reason:
-        "SCQA (Situation, Complication, Question, Answer) builds shared context before the answer. Use BLUF when the listener already has the context and just wants the point; use SCQA when you first need to frame why the point matters.",
+        "SCQA (Situation, Complication, Question, Answer) builds shared context before the answer. Use BLUF when the listener already has the context and just wants the point. Use SCQA when you first need to frame why the point matters.",
     },
     {
       id: "TC013",
       reason:
-        "A Clean request is a single, specific ask. Use BLUF to structure a whole recommendation or briefing; drop to a Clean request when all you need is one clear action.",
+        "A Clean request is a single, specific ask. Use BLUF to structure a whole recommendation or briefing. Drop to a Clean request when all you need is one clear action.",
     },
     {
       id: "TC011",
@@ -575,12 +575,12 @@ export const TC044: CardData = {
     {
       id: "TC047",
       reason:
-        "STAR (Situation, Task, Action, Result) tells a structured story. Use BLUF when the listener needs the answer fast; switch to STAR when they need the narrative of how something happened.",
+        "STAR (Situation, Task, Action, Result) tells a structured story. Use BLUF when the listener needs the answer fast. Switch to STAR when they need the narrative of how something happened.",
     },
     {
       id: "TC049",
       reason:
-        "CARL (Context, Action, Result, Learning) is a reflective story structure. Use BLUF for a live decision or ask; use CARL when the value is in walking through what happened and what was learned.",
+        "CARL (Context, Action, Result, Learning) is a reflective story structure. Use BLUF for a live decision or ask. Use CARL when the value is in walking through what happened and what was learned.",
     },
   ],
 };
