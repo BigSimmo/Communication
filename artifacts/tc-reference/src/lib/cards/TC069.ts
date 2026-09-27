@@ -74,7 +74,7 @@ export const TC069: CardData = {
       "Check, then respond: confirm you have it right, then answer the actual concern or accept the boundary.",
     ],
     minimumViableMove:
-      'When resistance appears, ask one short neutral question ("What part of that is the main concern?") then pause and listen before you respond.',
+      'When resistance appears, ask one short neutral question ("What part of that\'s the main concern?") then pause and listen before you respond.',
     impact: "High",
     difficulty: "Medium",
     misuse:
@@ -318,7 +318,7 @@ export const TC069: CardData = {
     {
       day: "Day 3",
       title: "Tone calibration",
-      task: 'Say "What part of that is the main concern?" out loud in three tones: defensive, clinical, and warm. Record yourself if you can. Keep only the warm version.',
+      task: 'Say "What part of that\'s the main concern?" out loud in three tones: defensive, clinical, and warm. Record yourself if you can. Keep only the warm version.',
     },
     {
       day: "Day 4",

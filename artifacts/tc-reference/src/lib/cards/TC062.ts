@@ -301,7 +301,7 @@ export const TC062: CardData = {
       "They give more detail, examples, or context.",
       "They look relieved that the earlier point was remembered.",
       "Their tone warms, slows, or becomes more specific.",
-      'They say "yes, exactly," "that is the thing," or "I was hoping to get back to that."',
+      'They say "yes, exactly," "that\'s the thing," or "I was hoping to get back to that."',
       "The thread clarifies a decision, feeling, constraint, or next step.",
       "They pick the thread up and run with it themselves.",
     ],
@@ -345,7 +345,7 @@ export const TC062: CardData = {
     {
       day: "Day 6",
       title: "Recover a miss",
-      task: 'Role-play or replay a return that misses: the other person says "I do not want to get into that." Recover in one sentence and do not explain further.',
+      task: 'Role-play or replay a return that misses: the other person says "I don\'t want to get into that." Recover in one sentence and do not explain further.',
     },
     {
       day: "Day 7",

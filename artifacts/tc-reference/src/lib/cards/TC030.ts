@@ -394,7 +394,7 @@ export const TC030: CardData = {
     working: [
       "They expand with more detail.",
       "They correct or refine the meaning in a useful way.",
-      'They say "exactly", "yeah", or "that is the word".',
+      'They say "exactly", "yeah", or "that\'s the word".',
       "Their tone warms because you picked the right phrase.",
       "The conversation becomes more precise.",
       "They volunteer the story behind the word.",

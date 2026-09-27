@@ -293,13 +293,13 @@ export const TC011: CardData = {
   ],
   calibration: {
     working: [
-      'They say "Exactly", "Yes", "That is it", or "That is what I mean".',
+      'They say "Exactly", "Yes", "That\'s it", or "That\'s what I mean".',
       "They correct you with useful detail rather than repeating the whole story.",
       "They relax or become less defensive.",
       "The conversation becomes more focused.",
       "They stop repeating the same point.",
       "They become more willing to hear your view or move to next steps.",
-      'They add nuance: "It is more X than Y."',
+      'They add nuance: "It\'s more X than Y."',
     ],
     adjust: [
       'They say "not really" or repeat the same concern. You have missed the real one.',
@@ -326,7 +326,7 @@ export const TC011: CardData = {
     {
       day: "Day 3",
       title: "Catch the feeling",
-      task: 'Practise emotion and meaning summaries: "So it was not just inconvenient. It felt unfair." Aim underneath the facts at least twice today.',
+      task: 'Practise emotion and meaning summaries: "So it wasn\'t just inconvenient. It felt unfair." Aim underneath the facts at least twice today.',
     },
     {
       day: "Day 4",

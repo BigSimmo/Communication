@@ -302,9 +302,9 @@ export const TC065: CardData = {
     ],
     adjust: [
       "They repeat the bookmarked point or look doubtful. It may need attention now.",
-      'They say "but that is the main issue": stop and address it.',
+      'They say "but that\'s the main issue": stop and address it.',
       "The point is urgent, safety-related, or emotionally loaded. Do not save it, handle it.",
-      'In groups no one can see the bookmark. Make it visible: "I have captured that under customer training."',
+      'In groups no one can see the bookmark. Make it visible: "I\'ve captured that under customer training."',
       "In digital threads it is vanishing in the scroll: pin it with a label, quote, or bullet.",
       "You are collecting more bookmarks than you can honour: choose which matters most before adding more.",
     ],
@@ -343,7 +343,7 @@ export const TC065: CardData = {
     {
       day: "Day 7",
       title: "Practise the repair",
-      task: 'Practise the recovery line "I bookmarked that and did not come back. Let me return now" without over-apologising, then use it for real if a bookmark slipped.',
+      task: 'Practise the recovery line "I bookmarked that and didn\'t come back. Let me return now" without over-apologising, then use it for real if a bookmark slipped.',
     },
   ],
   checklist: [
@@ -374,7 +374,7 @@ export const TC065: CardData = {
       'sets a concrete return condition, not a vague "later"',
       "protects flow while keeping Alex's point alive",
     ],
-    note: 'Digital version: "Bookmarking your overload point here so it does not get buried. I will answer timeline first, then address overload in a separate paragraph."',
+    note: "Digital version: \"Bookmarking your overload point here so it doesn't get buried. I'll answer timeline first, then address overload in a separate paragraph.\"",
   },
   influencePayoff: {
     feeling:

@@ -585,7 +585,7 @@ export const TC056: CardData = {
     {
       id: "TC054",
       reason:
-        'Similarity signalling. Detect their preference first with TC056. Signal a genuine commonality with TC054 only if it is real and useful. "They like this topic" is not "we are similar".',
+        'Similarity signalling. Detect their preference first with TC056. Signal a genuine commonality with TC054 only if it is real and useful. "They like this topic" is not "we\'re similar".',
     },
   ],
 };

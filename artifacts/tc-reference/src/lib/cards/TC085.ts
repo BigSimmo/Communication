@@ -293,7 +293,7 @@ export const TC085: CardData = {
     ],
     adjust: [
       "They answer only the last question in a stack.",
-      'They say "I do not know where to start."',
+      'They say "I don\'t know where to start."',
       "They become defensive, short, or overly explanatory.",
       "They look like they are trying to remember every prompt.",
       'They ask "which question do you want me to answer?" You have already stacked too much.',
@@ -432,7 +432,7 @@ export const TC085: CardData = {
     {
       step: "5",
       title: "Recovery",
-      body: 'If the pressure lands, apologise lightly and back up. The recovery should reduce demand, not add to it: do not apologise and then ask a fresh stack. "That came out like an interrogation. I am going to slow down."',
+      body: 'If the pressure lands, apologise lightly and back up. The recovery should reduce demand, not add to it: do not apologise and then ask a fresh stack. "That came out like an interrogation. I\'m going to slow down."',
     },
     {
       step: "6",

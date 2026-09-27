@@ -58,7 +58,7 @@ export const TC070: CardData = {
   whyItWorks:
     'Careful normalising makes a person\'s reaction feel understandable without making the problem smaller. You link their response to a specific context, pressure, history or need, then separate "understandable" from "acceptable". It works because people think and listen more clearly once they no longer have to defend the legitimacy of their own reaction: showing why a feeling makes sense removes unnecessary shame and isolation while leaving their autonomy, the accuracy of the situation, and the next step fully intact.',
   whatItIsNot: [
-    'It is not minimising: "everyone deals with that" or "do not worry about it" are not careful normalising.',
+    'It is not minimising: "everyone deals with that" or "don\'t worry about it" are not careful normalising.',
     "It is not excusing harmful behaviour, bad process, disrespect, abuse, discrimination or avoidable pressure.",
     "It is not telling someone what they should feel or how quickly they should recover.",
     "It is not diagnosis, therapy language, performance empathy or a way to end the conversation quickly.",
@@ -76,9 +76,9 @@ export const TC070: CardData = {
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      'It fails, and can even sting, when it slides into dismissal: normalising the problem instead of the reaction, so it lands as "do not make a fuss". Misuse is using normality to quiet someone, lower their standards, make poor treatment seem fine, or skip the practical support or accountability the moment actually needs.',
+      'It fails, and can even sting, when it slides into dismissal: normalising the problem instead of the reaction, so it lands as "don\'t make a fuss". Misuse is using normality to quiet someone, lower their standards, make poor treatment seem fine, or skip the practical support or accountability the moment actually needs.',
     bestFor: [
-      'Someone says or implies "Maybe I am overreacting", "I should be over this", or "Is it weird that I feel this?"',
+      'Someone says or implies "Maybe I\'m overreacting", "I should be over this", or "Is it weird that I feel this?"',
       "Shame, embarrassment, anxiety, self-blame or isolation after a difficult interaction.",
       "Work conversations where pressure, uncertainty or repeated changes have made a strong reaction understandable.",
       "Repair conversations where a person's reaction needs to be acknowledged as reasonable before you discuss next steps.",

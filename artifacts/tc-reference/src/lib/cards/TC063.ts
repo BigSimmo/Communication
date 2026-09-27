@@ -332,7 +332,7 @@ export const TC063: CardData = {
     {
       day: "Day 3",
       title: "Shrink the ask",
-      task: 'Take three broad questions (e.g. "Explain this whole market") and rewrite each as one narrow, answerable version (e.g. "What is the one assumption beginners get wrong?").',
+      task: 'Take three broad questions (e.g. "Explain this whole market") and rewrite each as one narrow, answerable version (e.g. "What\'s the one assumption beginners get wrong?").',
     },
     {
       day: "Day 4",
@@ -342,12 +342,12 @@ export const TC063: CardData = {
     {
       day: "Day 5",
       title: "Credit the insight",
-      task: 'Every time someone gives you a useful answer today, close the loop out loud: "That helps because...", "The useful distinction is...", or "I will factor that in by...".',
+      task: 'Every time someone gives you a useful answer today, close the loop out loud: "That helps because...", "The useful distinction is...", or "I\'ll factor that in by...".',
     },
     {
       day: "Day 6",
       title: "Recovery reps",
-      task: 'Practise the exits until they sound plain: "I may have put you on the spot", "Let me narrow that", "I will own the decision", "You do not have to answer that."',
+      task: 'Practise the exits until they sound plain: "I may have put you on the spot", "Let me narrow that", "I\'ll own the decision", "You don\'t have to answer that."',
     },
     {
       day: "Day 7",
@@ -379,7 +379,7 @@ export const TC063: CardData = {
       "Jordan: Good. I'll add both, and I'll credit you for the support-risk read.",
       "Why it works: the frame is real, the question is narrow, Jordan keeps the decision, invites correction, and credits the contribution.",
     ],
-    note: 'The mid-strength version works too: "You are closer to support than I am. What is the first thing we should check before we lock the plan?" Real basis, narrow ask, credit at the end.',
+    note: "The mid-strength version works too: \"You're closer to support than I am. What's the first thing we should check before we lock the plan?\" Real basis, narrow ask, credit at the end.",
   },
   influencePayoff: {
     feeling: '"My competence was seen and put to use, not just admired."',
@@ -402,11 +402,11 @@ export const TC063: CardData = {
   },
   fieldTip: {
     headline: "Make the expert role smaller than the person.",
-    body: '"You know this part better than I do" lands better than "you are the expert." Honour real knowledge. Do not manufacture status. Ask small, listen fully, credit the useful distinction, and keep responsibility for your own choices.',
+    body: '"You know this part better than I do" lands better than "you\'re the expert." Honour real knowledge. Do not manufacture status. Ask small, listen fully, credit the useful distinction, and keep responsibility for your own choices.',
     example:
       "You have more context on this than I do. What should I check first?",
-    dont: "You are the genius here. Tell me exactly what to do.",
-    do: "You have seen this up close. What is the first thing I should check?",
+    dont: "You're the genius here. Tell me exactly what to do.",
+    do: "You've seen this up close. What's the first thing I should check?",
   },
   method: [
     {
@@ -473,9 +473,9 @@ export const TC063: CardData = {
     '"In my experience..."',
     '"The way it actually works is..."',
     '"I grew up around this..."',
-    '"I have seen this pattern a lot..."',
+    '"I\'ve seen this pattern a lot..."',
     '"Technically, what happens is..."',
-    '"On the ground it is more like..."',
+    '"On the ground it\'s more like..."',
   ],
   commonMistakes: [
     {

@@ -61,7 +61,7 @@ export const TC084: CardData = {
     "It is not values-based persuasion, or framing a request around a value to move someone.",
     "It is not telling someone what they should value, or handing them a moral label.",
     "It is not a personality read, a therapy move, or a shortcut to intimacy.",
-    'It is not saying "you are a person who values X" unless the person has said so themselves. Safer is "it sounds like X mattered there."',
+    'It is not saying "you\'re a person who values X" unless the person has said so themselves. Safer is "it sounds like X mattered there."',
   ],
   overview: {
     coreFormula: [
@@ -72,7 +72,7 @@ export const TC084: CardData = {
       'Recovery: "I may be reading that wrong. Use your wording, not mine."',
     ],
     minimumViableMove:
-      'Name one likely value tentatively and leave room for correction: "It sounds like the fairness piece really mattered there. Tell me if that is off."',
+      'Name one likely value tentatively and leave room for correction: "It sounds like the fairness piece really mattered there. Tell me if that\'s off."',
     impact: "Medium",
     difficulty: "Hard",
     misuse:
@@ -218,12 +218,12 @@ export const TC084: CardData = {
     {
       step: "5",
       title: "Add room for correction, then pause",
-      body: 'Attach a correction handle and stop talking: "tell me if that is off", "use your wording, not mine." The pause is where they own, edit or decline the read. Do not fill the silence by explaining why your interpretation made sense.',
+      body: 'Attach a correction handle and stop talking: "tell me if that\'s off", "use your wording, not mine." The pause is where they own, edit or decline the read. Do not fill the silence by explaining why your interpretation made sense.',
     },
     {
       step: "6",
       title: "Track the signal and follow it",
-      body: 'If it lands (they say "exactly", add detail, or offer a cleaner word) stay with their wording from here on. If it misses (they go flat, correct you or withdraw) back out cleanly and return to content. One small reflection is enough. You do not need to be right, you need to be listening.\nExample: "It sounds like the hard part was not only the delay. It was the reliability piece."',
+      body: 'If it lands (they say "exactly", add detail, or offer a cleaner word) stay with their wording from here on. If it misses (they go flat, correct you or withdraw) back out cleanly and return to content. One small reflection is enough. You do not need to be right, you need to be listening.\nExample: "It sounds like the hard part wasn\'t only the delay. It was the reliability piece."',
     },
   ],
   liveThreadClues: [
@@ -353,7 +353,7 @@ export const TC084: CardData = {
       "They shift back to facts only.",
       'They laugh awkwardly or say "I guess."',
       "They seem to accept the phrase just to avoid disagreeing.",
-      'They say "no, that is not it": accept it and use their word.',
+      'They say "no, that\'s not it": accept it and use their word.',
       "They become defensive, embarrassed or withdrawn: release the read.",
       "The label starts to sound moralising or loaded.",
       "If the signal is not clearly green, make the next move smaller.",
@@ -494,7 +494,7 @@ export const TC084: CardData = {
     {
       day: "Day 4",
       title: "Add correction space",
-      task: 'Attach a correction handle to each reflection ("tell me if that is off", "use your wording, not mine") so the person can decline it.',
+      task: 'Attach a correction handle to each reflection ("tell me if that\'s off", "use your wording, not mine") so the person can decline it.',
     },
     {
       day: "Day 5",

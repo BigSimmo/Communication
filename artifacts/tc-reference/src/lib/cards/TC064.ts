@@ -58,9 +58,9 @@ export const TC064: CardData = {
   whyItWorks:
     "Check before interpreting is a listening move for moments when you have a plausible read but not enough evidence to state it as fact. Before you say what someone meant, felt, wanted or intended, you turn your interpretation into a low-pressure question and let them confirm, correct or reject it. It works because people defend themselves when they feel interpreted without permission, even when you are partly right, but they relax and clarify when they are invited to correct your read. You get a more accurate picture, and they stay the authority on their own meaning.",
   whatItIsNot: [
-    'Not mind-reading: "You are only saying that because..."',
+    'Not mind-reading: "You\'re only saying that because..."',
     'Not a soft accusation: "So what you really mean is..."',
-    'Not premature labelling: "You are anxious about this."',
+    'Not premature labelling: "You\'re anxious about this."',
     'Not a debate trap dressed as a question: "Let me check. You admit you were wrong?"',
     'Not vague empathy theatre: "I sense something deep here."',
   ],
@@ -77,7 +77,7 @@ export const TC064: CardData = {
     impact: "High",
     difficulty: "Medium",
     misuse:
-      'Making the check sound like a polished version of "I know what is really going on with you": a leading accusation, a quiet diagnosis, or a way to delay an apology dressed up as a question.',
+      'Making the check sound like a polished version of "I know what\'s really going on with you": a leading accusation, a quiet diagnosis, or a way to delay an apology dressed up as a question.',
     bestFor: [
       "Ambiguous statements where several meanings are plausible.",
       "Emotional conversations where a wrong label would irritate or shame the speaker.",
@@ -307,7 +307,7 @@ export const TC064: CardData = {
     adjust: [
       "They answer only yes or no and close down: widen the question or drop it.",
       "They seem examined rather than understood: soften and slow down.",
-      'They say "That is not what I mean" with irritation: accept it and stop guessing.',
+      'They say "That\'s not what I mean" with irritation: accept it and stop guessing.',
       "They ask why you are making it so complicated: switch to plain listening.",
       "They say they do not want to discuss it: stop and respect that.",
       "You are repeatedly wrong and they are losing patience: put the reads away.",
@@ -323,7 +323,7 @@ export const TC064: CardData = {
     {
       day: "Day 2",
       title: "Write them as claims",
-      task: 'Take five real statements you might hear and write the risky interpretation as a flat claim, e.g. "You are angry because I changed the plan."',
+      task: 'Take five real statements you might hear and write the risky interpretation as a flat claim, e.g. "You\'re angry because I changed the plan."',
     },
     {
       day: "Day 3",
@@ -333,12 +333,12 @@ export const TC064: CardData = {
     {
       day: "Day 4",
       title: "Add correction power",
-      task: 'Add an easy correction invitation to each check ("tell me if I am off", "or is it something else") then read them aloud and cut any that sound diagnostic, superior or leading.',
+      task: 'Add an easy correction invitation to each check ("tell me if I\'m off", "or is it something else") then read them aloud and cut any that sound diagnostic, superior or leading.',
     },
     {
       day: "Day 5",
       title: "Rehearse the recovery",
-      task: 'For each check, practise accepting a correction cleanly: "Got it. I will drop that read," with no defence of your first guess.',
+      task: 'For each check, practise accepting a correction cleanly: "Got it. I\'ll drop that read," with no defence of your first guess.',
     },
     {
       day: "Day 6",
@@ -399,7 +399,7 @@ export const TC064: CardData = {
       "If you would not want someone certain about that read of you, do not be certain about it for them.",
     body: 'The safety valve is the phrase "or something else." It keeps your read useful without trapping the other person inside the options you happened to think of.',
     example: "I may be reading this wrong. Is it A, B, or something else?",
-    dont: '"I sense your resistance here is really about control." Diagnostic and intrusive.',
+    dont: '"I sense your resistance here\'s really about control." Diagnostic and intrusive.',
     do: '"Can I check, is it the workload, the timing, or something I\'ve missed?"',
   },
   method: [

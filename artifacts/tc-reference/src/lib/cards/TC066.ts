@@ -259,7 +259,7 @@ export const TC066: CardData = {
     "An insult or name-calling aimed at you",
     'Sweeping words like "always" and "never"',
     'Sarcasm or rhetorical questions ("do you even read anything?")',
-    'False urgency: "fix this today or I will escalate"',
+    'False urgency: "fix this today or I\'ll escalate"',
     "A demand that you defend your character or motives",
     "An accusation you feel an instant pull to rebut point by point",
   ],
@@ -373,7 +373,7 @@ export const TC066: CardData = {
       "gives a concrete next step and consequence without threat language",
       "stays brief, informative, friendly, and firm",
     ],
-    note: 'For a firmer boundary, swap the last line for: "I will keep this thread focused on delivery details and will not respond to personal character comments."',
+    note: "For a firmer boundary, swap the last line for: \"I'll keep this thread focused on delivery details and won't respond to personal character comments.\"",
   },
   calibration: {
     working: [
@@ -597,7 +597,7 @@ export const TC066: CardData = {
     body: "When a message is loaded, look for the one practical point hiding inside it, then reply with one civil opening, one useful fact, and one firm next step. The best BIFF reply often feels almost too short before you send it. That is usually the sign you have it right. Memorable cue: Short. Factual. Civil. Closed.",
     example:
       'Storm: "You never keep your promises, fix this today." Weather report: the delivery date. Reply: "I understand the delay is frustrating. The revised date is Thursday at 4 pm."',
-    dont: "Prove your character, diagnose theirs, or replay the history: the moment you do, it is no longer BIFF.",
+    dont: "Prove your character, diagnose theirs, or replay the history: the moment you do, it's no longer BIFF.",
     do: "Return to the one practical issue and close the loop.",
   },
   relatedTechniques: [

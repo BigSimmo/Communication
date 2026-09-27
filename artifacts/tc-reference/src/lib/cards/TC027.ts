@@ -118,7 +118,7 @@ export const TC027: CardData = {
     {
       id: "warm_supportive",
       label: "Warm and supportive",
-      tag: "Warm and supportive phrases",
+      tag: "When they're stressed or upset",
       tone: "Warm",
       phrases: [
         "That sounds like a lot. Would it be useful if I helped you think through options?",
@@ -131,7 +131,7 @@ export const TC027: CardData = {
     {
       id: "professional_leadership",
       label: "Professional / leadership",
-      tag: "Professional / leadership phrases",
+      tag: "Work, projects, one-to-ones",
       tone: "Professional",
       phrases: [
         "Would it be useful if I shared a possible next step?",
@@ -144,7 +144,7 @@ export const TC027: CardData = {
     {
       id: "conflict_resistance",
       label: "Conflict / resistance",
-      tag: "Conflict / resistance phrases",
+      tag: "When they're frustrated with you",
       tone: "High-stakes",
       phrases: [
         "Before I offer a view, I want to make sure I've understood the concern.",
@@ -157,7 +157,7 @@ export const TC027: CardData = {
     {
       id: "high_status_busy",
       label: "High-status / busy person",
-      tag: "High-status / busy person phrases",
+      tag: "Senior and time-poor",
       tone: "Direct",
       phrases: [
         "Would a quick outside read help?",
@@ -170,7 +170,7 @@ export const TC027: CardData = {
     {
       id: "shy_guarded",
       label: "Shy / guarded person",
-      tag: "Shy / guarded person phrases",
+      tag: "Low pressure, easy to decline",
       tone: "Warm",
       phrases: [
         "No pressure, but would it help to hear one possible option?",
@@ -183,7 +183,7 @@ export const TC027: CardData = {
     {
       id: "dating_social",
       label: "Dating / social",
-      tag: "Dating / social phrases",
+      tag: "Friends, light and playful",
       tone: "Quick",
       phrases: [
         "Do you want my sensible answer or my supportive-friend answer?",
@@ -314,7 +314,7 @@ export const TC027: CardData = {
       "They answer 'yeah, but...' to each idea. Ask what part, if any, was useful.",
       "They look overwhelmed: shrink it back to one next step.",
       "You notice you're on your third suggestion. Name that you slipped into fixing mode.",
-      "They seem to be deferring to you: release ownership: 'You know this better than I do.'",
+      "They seem to be deferring to you. Release ownership: 'You know this better than I do.'",
       "It clearly isn't the moment: offer practical help later instead of now.",
     ],
   },
@@ -384,6 +384,7 @@ export const TC027: CardData = {
       "checks their mode and lets 'no' be a real answer",
       "gives one concise idea tied to their goal",
       "hands the decision back at the end",
+      "Advanced version:",
       "Person: 'I'm so tired of this situation at work.'",
       "You: 'It sounds like you're exhausted and a bit trapped by it.'",
       "Person: 'Exactly.'",
@@ -416,7 +417,7 @@ export const TC027: CardData = {
   fieldTip: {
     headline: "One piece, then hand it back.",
     body: "Ask permission, give one useful thing, then return the choice. If your advice needs a second paragraph, it probably needs another permission check.",
-    dont: "'Can I give you some advice?': followed by ten minutes of it.",
+    dont: "'Can I give you some advice?' followed by ten minutes of it.",
     do: "'One option, if useful, is X. But you know the situation better than I do.'",
   },
   method: [
@@ -479,7 +480,7 @@ export const TC027: CardData = {
       examples: [
         {
           label: "Check fit",
-          text: "What do you make of that, useful, or off?",
+          text: "What do you make of that? Useful, or off?",
         },
       ],
     },
@@ -490,13 +491,13 @@ export const TC027: CardData = {
     "'It's so frustrating.'",
     "'What would you do?'",
     "'I just needed to get that out.'",
-    "'Anyway: sorry for the rant.'",
+    "'Anyway, sorry for the rant.'",
   ],
   depthDial: [
     {
       depth: "Listen",
       useWhen: "They're venting or flooded and need to be heard.",
-      phrase: "I'm here, no fixing, just listening.",
+      phrase: "I'm here. No fixing, just listening.",
     },
     {
       depth: "Think together",
@@ -517,7 +518,7 @@ export const TC027: CardData = {
   commonMistakes: [
     {
       mistake: "Asking permission, then lecturing",
-      soundsLike: "'Can I offer advice?'. Followed by ten minutes of it.",
+      soundsLike: "'Can I offer advice?' followed by ten minutes of it.",
       better: "Offer one concise idea, then check how it lands.",
     },
     {

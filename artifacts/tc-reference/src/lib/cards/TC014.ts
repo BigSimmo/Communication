@@ -72,7 +72,7 @@ export const TC014: CardData = {
       "I'd worry about follow-through too. That's why I'd start with one owner and a two-week trial.",
     ],
     minimumViableMove:
-      'Say "That is a fair concern" and name the concern out loud before you respond.',
+      'Say "That\'s a fair concern" and name the concern out loud before you respond.',
     impact: "High",
     difficulty: "Medium",
     misuse:
@@ -339,7 +339,7 @@ export const TC014: CardData = {
     {
       day: "Day 5",
       title: "Practise the recovery",
-      task: 'Deliberately use one recovery line after a miss: "I may have over-acknowledged that. Here is my actual answer." Say it once for real and watch it reset the exchange.',
+      task: 'Deliberately use one recovery line after a miss: "I may have over-acknowledged that. Here\'s my actual answer." Say it once for real and watch it reset the exchange.',
     },
     {
       day: "Day 6",
@@ -596,7 +596,7 @@ export const TC014: CardData = {
     {
       id: "TC021",
       reason:
-        'Autonomy release hands the decision back ("it is your call"). Validate the concern earns the right to be heard first: pair them, but use TC021 when the person mainly needs to feel unpressured.',
+        'Autonomy release hands the decision back ("it\'s your call"). Validate the concern earns the right to be heard first: pair them, but use TC021 when the person mainly needs to feel unpressured.',
     },
   ],
 };

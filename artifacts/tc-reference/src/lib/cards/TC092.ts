@@ -316,7 +316,7 @@ export const TC092: CardData = {
       "They offer a next step, alternative, test or trade-off.",
     ],
     adjust: [
-      'They say, "So you think I am wrong?"',
+      'They say, "So you think I\'m wrong?"',
       "They turn sarcastic or performative.",
       "They repeat credentials, status or past effort instead of discussing the point.",
       "They go quiet in a way that reads as embarrassment, not reflection.",
@@ -391,7 +391,7 @@ export const TC092: CardData = {
     note: "The difference is not softness. The advanced version is just as clear that a full launch next week is off the table. It simply leaves the colleague a route to stay in the conversation with their standing intact.",
   },
   influencePayoff: {
-    feeling: '"They can tell me I am wrong without making me look foolish."',
+    feeling: '"They can tell me I\'m wrong without making me look foolish."',
     principle:
       "A disagreement that attacks face produces self-protection: denial, counterattack, humour, withdrawal, status games, rigid certainty. A disagreement that protects face lets the other person weigh new information without feeling socially defeated.",
     gains: [

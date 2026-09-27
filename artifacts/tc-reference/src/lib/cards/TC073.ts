@@ -73,7 +73,7 @@ export const TC073: CardData = {
       "It fails when you use a respectful-sounding question to keep pressure alive: probing a firm no, cornering the person, or asking what the resistance means and then leaving the plan unchanged.",
     bestFor: [
       "Objections to a proposal, request, plan, offer, change, or piece of feedback",
-      'Vague hesitation: "maybe", "I am not sure", "I guess", "yes, but"',
+      'Vague hesitation: "maybe", "I\'m not sure", "I guess", "yes, but"',
       "Repeated delays, silence, partial compliance, or guarded agreement",
       "Workplace disagreement where the real constraint is not yet explicit",
       "Personal conversations where someone seems reluctant but will not name why",
@@ -288,11 +288,11 @@ export const TC073: CardData = {
     ],
     adjust: [
       "Short, clipped answers.",
-      'Repeated "I do not know".',
+      'Repeated "I don\'t know".',
       "Rising irritation.",
       "They explain themselves only to appease you.",
       "Confusion about whether you are asking, challenging, or negotiating.",
-      '"I said no" or "I do not want to talk about it": stop and release pressure.',
+      '"I said no" or "I don\'t want to talk about it": stop and release pressure.',
       "Signs of threat, shame, fear, or overwhelm: stop.",
       "You are asking again after they already answered: the conversation has shifted from understanding to extraction.",
     ],
@@ -316,17 +316,17 @@ export const TC073: CardData = {
     {
       day: "Day 4",
       title: "Draft neutral labels",
-      task: 'Practise naming resistance without drama. Write three low-key labels you could say out loud: "I am hearing hesitation", "Something is not landing", "There is a blocker here".',
+      task: 'Practise naming resistance without drama. Write three low-key labels you could say out loud: "I\'m hearing hesitation", "Something isn\'t landing", "There\'s a blocker here".',
     },
     {
       day: "Day 5",
       title: "Draft the diagnostic question",
-      task: 'Write one clean diagnostic question for each label: for example "What is the main thing that does not work?" or "Is this a no, a not-yet, or a yes-if?" Say each aloud once.',
+      task: 'Write one clean diagnostic question for each label: for example "What\'s the main thing that doesn\'t work?" or "Is this a no, a not-yet, or a yes-if?" Say each aloud once.',
     },
     {
       day: "Day 6",
       title: "Add the recovery line",
-      task: 'Write one recovery phrase that restores choice if the question starts to feel like pressure: "You do not have to justify it. I asked to understand, not to push." Rehearse it until it sounds natural.',
+      task: 'Write one recovery phrase that restores choice if the question starts to feel like pressure: "You don\'t have to justify it. I asked to understand, not to push." Rehearse it until it sounds natural.',
     },
     {
       day: "Day 7",
@@ -393,7 +393,7 @@ export const TC073: CardData = {
   },
   fieldTip: {
     headline: "Resistance is often a signpost, not a wall.",
-    body: 'When someone pushes back, read the signpost before trying to climb over it. Name what you notice, ask one question, listen cleanly, then adapt or stop. The quick line to keep in your pocket is: "What is the resistance telling us?"',
+    body: 'When someone pushes back, read the signpost before trying to climb over it. Name what you notice, ask one question, listen cleanly, then adapt or stop. The quick line to keep in your pocket is: "What\'s the resistance telling us?"',
     example: '"What\'s the resistance telling us?"',
     dont: "Do not use a polite-sounding question to keep the pressure alive after a no.",
     do: "Do let the answer actually change the plan. That is what makes it inquiry rather than persuasion.",

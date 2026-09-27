@@ -338,7 +338,7 @@ export const TC090: CardData = {
     {
       day: "Day 6",
       title: "Reflect before you shift",
-      task: 'In one conversation, reflect the person\'s experience at least once ("So the hardest part is not knowing where you stand") before you ask about solutions or offer any.',
+      task: "In one conversation, reflect the person's experience at least once (\"So the hardest part isn't knowing where you stand\") before you ask about solutions or offer any.",
     },
     {
       day: "Day 7",
@@ -417,7 +417,7 @@ export const TC090: CardData = {
     {
       step: "4",
       title: "Reflect the current experience",
-      body: 'Offer a short reflection that shows you\'re tracking them: "That sounds exhausting," "No wonder that hit hard," or "So the hardest part is not knowing where you stand."',
+      body: 'Offer a short reflection that shows you\'re tracking them: "That sounds exhausting," "No wonder that hit hard," or "So the hardest part isn\'t knowing where you stand."',
     },
     {
       step: "5",

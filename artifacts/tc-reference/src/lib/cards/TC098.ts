@@ -288,12 +288,12 @@ export const TC098: CardData = {
       "Their breathing, pace or message length settles.",
       'They add nuance: "I know they may not have meant it, but..."',
       "They answer the factual question after the acknowledgement.",
-      'They say "yes," "exactly," or "that is the part."',
+      'They say "yes," "exactly," or "that\'s the part."',
       "They move from raw feeling into detail, ready to work the problem.",
       "They lean in and share more.",
     ],
     adjust: [
-      'They correct your label ("I am not angry. I am disappointed"). Take the correction and move on.',
+      "They correct your label (\"I'm not angry. I'm disappointed\"). Take the correction and move on.",
       "They become more factual, signalling they are ready to move to the facts.",
       "They say you are overdoing it or making it dramatic: shorten the emotional focus.",
       "They ask directly for information or a solution: give it.",
@@ -365,7 +365,7 @@ export const TC098: CardData = {
   },
   influencePayoff: {
     feeling:
-      '"My reaction was taken seriously. I did not have to fight to be heard before the facts arrived."',
+      '"My reaction was taken seriously. I didn\'t have to fight to be heard before the facts arrived."',
     principle:
       "People listen to facts more openly once they feel the person behind the claim has been respected. Meet the impact first and the correction stops sounding like a refusal to care.",
     gains: [

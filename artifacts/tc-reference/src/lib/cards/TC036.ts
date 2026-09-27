@@ -67,14 +67,14 @@ export const TC036: CardData = {
   overview: {
     coreFormula: [
       "Formula: notice shared context → name it simply → add an easy entry point → pause → follow the thread they choose.",
-      'Social: "Looks like we both ended up in the quieter corner. I am Sam."',
+      'Social: "Looks like we both ended up in the quieter corner. I\'m Sam."',
       'Meeting: "The shared question today is whether we narrow the scope or move the date."',
       "Clinical: \"I've read the referral, but I'd rather start with what feels most important from your side.\"",
       'Re-entry: "Last time Friday was the pressure point. Is that still the right place to start?"',
       'Digital: "Context first: I\'m writing because the decision point has moved closer."',
     ],
     minimumViableMove:
-      'Name the shared context in one ordinary line, then give the other person an easy way to enter: "Looks like we are both waiting for the same session. I am Sam."',
+      "Name the shared context in one ordinary line, then give the other person an easy way to enter: \"Looks like we're both waiting for the same session. I'm Sam.\"",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
@@ -218,7 +218,7 @@ export const TC036: CardData = {
       condition: "You are entering a new interaction",
       action:
         "Name the shared situation before asking a personal or broad question.",
-      phrase: "Looks like we're both here for the same session. I am Sam.",
+      phrase: "Looks like we're both here for the same session. I'm Sam.",
     },
     {
       condition: "The other person looks busy",
@@ -267,15 +267,15 @@ export const TC036: CardData = {
     },
     {
       weak: "Hi.",
-      better: "Hi, I am Alex.",
-      best: "Looks like we're both waiting for the same workshop. I am Alex.",
+      better: "Hi, I'm Alex.",
+      best: "Looks like we're both waiting for the same workshop. I'm Alex.",
     },
   ],
   scenarios: [
     {
       situation: "First meeting",
       move: "Name the shared setting and make entry easy.",
-      phrase: "Looks like we're both waiting for the same session. I am Sam.",
+      phrase: "Looks like we're both waiting for the same session. I'm Sam.",
     },
     {
       situation: "Clinic or client opening",
@@ -384,8 +384,8 @@ export const TC036: CardData = {
       "Why it's weak: the referral becomes an interrogation prop rather than a starting point.",
     ],
     with: [
-      'A: "Looks like we\'re both early for the handover meeting. I am Priya, from the inpatient side."',
-      'B: "I am Sam, from community."',
+      "A: \"Looks like we're both early for the handover meeting. I'm Priya, from the inpatient side.\"",
+      'B: "I\'m Sam, from community."',
       'A: "Are you here for the capacity discussion as well? We\'re probably seeing the same pressure from different ends."',
       "Why this works: it names the shared setting and offers a name and role as an easy entry point.",
       "A (clinic): \"I've read the referral, but I don't want the paperwork to decide the opening. What feels most important for us to understand today?\"",
@@ -397,7 +397,7 @@ export const TC036: CardData = {
   },
   influencePayoff: {
     feeling:
-      '"They are paying attention to what is actually happening, not running a script on me."',
+      "\"They're paying attention to what's actually happening, not running a script on me.\"",
     principle:
       "People engage more easily when the first move starts from shared reality rather than a demand for disclosure.",
     gains: [
@@ -419,7 +419,7 @@ export const TC036: CardData = {
   fieldTip: {
     headline: "The safest opener is often a boringly accurate one.",
     body: "A contextual opener works because it begins with shared reality. When the room, task, timing or previous thread already gives you a bridge, you do not need a clever first line. You just name what is already true and let the other person decide how much conversation they want.",
-    example: '"Looks like we\'re both waiting for the same session. I am Sam."',
+    example: "\"Looks like we're both waiting for the same session. I'm Sam.\"",
     dont: "Reach for a clever or personal line to seem socially smooth.",
     do: "Name what is already true, make entry easy, then follow their lead.",
   },
@@ -466,7 +466,7 @@ export const TC036: CardData = {
       title: "Add an easy entry point",
       body: "Give them a low-effort way in: your name, a light question, or an explicit invitation to correct you. The point is to lower the cost of replying.",
       examples: [
-        { label: "Introduce", text: "...I am Sam." },
+        { label: "Introduce", text: "...I'm Sam." },
         { label: "Light question", text: "...Which part are you here for?" },
         { label: "Invite correction", text: "...Is that the right frame?" },
       ],
@@ -517,7 +517,7 @@ export const TC036: CardData = {
     {
       mistake: "Too personal too early",
       soundsLike: '"You look stressed, rough morning?"',
-      better: '"The room has that pre-meeting energy. I am Sam."',
+      better: '"The room has that pre-meeting energy. I\'m Sam."',
     },
     {
       mistake: "Using context as bait",
@@ -558,7 +558,7 @@ export const TC036: CardData = {
       sequence:
         "Notice the shared setting → name it lightly → introduce yourself or ask a low-effort question → pause → follow their first thread.",
       example: [
-        '"Looks like we\'re both waiting for the same workshop. I am Sam."',
+        "\"Looks like we're both waiting for the same workshop. I'm Sam.\"",
       ],
     },
     {

@@ -374,7 +374,7 @@ export const TC021: CardData = {
       'You: "You really need to come. Everyone else is coming. No pressure though."',
       'Other: "Uh... I\'ll see."',
       'You: "It would be weird if you didn\'t."',
-      'Why it\'s weak: the "no pressure" is cosmetic: the guilt and the group comparison do the real pushing.',
+      'Why it\'s weak: the "no pressure" is cosmetic. The guilt and the group comparison do the real pushing.',
     ],
     with: [
       "You: \"I'd like you to come if you're free. No pressure if it's not your thing.\"",
@@ -388,7 +388,7 @@ export const TC021: CardData = {
     note: "The advanced version names the relational intention: interest without obligation. The person can say no without having to defend themselves.",
   },
   influencePayoff: {
-    feeling: "I can decide freely here, even a no is safe with this person.",
+    feeling: "I can decide freely here. Even a no is safe with this person.",
     principle:
       "People cooperate more freely when the choice is genuinely theirs. Pressure buys short-term compliance. Real freedom buys trust and repeat willingness.",
     gains: [
@@ -408,10 +408,10 @@ export const TC021: CardData = {
   },
   fieldTip: {
     headline: "Autonomy release only works when the freedom is real.",
-    body: "Say it once, mean it, and let your behaviour prove it. Use the technique to clarify, respect and connect, not to pressure, corner or extract.",
+    body: "Say it once, mean it, and let your behaviour prove it. The real test isn't the words. It's how you react when they actually say no.",
     example: "I'd genuinely like your help, but an easy no is completely fine.",
-    dont: 'Bolt "no pressure" onto heavy pressure, or cool off the moment they hesitate.',
-    do: "Make the ask clearly, add one genuine freedom line, then accept whatever answer comes.",
+    dont: 'Don\'t bolt "no pressure" onto heavy pressure, or cool off the moment they hesitate.',
+    do: "Do make the ask clearly, add one genuine freedom line, then accept whatever answer comes.",
   },
   method: [
     {

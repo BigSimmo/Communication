@@ -375,7 +375,7 @@ export const TC082: CardData = {
     note: "The bid was never really about logistics. Match the effort or feeling under the words first, then act.",
   },
   influencePayoff: {
-    feeling: '"They noticed me. I did not have to fight for contact."',
+    feeling: '"They noticed me. I didn\'t have to fight for contact."',
     principle:
       "People rarely judge warmth by big speeches. They judge it by repeated small moments, whether you noticed the joke, answered the quick update, looked up from the screen, or made room for the thing they were trying to show you. The effect is cumulative: many clean turns build a reputation for being safe to reach.",
     gains: [

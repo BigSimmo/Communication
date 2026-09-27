@@ -365,10 +365,10 @@ export const TC094: CardData = {
       'A: "Thanks. I\'ll keep the ask to those three slides."',
       "Why it works: the request names action, scope, effort, deadline and a real way out, then confirms the boundary after B accepts, so nothing quietly expands.",
     ],
-    note: 'In a care context the same shape sounds like: "Could I have ten minutes tonight where you just listen and do not try to solve it? If you are too drained, tell me and I will journal first." Action, time, role, and an honest exit: nothing to guess at.',
+    note: "In a care context the same shape sounds like: \"Could I have ten minutes tonight where you just listen and don't try to solve it? If you're too drained, tell me and I'll journal first.\" Action, time, role, and an honest exit: nothing to guess at.",
   },
   influencePayoff: {
-    feeling: '"I can see exactly what is being asked, and saying no is safe."',
+    feeling: '"I can see exactly what\'s being asked, and saying no is safe."',
     principle:
       "Many people do not resist helping. They resist undefined obligation. A clear limit lets them estimate effort, protect their time, and choose honestly.",
     gains: [

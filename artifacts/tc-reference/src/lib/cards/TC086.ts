@@ -61,7 +61,7 @@ export const TC086: CardData = {
     "It is not agreement with every claim. You can empathise with a fear without endorsing a false belief, or agree that someone wants freedom without agreeing that every choice is safe.",
     'It is not a debate trick. If the hidden agenda is "pretend to listen so I can get my way," it turns manipulative and usually fails.',
     "It is not therapy, diagnosis, or crisis intervention. Acute danger, abuse, or clinical need calls for professional or emergency support, not a conversation framework.",
-    'It is not unlimited accommodation. Partnership can still hold a boundary: "I want to respect your choice, and I also cannot ignore a safety risk."',
+    'It is not unlimited accommodation. Partnership can still hold a boundary: "I want to respect your choice, and I also can\'t ignore a safety risk."',
     "It is not a way to make someone accept your reality. It builds enough trust that both of you can weigh a next step without humiliation or force.",
   ],
   overview: {

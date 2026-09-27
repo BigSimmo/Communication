@@ -296,7 +296,7 @@ export const TC100: CardData = {
     ],
     adjust: [
       "They look burdened by the question.",
-      'They say "I do not know" in a closed tone.',
+      'They say "I don\'t know" in a closed tone.',
       'They ask "What do you mean?"',
       "They return to facts instead of interpretation.",
       "They seem to need support before analysis.",
@@ -319,7 +319,7 @@ export const TC100: CardData = {
     {
       day: "Day 3",
       title: "Three registers",
-      task: 'For one event, write a direct, a soft, and a contextual version: e.g. "What did you make of it?", "What is your read so far, if any?", "When they said that, what did you take from it?"',
+      task: 'For one event, write a direct, a soft, and a contextual version: e.g. "What did you make of it?", "What\'s your read so far, if any?", "When they said that, what did you take from it?"',
     },
     {
       day: "Day 4",

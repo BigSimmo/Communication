@@ -72,7 +72,7 @@ export const TC016: CardData = {
       "That sounds like a real win. What made it land for you?",
     ],
     minimumViableMove:
-      'Catch the good news, resist the reflexive "nice", and say one warm, specific line with a single follow-up: "That is genuinely good news. What was the best part of it?"',
+      'Catch the good news, resist the reflexive "nice", and say one warm, specific line with a single follow-up: "That\'s genuinely good news. What was the best part of it?"',
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:

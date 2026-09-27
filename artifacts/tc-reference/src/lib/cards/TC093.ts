@@ -79,7 +79,7 @@ export const TC093: CardData = {
     misuse:
       'A sceptical, courtroom tone turns "How so?" into a demand for proof, so the speaker hears challenge instead of curiosity.',
     bestFor: [
-      'Vague evaluations like "that felt off" or "I am not convinced"',
+      'Vague evaluations like "that felt off" or "I\'m not convinced"',
       'Compressed preferences such as "I like A more than B"',
       "Disagreement that needs understanding before you respond",
       "Coaching, facilitation, customer discovery and team debriefs",
@@ -260,12 +260,12 @@ export const TC093: CardData = {
       phrase: "How has that been showing up?",
     },
     {
-      situation: 'Leadership decision: "The team is not ready."',
+      situation: 'Leadership decision: "The team isn\'t ready."',
       move: "Ask how they are reading readiness. Listen for skill, confidence and alignment, then look for a small signal.",
       phrase: "How are you reading readiness?",
     },
     {
-      situation: 'Digital message: "I am not sure this direction works."',
+      situation: 'Digital message: "I\'m not sure this direction works."',
       move: "Reply with a category-offering how-question so they can name the type of concern, then respond to the category.",
       phrase:
         "Can you say how you're seeing the issue, is it audience fit, timing, or execution risk?",
@@ -280,7 +280,7 @@ export const TC093: CardData = {
     working: [
       "They give an example, mechanism or criterion.",
       "Their tone becomes more thoughtful or precise.",
-      'They say things like "What I mean is..." or "The part I am noticing is...".',
+      'They say things like "What I mean is..." or "The part I\'m noticing is...".',
       "The conversation eases because the hidden variable is now visible.",
       "They lean in and share more detail.",
       "They move from a vague label to a concrete cause.",
@@ -390,7 +390,7 @@ export const TC093: CardData = {
     {
       step: "1",
       title: "Catch the compressed statement",
-      body: 'Listen for a conclusion, reaction, preference or concern that has not been unpacked: "that felt off," "they are not ready," "I like the second one." That is your cue.',
+      body: 'Listen for a conclusion, reaction, preference or concern that has not been unpacked: "that felt off," "they\'re not ready," "I like the second one." That is your cue.',
       examples: [{ label: "Cue", text: '"That meeting felt strange."' }],
     },
     {
@@ -440,11 +440,11 @@ export const TC093: CardData = {
   liveThreadClues: [
     '"That felt off."',
     '"This is better."',
-    '"I am not convinced."',
+    '"I\'m not convinced."',
     '"I like A more than B."',
-    '"I do not think that will work."',
-    '"It is not really about the money."',
-    '"They are not ready."',
+    '"I don\'t think that will work."',
+    '"It\'s not really about the money."',
+    '"They\'re not ready."',
     '"That meeting felt strange."',
   ],
   depthDial: [

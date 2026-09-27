@@ -377,7 +377,7 @@ export const TC071: CardData = {
   },
   influencePayoff: {
     feeling:
-      '"The interruption did not erase what I was saying. They held onto it."',
+      '"The interruption didn\'t erase what I was saying. They held onto it."',
     principle:
       "People trust speakers who protect the thread after a disruption. Re-entry proves you were listening before the break and that their contribution still matters.",
     gains: [

@@ -59,10 +59,10 @@ export const TC060: CardData = {
     "Positive assumption is starting from a respectful, benign reading of an ambiguous action before you ask, correct, or disagree. It is a framing move placed just before a potentially face-threatening question, correction, request, or boundary, and it quietly signals: I am not starting from the worst interpretation of you. It works because people explain far more honestly when they do not feel attacked before the facts are even understood: the charitable reading separates the person from the problem and buys a pause between annoyance and accusation, so accountability stays possible without starting from blame.",
   whatItIsNot: [
     "Not blind optimism, forced trust, conflict avoidance, or fake praise. It does not pretend the behaviour is fine.",
-    'Not a way to excuse harm: "You obviously meant well, so there is no problem."',
+    'Not a way to excuse harm: "You obviously meant well, so there\'s no problem."',
     "Not a demand that the other person accept your version of events.",
     "Not minimising: it never makes the person who was actually affected feel unreasonable.",
-    'The honest, checkable version stays precise: "I do not know your intent, and the impact still needs addressing."',
+    'The honest, checkable version stays precise: "I don\'t know your intent, and the impact still needs addressing."',
   ],
   overview: {
     coreFormula: [

@@ -245,15 +245,15 @@ export const TC026: CardData = {
     },
     {
       condition: "They ask what you think",
-      action: "Answer directly, then check you understood first.",
+      action: "Check you've understood, then answer directly.",
       phrase: "Happy to say, but first, have I got the concern right?",
     },
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts based on the response.",
+      weak: "\"So you're saying you're not sure it's workable?\" (parrots the whole sentence)",
+      better: '"Workable?" (then jumps straight in with a defence)',
+      best: '"Workable?" (curious tone, then a full pause while they explain)',
     },
     {
       weak: "Echoes with a flat or sceptical tone.",
@@ -261,9 +261,9 @@ export const TC026: CardData = {
       best: "Echoes with genuine curiosity, so it invites rather than challenges.",
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"Timing?" "Ownership?" "Risk?" (mirror after mirror)',
+      better: "One mirror, then a plain follow-up question.",
+      best: 'One mirror, then a reflection of what it revealed: "So the real worry is who owns it."',
     },
   ],
   scenarios: [
@@ -314,8 +314,8 @@ export const TC026: CardData = {
       "You've mirrored more than twice in a row.",
       "The conversation needs action, not more prompting.",
       "The person is distressed and needs validation.",
-      "Switch to a full reflection, a clean question, or validation.",
-      "Share your own view, use a summary check, and respond directly.",
+      "Fix: switch to a full reflection, a clean question, or validation.",
+      "Fix: share your own view, use a summary check, or respond directly.",
     ],
   },
   drill: [
@@ -382,7 +382,7 @@ export const TC026: CardData = {
       'You: "That makes sense. The adoption risk is the real issue."',
       'Why this works: one mirrored word ("Workable?") opens the real objection, keeps you in their frame, and surfaces the adoption risk without pressure.',
     ],
-    note: 'The lighter version is shorter still: just mirror "Workable?" and often a single echo is enough to get "The idea is fine: the issue is timing and who\'d own it." Reach for a follow-up question only if the first mirror doesn\'t open things up.',
+    note: 'The lighter version is shorter still. Often a single "Workable?" is enough to get "The idea is fine. The issue is timing and who\'d own it." Reach for a follow-up question only if the first mirror doesn\'t open things up.',
   },
   influencePayoff: {
     feeling: "They noticed the real part of what I said.",
@@ -408,7 +408,7 @@ export const TC026: CardData = {
     body: "Echo the smallest phrase that carries the weight, then stop. If you find yourself explaining right after the mirror, you probably mirrored too soon: trust the pause to do the work.",
     example:
       'They say "It was technically fine, just weird." Don\'t ask "Where was it?" Mirror "Weird?" That\'s the live thread.',
-    dont: 'Fill the silence, or echo a trivial word like "The table?"',
+    dont: 'Don\'t fill the silence, or echo a trivial word like "The table?"',
     do: 'Echo the loaded word ("Weird?", "Risky?", "The timing?") then let it breathe.',
   },
   method: [

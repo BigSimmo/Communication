@@ -282,7 +282,7 @@ export const TC078: CardData = {
   calibration: {
     working: [
       "Their tone warms, speeds up, or becomes more specific.",
-      'They say "yes", "actually", or "that is the thing".',
+      'They say "yes", "actually", or "that\'s the thing".',
       "They connect the earlier thread to the current issue.",
       "They seem relieved the point was not lost.",
       "They add detail you had not asked for.",
@@ -388,7 +388,7 @@ export const TC078: CardData = {
     body: "Use it once, at a pause, with a small invitation. If they pick the thread up, follow it one step. If they do not, let it go without a second attempt.",
     example: "Can I come back to X? I didn't want to lose that thread.",
     dont: "You never actually answered: earlier you said X.",
-    do: "I did not want to lose the X thread. Is it still worth a moment?",
+    do: "I didn't want to lose the X thread. Is it still worth a moment?",
   },
   method: [
     {
@@ -451,9 +451,9 @@ export const TC078: CardData = {
   ],
   liveThreadClues: [
     '"anyway..." Someone skipping past their own point',
-    '"but that is another story"',
+    '"but that\'s another story"',
     '"we can talk about that later"',
-    '"I will come back to that" that never got come back to',
+    '"I\'ll come back to that" that never got come back to',
     "a concern raised once, then buried under logistics",
     "a feeling word dropped in passing, then moved on from",
     "an unanswered question left hanging when the topic changed",

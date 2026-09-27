@@ -391,7 +391,7 @@ export const TC035: CardData = {
     note: "The pause is not the whole move. It is the gap that lets the right next sentence arrive instead of the reflex one.",
   },
   influencePayoff: {
-    feeling: '"They took my point seriously. They did not just talk over it."',
+    feeling: '"They took my point seriously. They didn\'t just talk over it."',
     principle:
       "Calm pacing carries more authority than speed. A point given room lands harder than a point rushed.",
     gains: [

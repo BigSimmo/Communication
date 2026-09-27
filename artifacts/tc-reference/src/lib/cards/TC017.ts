@@ -56,7 +56,7 @@ export const TC017: CardData = {
   ],
   id: "TC017",
   whyItWorks:
-    "Values-based framing means connecting a choice, request or interpretation to a value the person has already shown or stated, so the frame feels self-consistent rather than imposed. It works because people move towards a decision more readily when it fits who they already are than when it is pushed on them from outside. The move keeps the exchange accurate, respectful and easy to follow: the other person does not have to guess whether you understood them or what you are asking. The rule that keeps it honest is simple. Use values the person owns, and do not lend them values for your convenience.",
+    "Values-based framing connects a choice, request or interpretation to a value the person has already shown or stated, so the frame feels self-consistent rather than imposed. It works because people move towards a decision more readily when it fits who they already are than when it's pushed on them from outside. The rule that keeps it honest is simple: use values the person owns, and never lend them a value for your convenience.",
   whatItIsNot: [
     "It is not projecting values onto someone, moralising, or reaching for buzzwords to sound principled.",
     'It is not "as someone who cares about X..." when X has not actually been shown or stated.',
@@ -201,8 +201,8 @@ export const TC017: CardData = {
   decisionTree: [
     {
       condition: "The person is still speaking",
-      action: "Hold the frame. Do not interrupt to name a value.",
-      phrase: "",
+      action: "Hold off. Don't interrupt to name a value.",
+      phrase: "Go on.",
     },
     {
       condition: "You are not sure what they value",
@@ -291,7 +291,7 @@ export const TC017: CardData = {
       "They give more detail or start thinking out loud.",
       "They relax and slow down.",
       "They correct your naming easily, without tension.",
-      'They say "yes, that is it" or "exactly".',
+      'They say "yes, that\'s it" or "exactly".',
       "They offer a next step themselves.",
       "They stay with the frame rather than deflecting it.",
     ],
@@ -302,7 +302,7 @@ export const TC017: CardData = {
       "They change the topic.",
       "Sarcasm creeps in.",
       "It starts to feel like the move is about your performance, not their decision.",
-      "When you see these, drop the frame, validate the concern, or switch to plain language.",
+      "Fix: drop the frame, validate the concern, or switch to plain language.",
     ],
   },
   drill: [
@@ -324,7 +324,7 @@ export const TC017: CardData = {
     {
       day: "Day 4",
       title: "Add the autonomy tail",
-      task: 'Rewrite each of yesterday\'s lines so it ends by leaving the decision with them: "...but it is your call" or "...does that fit, or not quite?"',
+      task: 'Rewrite each of yesterday\'s lines so it ends by leaving the decision with them: "...but it\'s your call" or "...does that fit, or not quite?"',
     },
     {
       day: "Day 5",
@@ -379,9 +379,8 @@ export const TC017: CardData = {
     principle:
       "People move towards a decision more readily when it fits who they already are than when it is pushed on them from outside.",
     gains: [
-      "Cleaner coordination",
-      "Less interpersonal friction",
-      "Lower defensiveness",
+      "They feel understood at the level of what matters, not just the facts",
+      "Less pushback, because the frame is theirs rather than yours",
       "The next step feels earned rather than imposed",
       "Less guessing about what you understood or want",
       "Decisions that hold, because they fit the person",
@@ -400,14 +399,14 @@ export const TC017: CardData = {
     body: "The move only works when the value is one the person has actually shown or stated. Borrow a value to win a point and it becomes a lever: people feel it, and they push back. Return a value they already hold and the frame feels like recognition, not pressure.",
     example:
       '"You\'ve said fairness matters to you. Does the quick option actually serve that?"',
-    dont: "As someone who cares about the team, you would stay late.",
-    do: "You have said the team matters to you. Would staying help, or just look like it?",
+    dont: "As someone who cares about the team, you'd stay late.",
+    do: "You've said the team matters to you. Would staying help, or just look like it?",
   },
   method: [
     {
       step: "1",
       title: "Notice the cue",
-      body: 'Listen for a value the person actually states or shows, not one you would like them to hold.\nValue cues sound like:\n"what matters to me is..."\n"I really care about..."\n"it would not be fair to..."\n"the important thing is..."\n"I have always believed..."\nThe cue is the value word they load with weight.',
+      body: 'Listen for a value the person actually states or shows, not one you would like them to hold.\nValue cues sound like:\n"what matters to me is..."\n"I really care about..."\n"it wouldn\'t be fair to..."\n"the important thing is..."\n"I\'ve always believed..."\nThe cue is the value word they load with weight.',
       examples: [
         {
           label: "They said",
@@ -415,14 +414,14 @@ export const TC017: CardData = {
         },
         {
           label: "The value",
-          text: "not letting people down. Loyalty, reliability",
+          text: "Not letting people down (loyalty, reliability)",
         },
       ],
     },
     {
       step: "2",
       title: "Pause before the reflex",
-      body: 'The reflexive version reaches for a value to win the point. Pause long enough to check: is this value theirs, or one I am about to lend them?\nReflexive:\n"If you cared about honesty, you would tell them."\nConsidered:\n"You have said trust matters. Does telling them fit that?"\nThe pause is what keeps the move honest.',
+      body: 'The reflexive version reaches for a value to win the point. Pause long enough to check: is this value theirs, or one I am about to lend them?\nReflexive:\n"If you cared about honesty, you\'d tell them."\nConsidered:\n"You\'ve said trust matters. Does telling them fit that?"\nThe pause is what keeps the move honest.',
     },
     {
       step: "3",
@@ -437,23 +436,23 @@ export const TC017: CardData = {
     {
       step: "5",
       title: "Leave autonomy intact",
-      body: 'Hand the decision back. The frame is an observation, not an instruction.\nExamples:\n"...but it is your call."\n"...does that change the decision, or not really?"\n"...I might be reading it wrong."\nThis is what separates framing from pressure.',
+      body: 'Hand the decision back. The frame is an observation, not an instruction.\nExamples:\n"...but it\'s your call."\n"...does that change the decision, or not really?"\n"...I might be reading it wrong."\nThis is what separates framing from pressure.',
     },
     {
       step: "6",
       title: "Watch, continue or repair",
-      body: 'Read the response. If ease rose (more detail, a relaxed tone, an easy correction) continue and connect to the next step. If ease fell (shorter answers, tension, a topic change) repair or release.\nRepair:\n"I may have read that wrong. Let me put it more simply."\n--',
+      body: 'Read the response. If ease rose (more detail, a relaxed tone, an easy correction), continue and connect to the next step. If ease fell (shorter answers, tension, a topic change), repair or release.\nRepair:\n"I may have read that wrong. Let me put it more simply."',
     },
   ],
   liveThreadClues: [
     '"what matters to me is..."',
     '"I really care about..."',
-    '"it would not be fair to..."',
-    '"I would never want to..."',
+    '"it wouldn\'t be fair to..."',
+    '"I\'d never want to..."',
     '"the important thing is..."',
     '"on principle..."',
-    '"I have always believed..."',
-    '"that is not who we are"',
+    '"I\'ve always believed..."',
+    '"that\'s not who we are"',
   ],
   depthDial: [
     {
@@ -488,7 +487,7 @@ export const TC017: CardData = {
   commonMistakes: [
     {
       mistake: "Making the move too long",
-      soundsLike: "a principled monologue about what really matters",
+      soundsLike: "A principled monologue about what really matters",
       better: '"You value quality. Does the fast option serve that?"',
     },
     {
@@ -503,8 +502,8 @@ export const TC017: CardData = {
     },
     {
       mistake: "Repeating it mechanically",
-      soundsLike: "naming a value every single turn",
-      better: "use it once, then let it breathe",
+      soundsLike: "Naming a value every single turn",
+      better: "Use it once, then let it breathe.",
     },
     {
       mistake: "Ignoring the correction",
@@ -518,8 +517,8 @@ export const TC017: CardData = {
     },
     {
       mistake: "Missing the context",
-      soundsLike: "framing values mid-emergency or when they're exhausted",
-      better: "handle the urgent thing first. Frame later",
+      soundsLike: "Framing values mid-emergency or when they're exhausted",
+      better: "Handle the urgent thing first. Frame later.",
     },
   ],
   recoveryPhrases: [

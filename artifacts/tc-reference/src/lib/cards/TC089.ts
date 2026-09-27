@@ -61,7 +61,7 @@ export const TC089: CardData = {
     'It is not false reassurance: saying "no risk" when there is real risk.',
     'It is not pressure in soft language: saying "no pressure" while implying a social cost for saying no.',
     "It is not avoiding accountability: reducing discomfort while hiding consequences, trade-offs, or ownership.",
-    'It is not minimising a legitimate concern: telling someone "it is not a big deal" when it is a big deal to them.',
+    'It is not minimising a legitimate concern: telling someone "it\'s not a big deal" when it is a big deal to them.',
     "It is not conflict avoidance: reducing the risk around a hard topic is not the same as dodging the topic.",
   ],
   overview: {
@@ -223,7 +223,7 @@ export const TC089: CardData = {
     {
       step: "2",
       title: "Name the likely risk without mind-reading",
-      body: 'Guess the concern tentatively and let them correct you. Offer it as a possibility, not a diagnosis: "I can imagine the concern might be time," not "You are afraid of commitment." Naming it aloud makes it discussable. Asserting it makes them defensive.',
+      body: 'Guess the concern tentatively and let them correct you. Offer it as a possibility, not a diagnosis: "I can imagine the concern might be time," not "You\'re afraid of commitment." Naming it aloud makes it discussable. Asserting it makes them defensive.',
       examples: [
         {
           label: "Do",
@@ -364,7 +364,7 @@ export const TC089: CardData = {
     ],
     adjust: [
       "They repeat the same concern after your first risk cap.",
-      'They ask, "What is the catch?"',
+      'They ask, "What\'s the catch?"',
       "They sound reassured but still do not engage.",
       "They say yes quickly with obvious tension.",
       "They focus on a different downside than the one you addressed.",
@@ -564,7 +564,7 @@ export const TC089: CardData = {
     example:
       '"A quick no is fine. I\'ll not chase it." / "First page only. No full review needed." / "One-week test. Rollback if it adds friction."',
     dont: '"No pressure, just let me know your thoughts."',
-    do: '"A yes or no is enough. First page only, and I will not follow up unless you ask."',
+    do: '"A yes or no is enough. First page only, and I\'ll not follow up unless you ask."',
   },
   relatedTechniques: [
     {

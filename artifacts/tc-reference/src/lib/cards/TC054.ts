@@ -295,7 +295,7 @@ export const TC054: CardData = {
     working: [
       "They add detail after the signal.",
       "Their tone softens or becomes more animated.",
-      'They say "exactly", "yes", "that is it", or "right".',
+      'They say "exactly", "yes", "that\'s it", or "right".',
       "They ask about your brief version without losing their own thread.",
       "They move toward a shared next step.",
       "The conversation feels more relaxed but still focused.",
@@ -325,7 +325,7 @@ export const TC054: CardData = {
     {
       day: "Day 3",
       title: "Protect the difference",
-      task: 'Rewrite three heavy claims ("I know exactly what you mean", "We are basically the same") into difference-protecting versions such as "Different situation, but I recognise the uncertainty piece."',
+      task: 'Rewrite three heavy claims ("I know exactly what you mean", "We\'re basically the same") into difference-protecting versions such as "Different situation, but I recognise the uncertainty piece."',
     },
     {
       day: "Day 4",
@@ -381,7 +381,7 @@ export const TC054: CardData = {
   },
   influencePayoff: {
     feeling:
-      '"They noticed something we genuinely share, and did not take over."',
+      '"They noticed something we genuinely share, and didn\'t take over."',
     principle:
       "People relax when they sense a real point of contact. A true, modest overlap reduces unnecessary distance without erasing difference, and it stays clean only while the other person is free to accept, ignore, correct, or move past it.",
     gains: [
@@ -395,13 +395,13 @@ export const TC054: CardData = {
     whyMostFail: [
       "Using the signal as a self-shift, so the moment becomes your story instead of their point.",
       'Overclaiming sameness ("I know exactly how you feel") and minimising their experience.',
-      'Grabbing identity too fast ("we are the same kind of person") instead of naming one situational overlap.',
+      'Grabbing identity too fast ("we\'re the same kind of person") instead of naming one situational overlap.',
       "Stacking signal after signal until the warmth starts to feel strategic.",
     ],
   },
   fieldTip: {
     headline: "Make the bridge small enough to be true.",
-    body: 'The safest similarity signal is not "we are the same." It is "I recognise that one part." Name the overlap, protect the difference, and give the conversation back. If you feel eager to prove the similarity, you are probably about to make the moment about you: shrink the signal or skip it.',
+    body: 'The safest similarity signal is not "we\'re the same." It is "I recognise that one part." Name the overlap, protect the difference, and give the conversation back. If you feel eager to prove the similarity, you are probably about to make the moment about you: shrink the signal or skip it.',
     example:
       '"I recognise that part, different situation, but that piece is familiar. What\'s it like on your side?"',
     dont: '"I know exactly how you feel."',

@@ -56,7 +56,7 @@ export const TC057: CardData = {
   ],
   id: "TC057",
   whyItWorks:
-    'Shared identity language is the disciplined use of accurate "we", "us", "our", or same-side wording. You notice a legitimate overlap (a shared role, team, craft, value, problem, place, learning curve, constraint, goal, or standard) and name it to reduce distance while keeping the difference intact. It works by shifting the perceived position from "you versus me" to "we are addressing something together", which is especially useful when people agree on the outcome but are tense about method, timing, status, or language. The move is not to manufacture sameness. It is to name a real overlap that is true, uncornering, and leaves the other person\'s choice untouched.',
+    'Shared identity language is the disciplined use of accurate "we", "us", "our", or same-side wording. You notice a legitimate overlap (a shared role, team, craft, value, problem, place, learning curve, constraint, goal, or standard) and name it to reduce distance while keeping the difference intact. It works by shifting the perceived position from "you versus me" to "we\'re addressing something together", which is especially useful when people agree on the outcome but are tense about method, timing, status, or language. The move is not to manufacture sameness. It is to name a real overlap that is true, uncornering, and leaves the other person\'s choice untouched.',
   whatItIsNot: [
     '"People like us do this" used as pressure.',
     '"We all agree" when agreement does not actually exist.',

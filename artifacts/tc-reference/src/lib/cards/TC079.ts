@@ -56,7 +56,7 @@ export const TC079: CardData = {
   ],
   id: "TC079",
   whyItWorks:
-    'Permission to disagree is asking for, or clearly signalling, a small conversational opening before you offer a different view. It works because it separates two things people usually fuse: the relationship signal and the content disagreement. The relationship signal says, "I am not attacking you". The content sentence says, "Here is the one part I see differently." Pausing before contradiction makes the disagreement opt-in and bounded, so the other person can stay engaged long enough to consider it instead of defending their identity.',
+    'Permission to disagree is asking for, or clearly signalling, a small conversational opening before you offer a different view. It works because it separates two things people usually fuse: the relationship signal and the content disagreement. The relationship signal says, "I\'m not attacking you". The content sentence says, "Here\'s the one part I see differently." Pausing before contradiction makes the disagreement opt-in and bounded, so the other person can stay engaged long enough to consider it instead of defending their identity.',
   whatItIsNot: [
     "Not permission as a ritual before you bulldoze. If they say no, slow down, defer, or ask what would help instead.",
     "Not false agreement: you acknowledge without surrendering your point.",
@@ -305,7 +305,7 @@ export const TC079: CardData = {
     adjust: [
       "They get quieter or give clipped answers.",
       "They look away or repeat the same point.",
-      'They say "I do not want to argue": switch to validation, a summary check, or a low-pressure invitation.',
+      'They say "I don\'t want to argue": switch to validation, a summary check, or a low-pressure invitation.',
       "They explicitly decline: leave it for now and respect the no.",
       "The exchange is escalating, or you feel contempt rising in yourself: pause.",
       "Power dynamics make continued challenge unsafe: stop and choose another moment.",
@@ -321,7 +321,7 @@ export const TC079: CardData = {
     {
       day: "Day 2",
       title: "Blunt to bounded",
-      task: 'Take three blunt lines ("No, that is wrong", "You are overreacting", "This plan makes no sense") and rewrite each as permission + one bounded point + a return of choice.',
+      task: 'Take three blunt lines ("No, that\'s wrong", "You\'re overreacting", "This plan makes no sense") and rewrite each as permission + one bounded point + a return of choice.',
     },
     {
       day: "Day 3",
@@ -381,10 +381,10 @@ export const TC079: CardData = {
       "bounds the difference to one word and one question",
       "redirects from blame to a workable next step",
     ],
-    note: 'Personal version: A: "You did not care about what I said." B: "Can I say how it looked from my side without dismissing how it felt? I did care, and I can see my silence sent a different signal."',
+    note: 'Personal version: A: "You didn\'t care about what I said." B: "Can I say how it looked from my side without dismissing how it felt? I did care, and I can see my silence sent a different signal."',
   },
   influencePayoff: {
-    feeling: '"They are disagreeing with my idea, not with me."',
+    feeling: '"They\'re disagreeing with my idea, not with me."',
     principle:
       "The payoff is not that people automatically accept your view. It is that they can stay engaged long enough to consider it. Lowering threat and preserving face lets someone take in a correction without having to defend their identity.",
     gains: [

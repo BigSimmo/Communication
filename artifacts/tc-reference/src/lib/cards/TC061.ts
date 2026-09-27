@@ -56,12 +56,12 @@ export const TC061: CardData = {
   ],
   id: "TC061",
   whyItWorks:
-    'Tone reflection names the emotional colour or stance carried inside someone\'s message (guarded hope, quiet disappointment, relief, irritation, pride, caution, strain) and then checks it gently, as a possible read rather than a verdict. It works because it mirrors how something is being held emotionally, not just the facts, so the other person feels you have heard the human signal inside the content. Because the read is tentative and correctable, they stay free to say "No, it is more like...", which surfaces misunderstandings early and softens hard conversations before the content is debated.',
+    "Tone reflection names the emotional colour or stance carried inside someone's message (guarded hope, quiet disappointment, relief, irritation, pride, caution, strain) and then checks it gently, as a possible read rather than a verdict. It works because it mirrors how something is being held emotionally, not just the facts, so the other person feels you have heard the human signal inside the content. Because the read is tentative and correctable, they stay free to say \"No, it's more like...\", which surfaces misunderstandings early and softens hard conversations before the content is debated.",
   whatItIsNot: [
     "It is not mind-reading, therapy, diagnosis, or a licence to label someone.",
-    'It is not a verdict: "You are angry" is too certain and simply invites denial.',
+    'It is not a verdict: "You\'re angry" is too certain and simply invites denial.',
     'It is not analysis: "Clearly you have trust issues" is a diagnosis, not a reflection.',
-    'It is not an accusation dressed as listening, like "You are just being defensive."',
+    'It is not an accusation dressed as listening, like "You\'re just being defensive."',
     "It is not a way to intensify drama or push someone into disclosure.",
   ],
   overview: {
@@ -80,7 +80,7 @@ export const TC061: CardData = {
       'It fails when you say the tone as a fixed verdict, reach for a loaded word like "bitter" or "passive-aggressive", or use the read as leverage to pressure, corner, or extract rather than to understand.',
     bestFor: [
       "The words are neutral but the tone carries strain, disappointment, worry, pride, relief, or guardedness.",
-      'Someone says "It is fine," but it does not sound fine.',
+      'Someone says "It\'s fine," but it does not sound fine.',
       "The conversation is turning factual while the emotional signal is being missed.",
       "Someone seems to want recognition before problem-solving.",
       "You need to check whether your interpretation is landing.",
@@ -247,28 +247,28 @@ export const TC061: CardData = {
   scenarios: [
     {
       situation:
-        'A friend minimises disappointment: "It is fine. I knew it probably would not happen."',
+        "A friend minimises disappointment: \"It's fine. I knew it probably wouldn't happen.\"",
       move: "Name the quiet letdown tentatively and check.",
       phrase:
         "That sounds more disappointed than fine, but maybe in a quiet way. Is that right?",
     },
     {
       situation:
-        'A team member gives reluctant agreement: "Okay, if that is what we are doing."',
+        "A team member gives reluctant agreement: \"Okay, if that's what we're doing.\"",
       move: "Flag the reluctant yes so you do not bank false agreement.",
       phrase:
         "I'm hearing a reluctant yes. I don't want to treat that as full agreement if there's a concern underneath.",
     },
     {
       situation:
-        'A customer sends a tense email: "As mentioned twice, we still have not received the update."',
+        'A customer sends a tense email: "As mentioned twice, we still haven\'t received the update."',
       move: "Name the tone, apologise briefly, then give the concrete fact.",
       phrase:
         "I read the tone as frustrated and needing clarity. Sorry for the delay. Here's the update.",
     },
     {
       situation:
-        'A partner sounds proud but understated: "It was not a big deal, I just handled it."',
+        'A partner sounds proud but understated: "It wasn\'t a big deal, I just handled it."',
       move: "Reflect the quiet pride and the relief behind it.",
       phrase:
         "There's a quiet pride in that, maybe mixed with relief. Am I hearing that right?",
@@ -281,7 +281,7 @@ export const TC061: CardData = {
         "This sounds like cautious openness, not full confidence yet. What would make the trial feel safer?",
     },
     {
-      situation: 'Conflict repair: "I just do not want it to happen again."',
+      situation: 'Conflict repair: "I just don\'t want it to happen again."',
       move: "Reflect the need sitting under the upset.",
       phrase:
         "The tone I hear isn't just upset. It's wanting reassurance this will be taken seriously.",
@@ -291,16 +291,16 @@ export const TC061: CardData = {
     working: [
       "They relax, nod, soften, or elaborate.",
       "They correct you with more precise wording.",
-      'They say "yes," "exactly," "sort of," or "that is part of it."',
+      'They say "yes," "exactly," "sort of," or "that\'s part of it."',
       "Their next sentence becomes more specific.",
       "The conversation moves from facts toward what actually matters.",
     ],
     adjust: [
       "They look confused, embarrassed, or exposed.",
-      'They say "I do not know" and withdraw.',
+      'They say "I don\'t know" and withdraw.',
       "They answer only with facts after your reflection.",
       "The tone word seems too intense for the situation.",
-      'Soften the word, drop the read, or offer an exit: "We can stay practical if that is better. I just did not want to miss the tone."',
+      "Soften the word, drop the read, or offer an exit: \"We can stay practical if that's better. I just didn't want to miss the tone.\"",
       "If they say they do not want to talk about it, or the setting is too public, stop and protect their dignity.",
     ],
   },
@@ -387,7 +387,7 @@ export const TC061: CardData = {
   },
   fieldTip: {
     headline: "Use a tone word like a sticky note, not a label maker.",
-    body: 'A sticky note says, "This might be what I am hearing. Move it if it is wrong." A label maker says, "This is what you are." Tone reflection works when it is light enough to correct and specific enough to be useful.',
+    body: 'A sticky note says, "This might be what I\'m hearing. Move it if it\'s wrong." A label maker says, "This is what you are." Tone reflection works when it is light enough to correct and specific enough to be useful.',
     example:
       "I might be hearing [tone] around [topic]. Is that close, or would you put it differently?",
     dont: "You sound bitter.",
@@ -422,7 +422,7 @@ export const TC061: CardData = {
     {
       step: "4",
       title: "Attach it to the topic, not the person",
-      body: 'Say "around this change" or "in how this landed", not "you are always...". Reflect the communication signal, not their identity.',
+      body: 'Say "around this change" or "in how this landed", not "you\'re always...". Reflect the communication signal, not their identity.',
       examples: [
         { label: "Signal", text: "I'm hearing some caution around this." },
         { label: "Identity", text: "You're a cautious person." },

@@ -310,7 +310,7 @@ export const TC015: CardData = {
     working: [
       "They relax, continue, or give more detail.",
       "They clarify what kind of support they want.",
-      'They say "exactly" or "that is the issue".',
+      'They say "exactly" or "that\'s the issue".',
       "They ask for your view after feeling heard.",
       "They consider advice rather than pushing it away.",
       "They correct you comfortably and become clearer, not managed.",

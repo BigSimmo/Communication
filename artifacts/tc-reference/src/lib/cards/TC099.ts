@@ -318,7 +318,7 @@ export const TC099: CardData = {
     {
       day: "Day 1",
       title: "Spot the cover",
-      task: 'Write down five humblebrag-style sentences you have said or heard, e.g. "It is so annoying that everyone keeps asking for my advice." Underline the hidden win in each.',
+      task: 'Write down five humblebrag-style sentences you have said or heard, e.g. "It\'s so annoying that everyone keeps asking for my advice." Underline the hidden win in each.',
     },
     {
       day: "Day 2",
@@ -333,12 +333,12 @@ export const TC099: CardData = {
     {
       day: "Day 4",
       title: "Add the release",
-      task: 'Practise ending each clean share with a genuine return line, e.g. "That is the short version. How has your week been?" Keep it only if it feels real, not like a social tax.',
+      task: 'Practise ending each clean share with a genuine return line, e.g. "That\'s the short version. How has your week been?" Keep it only if it feels real, not like a social tax.',
     },
     {
       day: "Day 5",
       title: "Recovery reps",
-      task: 'Rehearse three repairs out loud, e.g. "That came out like a humblebrag. Cleaner version: I am happy about it." Practise naming the miss once and then stopping.',
+      task: 'Rehearse three repairs out loud, e.g. "That came out like a humblebrag. Cleaner version: I\'m happy about it." Practise naming the miss once and then stopping.',
     },
     {
       day: "Day 6",
@@ -376,7 +376,7 @@ export const TC099: CardData = {
       "Sam: Thanks. The credit is definitely shared. I'd like to hear about your launch too. How did the first week land?",
       "Why it works: Sam asks for room, shares cleanly, gives real credit, names one honest tension, and returns interest.",
     ],
-    note: "The simpler 'better' version works too: \"My project got noticed by the senior team, so I have been invited into a few strategy meetings. I am pleased, and I am figuring out the time load.\" State the win, add one honest pressure point, release the floor.",
+    note: "The simpler 'better' version works too: \"My project got noticed by the senior team, so I've been invited into a few strategy meetings. I'm pleased, and I'm figuring out the time load.\" State the win, add one honest pressure point, release the floor.",
   },
   influencePayoff: {
     feeling:
@@ -400,11 +400,11 @@ export const TC099: CardData = {
   },
   fieldTip: {
     headline: "Do not smuggle a win in as a problem.",
-    body: 'Say the win cleanly, then give the room back. If you feel the urge to add "it is no big deal", ask whether that phrase is real humility or a quiet request for reassurance. If it is reassurance, either ask for it honestly or leave it out.',
+    body: 'Say the win cleanly, then give the room back. If you feel the urge to add "it\'s no big deal", ask whether that phrase is real humility or a quiet request for reassurance. If it is reassurance, either ask for it honestly or leave it out.',
     example:
       "I have good news: [win]. I am [feeling]. Thanks for letting me share it.",
     dont: "So embarrassing, they put my success story everywhere.",
-    do: "The story is public now. I feel a bit exposed, but I am proud of the work behind it.",
+    do: "The story is public now. I feel a bit exposed, but I'm proud of the work behind it.",
   },
   method: [
     {
@@ -430,7 +430,7 @@ export const TC099: CardData = {
     {
       step: "3",
       title: "Add one honest feeling or meaning line",
-      body: 'One sentence is enough: "I am pleased", "it means a lot", "I am proud of the work". More than one and you start justifying the win rather than sharing it.',
+      body: 'One sentence is enough: "I\'m pleased", "it means a lot", "I\'m proud of the work". More than one and you start justifying the win rather than sharing it.',
       examples: [
         {
           label: "Enough",

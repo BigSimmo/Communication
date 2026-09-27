@@ -305,13 +305,13 @@ export const TC075: CardData = {
       "They exhale, soften, nod, or say thanks without awkwardness.",
       'They add useful context: "Yes, the gathering part took the longest."',
       "They become more open to feedback or the next step.",
-      'They correct you lightly: "It was not that bad, but the timeline was hard."',
+      'They correct you lightly: "It wasn\'t that bad, but the timeline was hard."',
       "The conversation feels less defensive and more concrete.",
       "Their tone relaxes and they share more detail.",
     ],
     adjust: [
       'They deflect ("It was nothing"). Use a lighter line and move on.',
-      'They look embarrassed. Reduce intensity: "I do not want to make a big thing of it. I just noticed."',
+      'They look embarrassed. Reduce intensity: "I don\'t want to make a big thing of it. I just noticed."',
       'They use effort to dodge standards ("But I tried"). Separate effort from outcome.',
       "They seem confused because the effort is not obvious. Ask rather than assert.",
       "The setting is public and recognition may expose them. Move private or keep it brief.",
@@ -338,7 +338,7 @@ export const TC075: CardData = {
     {
       day: "Day 4",
       title: "Tone reduction",
-      task: 'Take three overdone lines ("I am blown away by how hard you worked") and cut each to something grounded ("I can see the preparation in this"). Remove anything that sounds like flattery or a speech.',
+      task: 'Take three overdone lines ("I\'m blown away by how hard you worked") and cut each to something grounded ("I can see the preparation in this"). Remove anything that sounds like flattery or a speech.',
     },
     {
       day: "Day 5",
