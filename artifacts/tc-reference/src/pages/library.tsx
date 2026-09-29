@@ -9,12 +9,28 @@ import {
   Check,
   Shuffle,
   ArrowUpDown,
+  BookOpen,
+  Compass,
+  HeartHandshake,
+  LifeBuoy,
+  Mic,
+  Target,
 } from "lucide-react";
 import { LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
 import { IMPACT_STYLES } from "@/lib/design-tokens";
+
+// One glyph per category gives the list a visual rhythm without repeating
+// the TC code, which already sits in each row's meta line.
+const CATEGORY_ICON: Record<string, typeof BookOpen> = {
+  "Voice / Presence": Mic,
+  "Influence / Framing": Compass,
+  "Clarity / Direction": Target,
+  "Connection / Warmth": HeartHandshake,
+  "Resilience / Recovery": LifeBuoy,
+};
 
 const IMPACT_BADGE: Record<
   CardImpact,
@@ -361,7 +377,7 @@ export default function Library() {
   );
 
   return (
-    <div className="flex flex-col bg-background w-full max-w-full min-w-0 overflow-x-clip sm:max-w-2xl sm:mx-auto">
+    <div className="flex flex-col bg-background w-full max-w-full min-w-0 overflow-x-clip sm:max-w-2xl lg:max-w-5xl sm:mx-auto">
       <div
         id="library-header-details"
         data-testid="library-header-details"
@@ -645,9 +661,10 @@ export default function Library() {
                   {cards.length}
                 </span>
               </h2>
-              <ul className="space-y-2">
+              <ul className="grid gap-2 lg:grid-cols-2">
                 {cards.map((card) => {
                   const badge = IMPACT_BADGE[card.impact];
+                  const CategoryIcon = CATEGORY_ICON[cat] ?? BookOpen;
                   const fav = isCardFav(card.id);
                   return (
                     <li key={card.id} className="relative max-w-full min-w-0">
@@ -655,26 +672,25 @@ export default function Library() {
                         href={`/card/${card.id}`}
                         aria-label={`${card.title} (${card.id}), ${badge.label.toLowerCase()} impact, ${CARD_DIFFICULTY[card.id]}`}
                         data-testid={`card-link-${card.id}`}
-                        className="w-full max-w-full min-w-0 flex items-center gap-3 pl-3 pr-14 py-3 rounded-2xl transition-colors duration-150 text-left overflow-hidden bg-[var(--fg-03)] hover:bg-[var(--fg-06)] active:bg-[var(--fg-06)]"
+                        className="w-full max-w-full min-w-0 flex items-center gap-3 pl-3 pr-14 py-3 rounded-2xl transition-colors duration-150 text-left overflow-hidden bg-[var(--surface-card)] hover:bg-[var(--surface-card-hover)] active:bg-[var(--surface-card-hover)]"
                         style={{
                           border: "1px solid var(--fg-07)",
+                          boxShadow: "var(--shadow-card)",
                           minHeight: 64,
                           contentVisibility: "auto",
                           containIntrinsicSize: "auto 66px",
                         }}
                       >
                         <span
-                          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[12px] font-bold tabular-nums"
+                          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                           style={{
                             background:
-                              "color-mix(in srgb, var(--brand) 14%, transparent)",
-                            border:
-                              "1px solid color-mix(in srgb, var(--brand) 26%, transparent)",
+                              "color-mix(in srgb, var(--brand) 12%, transparent)",
                             color: "var(--brand-text)",
                           }}
                           aria-hidden="true"
                         >
-                          {card.id.slice(2)}
+                          <CategoryIcon className="w-[18px] h-[18px]" />
                         </span>
                         <span className="flex-1 min-w-0">
                           <span

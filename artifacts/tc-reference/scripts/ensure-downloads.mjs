@@ -20,7 +20,7 @@ const missing = ids.some(
 );
 
 if (ids.length === 0 || missing) {
-  execSync("pnpm run generate:downloads", { stdio: "inherit" });
+  execSync("pnpm run generate:downloads", { stdio: "inherit", shell: true });
 } else {
   console.log("Card downloads present, skipping regeneration.");
 }

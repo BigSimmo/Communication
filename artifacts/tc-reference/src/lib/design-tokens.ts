@@ -4,7 +4,8 @@ import type { CardImpact } from "./data";
  * Single source of truth for impact-badge styling across pages.
  * Colour values live in index.css as `--impact-*` custom properties with
  * dark defaults and light-theme overrides, so the same mapping adapts to
- * both themes: High = amber (brand emphasis), Medium = blue, Low = neutral.
+ * both themes: High = amber (the only coloured tier, so it leads),
+ * Medium = strong neutral, Low = muted neutral.
  */
 export const IMPACT_STYLES: Record<
   CardImpact,
@@ -13,12 +14,12 @@ export const IMPACT_STYLES: Record<
   high: {
     label: "High",
     color: "var(--impact-high)",
-    bg: "color-mix(in srgb, var(--impact-high) 14%, transparent)",
+    bg: "color-mix(in srgb, var(--impact-high) 20%, transparent)",
   },
   medium: {
     label: "Medium",
     color: "var(--impact-medium)",
-    bg: "color-mix(in srgb, var(--impact-medium) 12%, transparent)",
+    bg: "var(--fg-08)",
   },
   low: {
     label: "Low",

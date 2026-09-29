@@ -79,11 +79,17 @@ function buildQuickGroups(
 }
 
 let quickGroupsPromise: Promise<ReadonlyArray<QuickGroup>> | null = null;
+// The resolved aggregate, so reopening the overlay renders it immediately.
+let quickGroupsCache: ReadonlyArray<QuickGroup> | null = null;
 
 function loadQuickGroups(): Promise<ReadonlyArray<QuickGroup>> {
   if (!quickGroupsPromise) {
     const pending = loadAllCards()
-      .then((cards) => Object.freeze(buildQuickGroups(cards)))
+      .then((cards) => {
+        const groups = Object.freeze(buildQuickGroups(cards));
+        quickGroupsCache = groups;
+        return groups;
+      })
       .catch((error: unknown) => {
         if (quickGroupsPromise === pending) quickGroupsPromise = null;
         throw error;
@@ -96,7 +102,15 @@ function loadQuickGroups(): Promise<ReadonlyArray<QuickGroup>> {
 const QUICK_PAGE_SIZE = 120;
 
 export function QuickModeOverlay() {
-  const { isOpen, setIsOpen } = useQuickMode();
+  const { isOpen } = useQuickMode();
+  // Mounting the content only while open means every open starts from fresh
+  // transient state (filter, scope, paging, copy feedback, load failure).
+  if (!isOpen) return null;
+  return <QuickModeContent />;
+}
+
+function QuickModeContent() {
+  const { setIsOpen } = useQuickMode();
   const [location] = useLocation();
   // Opened from a card: default to that card's lines, one tap from the rest.
   const routeCardId = location.startsWith("/card/")
@@ -109,37 +123,30 @@ export function QuickModeOverlay() {
   const [quickFilter, setQuickFilter] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(QUICK_PAGE_SIZE);
   const [quickGroups, setQuickGroups] =
-    useState<ReadonlyArray<QuickGroup> | null>(null);
+    useState<ReadonlyArray<QuickGroup> | null>(() => quickGroupsCache);
   const [loadFailed, setLoadFailed] = useState(false);
-  const {
-    copied: copiedPhrase,
-    copy: handleCopy,
-    reset: resetCopied,
-  } = useCopyFeedback();
+  const { copied: copiedPhrase, copy: handleCopy } = useCopyFeedback();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   // Trap focus inside the overlay while open (initial focus on close button)
-  useFocusTrap(isOpen, overlayRef, { initialFocusRef: closeButtonRef });
-  useBodyScrollLock(isOpen);
+  useFocusTrap(true, overlayRef, { initialFocusRef: closeButtonRef });
+  useBodyScrollLock(true);
 
-  // Reset transient state when the overlay closes
-  useEffect(() => {
-    if (!isOpen) {
-      setQuickFilter(null);
-      setCardScope(true);
-      resetCopied();
+  // Changing the scope or situation filter restarts the render window.
+  const changeView = (nextScope: boolean, nextFilter: string | null) => {
+    if (nextScope !== cardScope || nextFilter !== quickFilter) {
+      setVisibleCount(QUICK_PAGE_SIZE);
     }
-  }, [isOpen, resetCopied]);
+    setCardScope(nextScope);
+    setQuickFilter(nextFilter);
+  };
+  const changeFilter = (nextFilter: string | null) =>
+    changeView(cardScope, nextFilter);
 
   useEffect(() => {
-    setVisibleCount(QUICK_PAGE_SIZE);
-  }, [isOpen, quickFilter, cardScope]);
-
-  useEffect(() => {
-    if (!isOpen || quickGroups) return;
+    if (quickGroups) return;
     let active = true;
-    setLoadFailed(false);
     loadQuickGroups().then(
       (groups) => {
         if (active) setQuickGroups(groups);
@@ -151,19 +158,16 @@ export function QuickModeOverlay() {
     return () => {
       active = false;
     };
-  }, [isOpen, quickGroups]);
+  }, [quickGroups]);
 
   // Escape key dismissal
   useEffect(() => {
-    if (!isOpen) return;
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [isOpen, setIsOpen]);
-
-  if (!isOpen) return null;
+  }, [setIsOpen]);
 
   const scopedToCard = cardScope && contextCardId !== null;
   const allQuickGroups = scopedToCard
@@ -271,10 +275,7 @@ export function QuickModeOverlay() {
                   data-testid={
                     opt.scoped ? "quick-scope-card" : "quick-scope-all"
                   }
-                  onClick={() => {
-                    setCardScope(opt.scoped);
-                    setQuickFilter(null);
-                  }}
+                  onClick={() => changeView(opt.scoped, null)}
                   className="min-h-10 rounded-lg px-3 text-[12px] font-semibold truncate transition-colors"
                   style={{
                     background: selected ? "var(--card)" : "transparent",
@@ -299,7 +300,7 @@ export function QuickModeOverlay() {
           aria-label="Filter phrases by situation"
         >
           <button
-            onClick={() => setQuickFilter(null)}
+            onClick={() => changeFilter(null)}
             aria-pressed={!quickFilter}
             data-testid="quick-filter-all"
             className="flex-shrink-0 text-[12px] font-semibold px-4 rounded-full transition-all whitespace-nowrap"
@@ -314,7 +315,7 @@ export function QuickModeOverlay() {
           {allQuickGroups.map((g) => (
             <button
               key={g.id}
-              onClick={() => setQuickFilter(quickFilter === g.id ? null : g.id)}
+              onClick={() => changeFilter(quickFilter === g.id ? null : g.id)}
               aria-pressed={quickFilter === g.id}
               data-testid={`quick-filter-${g.id}`}
               className="flex-shrink-0 text-[12px] font-semibold px-4 rounded-full transition-all whitespace-nowrap"
@@ -368,7 +369,7 @@ export function QuickModeOverlay() {
               Try a different situation filter.
             </p>
             <button
-              onClick={() => setQuickFilter(null)}
+              onClick={() => changeFilter(null)}
               className="text-[12px] font-semibold px-5 py-2.5 rounded-full transition-all active:scale-95"
               style={{
                 background: "color-mix(in srgb, var(--brand) 12%, transparent)",

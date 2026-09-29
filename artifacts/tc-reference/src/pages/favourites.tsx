@@ -5,6 +5,7 @@ import { useFavourites } from "@/lib/favourites-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { impactStyleFor } from "@/lib/design-tokens";
+import { BackupSection } from "@/components/backup-section";
 
 const CARD_META: Record<
   string,
@@ -63,22 +64,6 @@ export default function Favourites() {
       {/* ── Page header ── */}
       <div className="px-4 md:px-6 pt-6 pb-4">
         <div className="flex items-center gap-3 mb-1.5">
-          <div
-            className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{
-              background:
-                "linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, transparent) 0%, color-mix(in srgb, var(--brand) 8%, transparent) 100%)",
-              border:
-                "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-            }}
-          >
-            <Heart
-              className="w-4 h-4"
-              style={{ color: "var(--brand-text)" }}
-              fill="var(--brand-text)"
-              aria-hidden="true"
-            />
-          </div>
           <h1
             className="text-[20px] font-bold leading-tight"
             style={{ color: "var(--fg-90)" }}
@@ -191,6 +176,13 @@ export default function Favourites() {
               }}
             >
               Browse the Library
+            </button>
+            <button
+              onClick={() => setLocation("/phrases")}
+              className="mt-2 text-[13px] font-semibold px-5 min-h-11 rounded-full transition-colors hover:bg-[var(--fg-05)]"
+              style={{ color: "var(--fg-60)" }}
+            >
+              Or open the Phrase Bank
             </button>
           </div>
         )}
@@ -504,6 +496,8 @@ export default function Favourites() {
             )}
           </div>
         )}
+
+        <BackupSection />
       </div>
     </div>
   );

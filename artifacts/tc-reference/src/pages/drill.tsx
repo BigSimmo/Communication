@@ -73,9 +73,15 @@ export default function Drill() {
       ? nextCard.data?.drill[state.dayIndex]
       : undefined;
 
+  // A new card starts a fresh load: clear any earlier failure during render.
+  const [prevCardId, setPrevCardId] = useState(cardId);
+  if (cardId !== prevCardId) {
+    setPrevCardId(cardId);
+    setLoadFailed(false);
+  }
+
   useEffect(() => {
     let active = true;
-    setLoadFailed(false);
     loadCard(cardId).then(
       (data) => {
         if (!active) return;
@@ -143,21 +149,6 @@ export default function Drill() {
       {/* ── Page header ── */}
       <div>
         <div className="flex items-center gap-3 mb-1.5">
-          <div
-            className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{
-              background:
-                "linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, transparent) 0%, color-mix(in srgb, var(--brand) 8%, transparent) 100%)",
-              border:
-                "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-            }}
-          >
-            <Dumbbell
-              className="w-4 h-4"
-              style={{ color: "var(--brand-text)" }}
-              aria-hidden="true"
-            />
-          </div>
           <h1
             className="text-[20px] font-bold leading-tight"
             style={{ color: "var(--fg-90)" }}
@@ -198,6 +189,21 @@ export default function Drill() {
             {streakActive && state.streak > 0
               ? `${state.streak} day streak`
               : "Start your streak"}
+          </span>
+          {/* A week of dots makes the streak something to see and extend */}
+          <span className="flex items-center gap-1 ml-1" aria-hidden="true">
+            {Array.from({ length: 7 }, (_, i) => (
+              <span
+                key={i}
+                className="w-1.5 h-1.5 rounded-full"
+                style={{
+                  background:
+                    streakActive && i < Math.min(state.streak, 7)
+                      ? "var(--brand)"
+                      : "var(--fg-15)",
+                }}
+              />
+            ))}
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -409,58 +415,32 @@ export default function Drill() {
           >
             How confident do you feel with this technique?
           </p>
+          {/* One neutral control: the labels carry the meaning, so the
+            three choices don't need three extra accent colours. */}
           <div className="grid grid-cols-3 gap-2">
-            <button
-              onClick={() => handleComplete("hard")}
-              aria-label={"Hard: review soon"}
-              className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
-              style={{
-                borderColor:
-                  "color-mix(in srgb, var(--accent-red) 30%, transparent)",
-                background:
-                  "color-mix(in srgb, var(--accent-red) 6%, transparent)",
-                color: "var(--accent-red)",
-              }}
-            >
-              <span className="block">Hard</span>
-              <span className="block text-[11px] font-semibold opacity-80 mt-0.5">
-                Review soon
-              </span>
-            </button>
-            <button
-              onClick={() => handleComplete("good")}
-              aria-label={"Good: review later"}
-              className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
-              style={{
-                borderColor:
-                  "color-mix(in srgb, var(--accent-blue) 30%, transparent)",
-                background:
-                  "color-mix(in srgb, var(--accent-blue) 6%, transparent)",
-                color: "var(--accent-blue)",
-              }}
-            >
-              <span className="block">Good</span>
-              <span className="block text-[11px] font-semibold opacity-80 mt-0.5">
-                Review later
-              </span>
-            </button>
-            <button
-              onClick={() => handleComplete("easy")}
-              aria-label={"Easy: review much later"}
-              className="py-3 px-2 rounded-xl text-[12px] font-bold transition-all border text-center active:scale-[0.98]"
-              style={{
-                borderColor:
-                  "color-mix(in srgb, var(--accent-green) 30%, transparent)",
-                background:
-                  "color-mix(in srgb, var(--accent-green) 6%, transparent)",
-                color: "var(--accent-green)",
-              }}
-            >
-              <span className="block">Easy</span>
-              <span className="block text-[11px] font-semibold opacity-80 mt-0.5">
-                Much later
-              </span>
-            </button>
+            {(
+              [
+                ["hard", "Hard", "Review soon", "Hard: review soon"],
+                ["good", "Good", "Review later", "Good: review later"],
+                ["easy", "Easy", "Much later", "Easy: review much later"],
+              ] as const
+            ).map(([rating, label, hint, aria]) => (
+              <button
+                key={rating}
+                onClick={() => handleComplete(rating)}
+                aria-label={aria}
+                className="py-3 px-2 rounded-xl text-[13px] font-bold transition-all border text-center active:scale-[0.98] border-[var(--fg-10)] bg-[var(--fg-03)] hover:border-[color-mix(in_srgb,var(--brand)_40%,transparent)] hover:bg-[color-mix(in_srgb,var(--brand)_8%,transparent)]"
+                style={{ color: "var(--fg-85)" }}
+              >
+                <span className="block">{label}</span>
+                <span
+                  className="block text-[11px] font-medium mt-0.5"
+                  style={{ color: "var(--fg-55)" }}
+                >
+                  {hint}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
       )}

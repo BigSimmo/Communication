@@ -21,7 +21,6 @@ export function RecoverySection({
     <SectionAccordion
       id="recovery"
       label="Recovery"
-      color="var(--accent-emerald)"
       subtitle="Reset scripts for when it lands badly"
     >
       {cardData.bestRecoveryLine && (
@@ -70,7 +69,7 @@ export function RecoverySection({
       )}
 
       <div
-        className="rounded-2xl overflow-hidden shadow-sm"
+        className="rounded-2xl overflow-hidden"
         style={{
           background: "var(--fg-03)",
           border: "1px solid var(--fg-06)",

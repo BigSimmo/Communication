@@ -16,14 +16,13 @@ export function MistakesSection({
     <SectionAccordion
       id="mistakes"
       label="Common mistakes"
-      color="var(--accent-red)"
       subtitle={`${cardData.commonMistakes?.length ?? 0} pitfalls and fixes`}
     >
       <div className="space-y-3">
         {cardData.commonMistakes!.map((m) => (
           <div
             key={m.mistake}
-            className="rounded-2xl overflow-hidden shadow-sm"
+            className="rounded-2xl overflow-hidden"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-05)",

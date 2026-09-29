@@ -21,14 +21,13 @@ export function LadderSection({
     <SectionAccordion
       id="ladder"
       label="Weak → Better → Best"
-      color="var(--accent-orange)"
       subtitle={`${cardData.ladder.length} upgrade examples`}
     >
       <div className="space-y-4">
         {cardData.ladder.map((row, i) => (
           <div
             key={i}
-            className="rounded-2xl overflow-hidden shadow-sm flex flex-col"
+            className="rounded-2xl overflow-hidden flex flex-col"
             style={{
               background: "var(--fg-03)",
               border: "1px solid var(--fg-05)",

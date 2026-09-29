@@ -85,8 +85,10 @@ function luminance(rgb: Color) {
 describe("Library impact badge contrast", () => {
   // Read the actual Library card fill; the badge tint and text also come from
   // production tokens. Composite page -> card -> badge -> text in sRGB.
-  const cardFill = librarySource.match(/\sbg-\[(var\(--fg-0\d\))\]/)![1];
-  const hoverFill = librarySource.match(/hover:bg-\[(var\(--fg-0\d\))\]/)![1];
+  const cardFill = librarySource.match(/\sbg-\[(var\(--surface-card\))\]/)![1];
+  const hoverFill = librarySource.match(
+    /hover:bg-\[(var\(--surface-card-hover\))\]/,
+  )![1];
 
   it.each(["dark", "light"])(
     "meets 4.5:1 for every impact in %s theme",

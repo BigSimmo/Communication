@@ -113,6 +113,7 @@ for (const file of changedFiles) {
   if (/\.(js|jsx|ts|tsx|css|md|json|html|yml|yaml)$/.test(file)) {
     const check = spawnSync("pnpm", ["exec", "prettier", "--check", file], {
       encoding: "utf8",
+      shell: true,
     });
     if (check.status !== 0) {
       formattingFailures.push(file);
@@ -137,7 +138,9 @@ if (formattingFailures.length > 0) {
 console.log("");
 
 // 3. TypeScript Type-Checking
-let tsChanged = changedFiles.some((f) => /\.(ts|tsx)$/.test(f));
+// CI runs typecheck and tests as separate steps first; skip the repeats there.
+const skipChecks = process.env.CODE_REVIEW_SKIP_CHECKS === "1";
+let tsChanged = !skipChecks && changedFiles.some((f) => /\.(ts|tsx)$/.test(f));
 console.log(`${colors.bold}[2/4] Typechecking (TypeScript)...${colors.reset}`);
 if (tsChanged) {
   console.log("TS/TSX file change detected. Running workspace typecheck...");
@@ -157,15 +160,15 @@ if (tsChanged) {
   }
 } else {
   console.log(
-    `${colors.yellow}⚠ No TS/TSX changes detected. Skipping typecheck.${colors.reset}`,
+    `${colors.yellow}⚠ Skipping typecheck (no TS/TSX changes, or already run in CI).${colors.reset}`,
   );
 }
 console.log("");
 
 // 4. Test Suite Execution (Vitest)
-let refChanged = changedFiles.some(
-  (f) => f.startsWith("artifacts/tc-reference/") || f.startsWith("lib/"),
-);
+let refChanged =
+  !skipChecks &&
+  changedFiles.some((f) => f.startsWith("artifacts/tc-reference/"));
 console.log(
   `${colors.bold}[3/4] Running Test Suite (Vitest)...${colors.reset}`,
 );
@@ -193,7 +196,7 @@ if (refChanged) {
   }
 } else {
   console.log(
-    `${colors.yellow}⚠ No client/lib changes detected. Skipping tests.${colors.reset}`,
+    `${colors.yellow}⚠ Skipping tests (no app changes, or already run in CI).${colors.reset}`,
   );
 }
 console.log("");

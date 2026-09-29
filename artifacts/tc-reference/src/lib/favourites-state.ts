@@ -1,3 +1,9 @@
+import {
+  isRecord,
+  safeParseJSON,
+  sanitiseStringArray,
+} from "./storage-validation";
+
 export interface FavouritePhrase {
   cardId: string;
   cardTitle: string;
@@ -48,11 +54,37 @@ function normalisePhraseText(cardId: string, text: string): string {
   return REPHRASED[cardId]?.[t] ?? t;
 }
 
+function isFavouritePhrase(value: unknown): value is FavouritePhrase {
+  return (
+    isRecord(value) &&
+    typeof value.cardId === "string" &&
+    typeof value.text === "string" &&
+    typeof value.cardTitle === "string" &&
+    typeof value.groupLabel === "string"
+  );
+}
+
+/**
+ * Shape check for stored favourites: keeps the string card ids and the
+ * well-formed phrases, drops everything else. Valid phrase objects are kept
+ * as-is (same reference), so the normalisation migration below still sees
+ * exactly what was stored.
+ */
+export function sanitiseFavouritesState(value: unknown): FavouritesState {
+  if (!isRecord(value)) return DEFAULT;
+  return {
+    cardIds: sanitiseStringArray(value.cardIds),
+    phrases: Array.isArray(value.phrases)
+      ? value.phrases.filter(isFavouritePhrase)
+      : [],
+  };
+}
+
 export function loadFavouritesState(): FavouritesState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return DEFAULT;
-    const state: FavouritesState = { ...DEFAULT, ...JSON.parse(raw) };
+    const state = sanitiseFavouritesState(safeParseJSON(raw));
     let changed = false;
     const phrases = state.phrases.map((p) => {
       const text = normalisePhraseText(p.cardId, p.text);
