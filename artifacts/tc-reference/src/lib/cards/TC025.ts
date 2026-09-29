@@ -6,7 +6,7 @@ export const TC025: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC025/TC025_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,18 +56,18 @@ export const TC025: CardData = {
   ],
   id: "TC025",
   whyItWorks:
-    "Exact word pickup means noticing the exact word or phrase someone chose — usually a vivid adjective, metaphor, label, contrast or repeated phrase — and reusing that wording back to them instead of swapping in your own paraphrase. It works because a person's own word usually carries the meaning they care about most; reflecting it back tells them you were listening to them specifically, not just to the gist. Keeping their word intact preserves the nuance and hands you the next natural thread, so the conversation deepens without turning into an interview.",
+    "Exact word pickup means noticing the exact word or phrase someone chose (usually a vivid adjective, metaphor, label, contrast or repeated phrase) and reusing that wording back to them instead of swapping in your own paraphrase. It works because a person's own word usually carries the meaning they care about most. Reflecting it back tells them you were listening to them specifically, not just to the gist. Keeping their word intact preserves the nuance and hands you the next natural thread, so the conversation deepens without turning into an interview.",
   whatItIsNot: [
     "It is not mechanical parroting.",
     "It is not correcting their word choice.",
     "It is not quoting them in a mocking or forensic way.",
     "It is not using their words as evidence against them.",
-    "It is not repeating every sentence — pick the one word or phrase that seems to carry the energy.",
+    "It is not repeating every sentence. Pick the one word or phrase that seems to carry the energy.",
   ],
   overview: {
     coreFormula: [
       "Exact phrase → small comment → natural follow-up.",
-      "You called it 'oddly freeing' — freeing how?",
+      "You called it 'oddly freeing'. Freeing how?",
       "'Hidden rules' is a good phrase. What are you noticing?",
       "When you say 'messy', do you mean emotionally or logistically?",
       "'Not quite right' sounds specific. What was off?",
@@ -77,7 +77,7 @@ export const TC025: CardData = {
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "It fails when you parrot too much or reuse the word with a mocking or forensic tone — echoing whole sentences, or quoting their words back as evidence ('but you said…') rather than curiosity. Repeating a private, shame-laden or joking word directly is the quickest way to make someone feel caught rather than heard.",
+      "It fails when you parrot too much or reuse the word with a mocking or forensic tone: echoing whole sentences, or quoting their words back as evidence ('but you said...') rather than curiosity. Repeating a private, shame-laden or joking word directly is the quickest way to make someone feel caught rather than heard.",
     bestFor: [
       "Keeping a conversation going without asking generic questions",
       "Deepening small talk naturally",
@@ -121,11 +121,11 @@ export const TC025: CardData = {
       tone: "Warm",
       phrases: [
         "That word sounds like it matters.",
-        "'Oddly freeing' is interesting — what made it feel that way?",
+        "'Oddly freeing' is interesting. What made it feel that way?",
         "I want to ask about the word you used there.",
         "That sounds more specific than it first seemed.",
         "There's something in that phrase I want to understand.",
-        "You said 'relief' — I'd love to hear more about that.",
+        "You said 'relief'. I'd love to hear more about that.",
       ],
     },
     {
@@ -136,10 +136,10 @@ export const TC025: CardData = {
       phrases: [
         "When you say 'misaligned', what's the part that isn't lining up?",
         "'Hidden constraints' sounds important. What constraints are you seeing?",
-        "You described it as 'fragile' — where's the fragility?",
+        "You described it as 'fragile'. Where's the fragility?",
         "What does 'cleaner' look like in this context?",
         "When you say 'blocked', is that a people issue, a process issue, or timing?",
-        "You called the plan 'ambitious' — ambitious where, specifically?",
+        "You called the plan 'ambitious'. Ambitious where, specifically?",
       ],
     },
     {
@@ -152,7 +152,7 @@ export const TC025: CardData = {
         "'Unfair' is the key word I'm hearing. What part felt unfair?",
         "I don't want to miss your meaning. When you say 'ignored', what was the moment that felt like that?",
         "'Pressured' matters here. What made it feel pressured?",
-        "Help me understand your word 'disrespected' — what was the part that landed that way?",
+        "Help me understand your word 'disrespected'. What was the part that landed that way?",
       ],
     },
     {
@@ -162,9 +162,9 @@ export const TC025: CardData = {
       tone: "Warm",
       phrases: [
         "'Chaotic but fun' is a strong phrase. What happened?",
-        "You said 'weirdly wholesome' — I need that story.",
+        "You said 'weirdly wholesome'. I need that story.",
         "'Comfortably awkward' is very specific. Explain.",
-        "You called it 'your kind of strange' — what kind is that?",
+        "You called it 'your kind of strange'. What kind is that?",
         "That phrase has personality. What do you mean by it?",
       ],
     },
@@ -174,7 +174,7 @@ export const TC025: CardData = {
       tag: "One exact phrase back",
       tone: "Quick",
       phrases: [
-        "'Oddly freeing' caught my eye — freeing how?",
+        "'Oddly freeing' caught my eye. Freeing how?",
         "When you say 'messy', do you mean emotionally or logistically?",
         "'Hidden rules' is a great phrase. What are the rules?",
         "That 'not quite right' bit sounds important.",
@@ -188,10 +188,10 @@ export const TC025: CardData = {
       tone: "Direct",
       phrases: [
         "When you say 'risk', which risk matters most?",
-        "You mentioned 'quality drift' — where are you seeing it?",
+        "You mentioned 'quality drift'. Where are you seeing it?",
         "'Decision latency' is the phrase I'm picking up. What's causing the delay?",
         "When you say 'not worth it', is the issue effort, timing, or payoff?",
-        "You said 'good enough' — good enough for now, or good enough to ship?",
+        "You said 'good enough'. Good enough for now, or good enough to ship?",
       ],
     },
     {
@@ -200,11 +200,11 @@ export const TC025: CardData = {
       tag: "Optional and low-pressure",
       tone: "High-stakes",
       phrases: [
-        "You used the word 'strange' — only if you want to, strange how?",
+        "You used the word 'strange'. Only if you want to: strange how?",
         "I might be picking up the wrong word, but 'tiring' stood out.",
         "No pressure to go into it, but what did you mean by 'heavy'?",
-        "You said 'fine-ish' — that sounds like there's a caveat.",
-        "'Draining' stood out — you don't have to unpack it, but I noticed.",
+        "You said 'fine-ish'. That sounds like there's a caveat.",
+        "'Draining' stood out. You don't have to unpack it, but I noticed.",
       ],
     },
   ],
@@ -218,7 +218,7 @@ export const TC025: CardData = {
     {
       condition: "They correct your interpretation",
       action: "Accept the correction quickly and carry on with their version.",
-      phrase: "Got it — not X, more Y.",
+      phrase: "Got it, not X, more Y.",
     },
     {
       condition: "They seem mocked or analysed",
@@ -238,19 +238,19 @@ export const TC025: CardData = {
     {
       condition: "They ask you back",
       action: "Answer briefly, then hand the thread back to them.",
-      phrase: "For me it was similar — but what was it like for you?",
+      phrase: "For me it was similar, but what was it like for you?",
     },
     {
       condition: "They say it was just a throwaway word",
       action: "Drop it gracefully and move to something lighter.",
-      phrase: "Fair enough — no need to unpack it.",
+      phrase: "Fair enough, no need to unpack it.",
     },
   ],
   ladder: [
     {
       weak: "How was it?",
       better: "What was it like?",
-      best: "You called it 'oddly freeing' — freeing how?",
+      best: "You called it 'oddly freeing'. Freeing how?",
     },
     {
       weak: "Why?",
@@ -270,7 +270,7 @@ export const TC025: CardData = {
     {
       weak: "Interesting.",
       better: "That's interesting.",
-      best: "'A strange relief' is interesting — was it relief because something ended, or because something became clearer?",
+      best: "'A strange relief' is interesting. Was it relief because something ended, or because something became clearer?",
     },
   ],
   scenarios: [
@@ -293,17 +293,17 @@ export const TC025: CardData = {
     {
       situation: "Digital or text",
       move: "Quote one phrase briefly and ask a concise follow-up.",
-      phrase: "'Strange relief' caught my eye — relief how?",
+      phrase: "'Strange relief' caught my eye. Relief how?",
     },
     {
       situation: "High-status person",
       move: "Use their exact terminology to show you understand the frame.",
-      phrase: "You mentioned 'quality drift' — where is it showing up first?",
+      phrase: "You mentioned 'quality drift'. Where is it showing up first?",
     },
     {
       situation: "Shy or guarded person",
       move: "Make it optional and low-pressure so there's an easy exit.",
-      phrase: "You said 'heavy' — no pressure, but heavy how?",
+      phrase: "You said 'heavy'. No pressure, but heavy how?",
     },
     {
       situation: "Dating or social chemistry",
@@ -322,7 +322,7 @@ export const TC025: CardData = {
     ],
     adjust: [
       "They seem mocked, analysed, or put on the spot.",
-      "They answer 'I don't know' or 'I just meant…' flatly.",
+      "They answer 'I don't know' or 'I just meant...' flatly.",
       "They correct you sharply, or go shorter and more guarded.",
       "You've repeated several words in a row, or the topic is too sensitive to echo.",
       "Switch from repeating their word to reflecting the meaning: 'That part sounds important.'",
@@ -335,7 +335,7 @@ export const TC025: CardData = {
     {
       day: "Day 1",
       title: "Notice the wording",
-      task: "Through one day, spot a single distinctive word or phrase in each real conversation — a vivid adjective, metaphor, label or contrast. Just notice it; don't act on it yet.",
+      task: "Through one day, spot a single distinctive word or phrase in each real conversation: a vivid adjective, metaphor, label or contrast. Just notice it. Don't act on it yet.",
     },
     {
       day: "Day 2",
@@ -350,7 +350,7 @@ export const TC025: CardData = {
     {
       day: "Day 4",
       title: "Comment before the question",
-      task: "Practise adding a light comment before the question — \"'Oddly freeing' is interesting — freeing how?\" — so it lands as curiosity, not an interview.",
+      task: "Practise adding a light comment before the question: \"'Oddly freeing' is interesting. Freeing how?\" So it lands as curiosity, not an interview.",
     },
     {
       day: "Day 5",
@@ -365,7 +365,7 @@ export const TC025: CardData = {
     {
       day: "Day 7",
       title: "Use a callback",
-      task: "Pick up a phrase early in a conversation, then return to it later — 'That sounds like another hidden-rules moment' — and notice whether they feel remembered.",
+      task: "Pick up a phrase early in a conversation, then return to it later, 'That sounds like another hidden-rules moment', and notice whether they feel remembered.",
     },
   ],
   checklist: [
@@ -380,8 +380,8 @@ export const TC025: CardData = {
     without: [
       "Person: The whole reorg has been oddly freeing, to be honest.",
       "You: Change is good. Everyone hates it at first, then it works out.",
-      "Person: Yeah… I guess.",
-      "Why it is weak:",
+      "Person: Yeah... I guess.",
+      "Why it's weak:",
       "drops their word 'freeing' and replaces it with a cliché",
       "steers to your opinion instead of their experience",
       "gives them nothing specific to open up about",
@@ -389,7 +389,7 @@ export const TC025: CardData = {
     ],
     with: [
       "Person: The whole reorg has been oddly freeing, to be honest.",
-      "You: 'Oddly freeing' is interesting — freeing how?",
+      "You: 'Oddly freeing' is interesting. Freeing how?",
       "Person: I stopped waiting for permission on the small stuff.",
       "You: So it was less about the restructure and more about not needing sign-off?",
       "Person: Exactly. That's the part that actually changed.",
@@ -400,16 +400,16 @@ export const TC025: CardData = {
       "reflects the underlying meaning back in their own language",
       "adds a small contribution instead of only asking",
     ],
-    note: "The move is one word of theirs, held intact, then a light question — not a summary in your words.",
+    note: "The move is one word of theirs, held intact, then a light question, not a summary in your words.",
   },
   influencePayoff: {
-    feeling: "They actually caught what I meant — not just the gist.",
+    feeling: "They actually caught what I meant, not just the gist.",
     principle:
       "People open up more when they feel heard in their own words, not translated into yours.",
     gains: [
       "Makes people feel accurately heard, because you respond to the language they actually used rather than your own summary.",
       "Keeps the conversation natural, because their own wording hands you the next thread.",
-      "Raises perceived social intelligence — you seem attentive to nuance, not merely polite.",
+      "Raises perceived social intelligence. You seem attentive to nuance, not merely polite.",
       "Helps people elaborate without feeling interrogated, because you ask from inside their frame.",
       "Creates useful callbacks later, so the interaction feels continuous and memorable.",
       "Preserves their nuance instead of flattening it into a generic paraphrase.",
@@ -417,13 +417,13 @@ export const TC025: CardData = {
     whyMostFail: [
       "They parrot whole sentences instead of picking the one word with energy.",
       "They reuse the word with a mocking or teasing tone, so it sounds performative.",
-      "They quote it forensically — 'earlier you said…' — using the word to trap rather than understand.",
+      "They quote it forensically ('earlier you said...') using the word to trap rather than understand.",
       "They only ask and never contribute, so it turns into an interrogation.",
     ],
   },
   fieldTip: {
     headline: "Use their words as handles, not hooks.",
-    body: "A handle helps them open the door; a hook makes them feel caught. Reuse their word to clarify, respect and connect — never to pressure, corner or extract.",
+    body: "A handle helps them open the door. A hook makes them feel caught. Reuse their word out of curiosity, never as evidence.",
     example:
       "They say 'It was technically fine, just off.' Pick up the live word: 'Off how?'",
     dont: "Quote their word back as evidence: 'But you said it was fine.'",
@@ -433,7 +433,7 @@ export const TC025: CardData = {
     {
       step: "1",
       title: "Listen for distinctive wording",
-      body: "Notice the words that stand out — unusual adjectives, metaphors, labels, repeated words, contrasts, or phrases said with emphasis. These carry more of the person's real meaning than the sentence around them.",
+      body: "Notice the words that stand out: unusual adjectives, metaphors, labels, repeated words, contrasts, or phrases said with emphasis. These carry more of the person's real meaning than the sentence around them.",
       examples: [
         {
           label: "Words worth catching",
@@ -449,16 +449,16 @@ export const TC025: CardData = {
     {
       step: "3",
       title: "Keep their word intact",
-      body: "Use their actual wording before you translate it — that is what preserves the nuance. If they say 'boxed in', resist swapping it straight to 'restricted'; the picture is theirs, not yours.",
+      body: "Use their actual wording before you translate it. That is what preserves the nuance. If they say 'boxed in', resist swapping it straight to 'restricted'. The picture is theirs, not yours.",
     },
     {
       step: "4",
       title: "Add a light comment or question",
-      body: "Wrap the word in a small comment so it doesn't feel like an interview. The comment shows you noticed; the question invites them to expand.",
+      body: "Wrap the word in a small comment so it doesn't feel like an interview. The comment shows you noticed. The question invites them to expand.",
       examples: [
         {
           label: "Comment + question",
-          text: "'Oddly freeing' is interesting — freeing how?",
+          text: "'Oddly freeing' is interesting. Freeing how?",
         },
         {
           label: "Comment + question",
@@ -471,13 +471,13 @@ export const TC025: CardData = {
       title: "Let them clarify or correct",
       body: "If they say 'not exactly', take the correction straight away. You're after accuracy, not proving your reading was right.",
       examples: [
-        { label: "Accept the correction", text: "Got it — not X, more Y." },
+        { label: "Accept the correction", text: "Got it, not X, more Y." },
       ],
     },
     {
       step: "6",
       title: "Reflect the meaning, then call back later",
-      body: "Once they explain, reflect the underlying point in one sentence. Later in the conversation, return to the same phrase — a callback makes people feel remembered and understood.",
+      body: "Once they explain, reflect the underlying point in one sentence. Later in the conversation, return to the same phrase: a callback makes people feel remembered and understood.",
       examples: [
         {
           label: "Reflect",
@@ -512,7 +512,7 @@ export const TC025: CardData = {
     },
     {
       mistake: "Forensic quoting",
-      soundsLike: "'Earlier you said X, so clearly…'",
+      soundsLike: "'Earlier you said X, so clearly...'",
       better: "Use their words to understand them, not to trap them.",
     },
     {
@@ -538,13 +538,13 @@ export const TC025: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I'm not trying to put words in your mouth — that word just sounded important.",
+    "I'm not trying to put words in your mouth. That word just sounded important.",
     "I may have over-read that phrase. What did you mean by it?",
     "That came out more analytical than I meant.",
     "I was picking up your word, not trying to pin you to it.",
     "No pressure to unpack it if it was just a throwaway phrase.",
     "Let me ask that more normally.",
-    "I think I repeated that with the wrong tone — I meant it as curiosity.",
+    "I think I repeated that with the wrong tone. I meant it as curiosity.",
   ],
   bestRecoveryLine: "I was picking up your word, not trying to pin you to it.",
   chains: [
@@ -554,9 +554,9 @@ export const TC025: CardData = {
         "Listen for the phrase → ask about the exact word → let them clarify → follow the new thread",
       example: [
         "Them: 'It's been messy.'",
-        "You: 'Messy how — emotionally or logistically?'",
+        "You: 'Messy how? Emotionally or logistically?'",
         "Them: 'Logistically. Three people own the same task.'",
-        "You: 'Ah — so it's an ownership tangle, not a people problem.'",
+        "You: 'Ah, so it's an ownership tangle, not a people problem.'",
       ],
     },
     {
@@ -564,7 +564,7 @@ export const TC025: CardData = {
       sequence:
         "Warm comment → exact-word pickup → reflection → small self-disclosure → appreciation",
       example: [
-        "'Chaotic but fun' — I love that. Chaotic how?",
+        "'Chaotic but fun'. I love that. Chaotic how?",
         "'So the chaos was the good part.'",
         "'I'm the same at big gatherings, honestly.'",
         "'Good description, by the way.'",
@@ -586,7 +586,7 @@ export const TC025: CardData = {
       sequence:
         "Exact-word pickup now → return to the phrase later → continuity and remembered detail",
       example: [
-        "Early: \"'Hidden rules' — what are they?\"",
+        "Early: \"'Hidden rules'. What are they?\"",
         "Later: 'That sounds like another hidden-rules moment.'",
         "The callback tells them you were still holding their words.",
       ],

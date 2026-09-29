@@ -6,7 +6,7 @@ export const TC060: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC060/TC060_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,20 +56,20 @@ export const TC060: CardData = {
   ],
   id: "TC060",
   whyItWorks:
-    "Positive assumption is starting from a respectful, benign reading of an ambiguous action before you ask, correct, or disagree. It is a framing move placed just before a potentially face-threatening question, correction, request, or boundary, and it quietly signals: I am not starting from the worst interpretation of you. It works because people explain far more honestly when they do not feel attacked before the facts are even understood - the charitable reading separates the person from the problem and buys a pause between annoyance and accusation, so accountability stays possible without starting from blame.",
+    "Positive assumption means starting from a respectful, benign reading of an ambiguous action before you ask, correct or disagree. Placed just before a question, correction, request or boundary, it quietly signals that you are not starting from the worst interpretation of them. It works because people explain far more honestly when they do not feel attacked before the facts are understood, so accountability stays possible without starting from blame.",
   whatItIsNot: [
-    "Not blind optimism, forced trust, conflict avoidance, or fake praise - it does not pretend the behaviour is fine.",
-    'Not a way to excuse harm: "You obviously meant well, so there is no problem."',
+    "Not blind optimism, forced trust, conflict avoidance, or fake praise. It does not pretend the behaviour is fine.",
+    'Not a way to excuse harm: "You obviously meant well, so there\'s no problem."',
     "Not a demand that the other person accept your version of events.",
-    "Not minimising - it never makes the person who was actually affected feel unreasonable.",
-    'The honest, checkable version stays precise: "I do not know your intent, and the impact still needs addressing."',
+    "Not minimising: it never makes the person who was actually affected feel unreasonable.",
+    'The honest, checkable version stays precise: "I don\'t know your intent, and the impact still needs addressing."',
   ],
   overview: {
     coreFormula: [
       "Assume a reasonable reason + name the observable issue + invite correction or a next step.",
       "I'm assuming [reasonable reason / good intent / constraint], and I noticed [observable issue]. Can we [check / decide / repair / agree a next step]?",
       "I may be wrong, but I'm reading this as [benign interpretation], not [negative interpretation]. Is that right?",
-      "My guess is [charitable reason]. If that's off, correct me - what happened?",
+      "My guess is [charitable reason]. If that's off, correct me. What happened?",
       "Minimum viable: \"I'm assuming there's a reasonable reason. Can you walk me through it?\"",
     ],
     minimumViableMove:
@@ -77,7 +77,7 @@ export const TC060: CardData = {
     impact: "High",
     difficulty: "Medium",
     misuse:
-      "The move fails when you soften the issue so far that impact, accountability, or safety disappears - or when you deliver the assumption mechanically, so it reads as a manipulative script rather than genuine goodwill.",
+      "The move fails when you soften the issue so far that impact, accountability, or safety disappears, or when you deliver the assumption mechanically, so it reads as a manipulative script rather than genuine goodwill.",
     bestFor: [
       "A missed reply or deadline where the reason is unknown.",
       "A blunt message that may be compressed rather than hostile.",
@@ -106,7 +106,7 @@ export const TC060: CardData = {
         "I'm assuming there's a reasonable reason. Can you walk me through it?",
         "I might be reading this generously, but I'm guessing there's a reason. Can we check what happened?",
         "My guess is there's more to this. What actually happened?",
-        "I'd rather ask than assume the worst - what's going on?",
+        "I'd rather ask than assume the worst. What's going on?",
         "I'm reading this charitably. Correct me if I'm off.",
         "Before I jump to conclusions, give me the context?",
         "I'm assuming there's a story here I'm missing.",
@@ -165,7 +165,7 @@ export const TC060: CardData = {
       tone: "Quick",
       phrases: [
         "Tone's hard over text, so I'm assuming this is concise rather than sharp. Fair?",
-        "Reading that as brief, not blunt - let me know if I've got it wrong.",
+        "Reading that as brief, not blunt. Let me know if I've got it wrong.",
         "Hard to read tone here, so I'm assuming good faith. What did you need?",
         "I'm taking that as shorthand, not shortness.",
         "No tone in text, so I'm assuming you're just busy. All good?",
@@ -179,7 +179,7 @@ export const TC060: CardData = {
       phrases: [
         "I may have softened that too much. The issue is still real.",
         "I may have read that too generously. Let me name the impact directly.",
-        "Let me correct that. I don't know your intent - I can name the impact more clearly.",
+        "Let me correct that. I don't know your intent. I can name the impact more clearly.",
         "I was trying not to assume the worst, but I hear it sounded like I was excusing it.",
         "That assumption may be wrong. What was actually happening for you?",
         "I don't want to put words in your mouth. How would you describe it?",
@@ -191,20 +191,20 @@ export const TC060: CardData = {
       tag: "Charity has run out",
       tone: "High-stakes",
       phrases: [
-        "I do not want to assume the worst, and I also need this to stop.",
-        "I gave the benefit of the doubt; now we need a clear agreement.",
+        "I don't want to assume the worst, and I also need this to stop.",
+        "I gave the benefit of the doubt. Now we need a clear agreement.",
         "I'm going to be more direct, because this has repeated.",
-        "I do not want to assume the worst, and this is now a repeated issue. I need it to change.",
+        "I don't want to assume the worst, and this is now a repeated issue. I need it to change.",
         "I've assumed good reasons a few times now. This time I need a firm commitment.",
-        "I'm not questioning your intent. I am telling you the impact has to change.",
+        "I'm not questioning your intent. I'm telling you the impact has to change.",
       ],
     },
   ],
   decisionTree: [
     {
       condition: "Is there immediate risk or harm?",
-      action: "Don't soften - set a boundary or escalate.",
-      phrase: "This needs to stop now; I'll come back to the context later.",
+      action: "Don't soften: set a boundary or escalate.",
+      phrase: "This needs to stop now. I'll come back to the context later.",
     },
     {
       condition: "Is the behaviour genuinely ambiguous?",
@@ -216,13 +216,13 @@ export const TC060: CardData = {
       condition: "Is this a clear pattern after prior requests?",
       action: "Use a direct request, boundary, or consequence.",
       phrase:
-        "I've given the benefit of the doubt before; this time I need a firm commitment.",
+        "I've given the benefit of the doubt before. This time I need a firm commitment.",
     },
     {
       condition: "Is someone voicing a concern?",
       action: "Validate the concern before assuming intent.",
       phrase:
-        "That worry makes sense - let me make sure I understand it before we move on.",
+        "That worry makes sense. Let me make sure I understand it before we move on.",
     },
     {
       condition: "Did your assumption land as minimising?",
@@ -233,7 +233,7 @@ export const TC060: CardData = {
     {
       condition: "Did they accept the frame and explain?",
       action: "Move to a concrete next step.",
-      phrase: "Thanks - let's agree what happens next.",
+      phrase: "Thanks, let's agree what happens next.",
     },
   ],
   ladder: [
@@ -291,7 +291,7 @@ export const TC060: CardData = {
     },
     {
       situation: "Boundary repeat",
-      move: "Start direct; don't keep assuming positively after a pattern.",
+      move: "Start direct. Don't keep assuming positively after a pattern.",
       phrase:
         "I don't want to assume the worst, and this is now a repeated issue. I need it to change.",
     },
@@ -300,18 +300,18 @@ export const TC060: CardData = {
     working: [
       "They relax and their tone drops.",
       "They explain what actually happened.",
-      "They correct a detail - which means they felt safe enough to.",
+      "They correct a detail, which means they felt safe enough to.",
       "They own a piece of it without being cornered.",
       "The conversation moves from motive to facts.",
       "They thank you for not assuming the worst.",
     ],
     adjust: [
-      "They seem confused - your reading was too abstract; name the observable issue plainly.",
-      "They hide behind intent to deny impact - switch to intent-impact separation.",
-      "A harmed person looks minimised - pause the assumption and validate the impact first.",
-      "They get defensive anyway - slow down, own it as your interpretation, and ask for theirs.",
-      "They exploit the benefit of the doubt again - stop softening and move to a boundary.",
-      "You catch yourself assuming to avoid a hard sentence - say the hard sentence.",
+      "They seem confused. Your reading was too abstract. Name the observable issue plainly.",
+      "They hide behind intent to deny impact: switch to intent-impact separation.",
+      "A harmed person looks minimised: pause the assumption and validate the impact first.",
+      "They get defensive anyway: slow down, own it as your interpretation, and ask for theirs.",
+      "They exploit the benefit of the doubt again: stop softening and move to a boundary.",
+      "You catch yourself assuming to avoid a hard sentence. Say the hard sentence.",
     ],
   },
   drill: [
@@ -338,7 +338,7 @@ export const TC060: CardData = {
     {
       day: "Day 5",
       title: "Recover",
-      task: 'Practise the repair out loud - "I may have softened that too much. The issue is..." - until it sounds calm rather than defensive.',
+      task: 'Practise the repair out loud ("I may have softened that too much. The issue is...") until it sounds calm rather than defensive.',
     },
     {
       day: "Day 6",
@@ -377,15 +377,15 @@ export const TC060: CardData = {
       "B: That works. I'll send it by 3.",
       "Why this works:",
       "names a plausible benign reading, then checks it",
-      "keeps accountability - B still owns the missed flag",
+      "keeps accountability, B still owns the missed flag",
       "moves straight to a concrete reset",
       "lowers the threat without minimising the miss",
     ],
-    note: "There's a middle version that's better than blame but still weak: \"I know you were probably busy, but the update was missing.\" It softens the tone yet never checks the assumption or sets a clean next step - so the conversation stalls in vague niceness.",
+    note: "There's a middle version that's better than blame but still weak: \"I know you were probably busy, but the update was missing.\" It softens the tone yet never checks the assumption or sets a clean next step. So the conversation stalls in vague niceness.",
   },
   influencePayoff: {
     feeling:
-      "\"They're not starting from the worst version of me - I'm being asked to explain, not defend.\"",
+      "\"They're not starting from the worst version of me. I'm being asked to explain, not defend.\"",
     principle:
       "People are far more likely to explain honestly when they do not feel attacked before the facts are even understood.",
     gains: [
@@ -393,29 +393,29 @@ export const TC060: CardData = {
       "Reduces defensiveness without removing accountability.",
       "Protects status and dignity in corrective conversations.",
       "Makes it easier for someone to admit an error or reveal a constraint.",
-      "Keeps your own tone clean - a pause between stimulus and accusation.",
+      "Keeps your own tone clean: a pause between stimulus and accusation.",
       "Separates the person from the problem.",
       "Builds a smoother bridge into clean requests, validation, and repair.",
     ],
     whyMostFail: [
       "They use the generous reading to dodge the actual problem instead of raising clarity after it.",
-      "They over-do it - too many charitable interpretations sound patronising or strategic.",
+      "They over-do it: too many charitable interpretations sound patronising or strategic.",
       "They deliver it mechanically, so it reads as a manipulative script.",
       "They assume positively when the impact needed naming first.",
     ],
   },
   fieldTip: {
     headline: "Assume a reasonable reason, then ask for the real one.",
-    body: "The move is strongest when it's brief. One generous sentence is enough - after that, go to the facts, the impact, or the next agreement. Long reassurance starts to sound like nervousness or a sales pitch.",
-    example: '"Start generous; stay precise."',
+    body: "The move is strongest when it's brief. One generous sentence is enough, after that, go to the facts, the impact, or the next agreement. Long reassurance starts to sound like nervousness or a sales pitch.",
+    example: '"Start generous. Stay precise."',
     dont: "Don't let the charity become the whole conversation and quietly bury the issue.",
     do: "Do pair every generous reading with one concrete question or request.",
   },
   method: [
     {
       step: "1",
-      title: "Perception",
-      body: "Notice the ambiguous cue or behaviour without bolting a negative story onto it. Separate what you can actually observe - a missed update, a blunt line, a slow reply - from the motive you're tempted to assign it.",
+      title: "Notice the ambiguous cue",
+      body: "Notice the ambiguous cue or behaviour without bolting a negative story onto it. Separate what you can actually observe (a missed update, a blunt line, a slow reply) from the motive you're tempted to assign it.",
     },
     {
       step: "2",
@@ -442,16 +442,16 @@ export const TC060: CardData = {
     {
       step: "4",
       title: "Calibrate",
-      body: "Watch what the assumption does. Relief, an explanation, or a correction means it worked - move into the facts. Confusion, defensiveness, or silence means adjust: name the observable issue more plainly, or slow down.",
+      body: "Watch what the assumption does. Relief, an explanation, or a correction means it worked: move into the facts. Confusion, defensiveness, or silence means adjust: name the observable issue more plainly, or slow down.",
     },
     {
       step: "5",
       title: "Recover if it lands wrong",
-      body: 'If it reads as excusing or minimising, don\'t defend it - separate intent from impact and ask plainly. "I may have softened that too much; the issue is still real."',
+      body: 'If it reads as excusing or minimising, don\'t defend it: separate intent from impact and ask plainly. "I may have softened that too much. The issue is still real."',
     },
     {
       step: "6",
-      title: "Chain",
+      title: "Move to a next step",
       body: "Move quickly into a clean request, validation without agreement, a summary check, or repair. Long reassurance after the assumption sounds like nervousness or manipulation.",
     },
   ],
@@ -468,14 +468,14 @@ export const TC060: CardData = {
     {
       mistake: "Using the assumption to dodge the problem",
       soundsLike:
-        '"I\'m sure you meant well" - and then quietly dropping the issue.',
+        '"I\'m sure you meant well", and then quietly dropping the issue.',
       better:
-        '"I\'m assuming you meant well. The update was still missing - can we fix that now?"',
+        '"I\'m assuming you meant well. The update was still missing. Can we fix that now?"',
     },
     {
       mistake: "Assuming positive intent when the impact needs naming first",
       soundsLike:
-        "\"I'm sure you didn't mean it\" - said to someone who was hurt.",
+        "\"I'm sure you didn't mean it\". Said to someone who was hurt.",
       better:
         '"That landed badly on me. I\'ll get to intent, but first I need to name the impact."',
     },
@@ -488,7 +488,7 @@ export const TC060: CardData = {
       mistake: "Treating the assumption as fact, not a hypothesis",
       soundsLike: '"I know you were just busy."',
       better:
-        '"I\'m guessing you were busy - is that right, or was it something else?"',
+        '"I\'m guessing you were busy. Is that right, or was it something else?"',
     },
     {
       mistake: "Adding a long lecture after the soft opening",
@@ -498,7 +498,7 @@ export const TC060: CardData = {
     },
     {
       mistake: "Keeping the benefit of the doubt after a pattern",
-      soundsLike: "\"I'm sure there's a reason\" - for the fourth time.",
+      soundsLike: "\"I'm sure there's a reason\". For the fourth time.",
       better:
         '"I\'ve assumed good reasons a few times now. This needs to change."',
     },
@@ -506,17 +506,17 @@ export const TC060: CardData = {
       mistake: "Making them explain when you already know",
       soundsLike: 'A hollow "walk me through it" when the answer is obvious.',
       better:
-        "Skip the theatre - name what you know and ask what you'd both change.",
+        "Skip the theatre. Name what you know and ask what you'd both change.",
     },
   ],
   recoveryPhrases: [
-    "Let me correct that. I don't know your intent - I can name the impact more clearly.",
+    "Let me correct that. I don't know your intent. I can name the impact more clearly.",
     "I may have softened that too much. The issue is still real.",
     "I was trying not to assume the worst, but I hear that it sounded like I was excusing it.",
     "Let me separate intent and impact: I don't think you meant harm, and this still needs repair.",
     "That assumption may be wrong. What was actually happening for you?",
     "I don't want to put words in your mouth. How would you describe it?",
-    "I gave the benefit of the doubt; now we need a clear agreement.",
+    "I gave the benefit of the doubt. Now we need a clear agreement.",
     "I'm going to be more direct, because this has repeated.",
   ],
   bestRecoveryLine:
@@ -524,28 +524,28 @@ export const TC060: CardData = {
   chains: [
     {
       label: "Assumption to clean request",
-      sequence: "Positive assumption -> Clean request",
+      sequence: "Positive assumption → Clean request",
       example: [
         '"I\'m assuming this got crowded out. Can you send the status by 3?"',
       ],
     },
     {
       label: "Assumption to validation without agreement",
-      sequence: "Positive assumption -> Validation without agreement",
+      sequence: "Positive assumption → Validation without agreement",
       example: [
-        "\"I'm reading this as a risk concern. I can see why that matters - I don't yet agree with the conclusion.\"",
+        "\"I'm reading this as a risk concern. I can see why that matters. I don't yet agree with the conclusion.\"",
       ],
     },
     {
       label: "Assumption to permission-based advice",
-      sequence: "Positive assumption -> Permission-based advice",
+      sequence: "Positive assumption → Permission-based advice",
       example: [
         "\"I'm assuming you've got a reason for the approach. Would it help if I shared one concern?\"",
       ],
     },
     {
       label: "Assumption to summary check",
-      sequence: "Positive assumption -> Summary check",
+      sequence: "Positive assumption → Summary check",
       example: [
         '"Let me check I\'ve got this right: the delay was the escalation, not a change in priority."',
       ],
@@ -555,32 +555,32 @@ export const TC060: CardData = {
     {
       id: "TC005",
       reason:
-        "Validation without agreement - both avoid a needless argument. Assume positively when you're interpreting ambiguous conduct; validate without agreeing when the person has actually stated a concern you can acknowledge.",
+        "Validation without agreement: both avoid a needless argument. Assume positively when you're interpreting ambiguous conduct. Validate without agreeing when the person has actually stated a concern you can acknowledge.",
     },
     {
       id: "TC014",
       reason:
-        "Validate the concern - if someone is worried, validate the concern first. If someone did something ambiguous, open with a positive assumption instead.",
+        "Validate the concern. If someone is worried, validate the concern first. If someone did something ambiguous, open with a positive assumption instead.",
     },
     {
       id: "TC061",
       reason:
-        "Tone reflection - both address hidden meaning. If the issue is the emotional tone you're hearing, reflect the tone. If the issue is your interpretation of their motive, assume positively.",
+        "Tone reflection: both address hidden meaning. If the issue is the emotional tone you're hearing, reflect the tone. If the issue is your interpretation of their motive, assume positively.",
     },
     {
       id: "TC022",
       reason:
-        "Status generosity - a positive assumption can sound like praise. Use status generosity to credit real competence or effort; use positive assumption to prevent blame around something ambiguous.",
+        "Status generosity: a positive assumption can sound like praise. Use status generosity to credit real competence or effort. Use positive assumption to prevent blame around something ambiguous.",
     },
     {
       id: "TC039",
       reason:
-        "Common-ground discovery - both build connection. Use common-ground discovery to find genuine overlap; use positive assumption when you're interpreting an unclear action and want to avoid blame.",
+        "Common-ground discovery: both build connection. Use common-ground discovery to find genuine overlap. Use positive assumption when you're interpreting an unclear action and want to avoid blame.",
     },
     {
       id: "TC054",
       reason:
-        "Similarity signalling - both create warmth. Name a real shared trait with similarity signalling; use positive assumption when there's a potential problem to defuse first.",
+        "Similarity signalling: both create warmth. Name a real shared trait with similarity signalling. Use positive assumption when there's a potential problem to defuse first.",
     },
   ],
 };

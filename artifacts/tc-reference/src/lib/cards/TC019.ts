@@ -6,7 +6,7 @@ export const TC019: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC019/TC019_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,19 +56,19 @@ export const TC019: CardData = {
   ],
   id: "TC019",
   whyItWorks:
-    "Small ask is one deliberate move: reduce a request to a small, concrete next action that is easy to understand and reasonable to answer. Instead of handing someone a whole problem, you name the single smallest useful step and make the boundary of the ask honest. It works because a small, clear, bounded action is a cheap yes — the other person does not have to guess what you want, weigh a large commitment, or negotiate scope before anything can happen. A clean small yes also builds the trust that makes the next ask easier.",
+    "Small ask is one deliberate move: reduce a request to a small, concrete next action that is easy to understand and reasonable to answer. Instead of handing someone a whole problem, you name the single smallest useful step and make the boundary of the ask honest. It works because a small, clear, bounded action is a cheap yes: the other person does not have to guess what you want, weigh a large commitment, or negotiate scope before anything can happen. A clean small yes also builds the trust that makes the next ask easier.",
   whatItIsNot: [
     "It is not hiding a large commitment inside a tiny request, or bait-and-switching so a small yes quietly becomes a large one.",
     "It is not pretending something is small when it is not.",
     "It is not a foot-in-the-door tactic to soften someone up before pushing your real agenda.",
-    "It is not vagueness — a small ask is still concrete and specific, just smaller in scope.",
+    "It is not vagueness: a small ask is still concrete and specific, just smaller in scope.",
     "It is not a shortcut around consent, context, or an honest full request when one is owed.",
   ],
   overview: {
     coreFormula: [
       "Shrink the scope: ask for one part, not the whole.",
       "Name the exact action: say precisely what you want done.",
-      "Make the boundary honest: state what you are not asking for.",
+      "Make the boundary honest: state what you're not asking for.",
       "Accept yes or no cleanly: leave the choice genuinely open.",
       'Example: "Could you look at just the first paragraph and tell me if the tone lands? No need to edit the rest."',
     ],
@@ -77,7 +77,7 @@ export const TC019: CardData = {
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      'It fails when the "small" ask is a disguise for a big one — bait-and-switch — or when it is delivered mechanically as a softening tactic before you push your real agenda. Shrink the scope honestly, not just its appearance.',
+      'It fails when the "small" ask is a disguise for a big one, bait-and-switch, or when it is delivered mechanically as a softening tactic before you push your real agenda. Shrink the scope honestly, not just its appearance.',
     bestFor: [
       "Busy people who cannot take on a large request",
       "First steps in a new or uncertain relationship",
@@ -122,7 +122,7 @@ export const TC019: CardData = {
         "It's only a tiny favour, if you're up for it.",
         "Could you help me with just the start? I'll take it from there.",
         "Even five minutes would mean a lot.",
-        "Only if it's easy — could you send me the one name?",
+        "Only if it's easy. Could you send me the one name?",
       ],
     },
     {
@@ -161,11 +161,11 @@ export const TC019: CardData = {
       tag: "Release the pressure",
       tone: "Repair",
       phrases: [
-        "No pressure at all — only if you have the time.",
-        "Feel free to say no; it won't be a problem.",
+        "No pressure at all, only if you have the time.",
+        "Feel free to say no. It won't be a problem.",
         "If that's too much, even a pointer would help.",
         "Let me make that smaller: could you just do the first part?",
-        "Ignore the rest — one thing is all I need.",
+        "Ignore the rest: one thing is all I need.",
         "We can leave it and come back another time.",
       ],
     },
@@ -176,10 +176,10 @@ export const TC019: CardData = {
       tone: "High-stakes",
       phrases: [
         "Would it be useful if I checked the premise before I respond?",
-        "I'll take the smallest slice of your time — just one question?",
+        "I'll take the smallest slice of your time. Just one question?",
         "If it helps, I can narrow this to a single decision.",
         "I'll keep this to one ask so it's easy to weigh up.",
-        "Only the part that needs your call — nothing more.",
+        "Only the part that needs your call. Nothing more.",
         "Would a two-minute version be easier than the full thing?",
       ],
     },
@@ -190,9 +190,9 @@ export const TC019: CardData = {
       tone: "Quick",
       phrases: [
         "To make sure I answer the right thing: is it the date you need?",
-        "Quick one — could you confirm just the date?",
+        "Quick one. Could you confirm just the date?",
         "One small ask: can you send the file, not the summary?",
-        "Short version — yes or no on the first option?",
+        "Short version: yes or no on the first option?",
         "Just checking the one point before I reply properly: is X right?",
       ],
     },
@@ -201,7 +201,7 @@ export const TC019: CardData = {
     {
       condition: "They are still mid-thought",
       action:
-        "Wait — don't drop the ask into the middle of what they're saying.",
+        "Wait: don't drop the ask into the middle of what they're saying.",
       phrase: "",
     },
     {
@@ -212,12 +212,12 @@ export const TC019: CardData = {
     {
       condition: "They seem hesitant or resistant",
       action: "Name the concern and make the ask optional before repeating it.",
-      phrase: "No pressure — only if it's easy.",
+      phrase: "No pressure, only if it's easy.",
     },
     {
       condition: "They accept and the exchange feels easier",
       action: "Continue and build on the small yes rather than piling on.",
-      phrase: "Thank you — that's exactly enough.",
+      phrase: "Thank you, that's exactly enough.",
     },
     {
       condition: "They tense up or the ease drops",
@@ -226,7 +226,7 @@ export const TC019: CardData = {
     },
     {
       condition: "You're tempted to expand the ask after a yes",
-      action: "Stop — keep the boundary you named honest.",
+      action: "Stop: keep the boundary you named honest.",
       phrase: "That's all I needed for today.",
     },
   ],
@@ -250,7 +250,7 @@ export const TC019: CardData = {
   scenarios: [
     {
       situation: "Social conversation",
-      move: "Keep it warm and brief; ask for one small thing.",
+      move: "Keep it warm and brief. Ask for one small thing.",
       phrase: "Could you help me with just the start? I'll take it from there.",
     },
     {
@@ -260,8 +260,8 @@ export const TC019: CardData = {
     },
     {
       situation: "Digital message",
-      move: "Write one clean sentence; don't overexplain.",
-      phrase: "Quick one — could you confirm just the date?",
+      move: "Write one clean sentence. Don't overexplain.",
+      phrase: "Quick one. Could you confirm just the date?",
     },
     {
       situation: "Conflict or objection",
@@ -289,13 +289,13 @@ export const TC019: CardData = {
       "They stay engaged rather than going quiet.",
     ],
     adjust: [
-      "Answers get shorter — shrink the ask further or pause.",
-      "You see visible tension — name it and make the ask optional.",
-      "They correct you without engaging — you've mis-scoped; re-ask smaller.",
-      "They change the subject — drop the ask for now.",
-      "Sarcasm creeps in — the move is landing as pressure; release it.",
-      "It starts to feel about your performance — return to plain language.",
-      "They agree but don't act — the ask may still be too big; make it smaller.",
+      "Answers get shorter: shrink the ask further or pause.",
+      "You see visible tension. Name it and make the ask optional.",
+      "They correct you without engaging. You've mis-scoped. Re-ask smaller.",
+      "They change the subject. Drop the ask for now.",
+      "Sarcasm creeps in: the move is landing as pressure. Release it.",
+      "It starts to feel about your performance: return to plain language.",
+      "They agree but don't act: the ask may still be too big. Make it smaller.",
     ],
   },
   drill: [
@@ -307,7 +307,7 @@ export const TC019: CardData = {
     {
       day: "Day 2",
       title: "Say the minimum move aloud",
-      task: 'Take one real request and shrink it to a single line — "Could you do just X?" Say it aloud three times until it stops sounding scripted.',
+      task: 'Take one real request and shrink it to a single line: "Could you do just X?" Say it aloud three times until it stops sounding scripted.',
     },
     {
       day: "Day 3",
@@ -317,12 +317,12 @@ export const TC019: CardData = {
     {
       day: "Day 4",
       title: "Practise the recovery",
-      task: 'In a low-stakes chat, deliberately over-ask, then use one recovery line to make it smaller: "Let me put that more simply — just the one thing."',
+      task: 'In a low-stakes chat, deliberately over-ask, then use one recovery line to make it smaller: "Let me make that smaller. Just the one thing."',
     },
     {
       day: "Day 5",
       title: "Field test, low stakes",
-      task: "Use one small ask in a real conversation and note the calibration cue — did they relax and act, or tense up? Adjust once on the spot.",
+      task: "Use one small ask in a real conversation and note the calibration cue. Did they relax and act, or tense up? Adjust once on the spot.",
     },
     {
       day: "Day 6",
@@ -338,7 +338,7 @@ export const TC019: CardData = {
   checklist: [
     "Did I notice the cue and shrink the ask before speaking?",
     "Was the ask one concrete action, not a vague or large one?",
-    "Was the boundary honest — did I say what I was not asking for?",
+    "Was the boundary honest? Did I say what I was not asking for?",
     "Did I leave a genuine yes or no, without pressure?",
     "Did I watch their response and adjust?",
     "Did I repair quickly if it missed, rather than pushing?",
@@ -348,31 +348,30 @@ export const TC019: CardData = {
       'A: "Can you help with my application?"',
       'B: "How much help?"',
       'A: "Just everything, really."',
-      "Why it is weak:",
-      "the ask has no edges, so B cannot easily say yes",
+      "Why it's weak:",
+      "the ask has no edges, so B can't easily say yes",
       "it hands B the whole problem instead of one step",
       "it forces a negotiation about scope before anything can happen",
     ],
     with: [
       'A: "Could you look at just the first paragraph and tell me if the opening lands? No need to read the rest."',
       'B: "Sure, that\'s easy."',
-      'A: "Thank you — just the first paragraph is exactly enough."',
+      'A: "Thank you, just the first paragraph is exactly enough."',
       "Why this works:",
       "the scope is small and concrete, so yes is cheap",
-      "the boundary is honest — A really doesn't want the whole thing reviewed",
+      "the boundary is honest: A really doesn't want the whole thing reviewed",
       "A accepts the yes cleanly instead of expanding the ask",
     ],
-    note: 'The better version ("Could you look at the first paragraph only and tell me if it makes sense?") is already good; the advanced version adds an explicit, honest boundary so B knows exactly where the ask stops.',
+    note: 'The better version ("Could you look at the first paragraph only and tell me if it makes sense?") is already good. The advanced version adds an explicit, honest boundary so B knows exactly where the ask stops.',
   },
   influencePayoff: {
     feeling:
-      '"That\'s an easy yes — I know exactly what they want, and I could say no if I needed to."',
+      '"That\'s an easy yes. I know exactly what they want, and I could say no if I needed to."',
     principle:
-      "People say yes more readily to a small, clear, bounded action than to a large or vague request — and a clean small yes builds the trust that makes the next ask easier.",
+      "People say yes more readily to a small, clear, bounded action than to a large or vague request, and a clean small yes builds the trust that makes the next ask easier.",
     gains: [
-      "Cleaner coordination",
-      "Less interpersonal friction",
-      "Lower defensiveness",
+      "A fast, low-cost yes",
+      "Less overwhelm for the other person",
       "Faster movement from intention to action",
       "A next step that feels earned, not pushed",
       "Trust that you won't overreach",
@@ -386,11 +385,11 @@ export const TC019: CardData = {
   },
   fieldTip: {
     headline: "Shrink the ask, not the honesty.",
-    body: "A small ask only works when the boundary is real. If you say \"just the first paragraph\" but you're quietly hoping they'll do the whole thing, people feel it — and the next ask costs more. Make the small ask genuinely the whole ask.",
+    body: "A small ask only works when the boundary is real. If you say \"just the first paragraph\" but you're quietly hoping they'll do the whole thing, people feel it, and the next ask costs more. Make the small ask genuinely the whole ask.",
     example:
-      '"Could you look at just the first paragraph? No need to edit the rest." — and mean it.',
+      '"Could you look at just the first paragraph? No need to edit the rest." And mean it.',
     dont: "Don't use a small ask as a foot in the door for a bigger one you haven't named.",
-    do: "Do let a small, honest yes stand on its own; ask again separately if you need more.",
+    do: "Do let a small, honest yes stand on its own. Ask again separately if you need more.",
   },
   method: [
     {
@@ -426,19 +425,19 @@ export const TC019: CardData = {
       examples: [
         {
           label: "With boundary",
-          text: '"Just the opening — no need to edit the rest."',
+          text: '"Just the opening. No need to edit the rest."',
         },
       ],
     },
     {
       step: "5",
       title: "Offer it and accept yes or no cleanly",
-      body: "Leave the choice genuinely open. Don't stack reasons or apply pressure. If they say yes, take the yes; if they say no, take that too, without renegotiating.",
+      body: "Leave the choice genuinely open. Don't stack reasons or apply pressure. If they say yes, take the yes. If they say no, take that too, without renegotiating.",
     },
     {
       step: "6",
       title: "Watch and repair",
-      body: "Read the response. If it lands, build on the small yes rather than piling on. If it misses — tension, a shorter answer, a topic change — make the ask smaller or release it.",
+      body: "Read the response. If it lands, build on the small yes rather than piling on. If it misses (tension, a shorter answer, a topic change) make the ask smaller or release it.",
     },
   ],
   liveThreadClues: [
@@ -464,7 +463,7 @@ export const TC019: CardData = {
     {
       depth: "Small + boundary",
       useWhen: "you want the edges explicit",
-      phrase: "Just the first paragraph — no need to edit the rest.",
+      phrase: "Just the first paragraph. No need to edit the rest.",
     },
     {
       depth: "Small + reason",
@@ -474,7 +473,7 @@ export const TC019: CardData = {
     {
       depth: "Full ask",
       useWhen: "the real ask is large and must be named honestly",
-      phrase: "This is bigger than one step — can we set proper time aside?",
+      phrase: "This is bigger than one step. Can we set proper time aside?",
     },
   ],
   commonMistakes: [
@@ -486,13 +485,13 @@ export const TC019: CardData = {
     },
     {
       mistake: "Disguising a big ask as a small one",
-      soundsLike: '"Just a quick look" — when it\'s really a full rewrite',
+      soundsLike: '"Just a quick look", when it\'s really a full rewrite',
       better: '"Could you review the whole draft? It\'ll take about an hour."',
     },
     {
       mistake: "Using it as a foot in the door",
       soundsLike: '"Just one small thing..." then piling on three more',
-      better: '"That\'s all I needed — thank you."',
+      better: '"That\'s all I needed. Thank you."',
     },
     {
       mistake: "Repeating it mechanically",
@@ -501,8 +500,8 @@ export const TC019: CardData = {
     },
     {
       mistake: "Ignoring their correction",
-      soundsLike: 'pressing on after "actually, the summary is the useful bit"',
-      better: '"Good point — just the summary, then."',
+      soundsLike: 'Pressing on after "actually, the summary is the useful bit"',
+      better: '"Good point, just the summary, then."',
     },
     {
       mistake: "Over-polishing the language",
@@ -511,22 +510,20 @@ export const TC019: CardData = {
     },
     {
       mistake: "Missing urgency or fatigue",
-      soundsLike: "a five-minute ask when they're clearly slammed",
-      better: '"No rush at all — whenever you next get a gap."',
+      soundsLike: "A five-minute ask when they're clearly slammed",
+      better: '"No rush at all. Whenever you next get a gap."',
     },
   ],
   recoveryPhrases: [
-    "I may have read that wrong.",
-    "Let me put that more simply.",
-    "Let me make that smaller — just the one thing.",
-    "No need to go there if it's not useful.",
-    "I jumped ahead there.",
-    "What would be the more accurate way to ask that?",
-    "We can leave that and come back if needed.",
-    "Ignore the rest — one part is genuinely all I need.",
+    "Too big? Let me shrink it.",
+    "Let me make that smaller. Just the one thing.",
+    "I asked for more than I needed. Just the first part is fine.",
+    "What size of ask would actually be easy for you?",
+    "We can leave it for now. No problem at all.",
+    "Ignore the rest: one part is genuinely all I need.",
   ],
   bestRecoveryLine:
-    "Let me make that smaller — just the one thing, and only if it's easy.",
+    "Let me make that smaller. Just the one thing, and only if it's easy.",
   chains: [
     {
       label: "Attention → ask → check",
@@ -553,7 +550,7 @@ export const TC019: CardData = {
       sequence: "TC019 Small ask → TC021 Autonomy release",
       example: [
         '"Could you look at just the first paragraph?"',
-        '"But genuinely, no pressure — it\'s entirely your call."',
+        '"But genuinely, no pressure. It\'s entirely your call."',
       ],
     },
     {
@@ -574,7 +571,7 @@ export const TC019: CardData = {
     {
       id: "TC020",
       reason:
-        "Low-friction ask makes the ask easier to accept. Use TC019 to reduce scope; use TC020 to reduce effort or social cost.",
+        "Low-friction ask makes the ask easier to accept. Use TC019 to reduce scope. Use TC020 to reduce effort or social cost.",
     },
     {
       id: "TC034",

@@ -6,7 +6,7 @@ export const TC033: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC033/TC033_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,27 +56,27 @@ export const TC033: CardData = {
   ],
   id: "TC033",
   whyItWorks:
-    'A minimal encourager is a small verbal or non-verbal signal — "mm", "yeah", "go on", a nod — that shows you are following without taking the floor. It keeps the other person talking while leaving their direction untouched. It works because people carry their own thread further when they can feel someone is with them: a tiny continuer removes the need to keep checking whether you are still listening, so they keep going and often reach clarity on their own.',
+    'A minimal encourager is a small verbal or non-verbal signal ("mm", "yeah", "go on", a nod) that shows you are following without taking the floor. It keeps the other person talking while leaving their direction untouched. It works because people carry their own thread further when they can feel someone is with them: a tiny continuer removes the need to keep checking whether you are still listening, so they keep going and often reach clarity on their own.',
   whatItIsNot: [
     "It is not a trick, a dominance move, or a script you run on someone.",
-    "It is not a way to push someone past a boundary — if they go tense, shorter or guarded, you ease off.",
-    "It is not filler on autopilot; an encourager only counts when you are actually listening.",
-    'It is not agreement. "Mm" or "go on" keeps them talking; it does not endorse what they said.',
+    "It is not a way to push someone past a boundary. If they go tense, shorter or guarded, you ease off.",
+    "It is not filler on autopilot. An encourager only counts when you are actually listening.",
+    'It is not agreement. "Mm" or "go on" keeps them talking. It does not endorse what they said.',
   ],
   overview: {
     coreFormula: [
       "Cue → small move → pause → observe → follow or release.",
-      'They trail off mid-thought. You: "mm" — then stay quiet.',
-      '"…and I didn\'t know what to say." You: "Go on."',
-      '"Yeah." (then nothing — let them keep the floor)',
-      '"Right — and then?"',
+      'They trail off mid-thought. You: "mm", then stay quiet.',
+      '"...and I didn\'t know what to say." You: "Go on."',
+      '"Yeah." (then nothing, let them keep the floor)',
+      '"Right, and then?"',
     ],
     minimumViableMove:
       'Say "mm," "yeah," or "go on" once, then keep listening.',
     impact: "Low",
     difficulty: "Easy",
     misuse:
-      "Overusing fillers until they sound automatic, impatient or fake — or using encouragers to nudge someone toward your agenda instead of theirs.",
+      "Overusing fillers until they sound automatic, impatient or fake, or using encouragers to nudge someone toward your agenda instead of theirs.",
     bestFor: [
       "Someone is mid-story and doesn't need a question",
       "A small signal keeps silence from turning awkward, without steering",
@@ -87,9 +87,9 @@ export const TC033: CardData = {
     ],
   },
   notFor: [
-    "They've asked you a direct question — answer it",
+    "They've asked you a direct question: answer it",
     "Encouragement would pressure them to disclose more than they want",
-    'You\'re not actually listening — an empty "mm" is worse than silence',
+    'You\'re not actually listening: an empty "mm" is worse than silence',
     "The moment needs a decision or direct action, not more talking",
     "Physical safety or an emergency takes priority",
   ],
@@ -119,7 +119,7 @@ export const TC033: CardData = {
         "Go on.",
         "Keep going.",
         "And then?",
-        "So…?",
+        "So...?",
         "Then?",
         "Say more about that.",
         "Tell me the rest.",
@@ -151,10 +151,10 @@ export const TC033: CardData = {
         "Noted.",
         "Right, go on.",
         "I follow.",
-        "Understood — keep going.",
+        "Understood, keep going.",
         "Okay, with you.",
         "That tracks.",
-        "Makes sense — and?",
+        "Makes sense, and?",
         "Go ahead.",
       ],
     },
@@ -167,7 +167,7 @@ export const TC033: CardData = {
         "No rush.",
         "Take your time.",
         "Whenever you're ready.",
-        "We can stay with this or move on — your call.",
+        "We can stay with this or move on. Your call.",
         "Only if you want to.",
         "No pressure either way.",
         "In your own time.",
@@ -180,14 +180,14 @@ export const TC033: CardData = {
       tag: "Digital / text",
       tone: "Quick",
       phrases: [
-        "Go on…",
+        "Go on...",
         "I'm listening.",
         "Mm, keep going.",
         "Right, and?",
         "Still with you.",
         "Say more?",
         "Ah, I see.",
-        "Yeah — then?",
+        "Yeah, then?",
       ],
     },
     {
@@ -197,11 +197,11 @@ export const TC033: CardData = {
       tone: "High-stakes",
       phrases: [
         "Okay. Go on.",
-        "I'm listening — take your time.",
+        "I'm listening. Take your time.",
         "Yeah. Keep going, I want to understand.",
         "Right. What else?",
         "I'm here. Say it however it comes out.",
-        "Go on — I'm not going anywhere.",
+        "Go on, I'm not going anywhere.",
         "Take the time you need.",
         "Okay. And what's under that?",
       ],
@@ -210,18 +210,18 @@ export const TC033: CardData = {
   decisionTree: [
     {
       condition: "They add detail after your signal",
-      action: "Follow the thread — stay with what they raised.",
+      action: "Follow the thread: stay with what they raised.",
       phrase: "Go on.",
     },
     {
       condition: "They pause to think",
-      action: "Wait. Don't fill it — let them find the next line.",
+      action: "Wait. Don't fill it. Let them find the next line.",
       phrase: "",
     },
     {
       condition: "They look uncomfortable or go guarded",
       action: "Release the move and ease the pressure.",
-      phrase: "No rush — we don't have to stay with this.",
+      phrase: "No rush, we don't have to stay with this.",
     },
     {
       condition: "They ask for advice",
@@ -230,52 +230,52 @@ export const TC033: CardData = {
     },
     {
       condition: "Something actually needs doing",
-      action: "Stop encouraging and act — give the answer or take the step.",
-      phrase: "Okay — here's what I'd do.",
+      action: "Stop encouraging and act: give the answer or take the step.",
+      phrase: "Okay, here's what I'd do.",
     },
   ],
   ladder: [
     {
-      weak: 'Too broad, too fast — "Tell me everything."',
+      weak: 'Too broad, too fast: "Tell me everything."',
       better: 'One small continuer: "mm" or "go on."',
       best: "One continuer, then stop and watch how they respond before adding another.",
     },
     {
-      weak: 'Filling the gap with your own take — "You\'re overthinking this."',
+      weak: 'Filling the gap with your own take: "You\'re overthinking this."',
       better: '"Yeah."',
-      best: '"Yeah." — then silence, so the floor stays theirs.',
+      best: '"Yeah." Then silence, so the floor stays theirs.',
     },
     {
-      weak: 'Correcting them — "That\'s not right."',
+      weak: 'Correcting them: "That\'s not right."',
       better: '"Right."',
-      best: '"I might be reading it wrong — go on."',
+      best: '"I might be reading it wrong. Go on."',
     },
   ],
   scenarios: [
     {
       situation: "Casual chat",
-      move: "Use the smallest move — a sound and a nod — so they keep the story.",
-      phrase: "Mm — go on.",
+      move: "Use the smallest move, a sound and a nod, so they keep the story.",
+      phrase: "Mm, go on.",
     },
     {
       situation: "Professional / meeting",
-      move: "Keep it concise and non-performative; signal you're tracking without interrupting.",
-      phrase: "Right, with you — keep going.",
+      move: "Keep it concise and non-performative. Signal you're tracking without interrupting.",
+      phrase: "Right, with you. Keep going.",
     },
     {
       situation: "Conflict or upset",
-      move: "Pair the encourager with validation or an autonomy release; never use it to steer.",
-      phrase: "Okay. Take your time — say it however it comes.",
+      move: "Pair the encourager with validation or an autonomy release. Never use it to steer.",
+      phrase: "Okay. Take your time. Say it however it comes.",
     },
     {
       situation: "Digital / text",
-      move: 'One sentence only — a single line that says "still here".',
-      phrase: "I'm listening — go on.",
+      move: 'One sentence only: a single line that says "still here".',
+      phrase: "I'm listening. Go on.",
     },
     {
       situation: "High-stakes",
-      move: "Lead with direct clarity first; add a minimal encourager only if it lowers the pressure.",
-      phrase: "Understood. Go on — I want to get this right.",
+      move: "Lead with direct clarity first. Add a minimal encourager only if it lowers the pressure.",
+      phrase: "Understood. Go on, I want to get this right.",
     },
     {
       situation: "Phone call",
@@ -299,7 +299,7 @@ export const TC033: CardData = {
       "They go quiet, guarded or defensive.",
       'Your "mm"s start sounding automatic or impatient.',
       "You realise you've stopped actually listening.",
-      "When in doubt, make the move smaller — or drop it.",
+      "When in doubt, make the move smaller, or drop it.",
     ],
   },
   drill: [
@@ -321,7 +321,7 @@ export const TC033: CardData = {
     {
       day: "Day 4",
       title: "Stock the sounds",
-      task: 'Say your shortlist out loud — "mm", "yeah", "go on", "right" — until they sound like you, not a technique.',
+      task: 'Say your shortlist out loud ("mm", "yeah", "go on", "right") until they sound like you, not a technique.',
     },
     {
       day: "Day 5",
@@ -331,12 +331,12 @@ export const TC033: CardData = {
     {
       day: "Day 6",
       title: "Add a release",
-      task: 'Practise one easing-off line for when someone tenses — e.g. "No rush, we don\'t have to stay with this."',
+      task: 'Practise one easing-off line for when someone tenses: e.g. "No rush, we don\'t have to stay with this."',
     },
     {
       day: "Day 7",
       title: "Full pass",
-      task: "In a real conversation, run cue → small move → pause → observe → follow or release — and notice the moment to stop entirely.",
+      task: "In a real conversation, run cue → small move → pause → observe → follow or release, and notice the moment to stop entirely.",
     },
   ],
   checklist: [
@@ -362,19 +362,19 @@ export const TC033: CardData = {
       'You: "Mm. Go on."',
       'Person: "I keep going back and forth. Part of me wants to just say something."',
       'You: "Yeah."',
-      'Person: "…and part of me thinks I\'ll regret it. Actually, I think I already know."',
+      'Person: "...and part of me thinks I\'ll regret it. Actually, I think I already know."',
       'You: "Right."',
       'Person: "Yeah. I\'ll talk to her tomorrow. That helps."',
-      'You: "Good — we can stay with it or leave it there, your call."',
+      'You: "Good. We can stay with it or leave it there. Your call."',
       "Why this works:",
       "each signal keeps the floor with them",
-      "no advice, no steering — they reach their own answer",
+      "no advice, no steering: they reach their own answer",
       'the small "good" and the release close it warmly, not abruptly',
     ],
-    note: "The advanced version barely says anything — that's the point. The person solves it themselves because the space stayed open.",
+    note: "The advanced version barely says anything. That's the point. The person solves it themselves because the space stayed open.",
   },
   influencePayoff: {
-    feeling: '"They were actually listening — I didn\'t have to check."',
+    feeling: '"They were actually listening. I didn\'t have to check."',
     principle:
       "People carry their own thread further when they can feel someone is with them. A tiny continuer supplies that presence without taking the floor, so they keep going and often reach clarity on their own.",
     gains: [
@@ -395,18 +395,18 @@ export const TC033: CardData = {
     headline:
       "Encourage just enough that they never have to check you're still there.",
     body: "The whole skill is restraint. One small sound, then stop. If you find yourself adding a second and a third in a row, you've stopped listening and started performing.",
-    example: '"…and I didn\'t know what to say." → "Mm." (then nothing)',
-    dont: '"Mm, yeah, right, totally, go on, uh-huh…" — a pile-up that sounds impatient.',
-    do: 'One "mm", then silence — and let it land.',
+    example: '"...and I didn\'t know what to say." You: "Mm." (then nothing)',
+    dont: '"Mm, yeah, right, totally, go on, uh-huh..." A pile-up that sounds impatient.',
+    do: 'One "mm", then silence, and let it land.',
   },
   method: [
     {
       step: "1",
       title: "Notice the cue",
-      body: "Listen for the moment someone is still going but momentarily open — a trailing-off sentence, a mid-thought pause, a glance up to check you're there. That gap is where a small signal helps.",
+      body: "Listen for the moment someone is still going but momentarily open: a trailing-off sentence, a mid-thought pause, a glance up to check you're there. That gap is where a small signal helps.",
       examples: [
-        { label: "Trailing off", text: '"…anyway, I don\'t know."' },
-        { label: "Checking in", text: '"…if that makes sense?"' },
+        { label: "Trailing off", text: '"...anyway, I don\'t know."' },
+        { label: "Checking in", text: '"...if that makes sense?"' },
       ],
     },
     {
@@ -431,17 +431,17 @@ export const TC033: CardData = {
     {
       step: "5",
       title: "Follow or release",
-      body: "If they add detail, stay with their thread. If they go guarded or short, release the move — soften, give an exit, or switch to a different technique. When in doubt, make the move smaller.",
+      body: "If they add detail, stay with their thread. If they go guarded or short, release the move: soften, give an exit, or switch to a different technique. When in doubt, make the move smaller.",
     },
   ],
   liveThreadClues: [
-    'They trail off: "…anyway."',
+    'They trail off: "...anyway."',
     "A mid-thought pause where they're clearly still going",
-    '"…you know?"',
-    '"…if that makes sense."',
+    '"...you know?"',
+    '"...if that makes sense."',
     "Rising, unfinished intonation",
     "They glance up to check you're still with them",
-    '"…and then, I don\'t know."',
+    '"...and then, I don\'t know."',
   ],
   depthDial: [
     {
@@ -467,13 +467,13 @@ export const TC033: CardData = {
     {
       depth: "Written line",
       useWhen: "Text or chat",
-      phrase: '"I\'m listening — go on."',
+      phrase: '"I\'m listening. Go on."',
     },
   ],
   commonMistakes: [
     {
       mistake: "Overusing the move",
-      soundsLike: '"Mm, yeah, right, uh-huh, totally, go on…"',
+      soundsLike: '"Mm, yeah, right, uh-huh, totally, go on..."',
       better: "One signal, then silence.",
     },
     {
@@ -493,32 +493,29 @@ export const TC033: CardData = {
     },
     {
       mistake: "Encouraging when you've stopped listening",
-      soundsLike: '"Yeah, totally" — to something you missed.',
-      better: 'If you\'ve drifted, own it: "Sorry — say that last part again?"',
+      soundsLike: '"Yeah, totally" to something you missed.',
+      better: 'If you\'ve drifted, own it: "Sorry. Say that last part again?"',
     },
     {
       mistake: "Encouraging when they wanted an answer",
-      soundsLike: '"Go on…" after they asked "What should I do?"',
+      soundsLike: '"Go on..." after they asked "What should I do?"',
       better: 'Answer, or ask permission first: "Want my take?"',
     },
   ],
   recoveryPhrases: [
-    "I may be reading that wrong.",
-    "We don't have to stay with that.",
-    "Let me say that more simply.",
-    "Ignore that if it doesn't fit.",
-    "What would be more useful right now?",
-    "Sorry — I drifted for a second. Say that again?",
+    "No rush. We don't have to stay with this.",
+    "Do you want me to just listen, or would a thought help?",
+    "Sorry, I drifted for a second. Say that again?",
     "I'll stop making the noises and just listen.",
   ],
-  bestRecoveryLine: "I might be reading it wrong — go on, I'm listening.",
+  bestRecoveryLine: "I might be reading it wrong. Go on, I'm listening.",
   chains: [
     {
       label: "Draw out, then check",
       sequence:
-        "Minimal encouragers → Summary check (TC011) → Live-Thread Follow-Ups (TC001)",
+        "Minimal encouragers → Summary check (TC011) → Live thread follow-ups (TC001)",
       example: [
-        'Person talks it out while you signal: "Mm… go on."',
+        'Person talks it out while you signal: "Mm... go on."',
         'You: "So the sticking point is really the timing."',
         'You: "What made the timing feel off?"',
       ],
@@ -548,22 +545,22 @@ export const TC033: CardData = {
     {
       id: "TC004",
       reason:
-        "Reflective listening reflects the content back; minimal encouragers add no content and just keep the floor open.",
+        "Reflective listening reflects the content back. Minimal encouragers add no content and just keep the floor open.",
     },
     {
       id: "TC026",
       reason:
-        "Tactical mirroring repeats a phrase to draw out more; encouragers add nothing to repeat — only presence.",
+        "Tactical mirroring repeats a phrase to draw out more. Encouragers add nothing to repeat, only presence.",
     },
     {
       id: "TC029",
       reason:
-        "Strategic silence gives the person full empty space; an encourager fills a sliver of it to signal you're still there.",
+        "Strategic silence gives the person full empty space. An encourager fills a sliver of it to signal you're still there.",
     },
     {
       id: "TC030",
       reason:
-        "Echo plus question echoes then moves the thread forward; encouragers simply sustain the thread they're already on.",
+        "Echo plus question echoes then moves the thread forward. Encouragers simply sustain the thread they're already on.",
     },
     {
       id: "TC027",
@@ -573,7 +570,7 @@ export const TC033: CardData = {
     {
       id: "TC012",
       reason:
-        "Full-attention signal is the non-verbal bedrock — posture and eye contact; minimal encouragers are its audible counterpart.",
+        "Full-attention signal is the non-verbal bedrock: posture and eye contact. Minimal encouragers are its audible counterpart.",
     },
   ],
 };

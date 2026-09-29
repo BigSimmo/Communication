@@ -6,7 +6,7 @@ export const TC035: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC035/TC035_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,13 +56,13 @@ export const TC035: CardData = {
   ],
   id: "TC035",
   whyItWorks:
-    "A strategic pause is a brief, intentional gap in speech — usually one to three seconds — placed just before or after a key line so that line can land. It works as conversational punctuation: a comma, a full stop, or a paragraph break that stops reactive filler from weakening your message. Because the important words are not buried under extra wording, they carry more weight; because you are not rushing, you look composed rather than reactive; and because there is space after a question, the other person actually gets room to think. Paired with a relaxed face and normal breathing, it reads as taking care with the moment rather than performing control. It is distinct from long silence: a strategic pause is short punctuation around your own speaking, whereas strategic silence leaves the floor open for the other person to continue.",
+    "A strategic pause is a deliberate gap of one to three seconds placed just before or after a key line so that line can land. It works as punctuation: the important words aren't buried under filler, you look composed rather than reactive, and a question gets real thinking time. With a relaxed face and normal breathing it reads as care, not control. Unlike strategic silence, which hands the floor to the other person, a pause is short punctuation around your own speaking.",
   whatItIsNot: [
     "Not the silent treatment, intimidation, or awkward withholding to make someone chase your approval.",
-    "Not performance drama or a fake-wisdom pose — the strongest versions sound ordinary, not staged.",
+    "Not performance drama or a fake-wisdom pose: the strongest versions sound ordinary, not staged.",
     "Not the same as strategic silence: a pause is short punctuation around your own line, not handing the floor over.",
-    "Not a rescue for weak content — a pause cannot save a vague point, a bad apology, or an evasive answer.",
-    "Not a way to pressure someone; it makes space, it does not corner.",
+    "Not a rescue for weak content: a pause cannot save a vague point, a bad apology, or an evasive answer.",
+    "Not a way to pressure someone. It makes space, it does not corner.",
   ],
   overview: {
     coreFormula: [
@@ -70,14 +70,14 @@ export const TC035: CardData = {
       'Before answering: "Let me take a second with that." [pause] "The cleanest answer is..."',
       'After a point: "The real constraint is capacity." [pause] "So the decision is what we stop doing."',
       'After a question: "What would need to change for this to feel workable?" [pause]',
-      'After an apology: "I am sorry. I should not have interrupted you." [pause]',
+      "After an apology: \"I'm sorry. I shouldn't have interrupted you.\" [pause]",
     ],
     minimumViableMove:
       "After an important sentence, close your mouth and count one slow beat before adding anything else.",
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      "It fails when the pause turns theatrical — too long, filled with staring, or used to create pressure rather than space.",
+      "It fails when the pause turns theatrical: too long, filled with staring, or used to create pressure rather than space.",
     bestFor: [
       "You are under pressure and tempted to answer too fast",
       "You have just said the most important sentence",
@@ -93,10 +93,10 @@ export const TC035: CardData = {
   },
   notFor: [
     "There is an urgent safety or operational need to speak or act immediately",
-    "You cannot keep your face neutral or warm — a cold pause reads as judgement",
-    "The content is weak or evasive; a pause will only highlight it, not rescue it",
+    "You cannot keep your face neutral or warm: a cold pause reads as judgement",
+    "The content is weak or evasive. A pause will only highlight it, not rescue it",
     "You would only be pausing to perform composure or make someone wait",
-    "The other person is already talking freely and simply needs room — use silence, not a pause",
+    "The other person is already talking freely and simply needs room. Use silence, not a pause",
   ],
   phraseBank: [
     {
@@ -108,9 +108,9 @@ export const TC035: CardData = {
         "Let me take a second with that.",
         "I want to answer that carefully.",
         "Give me one moment to think.",
-        "That is worth answering properly.",
+        "That's worth answering properly.",
         "Let me slow down before I respond.",
-        "I do not want to rush the answer.",
+        "I don't want to rush the answer.",
       ],
     },
     {
@@ -120,11 +120,11 @@ export const TC035: CardData = {
       tone: "Direct",
       phrases: [
         "The main issue is trust, not speed.",
-        "That is the part I do not want us to miss.",
+        "That's the part I don't want us to miss.",
         "My recommendation is to stop the rollout for a week.",
         "This is a boundary for me.",
         "What matters most here is clarity.",
-        "That is the decision I am making.",
+        "That's the decision I'm making.",
       ],
     },
     {
@@ -134,9 +134,9 @@ export const TC035: CardData = {
       tone: "Direct",
       phrases: [
         "What would make this feel workable from your side?",
-        "What is the part you most want me to understand?",
+        "What's the part you most want me to understand?",
         "Is the blocker more capacity or unclear priorities?",
-        "What is your honest read?",
+        "What's your honest read?",
         "What would a good outcome look like here?",
         "What do you need from me now?",
       ],
@@ -147,12 +147,12 @@ export const TC035: CardData = {
       tag: "Own it, then wait",
       tone: "Repair",
       phrases: [
-        "You are right. I interrupted you.",
+        "You're right. I interrupted you.",
         "I can see why that landed badly.",
-        "I am sorry. I should not have said it that way.",
-        "I do not want to defend that before I understand the impact.",
+        "I'm sorry. I shouldn't have said it that way.",
+        "I don't want to defend that before I understand the impact.",
         "Let me take in what you just said.",
-        "Say the rest. I will wait.",
+        "Say the rest. I'll wait.",
       ],
     },
     {
@@ -162,25 +162,25 @@ export const TC035: CardData = {
       tone: "Professional",
       phrases: [
         "The trade-off is speed versus reliability.",
-        "My concern is not effort. It is prioritisation.",
-        "Let us separate urgency from importance.",
+        "My concern isn't effort. It's prioritisation.",
+        "Let's separate urgency from importance.",
         "I want to name the risk plainly.",
-        "That is the constraint.",
-        "I am not comfortable approving it as it stands.",
+        "That's the constraint.",
+        "I'm not comfortable approving it as it stands.",
       ],
     },
     {
       id: "helping_conversation",
-      label: "Clinical-style / helping conversation",
+      label: "Helping conversation",
       tag: "Give room to feel",
       tone: "Warm",
       phrases: [
         "Take your time.",
-        "I am going to sit with that for a moment.",
+        "I'm going to sit with that for a moment.",
         "That sounds like an important part.",
-        "You do not have to rush this.",
+        "You don't have to rush this.",
         "What was that like for you?",
-        "Let us slow this part down.",
+        "Let's slow this part down.",
       ],
     },
     {
@@ -194,7 +194,7 @@ export const TC035: CardData = {
         "The lesson I took from it was simple.",
         "My answer is yes, with one condition.",
         "What changed my mind was the data.",
-        "That is the distinction I would make.",
+        "That's the distinction I'd make.",
       ],
     },
     {
@@ -203,11 +203,11 @@ export const TC035: CardData = {
       tag: "The written pause",
       tone: "Quick",
       phrases: [
-        "I am going to think before replying properly.",
+        "I'm going to think before replying properly.",
         "Let me sit with this and come back with a cleaner answer.",
-        "I do not want to rush a messy reply.",
+        "I don't want to rush a messy reply.",
         "I need a bit of time before I answer that fully.",
-        "I hear you. I am not ignoring it, I am thinking.",
+        "I hear you. I'm not ignoring it, I'm thinking.",
         "Let me pause before we make this bigger over text.",
       ],
     },
@@ -223,45 +223,45 @@ export const TC035: CardData = {
       condition: "You have just said the key point",
       action:
         "Stop. Let the sentence stand for a beat before you explain more.",
-      phrase: "That is the part I do not want us to miss.",
+      phrase: "That's the part I don't want us to miss.",
     },
     {
       condition: "You asked a real question",
       action: "Do not rephrase it. Wait long enough for them to think.",
-      phrase: "What is your honest read?",
+      phrase: "What's your honest read?",
     },
     {
       condition: "They look pressured or exposed",
       action:
         "Soften the pause with warmth, validation, or an autonomy release.",
-      phrase: "No rush — take the time you need.",
+      phrase: "No rush, take the time you need.",
     },
     {
       condition: "The pause becomes awkward",
       action: "Recover plainly: name that you are thinking, not withholding.",
-      phrase: "I am just thinking, not trying to make that weird.",
+      phrase: "I'm just thinking, not trying to make that weird.",
     },
     {
       condition: "The other person starts talking",
       action: "Let them. The pause has done its job.",
-      phrase: "",
+      phrase: "Go on.",
     },
   ],
   ladder: [
     {
-      weak: "Answering immediately to prove competence",
+      weak: "Yes, obviously, because... (answers before thinking, to look competent)",
       better: "Let me think.",
       best: "Let me take a second so I answer properly. [pause]",
     },
     {
-      weak: "I am sorry but...",
-      better: "I am sorry. I should have handled that better.",
-      best: "I am sorry. I should have handled that better. [pause] I interrupted before I understood.",
+      weak: "I'm sorry but...",
+      better: "I'm sorry. I should have handled that better.",
+      best: "I'm sorry. I should have handled that better. [pause] I interrupted before I understood.",
     },
     {
-      weak: "Rushing through the hard sentence",
+      weak: "The concern is sort of capacity, but it's fine, we'll manage somehow.",
       better: "The concern is capacity.",
-      best: "The concern is capacity. [pause] We cannot keep adding work without removing work.",
+      best: "The concern is capacity. [pause] We can't keep adding work without removing work.",
     },
     {
       weak: "A dramatic stare after the point",
@@ -279,7 +279,7 @@ export const TC035: CardData = {
     {
       situation: "Apology or repair",
       move: "Pause after the apology, before you explain.",
-      phrase: "I am sorry. I should not have spoken over you. [pause]",
+      phrase: "I'm sorry. I shouldn't have spoken over you. [pause]",
     },
     {
       situation: "An important question",
@@ -288,8 +288,8 @@ export const TC035: CardData = {
     },
     {
       situation: "Setting a boundary",
-      move: "Stop after the main point; do not dilute it.",
-      phrase: "I cannot take this on tonight. [pause]",
+      move: "Stop after the main point. Do not dilute it.",
+      phrase: "I can't take this on tonight. [pause]",
     },
     {
       situation: "Helping conversation",
@@ -298,7 +298,7 @@ export const TC035: CardData = {
     },
     {
       situation: "Negotiation",
-      move: "Pause after naming the constraint; do not fill it with concessions.",
+      move: "Pause after naming the constraint. Do not fill it with concessions.",
       phrase: "I can move on timeline, but not on scope. [pause]",
     },
   ],
@@ -313,20 +313,20 @@ export const TC035: CardData = {
       "Your apology or boundary comes out cleaner.",
     ],
     adjust: [
-      "They look uncomfortable, cornered, or confused — soften the pause with warmth.",
+      "They look uncomfortable, cornered, or confused: soften the pause with warmth.",
       "They laugh awkwardly, or rush to fill the silence to please you.",
-      'Someone asks "What?" or "Why are you looking at me like that?" — the pause is drawing more attention than the message.',
-      "You feel pleased with the effect of the pause rather than focused on the conversation — drop the performance.",
-      "You add caveats straight after the key point, or answer your own question — the pause was too short.",
-      "They are already speaking freely — switch to Minimal encouragers or Strategic silence.",
-      "The moment has gone cold — return to Warm presence or a Full-attention signal.",
+      'Someone asks "What?" or "Why are you looking at me like that?" The pause is drawing more attention than the message.',
+      "You feel pleased with the effect of the pause rather than focused on the conversation. Drop the performance.",
+      "You add caveats straight after the key point, or answer your own question: the pause was too short.",
+      "They're already speaking freely: switch to Minimal encouragers (TC033) or Strategic silence (TC029).",
+      "The moment has gone cold: return to Warm presence (TC010) or a Full-attention signal (TC012).",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot your over-talk lines",
-      task: "List five lines you routinely weaken by overexplaining — the ones where you rush on instead of stopping.",
+      task: "List five lines you routinely weaken by overexplaining: the ones where you rush on instead of stopping.",
     },
     {
       day: "Day 2",
@@ -346,7 +346,7 @@ export const TC035: CardData = {
     {
       day: "Day 5",
       title: "Pause after a question",
-      task: "In one real conversation, ask a genuine question and hold the silence — do not rephrase it or answer it yourself. Watch what they do with the space.",
+      task: "In one real conversation, ask a genuine question and hold the silence. Do not rephrase it or answer it yourself. Watch what they do with the space.",
     },
     {
       day: "Day 6",
@@ -356,7 +356,7 @@ export const TC035: CardData = {
     {
       day: "Day 7",
       title: "Three a day, then review",
-      task: "Use three strategic pauses across the day — one after a question, one after a key point, one before responding under pressure. Afterwards ask: did each pause create space, or pressure?",
+      task: "Use three strategic pauses across the day: one after a question, one after a key point, one before responding under pressure. Afterwards ask: did each pause create space, or pressure?",
     },
   ],
   checklist: [
@@ -369,42 +369,42 @@ export const TC035: CardData = {
   ],
   example: {
     without: [
-      'A: "I do not think your plan is realistic."',
-      'B: "Well, it is realistic if people actually do what they said they would, and I have already checked most of it."',
-      'A: "That is not really my point."',
-      "Why it is weak: B rushes to defend, buries the real question, and never finds out what the objection actually is.",
-      'A: "I am just tired of pretending I am fine."',
+      'A: "I don\'t think your plan is realistic."',
+      "B: \"Well, it's realistic if people actually do what they said they would, and I've already checked most of it.\"",
+      'A: "That\'s not really my point."',
+      "Why it's weak: B rushes to defend, buries the real question, and never finds out what the objection actually is.",
+      "A: \"I'm just tired of pretending I'm fine.\"",
       'B: "Yeah, that makes sense. Have you tried taking time off or talking to someone?"',
-      'A: "I do not know."',
-      "Why it is weak: the advice arrives before the feeling has any room, so the person closes back up.",
+      'A: "I don\'t know."',
+      "Why it's weak: the advice arrives before the feeling has any room, so the person closes back up.",
     ],
     with: [
-      'A: "I do not think your plan is realistic."',
-      'B: "Let me take a second with that." [pause] "The part I agree with is the dependency risk. The part I would still defend is the timeline if we drop one deliverable."',
-      'A: "That is more workable. Which deliverable?"',
+      'A: "I don\'t think your plan is realistic."',
+      'B: "Let me take a second with that." [pause] "The part I agree with is the dependency risk. The part I\'d still defend is the timeline if we drop one deliverable."',
+      'A: "That\'s more workable. Which deliverable?"',
       "Why this works: the pause buys composure, so B answers the real objection instead of the reflex to defend.",
-      'A: "I am just tired of pretending I am fine."',
-      'B: "That sounds exhausting." [pause] "What is the part you most wish people understood?" [pause]',
-      'A: "That I am not being difficult. I am running out of energy."',
-      'B: "So the strain is not just the work. It is having to mask the strain."',
+      "A: \"I'm just tired of pretending I'm fine.\"",
+      'B: "That sounds exhausting." [pause] "What\'s the part you most wish people understood?" [pause]',
+      "A: \"That I'm not being difficult. I'm running out of energy.\"",
+      "B: \"So the strain isn't just the work. It's having to mask the strain.\"",
     ],
-    note: "The pause is not the whole move — it is the gap that lets the right next sentence arrive instead of the reflex one.",
+    note: "The pause is not the whole move. It is the gap that lets the right next sentence arrive instead of the reflex one.",
   },
   influencePayoff: {
-    feeling: '"They took my point seriously — they did not just talk over it."',
+    feeling: '"They took my point seriously. They didn\'t just talk over it."',
     principle:
-      "Calm pacing carries more authority than speed; a point given room lands harder than a point rushed.",
+      "Calm pacing carries more authority than speed. A point given room lands harder than a point rushed.",
     gains: [
-      "Adds weight — key words land because they are not buried under extra wording.",
-      "Signals composure — you look less reactive when challenged.",
-      "Improves clarity — the listener processes one point before the next arrives.",
-      "Reduces overexplaining — you stop after the point instead of weakening it.",
-      "Creates answer space — after a question, the pause gives permission to think.",
-      "Makes apologies cleaner — ownership is not immediately swallowed by justification.",
-      "Supports autonomy — you are not pushing the other person to respond instantly.",
+      "Adds weight: key words land because they are not buried under extra wording.",
+      "Signals composure: you look less reactive when challenged.",
+      "Improves clarity: the listener processes one point before the next arrives.",
+      "Reduces overexplaining: you stop after the point instead of weakening it.",
+      "Creates answer space: after a question, the pause gives permission to think.",
+      "Makes apologies cleaner: ownership is not immediately swallowed by justification.",
+      "Supports autonomy: you are not pushing the other person to respond instantly.",
     ],
     whyMostFail: [
-      "They make the pause theatrical — too long, or capped with intense eye contact — so it reads as performance.",
+      "They make the pause theatrical (too long, or capped with intense eye contact) so it reads as performance.",
       "They use the gap as pressure or punishment rather than space, and the room goes cold.",
       "They pause around weak content, expecting silence to rescue a vague point or an evasive answer.",
       "They let the point land, then bury it under a rush of justification anyway.",
@@ -412,21 +412,21 @@ export const TC035: CardData = {
   },
   fieldTip: {
     headline: "Pause after the sentence you most want to explain.",
-    body: "A strategic pause is not empty space — it is a decision not to trample the moment with extra words. It works best when it is brief, warm, and attached to a real job. The most useful pause usually comes right after the line you feel most tempted to justify. Say the clean sentence, breathe once, and let the other person meet it before you add anything.",
+    body: "A pause isn't empty space. It's a decision not to trample the moment with extra words. The most useful one usually comes right after the line you feel most tempted to justify. Say the clean sentence, breathe once, and let the other person meet it before you add anything.",
     example:
-      '"The concern is capacity." [pause] Let it sit — then, only if needed, "So we remove work before adding more."',
-    dont: 'Fill the gap with "um, yeah, so..." or a rushed caveat.',
+      '"The concern is capacity." [pause] Then, only if needed: "So we remove work before adding more."',
+    dont: 'Don\'t fill the gap with "um, yeah, so..." or a rushed caveat.',
     do: "Soften your gaze, breathe once, and let the line land before you continue.",
   },
   method: [
     {
       step: "1",
       title: "Notice the moment that needs weight",
-      body: "Catch the point where timing will help — before an important answer, after a key sentence, after a real question, after an apology, before a boundary, between a headline and its detail, or just after the other person says something loaded.",
+      body: "Catch the moments where timing helps: before an important answer, after a key sentence, after a real question, after an apology, before a boundary, between a headline and its detail, or just after the other person says something loaded.",
       examples: [
         {
           label: "Cue",
-          text: "You feel the pull to answer fast, or you have just said the sentence that matters most.",
+          text: "You feel the pull to answer fast, or you've just said the sentence that matters most.",
         },
       ],
     },
@@ -439,7 +439,7 @@ export const TC035: CardData = {
     {
       step: "3",
       title: "Say or receive the line, then close your mouth",
-      body: "Deliver the clean sentence — or take in theirs — and stop. One to three seconds. Resist the urge to add a caveat, a justification, or a second version of the same point.",
+      body: "Deliver the clean sentence, or take in theirs, and stop. One to three seconds. Resist the urge to add a caveat, a justification, or a second version of the same point.",
       examples: [
         { label: "Shape", text: '"The real constraint is capacity." [pause]' },
       ],
@@ -447,7 +447,7 @@ export const TC035: CardData = {
     {
       step: "4",
       title: "Hold the pause warm, not heavy",
-      body: "Keep your face relaxed, your breathing normal, and your eye contact soft. A warm pause reads as care; a staring pause reads as pressure. That difference is what keeps the technique from becoming cringey.",
+      body: "Keep your face relaxed, your breathing normal, and your eye contact soft. A warm pause reads as care. A staring pause reads as pressure. That difference is what stops it feeling staged.",
       examples: [
         {
           label: "Watch",
@@ -458,37 +458,37 @@ export const TC035: CardData = {
     {
       step: "5",
       title: "Watch, then make one clean next move",
-      body: "Let them enter if they start to. If not, continue with the single next necessary sentence — a bridge, the detail, or the cleanest part of the answer — rather than more silence or more explanation.",
+      body: "Let them enter if they start to. If not, continue with the single next necessary sentence (a bridge, the detail, or the cleanest part of the answer) rather than more silence or more explanation.",
       examples: [
         { label: "Bridge", text: '"So the decision is what we stop doing."' },
       ],
     },
   ],
   liveThreadClues: [
-    "before an important answer",
-    "after a key sentence",
-    "after a real question",
-    "after an apology",
-    "before a boundary",
-    "between a headline and its detail",
-    "just after the other person says something loaded",
+    "You're about to give an important answer",
+    "You've just said the sentence that matters most",
+    "You've just asked a question that deserves real thought",
+    "You've just apologised and feel the urge to explain",
+    "You're about to state a boundary",
+    "You've given the headline and are about to add the detail",
+    "The other person has just said something loaded",
   ],
   depthDial: [
     {
       depth: "Comma beat (~1s)",
       useWhen: "Light emphasis mid-thought while keeping momentum",
       phrase:
-        '"The main point is this. [pause] We are solving the wrong problem."',
+        '"The main point is this. [pause] We\'re solving the wrong problem."',
     },
     {
       depth: "Full-stop beat (~2s)",
       useWhen: "After a key point or a real question, so it can land",
-      phrase: '"That is the decision I am making." [pause]',
+      phrase: "\"That's the decision I'm making.\" [pause]",
     },
     {
       depth: "Paragraph beat (~3s)",
       useWhen: "After an apology or a loaded line, giving room to feel",
-      phrase: '"I should not have spoken over you." [pause]',
+      phrase: '"I shouldn\'t have spoken over you." [pause]',
     },
   ],
   commonMistakes: [
@@ -496,19 +496,19 @@ export const TC035: CardData = {
       mistake: "Theatrical pause",
       soundsLike:
         "A staged beat and a grand line, as if delivering a movie moment.",
-      better: "Say the line plainly and let it sit — no performance voice.",
+      better: "Say the line plainly and let it sit. No performance voice.",
     },
     {
       mistake: "Punitive silence",
       soundsLike:
         "Using the gap to make someone feel wrong, small, or anxious.",
       better:
-        "Hold the pause as space, with a relaxed face — never as a weapon.",
+        "Hold the pause as space, with a relaxed face. Never as a weapon.",
     },
     {
       mistake: "Staring",
       soundsLike: "Eye contact locks on and the pause turns into pressure.",
-      better: "Soften your gaze and breathe; keep the pause warm.",
+      better: "Soften your gaze and breathe. Keep the pause warm.",
     },
     {
       mistake: "Too long",
@@ -518,29 +518,29 @@ export const TC035: CardData = {
     {
       mistake: "Filler leakage",
       soundsLike: '"Um, yeah, so..." fills the gap you meant to leave.',
-      better: "Close your mouth fully — an actual pause, not a hesitation.",
+      better: "Close your mouth fully: an actual pause, not a hesitation.",
     },
     {
       mistake: "Pausing around weak content",
       soundsLike: "A dramatic beat before a vague point or a bad apology.",
-      better: "Fix the sentence first; a pause cannot rescue empty content.",
+      better: "Fix the sentence first. A pause can't rescue empty content.",
     },
     {
       mistake: "No exit",
-      soundsLike: "You pause, then do not know what comes next.",
+      soundsLike: "You pause, then don't know what comes next.",
       better:
-        "Know your next sentence before you stop — a bridge, the detail, or the answer.",
+        "Know your next sentence before you stop: a bridge, the detail, or the answer.",
     },
   ],
   recoveryPhrases: [
     "I paused because I was thinking, not because I wanted to put you on the spot.",
     "That pause came out heavier than I meant it. Let me say it more simply.",
-    "I am not trying to withhold an answer — I am trying not to rush one.",
+    "I'm not trying to withhold an answer. I'm trying not to rush one.",
     "That probably sounded more final than I intended.",
-    "I am just thinking, not trying to make that weird.",
-    "I should not make you guess what I mean. What I mean is...",
-    "I do not want silence to do the work for me. Here is the actual answer.",
-    "Let us bring this back to the next step.",
+    "I'm just thinking, not trying to make that weird.",
+    "I shouldn't make you guess what I mean. What I mean is...",
+    "I don't want silence to do the work for me. Here's the actual answer.",
+    "Let's bring this back to the next step.",
   ],
   bestRecoveryLine:
     "I paused because I was thinking, not because I wanted to put you on the spot.",
@@ -548,36 +548,36 @@ export const TC035: CardData = {
     {
       label: "Pressure answer",
       sequence:
-        'Notice pressure -> "Let me take a second" -> pause one breath -> answer the cleanest part -> stop before overexplaining',
+        'Notice pressure → "Let me take a second" → pause one breath → answer the cleanest part → stop before overexplaining',
       example: [
         '"Let me take a second with that." [pause]',
-        '"My concern is not the goal. It is the amount we are trying to run at once."',
+        "\"My concern isn't the goal. It's the amount we're trying to run at once.\"",
       ],
     },
     {
       label: "Question with room",
       sequence:
-        "Ask a real question -> close your mouth -> hold the pause -> minimal encourager only if they start -> reflect the answer",
+        "Ask a real question → close your mouth → hold the pause → minimal encourager only if they start → reflect the answer",
       example: [
         '"What would need to change for this to feel workable?" [pause]',
-        "They think, then answer — and you reflect it back rather than filling the gap.",
+        "They think, then answer, and you reflect it back rather than filling the gap.",
       ],
     },
     {
       label: "Clean apology",
       sequence:
-        "Own the specific behaviour -> pause -> do not defend -> invite the rest -> repair specifically",
+        "Own the specific behaviour → pause → do not defend → invite the rest → repair specifically",
       example: [
-        '"I interrupted you. I am sorry." [pause]',
-        '"Finish the point and I will stay quiet."',
+        '"I interrupted you. I\'m sorry." [pause]',
+        '"Finish the point and I\'ll stay quiet."',
       ],
     },
     {
       label: "Boundary without dilution",
       sequence:
-        "State the boundary plainly -> pause -> add only the minimum next step",
+        "State the boundary plainly → pause → add only the minimum next step",
       example: [
-        '"I cannot take that on this week." [pause]',
+        '"I can\'t take that on this week." [pause]',
         '"I can review one page by Friday."',
       ],
     },
@@ -586,7 +586,7 @@ export const TC035: CardData = {
     {
       id: "TC029",
       reason:
-        "The closest neighbour. A pause is short punctuation around your own line; Strategic silence hands the floor over. Use TC029 when the space is for them to deepen, not for your point to land.",
+        "The closest neighbour. A pause is short punctuation around your own line. Strategic silence hands the floor over. Use TC029 when the space is for them to deepen, not for your point to land.",
     },
     {
       id: "TC031",
@@ -596,7 +596,7 @@ export const TC035: CardData = {
     {
       id: "TC008",
       reason:
-        "The pause guards against over-talk; No-overexplaining discipline is the broader habit of stopping once the point is made. Use TC008 when the issue is too many words, not too little space.",
+        "The pause guards against over-talk. No-overexplaining discipline is the broader habit of stopping once the point is made. Use TC008 when the issue is too many words, not too little space.",
     },
     {
       id: "TC033",

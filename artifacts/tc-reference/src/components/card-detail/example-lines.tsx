@@ -1,11 +1,44 @@
 // ── Worked-example renderer ───────────────────────────────────────────────
-// Example arrays mix dialogue ("Them: …", "You: …") with an optional
-// "Why it falls flat:" / "Why this works:" label followed by short reasons.
-// Render the label as a sub-heading and the reasons as a bulleted list so
-// they read as notes rather than loose fragments.
-const EXAMPLE_LABEL = /^why\b.*:$/i;
-// "You: …", "Person: …", "Alex: …" — a short capitalised label before a colon
-const SPEAKER = /^([A-Z][a-z]{1,13}):\s+/;
+// Example arrays mix dialogue ("Them: …", "You (better): …", "A: …") with
+// optional "Why it works:" notes and short section headings such as
+// "Advanced version:". Notes render as a sub-heading plus a bulleted list;
+// a note written inline ("Why it works: the pause buys time.") becomes a
+// one-item list. Dialogue after a note starts a fresh dialogue block, so
+// a second worked example is never swallowed into the previous note list.
+const NOTE_LABEL = /^(why\b[^:]{0,60}):\s*(.*)$/i;
+// "You: …", "A: …", "Alex (manager): …" — a short label before a colon
+const SPEAKER = /^([A-Z][A-Za-z]{0,13}(?: \([^)]{1,40}\))?):\s+/;
+// "Advanced version:", "Or, more warmly:" — a short line that introduces
+// the next block of dialogue
+const HEADING = /^[A-Z][^:"]{0,50}:$/;
+
+type Block =
+  | { kind: "line"; text: string }
+  | { kind: "heading"; text: string }
+  | { kind: "notes"; label: string; items: string[] };
+
+export function toBlocks(lines: string[]): Block[] {
+  const blocks: Block[] = [];
+  for (const line of lines) {
+    const trimmed = line.trim();
+    const note = trimmed.match(NOTE_LABEL);
+    const last = blocks[blocks.length - 1];
+    if (note) {
+      blocks.push({
+        kind: "notes",
+        label: note[1],
+        items: note[2] ? [note[2]] : [],
+      });
+    } else if (HEADING.test(trimmed)) {
+      blocks.push({ kind: "heading", text: trimmed.replace(/:$/, "") });
+    } else if (last?.kind === "notes" && !SPEAKER.test(trimmed)) {
+      last.items.push(trimmed);
+    } else {
+      blocks.push({ kind: "line", text: line });
+    }
+  }
+  return blocks;
+}
 
 export function ExampleLines({
   lines,
@@ -14,23 +47,42 @@ export function ExampleLines({
   lines: string[];
   color: string;
 }) {
-  // Split into a leading dialogue block plus zero or more labelled note lists.
-  const dialogue: string[] = [];
-  const notes: { label: string; items: string[] }[] = [];
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (EXAMPLE_LABEL.test(trimmed)) {
-      notes.push({ label: trimmed.replace(/:$/, ""), items: [] });
-    } else if (notes.length > 0) {
-      notes[notes.length - 1].items.push(trimmed);
-    } else {
-      dialogue.push(line);
-    }
-  }
   return (
     <>
-      {dialogue.map((line, i) => {
-        const m = line.match(SPEAKER);
+      {toBlocks(lines).map((block, i) => {
+        if (block.kind === "heading") {
+          return (
+            <p
+              key={i}
+              className="pt-2 text-[12px] font-semibold text-foreground/70"
+            >
+              {block.text}
+            </p>
+          );
+        }
+        if (block.kind === "notes") {
+          return (
+            <div key={i} className="pt-2">
+              <p className="text-[12px] font-semibold text-foreground/70 mb-1">
+                {block.label}
+              </p>
+              {block.items.length > 0 && (
+                <ul className="list-disc pl-5 space-y-1">
+                  {block.items.map((item, j) => (
+                    <li
+                      key={j}
+                      className="text-[13px] leading-relaxed"
+                      style={{ color }}
+                    >
+                      {item.charAt(0).toUpperCase() + item.slice(1)}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          );
+        }
+        const m = block.text.match(SPEAKER);
         return (
           <p key={i} className="text-[14px] leading-relaxed" style={{ color }}>
             {m ? (
@@ -38,34 +90,14 @@ export function ExampleLines({
                 <span className="font-semibold text-foreground/85">
                   {m[1]}:
                 </span>{" "}
-                {line.slice(m[0].length)}
+                {block.text.slice(m[0].length)}
               </>
             ) : (
-              line
+              block.text
             )}
           </p>
         );
       })}
-      {notes.map((note, n) => (
-        <div key={n} className="pt-2">
-          <p className="text-[12px] font-semibold text-foreground/70 mb-1">
-            {note.label}
-          </p>
-          {note.items.length > 0 && (
-            <ul className="list-disc pl-5 space-y-1">
-              {note.items.map((item, i) => (
-                <li
-                  key={i}
-                  className="text-[13px] leading-relaxed"
-                  style={{ color }}
-                >
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      ))}
     </>
   );
 }

@@ -16,7 +16,7 @@ A mobile-first reference app for 98 communication techniques. It runs entirely i
 - Keyboard-accessible global search (`Cmd+K` / `Ctrl+K`), and left/right arrow keys to step between cards
 - Light/dark theme persistence
 - Back up and restore your data: export favourites, drill progress, playbooks and settings to a JSON file from the Favourites page, and import it on any device
-- Mobile-first navigation with a floating menu button, 44px touch targets and safe-area (notch) support
+- Mobile-first navigation with a bottom tab bar, 44px touch targets and safe-area (notch) support
 - Installable PWA: the app shell works offline, and cards and downloads work offline once they have been opened while online
 
 ---
@@ -117,8 +117,9 @@ pnpm --filter @workspace/tc-reference run build
 ```
 
 Card downloads (reference, guide and quick-card PDFs, phrase bank and Anki CSVs)
-are generated from the card source by `dev`, `build` and `test`, so they are not
-committed. TC001 and the OneCard/TwoCard PDFs are hand-made and stay in git. To
+are generated from the card source by `dev` and `build`, so they are not
+committed. `test` only generates them if they are missing, so repeat test runs
+stay fast; `test:full` always regenerates first. TC001 and the OneCard/TwoCard PDFs are hand-made and stay in git. To
 regenerate them on their own:
 
 ```bash
