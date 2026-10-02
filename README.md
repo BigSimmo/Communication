@@ -72,7 +72,9 @@ pnpm app:guard    # verify ownership and status
 pnpm app:run      # start app on 127.0.0.1:54112 (default)
 ```
 
-`pnpm run` is equivalent to `pnpm app:run`.
+Use `pnpm app:run` (or `pnpm run app:run`) to launch the protected app.
+Bare `pnpm run` lists scripts; the optional script named `run` needs `pnpm run run`.
+The install guard requires pnpm and preserves existing lockfiles when refusing npm or yarn.
 
 The app URL is:
 
