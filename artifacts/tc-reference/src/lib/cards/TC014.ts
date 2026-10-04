@@ -6,7 +6,7 @@ export const TC014: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC014/TC014_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,27 +56,27 @@ export const TC014: CardData = {
   ],
   id: "TC014",
   whyItWorks:
-    "Validate the concern is the deliberate move of acknowledging that a worry is legitimate before you answer or reframe it. You validate the concern, not the conclusion — you are not agreeing that they are right, only that the worry is reasonable. It works because people become far less defensive once they feel their concern has genuinely been heard: resistance stops being something they must defend and becomes information you can both work with, and you stay warm and credible instead of steamrolling their point.",
+    "Validate the concern is the deliberate move of acknowledging that a worry is legitimate before you answer or reframe it. You validate the concern, not the conclusion. You are not agreeing that they are right, only that the worry is reasonable. It works because people become far less defensive once they feel their concern has genuinely been heard: resistance stops being something they must defend and becomes information you can both work with, and you stay warm and credible instead of steamrolling their point.",
   whatItIsNot: [
     "It is not agreeing their conclusion is right, pretending to share their view, or flattering resistance.",
-    "You validate the concern, not necessarily the conclusion — and never a false fact.",
-    "It is not a script for pressure, extraction or control.",
+    "You validate the concern, not necessarily the conclusion, and never a false fact.",
+    "It is not a delay tactic. Once you've acknowledged the worry, you still have to answer it.",
     "It is not a substitute for actually listening to the answer they give back.",
   ],
   overview: {
     coreFormula: [
       "Concern named + why it makes sense + clarifying bridge + response.",
-      "That is a fair concern. If this felt rushed, I would be cautious too. Is the main worry timing or risk?",
+      "That's a fair concern. If this felt rushed, I'd be cautious too. Is the main worry timing or risk?",
       "I can see why cost would be the sticking point. The question is whether the saving is worth the trade-off.",
-      "That makes sense. You are not saying no to the idea; you are worried about whether it will actually work.",
-      "I would worry about follow-through too. That is why I would start with one owner and a two-week trial.",
+      "That makes sense. You're not saying no to the idea. You're worried about whether it will actually work.",
+      "I'd worry about follow-through too. That's why I'd start with one owner and a two-week trial.",
     ],
     minimumViableMove:
-      'Say "That is a fair concern" and name the concern out loud before you respond.',
+      'Say "That\'s a fair concern" and name the concern out loud before you respond.',
     impact: "High",
     difficulty: "Medium",
     misuse:
-      "It fails when you validate mechanically or use the acknowledgement as a soft opening to push your own agenda — the person feels handled rather than heard. It also fails if you validate a false conclusion as if it were true, which costs you credibility.",
+      "It fails when you validate mechanically or use the acknowledgement as a soft opening to push your own agenda: the person feels handled rather than heard. It also fails if you validate a false conclusion as if it were true, which costs you credibility.",
     bestFor: [
       "Handling objections without arguing",
       "Lowering defensiveness before you persuade or recommend",
@@ -102,13 +102,13 @@ export const TC014: CardData = {
       tag: "One-line acknowledgements",
       tone: "Quick",
       phrases: [
-        "That is a fair concern.",
+        "That's a fair concern.",
         "I can see why that would give you pause.",
         "That part makes sense.",
-        "That is not a silly worry.",
-        "I get why you would be cautious.",
-        "That is a legitimate thing to check.",
-        "That is worth pausing on before we go further.",
+        "That's not a silly worry.",
+        "I get why you'd be cautious.",
+        "That's a legitimate thing to check.",
+        "That's worth pausing on before we go further.",
       ],
     },
     {
@@ -117,12 +117,12 @@ export const TC014: CardData = {
       tag: "Warmth before the answer",
       tone: "Warm",
       phrases: [
-        "Given what happened last time, I would be cautious too.",
-        "I can see why you would not want to rush into this.",
+        "Given what happened last time, I'd be cautious too.",
+        "I can see why you wouldn't want to rush into this.",
         "That sounds less like resistance and more like wanting to be careful.",
-        "If I thought this might create more work without payoff, I would hesitate too.",
-        "That is exactly the kind of thing that can quietly derail a plan.",
-        "Honestly, I would be asking the same thing in your position.",
+        "If I thought this might create more work without payoff, I'd hesitate too.",
+        "That's exactly the kind of thing that can quietly derail a plan.",
+        "Honestly, I'd be asking the same thing in your position.",
       ],
     },
     {
@@ -131,11 +131,11 @@ export const TC014: CardData = {
       tag: "Work, meetings and decisions",
       tone: "Professional",
       phrases: [
-        "That is a legitimate risk to consider.",
-        "The concern I am hearing is reliability, not the principle.",
+        "That's a legitimate risk to consider.",
+        "The concern I'm hearing is reliability, not the principle.",
         "It sounds like the main issue is implementation.",
         "I agree that sustainability is the key risk.",
-        "The worry is not whether the idea is appealing; it is whether the execution is realistic.",
+        "The worry isn't whether the idea is appealing. It's whether the execution is realistic.",
         "Let me make sure I have the concern right before I answer it.",
       ],
     },
@@ -145,11 +145,11 @@ export const TC014: CardData = {
       tag: "From objection to a smaller step",
       tone: "Direct",
       phrases: [
-        "That concern is exactly why I would suggest a smaller first step.",
-        "If that is the worry, I would not push the full version either.",
-        "Let us design around that constraint rather than ignore it.",
-        "That is the reason I would make this reversible.",
-        "If we cannot solve that concern, I would not recommend moving ahead.",
+        "That concern is exactly why I'd suggest a smaller first step.",
+        "If that's the worry, I wouldn't push the full version either.",
+        "Let's design around that constraint rather than ignore it.",
+        "That's the reason I'd make this reversible.",
+        "If we can't solve that concern, I wouldn't recommend moving ahead.",
         "Is the main worry the time, the cost, or whether it will actually work?",
       ],
     },
@@ -159,10 +159,10 @@ export const TC014: CardData = {
       tag: "When it has turned tense",
       tone: "Repair",
       phrases: [
-        "I am not dismissing that.",
+        "I'm not dismissing that.",
         "I can see why it landed that way.",
         "Before I respond, I want to make sure I understand the concern.",
-        "I think there is a fair point in what you are saying.",
+        "I think there's a fair point in what you're saying.",
         "I see the part where this felt unfair.",
       ],
     },
@@ -172,11 +172,11 @@ export const TC014: CardData = {
       tag: "Brief, under time or status pressure",
       tone: "High-stakes",
       phrases: [
-        "That is the right risk to test.",
+        "That's the right risk to test.",
         "I agree that execution is the constraint.",
         "The concern is valid. My answer is...",
-        "Yes, that is the key trade-off.",
-        "I would not ignore that constraint either.",
+        "Yes, that's the key trade-off.",
+        "I wouldn't ignore that constraint either.",
       ],
     },
     {
@@ -186,9 +186,9 @@ export const TC014: CardData = {
       tone: "Quick",
       phrases: [
         "Fair concern. I think the key issue is...",
-        "I get the hesitation. The way I would reduce the risk is...",
+        "I get the hesitation. The way I'd reduce the risk is...",
         "Is your main worry time, cost, or complexity?",
-        "That is a reasonable pushback. I would solve it by...",
+        "That's a reasonable pushback. I'd solve it by...",
         "Agree that follow-through is the risk. My suggestion is...",
       ],
     },
@@ -199,8 +199,8 @@ export const TC014: CardData = {
       tone: "Warm",
       phrases: [
         "That makes sense. No pressure to decide now.",
-        "It is reasonable to want more certainty first.",
-        "I can see why you would want to slow it down.",
+        "It's reasonable to want more certainty first.",
+        "I can see why you'd want to slow it down.",
         "We can keep it small if that feels safer.",
       ],
     },
@@ -216,7 +216,7 @@ export const TC014: CardData = {
     {
       condition: "They soften or get more specific",
       action: "Move to options or a small next step.",
-      phrase: "Then how about we start small — one owner, a two-week trial?",
+      phrase: "Then how about we start small: one owner, a two-week trial?",
     },
     {
       condition: "They accuse you of patronising them",
@@ -232,19 +232,19 @@ export const TC014: CardData = {
     {
       condition: "They are right",
       action: "Say so cleanly, then adjust the plan.",
-      phrase: "You are right. Let me change the approach.",
+      phrase: "You're right. Let me change the approach.",
     },
     {
       condition: "The concern is actually a boundary",
       action: "Validate briefly, then state the limit.",
-      phrase: "That is fair, and I still need to hold this line.",
+      phrase: "That's fair, and I still need to hold this line.",
     },
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"I hear you, but it\'ll be fine." (acknowledges, then dismisses)',
+      better: '"That\'s a fair concern." (then answers it)',
+      best: "\"That's a fair concern. If this felt rushed, I'd be cautious too. Is it the timing or the risk?\"",
     },
     {
       weak: "Validates, then immediately argues the conclusion.",
@@ -252,9 +252,9 @@ export const TC014: CardData = {
       best: "Validates, clarifies, and turns the objection into a smaller, workable step.",
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"Your feelings are completely valid." (validates everything, including a false conclusion)',
+      better: '"The worry makes sense, though I see the outcome differently."',
+      best: '"The worry makes sense. I see the outcome differently, and here\'s why. Which part feels most risky to you?"',
     },
   ],
   scenarios: [
@@ -262,13 +262,13 @@ export const TC014: CardData = {
       situation: "Workplace objection",
       move: "Name the risk worth testing, then ask which part actually worries them.",
       phrase:
-        "That is the right risk to test. Is your concern the workload, the owner, or whether people will actually use it?",
+        "That's the right risk to test. Is your concern the workload, the owner, or whether people will actually use it?",
     },
     {
       situation: "Sales / pitching",
       move: "Validate the cost worry, then offer a smaller trial rather than the full version.",
       phrase:
-        "Fair concern. I would not recommend the full version if the risk is cost. A smaller trial may tell us whether the value is there.",
+        "Fair concern. I wouldn't recommend the full version if the risk is cost. A smaller trial may tell us whether the value is there.",
     },
     {
       situation: "Friend / family disagreement",
@@ -290,9 +290,9 @@ export const TC014: CardData = {
     },
     {
       situation: "Defensive person",
-      move: "Make clear you are not fighting the concern; ask which part feels most risky.",
+      move: "Make clear you are not fighting the concern. Ask which part feels most risky.",
       phrase:
-        "I am not arguing with the concern. I want to understand which part feels most risky.",
+        "I'm not arguing with the concern. I want to understand which part feels most risky.",
     },
   ],
   calibration: {
@@ -309,7 +309,7 @@ export const TC014: CardData = {
       "They want direct information, not more acknowledgement.",
       "You have validated but still not answered.",
       "The issue is a firm boundary, not a negotiable concern.",
-      "The conversation is becoming circular — move to options.",
+      "The conversation is becoming circular: move to options.",
       "If they shorten, defend or go vague, drop the acknowledgement and answer directly.",
       "State plainly where you agree and where you see it differently.",
       "Use a shorter, cleaner acknowledgement next time.",
@@ -319,7 +319,7 @@ export const TC014: CardData = {
     {
       day: "Day 1",
       title: "Spot the category",
-      task: "In the next five objections you hear, pause before answering and silently name the category: cost, trust, risk, fairness, control, workload, embarrassment, reliability, or uncertainty. Do not respond to it yet — just notice which one it is.",
+      task: "In the next five objections you hear, pause before answering and silently name the category: cost, trust, risk, fairness, control, workload, embarrassment, reliability, or uncertainty. Do not respond to it yet, just notice which one it is.",
     },
     {
       day: "Day 2",
@@ -334,12 +334,12 @@ export const TC014: CardData = {
     {
       day: "Day 4",
       title: "Bridge to a smaller step",
-      task: "Take one live objection and turn it into a design change — a smaller trial, one clear owner, a reversible step. Validate, then offer the smaller version.",
+      task: "Take one live objection and turn it into a design change: a smaller trial, one clear owner, a reversible step. Validate, then offer the smaller version.",
     },
     {
       day: "Day 5",
       title: "Practise the recovery",
-      task: 'Deliberately use one recovery line after a miss: "I may have over-acknowledged that — here is my actual answer." Say it once for real and watch it reset the exchange.',
+      task: 'Deliberately use one recovery line after a miss: "I may have over-acknowledged that. Here\'s my actual answer." Say it once for real and watch it reset the exchange.',
     },
     {
       day: "Day 6",
@@ -349,40 +349,41 @@ export const TC014: CardData = {
     {
       day: "Day 7",
       title: "Calibrate and release",
-      task: "In a real disagreement, validate once, then read the response. If they soften, move to options; if they harden or feel patronised, drop the script and answer plainly.",
+      task: "In a real disagreement, validate once, then read the response. If they soften, move to options. If they harden or feel patronised, drop the script and answer plainly.",
     },
   ],
   checklist: [
     "Did I validate the concern rather than the false conclusion?",
     "Did I identify the actual category of concern?",
     "Did I move from acknowledgement to an actual answer?",
-    "Did I keep the person's dignity intact — no patronising, no script?",
+    "Did I keep the person's dignity intact, no patronising, no script?",
     "Did I use the smallest version that would work, and leave room to decline?",
     "Did I notice whether it actually helped, and adjust?",
   ],
   example: {
     without: [
-      'Person: "I do not think this will work."',
+      'Person: "I don\'t think this will work."',
       'You: "It will. You just need to trust the process."',
-      "Why it is weak:",
+      "Why it's weak:",
       "It argues against a vague objection instead of understanding it.",
       "It dismisses the worry, so the person digs in harder.",
       "It leaves them feeling managed rather than heard.",
     ],
     with: [
-      'Person: "I do not think this will work."',
-      'You: "That is a fair concern. If previous attempts have been messy, I would be cautious too. Is the main worry that it will take too much time, or that people will not follow through?"',
+      'Person: "I don\'t think this will work."',
+      "You: \"That's a fair concern. If previous attempts have been messy, I'd be cautious too. Is the main worry that it will take too much time, or that people won't follow through?\"",
       'Person: "Mostly follow-through."',
-      'You: "Then I would not suggest a broad rollout. I would suggest a small trial with one clear owner."',
+      "You: \"Then I wouldn't suggest a broad rollout. I'd suggest a small trial with one clear owner.\"",
+      "A second objection:",
       'Person: "This sounds good on paper, but it will become another thing nobody maintains."',
-      'You: "That is probably the right thing to worry about. The idea is not the hard part; keeping it alive is. What would make maintenance realistic rather than wishful?"',
+      "You: \"That's probably the right thing to worry about. The idea isn't the hard part. Keeping it alive is. What would make maintenance realistic rather than wishful?\"",
       "Why this works:",
       "It validates the real concern without pretending the conclusion is correct.",
       "It asks a clarifying question instead of arguing against a vague objection.",
       "It converts resistance into design: smaller trial, clearer owner, lower risk.",
       "It keeps dignity intact, making the other person more willing to collaborate.",
     ],
-    note: "The advanced version should make the other person feel clearer, not managed.",
+    note: "The strong version grants that the worry is fair, finds out which part is real, then answers that part with a smaller, safer step.",
   },
   influencePayoff: {
     feeling: "They took my worry seriously instead of arguing me out of it.",
@@ -393,7 +394,7 @@ export const TC014: CardData = {
       "Makes the other person feel respected rather than dismissed or managed.",
       "Turns resistance into useful information about what they value, fear or want protected.",
       "Creates a bridge from objection to options: a smaller step, less risk, clearer criteria, a better trade-off.",
-      "Keeps you warm and credible — you are not surrendering your point, but you are not steamrolling theirs.",
+      "Keeps you warm and credible. You are not surrendering your point, but you are not steamrolling theirs.",
       "Makes the other person more willing to collaborate on the fix.",
     ],
     whyMostFail: [
@@ -405,10 +406,10 @@ export const TC014: CardData = {
   },
   fieldTip: {
     headline:
-      "Validate the worry before you answer the worry — never validate false facts as true.",
-    body: "The goal is not to display skill. It is to make the next human moment easier. A concern held gently for one sentence stops being a wall and becomes a door.",
+      "Validate the worry before you answer it. Never validate a false fact.",
+    body: "A concern held gently for one sentence stops being a wall and becomes a door. Then walk through it: answer the worry they actually named, not the one you prepared for.",
     example:
-      'Concern: "This will just become another thing nobody maintains." → "That is probably the right thing to worry about. What would make maintenance realistic rather than wishful?"',
+      'They say: "This will just become another thing nobody maintains." You: "That\'s probably the right thing to worry about. What would make maintenance realistic rather than wishful?"',
     dont: "Don't rush to prove them wrong, and don't agree with a conclusion you think is false.",
     do: "Do name the concern, say why it makes sense, then bridge to a smaller, workable step.",
   },
@@ -416,17 +417,17 @@ export const TC014: CardData = {
     {
       step: "1",
       title: "Notice the cue",
-      body: 'The cue is resistance: an objection, a hesitation, a "yes, but", a worried tone. That is the moment to acknowledge — before you have already started arguing, not after.',
-      examples: [{ label: "Cue", text: '"I do not think this will work."' }],
+      body: 'The cue is resistance: an objection, a hesitation, a "yes, but", a worried tone. That is the moment to acknowledge, before you have already started arguing, not after.',
+      examples: [{ label: "Cue", text: '"I don\'t think this will work."' }],
     },
     {
       step: "2",
       title: "Name the concern and why it makes sense",
-      body: "Say the concern back plainly and add why it is reasonable. Validate the concern, not the conclusion. Keep it to one sentence — the smallest version that shows you actually heard it.",
+      body: "Say the concern back plainly and add why it is reasonable. Validate the concern, not the conclusion. Keep it to one sentence: the smallest version that shows you actually heard it.",
       examples: [
         {
           label: "Say",
-          text: '"That is a fair concern. If previous attempts were messy, I would be cautious too."',
+          text: "\"That's a fair concern. If previous attempts were messy, I'd be cautious too.\"",
         },
       ],
     },
@@ -449,11 +450,11 @@ export const TC014: CardData = {
     {
       step: "5",
       title: "Answer or reframe",
-      body: "Now respond to the concern they actually named — often by making the step smaller, more reversible, or more clearly owned. Say cleanly where you agree and where you see it differently.",
+      body: "Now respond to the concern they actually named, often by making the step smaller, more reversible, or more clearly owned. Say cleanly where you agree and where you see it differently.",
       examples: [
         {
           label: "Respond",
-          text: '"Then I would not suggest a broad rollout. I would start with one owner and a two-week trial."',
+          text: "\"Then I wouldn't suggest a broad rollout. I'd start with one owner and a two-week trial.\"",
         },
       ],
     },
@@ -464,21 +465,21 @@ export const TC014: CardData = {
     },
   ],
   liveThreadClues: [
-    "I do not think this will work...",
+    "I don't think this will work...",
     "Yes, but...",
-    "I am not sure about...",
+    "I'm not sure about...",
     "My worry is...",
     "This will just become...",
-    "It is going to take too much...",
+    "It's going to take too much...",
     "We tried this before and...",
-    "I do not have time for...",
+    "I don't have time for...",
   ],
   commonMistakes: [
     {
       mistake: "Validating mechanically",
       soundsLike: '"I hear you. Anyway, as I was saying..."',
       better:
-        '"That is a fair concern — the follow-through risk is real. What would make it realistic?"',
+        '"That\'s a fair concern: the follow-through risk is real. What would make it realistic?"',
     },
     {
       mistake: "Making it too long",
@@ -488,49 +489,49 @@ export const TC014: CardData = {
     {
       mistake: "Sounding clinical or superior",
       soundsLike:
-        '"I understand that you are experiencing some resistance to this."',
-      better: '"Yeah, I would be wary of that too."',
+        '"I understand that you\'re experiencing some resistance to this."',
+      better: '"Yeah, I\'d be wary of that too."',
     },
     {
       mistake: "Rushing to rebuttal",
       soundsLike: '"It will work, you just need to trust the process."',
       better:
-        '"That is probably the right thing to worry about. What would reduce the risk?"',
+        '"That\'s probably the right thing to worry about. What would reduce the risk?"',
     },
     {
       mistake: "Ignoring cues to stop",
       soundsLike: "Validating a third time while they get more annoyed.",
-      better: '"Fair. Let me just be direct: here is my actual answer."',
+      better: '"Fair. Let me just be direct: here\'s my actual answer."',
     },
     {
       mistake: "Using it to steer your own agenda",
       soundsLike:
-        '"Great point — which is exactly why you should do what I wanted."',
+        '"Great point, which is exactly why you should do what I wanted."',
       better:
-        '"If we cannot solve that concern, I would not push this either."',
+        "\"If we can't solve that concern, I wouldn't push this either.\"",
     },
   ],
   recoveryPhrases: [
-    "I do not mean that as a script. I genuinely think that is the right concern to raise.",
+    "I don't mean that as a script. I genuinely think that's the right concern to raise.",
     "Let me answer the actual issue rather than just acknowledge it.",
-    "I can see the concern; I also see the conclusion differently.",
-    "I may have over-acknowledged that. Here is my actual answer.",
-    "I am not saying the whole conclusion is right. I am saying the worry makes sense.",
-    "I may have framed that badly.",
-    "Let me step back.",
-    "We can leave that if it is not the useful thread.",
+    "I can see the concern. I also see the conclusion differently.",
+    "I may have over-acknowledged that. Here's my actual answer.",
+    "I'm not saying the whole conclusion is right. I'm saying the worry makes sense.",
+    "Fair point. I'll stop acknowledging and just answer.",
+    "You're right to push on that. Here's what I'd change.",
+    "I skipped past your concern. Let me come back to it.",
   ],
   bestRecoveryLine:
-    "I may have over-acknowledged that. Here is my actual answer.",
+    "I may have over-acknowledged that. Here's my actual answer.",
   chains: [
     {
       label: "Objection chain",
       sequence:
         "Validate concern → clarify objection → reduce risk → clean recommendation",
       example: [
-        '"That is a fair concern."',
+        '"That\'s a fair concern."',
         '"Is the worry the cost or the upkeep?"',
-        '"Then let us make the first step small and reversible."',
+        '"Then let\'s make the first step small and reversible."',
         '"My recommendation is a two-week trial with one owner."',
       ],
     },
@@ -540,19 +541,19 @@ export const TC014: CardData = {
         "Name concern → agreement before disagreement → shared goal → next step",
       example: [
         '"I can see why that felt unfair."',
-        '"You are right that we moved too fast."',
+        '"You\'re right that we moved too fast."',
         '"We both want this to actually stick."',
-        '"So let us agree the pace together."',
+        '"So let\'s agree the pace together."',
       ],
     },
     {
       label: "Persuasion chain",
       sequence: "Validate → values frame → smaller ask → autonomy release",
       example: [
-        '"That is a legitimate risk."',
+        '"That\'s a legitimate risk."',
         '"I know reliability matters most to you here."',
         '"Could we just test it on one team first?"',
-        '"But it is entirely your call."',
+        '"But it\'s entirely your call."',
       ],
     },
     {
@@ -560,9 +561,9 @@ export const TC014: CardData = {
       sequence:
         "Validate feeling → state limit → explain briefly → offer alternative",
       example: [
-        '"I get why you would want an answer tonight."',
-        '"I am not able to decide this by then."',
-        '"I would rather be slow than wrong on this one."',
+        '"I get why you\'d want an answer tonight."',
+        '"I\'m not able to decide this by then."',
+        '"I\'d rather be slow than wrong on this one."',
         '"I can give you a firm answer by Friday."',
       ],
     },
@@ -571,12 +572,12 @@ export const TC014: CardData = {
     {
       id: "TC005",
       reason:
-        "Validation without agreement validates the person's emotion, context or logic. Validate the concern validates a specific objection before you answer it — use it when resistance needs respect before a response.",
+        "Validation without agreement validates the person's emotion, context or logic. Validate the concern validates a specific objection before you answer it. Use it when resistance needs respect before a response.",
     },
     {
       id: "TC069",
       reason:
-        "Clarify objection digs into what the objection actually is. Validate the concern first grants that the worry is fair, then clarifies — reach for TC069 when the objection is vague rather than resisted.",
+        "Clarify objection digs into what the objection actually is. Validate the concern first grants that the worry is fair, then clarifies: reach for TC069 when the objection is vague rather than resisted.",
     },
     {
       id: "TC073",
@@ -586,7 +587,7 @@ export const TC014: CardData = {
     {
       id: "TC077",
       reason:
-        "Agreement before disagreement leads with a genuine point of agreement. Validate the concern leads with the legitimacy of the worry — use TC077 when you can honestly agree with part of their position.",
+        "Agreement before disagreement leads with a genuine point of agreement. Validate the concern leads with the legitimacy of the worry. Use TC077 when you can honestly agree with part of their position.",
     },
     {
       id: "TC083",
@@ -596,7 +597,7 @@ export const TC014: CardData = {
     {
       id: "TC021",
       reason:
-        'Autonomy release hands the decision back ("it is your call"). Validate the concern earns the right to be heard first — pair them, but use TC021 when the person mainly needs to feel unpressured.',
+        'Autonomy release hands the decision back ("it\'s your call"). Validate the concern earns the right to be heard first: pair them, but use TC021 when the person mainly needs to feel unpressured.',
     },
   ],
 };

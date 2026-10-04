@@ -26,7 +26,7 @@ export default function NotFound() {
           />
         </div>
         <h1 className="text-[20px] font-bold text-foreground mb-2">
-          404 — Page not found
+          404: Page not found
         </h1>
         <p
           className="text-[13px] leading-relaxed mb-6"

@@ -6,7 +6,7 @@ export const TC018: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC018/TC018_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC018: CardData = {
   ],
   id: "TC018",
   whyItWorks:
-    "Specific appreciation is one small move: name a particular behaviour, effort, judgement or quality the person showed, and the effect it had, so they know exactly what landed and why it mattered. It works because people trust praise they can verify. A vague \"you're amazing\" gives them nothing to hold on to and can read as flattery; naming the evidence makes the appreciation believable, lowers defensiveness, and quietly reinforces the behaviour you'd like to see again.",
+    "Specific appreciation is one small move: name a particular behaviour, effort, judgement or quality the person showed, and the effect it had, so they know exactly what landed and why it mattered. It works because people trust praise they can verify. A vague \"you're amazing\" gives them nothing to hold on to and can read as flattery. Naming the evidence makes the appreciation believable, lowers defensiveness, and quietly reinforces the behaviour you'd like to see again.",
   whatItIsNot: [
     'It is not flattery, generic praise, or vague "you\'re amazing" language with no evidence behind it.',
     "It is not love-bombing or status manipulation dressed up as warmth.",
@@ -65,9 +65,9 @@ export const TC018: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Name the specific action -> name the positive effect -> keep it proportionate -> stop before it becomes flattery.",
-      '"I appreciated how you grouped the actions; it saved everyone re-reading the thread."',
-      "\"Thanks for chasing the supplier twice; it's the reason we didn't slip the deadline.\"",
+      "Name the specific action → name the positive effect → keep it proportionate → stop before it becomes flattery.",
+      '"I appreciated how you grouped the actions. It saved everyone re-reading the thread."',
+      "\"Thanks for chasing the supplier twice. It's the reason we didn't slip the deadline.\"",
       '"The way you let the customer finish before answering is why they calmed down."',
     ],
     minimumViableMove:
@@ -100,11 +100,11 @@ export const TC018: CardData = {
       tone: "Quick",
       phrases: [
         "That bit where you flagged the risk early was really helpful.",
-        "Thanks for catching that; it saved us a step.",
+        "Thanks for catching that. It saved us a step.",
         "The way you laid that out made it easy to follow.",
         "Good call on the order of those points.",
-        "That was a clean summary; cheers.",
-        "Nicely handled, you kept it moving.",
+        "That was a clean summary. Cheers.",
+        "Nicely handled. You kept it moving.",
         "That one detail you added made the difference.",
       ],
     },
@@ -118,7 +118,7 @@ export const TC018: CardData = {
         "The way you checked in on me last week stuck with me.",
         "You didn't have to stay back and help, and it made a real difference.",
         "I appreciate how steady you were while everyone else was rattled.",
-        "That was generous; you gave them your full attention.",
+        "That was generous. You gave them your full attention.",
         "You made a hard conversation feel easy, so thank you.",
         "The care you put into that really showed.",
       ],
@@ -129,12 +129,12 @@ export const TC018: CardData = {
       tag: "Work, meetings and colleagues",
       tone: "Professional",
       phrases: [
-        "I appreciated how you grouped the actions; it saved everyone re-reading the thread.",
+        "I appreciated how you grouped the actions. It saved everyone re-reading the thread.",
         "The way you clarified the plan at the end meant we all left knowing the next step.",
-        "You handled that client question well; naming the trade-off kept it honest.",
+        "You handled that client question well. Naming the trade-off kept it honest.",
         "Good structure on the deck, decisions first and detail second.",
-        "You spotted the gap in the timeline before it cost us; that was sharp.",
-        "Thanks for running that meeting to time; it respected everyone's day.",
+        "You spotted the gap in the timeline before it cost us. That was sharp.",
+        "Thanks for running that meeting to time. It respected everyone's day.",
         "The way you documented that decision will save the next person a lot of guessing.",
       ],
     },
@@ -145,8 +145,8 @@ export const TC018: CardData = {
       tone: "Direct",
       phrases: [
         "Here's the concrete thing that helped: you made the next step clear.",
-        "One specific bit, your timing on that email stopped it escalating.",
-        "The useful part was the example you gave; it made it land.",
+        "One specific bit: your timing on that email stopped it escalating.",
+        "The useful part was the example you gave. It made it land.",
         "What worked was that you named the real problem, not the symptom.",
         "To be exact: grouping the questions at the end saved us a second call.",
         "The thing that mattered was you followed up without being asked.",
@@ -159,10 +159,10 @@ export const TC018: CardData = {
       tone: "Quick",
       phrases: [
         "Just want to name it: the way you framed that message was spot on.",
-        "That reply was clear and kind; good balance.",
-        "Thanks for the tidy handover notes; I picked it up in minutes.",
-        "Your one-line summary at the top saved me scrolling; appreciated.",
-        "Quick note, the checklist you added is going to help everyone.",
+        "That reply was clear and kind. Good balance.",
+        "Thanks for the tidy handover notes. I picked it up in minutes.",
+        "Your one-line summary at the top saved me scrolling. Appreciated.",
+        "Quick note: the checklist you added is going to help everyone.",
       ],
     },
     {
@@ -172,7 +172,7 @@ export const TC018: CardData = {
       tone: "High-stakes",
       phrases: [
         "I'll keep this brief because I know you'd rather not make a thing of it: that was well judged.",
-        "No need to respond, I just wanted you to know the fix you pushed held up.",
+        "No need to respond. I just wanted you to know the fix you pushed held up.",
         "Quietly, the way you defused that meeting took real skill.",
         "I won't labour it, but calling that risk early was the right move.",
         "If it's useful to hear, you read that room better than anyone.",
@@ -184,11 +184,11 @@ export const TC018: CardData = {
       tag: "When it misses",
       tone: "Repair",
       phrases: [
-        "I may have read that wrong; what actually helped from your side?",
-        "Let me put that more simply.",
-        "That came out more polished than I meant; I just wanted to say thanks.",
+        "I may have read that wrong. What actually helped from your side?",
+        "Sorry, that was a lot for a small thing. Short version: thank you.",
+        "That came out more polished than I meant. I just wanted to say thanks.",
         "No need to make anything of it if it isn't useful.",
-        "I jumped ahead there; what I meant was the specific bit that helped.",
+        "I jumped ahead there. What I meant was the specific bit that helped.",
         "Tell me the more accurate way to say it.",
       ],
     },
@@ -197,7 +197,7 @@ export const TC018: CardData = {
     {
       condition: "They're still speaking",
       action:
-        "Wait; don't interrupt to praise. Hold the appreciation until they finish.",
+        "Wait. Don't interrupt to praise. Hold the appreciation until they finish.",
       phrase: "",
     },
     {
@@ -214,30 +214,30 @@ export const TC018: CardData = {
     {
       condition: "They might read praise as the set-up for an ask",
       action: "Name it as standalone and make no request.",
-      phrase: "No ask attached; I just wanted to name it.",
+      phrase: "No ask attached. I just wanted to name it.",
     },
     {
       condition: "The move landed and increased ease",
-      action: "Continue naturally; don't over-egg it.",
+      action: "Continue naturally. Don't over-egg it.",
       phrase: "That's all, carry on.",
     },
     {
       condition: "The move reduced ease or missed",
       action: "Repair or release it.",
       phrase:
-        "I may have read that wrong; what actually helped from your side?",
+        "I may have read that wrong. What actually helped from your side?",
     },
   ],
   ladder: [
     {
       weak: "You're amazing.",
       better: "I appreciated the way you clarified the plan at the end.",
-      best: "I appreciated the way you clarified the plan at the end; it meant everyone left knowing their next action without another meeting.",
+      best: "I appreciated the way you clarified the plan at the end. It meant everyone left knowing their next action without another meeting.",
     },
     {
       weak: "Great job today.",
       better: "Thanks for chasing the supplier.",
-      best: "Thanks for chasing the supplier twice; it's the reason we didn't slip the deadline.",
+      best: "Thanks for chasing the supplier twice. It's the reason we didn't slip the deadline.",
     },
     {
       weak: "You're so good with people.",
@@ -248,9 +248,9 @@ export const TC018: CardData = {
   scenarios: [
     {
       situation: "Social conversation",
-      move: "Keep it warm and brief; name one specific thing, then move on.",
+      move: "Keep it warm and brief. Name one specific thing, then move on.",
       phrase:
-        "That story you told earlier really landed; you read the room perfectly.",
+        "That story you told earlier really landed. You read the room perfectly.",
     },
     {
       situation: "Professional discussion",
@@ -261,7 +261,7 @@ export const TC018: CardData = {
     {
       situation: "Digital message",
       move: "Write one clean sentence and avoid overexplaining.",
-      phrase: "Your one-line summary at the top saved me scrolling; thank you.",
+      phrase: "Your one-line summary at the top saved me scrolling. Thank you.",
     },
     {
       situation: "Conflict or objection",
@@ -272,7 +272,7 @@ export const TC018: CardData = {
       situation: "High-status or guarded person",
       move: "Make the move optional and low-pressure.",
       phrase:
-        "No need to respond; the call you made on timing was the right one.",
+        "No need to respond. The call you made on timing was the right one.",
     },
     {
       situation: "Close relationship",
@@ -283,7 +283,7 @@ export const TC018: CardData = {
   calibration: {
     working: [
       "They give you more detail or context.",
-      "They relax; tone softens and pace eases.",
+      "They relax. Tone softens and pace eases.",
       "They correct you easily, without defensiveness.",
       'They say "yes", "that\'s it", or "exactly".',
       "They offer a next step or build on it.",
@@ -295,14 +295,14 @@ export const TC018: CardData = {
       "They correct you but don't engage with it.",
       "They change the subject or go quiet.",
       "Sarcasm creeps in.",
-      "It starts to feel about your performance rather than their effort; shorten it, drop it, or repair.",
+      "It starts to feel about your performance rather than their effort. Shorten it, drop it, or repair.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the cues",
-      task: "Across today, note five moments where someone did something specific worth appreciating: effort, good judgement, or a quiet save. Just notice; don't act on them yet.",
+      task: "Across today, note five moments where someone did something specific worth appreciating: effort, good judgement, or a quiet save. Just notice. Don't act on them yet.",
     },
     {
       day: "Day 2",
@@ -327,7 +327,7 @@ export const TC018: CardData = {
     {
       day: "Day 6",
       title: "Practise repair",
-      task: 'Deliberately deliver one slightly-off appreciation, then use a recovery line such as "I may have read that wrong; what actually helped?" Get comfortable repairing without flinching.',
+      task: 'Deliberately deliver one slightly-off appreciation, then use a recovery line such as "I may have read that wrong. What actually helped?" Get comfortable repairing without flinching.',
     },
     {
       day: "Day 7",
@@ -355,7 +355,7 @@ export const TC018: CardData = {
     ],
     with: [
       "A: I sent the notes around.",
-      "B: Thanks; the way you grouped the actions made it much easier to follow.",
+      "B: Thanks. The way you grouped the actions made it much easier to follow.",
       "A: Good, I was hoping that helped.",
       "Why this is better:",
       "names the specific behaviour (grouping the actions)",
@@ -413,7 +413,7 @@ export const TC018: CardData = {
     {
       step: "3",
       title: "Name the action, then the effect",
-      body: 'Say what they did, then what it changed.\nFormula:\naction -> effect\nExamples:\n"You chased the supplier twice, and that\'s why we didn\'t slip."\n"You let them finish before answering, and it calmed the whole room."\nThe action makes it true; the effect makes it matter.',
+      body: 'Say what they did, then what it changed.\nFormula:\naction → effect\nExamples:\n"You chased the supplier twice, and that\'s why we didn\'t slip."\n"You let them finish before answering, and it calmed the whole room."\nThe action makes it true. The effect makes it matter.',
     },
     {
       step: "4",
@@ -428,7 +428,7 @@ export const TC018: CardData = {
     {
       step: "6",
       title: "Repair quickly if it misses",
-      body: 'If it lands wrong, don\'t double down.\nExamples:\n"I may have read that wrong; what actually helped from your side?"\n"Let me put that more simply."\nA fast, light repair costs nothing and keeps the exchange easy.',
+      body: 'If it lands wrong, don\'t double down.\nExamples:\n"I may have read that wrong. What actually helped from your side?"\n"Let me put that more simply."\nA fast, light repair costs nothing and keeps the exchange easy.',
     },
   ],
   liveThreadClues: [
@@ -454,7 +454,7 @@ export const TC018: CardData = {
       depth: "Specific",
       useWhen: "reinforcing a behaviour",
       phrase:
-        "Grouping the actions like that saved everyone re-reading; that's the bit that helped.",
+        "Grouping the actions like that saved everyone re-reading. That's the bit that helped.",
     },
     {
       depth: "Meaningful",
@@ -477,7 +477,7 @@ export const TC018: CardData = {
     {
       mistake: "Using it as a lead-in to an ask",
       soundsLike: '"You\'re brilliant at this, so could you also..."',
-      better: "Appreciate now; ask later, as a separate thing.",
+      better: "Appreciate now. Ask later, as a separate thing.",
     },
     {
       mistake: "Delivering it mechanically",
@@ -498,35 +498,32 @@ export const TC018: CardData = {
       mistake: "Missing the room",
       soundsLike: "Praising someone publicly when they'd hate it.",
       better:
-        "Read hierarchy, culture and fatigue; sometimes a quiet word is better.",
+        "Read hierarchy, culture and fatigue. Sometimes a quiet word is better.",
     },
   ],
   recoveryPhrases: [
     "I may have read that wrong.",
-    "Let me put that more simply.",
-    "No need to go there if it isn't useful.",
-    "I jumped ahead.",
-    "What would be the more accurate way to say it?",
-    "We can leave that and come back if needed.",
-    "That came out more polished than I meant; I just wanted to say thanks.",
+    "Sorry, that was a lot for a small thing. Short version: thank you.",
+    "What was the part you were actually proudest of?",
+    "That came out more polished than I meant. I just wanted to say thanks.",
   ],
   bestRecoveryLine:
-    "I may have read that wrong; what actually helped from your side?",
+    "I may have read that wrong. What actually helped from your side?",
   chains: [
     {
       label: "Trust-building chain",
       sequence:
-        "TC012 Full-attention signal -> TC018 Specific appreciation -> TC011 Summary check",
+        "TC012 Full-attention signal → TC018 Specific appreciation → TC011 Summary check",
       example: [
         "Give them your full attention while they explain.",
-        '"I appreciated how you sequenced that; it made the plan easy to follow."',
+        '"I appreciated how you sequenced that. It made the plan easy to follow."',
         '"So the agreed next step is you draft and I review by Friday?"',
       ],
     },
     {
       label: "Support-then-advice chain",
       sequence:
-        "TC004 Reflective listening -> TC018 Specific appreciation -> TC027 Permission-based advice",
+        "TC004 Reflective listening → TC018 Specific appreciation → TC027 Permission-based advice",
       example: [
         '"So the tricky part was getting sign-off from two teams at once."',
         '"The way you kept both of them in the loop stopped it stalling."',
@@ -535,10 +532,10 @@ export const TC018: CardData = {
     },
     {
       label: "Low-pressure chain",
-      sequence: "TC018 Specific appreciation -> TC021 Autonomy release",
+      sequence: "TC018 Specific appreciation → TC021 Autonomy release",
       example: [
-        '"Chasing the supplier twice is why we didn\'t slip; that mattered."',
-        '"No need to do anything with that, I just wanted you to know."',
+        '"Chasing the supplier twice is why we didn\'t slip. That mattered."',
+        '"No need to do anything with that. I just wanted you to know."',
       ],
     },
   ],
@@ -561,7 +558,7 @@ export const TC018: CardData = {
     {
       id: "TC075",
       reason:
-        "Acknowledge Effort recognises that someone tried. Use TC018 when you can point to the specific action and the effect it had, not just the effort.",
+        "Acknowledge effort recognises that someone tried. Use TC018 when you can point to the specific action and the effect it had, not just the effort.",
     },
     {
       id: "TC052",

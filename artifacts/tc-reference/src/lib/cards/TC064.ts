@@ -6,7 +6,7 @@ export const TC064: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC064/TC064_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -58,10 +58,10 @@ export const TC064: CardData = {
   whyItWorks:
     "Check before interpreting is a listening move for moments when you have a plausible read but not enough evidence to state it as fact. Before you say what someone meant, felt, wanted or intended, you turn your interpretation into a low-pressure question and let them confirm, correct or reject it. It works because people defend themselves when they feel interpreted without permission, even when you are partly right, but they relax and clarify when they are invited to correct your read. You get a more accurate picture, and they stay the authority on their own meaning.",
   whatItIsNot: [
-    'Not mind-reading: "You are only saying that because..."',
+    'Not mind-reading: "You\'re only saying that because..."',
     'Not a soft accusation: "So what you really mean is..."',
-    'Not premature labelling: "You are anxious about this."',
-    'Not a debate trap dressed as a question: "Let me check — you admit you were wrong?"',
+    'Not premature labelling: "You\'re anxious about this."',
+    'Not a debate trap dressed as a question: "Let me check. You admit you were wrong?"',
     'Not vague empathy theatre: "I sense something deep here."',
   ],
   overview: {
@@ -70,14 +70,14 @@ export const TC064: CardData = {
       "I may be reading this wrong: is the main concern [X], or is it more [Y]?",
       "Before I assume, do you mean [specific read]?",
       "Can I check whether this is about [topic], or something else?",
-      "Tell me if I am off: are you looking for [support], [clarity], or [a decision]?",
-      "Can I check my read — is it [A], [B], or neither?",
+      "Tell me if I'm off: are you looking for [support], [clarity], or [a decision]?",
+      "Can I check my read, is it [A], [B], or neither?",
     ],
     minimumViableMove: "Can I check my read before I respond?",
     impact: "High",
     difficulty: "Medium",
     misuse:
-      'Making the check sound like a polished version of "I know what is really going on with you" — a leading accusation, a quiet diagnosis, or a way to delay an apology dressed up as a question.',
+      'Making the check sound like a polished version of "I know what\'s really going on with you": a leading accusation, a quiet diagnosis, or a way to delay an apology dressed up as a question.',
     bestFor: [
       "Ambiguous statements where several meanings are plausible.",
       "Emotional conversations where a wrong label would irritate or shame the speaker.",
@@ -104,8 +104,8 @@ export const TC064: CardData = {
       phrases: [
         "Can I check what you mean before I jump in?",
         "Can I check my read before I respond?",
-        "Hang on — can I check I have understood you right?",
-        "I might be misreading this — is it the plan, the timing, or something else?",
+        "Hang on. Can I check I have understood you right?",
+        "I might be misreading this. Is it the plan, the timing, or something else?",
         "Is the frustrating part what happened, or how it happened?",
         "Do you want me to take this as a big deal, or more as a quick vent?",
         "Before I assume, do you mean it that way?",
@@ -117,9 +117,9 @@ export const TC064: CardData = {
       tag: "Correctable A-or-B reads",
       tone: "Direct",
       phrases: [
-        "Can I check my read — is it this, that, or neither?",
+        "Can I check my read, is it this, that, or neither?",
         "Is the frustrating part the plan, or the way it landed?",
-        "Is it more hurt, frustration or disappointment — or something else?",
+        "Is it more hurt, frustration or disappointment, or something else?",
         "Are you saying I missed the mark, or that the constraints changed?",
         "Is this a blocker, a risk to monitor, or a preference?",
         "Is the main issue confidence, clarity, or choosing between priorities?",
@@ -133,10 +133,10 @@ export const TC064: CardData = {
       tone: "Professional",
       phrases: [
         "Before I respond, can I check the concern you want me to address?",
-        "Is the risk you are flagging mainly quality, timing, cost, or stakeholder trust?",
+        "Is the risk you're flagging mainly quality, timing, cost, or stakeholder trust?",
         "I hear a possible concern about ownership. Is that accurate?",
         "Are you asking for a decision, a sounding board, or just visibility?",
-        "Can I check the frame — are we reviewing quality, alignment, or next steps?",
+        "Can I check the frame, are we reviewing quality, alignment, or next steps?",
         "Before I plan around this, is it a hard blocker or a preference?",
         "Is this feedback on the direction, or on the detail?",
       ],
@@ -147,12 +147,12 @@ export const TC064: CardData = {
       tag: "When tone is hard to read",
       tone: "Quick",
       phrases: [
-        "Tone is hard to read here — are you asking for input, or just flagging this?",
+        "Tone is hard to read here. Are you asking for input, or just flagging this?",
         "Before I assume, is this a blocker or a heads-up?",
         "Checking my read: do you need action from me, or just awareness?",
         "Is your main concern the deadline, or the decision path?",
-        "Reading this cold — is the tone frustrated, or just brief?",
-        "Quick check so I do not misread: urgent, or when-you-can?",
+        "Reading this cold. Is the tone frustrated, or just brief?",
+        "Quick check so I don't misread: urgent, or when-you-can?",
       ],
     },
     {
@@ -161,12 +161,12 @@ export const TC064: CardData = {
       tag: "Before you get defensive",
       tone: "High-stakes",
       phrases: [
-        "I do not want to put words in your mouth. Is the issue the decision, the process, or both?",
+        "I don't want to put words in your mouth. Is the issue the decision, the process, or both?",
         "Let me check before I react: are you saying I missed the mark, or that the constraints changed?",
         "I may be off. Are you asking me to explain, fix, or just acknowledge it?",
-        "Before I defend anything, what is the part you most want me to understand?",
+        "Before I defend anything, what's the part you most want me to understand?",
         "Before I explain, did that land as unclear, unfair, or too abrupt?",
-        "Before I get defensive — what is the actual thing you need me to hear?",
+        "Before I get defensive, what's the actual thing you need me to hear?",
       ],
     },
     {
@@ -177,10 +177,10 @@ export const TC064: CardData = {
       phrases: [
         "I want to be careful with this. Is it more hurt, frustration, disappointment, or something else?",
         "Would it be right to say this felt dismissive, or is that not quite it?",
-        "I am not trying to analyse you. I just want to check I understood the impact.",
+        "I'm not trying to analyse you. I just want to check I understood the impact.",
         "Is it okay if I test a read, and you can correct it?",
         "Are you annoyed, tired, or just keeping it brief?",
-        "I might have this wrong — did that feel like being overlooked, or something else?",
+        "I might have this wrong. Did that feel like being overlooked, or something else?",
       ],
     },
     {
@@ -189,11 +189,11 @@ export const TC064: CardData = {
       tag: "When you have already misread",
       tone: "Repair",
       phrases: [
-        "I think I jumped ahead — can I check what you actually meant?",
+        "I think I jumped ahead. Can I check what you actually meant?",
         "Let me back up. Did I misread that, or just the emphasis?",
-        "I may have put words in your mouth. Say it your way and I will follow.",
+        "I may have put words in your mouth. Say it your way and I'll follow.",
         "That came out more like a conclusion than a question. What did you mean?",
-        "I do not want to over-interpret this. What should I take from it?",
+        "I don't want to over-interpret this. What should I take from it?",
       ],
     },
   ],
@@ -208,8 +208,8 @@ export const TC064: CardData = {
     {
       condition: "They have already stated the meaning clearly",
       action:
-        "Do not re-interpret — reflect, validate, summarise or act on what they actually said.",
-      phrase: "So the main thing is the timeline — have I got that right?",
+        "Do not re-interpret: reflect, validate, summarise or act on what they actually said.",
+      phrase: "So the main thing is the timeline. Have I got that right?",
     },
     {
       condition: "Your read could embarrass, accuse, diagnose or corner them",
@@ -226,30 +226,30 @@ export const TC064: CardData = {
       condition: "They correct or reject the read",
       action:
         "Accept the correction cleanly and update. If they close down, stop interpreting and switch to listening, apology or a boundary.",
-      phrase: "Got it — I will drop that read.",
+      phrase: "Got it, I'll drop that read.",
     },
     {
-      condition: "The meaning is now clear — pick the next move",
+      condition: "The meaning is now clear. Pick the next move",
       action:
-        "Feeling → emotional labelling; concern → validate it; ambivalence → double-sided reflection; deeper value → meaning reflection; next action → a clean request.",
+        "For a feeling, label the emotion. For a concern, validate it. For ambivalence, reflect both sides. For a deeper value, reflect the meaning. For a next action, make a clean request.",
       phrase: "Okay, so what would actually help here is...",
     },
   ],
   ladder: [
     {
-      weak: 'Friend says "Whatever, it is fine." You reply: "You are clearly angry."',
+      weak: 'Friend says "Whatever, it\'s fine." You reply: "You\'re clearly angry."',
       better: '"Are you annoyed?"',
-      best: '"I might be misreading this — is it actually fine, or does something still feel unresolved?"',
+      best: '"I might be misreading this. Is it actually fine, or does something still feel unresolved?"',
     },
     {
-      weak: 'Colleague says "This process is not working." You reply: "You just do not like the new system."',
+      weak: 'Colleague says "This process isn\'t working." You reply: "You just don\'t like the new system."',
       better: '"Is this about the system?"',
       best: '"Before I assume, is the issue the system itself, the handoff, or the decision rights around it?"',
     },
     {
-      weak: 'Partner says "You always do this." You reply: "That is unfair."',
+      weak: 'Partner says "You always do this." You reply: "That\'s unfair."',
       better: '"What do you mean?"',
-      best: '"Let me check before I react — are you saying this is a pattern, or that this moment hit a sore point?"',
+      best: '"Let me check before I react. Are you saying this is a pattern, or that this moment hit a sore point?"',
     },
     {
       weak: 'Client writes "Concerned about the timeline." You reply: "We can still deliver."',
@@ -260,37 +260,37 @@ export const TC064: CardData = {
   scenarios: [
     {
       situation: "A friend sounds short with you",
-      move: "You might be reading irritation into brevity — check the tone without accusing.",
+      move: "You might be reading irritation into brevity: check the tone without accusing.",
       phrase:
-        "I may be misreading the tone — are you annoyed, tired, or just keeping it brief?",
+        "I may be misreading the tone. Are you annoyed, tired, or just keeping it brief?",
     },
     {
       situation: "A team member criticises a plan",
-      move: "The issue could be quality, process, ownership or risk — offer specific options.",
+      move: "The issue could be quality, process, ownership or risk: offer specific options.",
       phrase:
-        "Is the concern the timeline, the owner, or the risk we are carrying?",
+        "Is the concern the timeline, the owner, or the risk we're carrying?",
     },
     {
       situation: 'A partner says "never mind"',
-      move: "It could mean closed, hurt, tired or overwhelmed — check consent and meaning.",
+      move: "It could mean closed, hurt, tired or overwhelmed: check consent and meaning.",
       phrase:
-        "Do you want to leave it there, or is there something I am missing?",
+        "Do you want to leave it there, or is there something I'm missing?",
     },
     {
       situation: "A client flags a concern by email",
-      move: "Digital tone is under-specified — clarify the category before you respond.",
+      move: "Digital tone is under-specified: clarify the category before you respond.",
       phrase:
         "Checking my read: is this a blocker, a risk to monitor, or a preference?",
     },
     {
       situation: "A feedback conversation gets tense",
-      move: "Do not assume defensiveness — check how it landed before you explain.",
+      move: "Do not assume defensiveness: check how it landed before you explain.",
       phrase:
         "Before I explain, did my feedback land as unclear, unfair, or too abrupt?",
     },
     {
       situation: "A coaching conversation",
-      move: "You have a possible pattern but not enough evidence — test it gently.",
+      move: "You have a possible pattern but not enough evidence: test it gently.",
       phrase:
         "Can I test a read? Is the main issue confidence, clarity, or choosing between priorities?",
     },
@@ -305,13 +305,13 @@ export const TC064: CardData = {
       "They sound relieved to be asked rather than told.",
     ],
     adjust: [
-      "They answer only yes or no and close down — widen the question or drop it.",
-      "They seem examined rather than understood — soften and slow down.",
-      'They say "That is not what I mean" with irritation — accept it and stop guessing.',
-      "They ask why you are making it so complicated — switch to plain listening.",
-      "They say they do not want to discuss it — stop and respect that.",
-      "You are repeatedly wrong and they are losing patience — put the reads away.",
-      "The moment actually needs an apology, boundary or decision — act, do not analyse.",
+      "They answer only yes or no and close down: widen the question or drop it.",
+      "They seem examined rather than understood: soften and slow down.",
+      'They say "That\'s not what I mean" with irritation: accept it and stop guessing.',
+      "They ask why you are making it so complicated: switch to plain listening.",
+      "They say they do not want to discuss it: stop and respect that.",
+      "You are repeatedly wrong and they are losing patience: put the reads away.",
+      "The moment actually needs an apology, boundary or decision: act, do not analyse.",
     ],
   },
   drill: [
@@ -323,22 +323,22 @@ export const TC064: CardData = {
     {
       day: "Day 2",
       title: "Write them as claims",
-      task: 'Take five real statements you might hear and write the risky interpretation as a flat claim, e.g. "You are angry because I changed the plan."',
+      task: 'Take five real statements you might hear and write the risky interpretation as a flat claim, e.g. "You\'re angry because I changed the plan."',
     },
     {
       day: "Day 3",
       title: "Convert to checks",
-      task: 'Rewrite each claim as a check: tentative marker + specific read + a "something else" option, e.g. "I may be reading this wrong — is the change the problem, or the lack of notice?"',
+      task: 'Rewrite each claim as a check: tentative marker + specific read + a "something else" option, e.g. "I may be reading this wrong. Is the change the problem, or the lack of notice?"',
     },
     {
       day: "Day 4",
       title: "Add correction power",
-      task: 'Add an easy correction invitation to each check — "tell me if I am off", "or is it something else" — then read them aloud and cut any that sound diagnostic, superior or leading.',
+      task: 'Add an easy correction invitation to each check ("tell me if I\'m off", "or is it something else") then read them aloud and cut any that sound diagnostic, superior or leading.',
     },
     {
       day: "Day 5",
       title: "Rehearse the recovery",
-      task: 'For each check, practise accepting a correction cleanly: "Got it — I will drop that read," with no defence of your first guess.',
+      task: 'For each check, practise accepting a correction cleanly: "Got it. I\'ll drop that read," with no defence of your first guess.',
     },
     {
       day: "Day 6",
@@ -348,7 +348,7 @@ export const TC064: CardData = {
     {
       day: "Day 7",
       title: "Two-option and chain",
-      task: 'Use a two-option check ("Is it more A or B?"), accept the answer, then chain into the right next move — label the feeling, validate the concern, or make a clean request.',
+      task: 'Use a two-option check ("Is it more A or B?"), accept the answer, then chain into the right next move: label the feeling, validate the concern, or make a clean request.',
     },
   ],
   checklist: [
@@ -398,9 +398,9 @@ export const TC064: CardData = {
     headline:
       "If you would not want someone certain about that read of you, do not be certain about it for them.",
     body: 'The safety valve is the phrase "or something else." It keeps your read useful without trapping the other person inside the options you happened to think of.',
-    example: "I may be reading this wrong — is it A, B, or something else?",
-    dont: '"I sense your resistance here is really about control." — diagnostic and intrusive.',
-    do: '"Can I check — is it the workload, the timing, or something I\'ve missed?"',
+    example: "I may be reading this wrong. Is it A, B, or something else?",
+    dont: '"I sense your resistance here is really about control." Diagnostic and intrusive.',
+    do: '"Can I check, is it the workload, the timing, or something I\'ve missed?"',
   },
   method: [
     {
@@ -416,12 +416,12 @@ export const TC064: CardData = {
     {
       step: "3",
       title: "Offer a specific read",
-      body: 'Do not fall back on a vague "What do you mean?" if you already have a hypothesis. Make it testable and small — name one or two plausible reads they can confirm or knock down in a sentence.',
+      body: 'Do not fall back on a vague "What do you mean?" if you already have a hypothesis. Make it testable and small. Name one or two plausible reads they can confirm or knock down in a sentence.',
       examples: [
         { label: "Too vague", text: "Can you say more?" },
         {
           label: "Testable",
-          text: "Is the concern mainly the timeline, or the fact that you were not consulted?",
+          text: "Is the concern mainly the timeline, or the fact that you weren't consulted?",
         },
       ],
     },
@@ -433,12 +433,12 @@ export const TC064: CardData = {
     {
       step: "5",
       title: "Accept the correction cleanly",
-      body: 'If they correct you, take it. Do not explain why your first read was reasonable — that turns a check into a debate. "Got it," then update.',
+      body: 'If they correct you, take it. Do not explain why your first read was reasonable. That turns a check into a debate. "Got it," then update.',
     },
     {
       step: "6",
       title: "Respond to the clarified meaning",
-      body: "Now reflect, validate, ask, advise or decide based on the corrected version, not your first guess. This is where the check pays off — you are responding to what is actually there.",
+      body: "Now reflect, validate, ask, advise or decide based on the corrected version, not your first guess. This is where the check pays off. You are responding to what is actually there.",
       examples: [
         {
           label: "Minimum viable move",
@@ -446,7 +446,7 @@ export const TC064: CardData = {
         },
         {
           label: "Stronger move",
-          text: "I might be reading this wrong. Is the concern mainly the timeline, or the fact that you were not consulted?",
+          text: "I might be reading this wrong. Is the concern mainly the timeline, or the fact that you weren't consulted?",
         },
       ],
     },
@@ -464,7 +464,7 @@ export const TC064: CardData = {
       mistake: "Disguising a conclusion as a question",
       soundsLike: '"Are you just afraid of being wrong?"',
       better:
-        '"Can I check — is part of this about how it\'ll be judged, or something else?"',
+        '"Can I check, is part of this about how it\'ll be judged, or something else?"',
     },
     {
       mistake: "Making the interpretation too big",
@@ -481,12 +481,12 @@ export const TC064: CardData = {
     {
       mistake: "Correcting their correction",
       soundsLike: '"No, I think it\'s actually about..."',
-      better: '"Okay — so it\'s the numbers, not the team. Got it."',
+      better: '"Okay, so it\'s the numbers, not the team. Got it."',
     },
     {
       mistake: "Overusing the move until it feels clinical",
-      soundsLike: "checking the meaning of every ordinary sentence",
-      better: "save it for moments where a wrong read would actually cost you",
+      soundsLike: "Checking the meaning of every ordinary sentence",
+      better: "Save it for moments where a wrong read would actually cost you",
     },
     {
       mistake: "Using a check to dodge accountability",
@@ -496,18 +496,18 @@ export const TC064: CardData = {
     },
     {
       mistake: "Ignoring the answer once they give it",
-      soundsLike: "asking, then responding to your original guess anyway",
-      better: "let their correction change what you say next",
+      soundsLike: "Asking, then responding to your original guess anyway",
+      better: "Let their correction change what you say next",
     },
   ],
   recoveryPhrases: [
-    "Thanks — I was reading that too narrowly.",
+    "Thanks, I was reading that too narrowly.",
     "Got it. I'll drop that interpretation.",
     "I put words in your mouth there. Let me reset.",
-    "That was more analysis than you asked for — what's the useful part to focus on?",
+    "That was more analysis than you asked for. What's the useful part to focus on?",
     "I misunderstood. Say it your way and I'll follow.",
     "I don't want to over-interpret this. What should I take from it?",
-    "You're right — I jumped ahead. Let me listen first.",
+    "You're right, I jumped ahead. Let me listen first.",
     "I treated my guess like evidence. Let me back up.",
   ],
   bestRecoveryLine: "I put words in your mouth there. Let me reset.",
@@ -518,8 +518,8 @@ export const TC064: CardData = {
         "TC033 Minimal encouragers → TC064 Check before interpreting → TC004 Reflective listening",
       example: [
         "Give them room to keep going.",
-        "Check the one read you are unsure about.",
-        "Reflect the meaning back once they have confirmed it.",
+        "Check the one read you're unsure about.",
+        "Reflect the meaning back once they've confirmed it.",
       ],
     },
     {
@@ -528,7 +528,7 @@ export const TC064: CardData = {
         "TC064 Check before interpreting → TC006 Emotional labelling → TC005 Validation without agreement",
       example: [
         "Check which feeling is actually present.",
-        "Name it only once it is confirmed.",
+        "Name it only once it's confirmed.",
         "Validate the feeling without endorsing every premise.",
       ],
     },
@@ -557,32 +557,32 @@ export const TC064: CardData = {
     {
       id: "TC004",
       reason:
-        'Reflective listening. Use TC064 when the meaning is only plausible, not confirmed; use TC004 once you understand the statement well enough to reflect it back. If you\'d have to add "I might be wrong," check first.',
+        'Reflective listening. Use TC064 when the meaning is only plausible, not confirmed. Use TC004 once you understand the statement well enough to reflect it back. If you\'d have to add "I might be wrong," check first.',
     },
     {
       id: "TC006",
       reason:
-        "Emotional labelling. Use TC064 when you're unsure which emotion is present; use TC006 when the feeling is clear and naming it would help. If two emotions could fit, check before you label.",
+        "Emotional labelling. Use TC064 when you're unsure which emotion is present. Use TC006 when the feeling is clear and naming it would help. If two emotions could fit, check before you label.",
     },
     {
       id: "TC005",
       reason:
-        "Validation without agreement. Use TC064 when you can't yet name what needs validating; use TC005 when the concern is clear but you don't share the conclusion. If you can't state the concern in one sentence, check first.",
+        "Validation without agreement. Use TC064 when you can't yet name what needs validating. Use TC005 when the concern is clear but you don't share the conclusion. If you can't state the concern in one sentence, check first.",
     },
     {
       id: "TC014",
       reason:
-        "Validate the concern. Use TC064 when the concern itself is ambiguous; use TC014 when it's clear and just needs acknowledging. If it could be process, outcome, fairness or respect, check before validating.",
+        "Validate the concern. Use TC064 when the concern itself is ambiguous. Use TC014 when it's clear and just needs acknowledging. If it could be process, outcome, fairness or respect, check before validating.",
     },
     {
       id: "TC037",
       reason:
-        "Double-sided reflection. Use TC064 when you're guessing what the two sides are; use TC037 when both sides of the tension are already explicit. Don't invent ambivalence — check first.",
+        "Double-sided reflection. Use TC064 when you're guessing what the two sides are. Use TC037 when both sides of the tension are already explicit. Don't invent ambivalence: check first.",
     },
     {
       id: "TC040",
       reason:
-        "Meaning reflection. Use TC064 when you're tempted to name a deeper meaning on incomplete evidence; use TC040 when the person has already made that meaning visible. If it would surprise them, check before reflecting it.",
+        "Meaning reflection. Use TC064 when you're tempted to name a deeper meaning on incomplete evidence. Use TC040 when the person has already made that meaning visible. If it would surprise them, check before reflecting it.",
     },
   ],
 };

@@ -6,7 +6,7 @@ export const TC021: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC021/TC021_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,12 +56,12 @@ export const TC021: CardData = {
   ],
   id: "TC021",
   whyItWorks:
-    "Autonomy release is the deliberate move of preserving the other person's sense of choice after you make a suggestion, request, recommendation, invitation, or argument. You still make the ask clearly - you simply make it genuinely easy to say no, decide differently, or take time, so influence does not feel like pressure. It works because people become far more willing to cooperate when they never feel punished for a no, and because warmth that comes with a real exit is not experienced as a trap.",
+    "Autonomy release is the deliberate move of preserving the other person's sense of choice after you make a suggestion, request, recommendation, invitation, or argument. You still make the ask clearly. You simply make it genuinely easy to say no, decide differently, or take time, so influence does not feel like pressure. It works because people become far more willing to cooperate when they never feel punished for a no, and because warmth that comes with a real exit is not experienced as a trap.",
   whatItIsNot: [
     "It is not passive vagueness, fake indifference, or a way to avoid being clear.",
     'It is not a manipulative "no pressure" line bolted onto heavy pressure.',
-    "It is not surrendering your view - you can hold a clear preference and still release the choice.",
-    "You still make the ask or recommendation clearly; you simply do not trap the person inside it.",
+    "It is not surrendering your view. You can hold a clear preference and still release the choice.",
+    "You still make the ask or recommendation clearly. You simply do not trap the person inside it.",
   ],
   overview: {
     coreFormula: [
@@ -69,14 +69,14 @@ export const TC021: CardData = {
       "I'd suggest option B because it keeps this simple. But it's your call.",
       "Could you read the one-page version by Thursday? No pressure if the week is already full.",
       "My view is that we should keep it smaller. You might see it differently, though.",
-      "Would you be open to a quick call? Easy no if now is not a good time.",
+      "Would you be open to a quick call? Easy no if now isn't a good time.",
     ],
     minimumViableMove:
-      'Make the ask clearly, then add one genuine freedom line: "No pressure - it\'s completely okay if not."',
+      'Make the ask clearly, then add one genuine freedom line: "No pressure. It\'s completely okay if not."',
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      'It fails when "no pressure" is a cosmetic label bolted onto real pressure - freedom words on the surface while your tone, persistence or hidden consequences still push for the yes.',
+      'It fails when "no pressure" is a cosmetic label bolted onto real pressure: freedom words on the surface while your tone, persistence or hidden consequences still push for the yes.',
     bestFor: [
       "Requests, invitations and favours where you want cooperation without guilt.",
       "Advice or recommendations that might trigger defensiveness.",
@@ -104,7 +104,7 @@ export const TC021: CardData = {
         "It's completely your call.",
         "Feel free to say no.",
         "You might see it differently.",
-        "Take it or leave it - genuinely.",
+        "Take it or leave it. Genuinely.",
         "No issue either way.",
       ],
     },
@@ -115,9 +115,9 @@ export const TC021: CardData = {
       tone: "Professional",
       phrases: [
         "My recommendation would be X, but I'm open to being challenged.",
-        "If that does not fit your priorities, we can adjust.",
-        "A yes/no is fine - no need for a long reply.",
-        "If now is not the right time, we can park it.",
+        "If that doesn't fit your priorities, we can adjust.",
+        "A yes/no is fine. No need for a long reply.",
+        "If now isn't the right time, we can park it.",
         "I think X is the cleaner option, but you own the final call.",
         "I'm offering this as a suggestion, not a mandate.",
       ],
@@ -128,7 +128,7 @@ export const TC021: CardData = {
       tag: "Invitations, chemistry",
       tone: "Warm",
       phrases: [
-        "Come if you feel like it - no pressure.",
+        "Come if you feel like it. No pressure.",
         "Only if it suits you.",
         "If you're not feeling it, all good.",
         "You can absolutely say no.",
@@ -136,7 +136,7 @@ export const TC021: CardData = {
         "I'd like to see you again, but no pressure if you're not feeling it.",
         "If you're keen, great. If not, no awkwardness.",
         "I'm interested, but I'm not trying to corner you.",
-        "You can be direct with me - I'd rather know.",
+        "You can be direct with me. I'd rather know.",
       ],
     },
     {
@@ -149,7 +149,7 @@ export const TC021: CardData = {
         "Would you be open to X? Totally fine if not.",
         "A yes/no reply is enough.",
         "No need to respond today if you're busy.",
-        "If this is not your area, feel free to ignore or redirect me.",
+        "If this isn't your area, feel free to ignore or redirect me.",
       ],
     },
     {
@@ -172,8 +172,8 @@ export const TC021: CardData = {
       tone: "Professional",
       phrases: [
         "I know your time is tight, so a one-line answer is completely fine.",
-        "If this is not worth your attention, no issue.",
-        "I'd value your quick read, but only if it is easy.",
+        "If this isn't worth your attention, no issue.",
+        "I'd value your quick read, but only if it's easy.",
         "Happy to send a shorter version if that helps.",
       ],
     },
@@ -196,7 +196,7 @@ export const TC021: CardData = {
       tone: "Repair",
       phrases: [
         "That sounded more pushy than I meant.",
-        "Let me reset - I'm not trying to pressure you.",
+        "Let me reset. I'm not trying to pressure you.",
         "I realise I said 'no pressure' but kept pushing. That's on me.",
         "You're genuinely free to say no.",
         "I can see that landed like pressure. I'll step back.",
@@ -207,7 +207,7 @@ export const TC021: CardData = {
     {
       condition: "They say yes quickly",
       action: "Accept cleanly, thank them, and stop explaining.",
-      phrase: "Great - thank you. I'll send the short version.",
+      phrase: "Great, thank you. I'll send the short version.",
     },
     {
       condition: "They hesitate",
@@ -244,7 +244,7 @@ export const TC021: CardData = {
     {
       weak: "You should do this. No pressure.",
       better: "I'd suggest this, but it's your call.",
-      best: "My suggestion is X because Y. If that doesn't fit, no issue - we can choose another path.",
+      best: "My suggestion is X because Y. If that doesn't fit, no issue. We can choose another path.",
     },
     {
       weak: "Can you just quickly help me?",
@@ -328,12 +328,12 @@ export const TC021: CardData = {
     {
       day: "Day 1",
       title: "Say the move aloud",
-      task: 'Say the minimum viable move aloud three times until it sounds natural: "No pressure - it\'s completely okay if not."',
+      task: 'Say the minimum viable move aloud three times until it sounds natural: "No pressure. It\'s completely okay if not."',
     },
     {
       day: "Day 2",
       title: "Add one real freedom line",
-      task: "After each low-stakes request or suggestion today, add one genuine autonomy-release line - and mean it.",
+      task: "After each low-stakes request or suggestion today, add one genuine autonomy-release line, and mean it.",
     },
     {
       day: "Day 3",
@@ -343,7 +343,7 @@ export const TC021: CardData = {
     {
       day: "Day 4",
       title: "Accept a no cleanly",
-      task: 'Practise accepting one "no" without explaining, sulking or re-selling - just "All good, thanks for considering it."',
+      task: 'Practise accepting one "no" without explaining, sulking or re-selling, just "All good, thanks for considering it."',
     },
     {
       day: "Day 5",
@@ -374,7 +374,7 @@ export const TC021: CardData = {
       'You: "You really need to come. Everyone else is coming. No pressure though."',
       'Other: "Uh... I\'ll see."',
       'You: "It would be weird if you didn\'t."',
-      'Why it\'s weak: the "no pressure" is cosmetic - the guilt and the group comparison do the real pushing.',
+      'Why it\'s weak: the "no pressure" is cosmetic. The guilt and the group comparison do the real pushing.',
     ],
     with: [
       "You: \"I'd like you to come if you're free. No pressure if it's not your thing.\"",
@@ -382,15 +382,15 @@ export const TC021: CardData = {
       'You: "All good. Decide closer to the day."',
       "You: \"I'd genuinely like you there, but I don't want it to feel like an obligation.\"",
       'Other: "That helps. I\'m a bit overloaded this week."',
-      'You: "Makes sense. Leave it for now - if you end up having energy, great."',
-      "Why it works: the ask stays clear, hesitation isn't punished, and the intention is named - interest without obligation, so a no needs no defence.",
+      'You: "Makes sense. Leave it for now. If you end up having energy, great."',
+      "Why it works: the ask stays clear, hesitation isn't punished, and the intention is named. Interest without obligation, so a no needs no defence.",
     ],
     note: "The advanced version names the relational intention: interest without obligation. The person can say no without having to defend themselves.",
   },
   influencePayoff: {
-    feeling: "I can decide freely here - even a no is safe with this person.",
+    feeling: "I can decide freely here. Even a no is safe with this person.",
     principle:
-      "People cooperate more freely when the choice is genuinely theirs. Pressure buys short-term compliance; real freedom buys trust and repeat willingness.",
+      "People cooperate more freely when the choice is genuinely theirs. Pressure buys short-term compliance. Real freedom buys trust and repeat willingness.",
     gains: [
       "Reduces the feeling of being controlled, cornered or managed.",
       "Makes your request, advice or recommendation easier to receive.",
@@ -401,17 +401,17 @@ export const TC021: CardData = {
     ],
     whyMostFail: [
       'They say "no pressure" but keep selling, so the words and the behaviour contradict each other.',
-      "They release a choice they were never willing to honour - a real no would still cost the person.",
+      "They release a choice they were never willing to honour: a real no would still cost the person.",
       "They go vague instead of clear, so there is no solid ask to release the choice around.",
       "They punish hesitation or refusal with a cooler tone, teaching the person the freedom was fake.",
     ],
   },
   fieldTip: {
     headline: "Autonomy release only works when the freedom is real.",
-    body: "Say it once, mean it, and let your behaviour prove it. Use the technique to clarify, respect and connect - not to pressure, corner or extract.",
+    body: "Say it once, mean it, and let your behaviour prove it. The real test isn't the words. It's how you react when they actually say no.",
     example: "I'd genuinely like your help, but an easy no is completely fine.",
-    dont: 'Bolt "no pressure" onto heavy pressure, or cool off the moment they hesitate.',
-    do: "Make the ask clearly, add one genuine freedom line, then accept whatever answer comes.",
+    dont: 'Don\'t bolt "no pressure" onto heavy pressure, or cool off the moment they hesitate.',
+    do: "Do make the ask clearly, add one genuine freedom line, then accept whatever answer comes.",
   },
   method: [
     {
@@ -442,7 +442,7 @@ export const TC021: CardData = {
       title: "Offer an easy no or alternative",
       body: "If you want the person to feel genuinely free, make refusal, delay or redirection socially safe.",
       examples: [
-        { label: "Phrase", text: "If not, no issue - we can leave it." },
+        { label: "Phrase", text: "If not, no issue. We can leave it." },
       ],
     },
     {
@@ -450,7 +450,7 @@ export const TC021: CardData = {
       title: "Hold congruence after the release",
       body: "Your tone, face, timing and follow-up must match the words. Do not punish a no with coldness.",
       examples: [
-        { label: "Phrase", text: "All good - thanks for considering it." },
+        { label: "Phrase", text: "All good, thanks for considering it." },
       ],
     },
     {
@@ -479,7 +479,7 @@ export const TC021: CardData = {
     {
       depth: "Warm",
       useWhen: "you want cooperation without guilt",
-      phrase: "Only if it suits you - genuinely.",
+      phrase: "Only if it suits you. Genuinely.",
     },
     {
       depth: "Explicit",
@@ -494,8 +494,7 @@ export const TC021: CardData = {
     {
       depth: "Repair",
       useWhen: "you've drifted into pressure",
-      phrase:
-        "I don't want this to feel like pressure - you're free to say no.",
+      phrase: "I don't want this to feel like pressure. You're free to say no.",
     },
   ],
   commonMistakes: [
@@ -508,12 +507,12 @@ export const TC021: CardData = {
       mistake: "Vague autonomy instead of a clear ask",
       soundsLike: "Only if you want, maybe, no worries...",
       better:
-        'Be clear first - "Could you do X by Friday?" - then release the choice.',
+        'Be clear first ("Could you do X by Friday?") then release the choice.',
     },
     {
       mistake: "Punishing the no",
       soundsLike: "Cold tone, withdrawal or guilt after they decline.",
-      better: "All good - thanks for considering it.",
+      better: "All good, thanks for considering it.",
     },
     {
       mistake: "Repeated autonomy releases",
@@ -535,18 +534,18 @@ export const TC021: CardData = {
     "That sounded more pushy than I meant.",
     "I said no pressure, but I realise I kept selling it. I'll step back.",
     "You're genuinely free to say no.",
-    "Let me reset - my view is X, but I'm not trying to corner you.",
+    "Let me reset. My view is X, but I'm not trying to corner you.",
     "All good if the answer is no.",
     "I don't want you managing my reaction. Be honest.",
     "No need to decide now.",
   ],
   bestRecoveryLine:
-    "I can see that landed like pressure. I'll step back - you're genuinely free to say no.",
+    "I can see that landed like pressure. I'll step back. You're genuinely free to say no.",
   chains: [
     {
       label: "Request chain",
       sequence:
-        "Clean request -> small ask -> low-friction ask -> autonomy release -> clean follow-up",
+        "Clean request → small ask → low-friction ask → autonomy release → clean follow-up",
       example: [
         "Could you look at the first page?",
         "A five-minute read is plenty.",
@@ -557,7 +556,7 @@ export const TC021: CardData = {
     {
       label: "Advice chain",
       sequence:
-        "Reflect -> ask permission -> offer one suggestion -> autonomy release -> ask how it lands",
+        "Reflect → ask permission → offer one suggestion → autonomy release → ask how it lands",
       example: [
         "Sounds like a tricky one.",
         "Want my take, or just a sounding board?",
@@ -568,7 +567,7 @@ export const TC021: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate concern -> state your view -> autonomy release -> ask what would make it workable",
+        "Validate concern → state your view → autonomy release → ask what would make it workable",
       example: [
         "I get why this feels off.",
         "My view is we keep it smaller.",
@@ -579,7 +578,7 @@ export const TC021: CardData = {
     {
       label: "Digital chain",
       sequence:
-        "Purpose-first message -> specific ask -> easy reply option -> no-pressure line",
+        "Purpose-first message → specific ask → easy reply option → no-pressure line",
       example: [
         "Quick one about Thursday's draft.",
         "Could you give it a five-minute read?",
@@ -590,7 +589,7 @@ export const TC021: CardData = {
     {
       label: "Dating / social chain",
       sequence:
-        "Warm invitation -> autonomy release -> accept the answer without punishing a no",
+        "Warm invitation → autonomy release → accept the answer without punishing a no",
       example: [
         "I'd like to see you again this week.",
         "If you're not feeling it, no awkwardness.",
@@ -602,22 +601,22 @@ export const TC021: CardData = {
     {
       id: "TC020",
       reason:
-        "Low-friction ask shrinks the size of the request so it is easy to grant; TC021 keeps the request as-is but makes the no genuinely safe. Use TC020 when the ask is too big; use TC021 when the pressure is the problem.",
+        "Low-friction ask shrinks the size of the request so it is easy to grant. TC021 keeps the request as-is but makes the no genuinely safe. Use TC020 when the ask is too big. Use TC021 when the pressure is the problem.",
     },
     {
       id: "TC027",
       reason:
-        "Permission-based advice asks before offering input at all; TC021 releases the choice after you have given a clear suggestion. Use TC027 to open the door; use TC021 to keep it open once you've spoken.",
+        "Permission-based advice asks before offering input at all. TC021 releases the choice after you have given a clear suggestion. Use TC027 to open the door. Use TC021 to keep it open once you've spoken.",
     },
     {
       id: "TC005",
       reason:
-        "Validation without agreement lets you acknowledge a view without endorsing it; TC021 lets you hold your own view while freeing them to disagree. Use TC005 when they need to feel heard; use TC021 when they need to feel unpressured.",
+        "Validation without agreement lets you acknowledge a view without endorsing it. TC021 lets you hold your own view while freeing them to disagree. Use TC005 when they need to feel heard. Use TC021 when they need to feel unpressured.",
     },
     {
       id: "TC014",
       reason:
-        "Validate the concern addresses the worry behind resistance; TC021 hands back the decision. Validate first, then release the choice - or use TC014 alone when the block is fear rather than pressure.",
+        "Validate the concern addresses the worry behind resistance. TC021 hands back the decision. Validate first, then release the choice, or use TC014 alone when the block is fear rather than pressure.",
     },
   ],
 };

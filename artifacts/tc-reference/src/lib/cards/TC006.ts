@@ -6,7 +6,7 @@ export const TC006: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC006/TC006_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -68,12 +68,12 @@ export const TC006: CardData = {
       "Tentative cue + emotion or concern + optional reason, then pause.",
       "It sounds like this felt pretty unfair.",
       "I might be off, but part of this sounds disappointing.",
-      "Not just stressful - more like exhausting?",
+      "Not just stressful. More like exhausting?",
       "There seems to be a fairness piece here.",
       "You sound excited, but also a bit unsure.",
     ],
     minimumViableMove:
-      "Offer one tentative label - 'That sounds [emotion]' or just '[emotion]?' - in a soft tone, then stop talking.",
+      "Offer one tentative label ('That sounds [emotion]' or just '[emotion]?') in a soft tone, then stop talking.",
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
@@ -118,9 +118,9 @@ export const TC006: CardData = {
       phrases: [
         "I might be reading this wrong, but it sounds like...",
         "Part of this seems to be...",
-        "It sounds like there is some...",
+        "It sounds like there's some...",
         "I may be off, but that seems...",
-        "Not angry exactly - more worn down?",
+        "Not angry exactly. More worn down?",
       ],
     },
     {
@@ -171,7 +171,7 @@ export const TC006: CardData = {
       phrases: [
         "It sounds like that felt unfair.",
         "I can hear why that landed badly.",
-        "It sounds like the hard part was not being consulted.",
+        "It sounds like the hard part wasn't being consulted.",
         "There seems to be a respect piece here.",
         "It sounds like this felt dismissive from your side.",
       ],
@@ -183,10 +183,10 @@ export const TC006: CardData = {
       tone: "Warm",
       phrases: [
         "You sound genuinely excited about that.",
-        "That sounds like it mattered more than you are making it sound.",
-        "There is a bit of pride in that, no?",
+        "That sounds like it mattered more than you're making it sound.",
+        "There's a bit of pride in that, no?",
         "That sounds like a good kind of nervous.",
-        "You sound like you are still deciding how you feel about it.",
+        "You sound like you're still deciding how you feel about it.",
       ],
     },
     {
@@ -198,7 +198,7 @@ export const TC006: CardData = {
         "That sounds like a draining day.",
         "Oof, that sounds frustrating.",
         "That sounds exciting but a bit much.",
-        "Sounds like you are over it.",
+        "Sounds like you're over it.",
         "That seems like it landed badly.",
       ],
     },
@@ -218,12 +218,12 @@ export const TC006: CardData = {
     {
       condition: "They correct the label.",
       action: "Accept it cleanly and hand them the word.",
-      phrase: "Fair - what word fits better?",
+      phrase: "Fair. What word fits better?",
     },
     {
       condition: "They go flat or guarded after the label.",
       action: "Drop the label, switch to facts, and give them an exit.",
-      phrase: "No need to get into it if it is not useful.",
+      phrase: "No need to get into it if it's not useful.",
     },
     {
       condition:
@@ -234,8 +234,8 @@ export const TC006: CardData = {
     {
       condition: "You have already labelled once.",
       action:
-        "Do not repeat it mechanically - move to summary, action or an ordinary contribution.",
-      phrase: "Okay - so where do you want to take it from here?",
+        "Do not repeat it mechanically: move to summary, action or an ordinary contribution.",
+      phrase: "Okay, so where do you want to take it from here?",
     },
   ],
   ladder: [
@@ -252,12 +252,12 @@ export const TC006: CardData = {
     {
       weak: "Why are you upset?",
       better: "What part bothered you?",
-      best: "It sounds like the main sting was not feeling consulted. Is that right?",
+      best: "It sounds like the main sting wasn't feeling consulted. Is that right?",
     },
     {
       weak: "Don't worry.",
       better: "That sounds worrying.",
-      best: "That sounds worrying, because there is still a lot you can't predict.",
+      best: "That sounds worrying, because there's still a lot you can't predict.",
     },
   ],
   scenarios: [
@@ -274,9 +274,9 @@ export const TC006: CardData = {
     },
     {
       situation: "Conflict or objection",
-      move: "Add validation and slow the pace; do not weaponise the label.",
+      move: "Add validation and slow the pace. Do not weaponise the label.",
       phrase:
-        "It sounds like that landed as unfair - let's slow down and get to the real issue.",
+        "It sounds like that landed as unfair. Let's slow down and get to the real issue.",
     },
     {
       situation: "Digital message",
@@ -296,7 +296,7 @@ export const TC006: CardData = {
   ],
   calibration: {
     working: [
-      "They say 'Exactly', 'Yes' or 'That's it' - or correct the label and add detail.",
+      "They say 'Exactly', 'Yes' or 'That's it', or correct the label and add detail.",
       "Their tone softens or slows down.",
       "They elaborate on what happened or why it mattered.",
       "They move from blaming to explaining.",
@@ -304,10 +304,10 @@ export const TC006: CardData = {
       "They become more willing to talk about next steps.",
     ],
     adjust: [
-      "They say 'Don't psychoanalyse me' or go guarded - stop labelling and just listen.",
-      "They wave off several labels in a row - ask what word they would use instead.",
-      "They give short, flat answers after the label - switch to facts or next steps.",
-      "You are in public and the label might embarrass them - drop it.",
+      "They say 'Don't psychoanalyse me' or go guarded: stop labelling and just listen.",
+      "They wave off several labels in a row. Ask what word they would use instead.",
+      "They give short, flat answers after the label: switch to facts or next steps.",
+      "You are in public and the label might embarrass them. Drop it.",
       "The feeling is escalating and needs a boundary or action, not more exploration.",
       "You notice you are labelling to steer the conversation rather than understand it.",
       "Go one shade softer on the intensity of the label.",
@@ -318,12 +318,12 @@ export const TC006: CardData = {
     {
       day: "Day 1",
       title: "Spot the signal",
-      task: "In three conversations, just notice one emotional tone sitting under the words - the tone, a repeated word, a change of pace. Do not label it out loud yet; only practise catching it.",
+      task: "In three conversations, just notice one emotional tone sitting under the words: the tone, a repeated word, a change of pace. Do not label it out loud yet. Only practise catching it.",
     },
     {
       day: "Day 2",
       title: "One soft label",
-      task: "Offer a single tentative label once - 'That sounds...', 'It seems like...', or 'Part of this might be...' - then let the conversation carry on. One label, that's all.",
+      task: "Offer a single tentative label once ('That sounds...', 'It seems like...', or 'Part of this might be...') then let the conversation carry on. One label, that's all.",
     },
     {
       day: "Day 3",
@@ -338,7 +338,7 @@ export const TC006: CardData = {
     {
       day: "Day 5",
       title: "Accept the correction",
-      task: "When someone corrects your label, accept it cleanly - 'Fair, what word fits better?' - and use their word from there. Practise being corrected well.",
+      task: "When someone corrects your label, accept it cleanly ('Fair, what word fits better?') and use their word from there. Practise being corrected well.",
     },
     {
       day: "Day 6",
@@ -377,7 +377,7 @@ export const TC006: CardData = {
       "You: So the thing that matters is being consulted early enough to have some control.",
       "Person: Yes. I just want to know what's happening before it happens.",
     ],
-    note: "The poor version labels identity ('you're angry'), argues when corrected, and pushes the person to defend themselves. The strong version offers a soft label, takes the steer when it's nudged, and follows the feeling down to the real issue - being out of the loop - without ever diagnosing.",
+    note: "The poor version labels identity ('you're angry'), argues when corrected, and pushes the person to defend themselves. The strong version offers a soft label, takes the steer when it's nudged, and follows the feeling down to the real issue, being out of the loop, without ever diagnosing.",
   },
   influencePayoff: {
     feeling:
@@ -392,7 +392,7 @@ export const TC006: CardData = {
       "Makes later advice, disagreement, boundary-setting or persuasion easier to receive.",
     ],
     whyMostFail: [
-      "They over-label - piling on interpretation instead of offering one gentle guess.",
+      "They over-label: piling on interpretation instead of offering one gentle guess.",
       "They sound certain, so the label lands as a verdict the person has to argue with.",
       "They diagnose or reach for therapy-speak instead of plain, human words.",
       "They label and then keep talking, never leaving the pause that does the real work.",
@@ -400,9 +400,9 @@ export const TC006: CardData = {
   },
   fieldTip: {
     headline: "Go one shade softer.",
-    body: "Reach for a label a notch gentler than the emotion you think you're seeing, keep it tentative, then stop talking. An under-shot label is easy for someone to nudge upward; an over-shot one just makes them defend themselves instead of opening up.",
+    body: "Reach for a label a notch gentler than the emotion you think you're seeing, keep it tentative, then stop talking. An under-shot label is easy for someone to nudge upward. An over-shot one just makes them defend themselves instead of opening up.",
     example:
-      "'That sounds like it hit harder than you expected' invites them in; 'you must have been devastated' backs them into a corner.",
+      '"That sounds like it hit harder than you expected" invites them in. "You must have been devastated" backs them into a corner.',
     dont: "You must have been devastated.",
     do: "That sounds like it hit harder than you expected.",
   },
@@ -422,7 +422,7 @@ export const TC006: CardData = {
     {
       step: "2",
       title: "Choose a gentle label",
-      body: "Pick a word one shade softer than your first instinct. An under-shot label is easy for them to nudge upward; an over-shot one makes them defend themselves.",
+      body: "Pick a word one shade softer than your first instinct. An under-shot label is easy for them to nudge upward. An over-shot one makes them defend themselves.",
       examples: [
         { label: "Softer", text: "frustrated before furious" },
         { label: "Softer", text: "disappointed before devastated" },
@@ -451,20 +451,20 @@ export const TC006: CardData = {
     {
       step: "5",
       title: "Pause and let them respond",
-      body: "After the label, stop talking. Don't rush into fixing, explaining or reassuring. The silence is what lets them confirm, soften, correct or elaborate - and that's where the trust is built.",
+      body: "After the label, stop talking. Don't rush into fixing, explaining or reassuring. The silence is what lets them confirm, soften, correct or elaborate, and that's where the trust is built.",
     },
     {
       step: "6",
       title: "Follow their correction",
       body: "If they disagree, treat it as useful information, not a miss. Accept it straight away and hand them the pen. Being corrected well often builds more rapport than being right.",
       examples: [
-        { label: "Say", text: "That's helpful - what word would fit better?" },
+        { label: "Say", text: "That's helpful. What word would fit better?" },
       ],
     },
     {
       step: "7",
       title: "Move to meaning or action",
-      body: "Once they feel heard, shift gears: ask what matters most, clarify the real concern, or suggest a next step. Labelling opens the door; it isn't meant to be the whole conversation.",
+      body: "Once they feel heard, shift gears: ask what matters most, clarify the real concern, or suggest a next step. Labelling opens the door. It isn't meant to be the whole conversation.",
     },
   ],
   liveThreadClues: [
@@ -493,7 +493,7 @@ export const TC006: CardData = {
     {
       depth: "Named concern",
       useWhen: "some trust is present",
-      phrase: "It sounds like the sting was not being consulted.",
+      phrase: "It sounds like the sting wasn't being consulted.",
     },
     {
       depth: "Two-sided",
@@ -524,8 +524,8 @@ export const TC006: CardData = {
     },
     {
       mistake: "Arguing when you're corrected",
-      soundsLike: "No, you are angry.",
-      better: "Fair - what word fits better?",
+      soundsLike: "No, you're angry.",
+      better: "Fair. What word fits better?",
     },
     {
       mistake: "Therapy-speak",
@@ -534,7 +534,7 @@ export const TC006: CardData = {
     },
     {
       mistake: "No pause",
-      soundsLike: "That sounds frustrating - so what you should do is...",
+      soundsLike: "That sounds frustrating. So what you should do is...",
       better: "That sounds frustrating. (Then stop, and let them respond.)",
     },
     {
@@ -550,7 +550,7 @@ export const TC006: CardData = {
   ],
   recoveryPhrases: [
     "I may have put the wrong word on it.",
-    "I don't want to psychoanalyse you - what word would fit better?",
+    "I don't want to psychoanalyse you. What word would fit better?",
     "Fair. Let me say that differently.",
     "I might be reading it wrong.",
     "Thanks for correcting me.",
@@ -558,23 +558,23 @@ export const TC006: CardData = {
     "I meant that as curiosity, not a judgement.",
   ],
   bestRecoveryLine:
-    "I may have put the wrong word on it - what word would fit better?",
+    "I may have put the wrong word on it. What word would fit better?",
   chains: [
     {
       label: "Rapport chain",
       sequence:
-        "Label emotion -> pause -> reflect the meaning -> live-thread follow-up -> light self-disclosure",
+        "Label emotion → pause → reflect the meaning → live-thread follow-up → light self-disclosure",
       example: [
         "You: That sounds like it really got under your skin.",
         "Them: Yeah. It's been building for weeks.",
         "You: So it's less this one thing and more the pattern.",
-        "You: I get that - the drip-drip is harder to shake than one big blow-up.",
+        "You: I get that. The drip-drip is harder to shake than one big blow-up.",
       ],
     },
     {
       label: "Conflict chain",
       sequence:
-        "Validate the concern -> label the emotion -> name the shared goal -> ask what would make it workable",
+        "Validate the concern → label the emotion → name the shared goal → ask what would make it workable",
       example: [
         "You: It sounds like that landed as unfair.",
         "Them: It did.",
@@ -585,17 +585,17 @@ export const TC006: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Ask before you tell -> label the concern -> permission-based advice -> values-based framing -> release the decision",
+        "Ask before you tell → label the concern → permission-based advice → values-based framing → release the decision",
       example: [
         "You: Can I offer one angle, or do you want to vent first?",
         "You: Sounds like the worry is being left to carry it alone.",
-        "You: If it helps, here's what I'd try - but it's your call.",
+        "You: If it helps, here's what I'd try, but it's your call.",
       ],
     },
     {
       label: "Good-news chain",
       sequence:
-        "Label the positive emotion -> active-constructive question -> specific appreciation",
+        "Label the positive emotion → active-constructive question → specific appreciation",
       example: [
         "You: You sound genuinely proud of this.",
         "You: What was the part that finally clicked?",
@@ -612,7 +612,7 @@ export const TC006: CardData = {
     {
       id: "TC033",
       reason:
-        "Minimal encouragers are small continuers - a nod, 'go on', 'mm'. Use them instead when the person just needs space to keep talking, not a label placed on the feeling.",
+        "Minimal encouragers are small continuers: a nod, 'go on', 'mm'. Use them instead when the person just needs space to keep talking, not a label placed on the feeling.",
     },
     {
       id: "TC037",
@@ -627,12 +627,12 @@ export const TC006: CardData = {
     {
       id: "TC058",
       reason:
-        "Feeling-plus-need Reflection names the feeling and the unmet need behind it. Use it instead when the emotion is already clear and the useful move is to surface what they actually need.",
+        "Feeling-plus-need reflection names the feeling and the unmet need behind it. Use it instead when the emotion is already clear and the useful move is to surface what they actually need.",
     },
     {
       id: "TC061",
       reason:
-        "Tone Reflection mirrors the vocal or emotional tone rather than a specific emotion word. Use it instead when a feeling is clearly present but still too vague to name cleanly.",
+        "Tone reflection mirrors the vocal or emotional tone rather than a specific emotion word. Use it instead when a feeling is clearly present but still too vague to name cleanly.",
     },
   ],
 };
