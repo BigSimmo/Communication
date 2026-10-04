@@ -72,7 +72,7 @@ export function PdfViewerModal({
               className="text-[13px] font-semibold"
               style={{ color: "var(--fg-70)" }}
             >
-              {cardId} — Reference PDF
+              {cardId}: reference PDF
               {isPlaceholder && (
                 <span
                   className="ml-2 text-[11px] font-normal"
@@ -141,7 +141,7 @@ export function PdfViewerModal({
                 className="text-[13px] leading-relaxed max-w-[300px]"
                 style={{ color: "var(--fg-55)" }}
               >
-                Your browser blocked the document — this can happen on mobile or
+                Your browser blocked the document. This can happen on mobile or
                 when third-party content is restricted.
               </p>
             </div>

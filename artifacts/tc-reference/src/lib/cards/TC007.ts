@@ -6,7 +6,7 @@ export const TC007: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC007/TC007_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -60,7 +60,7 @@ export const TC007: CardData = {
   whatItIsNot: [
     "It is not never sharing your own experiences.",
     "It is not being passive, bland, or falsely humble.",
-    "It is not silent withholding — the goal is generous timing, not going quiet.",
+    "It is not silent withholding: the goal is generous timing, not going quiet.",
     "It is about timing: let their moment land before adding yours.",
   ],
   overview: {
@@ -75,11 +75,11 @@ export const TC007: CardData = {
     impact: "Low",
     difficulty: "Medium",
     misuse:
-      "The move fails when you suppress all contribution and go flat, or when your later contribution still competes — turning their story into a doorway to your own.",
+      "The move fails when you suppress all contribution and go flat, or when your later contribution still competes: turning their story into a doorway to your own.",
     bestFor: [
       "When someone shares a win, achievement, compliment, or proud moment.",
       "When someone shares hardship, stress, embarrassment, vulnerability, or frustration.",
-      'When you feel a strong impulse to say "me too", "same", "that\'s nothing", or "when I…".',
+      'When you feel a strong impulse to say "me too", "same", "that\'s nothing", or "when I...".',
       "Networking, dating, friendships, workplace rapport, group conversations, and leadership.",
       "Any situation where likability depends on making the other person feel interesting, not overshadowed.",
     ],
@@ -89,7 +89,7 @@ export const TC007: CardData = {
     "The conversation has clearly become mutual story-swapping and both people are enjoying the rhythm.",
     "Your related story is genuinely useful, brief, and you can return the focus quickly.",
     "A direct answer is needed more than rapport-building.",
-    "You are withholding so much that the conversation becomes an interview — the goal is generous timing, not silence.",
+    "You are withholding so much that the conversation becomes an interview: the goal is generous timing, not silence.",
   ],
   phraseBank: [
     {
@@ -185,7 +185,7 @@ export const TC007: CardData = {
       tone: "Quick",
       phrases: [
         "That's a big deal. What happened after?",
-        "I'm not going to make this about my similar story — tell me the full version.",
+        "I'm not going to make this about my similar story. Tell me the full version.",
         "That sounds like it took more than people would realise.",
         "What was the best part of that?",
         "I can relate, but I want to understand your version first.",
@@ -198,7 +198,7 @@ export const TC007: CardData = {
       tag: "After you have hijacked the thread",
       tone: "Repair",
       phrases: [
-        "I just made that about me. Sorry — go back.",
+        "I just made that about me. Sorry, go back.",
         "That came out as a one-up. Not what I meant.",
         "I jumped in too fast. What I should have asked is...",
         "Let me rewind. Your point was the important one.",
@@ -223,12 +223,12 @@ export const TC007: CardData = {
     {
       condition: "They ask if it happened to you",
       action: "Answer briefly, then hand it straight back to them.",
-      phrase: "A bit, but yours sounds different — what was it like for you?",
+      phrase: "A bit, but yours sounds different. What was it like for you?",
     },
     {
       condition: "You have already one-upped",
       action: "Name it lightly and repair, without over-apologising.",
-      phrase: "I just made that about me. Sorry — go back.",
+      phrase: "I just made that about me. Sorry, go back.",
     },
     {
       condition: "Group story-sharing starts",
@@ -238,7 +238,7 @@ export const TC007: CardData = {
     {
       condition: "They go flat after your story",
       action: "Cut it short, reflect, and ask about them again.",
-      phrase: "Anyway, yours is the point — what happened after?",
+      phrase: "Anyway, yours is the point. What happened after?",
     },
   ],
   ladder: [
@@ -276,13 +276,13 @@ export const TC007: CardData = {
     },
     {
       situation: "Conflict or objection",
-      move: "Add validation and reduce speed; do not weaponise the technique.",
+      move: "Add validation and reduce speed. Do not weaponise the technique.",
       phrase: "I want to understand your version before I add mine.",
     },
     {
       situation: "Digital message",
       move: "Use one sentence. Avoid long explanations or stacked questions.",
-      phrase: "That's a big deal — what was the best part?",
+      phrase: "That's a big deal. What was the best part?",
     },
     {
       situation: "Shy or guarded person",
@@ -302,7 +302,7 @@ export const TC007: CardData = {
       "They share the emotional or meaningful layer, not just the facts.",
       "They ask about your story later, once they feel heard.",
       "Other people in the group stay engaged rather than competing.",
-      'They land on "exactly" — you named the part nobody else saw.',
+      'They say "exactly" because you named the part nobody else saw.',
     ],
     adjust: [
       "You have been talking longer than they did about their own story.",
@@ -310,14 +310,14 @@ export const TC007: CardData = {
       "You start comparing intensity, success, suffering, or expertise.",
       "You are using their story mainly as a doorway to yours.",
       "You sense the conversation has become a subtle status contest.",
-      'You notice yourself opening with "Same" or "When I…".',
+      'You notice yourself opening with "Same" or "When I...".',
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the impulse",
-      task: 'For a whole day, silently notice every time you want to say "same", "me too", "that\'s nothing", or "when I…". Just count them; change nothing yet.',
+      task: 'For a whole day, silently notice every time you want to say "same", "me too", "that\'s nothing", or "when I...". Just count them. Change nothing yet.',
     },
     {
       day: "Day 2",
@@ -332,7 +332,7 @@ export const TC007: CardData = {
     {
       day: "Day 4",
       title: "Win practice",
-      task: "Find someone sharing good news and centre their win — ask what part took the most work — without mentioning any win of your own.",
+      task: "Find someone sharing good news and centre their win, ask what part took the most work, without mentioning any win of your own.",
     },
     {
       day: "Day 5",
@@ -342,7 +342,7 @@ export const TC007: CardData = {
     {
       day: "Day 6",
       title: "Group amplify",
-      task: "In a group, credit or amplify one person's point before you add your own: \"That point matters — I'd add…\".",
+      task: "In a group, credit or amplify one person's point before you add your own: \"That point matters. I'd add...\".",
     },
     {
       day: "Day 7",
@@ -388,7 +388,7 @@ export const TC007: CardData = {
       "Makes them feel understood rather than competed with.",
       "Shows social intelligence without sounding scripted.",
     ],
-    note: 'The "better" reply already wins by centring their moment; the advanced reply simply goes one layer deeper and names the effort nobody else saw.',
+    note: 'The "better" reply already wins by centring their moment. The advanced reply simply goes one layer deeper and names the effort nobody else saw.',
   },
   influencePayoff: {
     feeling: '"They let my moment be mine instead of turning it into theirs."',
@@ -396,14 +396,14 @@ export const TC007: CardData = {
       "People become more receptive to you once they sense you are not competing with them.",
     gains: [
       "Makes people feel respected rather than outshone.",
-      "Signals security — you do not need to prove you have the better story.",
+      "Signals security: you do not need to prove you have the better story.",
       "Creates warmth, because the other person's experience gets room to breathe.",
       "Builds trust, because you do not use their disclosure as a springboard for self-display.",
       "Reads as charisma: socially generous, composed, and easy to talk to.",
       "Improves influence, because people open up more once they feel you are on their side.",
     ],
     whyMostFail: [
-      'They match immediately — "same thing happened to me" — before the moment has landed.',
+      'They match immediately ("same thing happened to me") before the moment has landed.',
       "They rank the experience: bigger, worse, or more impressive.",
       "They ask one polite question, then launch straight into their own story.",
       "They over-correct into silence, so the exchange feels flat or like an interview.",
@@ -411,8 +411,8 @@ export const TC007: CardData = {
   },
   fieldTip: {
     headline: "Relate after they feel heard, not before.",
-    body: 'The urge to say "me too" is not the enemy — the timing is. A related story lands as warmth once the other person feels understood, and as competition when it arrives too soon. Let their moment finish first, then bridge briefly and hand it straight back.',
-    dont: '"Same — when I did that, it was even bigger."',
+    body: 'The urge to say "me too" is not the enemy: the timing is. A related story lands as warmth once the other person feels understood, and as competition when it arrives too soon. Let their moment finish first, then bridge briefly and hand it straight back.',
+    dont: '"Same. When I did that, it was even bigger."',
     do: '"That\'s the interesting part. What happened next?" (then, later) "I\'ve had a smaller version of that too."',
   },
   method: [
@@ -424,7 +424,7 @@ export const TC007: CardData = {
         { label: "The impulse", text: '"That happened to me too."' },
         {
           label: "The impulse",
-          text: '"Mine was worse." / "That\'s nothing." / "When I…"',
+          text: '"Mine was worse." / "That\'s nothing." / "When I..."',
         },
         {
           label: "The cue",
@@ -451,10 +451,10 @@ export const TC007: CardData = {
       title: "If you relate, bridge briefly",
       body: "A short bridge keeps you human without taking over. Keep it to one or two sentences, not a full retelling.",
       examples: [
-        { label: "Bridge", text: '"I\'ve had a smaller version of that…"' },
+        { label: "Bridge", text: '"I\'ve had a smaller version of that..."' },
         {
           label: "Bridge",
-          text: '"That resonates —" then straight back: "what did you do next?"',
+          text: '"That resonates." Then straight back: "What did you do next?"',
         },
       ],
     },
@@ -466,23 +466,23 @@ export const TC007: CardData = {
     {
       step: "6",
       title: "In groups, amplify before adding",
-      body: 'Before adding your own point, credit or amplify theirs: "That point about timing matters. I\'d add…". In a group, one-upping is louder and lands harder.',
+      body: 'Before adding your own point, credit or amplify theirs: "That point about timing matters. I\'d add...". In a group, one-upping is louder and lands harder.',
     },
   ],
   liveThreadClues: [
-    '"That happened to me too…"',
+    '"That happened to me too..."',
     '"Mine was worse."',
-    '"That\'s nothing…"',
-    '"When I…"',
+    '"That\'s nothing..."',
+    '"When I..."',
     '"Same."',
-    '"I did that as well…"',
+    '"I did that as well..."',
     "Feeling the urge to top, match, or correct their story.",
   ],
   commonMistakes: [
     {
       mistake: "Immediate matching",
       soundsLike: '"Same thing happened to me."',
-      better: "Acknowledge their story first, then share only if it is useful.",
+      better: "Acknowledge their story first, then share only if it's useful.",
     },
     {
       mistake: "Status escalation",
@@ -491,8 +491,8 @@ export const TC007: CardData = {
     },
     {
       mistake: "Hardship competition",
-      soundsLike: '"That\'s nothing; I went through..."',
-      better: "Do not rank pain. Validate the difficulty.",
+      soundsLike: '"That\'s nothing. I went through..."',
+      better: "Don't rank pain. Validate the difficulty.",
     },
     {
       mistake: "Win hijacking",
@@ -522,7 +522,7 @@ export const TC007: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I just made that about me. Sorry — go back.",
+    "I just made that about me. Sorry, go back.",
     "That came out as a one-up. Not what I meant.",
     "I jumped in too fast. What I should have asked is...",
     "Let me rewind. Your point was the important one.",
@@ -531,7 +531,7 @@ export const TC007: CardData = {
     "That was me trying to relate, but it probably sounded like competing.",
     "I want to hear your version properly.",
   ],
-  bestRecoveryLine: "I just made that about me. Sorry — go back.",
+  bestRecoveryLine: "I just made that about me. Sorry, go back.",
   chains: [
     {
       label: "Rapport chain",
@@ -540,7 +540,7 @@ export const TC007: CardData = {
       example: [
         '"That sounds like it mattered. What made it important?"',
         '"So the recognition landed more than the title."',
-        '"I\'ve had a smaller version of that — anyway, what happened next?"',
+        '"I\'ve had a smaller version of that. Anyway, what happened next?"',
         '"Honestly, that\'s a great result."',
       ],
     },
@@ -582,22 +582,22 @@ export const TC007: CardData = {
     {
       id: "TC002",
       reason:
-        "The parent discipline. TC002 is the broad choice to respond to their news rather than shifting attention to yourself; TC007 is the narrower rule against topping their story with a bigger version of your own.",
+        "The parent discipline. TC002 is the broad choice to respond to their news rather than shifting attention to yourself. TC007 is the narrower rule against topping their story with a bigger version of your own.",
     },
     {
       id: "TC016",
       reason:
-        "Use TC016 when someone shares good news and you want to actively enlarge their moment; TC007 is the restraint that stops you hijacking that moment with your own.",
+        "Use TC016 when someone shares good news and you want to actively enlarge their moment. TC007 is the restraint that stops you hijacking that moment with your own.",
     },
     {
       id: "TC009",
       reason:
-        "TC009 stops you asking a question only to swing it back to yourself; TC007 stops you matching their story with a bigger one. Both resist making the exchange about you.",
+        "TC009 stops you asking a question only to swing it back to yourself. TC007 stops you matching their story with a bigger one. Both resist making the exchange about you.",
     },
     {
       id: "TC018",
       reason:
-        "Reach for TC018 when the generous move is to name what they did well; TC007 is the discipline that keeps that praise from curving back toward yourself.",
+        "Reach for TC018 when the generous move is to name what they did well. TC007 is the discipline that keeps that praise from curving back toward yourself.",
     },
   ],
 };

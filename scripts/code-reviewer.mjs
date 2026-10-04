@@ -113,6 +113,7 @@ for (const file of changedFiles) {
   if (/\.(js|jsx|ts|tsx|css|md|json|html|yml|yaml)$/.test(file)) {
     const check = spawnSync("pnpm", ["exec", "prettier", "--check", file], {
       encoding: "utf8",
+      shell: true,
     });
     if (check.status !== 0) {
       formattingFailures.push(file);

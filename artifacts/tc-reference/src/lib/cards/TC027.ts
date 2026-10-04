@@ -6,7 +6,7 @@ export const TC027: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC027/TC027_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -66,19 +66,19 @@ export const TC027: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Understand -> ask their mode -> ask permission -> give one concise idea -> hand back the choice -> check how it landed.",
+      "Understand → ask their mode → ask permission → give one concise idea → hand back the choice → check how it landed.",
       "That sounds exhausting. Do you want me to just listen, or would it help if I offered one possible way to approach it?",
       "I have one thought, but I don't want to jump into fixing mode. Would it be useful?",
       "Would you like my honest take, or are you mainly wanting to vent right now?",
       "One option, if useful, would be X. But you know the situation better than I do.",
-      "Take this or leave it - I wonder whether the easiest first step is X.",
+      "Take this or leave it. I wonder whether the easiest first step is X.",
     ],
     minimumViableMove:
       "Ask before you advise: 'Would it help if I offered one thought?'",
     impact: "High",
     difficulty: "Easy-Medium",
     misuse:
-      "Giving advice after a token permission check, then pushing when they hesitate or decline. Permission opens a small door; it does not license taking over the room.",
+      "Giving advice after a token permission check, then pushing when they hesitate or decline. Permission opens a small door. It does not license taking over the room.",
     bestFor: [
       "When someone is venting and you are not sure whether they want advice.",
       "When you have a useful view but the relationship matters more than being right.",
@@ -110,7 +110,7 @@ export const TC027: CardData = {
         "Are you wanting ideas, or mainly space to vent?",
         "Can I offer one option, or not helpful right now?",
         "Do you want my take or just a sympathetic ear?",
-        "I have one thought if useful - no need if you're just venting.",
+        "I have one thought if useful. No need if you're just venting.",
         "Would practical ideas help right now?",
         "Happy to just listen, but I can also suggest a next step.",
       ],
@@ -118,7 +118,7 @@ export const TC027: CardData = {
     {
       id: "warm_supportive",
       label: "Warm and supportive",
-      tag: "Warm and supportive phrases",
+      tag: "When they're stressed or upset",
       tone: "Warm",
       phrases: [
         "That sounds like a lot. Would it be useful if I helped you think through options?",
@@ -131,7 +131,7 @@ export const TC027: CardData = {
     {
       id: "professional_leadership",
       label: "Professional / leadership",
-      tag: "Professional / leadership phrases",
+      tag: "Work, projects, one-to-ones",
       tone: "Professional",
       phrases: [
         "Would it be useful if I shared a possible next step?",
@@ -144,7 +144,7 @@ export const TC027: CardData = {
     {
       id: "conflict_resistance",
       label: "Conflict / resistance",
-      tag: "Conflict / resistance phrases",
+      tag: "When they're frustrated with you",
       tone: "High-stakes",
       phrases: [
         "Before I offer a view, I want to make sure I've understood the concern.",
@@ -157,7 +157,7 @@ export const TC027: CardData = {
     {
       id: "high_status_busy",
       label: "High-status / busy person",
-      tag: "High-status / busy person phrases",
+      tag: "Senior and time-poor",
       tone: "Direct",
       phrases: [
         "Would a quick outside read help?",
@@ -170,7 +170,7 @@ export const TC027: CardData = {
     {
       id: "shy_guarded",
       label: "Shy / guarded person",
-      tag: "Shy / guarded person phrases",
+      tag: "Low pressure, easy to decline",
       tone: "Warm",
       phrases: [
         "No pressure, but would it help to hear one possible option?",
@@ -183,7 +183,7 @@ export const TC027: CardData = {
     {
       id: "dating_social",
       label: "Dating / social",
-      tag: "Dating / social phrases",
+      tag: "Friends, light and playful",
       tone: "Quick",
       phrases: [
         "Do you want my sensible answer or my supportive-friend answer?",
@@ -233,12 +233,12 @@ export const TC027: CardData = {
     {
       condition: "They say they already tried that",
       action: "Ask what happened rather than pushing a new solution.",
-      phrase: "Ah - what happened when you tried?",
+      phrase: "Ah. What happened when you tried?",
     },
     {
       condition: "They ask you directly what to do",
       action: "Answer clearly, but keep the decision and the context theirs.",
-      phrase: "If it were me, I'd do X - but you know the full picture.",
+      phrase: "If it were me, I'd do X, but you know the full picture.",
     },
   ],
   ladder: [
@@ -265,37 +265,37 @@ export const TC027: CardData = {
   ],
   scenarios: [
     {
-      situation: "Casual / social - a friend vents about work",
+      situation: "Casual / social: a friend vents about work",
       move: "Offer ideas or company, and let them choose which.",
       phrase:
         "That sounds exhausting. Do you want ideas, or are we just letting this be annoying for a minute?",
     },
     {
-      situation: "Professional - a colleague describes a stuck project",
+      situation: "Professional: a colleague describes a stuck project",
       move: "Check whether they want input or are still mapping it out.",
       phrase:
         "Would it be useful if I suggested a possible next step, or are you still mapping it out?",
     },
     {
-      situation: "Leadership - a team member brings a problem",
+      situation: "Leadership: a team member brings a problem",
       move: "Name the modes on offer and let them pick.",
       phrase:
         "Do you want coaching, a recommendation, or just a sounding board first?",
     },
     {
-      situation: "Conflict - they are frustrated with you",
+      situation: "Conflict: they are frustrated with you",
       move: "Understand the concern before proposing anything.",
       phrase:
         "Before I suggest anything, I want to make sure I've understood. Are you open to one possible way forward?",
     },
     {
-      situation: "Digital / text - a long frustration message",
+      situation: "Digital / text: a long frustration message",
       move: "Offer the choice in one short, warm reply.",
       phrase:
         "That sounds like a lot. Do you want my take, or should I just be on your side for a bit?",
     },
     {
-      situation: "Shy / guarded - they seem uncertain",
+      situation: "Shy / guarded: they seem uncertain",
       move: "Keep it low-pressure and genuinely optional.",
       phrase: "No pressure, but would one possible option help?",
     },
@@ -310,19 +310,19 @@ export const TC027: CardData = {
       "They can disagree with your idea without shutting down, because the choice stays theirs.",
     ],
     adjust: [
-      "They go quiet, clipped or defensive - stop advising and return to reflection.",
-      "They answer 'yeah, but...' to each idea - ask what part, if any, was useful.",
-      "They look overwhelmed - shrink it back to one next step.",
-      "You notice you're on your third suggestion - name that you slipped into fixing mode.",
-      "They seem to be deferring to you - release ownership: 'You know this better than I do.'",
-      "It clearly isn't the moment - offer practical help later instead of now.",
+      "They go quiet, clipped or defensive: stop advising and return to reflection.",
+      "They answer 'yeah, but...' to each idea. Ask what part, if any, was useful.",
+      "They look overwhelmed: shrink it back to one next step.",
+      "You notice you're on your third suggestion. Name that you slipped into fixing mode.",
+      "They seem to be deferring to you. Release ownership: 'You know this better than I do.'",
+      "It clearly isn't the moment: offer practical help later instead of now.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Notice the urge",
-      task: "Through the day, catch three moments where you wanted to give advice. Write down what you nearly said - but don't say it.",
+      task: "Through the day, catch three moments where you wanted to give advice. Write down what you nearly said, but don't say it.",
     },
     {
       day: "Day 2",
@@ -347,12 +347,12 @@ export const TC027: CardData = {
     {
       day: "Day 6",
       title: "Hold a clean 'no'",
-      task: "When someone declines or says 'maybe', respond with real acceptance ('All good, I'll just listen') and hold it - no sliding the advice back in.",
+      task: "When someone declines or says 'maybe', respond with real acceptance ('All good, I'll just listen') and hold it. No sliding the advice back in.",
     },
     {
       day: "Day 7",
       title: "Recover on purpose",
-      task: "Replay a moment where you jumped into fixing, and practise the repair line out loud: 'Let me back up - what would actually be useful from me here?'",
+      task: "Replay a moment where you jumped into fixing, and practise the repair line out loud: 'Let me back up. What would actually be useful from me here?'",
     },
   ],
   checklist: [
@@ -368,7 +368,7 @@ export const TC027: CardData = {
       "You: 'You just need to talk to your manager and set boundaries.'",
       "Person: 'It's not that simple.'",
       "You: 'It actually is. You're overthinking it.'",
-      "Why it is weak:",
+      "Why it's weak:",
       "solves before understanding the problem or the feeling",
       "never checks whether they wanted advice at all",
       "dismisses their pushback instead of getting curious",
@@ -384,6 +384,7 @@ export const TC027: CardData = {
       "checks their mode and lets 'no' be a real answer",
       "gives one concise idea tied to their goal",
       "hands the decision back at the end",
+      "Advanced version:",
       "Person: 'I'm so tired of this situation at work.'",
       "You: 'It sounds like you're exhausted and a bit trapped by it.'",
       "Person: 'Exactly.'",
@@ -391,11 +392,11 @@ export const TC027: CardData = {
       "Person: 'Options, I think.'",
       "You: 'Then I'd separate the emotional part from the tactical part. Emotionally, it makes sense you're fed up. Tactically, the first move might be one small conversation about a single concrete change, not the whole situation.'",
     ],
-    note: "The advanced version reflects first, checks the mode, offers one idea, and keeps the decision with them. The permission is real - a 'no' would have been fine.",
+    note: "The advanced version reflects first, checks the mode, offers one idea, and keeps the decision with them. The permission is real: a 'no' would have been fine.",
   },
   influencePayoff: {
     feeling:
-      "They offered to help without taking over - and I still got to decide.",
+      "They offered to help without taking over, and I still got to decide.",
     principle:
       "People take input more readily when they were asked first and keep the final say.",
     gains: [
@@ -408,15 +409,15 @@ export const TC027: CardData = {
     ],
     whyMostFail: [
       "They ask permission, get a yes, then deliver a long, generic lecture.",
-      "The permission is fake - asked in a tone where 'no' never felt safe.",
+      "The permission is fake: asked in a tone where 'no' never felt safe.",
       "They advise before the person feels understood, so it lands as correction.",
-      "They disguise advice as a question - 'Have you thought about just...?' - instead of owning it.",
+      "They disguise advice as a question ('Have you thought about just...?') instead of owning it.",
     ],
   },
   fieldTip: {
     headline: "One piece, then hand it back.",
     body: "Ask permission, give one useful thing, then return the choice. If your advice needs a second paragraph, it probably needs another permission check.",
-    dont: "'Can I give you some advice?' - followed by ten minutes of it.",
+    dont: "'Can I give you some advice?' followed by ten minutes of it.",
     do: "'One option, if useful, is X. But you know the situation better than I do.'",
   },
   method: [
@@ -445,7 +446,7 @@ export const TC027: CardData = {
     {
       step: "3",
       title: "Ask permission specifically",
-      body: "Don't ask vaguely. Ask to share one thought, one option, or one possible next step - and mean the question, so a 'no' is genuinely fine.",
+      body: "Don't ask vaguely. Ask to share one thought, one option, or one possible next step, and mean the question, so a 'no' is genuinely fine.",
       examples: [
         { label: "Ask", text: "Would it help if I offered one thought?" },
       ],
@@ -453,7 +454,7 @@ export const TC027: CardData = {
     {
       step: "4",
       title: "Keep it compact and tied to their goal",
-      body: "Give the smallest useful piece, and make clear why it fits what they said matters - not what you would personally prefer. One idea beats five. If it needs a second paragraph, ask permission again.",
+      body: "Give the smallest useful piece, and make clear why it fits what they said matters, not what you would personally prefer. One idea beats five. If it needs a second paragraph, ask permission again.",
       examples: [
         {
           label: "Tie to goal",
@@ -468,18 +469,18 @@ export const TC027: CardData = {
       examples: [
         {
           label: "Hand back",
-          text: "Take what's useful and leave the rest - it's your call.",
+          text: "Take what's useful and leave the rest. It's your call.",
         },
       ],
     },
     {
       step: "6",
       title: "Check how it lands",
-      body: "Ask what they make of it. If they resist, get curious rather than pushing harder - resistance usually means the wrong mode, the wrong timing, or too much at once.",
+      body: "Ask what they make of it. If they resist, get curious rather than pushing harder: resistance usually means the wrong mode, the wrong timing, or too much at once.",
       examples: [
         {
           label: "Check fit",
-          text: "What do you make of that - useful, or off?",
+          text: "What do you make of that? Useful, or off?",
         },
       ],
     },
@@ -490,13 +491,13 @@ export const TC027: CardData = {
     "'It's so frustrating.'",
     "'What would you do?'",
     "'I just needed to get that out.'",
-    "'Anyway - sorry for the rant.'",
+    "'Anyway, sorry for the rant.'",
   ],
   depthDial: [
     {
       depth: "Listen",
       useWhen: "They're venting or flooded and need to be heard.",
-      phrase: "I'm here - no fixing, just listening.",
+      phrase: "I'm here. No fixing, just listening.",
     },
     {
       depth: "Think together",
@@ -517,13 +518,13 @@ export const TC027: CardData = {
   commonMistakes: [
     {
       mistake: "Asking permission, then lecturing",
-      soundsLike: "'Can I offer advice?' - followed by ten minutes of it.",
+      soundsLike: "'Can I offer advice?' followed by ten minutes of it.",
       better: "Offer one concise idea, then check how it lands.",
     },
     {
       mistake: "Fake permission",
       soundsLike: "Asking in a tone that makes 'no' feel unsafe.",
-      better: "Make 'no' genuinely acceptable - mean the question.",
+      better: "Make 'no' genuinely acceptable. Mean the question.",
     },
     {
       mistake: "Advice disguised as curiosity",
@@ -572,7 +573,7 @@ export const TC027: CardData = {
     {
       label: "Support chain",
       sequence:
-        "Reflect -> ask permission -> one concise suggestion -> release ownership",
+        "Reflect → ask permission → one concise suggestion → release ownership",
       example: [
         "That sounds exhausting.",
         "Do you want ideas, or just to be heard for a minute?",
@@ -583,7 +584,7 @@ export const TC027: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate the concern -> ask permission -> suggest one workable path -> check the response",
+        "Validate the concern → ask permission → suggest one workable path → check the response",
       example: [
         "I can see why that landed badly.",
         "Are you open to one possible way forward?",
@@ -594,7 +595,7 @@ export const TC027: CardData = {
     {
       label: "Leadership chain",
       sequence:
-        "Summary check -> ask if feedback would help -> offer one recommendation -> agree the next step",
+        "Summary check → ask if feedback would help → offer one recommendation → agree the next step",
       example: [
         "So the blocker is sign-off, not the build.",
         "Want my recommendation, or are you still mapping it?",
@@ -605,7 +606,7 @@ export const TC027: CardData = {
     {
       label: "Friendship chain",
       sequence:
-        "Listen -> validate -> ask comfort-or-advice -> respond in the chosen mode",
+        "Listen → validate → ask comfort-or-advice → respond in the chosen mode",
       example: [
         "That's a lot to carry.",
         "Do you want comfort, or do you want to problem-solve?",
@@ -617,22 +618,22 @@ export const TC027: CardData = {
     {
       id: "TC015",
       reason:
-        "Premature advice restraint is the holding-back move. Reach for TC027 when you do have something useful and want to offer it well; reach for TC015 when the right move is not to advise yet at all.",
+        "Premature advice restraint is the holding-back move. Reach for TC027 when you do have something useful and want to offer it well. Reach for TC015 when the right move is not to advise yet at all.",
     },
     {
       id: "TC021",
       reason:
-        "Autonomy release is the 'it's your call' hand-back. It's the closing beat of TC027; use TC021 on its own whenever a decision simply needs to be visibly left with the other person.",
+        "Autonomy release is the 'it's your call' hand-back. It's the closing beat of TC027. Use TC021 on its own whenever a decision simply needs to be visibly left with the other person.",
     },
     {
       id: "TC034",
       reason:
-        "Two-option questions offer a choice between two clear options. TC027 often uses one to check mode ('listen, or suggest?'); use TC034 wherever a clean binary makes any question easier to answer.",
+        "Two-option questions offer a choice between two clear options. TC027 often uses one to check mode ('listen, or suggest?'). Use TC034 wherever a clean binary makes any question easier to answer.",
     },
     {
       id: "TC020",
       reason:
-        "Low-friction ask shapes a request so it's easy to say yes to. TC027 asks permission to give advice; TC020 lowers the cost of an ask you are making of them.",
+        "Low-friction ask shapes a request so it's easy to say yes to. TC027 asks permission to give advice. TC020 lowers the cost of an ask you are making of them.",
     },
   ],
 };

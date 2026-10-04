@@ -6,7 +6,7 @@ export const TC062: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC062/TC062_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,19 +56,19 @@ export const TC062: CardData = {
   ],
   id: "TC062",
   whyItWorks:
-    "Thread return is the move of cleanly coming back to an earlier open thread after the conversation has drifted, without making the drift wrong or making the other person feel dragged back. When a useful point gets displaced by a tangent, interruption, joke, or necessary side issue, you bridge back to it lightly, name it specifically, and give the person an easy choice to continue or move on. It works because returning to the thread that mattered but got lost signals that you were tracking meaning across the whole conversation, not just reacting to the last sentence - and that continuity earns trust while surfacing the real issue before you act on a shallow version of it.",
+    "Thread return means coming back cleanly to an earlier open thread after the conversation has drifted, without making the drift wrong. You bridge back lightly, name the thread specifically, and give the person an easy choice to continue or move on. It works because it shows you were tracking meaning across the whole conversation, not just the last sentence, and it surfaces the real issue before anyone acts on a shallow version of it.",
   whatItIsNot: [
     'It is not saying "anyway" in a dismissive tone, or yanking the conversation away from what the other person is saying right now.',
     "It is not cross-examination, agenda control, or topic policing.",
     "It is not reopening something the other person has clearly closed.",
-    "It is not the same as repeating the last phrase or broad thread management - the target is one specific earlier thread that got lost.",
-    "It is not a licence to reopen sensitive material out of curiosity; the more sensitive or unequal the situation, the lighter and more optional the return must be.",
+    "It is not the same as repeating the last phrase or broad thread management: the target is one specific earlier thread that got lost.",
+    "It is not a licence to reopen sensitive material out of curiosity. The more sensitive or unequal the situation, the lighter and more optional the return must be.",
   ],
   overview: {
     coreFormula: [
       "Can I come back to the part about timing for a second? What makes that the hard bit?",
       "Before we leave it, you mentioned trust. Is that the main issue here?",
-      "I do not want to lose the thread about your team. What changed there?",
+      "I don't want to lose the thread about your team. What changed there?",
       "Can we return to what you said about feeling boxed in, or would you rather leave that?",
       "One thread I want to pick back up is the budget constraint. Is that still the blocker?",
     ],
@@ -106,7 +106,7 @@ export const TC062: CardData = {
       phrases: [
         "Can I come back to something you said earlier?",
         "Before we leave that, can I pick up one thread?",
-        "I do not want to lose the thread about that.",
+        "I don't want to lose the thread about that.",
         "Can we return to that part for a second?",
         "One earlier point seems important.",
         "There was a thread I want to understand before we move on.",
@@ -122,9 +122,9 @@ export const TC062: CardData = {
       phrases: [
         "Can I come back to the part about timing? What makes that the hard bit?",
         "Before we leave it, you mentioned trust. Is that the main issue here?",
-        "I do not want to lose the thread about your team. What changed there?",
+        "I don't want to lose the thread about your team. What changed there?",
         "One thread I want to pick back up is the budget constraint. Is that still the blocker?",
-        "You sounded mixed about the new job. What is the main thing there?",
+        "You sounded mixed about the new job. What's the main thing there?",
         "Is the main issue the decision itself, or how it was handled?",
         "Can we return to what you said about feeling boxed in, or would you rather leave that?",
       ],
@@ -135,12 +135,12 @@ export const TC062: CardData = {
       tag: "Warm, everyday returns",
       tone: "Warm",
       phrases: [
-        "Wait, I want to come back to the part about the trip - what happened there?",
+        "Wait, I want to come back to the part about the trip. What happened there?",
         "You mentioned that thing with your brother earlier. Is that still on your mind?",
-        "I do not want to steamroll past your new role. How is that actually feeling?",
+        "I don't want to steamroll past your new role. How is that actually feeling?",
         "Can I rewind one second? The bit about the move sounded big.",
         "Can I come back to the project you mentioned? What made that one stand out?",
-        "I did not want to skip the part that sounded like it mattered.",
+        "I didn't want to skip the part that sounded like it mattered.",
       ],
     },
     {
@@ -175,7 +175,7 @@ export const TC062: CardData = {
       tag: "Fast-moving or public settings",
       tone: "High-stakes",
       phrases: [
-        "I know we are moving quickly. One thread we should not lose is this.",
+        "I know we're moving quickly. One thread we shouldn't lose is this.",
         "Before we decide, can we return to the unresolved concern?",
         "I may be wrong, but that earlier point seems decision-relevant.",
         "Can we pause the tangent and finish that thread first?",
@@ -188,12 +188,12 @@ export const TC062: CardData = {
       tag: "Easy to decline",
       tone: "Repair",
       phrases: [
-        "We can leave this if it is not useful, but earlier you mentioned it.",
-        "Only if you want to go there - what happened with that?",
-        "I do not want to pry, but I noticed that thread. Is it worth returning to?",
-        "Happy to move on, but I did not want to ignore that part.",
+        "We can leave this if it's not useful, but earlier you mentioned it.",
+        "Only if you want to go there. What happened with that?",
+        "I don't want to pry, but I noticed that thread. Is it worth returning to?",
+        "Happy to move on, but I didn't want to ignore that part.",
         "We can leave it, but earlier you said things had been weird. Want to say more, or better not now?",
-        "There was something earlier - we can leave it if it is not useful, but is it still part of this?",
+        "There was something earlier. We can leave it if it's not useful, but is it still part of this?",
       ],
     },
   ],
@@ -207,15 +207,15 @@ export const TC062: CardData = {
     {
       condition: "The other person clearly closed it",
       action:
-        "Do not reopen it without a safety, clarity, or consent reason - and then ask permission explicitly.",
-      phrase: "Only if useful, can we come back to that?",
+        "Do not reopen it without a safety, clarity, or consent reason, and then ask permission explicitly.",
+      phrase: "If it's useful, can we come back to that?",
     },
     {
       condition: "The current topic is more urgent or important",
       action:
         "Stay present. Bookmark the earlier thread for later if it still matters.",
       phrase:
-        "One thread we should not lose, when there is room, is that part about X.",
+        "One thread we shouldn't lose, when there's room, is that part about X.",
     },
     {
       condition: "It is safe to return (low sensitivity)",
@@ -227,12 +227,12 @@ export const TC062: CardData = {
       condition: "The thread is sensitive or you hold more power",
       action: "Return softer and fully optional, with an easy way out.",
       phrase:
-        "We can leave it if it is not useful, but earlier you mentioned X.",
+        "We can leave it if it's not useful, but earlier you mentioned X.",
     },
     {
       condition: "They expand after the return",
       action:
-        "Follow with one reflection or summary; if they hesitate, add an opt-out; if they decline, release.",
+        "Follow with one reflection or summary. If they hesitate, add an opt-out. If they decline, release.",
       phrase: "So the real issue was X, not Y.",
     },
   ],
@@ -240,22 +240,22 @@ export const TC062: CardData = {
     {
       weak: '"Anyway, back to what you were saying."',
       better: '"Can I come back to the job thing?"',
-      best: '"Can I come back to the part about the new job for a second? You sounded mixed about it - what is the main thing there?"',
+      best: '"Can I come back to the part about the new job for a second? You sounded mixed about it. What\'s the main thing there?"',
     },
     {
-      weak: '"We are off topic."',
+      weak: '"We\'re off topic."',
       better: '"Let\'s return to the deadline."',
       best: '"The tangent may be useful later. Before we lose it, can we finish the deadline thread and decide the next step?"',
     },
     {
       weak: '"You never answered my question."',
       better: '"Can we go back to what you said about trust?"',
-      best: '"Only if useful, can we return to the trust part? I do not want to push it, but it sounded central."',
+      best: '"Only if useful, can we return to the trust part? I don\'t want to push it, but it sounded central."',
     },
     {
       weak: '"No, don\'t change the subject."',
       better: '"Can we finish the earlier point?"',
-      best: '"I want to stay with one thread so I do not misread you. Is the main issue the decision itself, or how it was handled?"',
+      best: '"I want to stay with one thread so I don\'t misread you. Is the main issue the decision itself, or how it was handled?"',
     },
   ],
   scenarios: [
@@ -275,7 +275,7 @@ export const TC062: CardData = {
       situation: "Conflict conversation",
       move: "They mention feeling dismissed, then start debating facts. Return to the feeling gently.",
       phrase:
-        "Can I return to the dismissed part? I do not want to miss that. What made it land that way?",
+        "Can I return to the dismissed part? I don't want to miss that. What made it land that way?",
     },
     {
       situation: "Sales or discovery",
@@ -301,19 +301,19 @@ export const TC062: CardData = {
       "They give more detail, examples, or context.",
       "They look relieved that the earlier point was remembered.",
       "Their tone warms, slows, or becomes more specific.",
-      'They say "yes, exactly," "that is the thing," or "I was hoping to get back to that."',
+      'They say "yes, exactly," "that\'s the thing," or "I was hoping to get back to that."',
       "The thread clarifies a decision, feeling, constraint, or next step.",
       "They pick the thread up and run with it themselves.",
     ],
     adjust: [
-      "They answer briefly but not negatively - soften and add an opt-out.",
-      "They seem unsure why you returned - say why the thread matters, or let it go.",
-      'Your wording was too formal - loosen it: "only if this is still useful."',
-      "The current topic still has live energy - park the thread and stay present.",
-      "They become tense, guarded, or embarrassed - release the thread immediately.",
-      "They say they do not want to discuss it - drop it and do not explain at length.",
-      "You have returned twice and it is not opening - stop returning.",
-      "The setting makes the topic exposing - move it private or leave it.",
+      "They answer briefly but not negatively: soften and add an opt-out.",
+      "They seem unsure why you returned. Say why the thread matters, or let it go.",
+      'Your wording was too formal: loosen it: "only if this is still useful."',
+      "The current topic still has live energy: park the thread and stay present.",
+      "They become tense, guarded, or embarrassed: release the thread immediately.",
+      "They say they do not want to discuss it. Drop it and do not explain at length.",
+      "You have returned twice and it is not opening: stop returning.",
+      "The setting makes the topic exposing: move it private or leave it.",
     ],
   },
   drill: [
@@ -325,7 +325,7 @@ export const TC062: CardData = {
     {
       day: "Day 2",
       title: "Write the bridges",
-      task: "For six lost threads - timing concern, trust issue, new role, budget constraint, family tension, unclear ownership - write one return bridge each that names the thread without blaming the drift.",
+      task: "For six lost threads (timing concern, trust issue, new role, budget constraint, family tension, unclear ownership) write one return bridge each that names the thread without blaming the drift.",
     },
     {
       day: "Day 3",
@@ -345,12 +345,12 @@ export const TC062: CardData = {
     {
       day: "Day 6",
       title: "Recover a miss",
-      task: 'Role-play or replay a return that misses - the other person says "I do not want to get into that." Recover in one sentence and do not explain further.',
+      task: 'Role-play or replay a return that misses: the other person says "I don\'t want to get into that." Recover in one sentence and do not explain further.',
     },
     {
       day: "Day 7",
       title: "Chain it",
-      task: "In a real conversation, return to a thread and then chain one move onto it - a summary check, a clean request, or a bookmark for later - then review what the return changed.",
+      task: "In a real conversation, return to a thread and then chain one move onto it (a summary check, a clean request, or a bookmark for later) then review what the return changed.",
     },
   ],
   checklist: [
@@ -365,15 +365,15 @@ export const TC062: CardData = {
     without: [
       'A: "I liked the project, but the timeline got weird after the client changed direction. Anyway, the launch went fine."',
       'B: "Wait, go back. What do you mean weird? You skipped that."',
-      'A: "It is not a big deal."',
-      "Why it misses: B sounds like an auditor - the return is abrupt and implies A did something wrong by moving on.",
+      'A: "It\'s not a big deal."',
+      "Why it misses: B sounds like an auditor: the return is abrupt and implies A did something wrong by moving on.",
     ],
     with: [
       'A: "I liked the project, but the timeline got weird after the client changed direction. Anyway, the launch went fine."',
       'B: "The launch piece sounds like it landed. Before we move past it, can I return to the timeline thread for a second?"',
-      'B: "You said it got weird after the client changed direction - was the hard part the changing priorities or the lack of clarity?"',
+      'B: "You said it got weird after the client changed direction. Was the hard part the changing priorities or the lack of clarity?"',
       'A: "The lack of clarity, definitely. Nobody wanted to own the trade-offs."',
-      'B: "So the issue was not the change itself, it was the unowned trade-offs. That seems important for next time."',
+      'B: "So the issue wasn\'t the change itself. It was the unowned trade-offs. That seems important for next time."',
     ],
     note: "B respects the current thread, bridges back without blame, offers a focused choice, then summarises the clarified meaning.",
   },
@@ -383,7 +383,7 @@ export const TC062: CardData = {
       "People notice when you come back to the point that got lost. A clean return signals you were tracking meaning across the conversation, not just reacting to the most recent sentence.",
     gains: [
       "Trust through continuity",
-      "Accuracy - you clarify the real issue before acting on a shallow version",
+      "Accuracy: you clarify the real issue before acting on a shallow version",
       "Fewer buried decisions and unresolved concerns in meetings",
       "The other person feels heard as a coherent person, not a stream of prompts",
       "Calmer conversations, because nothing important quietly disappears",
@@ -400,7 +400,7 @@ export const TC062: CardData = {
     headline: "Return softly, not abruptly.",
     body: "A good return sounds like care for continuity, not correction. Use the field rule: bridge, name, ask, then watch. If the other person does not come back with you, release the thread cleanly.",
     example:
-      "I do not want to lose the thread about the handover - what changed there?",
+      "I don't want to lose the thread about the handover. What changed there?",
     dont: "Anyway, back to what I was saying.",
     do: "Before we leave that, can I come back to the handover for a second?",
   },
@@ -430,13 +430,13 @@ export const TC062: CardData = {
     {
       step: "4",
       title: "Name the thread and offer choice",
-      body: 'Say the exact topic in plain words - "the part about timing," "your concern about trust," "the budget constraint." For sensitive or optional threads, make it easy to decline.',
+      body: 'Say the exact topic in plain words: "the part about timing," "your concern about trust," "the budget constraint." For sensitive or optional threads, make it easy to decline.',
       examples: [
         {
           label: "Specific",
           text: "Can we come back to the risk you named at the start?",
         },
-        { label: "Optional", text: "Only if useful - we can leave it if not." },
+        { label: "Optional", text: "Only if useful. We can leave it if not." },
       ],
     },
     {
@@ -454,7 +454,7 @@ export const TC062: CardData = {
     },
   ],
   liveThreadClues: [
-    '"Anyway..." - they wave off something they just raised',
+    '"Anyway..." They wave off something they just raised',
     '"It\'s not a big deal" said about something that clearly landed',
     '"...but that\'s a whole other thing"',
     '"We can talk about that later"',
@@ -483,9 +483,9 @@ export const TC062: CardData = {
     {
       mistake: "Stacking questions onto the return",
       soundsLike:
-        '"Back to the budget - who owns it, when is it due, and what\'s the number?"',
+        '"Back to the budget. Who owns it, when is it due, and what\'s the number?"',
       better:
-        '"Back to the budget for a second - is it still the main blocker?"',
+        '"Back to the budget for a second. Is it still the main blocker?"',
     },
     {
       mistake: "Reopening something they clearly closed",
@@ -494,33 +494,33 @@ export const TC062: CardData = {
     },
     {
       mistake: "Ignoring what is urgent now",
-      soundsLike: '"Hold on - back to my earlier point first."',
+      soundsLike: '"Hold on, back to my earlier point first."',
       better:
-        "\"Let's finish what you're raising now; I'll come back to my point after.\"",
+        "\"Let's finish what you're raising now. I'll come back to my point after.\"",
     },
     {
       mistake: "Returning to sensitive content in front of others",
       soundsLike:
-        '"So about the thing you were upset about earlier..." - said in the meeting',
+        '"So about the thing you were upset about earlier..." Said in the meeting',
       better: '"Can we pick up the earlier thing one-to-one afterwards?"',
     },
   ],
   recoveryPhrases: [
     "I may have pulled us back too abruptly. We can stay with where you were going.",
     "That might not be the important thread. What feels more relevant?",
-    "I do not want to press that. We can leave it.",
-    "I was trying to make sure I did not miss something, not to put you on the spot.",
+    "I don't want to press that. We can leave it.",
+    "I was trying to make sure I didn't miss something, not to put you on the spot.",
     "I interrupted the flow. Please keep going with the newer point.",
     "I may have made the return sound heavier than I meant.",
-    "Thanks for flagging that. I will drop that thread.",
-    "I heard the boundary. We do not need to return to it.",
+    "Thanks for flagging that. I'll drop that thread.",
+    "I heard the boundary. We don't need to return to it.",
   ],
   bestRecoveryLine:
     "I may have pulled us back too abruptly. We can stay with where you were going.",
   chains: [
     {
       label: "Return then confirm",
-      sequence: "Topic energy tracking -> Thread return -> Summary check",
+      sequence: "Topic energy tracking → Thread return → Summary check",
       example: [
         '"You seemed more specific when you mentioned the handover. Can I come back to that?"',
         '"So the handover gap is the real constraint."',
@@ -528,15 +528,15 @@ export const TC062: CardData = {
     },
     {
       label: "Return then deepen",
-      sequence: "Thread return -> Echo plus question -> Meaning reflection",
+      sequence: "Thread return → Echo plus question → Meaning reflection",
       example: [
-        "\"Can I return to the trust part? You said 'not transparent' - in what way?\"",
-        '"So it is less about the decision and more about being left out of it."',
+        "\"Can I return to the trust part? You said 'not transparent', in what way?\"",
+        '"So it\'s less about the decision and more about being left out of it."',
       ],
     },
     {
       label: "Return then decide",
-      sequence: "Thread return -> Two-option questions -> Clean request",
+      sequence: "Thread return → Two-option questions → Clean request",
       example: [
         '"Can we return to ownership? Is this more a design decision or a resourcing decision?"',
         '"Could you take the resourcing call by Friday?"',
@@ -545,7 +545,7 @@ export const TC062: CardData = {
     {
       label: "Return then repair",
       sequence:
-        "Thread return -> Validation without agreement -> Boundary or repair",
+        "Thread return → Validation without agreement → Boundary or repair",
       example: [
         '"Can we return to the concern about fairness? I can see why that felt uneven."',
         '"I still see the decision differently, but I want to repair the process."',
@@ -556,7 +556,7 @@ export const TC062: CardData = {
     {
       id: "TC038",
       reason:
-        "Conversation threading is broad thread management - tracking and choosing among several live threads. Use TC062 for the specific move of coming back to one thread that got lost.",
+        "Conversation threading is broad thread management: tracking and choosing among several live threads. Use TC062 for the specific move of coming back to one thread that got lost.",
     },
     {
       id: "TC001",

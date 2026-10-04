@@ -6,7 +6,7 @@ export const TC022: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC022/TC022_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC022: CardData = {
   ],
   id: "TC022",
   whyItWorks:
-    "Status generosity means noticing a real strength, effort, judgement, contribution or piece of expertise in someone, then giving them credit or standing in a specific, restrained way that asks for nothing back. It is not lowering yourself so the other person can feel big; it is signalling that you can recognise their value without needing to compete with it. Because you are not fighting for every point of status, people relax around you: it lowers status threat, builds trust, and makes them more receptive, because they no longer feel they have to defend their competence or dignity in your company.",
+    "Status generosity means noticing a real strength, effort, judgement, contribution or piece of expertise in someone, then giving them credit or standing in a specific, restrained way that asks for nothing back. It is not lowering yourself so the other person can feel big. It is signalling that you can recognise their value without needing to compete with it. Because you are not fighting for every point of status, people relax around you: it lowers status threat, builds trust, and makes them more receptive, because they no longer feel they have to defend their competence or dignity in your company.",
   whatItIsNot: [
     "It is not generic praise or exaggerated flattery. Vague or inflated status signals read as false.",
     "It is not making yourself small so the other person can feel big. You give status without lowering your own.",
@@ -68,7 +68,7 @@ export const TC022: CardData = {
     coreFormula: [
       'Behaviour + effect: "You did X, which helped Y."',
       'Judgement + reason: "That was a good call because X."',
-      'Expertise invitation: "You would be the right person to ask about X."',
+      'Expertise invitation: "You\'d be the right person to ask about X."',
       'Credit + specificity: "That idea was yours, and it made the decision clearer."',
       'Constraint empathy: "You handled that with very little time and imperfect information."',
     ],
@@ -121,7 +121,7 @@ export const TC022: CardData = {
         "The way you simplified that made it much easier to act on.",
         "I appreciated how direct you were without making it harsh.",
         "You asked the question everyone was avoiding.",
-        "That was a good example of restraint — you did not overcomplicate it.",
+        "That was a good example of restraint. You didn't overcomplicate it.",
         "You made a messy thing feel manageable.",
       ],
     },
@@ -132,10 +132,10 @@ export const TC022: CardData = {
       tone: "Direct",
       phrases: [
         "What would you look for here?",
-        "You know this area well — what is your read?",
+        "You know this area well. What's your read?",
         "What would you do if you were judging this?",
         "What am I missing from your perspective?",
-        "What is the part you would pay attention to first?",
+        "What's the part you'd pay attention to first?",
       ],
     },
     {
@@ -157,16 +157,16 @@ export const TC022: CardData = {
       tag: "Warmth in friendships and dates",
       tone: "Warm",
       phrases: [
-        "That is very you, in a good way.",
-        "You are good at noticing the practical bit people miss.",
-        "That was a better call than I would have made.",
+        "That's very you, in a good way.",
+        "You're good at noticing the practical bit people miss.",
+        "That was a better call than I'd have made.",
         "I like that you actually thought that through.",
         "You were calmer about that than most people would be.",
         "I like how you think about that.",
-        "That is a good instinct.",
+        "That's a good instinct.",
         "You have good taste with that kind of thing.",
         "That was a quietly confident move.",
-        "You are more observant than you let on.",
+        "You're more observant than you let on.",
       ],
     },
     {
@@ -175,16 +175,16 @@ export const TC022: CardData = {
       tag: "Credit the valid point, then reset",
       tone: "Repair",
       phrases: [
-        "The part I think you are right about is X.",
+        "The part I think you're right about is X.",
         "I should give you credit for raising that concern early.",
         "Even though I see the decision differently, I think your concern about X is fair.",
         "You were protecting something important there.",
-        "That is a valid point, and I do not want to skip past it.",
-        "That sounded more flattering than I meant — I meant the specific point about X.",
+        "That's a valid point, and I don't want to skip past it.",
+        "That sounded more flattering than I meant. I meant the specific point about X.",
         "Let me say that less dramatically: your call on X helped.",
-        "I am not trying to overdo the praise. I just wanted to credit that part.",
+        "I'm not trying to overdo the praise. I just wanted to credit that part.",
         "That came out a bit much. The simple version is: that was useful.",
-        "I do not want that to sound transactional — I genuinely appreciated X.",
+        "I don't want that to sound transactional. I genuinely appreciated X.",
       ],
     },
     {
@@ -193,11 +193,11 @@ export const TC022: CardData = {
       tag: "Credit that works in writing",
       tone: "Professional",
       phrases: [
-        "That was a helpful catch — thanks.",
+        "That was a helpful catch. Thanks.",
         "Your summary made this easier to act on.",
         "Good call on simplifying it.",
-        "Credit where it is due: that was your idea and it helped.",
-        "Appreciate the judgement here — it saved time.",
+        "Credit where it's due: that was your idea and it helped.",
+        "Appreciate the judgement here. It saved time.",
       ],
     },
     {
@@ -206,15 +206,15 @@ export const TC022: CardData = {
       tag: "Give input without fawning",
       tone: "High-stakes",
       phrases: [
-        "That is the part I wanted your judgement on.",
-        "Your read on this would be useful because you have seen more versions of it.",
+        "That's the part I wanted your judgement on.",
+        "Your read on this would be useful because you've seen more versions of it.",
         "I thought your point about X was the deciding factor.",
         "That distinction was helpful.",
         "I can see why people come to you for this.",
         "That was helpful, by the way.",
         "I liked that point you made earlier.",
         "That was a useful way to see it.",
-        "You do not need to make a big thing of it, but that helped.",
+        "You don't need to make a big thing of it, but that helped.",
         "That was a good catch.",
       ],
     },
@@ -222,7 +222,7 @@ export const TC022: CardData = {
   decisionTree: [
     {
       condition: "They accept it warmly",
-      action: "Do not overdo it; continue naturally or ask a follow-up.",
+      action: "Do not overdo it. Continue naturally or ask a follow-up.",
       phrase: "Glad it helped. What would you look at next?",
     },
     {
@@ -232,45 +232,45 @@ export const TC022: CardData = {
     },
     {
       condition: "They seem embarrassed",
-      action: "Drop the public attention; switch to brief, private credit.",
-      phrase: "I will not make a thing of it, but that was a good catch.",
+      action: "Drop the public attention. Switch to brief, private credit.",
+      phrase: "I won't make a thing of it, but that was a good catch.",
     },
     {
       condition: "They seem suspicious of it",
       action: "Remove any hint of strategy.",
-      phrase: "No agenda — just giving credit where it is due.",
+      phrase: "No agenda, just giving credit where it's due.",
     },
     {
       condition: "They start self-deprecating",
-      action: "Do not argue the praise; anchor it to the specific behaviour.",
+      action: "Do not argue the praise. Anchor it to the specific behaviour.",
       phrase: "Maybe, but that specific point was useful.",
     },
     {
       condition: "You will need to make a request later",
       action: "Separate the appreciation from the ask so it is not bait.",
-      phrase: "Separate thing — I will come to the favour later.",
+      phrase: "Separate thing: I'll come to the favour later.",
     },
   ],
   ladder: [
     {
-      weak: '"You are amazing."',
+      weak: '"You\'re amazing."',
       better: '"That was useful."',
       best: '"The way you simplified that made the next step obvious."',
     },
     {
-      weak: '"You are the smartest person here."',
+      weak: '"You\'re the smartest person here."',
       better: '"Good point."',
-      best: '"Your point about timing changed how I am seeing the decision."',
+      best: '"Your point about timing changed how I\'m seeing the decision."',
     },
     {
-      weak: '"Can you help me? You are so good at this."',
+      weak: '"Can you help me? You\'re so good at this."',
       better: '"Could I get your read?"',
       best: '"You have good judgement on this kind of issue. Could I get your read on one specific part?"',
     },
     {
-      weak: '"You are totally right."',
+      weak: '"You\'re totally right."',
       better: '"I see your point."',
-      best: '"The part I think you are right about is the risk of moving too fast."',
+      best: '"The part I think you\'re right about is the risk of moving too fast."',
     },
   ],
   scenarios: [
@@ -278,7 +278,7 @@ export const TC022: CardData = {
       situation: "A colleague spots a risk early",
       move: "Credit the judgement and its effect, not the person in general.",
       phrase:
-        "That was a useful catch — it probably saved us from finding it too late.",
+        "That was a useful catch. It probably saved us from finding it too late.",
     },
     {
       situation: "A quieter team member makes a good point",
@@ -295,7 +295,7 @@ export const TC022: CardData = {
       situation: "Networking with someone whose expertise you value",
       move: "Make them the expert and ask for their read.",
       phrase:
-        "You have seen more versions of this than I have. What would you look for first?",
+        "You've seen more versions of this than I have. What would you look for first?",
     },
     {
       situation: "You want a high-status person's input without fawning",
@@ -305,7 +305,7 @@ export const TC022: CardData = {
     {
       situation: "They send a genuinely useful answer by text",
       move: "Name the effect their help had, briefly.",
-      phrase: "That helped — your summary made the next step clearer.",
+      phrase: "That helped. Your summary made the next step clearer.",
     },
   ],
   calibration: {
@@ -323,8 +323,8 @@ export const TC022: CardData = {
       "The praise sounds bigger than the actual behaviour.",
       "You notice yourself using praise to get something.",
       "Fix: make the praise smaller and more specific.",
-      'Fix: switch from praise to plain credit — "That point helped."',
-      "Fix: move on rather than forcing them to receive it; praise privately if needed.",
+      'Fix: switch from praise to plain credit: "That point helped."',
+      "Fix: move on rather than forcing them to receive it. Praise privately if needed.",
       "Fix: drop any attached request, and respect competence with a question instead of a compliment.",
     ],
   },
@@ -332,7 +332,7 @@ export const TC022: CardData = {
     {
       day: "Day 1",
       title: "Notice the signal",
-      task: "Through the day, silently note every moment someone shows real judgement, effort, restraint or expertise. Say nothing yet — just train your eye for genuine status signals.",
+      task: "Through the day, silently note every moment someone shows real judgement, effort, restraint or expertise. Say nothing yet, just train your eye for genuine status signals.",
     },
     {
       day: "Day 2",
@@ -347,17 +347,17 @@ export const TC022: CardData = {
     {
       day: "Day 4",
       title: "Restraint",
-      task: "Give one precise appreciation and then stop — no speech, no follow-on. Notice the urge to over-explain, and resist it.",
+      task: "Give one precise appreciation and then stop. No speech, no follow-on. Notice the urge to over-explain, and resist it.",
     },
     {
       day: "Day 5",
       title: "Credit in a group",
-      task: "In one group setting, credit someone else by name for a point or contribution — especially a quieter person who might be overlooked.",
+      task: "In one group setting, credit someone else by name for a point or contribution, especially a quieter person who might be overlooked.",
     },
     {
       day: "Day 6",
       title: "Recover a miss",
-      task: 'Deliberately let one bit of praise come out too big, then practise a recovery line: "That came out bigger than I meant — I just meant your call on X helped."',
+      task: 'Deliberately let one bit of praise come out too big, then practise a recovery line: "That came out bigger than I meant. I just meant your call on X helped."',
     },
     {
       day: "Day 7",
@@ -367,7 +367,7 @@ export const TC022: CardData = {
   ],
   checklist: [
     "Did I give status because it was genuinely deserved, or because I wanted to be liked?",
-    "Was it specific — a named behaviour and its effect — rather than vague flattery?",
+    "Was it specific, a named behaviour and its effect, rather than vague flattery?",
     "Was it proportionate to what they actually did?",
     "Did I let the credit stand on its own, without attaching an ask?",
     "Did they seem respected, or managed?",
@@ -376,20 +376,20 @@ export const TC022: CardData = {
   example: {
     without: [
       'Person: "I think the plan is too complicated."',
-      'You: "You are such a genius. Can you fix it?"',
-      'Person: "Uh, I did not mean that."',
-      "Why it is weak:",
+      'You: "You\'re such a genius. Can you fix it?"',
+      'Person: "Uh, I didn\'t mean that."',
+      "Why it's weak:",
       "the praise is inflated and generic, so it feels false",
-      "it is attached instantly to a request, so it reads as bait",
+      "it's attached instantly to a request, so it reads as bait",
       "it leaves the other person uncomfortable rather than respected",
     ],
     with: [
       'Person: "I think the plan is too complicated."',
-      'You: "That is a good catch. The complexity is probably the thing that will slow people down."',
+      'You: "That\'s a good catch. The complexity is probably the thing that will slow people down."',
       'Person: "Exactly."',
       'You: "What would you simplify first?"',
       'Person: "The handover is the weak point."',
-      'You: "I think you are right about the friction — you are usually good at spotting where a plan will actually break in practice. That is the bit to fix first, then."',
+      "You: \"I think you're right about the friction. You're usually good at spotting where a plan will actually break in practice. That's the bit to fix first, then.\"",
       "Why this works:",
       "it credits a specific judgement rather than inflating the person",
       "it turns status into contribution: their read now helps the group",
@@ -414,15 +414,15 @@ export const TC022: CardData = {
     ],
     whyMostFail: [
       "The status is vague or inflated, so it reads as flattery rather than truth.",
-      "It is obviously strategic — the praise arrives just before a request.",
+      "It is obviously strategic: the praise arrives just before a request.",
       "It is needy: you are fishing for approval or to be praised back.",
       "You over-explain it into a self-conscious speech instead of saying it once and moving on.",
     ],
   },
   fieldTip: {
     headline:
-      "Give status like a secure person: specific, honest, brief, and without waiting to be praised back.",
-    body: "Use the move to clarify, respect and connect — not to pressure, corner or extract. The most convincing status generosity is small and exact: one true thing, said once, then you carry on.",
+      "Give status like a secure person: specific, brief, and without waiting for praise back.",
+    body: "The most convincing status generosity is small and exact: one true thing, said once, then you carry on.",
     example: '"Your read on the constraint was the useful part today."',
     dont: "Do not follow the praise with an immediate favour, or explain at length why they are great.",
     do: "Name one specific behaviour and its effect, then move on naturally.",
@@ -486,17 +486,17 @@ export const TC022: CardData = {
   commonMistakes: [
     {
       mistake: "Generic praise",
-      soundsLike: '"You are amazing."',
+      soundsLike: '"You\'re amazing."',
       better: "Name the exact behaviour and its effect.",
     },
     {
       mistake: "Inflated praise",
-      soundsLike: '"You are the only person who understands this."',
+      soundsLike: '"You\'re the only person who understands this."',
       better: "Keep it proportionate to what actually happened.",
     },
     {
       mistake: "Praise before a hidden ask",
-      soundsLike: '"You are so good at this. Can you do it for me?"',
+      soundsLike: '"You\'re so good at this. Can you do it for me?"',
       better: "Separate the appreciation from the request.",
     },
     {
@@ -511,35 +511,35 @@ export const TC022: CardData = {
     },
     {
       mistake: "Complimenting identity too early",
-      soundsLike: '"You are such a rare person."',
+      soundsLike: '"You\'re such a rare person."',
       better: "Credit behaviour, judgement or effort first.",
     },
     {
       mistake: "Over-explaining the praise",
-      soundsLike: "A long speech about why they are great.",
+      soundsLike: "A long speech about why they're great.",
       better: "Say it clearly once, then move on.",
     },
   ],
   recoveryPhrases: [
-    "That sounded more over-the-top than I meant — I just meant your point about X was helpful.",
+    "That sounded more over-the-top than I meant. I just meant your point about X was helpful.",
     "Let me say that more simply: that was a good call.",
-    "I am not trying to flatter you. I genuinely think that specific part helped.",
+    "I'm not trying to flatter you. I genuinely think that specific part helped.",
     "I may have made that sound bigger than intended. The practical thing is: your read on X was useful.",
     "No need to make a big thing of it. I just wanted to give you credit for that.",
-    "I do not want that to sound transactional — I genuinely appreciated X.",
-    "No agenda here. Just crediting where it is due.",
+    "I don't want that to sound transactional. I genuinely appreciated X.",
+    "No agenda here. Just crediting where it's due.",
   ],
   bestRecoveryLine:
-    "No need to make a big thing of it — I just wanted to give you credit for that.",
+    "No need to make a big thing of it. I just wanted to give you credit for that.",
   chains: [
     {
       label: "Rapport chain",
       sequence:
         "Warm opening → status generosity → live-thread follow-up → brief reflection → light self-disclosure",
       example: [
-        '"Good to see you — I still think about that call you made on the launch."',
+        '"Good to see you. I still think about that call you made on the launch."',
         '"What made you push for the earlier date?"',
-        '"Makes sense. I would probably have waited and regretted it."',
+        '"Makes sense. I\'d probably have waited and regretted it."',
       ],
     },
     {
@@ -549,7 +549,7 @@ export const TC022: CardData = {
       example: [
         '"Your read on the constraint was the useful part today."',
         '"What would you look at first if it were your call?"',
-        '"Good — let us start there."',
+        '"Good, let\'s start there."',
       ],
     },
     {
@@ -557,9 +557,9 @@ export const TC022: CardData = {
       sequence:
         "Validate the concern → credit the valid point → disagree with the idea if needed → return to the shared goal",
       example: [
-        '"Your concern about timing is fair, and I do not want to skip past it."',
+        '"Your concern about timing is fair, and I don\'t want to skip past it."',
         '"I still see the risk differently, though."',
-        '"We both want this to actually hold up — so where does that leave us?"',
+        '"We both want this to actually hold up. So where does that leave us?"',
       ],
     },
     {
@@ -567,9 +567,9 @@ export const TC022: CardData = {
       sequence:
         "Contextual opener → make them the expert → specific appreciation → an easy follow-up",
       example: [
-        '"You have seen more versions of this than I have."',
+        '"You\'ve seen more versions of this than I have."',
         '"What would you look for first?"',
-        '"That distinction is genuinely useful — can I come back to you on it?"',
+        '"That distinction is genuinely useful. Can I come back to you on it?"',
       ],
     },
   ],
@@ -577,12 +577,12 @@ export const TC022: CardData = {
     {
       id: "TC018",
       reason:
-        "The closest cousin. Both name something real. Use TC018 when you simply want to appreciate a specific action or quality; use Status generosity when the point is to give the person standing or credit — recognising their competence, not just thanking them.",
+        "The closest cousin. Both name something real. Use TC018 when you simply want to appreciate a specific action or quality. Use Status generosity when the point is to give the person standing or credit: recognising their competence, not just thanking them.",
     },
     {
       id: "TC075",
       reason:
-        "Use TC075 when what deserves recognition is the effort or work someone put in; Status generosity is broader, crediting judgement, expertise or authority, not only effort.",
+        "Use TC075 when what deserves recognition is the effort or work someone put in. Status generosity is broader, crediting judgement, expertise or authority, not only effort.",
     },
     {
       id: "TC063",
@@ -592,17 +592,17 @@ export const TC022: CardData = {
     {
       id: "TC016",
       reason:
-        "Use TC016 to respond warmly and enthusiastically to someone's good news; Status generosity gives credit for something they did well, which is about competence rather than celebrating an event.",
+        "Use TC016 to respond warmly and enthusiastically to someone's good news. Status generosity gives credit for something they did well, which is about competence rather than celebrating an event.",
     },
     {
       id: "TC092",
       reason:
-        "Use TC092 when you need to disagree without denting someone's standing; Status generosity is the positive move of actively giving standing, and the two combine well in conflict.",
+        "Use TC092 when you need to disagree without denting someone's standing. Status generosity is the positive move of actively giving standing, and the two combine well in conflict.",
     },
     {
       id: "TC039",
       reason:
-        "Use TC039 to build rapport by finding shared ground; Status generosity builds rapport instead by recognising the other person's value without competing for it.",
+        "Use TC039 to build rapport by finding shared ground. Status generosity builds rapport instead by recognising the other person's value without competing for it.",
     },
   ],
 };

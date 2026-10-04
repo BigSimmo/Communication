@@ -169,6 +169,26 @@ describe("card content invariants", () => {
     }
   });
 
+  it("keeps say-aloud lines free of em dashes, semicolons and arrows", () => {
+    // Spoken lines should read like real speech: plain punctuation that also
+    // survives copy-paste into any messaging or records system.
+    for (const [id, card] of Object.entries(CARD_DATA)) {
+      const spoken = [
+        ...card.phraseBank.flatMap((g) => g.phrases),
+        ...card.decisionTree.map((d) => d.phrase),
+        ...card.scenarios.map((s) => s.phrase),
+        ...card.ladder.flatMap((l) => [l.weak, l.better, l.best]),
+        ...card.example.with,
+        ...card.example.without,
+        ...(card.recoveryPhrases ?? []),
+        ...(card.bestRecoveryLine ? [card.bestRecoveryLine] : []),
+      ];
+      for (const line of spoken) {
+        expect(line, `${id}: ${line}`).not.toMatch(/[—;→]/);
+      }
+    }
+  });
+
   it("classifies bracketed stage directions as non-speakable", () => {
     expect(isSpeakablePhrase("[Plant feet. Pause. Continue.]")).toBe(false);
     expect(isSpeakablePhrase("What happened next?")).toBe(true);

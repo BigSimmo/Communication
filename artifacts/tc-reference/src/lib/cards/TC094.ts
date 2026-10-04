@@ -6,7 +6,7 @@ export const TC094: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC094/TC094_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC094: CardData = {
   ],
   id: "TC094",
   whyItWorks:
-    "A bounded request asks for one specific thing inside a visible limit — around scope, time, effort, decision range, or an exit condition — so the other person can size up the ask quickly and answer freely. The real move is not politeness; it is making the cost of the request legible before they have to reply. Most people do not resist helping. They resist undefined obligation. When the limit is clear, they can estimate the effort, protect their time, and say yes, no, or 'a smaller version' honestly.",
+    'A bounded request asks for one specific thing inside a visible limit (scope, time, effort, decision range or an exit condition) so the other person can size up the ask quickly and answer freely. The real move is not politeness but making the cost of the request clear before they reply. Most people do not resist helping. They resist undefined obligation, and a clear limit lets them estimate the effort and say yes, no or "a smaller version" honestly.',
   whatItIsNot: [
     'A vague soft ask such as "Could you help with this sometime?"',
     "A pressure tactic disguised as a small ask.",
@@ -69,7 +69,7 @@ export const TC094: CardData = {
       "Could you [specific action] within [scope / time / effort] by [when]? If not, [release or smaller alternative].",
       "Could you review just the final paragraph by noon? No full edit needed.",
       "Could you reply with a yes or no by tomorrow? No explanation needed.",
-      "Could you decide A or B today? We do not need to reopen the whole plan.",
+      "Could you decide A or B today? We don't need to reopen the whole plan.",
       "Could I have ten minutes tonight where you just listen, not solve?",
     ],
     minimumViableMove:
@@ -77,7 +77,7 @@ export const TC094: CardData = {
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "It fails when the boundary is fake — labelling a big job 'quick', shrinking a major request into a false small one, or saying 'no worries if not' while quietly punishing refusal — so the stated limit can no longer be trusted.",
+      "It fails when the boundary is fake (labelling a big job 'quick', shrinking a major request into a false small one, or saying 'no worries if not' while quietly punishing refusal) so the stated limit can no longer be trusted.",
     bestFor: [
       "Asking busy people for help, review, feedback, introductions, logistics, or small action",
       "Digital messages where open-ended asks create delay",
@@ -105,11 +105,11 @@ export const TC094: CardData = {
         "One small ask: can you reply yes or no by tomorrow?",
         "Could you give this ten minutes, not a full review?",
         "Could you scan this for obvious errors only? Two minutes is enough.",
-        "No need for a long reply — just the date that works?",
+        "No need for a long reply, just the date that works?",
         "Could you look at just the first page? A quick yes or no is fine.",
         "Could you pick one of the two options below? If neither works, say 'neither'.",
         "Thirty-second gut check: does this read as clear or confusing?",
-        "Just the headline answer is fine — the detail can wait.",
+        "Just the headline answer is fine: the detail can wait.",
       ],
     },
     {
@@ -121,11 +121,11 @@ export const TC094: CardData = {
         "Could you review just the final paragraph by noon? No full edit needed.",
         "Could you sanity-check the budget line only? A rough reaction is enough.",
         "Could you review the recommendation section and flag anything factually wrong by 3pm? No line edits needed.",
-        "Could you make the call on A versus B today? We do not need to reopen the whole plan.",
-        "Could you send me the one file by Friday? If that timing is tight, tell me what is realistic.",
+        "Could you make the call on A versus B today? We don't need to reopen the whole plan.",
+        "Could you send me the one file by Friday? If that timing is tight, tell me what's realistic.",
         "Could you approve the budget line only? The rest can go through the usual process.",
         "Could you give slides three to five a ten-minute factual check? Wording and design are handled.",
-        "Could you flag blockers only? I do not need a full status update.",
+        "Could you flag blockers only? I don't need a full status update.",
         "Could I get a first reaction to the summary, not a line-by-line edit?",
       ],
     },
@@ -135,12 +135,12 @@ export const TC094: CardData = {
       tag: "Separating what you are and aren't asking for",
       tone: "Direct",
       phrases: [
-        "Could you update the numbers on slides four to six? I will handle wording and design.",
-        "Could you draft the intro only? I will write the rest.",
-        "I am asking you to decide, not to build it — which direction do we take?",
+        "Could you update the numbers on slides four to six? I'll handle wording and design.",
+        "Could you draft the intro only? I'll write the rest.",
+        "I'm asking you to decide, not to build it. Which direction do we take?",
         "Could you own the sign-in table from nine to nine-thirty? Nothing beyond that slot.",
-        "Could you handle just the booking? I will sort the agenda.",
-        "The ask is the one email, not the whole thread — could you send it today?",
+        "Could you handle just the booking? I'll sort the agenda.",
+        "The ask is the one email, not the whole thread. Could you send it today?",
         "Could you introduce me to one person who handles onboarding? Nothing more than the intro.",
       ],
     },
@@ -150,15 +150,15 @@ export const TC094: CardData = {
       tag: "Partner, family, friends, care asks",
       tone: "Warm",
       phrases: [
-        "Could you help with just the dishes tonight? I am not asking you to handle the whole kitchen.",
-        "Could I have ten minutes to talk this through? If you are not in that headspace, we can pause.",
+        "Could you help with just the dishes tonight? I'm not asking you to handle the whole kitchen.",
+        "Could I have ten minutes to talk this through? If you're not in that headspace, we can pause.",
         "Could you listen without fixing for a few minutes?",
         "Could you tell me one thing you need from me this week?",
-        "Could we spend five minutes on the plan tonight? If you are done for the day, tomorrow is fine.",
+        "Could we spend five minutes on the plan tonight? If you're done for the day, tomorrow is fine.",
         "Could I ask for one kind of help: just sit with me for a bit, no advice needed?",
         "Could you take the school run on Thursday only? The other days are covered.",
-        "Ten minutes where you just listen, not solve — would that be okay tonight?",
-        "Could you text me when you land? Nothing else, I just want to know you are safe.",
+        "Ten minutes where you just listen, not solve. Would that be okay tonight?",
+        "Could you text me when you land? Nothing else, I just want to know you're safe.",
       ],
     },
     {
@@ -167,13 +167,13 @@ export const TC094: CardData = {
       tag: "Optional, loaded, or low-power contexts",
       tone: "High-stakes",
       phrases: [
-        "This may well be a no. Could you consider one small part — reviewing the timeline only?",
+        "This may well be a no. Could you consider one small part, reviewing the timeline only?",
         "This is optional. Could you review one paragraph, or should I route it elsewhere?",
-        "I am not asking for a decision now. Could you tell me what information you would need?",
+        "I'm not asking for a decision now. Could you tell me what information you'd need?",
         "Could we spend five minutes deciding the next step, not solving the whole issue?",
-        "If the answer is no, I will respect it. The ask is one introduction, not the whole team.",
-        "No pressure at all — could you look at the one page, or is this a bad week?",
-        "You are well within your rights to pass. The bounded ask is just the sign-off, nothing more.",
+        "If the answer is no, I'll respect it. The ask is one introduction, not the whole team.",
+        "No pressure at all. Could you look at the one page, or is this a bad week?",
+        "You're well within your rights to pass. The bounded ask is just the sign-off, nothing more.",
       ],
     },
     {
@@ -184,12 +184,12 @@ export const TC094: CardData = {
       phrases: [
         "A quick no is completely fine.",
         "No full explanation needed.",
-        "Only if it is genuinely easy.",
-        "If that is too much, what smaller version would work?",
-        "If now is not the time, I can ask later or find another route.",
+        "Only if it's genuinely easy.",
+        "If that's too much, what smaller version would work?",
+        "If now isn't the time, I can ask later or find another route.",
         "If tomorrow is too tight, a no is fine.",
-        "If you are spent, we can leave it here.",
-        "Say the word and I will take it off your plate.",
+        "If you're spent, we can leave it here.",
+        "Say the word and I'll take it off your plate.",
       ],
     },
   ],
@@ -203,13 +203,13 @@ export const TC094: CardData = {
     {
       condition: "Is the request already exact?",
       action: "If not, make a clean, unambiguous ask first, then bound it.",
-      phrase: "Could you send the file — specifically the final version?",
+      phrase: "Could you send the file, specifically the final version?",
     },
     {
       condition: "Could the ask feel open-ended?",
       action:
         "Add a boundary around scope, time, effort, decision range or exit.",
-      phrase: "Just the first page, by Thursday — a quick yes or no is enough.",
+      phrase: "Just the first page, by Thursday: a quick yes or no is enough.",
     },
     {
       condition: "Is it still too large after bounding it?",
@@ -221,33 +221,32 @@ export const TC094: CardData = {
       condition: "Is there pressure, power imbalance or emotional load?",
       action: "Add an autonomy release and check capacity before they answer.",
       phrase:
-        "This is optional — could you look at one paragraph, or should I route it elsewhere?",
+        "This is optional. Could you look at one paragraph, or should I route it elsewhere?",
     },
     {
       condition: "How did they respond?",
       action:
         "Clear yes: confirm the boundary. Hesitation: narrow or offer a smaller version. No: thank them and do not re-argue.",
-      phrase: "Thanks — I will keep the ask to just those three slides.",
+      phrase: "Thanks, I'll keep the ask to just those three slides.",
     },
   ],
   ladder: [
     {
-      weak: '"Can you help me with this?" — the action, effort and time cost are all undefined.',
+      weak: '"Can you help me with this?" The action, effort and time cost are all undefined.',
       better:
-        '"Can you look over this report by Friday?" — task and deadline are clearer, but the depth is still vague.',
-      best: '"Could you review only the two-page summary by Friday and flag factual errors? No wording edit needed." — action, scope, deadline and effort are all explicit.',
+        '"Can you look over this report by Friday?" Task and deadline are clearer, but the depth is still vague.',
+      best: '"Could you review only the two-page summary by Friday and flag factual errors? No wording edit needed." Action, scope, deadline and effort are all explicit.',
     },
     {
-      weak: '"Can we talk later?" — open-ended and potentially heavy.',
+      weak: '"Can we talk later?" Open-ended and potentially heavy.',
       better:
-        '"Can we talk for a bit tonight?" — adds timing, but size and purpose are unclear.',
-      best: '"Could I have ten minutes tonight to talk through one decision? I am not asking you to solve it." — bounded by time, topic and role.',
+        '"Can we talk for a bit tonight?" Adds timing, but size and purpose are unclear.',
+      best: '"Could I have ten minutes tonight to talk through one decision? I\'m not asking you to solve it." Bounded by time, topic and role.',
     },
     {
-      weak: '"Can you do this for me?" — the cost is hidden, so it can trigger resistance.',
-      better:
-        '"Can you handle the slides?" — names the task but not the scope.',
-      best: '"Could you update slides four to six with the new numbers only? I can handle design and wording." — separates requested from non-requested effort.',
+      weak: '"Can you do this for me?" The cost is hidden, so it can trigger resistance.',
+      better: '"Can you handle the slides?" Names the task but not the scope.',
+      best: '"Could you update slides four to six with the new numbers only? I can handle design and wording." Separates requested from non-requested effort.',
     },
   ],
   scenarios: [
@@ -266,7 +265,7 @@ export const TC094: CardData = {
       situation: "Delegating work",
       move: "Bound by deliverable and ownership split.",
       phrase:
-        "Could you update the numbers on slides four to six? I will handle wording and design.",
+        "Could you update the numbers on slides four to six? I'll handle wording and design.",
     },
     {
       situation: "Asking for a reply",
@@ -284,7 +283,7 @@ export const TC094: CardData = {
       situation: "Asking a tired partner",
       move: "Bound by time and give explicit permission to defer.",
       phrase:
-        "Could we spend five minutes on the plan tonight? If you are done for the day, tomorrow is fine.",
+        "Could we spend five minutes on the plan tonight? If you're done for the day, tomorrow is fine.",
     },
   ],
   calibration: {
@@ -297,21 +296,21 @@ export const TC094: CardData = {
       "They commit to the exact slice you named, not more.",
     ],
     adjust: [
-      'They ask "What exactly do you need?" — narrow one more dimension.',
-      "They say they are busy but do not fully decline — offer a smaller version.",
-      "They hesitate after hearing the request — tighten scope, time or effort.",
-      "They agree but sound uncertain — check capacity and reconfirm the limit.",
-      "They look cornered or obligated — release the ask, do not narrow again.",
-      "They say yes with visible resentment — hand the choice back to them.",
-      "They have already said no — thank them and stop; do not re-argue.",
-      "The ask touches safety, consent or a power imbalance — drop the technique and talk openly.",
+      'They ask "What exactly do you need?" Narrow one more dimension.',
+      "They say they are busy but do not fully decline: offer a smaller version.",
+      "They hesitate after hearing the request: tighten scope, time or effort.",
+      "They agree but sound uncertain: check capacity and reconfirm the limit.",
+      "They look cornered or obligated: release the ask, do not narrow again.",
+      "They say yes with visible resentment: hand the choice back to them.",
+      "They have already said no. Thank them and stop. Do not re-argue.",
+      "The ask touches safety, consent or a power imbalance. Drop the technique and talk openly.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "List your asks",
-      task: "Write down five requests you actually made this week at work, home, or online — in the exact words you used.",
+      task: "Write down five requests you actually made this week at work, home, or online: in the exact words you used.",
     },
     {
       day: "Day 2",
@@ -321,7 +320,7 @@ export const TC094: CardData = {
     {
       day: "Day 3",
       title: "Add one boundary",
-      task: "Rewrite each request with a single explicit limit — scope, time, effort, decision range, or deadline — and nothing more.",
+      task: "Rewrite each request with a single explicit limit (scope, time, effort, decision range, or deadline) and nothing more.",
     },
     {
       day: "Day 4",
@@ -357,21 +356,21 @@ export const TC094: CardData = {
       'A: "Can you look at this deck?"',
       'B: "Maybe. What do you need?"',
       'A: "Just whatever you think."',
-      'B: "I am slammed."',
-      "Why it fails: the ask is vague, so B has to defend against a potentially huge hidden task — and declining feels safer than agreeing to the unknown.",
+      'B: "I\'m slammed."',
+      "Why it fails: the ask is vague, so B has to defend against a potentially huge hidden task, and declining feels safer than agreeing to the unknown.",
     ],
     with: [
-      'A: "Could you give slides three to five a ten-minute factual check by tomorrow noon? I do not need wording or design feedback. If tomorrow is too tight, a no is fine."',
+      'A: "Could you give slides three to five a ten-minute factual check by tomorrow noon? I don\'t need wording or design feedback. If tomorrow is too tight, a no is fine."',
       'B: "Yes, I can do a factual check. Send it over."',
-      'A: "Thanks. I will keep the ask to those three slides."',
-      "Why it works: the request names action, scope, effort, deadline and a real way out — then confirms the boundary after B accepts, so nothing quietly expands.",
+      'A: "Thanks. I\'ll keep the ask to those three slides."',
+      "Why it works: the request names action, scope, effort, deadline and a real way out, then confirms the boundary after B accepts, so nothing quietly expands.",
     ],
-    note: 'In a care context the same shape sounds like: "Could I have ten minutes tonight where you just listen and do not try to solve it? If you are too drained, tell me and I will journal first." Action, time, role, and an honest exit — nothing to guess at.',
+    note: "In a care context the same shape sounds like: \"Could I have ten minutes tonight where you just listen and don't try to solve it? If you're too drained, tell me and I'll journal first.\" Action, time, role, and an honest exit: nothing to guess at.",
   },
   influencePayoff: {
-    feeling: '"I can see exactly what is being asked, and saying no is safe."',
+    feeling: '"I can see exactly what\'s being asked, and saying no is safe."',
     principle:
-      "Many people do not resist helping; they resist undefined obligation. A clear limit lets them estimate effort, protect their time, and choose honestly.",
+      "Many people do not resist helping. They resist undefined obligation. A clear limit lets them estimate effort, protect their time, and choose honestly.",
     gains: [
       "Fewer delayed replies",
       "Less defensive hesitation",
@@ -382,7 +381,7 @@ export const TC094: CardData = {
     ],
     whyMostFail: [
       "They leave the ask open-ended, so the other person has to guess the size and braces for the worst.",
-      "They fake the boundary — calling a big task 'quick' — and lose trust the moment it is discovered.",
+      "They fake the boundary, calling a big task 'quick', and lose trust the moment it is discovered.",
       "They stack so many limits that the request becomes confusing.",
       "They keep justifying after the ask, which quietly reintroduces the pressure they just removed.",
     ],
@@ -391,7 +390,7 @@ export const TC094: CardData = {
     headline: "Make the cost visible before you ask for the yes.",
     body: "The most useful boundary is usually the one the other person would otherwise have to guess at. In practice that means adding a single sentence naming what you are not asking for, which turns an undefined obligation into a request someone can answer honestly.",
     example:
-      '"I only need a factual check on the intro — not a wording or design pass."',
+      '"I only need a factual check on the intro, not a wording or design pass."',
     dont: "Could you take a look at this when you get a chance?",
     do: "Could you fact-check just the intro by Friday? Nothing beyond that.",
   },
@@ -399,7 +398,7 @@ export const TC094: CardData = {
     {
       step: "1",
       title: "Name the exact action",
-      body: "Decide what you actually need the person to do — review, decide, listen, introduce, approve — not just the general topic. A topic makes them guess the job; an action tells them exactly what a yes commits to.",
+      body: "Decide what you actually need the person to do (review, decide, listen, introduce, approve) not just the general topic. A topic makes them guess the job. An action tells them exactly what a yes commits to.",
       examples: [
         { label: "Topic (vague)", text: '"Can you have a look at this?"' },
         {
@@ -419,7 +418,7 @@ export const TC094: CardData = {
         },
         {
           label: "Time",
-          text: '"ten minutes", "by Friday", "not tonight if you are tired"',
+          text: '"ten minutes", "by Friday", "not tonight if you\'re tired"',
         },
         {
           label: "Effort",
@@ -428,7 +427,7 @@ export const TC094: CardData = {
         { label: "Decision", text: '"A or B, not a full redesign"' },
         {
           label: "Exit",
-          text: '"no worries if you cannot", "a no is completely fine"',
+          text: '"no worries if you can\'t", "a no is completely fine"',
         },
       ],
     },
@@ -440,7 +439,7 @@ export const TC094: CardData = {
     {
       step: "4",
       title: "Add a release or alternative",
-      body: 'Make it safe to say no, offer less, or redirect. The release only works if it is real — "no worries if not" must be true, or the whole ask reads as pressure with a smile.',
+      body: 'Make it safe to say no, offer less, or redirect. The release only works if it is real: "no worries if not" must be true, or the whole ask reads as pressure with a smile.',
       examples: [
         { label: "Release", text: '"A quick no is completely fine."' },
         {
@@ -457,7 +456,7 @@ export const TC094: CardData = {
     {
       step: "6",
       title: "Calibrate the response",
-      body: "Watch whether they relax, clarify, or hesitate. If they hesitate, narrow one more dimension or withdraw the ask cleanly — never push a bounded request into a command.",
+      body: "Watch whether they relax, clarify, or hesitate. If they hesitate, narrow one more dimension or withdraw the ask cleanly: never push a bounded request into a command.",
     },
   ],
   liveThreadClues: [
@@ -485,7 +484,7 @@ export const TC094: CardData = {
       depth: "Social",
       useWhen: "a friend or partner",
       phrase:
-        "Could you give me ten minutes on this tonight? If you are spent, we can leave it.",
+        "Could you give me ten minutes on this tonight? If you're spent, we can leave it.",
     },
     {
       depth: "High-care",
@@ -497,26 +496,26 @@ export const TC094: CardData = {
   commonMistakes: [
     {
       mistake: "Adding a boundary that is not real",
-      soundsLike: '"This will only take a minute" — when it plainly will not.',
+      soundsLike: '"This will only take a minute", when it plainly won\'t.',
       better: '"This is about a twenty-minute job. Is that doable this week?"',
     },
     {
       mistake: "Stacking too many limits",
       soundsLike:
-        '"Just the intro, only facts, by three, but no rush, unless you would rather do the summary..."',
+        '"Just the intro, only facts, by three, but no rush, unless you\'d rather do the summary..."',
       better:
-        '"Could you fact-check the intro by three? That is the whole ask."',
+        '"Could you fact-check the intro by three? That\'s the whole ask."',
     },
     {
       mistake: "Release language while punishing refusal",
-      soundsLike: '"No worries if not" — then sulking when they decline.',
-      better: '"A no is genuinely fine" — and then meaning it.',
+      soundsLike: '"No worries if not", then sulking when they decline.',
+      better: '"A no is genuinely fine", and then meaning it.',
     },
     {
       mistake: "Shrinking a major request into a fake small ask",
       soundsLike: '"Tiny favour..." for something that will eat their weekend.',
       better:
-        '"This is a big ask, so please say no if it does not work: could you cover the stall on Saturday?"',
+        '"This is a big ask, so please say no if it doesn\'t work: could you cover the stall on Saturday?"',
     },
     {
       mistake: "Making the other person design the boundary",
@@ -532,49 +531,49 @@ export const TC094: CardData = {
     },
     {
       mistake: "Forgetting the requested role",
-      soundsLike: '"Have a look at this" — when you actually want a decision.',
-      better: '"Could you decide yes or no on this? I am not after edits."',
+      soundsLike: '"Have a look at this", when you actually want a decision.',
+      better: '"Could you decide yes or no on this? I\'m not after edits."',
     },
   ],
   recoveryPhrases: [
-    "I made that sound bigger than I meant — the smaller ask is just the first paragraph.",
+    "I made that sound bigger than I meant: the smaller ask is just the first paragraph.",
     "Actually, that may still be too much. Let me take it back and find another route.",
-    "No pressure. I can see this is not a good time.",
-    "I should have named the limit earlier: I am asking for a ten-minute gut check, not a full review.",
-    "If you already know it is a no, that is completely okay.",
-    "I hear the timing does not work. Would a smaller version help, or should I leave it?",
-    "I do not want this to feel like an obligation. Let me reset the ask.",
-    "Thanks for naming the limit. I will adjust the request rather than push.",
+    "No pressure. I can see this isn't a good time.",
+    "I should have named the limit earlier: I'm asking for a ten-minute gut check, not a full review.",
+    "If you already know it's a no, that's completely okay.",
+    "I hear the timing doesn't work. Would a smaller version help, or should I leave it?",
+    "I don't want this to feel like an obligation. Let me reset the ask.",
+    "Thanks for naming the limit. I'll adjust the request rather than push.",
   ],
   bestRecoveryLine:
-    "I hear the timing does not work. Would a smaller version help, or should I leave it?",
+    "I hear the timing doesn't work. Would a smaller version help, or should I leave it?",
   chains: [
     {
-      label: "Clean request -> Bounded request",
+      label: "Clean request → Bounded request",
       sequence: "State the ask clearly, then add the cost boundary.",
       example: [
         '"Could you look over the proposal?"',
-        '"...specifically just the pricing section, by Thursday — no wording notes needed."',
+        '"...specifically just the pricing section, by Thursday. No wording notes needed."',
       ],
     },
     {
-      label: "Bounded request -> Autonomy release",
+      label: "Bounded request → Autonomy release",
       sequence: "Make the ask finite, then make refusal safe.",
       example: [
         '"Could you cover the front desk from nine to ten?"',
-        '"If that slot is hard, genuinely just say so and I will find someone else."',
+        '"If that slot is hard, genuinely just say so and I\'ll find someone else."',
       ],
     },
     {
-      label: "Small ask -> Bounded request",
+      label: "Small ask → Bounded request",
       sequence: "Shrink the action, then define its scope.",
       example: [
         '"Could you glance at one thing for me?"',
-        '"Just the opening paragraph — does the first line land or not?"',
+        '"Just the opening paragraph. Does the first line land or not?"',
       ],
     },
     {
-      label: "Contextual opener -> Bounded request",
+      label: "Contextual opener → Bounded request",
       sequence: "Briefly say why you are asking, then keep the ask bounded.",
       example: [
         '"You know this client better than anyone."',
@@ -586,32 +585,32 @@ export const TC094: CardData = {
     {
       id: "TC013",
       reason:
-        "Clean request makes the action unambiguous; bounded request adds a visible limit around scope, time, effort or exit. If the ask is already clear but still feels large, bound it.",
+        "Clean request makes the action unambiguous. Bounded request adds a visible limit around scope, time, effort or exit. If the ask is already clear but still feels large, bound it.",
     },
     {
       id: "TC019",
       reason:
-        "Small ask genuinely shrinks the step; bounded request keeps the size but makes the limits legible. If the ask itself is too big, shrink it first, then bound it.",
+        "Small ask genuinely shrinks the step. Bounded request keeps the size but makes the limits legible. If the ask itself is too big, shrink it first, then bound it.",
     },
     {
       id: "TC020",
       reason:
-        "Low-friction ask makes the response path easier (fewer clicks, simpler reply); bounded request makes the amount being asked clear. Use low-friction when they may not know what to do, bounded when they may not know how much.",
+        "Low-friction ask makes the response path easier (fewer clicks, simpler reply). Bounded request makes the amount being asked clear. Use low-friction when they may not know what to do, bounded when they may not know how much.",
     },
     {
       id: "TC021",
       reason:
-        "Autonomy release makes refusal safe and preserves choice; bounded request makes the ask finite. The two chain naturally — bound the ask, then release it.",
+        "Autonomy release makes refusal safe and preserves choice. Bounded request makes the ask finite. The two chain naturally: bound the ask, then release it.",
     },
     {
       id: "TC034",
       reason:
-        "Two-option questions cut decision load to two concrete choices; bounded request limits the ask itself. Use two-option when the friction is choosing, bounded when the friction is hidden cost.",
+        "Two-option questions cut decision load to two concrete choices. Bounded request limits the ask itself. Use two-option when the friction is choosing, bounded when the friction is hidden cost.",
     },
     {
       id: "TC095",
       reason:
-        "DEAR MAN is a full assertive framework for higher-stakes requests with rights or repeated boundary issues; bounded request is the compact everyday version. Escalate to DEAR MAN when there is conflict.",
+        "DEAR MAN is a full assertive framework for higher-stakes requests with rights or repeated boundary issues. Bounded request is the compact everyday version. Escalate to DEAR MAN when there is conflict.",
     },
   ],
 };

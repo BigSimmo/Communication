@@ -6,7 +6,7 @@ export const TC070: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC070/TC070_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -58,7 +58,7 @@ export const TC070: CardData = {
   whyItWorks:
     'Careful normalising makes a person\'s reaction feel understandable without making the problem smaller. You link their response to a specific context, pressure, history or need, then separate "understandable" from "acceptable". It works because people think and listen more clearly once they no longer have to defend the legitimacy of their own reaction: showing why a feeling makes sense removes unnecessary shame and isolation while leaving their autonomy, the accuracy of the situation, and the next step fully intact.',
   whatItIsNot: [
-    'It is not minimising: "everyone deals with that" or "do not worry about it" are not careful normalising.',
+    'It is not minimising: "everyone deals with that" or "don\'t worry about it" are not careful normalising.',
     "It is not excusing harmful behaviour, bad process, disrespect, abuse, discrimination or avoidable pressure.",
     "It is not telling someone what they should feel or how quickly they should recover.",
     "It is not diagnosis, therapy language, performance empathy or a way to end the conversation quickly.",
@@ -66,9 +66,9 @@ export const TC070: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Long form: Given [specific context], it makes sense that [reaction] would show up. That does not mean [the problem] is okay; it means your response has a reason. What would help now?",
-      "Short form: context -> reaction -> dignity -> distinction -> next step.",
-      'Pocket formula: "Given X, Y makes sense. That does not make X okay."',
+      "Long form: Given [specific context], it makes sense that [reaction] would show up. That doesn't mean [the problem] is okay. It means your response has a reason. What would help now?",
+      "Short form: context → reaction → dignity → distinction → next step.",
+      'Pocket formula: "Given X, Y makes sense. That doesn\'t make X okay."',
       "Safety line: use it to increase clarity, ease and respect, never to pressure, corner or talk someone out of a reasonable standard.",
     ],
     minimumViableMove:
@@ -76,9 +76,9 @@ export const TC070: CardData = {
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      'It fails, and can even sting, when it slides into dismissal: normalising the problem instead of the reaction, so it lands as "do not make a fuss". Misuse is using normality to quiet someone, lower their standards, make poor treatment seem fine, or skip the practical support or accountability the moment actually needs.',
+      'It fails, and can even sting, when it slides into dismissal: normalising the problem instead of the reaction, so it lands as "don\'t make a fuss". Misuse is using normality to quiet someone, lower their standards, make poor treatment seem fine, or skip the practical support or accountability the moment actually needs.',
     bestFor: [
-      'Someone says or implies "Maybe I am overreacting", "I should be over this", or "Is it weird that I feel this?"',
+      'Someone says or implies "Maybe I\'m overreacting", "I should be over this", or "Is it weird that I feel this?"',
       "Shame, embarrassment, anxiety, self-blame or isolation after a difficult interaction.",
       "Work conversations where pressure, uncertainty or repeated changes have made a strong reaction understandable.",
       "Repair conversations where a person's reaction needs to be acknowledged as reasonable before you discuss next steps.",
@@ -100,11 +100,11 @@ export const TC070: CardData = {
       tone: "Quick",
       phrases: [
         "That makes sense in context.",
-        "You are not wrong for feeling that.",
+        "You're not wrong for feeling that.",
         "That reaction has a reason.",
-        "Given the situation, that is understandable.",
+        "Given the situation, that's understandable.",
         "Makes sense, given everything around it.",
-        "You are not overreacting.",
+        "You're not overreacting.",
         "That one has a reason behind it.",
       ],
     },
@@ -115,10 +115,10 @@ export const TC070: CardData = {
       tone: "Warm",
       phrases: [
         "Given how sudden that was, it makes sense you feel thrown.",
-        "You are not strange for reacting strongly to something that touched that many nerves.",
-        "That reaction has a reason. It does not mean the situation was okay.",
+        "You're not strange for reacting strongly to something that touched that many nerves.",
+        "That reaction has a reason. It doesn't mean the situation was okay.",
         "A lot of people would feel unsettled after that, especially with the history around it.",
-        "Given how much had built up, it makes sense your body reacted. That does not make you weak.",
+        "Given how much had built up, it makes sense your body reacted. That doesn't make you weak.",
         "Given the history around that topic, it makes sense it lands with extra weight.",
       ],
     },
@@ -130,7 +130,7 @@ export const TC070: CardData = {
       phrases: [
         "Given the unclear handoff, it makes sense the team felt exposed.",
         "That concern is understandable in a process where expectations kept changing.",
-        "A strong reaction here is not automatically overreaction; the conditions created real pressure.",
+        "A strong reaction here is not automatically overreaction. The conditions created real pressure.",
         "It makes sense that trust would be dented after repeated scope changes.",
         "Given the repeated changes, it makes sense people are frustrated.",
         "A strong reaction is understandable under that much ambiguity.",
@@ -144,9 +144,9 @@ export const TC070: CardData = {
       phrases: [
         "Given the timing, I can see why that message landed badly.",
         "That read as abrupt, so it makes sense it raised a flag.",
-        'I do not mean "normal" as in fine; I mean your reaction makes sense in context.',
+        'I don\'t mean "normal" as in fine. I mean your reaction makes sense in context.',
         "It makes sense this felt bigger than one message.",
-        "I can see why that message felt abrupt. I do not mean to make that sound small.",
+        "I can see why that message felt abrupt. I don't mean to make that sound small.",
       ],
     },
     {
@@ -155,10 +155,10 @@ export const TC070: CardData = {
       tag: "Separate understandable from acceptable",
       tone: "Direct",
       phrases: [
-        "That does not mean the situation was okay.",
+        "That doesn't mean the situation was okay.",
         "Before we solve it, I want to say the reaction makes sense.",
         "The reaction is data that the process needs clarity.",
-        "Let us separate the frustration from the next fix.",
+        "Let's separate the frustration from the next fix.",
         "We still need to decide what to change, and your reaction still makes sense.",
         "Your response has a reason, and the situation still needs attention.",
       ],
@@ -170,7 +170,7 @@ export const TC070: CardData = {
       tone: "High-stakes",
       phrases: [
         "Given the stakes, it makes sense your body went straight to alert mode.",
-        "That is a human response to pressure, not a character flaw.",
+        "That's a human response to pressure, not a character flaw.",
         "Given the timing and the impact, I can see why this feels serious.",
         "Under that much pressure, a strong reaction is understandable.",
       ],
@@ -181,12 +181,12 @@ export const TC070: CardData = {
       tag: "When it lands wrong",
       tone: "Repair",
       phrases: [
-        "I do not mean to minimise it.",
-        "Normal does not mean acceptable.",
+        "I don't mean to minimise it.",
+        "Normal doesn't mean acceptable.",
         "Let me say that more carefully.",
-        "I am not saying you should just be fine with it.",
-        'I do not mean "normal" as in acceptable. I mean your reaction makes sense.',
-        "I am not trying to shrink what happened.",
+        "I'm not saying you should just be fine with it.",
+        'I don\'t mean "normal" as in acceptable. I mean your reaction makes sense.',
+        "I'm not trying to shrink what happened.",
       ],
     },
   ],
@@ -200,14 +200,14 @@ export const TC070: CardData = {
     {
       condition: "You do not have enough specific context yet.",
       action:
-        "Check before interpreting (TC064) first; do not guess your way into a normaliser.",
+        "Check before interpreting (TC064) first. Do not guess your way into a normaliser.",
       phrase: "Can I check I've got the picture right before I say anything?",
     },
     {
       condition: "Normalising could excuse harm or poor process.",
       action: "Explicitly separate the reaction from the problem.",
       phrase:
-        "Your reaction makes sense - that does not make the behaviour okay.",
+        "Your reaction makes sense. That doesn't make the behaviour okay.",
     },
     {
       condition: "They soften or elaborate.",
@@ -223,27 +223,27 @@ export const TC070: CardData = {
       condition: "They need action now.",
       action:
         "Stop reassuring and move to concrete support, boundary, repair or decision.",
-      phrase: "Okay - let's decide what actually changes.",
+      phrase: "Okay, let's decide what actually changes.",
     },
   ],
   ladder: [
     {
-      weak: '"That is normal." Too generic; it can sound like dismissal or a cue to stop feeling it.',
+      weak: '"That\'s normal." Too generic. It can sound like dismissal or a cue to stop feeling it.',
       better:
         '"A lot of people would feel that way." Warmer, but still broad and not anchored to their situation.',
-      best: '"Given how sudden the change was, it makes sense you feel thrown. That does not make the change okay; it just means your reaction has a reason." Specific, respectful, and careful not to normalise the problem.',
+      best: '"Given how sudden the change was, it makes sense you feel thrown. That doesn\'t make the change okay. It just means your reaction has a reason." Specific, respectful, and careful not to normalise the problem.',
     },
     {
       weak: '"It\'s just how projects go." Normalises the churn itself, so it excuses the process.',
       better:
         '"A lot of teams get frustrated by changes." Kinder, but generic and unanchored.',
-      best: '"Given the repeated scope changes, it makes sense trust took a hit. That does not make the churn acceptable; it means the reaction has a reason." Anchored, and it keeps the problem in view.',
+      best: '"Given the repeated scope changes, it makes sense trust took a hit. That doesn\'t make the churn acceptable. It means the reaction has a reason." Anchored, and it keeps the problem in view.',
     },
   ],
   scenarios: [
     {
       situation: "Friend embarrassed after crying.",
-      move: "Normalise the build-up, not their strength; then ask what support they want.",
+      move: "Normalise the build-up, not their strength. Then ask what support they want.",
       phrase:
         "Given how much had built up, it makes sense your body reacted. That doesn't make you weak.",
     },
@@ -287,12 +287,12 @@ export const TC070: CardData = {
       "They move from justifying the feeling to talking about what to do next.",
     ],
     adjust: [
-      '"I know, but..." - they may need action, not more reassurance.',
-      '"Don\'t minimise it" or "that\'s not the point" - you\'ve normalised the problem, not the reaction; recover.',
-      '"It\'s not normal" - drop the frame and ask what they need.',
-      '"I need something to change" - shift to concrete support, boundary or decision.',
-      "They go quiet or defend harder - you may have moved too fast; check your read before saying more.",
-      "The cue is anger about harm - normalise the reaction briefly, then move toward accountability.",
+      '"I know, but..." They may need action, not more reassurance.',
+      '"Don\'t minimise it" or "that\'s not the point". You\'ve normalised the problem, not the reaction. Recover.',
+      '"It\'s not normal". Drop the frame and ask what they need.',
+      '"I need something to change": shift to concrete support, boundary or decision.',
+      "They go quiet or defend harder. You may have moved too fast. Check your read before saying more.",
+      "The cue is anger about harm: normalise the reaction briefly, then move toward accountability.",
     ],
   },
   drill: [
@@ -345,18 +345,18 @@ export const TC070: CardData = {
       "Them: \"I don't know why I'm so upset about a roster change.\"",
       'You: "That\'s pretty normal."',
       'Them: "Yeah, I guess."',
-      "Why it is weak:",
-      "generic - the line could apply to anyone",
+      "Why it's weak:",
+      "generic, the line could apply to anyone",
       "sounds like a cue to stop feeling it",
       "leaves them more alone, not less",
     ],
     with: [
       "Them: \"I don't know why I'm so upset about a roster change.\"",
       'You: "Given how last-minute it was, it makes sense you feel unsettled."',
-      'Them: "Exactly - I couldn\'t plan around it."',
+      'Them: "Exactly, I couldn\'t plan around it."',
       "Advanced:",
       "Them: \"I don't know why I'm so upset about a roster change.\"",
-      "You: \"Given that this is the third last-minute change, it makes sense this feels bigger than one roster. I'm not saying the change is fine; I'm saying your reaction has a reason.\"",
+      "You: \"Given that this is the third last-minute change, it makes sense this feels bigger than one roster. I'm not saying the change is fine. I'm saying your reaction has a reason.\"",
       'Them: "Yes. It\'s the pattern."',
       "Why this works:",
       "anchors the reaction in specific context",
@@ -368,7 +368,7 @@ export const TC070: CardData = {
   },
   influencePayoff: {
     feeling:
-      "\"My reaction makes sense - I'm not broken, and I'm not overreacting.\"",
+      "\"My reaction makes sense. I'm not broken, and I'm not overreacting.\"",
     principle:
       "People become more receptive and think more clearly once they no longer have to defend the legitimacy of their own reaction.",
     gains: [
@@ -388,9 +388,9 @@ export const TC070: CardData = {
   },
   fieldTip: {
     headline: "Normalise the reaction, not the problem.",
-    body: 'The safest sentence separates the two: the feeling makes sense, and that does not make the situation okay. When in doubt, anchor to a specific detail from what they just told you rather than a generic "that\'s normal" - the detail is what turns reassurance into being understood.',
+    body: 'The safest sentence separates the two: the feeling makes sense, and that does not make the situation okay. When in doubt, anchor to a specific detail from what they just told you rather than a generic "that\'s normal": the detail is what turns reassurance into being understood.',
     example:
-      "Given the context, that reaction makes sense - and it doesn't make the situation okay.",
+      "Given the context, that reaction makes sense, and it doesn't make the situation okay.",
     dont: '"That\'s pretty normal." (generic, and it sounds like a cue to stop feeling it)',
     do: '"Given how last-minute it was, it makes sense you feel unsettled."',
   },
@@ -412,7 +412,7 @@ export const TC070: CardData = {
     {
       step: "3",
       title: "Normalise the reaction, not the problem",
-      body: "Say the response makes sense; do not say the situation is fine. Keep the problem in view even as you take the shame out of the feeling.",
+      body: "Say the response makes sense. Do not say the situation is fine. Keep the problem in view even as you take the shame out of the feeling.",
       examples: [
         {
           label: "Reaction (normalise)",
@@ -432,7 +432,7 @@ export const TC070: CardData = {
     {
       step: "5",
       title: "Preserve autonomy",
-      body: 'Leave room for correction: "tell me if I\'m reading that wrong." If they adjust your read, take it; the point is that they feel seen, not that you were right.',
+      body: 'Leave room for correction: "tell me if I\'m reading that wrong." If they adjust your read, take it. The point is that they feel seen, not that you were right.',
     },
     {
       step: "6",
@@ -467,7 +467,7 @@ export const TC070: CardData = {
     {
       mistake: "Rushing in before you've checked the facts.",
       soundsLike:
-        "\"I'm sure it's understandable\" - before you know what happened.",
+        "\"I'm sure it's understandable\", before you know what happened.",
       better: '"Can I check I\'ve got this right first?" then normalise.',
     },
     {
@@ -486,37 +486,37 @@ export const TC070: CardData = {
       mistake: "Over-interpreting the feeling.",
       soundsLike: '"Of course you\'re traumatised."',
       better:
-        '"That sounds like it hit hard - tell me if I\'m reading it wrong."',
+        '"That sounds like it hit hard. Tell me if I\'m reading it wrong."',
     },
     {
       mistake: "Repeating the move after it's already landed.",
       soundsLike: '"Like I said, it\'s completely understandable..." (again)',
-      better: '"So - what would help now?"',
+      better: '"So. What would help now?"',
     },
   ],
   recoveryPhrases: [
-    'I do not mean "normal" as in acceptable. I mean your reaction makes sense.',
-    "Let me say that more carefully - I'm not trying to shrink what happened.",
+    'I don\'t mean "normal" as in acceptable. I mean your reaction makes sense.',
+    "Let me say that more carefully. I'm not trying to shrink what happened.",
     "You're right, the situation itself isn't okay. I only meant your response has a reason.",
     "I may have moved too quickly into reassurance. What part most needs attention?",
     "I don't want to tell you how to feel. Does that framing fit, or am I off?",
-    "Thanks for correcting me - this would land differently for anyone, and your version matters.",
+    "Thanks for correcting me. This would land differently for anyone, and your version matters.",
     "I didn't mean to make that sound small.",
   ],
   bestRecoveryLine:
-    'I do not mean "normal" as in acceptable - I mean your reaction makes sense in context.',
+    'I don\'t mean "normal" as in acceptable. I mean your reaction makes sense in context.',
   chains: [
     {
       label: "Reflect, then normalise",
-      sequence: "TC004 Reflective listening -> TC070 Careful normalising",
+      sequence: "TC004 Reflective listening → TC070 Careful normalising",
       example: [
         '"So the part that stung was being told last, not the change itself."',
-        '"Given that, it makes sense you feel sidelined - and that doesn\'t make the process okay."',
+        '"Given that, it makes sense you feel sidelined, and that doesn\'t make the process okay."',
       ],
     },
     {
       label: "Name the feeling, then normalise",
-      sequence: "TC006 Emotional labelling -> TC070 Careful normalising",
+      sequence: "TC006 Emotional labelling → TC070 Careful normalising",
       example: [
         '"You seem more hurt than annoyed."',
         '"Given the history there, that makes sense."',
@@ -524,7 +524,7 @@ export const TC070: CardData = {
     },
     {
       label: "Normalise, then ask before advising",
-      sequence: "TC070 Careful normalising -> TC027 Permission-based advice",
+      sequence: "TC070 Careful normalising → TC027 Permission-based advice",
       example: [
         '"Given the pressure, it makes sense you\'re rattled."',
         '"Do you want a hand thinking it through, or just to get it off your chest?"',
@@ -532,10 +532,10 @@ export const TC070: CardData = {
     },
     {
       label: "Normalise, then move to repair",
-      sequence: "TC070 Careful normalising -> TC053 NVC / OFNR",
+      sequence: "TC070 Careful normalising → TC053 NVC / OFNR",
       example: [
         '"Your reaction has a reason."',
-        '"When the plan changed with no heads-up, I felt blindsided - can we agree on some notice next time?"',
+        '"When the plan changed with no heads-up, I felt blindsided, can we agree on some notice next time?"',
       ],
     },
   ],
@@ -543,22 +543,22 @@ export const TC070: CardData = {
     {
       id: "TC005",
       reason:
-        "Both feel supportive. TC070 says the reaction makes sense; TC005 says the concern is legitimate without agreeing with every claim. Use TC070 for self-doubt or shame, TC005 when they need their point recognised.",
+        "Both feel supportive. TC070 says the reaction makes sense. TC005 says the concern is legitimate without agreeing with every claim. Use TC070 for self-doubt or shame, TC005 when they need their point recognised.",
     },
     {
       id: "TC006",
       reason:
-        'Labelling names the feeling; normalising explains why that feeling makes sense. If the missing piece is the name of the emotion, use TC006; if it\'s "that makes sense", use TC070.',
+        'Labelling names the feeling. Normalising explains why that feeling makes sense. If the missing piece is the name of the emotion, use TC006. If it\'s "that makes sense", use TC070.',
     },
     {
       id: "TC014",
       reason:
-        'TC014 validates a concern, risk or objection; TC070 normalises the reaction to a situation. Concern first: TC014. Shame or "am I overreacting?" first: TC070.',
+        'TC014 validates a concern, risk or objection. TC070 normalises the reaction to a situation. Concern first: TC014. Shame or "am I overreacting?" first: TC070.',
     },
     {
       id: "TC040",
       reason:
-        'Meaning reflection deepens why an event matters; careful normalising lowers shame about the reaction. "Why does this matter so much?" -> TC040. "Am I wrong to feel this?" -> TC070.',
+        'Meaning reflection deepens why an event matters. Careful normalising lowers shame about the reaction. "Why does this matter so much?" calls for TC040. "Am I wrong to feel this?" calls for TC070.',
     },
     {
       id: "TC064",
@@ -568,7 +568,7 @@ export const TC070: CardData = {
     {
       id: "TC075",
       reason:
-        "Both reduce shame. TC075 sees the effort or restraint they showed; TC070 sees the understandable reaction. Exhausted by what they did -> TC075; worried about what they feel -> TC070.",
+        "Both reduce shame. TC075 sees the effort or restraint they showed. TC070 sees the understandable reaction. If they're exhausted by what they did, use TC075. If they're worried about what they feel, use TC070.",
     },
   ],
 };

@@ -6,7 +6,7 @@ export const TC075: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC075/TC075_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC075: CardData = {
   ],
   id: "TC075",
   whyItWorks:
-    'Acknowledge effort is a short, grounded recognition move: you notice the work behind someone\'s action - preparation, persistence, care, restraint, recovery, or emotional labour - and say so specifically before you evaluate the outcome, give advice, correct the work, or move on. It works because it changes the emotional economics of the exchange. Once people know the labour behind an outcome has been seen, they can take correction, next steps, or disappointment without hearing it as erasure. The key is not "good job". The key is: I see what this took.',
+    'Acknowledge effort is a short, grounded recognition move: you notice the work behind someone\'s action (preparation, persistence, care, restraint, recovery or emotional labour) and say so specifically before you evaluate the outcome, advise, correct or move on. It changes the emotional economics of the exchange. Once people know the labour behind an outcome has been seen, they can take correction, next steps or disappointment without hearing it as erasure. The key is not "good job" but "I see what this took."',
   whatItIsNot: [
     'Outcome praise: saying "this is excellent" when the real point is that they worked hard.',
     "A participation trophy: praising any attempt regardless of impact, standards, or responsibility.",
@@ -91,7 +91,7 @@ export const TC075: CardData = {
   },
   notFor: [
     "The effort claim is being used to avoid accountability for harm or poor conduct.",
-    "You do not actually know whether effort was present - you would be guessing.",
+    "You do not actually know whether effort was present. You would be guessing.",
     "The person wants a practical decision, not recognition.",
     "Recognition would sound patronising because of a power, status, or age gap.",
     "The same person is repeatedly overburdened and needs resources, not words.",
@@ -107,9 +107,9 @@ export const TC075: CardData = {
       phrases: [
         "That took effort. I see it.",
         "I can see the work behind this.",
-        "You did not just wing this; you put time into it.",
+        "You didn't just wing this. You put time into it.",
         "Before we move on, I want to acknowledge the effort here.",
-        "That was not nothing. I noticed.",
+        "That wasn't nothing. I noticed.",
       ],
     },
     {
@@ -146,11 +146,11 @@ export const TC075: CardData = {
       tone: "Direct",
       phrases: [
         "I want to recognise the work first, then talk about the revision.",
-        "There is visible effort here. The next step is making the argument cleaner.",
+        "There's visible effort here. The next step is making the argument cleaner.",
         "You stayed with the hard part. Now let's make the outcome match the effort.",
-        "This is not finished yet, but the effort is clear.",
+        "This isn't finished yet, but the effort is clear.",
         "The effort is real, and the next version still needs work. Let's keep both true.",
-        "I can see the labour here; let's put it into a sharper recommendation.",
+        "I can see the labour here. Let's put it into a sharper recommendation.",
       ],
     },
     {
@@ -159,11 +159,11 @@ export const TC075: CardData = {
       tag: "Friends, partners, sustained effort",
       tone: "Warm",
       phrases: [
-        "You have been trying to handle this carefully. That matters.",
+        "You've been trying to handle this carefully. That matters.",
         "I know this has taken a lot more energy than it looks from the outside.",
-        "You kept showing up for it, even when it was not giving much back.",
-        "That was a lot to carry, and I do not want to skip over that.",
-        "You have been trying to hold this together for a while. That is not nothing.",
+        "You kept showing up for it, even when it wasn't giving much back.",
+        "That was a lot to carry, and I don't want to skip over that.",
+        "You've been trying to hold this together for a while. That's not nothing.",
       ],
     },
     {
@@ -198,10 +198,10 @@ export const TC075: CardData = {
       tag: "Tentative, checkable recognition",
       tone: "Repair",
       phrases: [
-        "It looks like there was a lot of work behind this - am I reading that right?",
+        "It looks like there was a lot of work behind this, am I reading that right?",
         "I may be over-reading it, but I did want to recognise the effort I saw.",
-        "I do not want to make a big production of it; I just noticed the work.",
-        "Tell me if I am misreading it, but it seems like you put a lot into this.",
+        "I don't want to make a big production of it. I just noticed the work.",
+        "Tell me if I'm misreading it, but it seems like you put a lot into this.",
       ],
     },
   ],
@@ -227,7 +227,7 @@ export const TC075: CardData = {
       action:
         "Pair it with emotional labelling or validation before any feedback.",
       phrase:
-        "This sounds draining, and you have still been trying to handle it carefully.",
+        "This sounds draining, and you've still been trying to handle it carefully.",
     },
     {
       condition: "A power or status gap could make it sound patronising",
@@ -238,7 +238,7 @@ export const TC075: CardData = {
       condition: "The effort is unsustainable or unfair",
       action: "Do not stop at words. Name it and change the conditions.",
       phrase:
-        "I appreciate the work, and this should not require that much lift every time.",
+        "I appreciate the work, and this shouldn't require that much lift every time.",
     },
   ],
   ladder: [
@@ -249,8 +249,8 @@ export const TC075: CardData = {
     },
     {
       weak: "At least you're trying.",
-      better: "You have been trying hard.",
-      best: "You have kept showing up for this even when it has been draining. I do not want to skip over that.",
+      better: "You've been trying hard.",
+      best: "You've kept showing up for this even when it has been draining. I don't want to skip over that.",
     },
     {
       weak: "I appreciate the effort, but...",
@@ -274,11 +274,11 @@ export const TC075: CardData = {
       situation: "Friend trying to cope",
       move: "Name the sustained effort without forcing optimism.",
       phrase:
-        "You have kept showing up for this even though it has been draining.",
+        "You've kept showing up for this even though it has been draining.",
     },
     {
       situation: "Direct report missed the target",
-      move: "Hold two truths - the work was real, the result fell short.",
+      move: "Hold two truths: the work was real, the result fell short.",
       phrase:
         "The effort is real, and the result still needs a different approach.",
     },
@@ -297,7 +297,7 @@ export const TC075: CardData = {
       situation: "Burnout risk from heroic effort",
       move: "Acknowledge the effort, then change the setup.",
       phrase:
-        "This should not take heroic effort every time. Let's change the process.",
+        "This shouldn't take heroic effort every time. Let's change the process.",
     },
   ],
   calibration: {
@@ -305,13 +305,13 @@ export const TC075: CardData = {
       "They exhale, soften, nod, or say thanks without awkwardness.",
       'They add useful context: "Yes, the gathering part took the longest."',
       "They become more open to feedback or the next step.",
-      'They correct you lightly: "It was not that bad, but the timeline was hard."',
+      'They correct you lightly: "It wasn\'t that bad, but the timeline was hard."',
       "The conversation feels less defensive and more concrete.",
       "Their tone relaxes and they share more detail.",
     ],
     adjust: [
       'They deflect ("It was nothing"). Use a lighter line and move on.',
-      'They look embarrassed. Reduce intensity: "I do not want to make a big thing of it; I just noticed."',
+      'They look embarrassed. Reduce intensity: "I don\'t want to make a big thing of it. I just noticed."',
       'They use effort to dodge standards ("But I tried"). Separate effort from outcome.',
       "They seem confused because the effort is not obvious. Ask rather than assert.",
       "The setting is public and recognition may expose them. Move private or keep it brief.",
@@ -323,7 +323,7 @@ export const TC075: CardData = {
     {
       day: "Day 1",
       title: "Spot the signal",
-      task: "For five minutes, read or imagine short conversation snippets and label the effort signal - preparation, persistence, care, restraint, recovery, cognitive labour, or emotional labour. Do not phrase anything yet; train perception first.",
+      task: "For five minutes, read or imagine short conversation snippets and label the effort signal: preparation, persistence, care, restraint, recovery, cognitive labour, or emotional labour. Do not phrase anything yet. Train perception first.",
     },
     {
       day: "Day 2",
@@ -338,7 +338,7 @@ export const TC075: CardData = {
     {
       day: "Day 4",
       title: "Tone reduction",
-      task: 'Take three overdone lines ("I am blown away by how hard you worked") and cut each to something grounded ("I can see the preparation in this"). Remove anything that sounds like flattery or a speech.',
+      task: 'Take three overdone lines ("I\'m blown away by how hard you worked") and cut each to something grounded ("I can see the preparation in this"). Remove anything that sounds like flattery or a speech.',
     },
     {
       day: "Day 5",
@@ -357,7 +357,7 @@ export const TC075: CardData = {
     },
   ],
   checklist: [
-    "What specific effort signal did I notice - preparation, persistence, care, restraint, recovery, or labour?",
+    "What specific effort signal did I notice, preparation, persistence, care, restraint, recovery, or labour?",
     "Was I confident enough to state it plainly, or should I have asked instead?",
     "Did I acknowledge the effort before advice, correction, evaluation, or moving on?",
     'Was the phrase specific and one sentence, not a preface to a harsh "but"?',
@@ -366,20 +366,20 @@ export const TC075: CardData = {
   ],
   example: {
     without: [
-      'Person: "Here is the summary. It is rough, but I tried to pull everything together."',
+      "Person: \"Here's the summary. It's rough, but I tried to pull everything together.\"",
       'You: "Great, thanks. It still needs a lot of work. The recommendation is unclear."',
       "Why it fails: the feedback may be accurate, but it erases the visible effort.",
       "The person now has to defend the work before they can hear the revision.",
     ],
     with: [
-      'Person: "Here is the summary. It is rough, but I tried to pull everything together."',
-      'You: "I can see the effort in the way you gathered the scattered inputs and put them into one timeline. That is useful groundwork."',
+      "Person: \"Here's the summary. It's rough, but I tried to pull everything together.\"",
+      'You: "I can see the effort in the way you gathered the scattered inputs and put them into one timeline. That\'s useful groundwork."',
       'You: "The next move is to make the recommendation sharper, so the effort translates into a cleaner decision."',
       'Person: "That makes sense. I knew the ending was weak."',
-      'You: "Good read. Keep the timeline; tighten the recommendation to one sentence and two trade-offs."',
+      'You: "Good read. Keep the timeline. Tighten the recommendation to one sentence and two trade-offs."',
       "Why it works: the effort is specific, the standard stays intact, and the next step is concrete.",
     ],
-    note: 'The generic middle version - "Thanks, I can see you worked hard on it" - acknowledges effort but stays vague. The advanced version names the actual labour and keeps the standard. Same order every time: name the work, pause, then the next step.',
+    note: 'The generic middle version ("Thanks, I can see you worked hard on it") acknowledges effort but stays vague. The advanced version names the actual labour and keeps the standard. Same order every time: name the work, pause, then the next step.',
   },
   influencePayoff: {
     feeling: '"They saw what this actually took, not just how it turned out."',
@@ -398,20 +398,20 @@ export const TC075: CardData = {
       "The praise is too intense or ceremonial, so it reads as flattery or management.",
       'It is glued to a "but", so the acknowledgement becomes a preface to criticism.',
       'The speaker mind-reads the cost ("I know how hard that was") when they do not actually know.',
-      'It is used as pressure - "you worked so hard, so keep going" - which turns recognition into extraction.',
+      'It is used as pressure ("you worked so hard, so keep going") which turns recognition into extraction.',
     ],
   },
   fieldTip: {
     headline: "Name the work before you judge the work.",
     body: "The best acknowledgement is small, specific, and unforced. Say it, then pause. If the person accepts it, continue. If they deflect, reduce intensity and move on. If the outcome still needs work, keep both truths visible: the effort can be real and the next step can still be necessary.",
     example: '"I can see the work behind this." Then pause and let it land.',
-    dont: 'Don\'t glue it to a "but" - "I appreciate the effort, but..." erases what you just said.',
+    dont: 'Don\'t glue it to a "but": "I appreciate the effort, but..." erases what you just said.',
     do: 'Use "and", or let the acknowledgement stand on its own for a beat before the next step.',
   },
   method: [
     {
       step: "1",
-      title: "Perception - notice the effort signal",
+      title: "Perception: notice the effort signal",
       body: "Look past the outcome for the labour behind it: preparation, persistence, care, restraint, recovery, or cognitive labour. The signal is what they did, not how well it turned out.",
       examples: [
         {
@@ -426,12 +426,12 @@ export const TC075: CardData = {
     },
     {
       step: "2",
-      title: "Move - name the effort before the next agenda",
+      title: "Move: name the effort before the next agenda",
       body: "Put the recognition before feedback, advice, or revision. If it comes after the correction, it reads as a consolation prize.",
     },
     {
       step: "3",
-      title: "Phrase - make it specific and bounded",
+      title: "Phrase: make it specific and bounded",
       body: "One sentence. Name what they did and, if useful, the friction it happened under. Specific beats warm.",
       examples: [
         { label: "Vague", text: "You worked really hard on this." },
@@ -443,12 +443,12 @@ export const TC075: CardData = {
     },
     {
       step: "4",
-      title: "Calibration - watch the response",
+      title: "Calibration: watch the response",
       body: "If they relax, add detail, or correct you, follow their lead. If they shrink, deflect, or look embarrassed, reduce intensity or make it lighter.",
     },
     {
       step: "5",
-      title: "Recovery - repair overstatement",
+      title: "Recovery: repair overstatement",
       body: "If it lands as patronising or too much, say you may have over-read it and return to the practical next step. A light touch fixes it.",
       examples: [
         {
@@ -459,7 +459,7 @@ export const TC075: CardData = {
     },
     {
       step: "6",
-      title: "Chain - continue cleanly",
+      title: "Chain: continue cleanly",
       body: 'After the acknowledgement, pause, then move into specific appreciation, validation, feedback, a small ask, or a decision. The pause gives the recognition a chance to land instead of turning it into a preface you rush past.\nGood sequence: "I can see you put real work into clarifying the options. Before we edit the recommendation, I want to acknowledge that." Pause. "Now let\'s tighten the trade-off section."',
     },
   ],
@@ -477,7 +477,7 @@ export const TC075: CardData = {
       depth: "Light / tentative",
       useWhen: "You are not certain, or the setting is public.",
       phrase:
-        "It looks like there was a lot of work behind this - am I reading that right?",
+        "It looks like there was a lot of work behind this, am I reading that right?",
     },
     {
       depth: "Minimum",
@@ -499,7 +499,7 @@ export const TC075: CardData = {
       depth: "Structural",
       useWhen: "The effort is unsustainable or unfair.",
       phrase:
-        "I appreciate the work, and this should not require that much lift every time.",
+        "I appreciate the work, and this shouldn't require that much lift every time.",
     },
   ],
   commonMistakes: [
@@ -516,14 +516,14 @@ export const TC075: CardData = {
     },
     {
       mistake: "Overdoing it",
-      soundsLike: "I am blown away by how incredibly hard you worked on this.",
+      soundsLike: "I'm blown away by how incredibly hard you worked on this.",
       better: "I can see the preparation in this.",
     },
     {
       mistake: "Mind-reading the cost",
       soundsLike: "I know exactly how hard that was for you.",
       better:
-        "That looked like a lot. I do not want to assume, but I noticed the work.",
+        "That looked like a lot. I don't want to assume, but I noticed the work.",
     },
     {
       mistake: "Using it as pressure",
@@ -535,7 +535,7 @@ export const TC075: CardData = {
       mistake: "Rewarding avoidable mess",
       soundsLike: "Amazing effort pulling that all-nighter.",
       better:
-        "You rescued this, and it should not have needed rescuing. Let's fix the setup.",
+        "You rescued this, and it shouldn't have needed rescuing. Let's fix the setup.",
     },
     {
       mistake: "Making it about yourself",
@@ -545,13 +545,13 @@ export const TC075: CardData = {
   ],
   recoveryPhrases: [
     "I may be over-reading it. I just wanted to say I noticed the work.",
-    "Fair correction. I do not want to make assumptions about what it took.",
+    "Fair correction. I don't want to make assumptions about what it took.",
     "Let me say it more simply: I appreciate the preparation here.",
     "That came out more patronising than I meant. I was recognising the work, not grading it.",
-    "I do not mean that as a gold star. I mean I see the labour behind it.",
+    "I don't mean that as a gold star. I mean I see the labour behind it.",
     "The effort is real, and the outcome still needs work. I want to keep both true.",
-    "Recognition is not enough here; we also need to adjust time, resources, or ownership.",
-    "Got it. I will not make a big thing of it. I just wanted to register it once.",
+    "Recognition isn't enough here. We also need to adjust time, resources, or ownership.",
+    "Got it. I won't make a big thing of it. I just wanted to register it once.",
   ],
   bestRecoveryLine:
     "The effort is real, and the outcome still needs work. I want to keep both true.",
@@ -559,7 +559,7 @@ export const TC075: CardData = {
     {
       label: "Feedback without erasure",
       sequence:
-        "Acknowledge effort -> Summary check -> Permission-based advice -> Small ask",
+        "Acknowledge effort → Summary check → Permission-based advice → Small ask",
       example: [
         "I can see the groundwork you did here.",
         "The core point is X and the open issue is Y, right?",
@@ -570,29 +570,29 @@ export const TC075: CardData = {
     {
       label: "Emotional moment with effort underneath",
       sequence:
-        "Emotional labelling -> Acknowledge effort -> Meaning reflection -> Autonomy release",
+        "Emotional labelling → Acknowledge effort → Meaning reflection → Autonomy release",
       example: [
         "This sounds draining.",
-        "You have still been trying to handle it carefully.",
-        "It matters because you do not want to make it worse.",
-        "You do not have to decide right now.",
+        "You've still been trying to handle it carefully.",
+        "It matters because you don't want to make it worse.",
+        "You don't have to decide right now.",
       ],
     },
     {
       label: "Conflict repair",
       sequence:
-        "Slow down -> Acknowledge effort -> Double-sided reflection -> Clean request",
+        "Slow down → Acknowledge effort → Double-sided reflection → Clean request",
       example: [
         "(Drop the pace and lower your volume.)",
         "I noticed you paused instead of escalating.",
-        "You want to be heard, and you also do not want this to turn into a fight.",
+        "You want to be heard, and you also don't want this to turn into a fight.",
         "Can we take the next two minutes on one issue?",
       ],
     },
     {
       label: "Digital decision support",
       sequence:
-        "Acknowledge effort -> BLUF -> Two-option question -> Low-friction ask",
+        "Acknowledge effort → BLUF → Two-option question → Low-friction ask",
       example: [
         "You did the work of making this easy to follow.",
         "Put the decision needed at the top.",
@@ -605,27 +605,27 @@ export const TC075: CardData = {
     {
       id: "TC018",
       reason:
-        'Both are positive. Use TC075 when the key line is "you worked at this"; use TC018 / Specific appreciation when it is "this helped" - a specific contribution or positive impact.',
+        'Both are positive. Use TC075 when the key line is "you worked at this". Use TC018 / Specific appreciation when it is "this helped": a specific contribution or positive impact.',
     },
     {
       id: "TC005",
       reason:
-        '"I see your effort" can be misheard as "I agree". Use TC005 / Validation without agreement when a feeling or perspective needs legitimacy; use TC075 when the labour itself needs recognising.',
+        '"I see your effort" can be misheard as "I agree". Use TC005 / Validation without agreement when a feeling or perspective needs legitimacy. Use TC075 when the labour itself needs recognising.',
     },
     {
       id: "TC006",
       reason:
-        '"Frustrating" names a feeling; "you stayed with it" names effort. Use TC006 / Emotional labelling for feeling clarity, TC075 for seen effort.',
+        '"Frustrating" names a feeling. "you stayed with it" names effort. Use TC006 / Emotional labelling for feeling clarity, TC075 for seen effort.',
     },
     {
       id: "TC040",
       reason:
-        "Effort and meaning often travel together. Use TC040 / Meaning reflection to reflect why something matters; use TC075 to recognise the invested work itself.",
+        "Effort and meaning often travel together. Use TC040 / Meaning reflection to reflect why something matters. Use TC075 to recognise the invested work itself.",
     },
     {
       id: "TC022",
       reason:
-        "Effort acknowledgement can drift into status conferral. Name the labour for TC075; elevate someone's standing, expertise, or credit for TC022 / Status generosity.",
+        "Effort acknowledgement can drift into status conferral. Name the labour for TC075. Elevate someone's standing, expertise, or credit for TC022 / Status generosity.",
     },
     {
       id: "TC070",

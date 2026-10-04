@@ -10,12 +10,20 @@ function youLine(lines: string[] | undefined) {
   return line?.replace(/^You:\s*/, "");
 }
 
+// Some ladder rungs describe behaviour ("Uses BLUF flexibly...", "One
+// continuer, then stop and watch...") rather than words you could say. Judge
+// each side alone and swap only those for the card's worked-example line.
+const DESCRIBES_BEHAVIOUR =
+  /^(Uses?|Using|Recites|Announces|Moves|Too broad|Someone)\b|\b(flexibly|visible script|the technique|then stop|and watch)\b/i;
+
 function briefContrast(cardData: CardData) {
   const rung = cardData.ladder?.[0];
-  if (rung && /["“]/.test(`${rung.weak}${rung.best}`)) return rung;
-  const weak = youLine(cardData.example?.without);
-  const best = youLine(cardData.example?.with);
-  return weak && best ? { weak, best } : rung;
+  const pick = (line: string | undefined, fallback: string | undefined) =>
+    line && !DESCRIBES_BEHAVIOUR.test(line) ? line : (fallback ?? line);
+  return {
+    weak: pick(rung?.weak, youLine(cardData.example?.without)),
+    best: pick(rung?.best, youLine(cardData.example?.with)),
+  };
 }
 
 // ── Technique brief ──

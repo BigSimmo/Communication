@@ -6,7 +6,7 @@ export const TC036: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC036/TC036_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,29 +56,29 @@ export const TC036: CardData = {
   ],
   id: "TC036",
   whyItWorks:
-    "A contextual opener starts a conversation by naming one real shared context — the room, the queue, the task, the timing, a previous thread — and then making it easy for the other person to step in. It works because it begins with something already true for both of you, so nobody has to invent a starting point from nothing. Instead of an abrupt personal question or a memorised line, you orient to what is actually in front of you. That signals attention to the moment rather than a script, and it gives the other person a low-pressure way to respond, correct you, or move straight to the point.",
+    "A contextual opener starts a conversation by naming one real shared context (the room, the queue, the task, the timing, a previous thread) and then making it easy for the other person to step in. It works because it begins with something already true for both of you, so nobody has to invent a starting point from nothing. Instead of an abrupt personal question or a memorised line, you orient to what is actually in front of you. That signals attention to the moment rather than a script, and it gives the other person a low-pressure way to respond, correct you, or move straight to the point.",
   whatItIsNot: [
     "Not a canned icebreaker, a pickup line, or a forced joke.",
     "Not an intrusive personal question or a comment on appearance, identity or private behaviour.",
     "Not a status play, false familiarity, or a compliment used as bait.",
     "Not a generic networking script you could use unchanged anywhere.",
-    "Not small talk for its own sake — it is a bridge into a real conversation, then it gets out of the way.",
+    "Not small talk for its own sake. It is a bridge into a real conversation, then it gets out of the way.",
   ],
   overview: {
     coreFormula: [
-      "Formula: notice shared context -> name it simply -> add an easy entry point -> pause -> follow the thread they choose.",
-      'Social: "Looks like we both ended up in the quieter corner. I am Sam."',
+      "Formula: notice shared context → name it simply → add an easy entry point → pause → follow the thread they choose.",
+      'Social: "Looks like we both ended up in the quieter corner. I\'m Sam."',
       'Meeting: "The shared question today is whether we narrow the scope or move the date."',
-      'Clinical: "I have read the referral, but I would rather start with what feels most important from your side."',
+      "Clinical: \"I've read the referral, but I'd rather start with what feels most important from your side.\"",
       'Re-entry: "Last time Friday was the pressure point. Is that still the right place to start?"',
-      'Digital: "Context first: I am writing because the decision point has moved closer."',
+      'Digital: "Context first: I\'m writing because the decision point has moved closer."',
     ],
     minimumViableMove:
-      'Name the shared context in one ordinary line, then give the other person an easy way to enter: "Looks like we are both waiting for the same session. I am Sam."',
+      "Name the shared context in one ordinary line, then give the other person an easy way to enter: \"Looks like we're both waiting for the same session. I'm Sam.\"",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "The move fails when the opener feels manufactured, too clever, too personal, or unrelated to the actual moment — or when you keep opening after the conversation is already open.",
+      "The move fails when the opener feels manufactured, too clever, too personal, or unrelated to the actual moment, or when you keep opening after the conversation is already open.",
     bestFor: [
       "Meeting someone for the first time.",
       "A direct personal question would feel abrupt.",
@@ -107,10 +107,10 @@ export const TC036: CardData = {
       tone: "Quick",
       phrases: [
         "Looks like we both picked the busy time.",
-        "Seems like we are both waiting on the same thing.",
+        "Seems like we're both waiting on the same thing.",
         "This is a quieter corner than the main room.",
         "That session pulled a lot of people in.",
-        "We have landed in the same queue.",
+        "We've landed in the same queue.",
         "The room has that pre-meeting energy.",
       ],
     },
@@ -135,11 +135,11 @@ export const TC036: CardData = {
       tone: "Professional",
       phrases: [
         "Before we get into the detail, the main thing today is to align on the next step.",
-        "I know we have limited time, so I will start with the context.",
-        "This seems like the right moment to separate what is urgent from what is important.",
+        "I know we've limited time, so I'll start with the context.",
+        "This seems like the right moment to separate what's urgent from what's important.",
         "Before we solve it, can I quickly name what I think the situation is?",
         "It sounds like the handover is the shared pressure point.",
-        "The context I am bringing in is that the deadline has moved closer.",
+        "The context I'm bringing in is that the deadline has moved closer.",
       ],
     },
     {
@@ -148,10 +148,10 @@ export const TC036: CardData = {
       tag: "Orienting before questions",
       tone: "Professional",
       phrases: [
-        "Before we start, I know there can be a lot of admin around this. I will keep the opening brief.",
-        "I have read the referral, but I would rather hear what feels most important from your side.",
+        "Before we start, I know there can be a lot of admin around this. I'll keep the opening brief.",
+        "I've read the referral, but I'd rather hear what feels most important from your side.",
         "Before I ask questions, I want to orient to what today is meant to help with.",
-        "Let us start with what made today feel worth booking.",
+        "Let's start with what made today feel worth booking.",
         "The paperwork gives one version. I want to understand the lived version.",
         "We can go at a practical pace. Where would it be easiest to start?",
       ],
@@ -162,11 +162,11 @@ export const TC036: CardData = {
       tag: "Naming common ground before divergence",
       tone: "Direct",
       phrases: [
-        "Before we go around the room, I want to name what we are here to decide.",
+        "Before we go around the room, I want to name what we're here to decide.",
         "The shared context is that everyone is carrying part of the load.",
-        "There are a few perspectives here, so I will first name the common ground.",
-        "We are not trying to solve the whole system today. We are choosing the next useful move.",
-        "Before we debate options, let us agree what situation we are responding to.",
+        "There are a few perspectives here, so I'll first name the common ground.",
+        "We're not trying to solve the whole system today. We're choosing the next useful move.",
+        "Before we debate options, let's agree what situation we're responding to.",
         "I want to start with the shared aim rather than the loudest problem.",
       ],
     },
@@ -179,7 +179,7 @@ export const TC036: CardData = {
         "Coming back after a break can be a bit clunky. Where did we leave it?",
         "Since we last spoke, one thing has changed.",
         "This is probably a good point to reset the frame.",
-        "We have shifted from options to decisions.",
+        "We've shifted from options to decisions.",
         "The timing matters here because the next step affects the rest of the week.",
         "This feels like a transition from exploring to choosing.",
       ],
@@ -205,10 +205,10 @@ export const TC036: CardData = {
       tone: "Quick",
       phrases: [
         "Picking this up from your message about Friday.",
-        "Context first: I am writing with the deadline in mind.",
+        "Context first: I'm writing with the deadline in mind.",
         "Before the details, the shared issue seems to be timing.",
         "This might be easier if I separate the context from the ask.",
-        "The reason I am messaging now is that the decision point has moved closer.",
+        "The reason I'm messaging now is that the decision point has moved closer.",
         "Coming back to the part about scope...",
       ],
     },
@@ -218,13 +218,12 @@ export const TC036: CardData = {
       condition: "You are entering a new interaction",
       action:
         "Name the shared situation before asking a personal or broad question.",
-      phrase: "Looks like we are both here for the same session. I am Sam.",
+      phrase: "Looks like we're both here for the same session. I'm Sam.",
     },
     {
       condition: "The other person looks busy",
       action: "Acknowledge the constraint and keep the ask small.",
-      phrase:
-        "I can see you are between things — this is a two-minute question.",
+      phrase: "I can see you're between things. This is a two-minute question.",
     },
     {
       condition: "The meeting needs focus",
@@ -240,7 +239,7 @@ export const TC036: CardData = {
     },
     {
       condition: "The opening feels awkward",
-      action: "Recover by simplifying — name the real reason plainly.",
+      action: "Recover by simplifying: name the real reason plainly.",
       phrase: "Let me say that more plainly.",
     },
     {
@@ -252,43 +251,43 @@ export const TC036: CardData = {
   ],
   ladder: [
     {
-      weak: "So, what is your story?",
+      weak: "So, what's your story?",
       better: "What brought you here?",
       best: "This session seems to have pulled in a mixed group. What brought you to this one?",
     },
     {
-      weak: "Tell me why you are here.",
+      weak: "Tell me why you're here.",
       better: "What brings you in today?",
-      best: "I have read the referral, but I would rather start with what feels most important from your side.",
+      best: "I've read the referral, but I'd rather start with what feels most important from your side.",
     },
     {
       weak: "We need to talk.",
       better: "Can we talk about what happened yesterday?",
-      best: "I want to pick up yesterday while it is still fresh, especially the point where the handover broke down.",
+      best: "I want to pick up yesterday while it's still fresh, especially the point where the handover broke down.",
     },
     {
       weak: "Hi.",
-      better: "Hi, I am Alex.",
-      best: "Looks like we are both waiting for the same workshop. I am Alex.",
+      better: "Hi, I'm Alex.",
+      best: "Looks like we're both waiting for the same workshop. I'm Alex.",
     },
   ],
   scenarios: [
     {
       situation: "First meeting",
       move: "Name the shared setting and make entry easy.",
-      phrase: "Looks like we are both waiting for the same session. I am Sam.",
+      phrase: "Looks like we're both waiting for the same session. I'm Sam.",
     },
     {
       situation: "Clinic or client opening",
       move: "Orient to the process before asking personal questions.",
       phrase:
-        "I have read the referral, but I would rather hear what feels most important from your side.",
+        "I've read the referral, but I'd rather hear what feels most important from your side.",
     },
     {
       situation: "Hallway interruption",
       move: "Name the immediate constraint.",
       phrase:
-        "I can see you are between things. This is a two-minute question about Friday.",
+        "I can see you're between things. This is a two-minute question about Friday.",
     },
     {
       situation: "Networking event",
@@ -319,20 +318,20 @@ export const TC036: CardData = {
       "In clinical-style conversations, they start from what matters to them, not the paperwork.",
     ],
     adjust: [
-      "They give a polite but flat answer — drop the frame and just ask plainly.",
-      "They look for the hidden ask — name your real reason for opening.",
-      "The line gets more attention than the conversation — simplify next time.",
-      "They respond as if you are selling something — reduce the polish, add directness.",
-      "They step back, close down or laugh awkwardly — you went too personal; step back.",
-      "They correct your assumption sharply — the context was not shared or safe; acknowledge it.",
-      "You realise the context you named was not actually shared — reset with the real one.",
+      "They give a polite but flat answer. Drop the frame and just ask plainly.",
+      "They look for the hidden ask. Name your real reason for opening.",
+      "The line gets more attention than the conversation: simplify next time.",
+      "They respond as if you are selling something: reduce the polish, add directness.",
+      "They step back, close down or laugh awkwardly. You went too personal. Step back.",
+      "They correct your assumption sharply: the context was not shared or safe. Acknowledge it.",
+      "You realise the context you named was not actually shared: reset with the real one.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the context",
-      task: "For one day, silently notice a possible opener in each new interaction. Label each as setting, task, timing, constraint, event or prior thread — without using any of them yet.",
+      task: "For one day, silently notice a possible opener in each new interaction. Label each as setting, task, timing, constraint, event or prior thread, without using any of them yet.",
     },
     {
       day: "Day 2",
@@ -342,7 +341,7 @@ export const TC036: CardData = {
     {
       day: "Day 3",
       title: "Name the shared context",
-      task: "For each of those five, write one true shared context — the setting, task, timing, constraint or previous thread you could name instead.",
+      task: "For each of those five, write one true shared context: the setting, task, timing, constraint or previous thread you could name instead.",
     },
     {
       day: "Day 4",
@@ -362,7 +361,7 @@ export const TC036: CardData = {
     {
       day: "Day 7",
       title: "Three in a day",
-      task: "Use three contextual openers — one social, one professional, one written — and afterwards ask of each: did I make entry easier, or did I make them manage my opener?",
+      task: "Use three contextual openers (one social, one professional, one written) and afterwards ask of each: did I make entry easier, or did I make them manage my opener?",
     },
   ],
   checklist: [
@@ -375,40 +374,40 @@ export const TC036: CardData = {
   ],
   example: {
     without: [
-      'A: "So, what is your background?"',
+      'A: "So, what\'s your background?"',
       'B: "In what sense?"',
       'A: "Just generally."',
       'B: "Oh. A few things, I guess."',
-      "Why it is weak: the question demands a biography from nothing and ignores the shared moment.",
-      'A (clinic): "Tell me why you are here."',
-      'B: "I thought you would have the referral."',
-      "Why it is weak: the referral becomes an interrogation prop rather than a starting point.",
+      "Why it's weak: the question demands a biography from nothing and ignores the shared moment.",
+      'A (clinic): "Tell me why you\'re here."',
+      'B: "I thought you\'d have the referral."',
+      "Why it's weak: the referral becomes an interrogation prop rather than a starting point.",
     ],
     with: [
-      'A: "Looks like we are both early for the handover meeting. I am Priya, from the inpatient side."',
-      'B: "I am Sam, from community."',
-      'A: "Are you here for the capacity discussion as well? We are probably seeing the same pressure from different ends."',
+      "A: \"Looks like we're both early for the handover meeting. I'm Priya, from the inpatient side.\"",
+      'B: "I\'m Sam, from community."',
+      'A: "Are you here for the capacity discussion as well? We\'re probably seeing the same pressure from different ends."',
       "Why this works: it names the shared setting and offers a name and role as an easy entry point.",
-      'A (clinic): "I have read the referral, but I do not want the paperwork to decide the opening. What feels most important for us to understand today?"',
-      'B: "That I am not just stressed. I feel like I am running out of options."',
-      'A: "So the starting point is not only workload. It is feeling trapped."',
+      "A (clinic): \"I've read the referral, but I don't want the paperwork to decide the opening. What feels most important for us to understand today?\"",
+      "B: \"That I'm not just stressed. I feel like I'm running out of options.\"",
+      "A: \"So the starting point isn't only workload. It's feeling trapped.\"",
       "Why this works: it shows preparation without replacing their account, and lets them set the real starting point.",
     ],
-    note: "The weak versions demand disclosure; the strong versions start from what is already true and give the other person an easy way in.",
+    note: "The weak versions demand disclosure. The strong versions start from what is already true and give the other person an easy way in.",
   },
   influencePayoff: {
     feeling:
-      '"They are paying attention to what is actually happening, not running a script on me."',
+      "\"They're paying attention to what's actually happening, not running a script on me.\"",
     principle:
       "People engage more easily when the first move starts from shared reality rather than a demand for disclosure.",
     gains: [
-      "Reduces friction — they do not have to invent a starting point from nothing.",
-      "Feels natural — the opener comes from the shared moment, not a memorised line.",
-      "Signals situational awareness — you are oriented to what is actually happening.",
-      "Protects autonomy — they can respond lightly, correct the frame, or move to the task.",
-      "Improves first impressions — you sound grounded rather than needy or rehearsed.",
-      "Builds common ground quickly — shared context is the smallest real common ground available.",
-      "Makes cold messages clearer — naming the context reduces ambiguity around the ask.",
+      "Reduces friction: they do not have to invent a starting point from nothing.",
+      "Feels natural: the opener comes from the shared moment, not a memorised line.",
+      "Signals situational awareness: you are oriented to what is actually happening.",
+      "Protects autonomy: they can respond lightly, correct the frame, or move to the task.",
+      "Improves first impressions: you sound grounded rather than needy or rehearsed.",
+      "Builds common ground quickly: shared context is the smallest real common ground available.",
+      "Makes cold messages clearer: naming the context reduces ambiguity around the ask.",
     ],
     whyMostFail: [
       "They manufacture a fake connection instead of naming something genuinely shared.",
@@ -419,8 +418,8 @@ export const TC036: CardData = {
   },
   fieldTip: {
     headline: "The safest opener is often a boringly accurate one.",
-    body: "A contextual opener works because it begins with shared reality. When the room, task, timing or previous thread already gives you a bridge, you do not need a clever first line — you just name what is already true and let the other person decide how much conversation they want.",
-    example: '"Looks like we are both waiting for the same session. I am Sam."',
+    body: "A contextual opener works because it begins with shared reality. When the room, task, timing or previous thread already gives you a bridge, you do not need a clever first line. You just name what is already true and let the other person decide how much conversation they want.",
+    example: "\"Looks like we're both waiting for the same session. I'm Sam.\"",
     dont: "Reach for a clever or personal line to seem socially smooth.",
     do: "Name what is already true, make entry easy, then follow their lead.",
   },
@@ -428,7 +427,7 @@ export const TC036: CardData = {
     {
       step: "1",
       title: "Notice the shared context",
-      body: "Find the smallest thing that is genuinely true for both of you right now — the setting, the task, the timing, a constraint, a shared event, or the last live thread. That is your bridge.",
+      body: "Find the smallest thing that is genuinely true for both of you right now: the setting, the task, the timing, a constraint, a shared event, or the last live thread. That is your bridge.",
       examples: [
         { label: "Setting", text: "This room is quieter than the main hall." },
         { label: "Task", text: "The shared question is what happens next." },
@@ -438,7 +437,7 @@ export const TC036: CardData = {
         },
         {
           label: "Constraint",
-          text: "I know you are between things, so this is a two-minute ask.",
+          text: "I know you're between things, so this is a two-minute ask.",
         },
         { label: "Event", text: "That talk gave us a lot to work with." },
         {
@@ -467,7 +466,7 @@ export const TC036: CardData = {
       title: "Add an easy entry point",
       body: "Give them a low-effort way in: your name, a light question, or an explicit invitation to correct you. The point is to lower the cost of replying.",
       examples: [
-        { label: "Introduce", text: "...I am Sam." },
+        { label: "Introduce", text: "...I'm Sam." },
         { label: "Light question", text: "...Which part are you here for?" },
         { label: "Invite correction", text: "...Is that the right frame?" },
       ],
@@ -475,54 +474,54 @@ export const TC036: CardData = {
     {
       step: "4",
       title: "Pause and let them choose",
-      body: "Stop once the door is open. Do not stack a second opener or rush straight into your agenda — the pause is what makes it feel low-pressure rather than a pitch.",
+      body: "Stop once the door is open. Do not stack a second opener or rush straight into your agenda: the pause is what makes it feel low-pressure rather than a pitch.",
     },
     {
       step: "5",
       title: "Follow the thread they give",
-      body: "Drop your planned line and follow whatever they respond with. If they offer a live detail, thread it; if they show emotion, label it; if they are ready for the task, go there.",
+      body: "Drop your planned line and follow whatever they respond with. If they offer a live detail, thread it. If they show emotion, label it. If they are ready for the task, go there.",
       examples: [
         {
           label: "Live detail",
-          text: "You mentioned community — how is capacity looking your end?",
+          text: "You mentioned community. How is capacity looking your end?",
         },
         {
           label: "Straight to task",
-          text: "Good, let us start with the decision then.",
+          text: "Good, let's start with the decision then.",
         },
       ],
     },
   ],
   liveThreadClues: [
-    "A shared setting — the room, queue, venue or seating.",
+    "A shared setting: the room, queue, venue or seating.",
     "A shared task or decision you are both here for.",
-    "Timing — a transition, a gap, or something that has just changed.",
-    "A constraint — limited time, competing demands, an interruption.",
-    "A shared event — a talk, session or thing that just happened.",
-    "A prior thread — the last live point from a previous conversation.",
-    "A shared purpose — the outcome the group is orienting around.",
+    "Timing: a transition, a gap, or something that has just changed.",
+    "A constraint: limited time, competing demands, an interruption.",
+    "A shared event: a talk, session or thing that just happened.",
+    "A prior thread: the last live point from a previous conversation.",
+    "A shared purpose: the outcome the group is orienting around.",
   ],
   commonMistakes: [
     {
       mistake: "Fake context",
       soundsLike:
-        '"We are basically in the same boat here..." — when you are not.',
+        "\"We're basically in the same boat here...\", when you're not.",
       better:
-        'Name only something genuinely shared: "We are both waiting on the same session."',
+        'Name only something genuinely shared: "We\'re both waiting on the same session."',
     },
     {
       mistake: "Over-clever opener",
       soundsLike: "A rehearsed line that draws attention to itself.",
-      better: '"Looks like we both picked the busy time." — plain and true.',
+      better: '"Looks like we both picked the busy time." Plain and true.',
     },
     {
       mistake: "Too personal too early",
-      soundsLike: '"You look stressed — rough morning?"',
-      better: '"The room has that pre-meeting energy. I am Sam."',
+      soundsLike: '"You look stressed, rough morning?"',
+      better: '"The room has that pre-meeting energy. I\'m Sam."',
     },
     {
       mistake: "Using context as bait",
-      soundsLike: "A friendly opener that is really a lead-in to a pitch.",
+      soundsLike: "A friendly opener that's really a lead-in to a pitch.",
       better: "Open for connection, then make any ask honestly and separately.",
     },
     {
@@ -538,18 +537,18 @@ export const TC036: CardData = {
     {
       mistake: "Re-opening repeatedly",
       soundsLike: '"Anyway, how are you finding it..." mid-conversation.',
-      better: "Once it is open, switch to listening or the next step.",
+      better: "Once it's open, switch to listening or the next step.",
     },
   ],
   recoveryPhrases: [
     "That came out more scripted than I meant. Let me say it plainly.",
-    "I might have started in the wrong place. What is the useful starting point from your side?",
-    "That was too broad. I am asking because of the deadline on Friday.",
+    "I might have started in the wrong place. What's the useful starting point from your side?",
+    "That was too broad. I'm asking because of the deadline on Friday.",
     "That sounded more personal than I intended. Let me step back.",
     "Let me restart with the actual context.",
-    "I should not assume that is the shared issue. What am I missing?",
-    "I am not trying to put you on the spot. We can keep it practical.",
-    "Let us reset. The context is that we have ten minutes and need one clear next step.",
+    "I shouldn't assume that's the shared issue. What am I missing?",
+    "I'm not trying to put you on the spot. We can keep it practical.",
+    "Let's reset. The context is that we have ten minutes and need one clear next step.",
   ],
   bestRecoveryLine:
     "That came out more scripted than I meant. Let me say it plainly.",
@@ -557,15 +556,15 @@ export const TC036: CardData = {
     {
       label: "First-contact social opener",
       sequence:
-        "Notice the shared setting -> name it lightly -> introduce yourself or ask a low-effort question -> pause -> follow their first thread.",
+        "Notice the shared setting → name it lightly → introduce yourself or ask a low-effort question → pause → follow their first thread.",
       example: [
-        '"Looks like we are both waiting for the same workshop. I am Sam."',
+        "\"Looks like we're both waiting for the same workshop. I'm Sam.\"",
       ],
     },
     {
       label: "Focused meeting opener",
       sequence:
-        "Name the shared task -> state the decision or question -> invite correction -> move into the agenda.",
+        "Name the shared task → state the decision or question → invite correction → move into the agenda.",
       example: [
         '"The shared question today is whether we narrow the scope or move the date. Is that the right frame?"',
       ],
@@ -573,15 +572,15 @@ export const TC036: CardData = {
     {
       label: "Clinical-style opener",
       sequence:
-        "Acknowledge the referral -> do not let paperwork make the first move -> ask what matters most from their side -> listen for the live thread -> reflect.",
+        "Acknowledge the referral → do not let paperwork make the first move → ask what matters most from their side → listen for the live thread → reflect.",
       example: [
-        '"I have read the referral, but I would rather hear what feels most important from your side."',
+        "\"I've read the referral, but I'd rather hear what feels most important from your side.\"",
       ],
     },
     {
       label: "Re-entry after a gap",
       sequence:
-        "Recall the last live thread -> check whether it is still current -> ask what has changed -> follow the new information -> update the shared frame.",
+        "Recall the last live thread → check whether it is still current → ask what has changed → follow the new information → update the shared frame.",
       example: [
         '"Last time Friday was the pressure point. Is that still the right place to start?"',
       ],
@@ -596,17 +595,17 @@ export const TC036: CardData = {
     {
       id: "TC024",
       reason:
-        "TC024 Warm opening leads with warmth and ease; TC036 leads with the shared context of the moment. Use TC024 when the relationship, not the situation, is the natural bridge.",
+        "TC024 Warm opening leads with warmth and ease. TC036 leads with the shared context of the moment. Use TC024 when the relationship, not the situation, is the natural bridge.",
     },
     {
       id: "TC003",
       reason:
-        "TC003 Comment-before-question softens a single question with a preceding comment; TC036 opens a whole interaction by naming the shared situation first.",
+        "TC003 Comment-before-question softens a single question with a preceding comment. TC036 opens a whole interaction by naming the shared situation first.",
     },
     {
       id: "TC038",
       reason:
-        "TC036 gets the conversation started; once they respond with a live detail, switch to TC038 Conversation threading to follow the thread they choose.",
+        "TC036 gets the conversation started. Once they respond with a live detail, switch to TC038 Conversation threading to follow the thread they choose.",
     },
     {
       id: "TC032",

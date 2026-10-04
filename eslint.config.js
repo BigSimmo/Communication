@@ -11,6 +11,7 @@ export default tseslint.config(
       "**/node_modules/**",
       "**/coverage/**",
       ".agents/**",
+      ".local/**",
       // Temporary agent worktrees
       ".claude/worktrees/**",
       "artifacts/tc-reference/public/**",

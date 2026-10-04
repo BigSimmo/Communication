@@ -6,7 +6,7 @@ export const TC004: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC004/TC004_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,17 +56,16 @@ export const TC004: CardData = {
   ],
   id: "TC004",
   whyItWorks:
-    "Reflective listening is the habit of saying back the core meaning, feeling or concern in someone's words before you add your own content. You listen for the point underneath the words, reflect it briefly in your own plain language, and let them confirm, correct or deepen it. It is a timing and attention move: you notice the live moment and choose a response that keeps the other person oriented and unpressured. It works because people become more receptive once they feel understood — reflecting first lowers defensive pressure and improves accuracy, so no one has to defend, decode or rescue the conversation. Done well it sounds like ordinary adult speech, not a script or a performance.",
+    "Reflective listening is saying back the core meaning, feeling or concern in someone's words before you add your own. You reflect the point underneath briefly, in plain language, and let them confirm, correct or deepen it. It works because people become more receptive once they feel understood, and a quick check catches misunderstandings before you build on them.",
   whatItIsNot: [
     'It is not parroting, clinical mirroring, or saying "I hear you" on autopilot.',
     "It is not agreeing with everything or pretending to understand.",
-    "It is not manipulation, performance, emotional extraction or a way to force intimacy.",
-    "It is not something to keep pushing once they resist, shorten their answers or redirect — then you release it and follow the person.",
+    "It is not something to keep pushing. If they resist, shorten their answers or redirect, release it and follow them.",
   ],
   overview: {
     coreFormula: [
-      "Hear the words -> identify the core meaning or feeling -> reflect it briefly -> pause for correction -> proceed.",
-      "Short form: notice -> name or respond -> invite -> calibrate -> release.",
+      "Hear the words → identify the core meaning or feeling → reflect it briefly → pause for correction → proceed.",
+      "Short form: notice → name or respond → invite → calibrate → release.",
       "So the main thing is that the plan changed after you'd already committed.",
       "It sounds like the frustrating part was the lack of warning.",
       "You wanted support, not someone solving it instantly.",
@@ -148,7 +147,7 @@ export const TC004: CardData = {
         "Let me check I've got this: the problem is the change, not the work itself.",
         "So, in one line, this is about being reorganised without warning?",
         "Have I got the main thing right?",
-        "So the ask is more notice, not less change — is that fair?",
+        "So the ask is more notice, not less change. Is that fair?",
         "Tell me if I'm off: the frustrating part is the unpredictability.",
         "So the decision you actually want made is who owns it.",
         "Is the core of it that you can't plan around them?",
@@ -161,11 +160,11 @@ export const TC004: CardData = {
       tone: "Repair",
       phrases: [
         "I might have this wrong, but it sounds like the timing is the real issue.",
-        "Correct me if I'm off — it seems the hard part was being left out.",
+        "Correct me if I'm off. It seems the hard part was being left out.",
         "Maybe the better way to say it is that you felt overlooked.",
         "I don't want to put words in your mouth, but this sounds bigger than one meeting.",
         "So, if I'm reading you right, it's less about the task and more about the trust.",
-        "Let me try that again — it sounds more like disappointment than anger.",
+        "Let me try that again. It sounds more like disappointment than anger.",
       ],
     },
     {
@@ -176,7 +175,7 @@ export const TC004: CardData = {
       phrases: [
         "Before I respond, let me make sure I've understood your concern.",
         "So the part you feel I'm missing is how much this has already cost you.",
-        "It sounds like this isn't really about the roster — it's about being able to plan your life.",
+        "It sounds like this isn't really about the roster. It's about being able to plan your life.",
         "So what you need me to get, before we go on, is that this keeps happening.",
         "It sounds like you feel this has happened too many times to let slide.",
         "So the thing that has to change for this to feel fair is the notice.",
@@ -192,7 +191,7 @@ export const TC004: CardData = {
         "So it felt like a sudden shift.",
         "That reads like uncertainty more than disagreement.",
         "So the main thing is the timing caught you off guard?",
-        "Reading back — the hard bit was being left out of the call.",
+        "Reading back, the hard bit was being left out of the call.",
         "So, short version: you needed a heads-up you didn't get.",
       ],
     },
@@ -211,19 +210,19 @@ export const TC004: CardData = {
     },
     {
       condition: "They correct your reflection",
-      action: "Accept the correction and update — the correction is a win.",
+      action: "Accept the correction and update: the correction is a win.",
       phrase:
-        "Got it — so it's more about the uncertainty than the change itself.",
+        "Got it, so it's more about the uncertainty than the change itself.",
     },
     {
       condition: "They need action now, not reflection",
       action: "Keep the reflection to one line, then move to the decision.",
-      phrase: "So the priority is cover for tonight — let's sort that first.",
+      phrase: "So the priority is cover for tonight. Let's sort that first.",
     },
     {
       condition: "They shorten answers, tense up or redirect",
       action: "Release the technique and follow the person.",
-      phrase: "No worries — what would help most right now?",
+      phrase: "No worries. What would help most right now?",
     },
   ],
   ladder: [
@@ -234,10 +233,10 @@ export const TC004: CardData = {
       best: "It sounds like the frustrating part was the plan changing after you'd already committed. (Specific, tentative and grounded.)",
     },
     {
-      weak: "Makes sense. (Vague; it could mean almost anything.)",
+      weak: "Makes sense. (Vague. It could mean almost anything.)",
       better:
         "So you're worried about the deadline. (Names one thing, but maybe the wrong one.)",
-      best: "So the real worry isn't the deadline itself — it's the scope changing under you. (Names the point beneath the words.)",
+      best: "So the real worry isn't the deadline itself. It's the scope changing under you. (Names the point beneath the words.)",
     },
     {
       weak: "That's rough. (Sympathy, but shows no understanding.)",
@@ -271,7 +270,7 @@ export const TC004: CardData = {
     },
     {
       situation: "Someone venting who doesn't want solutions",
-      move: "Reflect and stop — don't slide into advice.",
+      move: "Reflect and stop: don't slide into advice.",
       phrase: "So you don't need this fixed, you just need it heard.",
     },
     {
@@ -286,7 +285,7 @@ export const TC004: CardData = {
       "They elaborate and add detail you didn't ask for.",
       "Their tone softens.",
       "They move from defending to explaining.",
-      "They correct a small detail — which improves shared accuracy.",
+      "They correct a small detail, which improves shared accuracy.",
       "They slow down and seem less braced.",
     ],
     adjust: [
@@ -295,7 +294,7 @@ export const TC004: CardData = {
       "They correct the whole frame, not just a detail.",
       "They go quiet or change the subject.",
       "You've reflected several times in a row without them moving.",
-      "It's starting to sound like a therapist — drop the format, speak plainly, or release the technique.",
+      "It's starting to sound like a therapist. Drop the format, speak plainly, or release the technique.",
     ],
   },
   drill: [
@@ -307,7 +306,7 @@ export const TC004: CardData = {
     {
       day: "Day 2",
       title: "Write the ladder",
-      task: "For each situation, write a weak line, a better line, and the best line — specific, tentative and grounded.",
+      task: "For each situation, write a weak line, a better line, and the best line: specific, tentative and grounded.",
     },
     {
       day: "Day 3",
@@ -338,7 +337,7 @@ export const TC004: CardData = {
   checklist: [
     "Did I identify the right conversational moment?",
     "Did I use plain, ordinary language rather than clinical phrasing?",
-    "Did I keep the other person's autonomy intact — leaving room to correct me?",
+    "Did I keep the other person's autonomy intact, leaving room to correct me?",
     "Did I stop after one move instead of overusing the technique?",
     "Did I use a recovery line if the reflection missed?",
     "Did the technique make the conversation easier rather than more self-conscious?",
@@ -348,27 +347,27 @@ export const TC004: CardData = {
       "Them: They changed the roster again.",
       "You: I hear you.",
       "Them: Yeah.",
-      'Why it\'s weak: "I hear you" is generic — it proves nothing was understood, so the conversation stalls.',
+      'Why it\'s weak: "I hear you" is generic. It proves nothing was understood, so the conversation stalls.',
     ],
     with: [
       "Them: They changed the roster again.",
       "You: So it feels like you can't plan anything around them.",
       "Them: Exactly.",
-      "You: So it's not really one roster change — it's your life getting reorganised by decisions you can't predict.",
+      "You: So it's not really one roster change. It's your life getting reorganised by decisions you can't predict.",
       "Them: That's exactly it.",
       "Why it works: the reflection names the point under the words, stays tentative enough to be corrected, and lets them confirm and then deepen it.",
     ],
-    note: "The best reflections are specific and slightly tentative — specific enough to prove you listened, open enough that they can correct you.",
+    note: "The best reflections are specific and slightly tentative: specific enough to prove you listened, open enough that they can correct you.",
   },
   influencePayoff: {
     feeling: '"They noticed the real part of what I was saying."',
     principle: "People become more receptive to you once they feel understood.",
     gains: [
       "Reduced defensiveness",
-      "Greater accuracy — you find out what they actually meant",
+      "Greater accuracy: you find out what they actually meant",
       "Trust",
       "Conversational ease",
-      "Relevance — your next point lands on the real issue",
+      "Relevance: your next point lands on the real issue",
       "Less friction: they don't have to defend, decode or rescue the conversation",
     ],
     whyMostFail: [
@@ -382,7 +381,7 @@ export const TC004: CardData = {
     headline: "Reflect the point under the words, not every word.",
     body: "The best reflection names the meaning underneath what was said, not the surface detail. Reach for the word or idea carrying the feeling, and say that back in your own plain language.",
     example:
-      '"It was technically fine, just draining." — reflect "draining", not "fine".',
+      '"It was technically fine, just draining." Reflect "draining", not "fine".',
     dont: "Don't repeat their sentence back to them word for word.",
     do: "Do name the point in one plain sentence, then pause so they can confirm or correct it.",
   },
@@ -390,13 +389,13 @@ export const TC004: CardData = {
     {
       step: "1",
       title: "Notice the cue",
-      body: "Listen for the point underneath the words — the meaning, feeling or concern carrying the most weight. It's usually one loaded word or the thing they keep circling back to.",
+      body: "Listen for the point underneath the words: the meaning, feeling or concern carrying the most weight. It's usually one loaded word or the thing they keep circling back to.",
       examples: [
         {
           label: "They say",
           text: '"It was technically fine, just draining."',
         },
-        { label: "The cue", text: '"draining" — not "fine"' },
+        { label: "The cue", text: '"draining", not "fine"' },
       ],
     },
     {
@@ -417,7 +416,7 @@ export const TC004: CardData = {
     {
       step: "3",
       title: "Say it in plain language",
-      body: 'Use ordinary adult speech, kept slightly tentative so they can correct you. "So..." and "It sounds like..." are enough — you don\'t need clinical framing.',
+      body: 'Use ordinary adult speech, kept slightly tentative so they can correct you. "So..." and "It sounds like..." are enough. You don\'t need clinical framing.',
       examples: [
         {
           label: "Clinical",
@@ -432,12 +431,12 @@ export const TC004: CardData = {
     {
       step: "4",
       title: "Pause for correction",
-      body: "Say your reflection, then stop. The pause invites them to confirm, correct or deepen it — and a correction is a win, because now you both share the accurate version.",
+      body: "Say your reflection, then stop. The pause invites them to confirm, correct or deepen it, and a correction is a win, because now you both share the accurate version.",
     },
     {
       step: "5",
       title: "Calibrate and release",
-      body: "Watch the response. If they open up, stay with it briefly; if they shorten, tense or redirect, drop the technique and follow the person. Stop once they've answered, corrected or moved on.",
+      body: "Watch the response. If they open up, stay with it briefly. If they shorten, tense or redirect, drop the technique and follow the person. Stop once they've answered, corrected or moved on.",
     },
   ],
   liveThreadClues: [
@@ -503,7 +502,7 @@ export const TC004: CardData = {
     {
       mistake: "Being too certain to be corrected",
       soundsLike: '"You\'re annoyed because they changed the plan."',
-      better: '"It sounds like the annoying part was the change — is that it?"',
+      better: '"It sounds like the annoying part was the change. Is that it?"',
     },
   ],
   recoveryPhrases: [
@@ -512,23 +511,23 @@ export const TC004: CardData = {
     "Maybe the better way to say it is...",
     "I don't want to put words in your mouth.",
     "Tell me where I've got that wrong.",
-    "That came out more certain than I meant — what's the actual version?",
-    "Scrap that — say it your way and I'll listen.",
+    "That came out more certain than I meant. What's the actual version?",
+    "Scrap that, say it your way and I'll listen.",
   ],
   bestRecoveryLine:
-    "I don't want to put words in your mouth — tell me where I've got it wrong.",
+    "I don't want to put words in your mouth. Tell me where I've got it wrong.",
   chains: [
     {
       label: "Reflect, then validate",
-      sequence: "TC004 -> TC005",
+      sequence: "TC004 → TC005",
       example: [
         '"So the frustrating part was being left out of the call."',
-        '"That makes sense — I\'d be annoyed too, even though I still think the call was right."',
+        '"That makes sense. I\'d be annoyed too, even though I still think the call was right."',
       ],
     },
     {
       label: "Reflect, then ask permission before advice",
-      sequence: "TC004 -> TC027",
+      sequence: "TC004 → TC027",
       example: [
         '"So you mainly wanted it heard, not fixed."',
         '"Would it help if I threw out an idea, or do you just want to vent for a bit?"',
@@ -536,7 +535,7 @@ export const TC004: CardData = {
     },
     {
       label: "Reflect, then summarise before moving on",
-      sequence: "TC004 -> TC011",
+      sequence: "TC004 → TC011",
       example: [
         '"So it\'s the scope moving, not the deadline."',
         '"Let me play it back: two changes since Monday, and you want one owner before we restart."',
@@ -544,7 +543,7 @@ export const TC004: CardData = {
     },
     {
       label: "Reflect, then deepen to meaning",
-      sequence: "TC004 -> TC040",
+      sequence: "TC004 → TC040",
       example: [
         '"So the hard part was the change landing without warning."',
         '"And I think what it really touches is whether your time gets respected at all."',
@@ -555,27 +554,27 @@ export const TC004: CardData = {
     {
       id: "TC006",
       reason:
-        "TC006 names the emotion out loud; TC004 can reflect content, feeling or concern — reach for TC006 when the feeling itself is the thing to acknowledge.",
+        "TC006 names the emotion out loud. TC004 can reflect content, feeling or concern: reach for TC006 when the feeling itself is the thing to acknowledge.",
     },
     {
       id: "TC040",
       reason:
-        "TC040 reflects the deeper significance of something; TC004 reflects the immediate meaning or feeling of the live moment.",
+        "TC040 reflects the deeper significance of something. TC004 reflects the immediate meaning or feeling of the live moment.",
     },
     {
       id: "TC037",
       reason:
-        "TC037 holds two sides of an ambivalence at once; TC004 is usually one-sided and simpler.",
+        "TC037 holds two sides of an ambivalence at once. TC004 is usually one-sided and simpler.",
     },
     {
       id: "TC011",
       reason:
-        "TC011 summarises several points across a stretch of talk; TC004 reflects the live core of a single moment.",
+        "TC011 summarises several points across a stretch of talk. TC004 reflects the live core of a single moment.",
     },
     {
       id: "TC005",
       reason:
-        "TC005 validates a feeling as understandable without agreeing with it; TC004 reflects the content or feeling first, before you take any position.",
+        "TC005 validates a feeling as understandable without agreeing with it. TC004 reflects the content or feeling first, before you take any position.",
     },
   ],
 };

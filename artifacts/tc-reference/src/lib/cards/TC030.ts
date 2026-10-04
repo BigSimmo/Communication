@@ -6,7 +6,7 @@ export const TC030: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC030/TC030_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,22 +56,22 @@ export const TC030: CardData = {
   ],
   id: "TC030",
   whyItWorks:
-    'Echo plus question is a conversation-flow move: you repeat a distinctive word or short phrase the other person just used, then attach one small, natural question that helps them expand it. A pure mirror only repeats and pauses; Echo plus question repeats the useful phrase and gives the conversation a gentle direction - it quietly says, "I heard that bit; help me understand it." It works because your curiosity is tied to their actual words rather than a generic script, which makes people feel precisely heard, lowers the effort of deciding what to say next, and keeps the thread coherent - attention shown without stealing the spotlight.',
+    'Echo plus question is a conversation-flow move: you repeat a distinctive word or short phrase the other person just used, then attach one small, natural question that helps them expand it. A pure mirror only repeats and pauses. Echo plus question repeats the useful phrase and gives the conversation a gentle direction. It quietly says, "I heard that bit. Help me understand it." It works because your curiosity is tied to their actual words rather than a generic script, which makes people feel precisely heard, lowers the effort of deciding what to say next, and keeps the thread coherent: attention shown without stealing the spotlight.',
   whatItIsNot: [
-    "It is not parroting every sentence back - that turns into an echo chamber.",
+    "It is not parroting every sentence back. That turns into an echo chamber.",
     "It is not mocking or exaggerating their wording for effect.",
     "It is not therapy-style repetition or a clinical debrief.",
-    "It is not cross-examination - a light follow-up, not a deposition.",
+    "It is not cross-examination: a light follow-up, not a deposition.",
     "It is not banking their exact words to use against them later.",
   ],
   overview: {
     coreFormula: [
       "Echo their key phrase + one small question + pause.",
-      "Weirdly political - how so?",
-      "Hidden rules layer - what do you mean by that?",
-      "Not sustainable - what part feels unsustainable?",
-      "A good kind of intense - what made it good?",
-      "Dismissed - what made it land that way?",
+      "Weirdly political. How so?",
+      "Hidden rules layer. What do you mean by that?",
+      "Not sustainable. What part feels unsustainable?",
+      "A good kind of intense. What made it good?",
+      "Dismissed. What made it land that way?",
     ],
     minimumViableMove:
       'Repeat the key word or phrase, then ask one short question: "how?", "what part?", or "what do you mean by that?"',
@@ -135,7 +135,7 @@ export const TC030: CardData = {
       phrases: [
         "Chaotic in a fun way or a why-am-I-here way?",
         "Unexpectedly good? That needs the story.",
-        "Weirdly satisfying - weirdly how?",
+        "Weirdly satisfying. Weirdly how?",
         "That phrase is doing a lot of work. Explain.",
         "Good-intense or bad-intense?",
       ],
@@ -151,7 +151,7 @@ export const TC030: CardData = {
         "What does 'done properly' mean here?",
         "You mentioned 'alignment'. Alignment around what?",
         "When you say 'priority', what should we optimise for?",
-        "'Blocked' - blocked by what?",
+        "'Blocked'. Blocked by what?",
       ],
     },
     {
@@ -164,7 +164,7 @@ export const TC030: CardData = {
         "By 'concise', do you mean one page or just the decision points?",
         "When you say 'too slow', where is the bottleneck?",
         "What does 'good enough' look like here?",
-        "What is the key constraint?",
+        "What's the key constraint?",
       ],
     },
     {
@@ -174,10 +174,10 @@ export const TC030: CardData = {
       tone: "High-stakes",
       phrases: [
         "You said 'unfair'. What would have felt fair?",
-        "Dismissed - what made it land that way?",
-        "Stuck - is that about the decision or how it was handled?",
-        "Rushed - what part felt rushed?",
-        "Not heard - what do you need me to understand first?",
+        "Dismissed. What made it land that way?",
+        "Stuck. Is that about the decision or how it was handled?",
+        "Rushed. What part felt rushed?",
+        "Not heard. What do you need me to understand first?",
       ],
     },
     {
@@ -199,7 +199,7 @@ export const TC030: CardData = {
       tone: "Repair",
       phrases: [
         "No need to go into it, but when you say 'odd', what kind of odd?",
-        "If you are comfortable saying, what made it feel off?",
+        "If you're comfortable saying, what made it feel off?",
         "You mentioned it was a bit much. Was that the people side or the task side?",
         "We can leave it there, but 'weird' sounds like the key word.",
         "Was it more awkward or more stressful?",
@@ -210,16 +210,16 @@ export const TC030: CardData = {
     {
       step: "1",
       title: "Listen for the phrase with energy",
-      body: "Choose one word or short phrase that carries emotion, ambiguity, meaning, humour, tension, a value or a decision. It is usually the word they lean on or say slightly differently from the rest.\nMost sentences have one live phrase and a lot of packaging - you are hunting for the live phrase.",
+      body: "Choose one word or short phrase that carries emotion, ambiguity, meaning, humour, tension, a value or a decision. It is usually the word they lean on or say slightly differently from the rest.\nMost sentences have one live phrase and a lot of packaging. You are hunting for the live phrase.",
       examples: [
         { label: "They say", text: '"It was fine, just... draining."' },
-        { label: "Live phrase", text: '"draining" - not "fine"' },
+        { label: "Live phrase", text: '"draining", not "fine"' },
       ],
     },
     {
       step: "2",
       title: "Echo it lightly",
-      body: "Repeat only the useful part, not the whole sentence, and keep your tone warm and curious rather than dramatic or forensic. A light echo signals you were listening; a heavy one signals you are analysing.\nEcho the meaning, not the accent - if their slang is not yours, echo the sense rather than copying the exact style.",
+      body: "Repeat only the useful part, not the whole sentence, and keep your tone warm and curious rather than dramatic or forensic. A light echo signals you were listening. A heavy one signals you are analysing.\nEcho the meaning, not the accent. If their slang is not yours, echo the sense rather than copying the exact style.",
       examples: [
         {
           label: "Heavy",
@@ -233,7 +233,7 @@ export const TC030: CardData = {
       title: "Attach one small question",
       body: 'Add a single short continuation question and nothing more: "how?", "what part?", "what do you mean by that?", "in what way?", or "what made it feel that way?"\nKeep it open and easy to answer. If a bare "how?" might stall, offer two options instead of one demand.',
       examples: [
-        { label: "Open", text: '"Draining - what part was draining?"' },
+        { label: "Open", text: '"Draining. What part was draining?"' },
         { label: "Two-option", text: '"Good-intense or bad-intense?"' },
       ],
     },
@@ -249,14 +249,14 @@ export const TC030: CardData = {
       examples: [
         {
           label: "Reflect",
-          text: '"So the work is not the hard part - the map of who decides is."',
+          text: '"So the work isn\'t the hard part: the map of who decides is."',
         },
       ],
     },
     {
       step: "6",
       title: "Contribute or chain",
-      body: "After one or two follow-ups, add a small comment, share something briefly, ask a values question, or move toward the next step. This keeps it a conversation, not an interrogation.\nEcho, question, reflect - then give something back.",
+      body: "After one or two follow-ups, add a small comment, share something briefly, ask a values question, or move toward the next step. This keeps it a conversation, not an interrogation.\nEcho, question, reflect, then give something back.",
       examples: [
         {
           label: "Contribute",
@@ -283,13 +283,13 @@ export const TC030: CardData = {
       "Warmth, from being precisely heard rather than generically questioned",
       "Trust",
       "Conversational momentum without stealing the spotlight",
-      "Clarity - vague words get unpacked into what they actually mean",
+      "Clarity: vague words get unpacked into what they actually mean",
       "Likability, because attention is shown, not performed",
       "A reputation for being easy and interesting to talk to",
     ],
     whyMostFail: [
       "They echo mechanically until it sounds like a verbal tic.",
-      "They go forensic - interrogating a word instead of following the meaning.",
+      "They go forensic: interrogating a word instead of following the meaning.",
       "They stack echo after echo until it becomes an interview.",
       "They never contribute anything of their own, so it feels like effort extraction.",
     ],
@@ -298,7 +298,7 @@ export const TC030: CardData = {
     {
       weak: '"Tell me more."',
       better: '"What was that like?"',
-      best: '"You said it was weirdly intense - weirdly intense how?"',
+      best: '"You said it was weirdly intense. Weirdly intense how?"',
     },
     {
       weak: '"Why?"',
@@ -313,7 +313,7 @@ export const TC030: CardData = {
     {
       weak: '"What exactly do you mean by that?" in a sharp tone',
       better: '"What do you mean by that?"',
-      best: '"Hidden rules layer - what do you mean by that?"',
+      best: '"Hidden rules layer. What do you mean by that?"',
     },
     {
       weak: "Using their words to challenge them",
@@ -324,20 +324,20 @@ export const TC030: CardData = {
   example: {
     without: [
       'Person: "The new project is good, but weirdly political."',
-      'You: "Political? What do you mean political? Who is against you?"',
+      'You: "Political? What do you mean political? Who\'s against you?"',
       'Person: "No, not like that."',
       'You: "But you said political."',
-      "Why it is weak:",
+      "Why it's weak:",
       "jumps straight to interrogation and an accusatory frame",
-      'puts words in their mouth with "who is against you?"',
+      'puts words in their mouth with "who\'s against you?"',
       "makes them defend and walk it back rather than expand",
       "follows your suspicion, not their meaning",
     ],
     with: [
       'Person: "The new project is good, but weirdly political."',
-      'You: "Weirdly political - how so?"',
+      'You: "Weirdly political. How so?"',
       'Person: "Not hostile. Just lots of hidden stakeholders."',
-      'You: "Hidden stakeholders - so the work is not the hard part, the map is?"',
+      'You: "Hidden stakeholders. So the work isn\'t the hard part, the map is?"',
       'Person: "Exactly."',
       "Why this works:",
       "echoes the exact phrase that carried the energy",
@@ -347,8 +347,8 @@ export const TC030: CardData = {
       'Person: "The new project is good, but weirdly political."',
       'You: "When you say political, do you mean actual conflict or invisible decision-makers?"',
       'Person: "Invisible decision-makers."',
-      'You: "That is useful. So the task is partly the work, partly knowing who to keep in the loop."',
-      'Person: "Yes, that is the issue."',
+      'You: "That\'s useful. So the task is partly the work, partly knowing who to keep in the loop."',
+      'Person: "Yes, that\'s the issue."',
     ],
     note: 'The advanced version swaps a bare "how?" for a two-option echo. It narrows the doorway when an open question might stall, without leading them to an answer.',
   },
@@ -375,13 +375,13 @@ export const TC030: CardData = {
     },
     {
       mistake: "Over-analysing slang",
-      soundsLike: "Copying wording that is not natural for you.",
+      soundsLike: "Copying wording that's not natural for you.",
       better:
-        "Echo the meaning more than the style if their language is not yours.",
+        "Echo the meaning more than the style if their language isn't yours.",
     },
     {
       mistake: "Adding a leading question",
-      soundsLike: '"Political - so they are undermining you?"',
+      soundsLike: '"Political, so they\'re undermining you?"',
       better: "Ask before you interpret.",
     },
     {
@@ -394,7 +394,7 @@ export const TC030: CardData = {
     working: [
       "They expand with more detail.",
       "They correct or refine the meaning in a useful way.",
-      'They say "exactly", "yeah", or "that is the word".',
+      'They say "exactly", "yeah", or "that\'s the word".',
       "Their tone warms because you picked the right phrase.",
       "The conversation becomes more precise.",
       "They volunteer the story behind the word.",
@@ -414,10 +414,10 @@ export const TC030: CardData = {
     "Sorry, I picked up that word because it sounded important, not because I was trying to analyse you.",
     "That came out more forensic than I meant.",
     "Let me ask that more normally.",
-    "No pressure if that is not the bit you want to talk about.",
-    "I might be putting too much weight on one word. What is the better way to say it?",
+    "No pressure if that's not the bit you want to talk about.",
+    "I might be putting too much weight on one word. What's the better way to say it?",
     "I got curious there. We can move on.",
-    "I did not mean to put you on the spot - ignore the question.",
+    "I didn't mean to put you on the spot. Ignore the question.",
   ],
   bestRecoveryLine:
     "Sorry, I picked up that word because it sounded important, not because I was trying to analyse you.",
@@ -425,19 +425,19 @@ export const TC030: CardData = {
     {
       label: "Conversation chain",
       sequence:
-        "Warm comment -> echo plus question -> reflection -> light self-disclosure",
+        "Warm comment → echo plus question → reflection → light self-disclosure",
       example: [
-        '"That sounds like a good problem to have. Oddly satisfying - oddly how?"',
-        '"So it is satisfying because it finally clicked."',
-        '"I get that - I chase that feeling more than the actual result."',
+        '"That sounds like a good problem to have. Oddly satisfying. Oddly how?"',
+        '"So it\'s satisfying because it finally clicked."',
+        '"I get that. I chase that feeling more than the actual result."',
       ],
     },
     {
       label: "Conflict chain",
       sequence:
-        "Validate concern -> echo plus question -> summary check -> ask what would make it workable",
+        "Validate concern → echo plus question → summary check → ask what would make it workable",
       example: [
-        '"I can see why that stung. Dismissed - what made it land that way?"',
+        '"I can see why that stung. Dismissed. What made it land that way?"',
         '"So it was less the decision, more that no one asked you first."',
         '"What would have made it feel fair?"',
       ],
@@ -445,19 +445,19 @@ export const TC030: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Echo value word -> clarify priority -> values frame -> clean request -> release",
+        "Echo value word → clarify priority → values frame → clean request → release",
       example: [
         "\"You said 'sustainable'. Sustainable in what sense?\"",
         '"So the real priority is a pace we can keep, not just this quarter."',
-        '"If that is the priority, can we push the deadline a week? Your call."',
+        '"If that\'s the priority, can we push the deadline a week? Your call."',
       ],
     },
     {
       label: "Networking chain",
       sequence:
-        "Warm opening -> echo plus question -> make them the expert -> useful follow-up",
+        "Warm opening → echo plus question → make them the expert → useful follow-up",
       example: [
-        "\"That sounds like a fascinating project. 'Messy middle' - messy how?\"",
+        "\"That sounds like a fascinating project. 'Messy middle'. Messy how?\"",
         '"You clearly know this space. What do most people get wrong about it?"',
         '"Who should I be reading or talking to on that?"',
       ],
@@ -467,7 +467,7 @@ export const TC030: CardData = {
     {
       situation: "Casual conversation",
       move: "Break generic small talk by echoing the odd or loaded word.",
-      phrase: "Oddly satisfying - oddly how?",
+      phrase: "Oddly satisfying. Oddly how?",
     },
     {
       situation: "Professional discussion",
@@ -477,7 +477,7 @@ export const TC030: CardData = {
     {
       situation: "Conflict or objection",
       move: "Echo the charged word, but only after you have validated the feeling.",
-      phrase: "Dismissed - what made it land that way?",
+      phrase: "Dismissed. What made it land that way?",
     },
     {
       situation: "Digital message",
@@ -505,7 +505,7 @@ export const TC030: CardData = {
     {
       condition: "They correct your interpretation",
       action: "Accept it cleanly and carry on with their version.",
-      phrase: "Got it - that is a better way to put it.",
+      phrase: "Got it, that's a better way to put it.",
     },
     {
       condition: "They seem embarrassed by the word",
@@ -514,8 +514,8 @@ export const TC030: CardData = {
     },
     {
       condition: "They give a brief, flat answer",
-      action: "Comment more and ask less; do not keep drilling.",
-      phrase: "Fair enough - it just sounded like the interesting bit.",
+      action: "Comment more and ask less. Do not keep drilling.",
+      phrase: "Fair enough, it just sounded like the interesting bit.",
     },
     {
       condition: "They become defensive",
@@ -525,14 +525,14 @@ export const TC030: CardData = {
     {
       condition: "They turn the question back on you",
       action: "Answer briefly, then return if their thread still has energy.",
-      phrase: "For me it was similar - but I want to hear the rest of yours.",
+      phrase: "For me it was similar, but I want to hear the rest of yours.",
     },
   ],
   drill: [
     {
       day: "Day 1",
       title: "Spot the word",
-      task: "In three conversations, just notice the one distinctive or loaded word in what each person says. Do not act on it yet - only train your ear to find the live phrase.",
+      task: "In three conversations, just notice the one distinctive or loaded word in what each person says. Do not act on it yet, only train your ear to find the live phrase.",
     },
     {
       day: "Day 2",
@@ -557,7 +557,7 @@ export const TC030: CardData = {
     {
       day: "Day 6",
       title: "Hard mode",
-      task: "Use the move once in a mildly tense or resistant moment - but only after validating the feeling first. Echo the charged word, ask gently, then listen.",
+      task: "Use the move once in a mildly tense or resistant moment, but only after validating the feeling first. Echo the charged word, ask gently, then listen.",
     },
     {
       day: "Day 7",
@@ -575,8 +575,8 @@ export const TC030: CardData = {
   ],
   fieldTip: {
     headline: "Echo the door, not every word.",
-    body: "The skill is selection, not repetition. Most sentences have one word doing the real work - the one loaded with feeling, ambiguity or stakes. Echo that one, ask one small question, then leave the rest alone.",
-    example: '"It was fine, just... draining." -> echo "draining", not "fine".',
+    body: "The skill is selection, not repetition. Most sentences have one word doing the real work: the one loaded with feeling, ambiguity or stakes. Echo that one, ask one small question, then leave the rest alone.",
+    example: '"It was fine, just... draining." Echo "draining", not "fine".',
     dont: "Echo every interesting word until you sound like an echo chamber.",
     do: "Pick the single phrase that opens the door, repeat it, ask one small question, then stop.",
   },
@@ -584,27 +584,27 @@ export const TC030: CardData = {
     {
       id: "TC001",
       reason:
-        "TC001 Live-Thread Follow-Ups follows the most alive part of the whole utterance; TC030 grabs one specific word or phrase, repeats it, then asks. Use TC001 when the energy is in the overall thread rather than a single word.",
+        "TC001 Live thread follow-ups follows the most alive part of the whole utterance. TC030 grabs one specific word or phrase, repeats it, then asks. Use TC001 when the energy is in the overall thread rather than a single word.",
     },
     {
       id: "TC023",
       reason:
-        "TC023 Loaded-Word Follow-Up zeroes in on a single emotionally charged word; TC030 can echo a longer phrase or idea and always attaches a forward question. Use TC023 when one loaded word is the whole story.",
+        "TC023 Loaded word follow-up zeroes in on a single emotionally charged word. TC030 can echo a longer phrase or idea and always attaches a forward question. Use TC023 when one loaded word is the whole story.",
     },
     {
       id: "TC025",
       reason:
-        "TC025 Exact-Word Pickup reuses their exact word to signal you were listening; TC030 echoes and then explicitly asks them to expand. Use TC025 for a lighter touch with no question attached.",
+        "TC025 Exact word pickup reuses their exact word to signal you were listening. TC030 echoes and then explicitly asks them to expand. Use TC025 for a lighter touch with no question attached.",
     },
     {
       id: "TC026",
       reason:
-        "TC026 Tactical mirroring repeats the last few words and pauses - a pure mirror; TC030 adds a small question so they know which thread to open. Use TC026 when silence alone will draw them out.",
+        "TC026 Tactical mirroring repeats the last few words and pauses: a pure mirror. TC030 adds a small question so they know which thread to open. Use TC026 when silence alone will draw them out.",
     },
     {
       id: "TC038",
       reason:
-        "TC038 Conversation threading tracks and returns to several threads across a whole conversation; TC030 works one phrase in the moment. Use TC038 when you need to weave multiple topics together over time.",
+        "TC038 Conversation threading tracks and returns to several threads across a whole conversation. TC030 works one phrase in the moment. Use TC038 when you need to weave multiple topics together over time.",
     },
   ],
 };

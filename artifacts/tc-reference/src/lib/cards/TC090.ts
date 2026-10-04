@@ -6,7 +6,7 @@ export const TC090: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC090/TC090_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,28 +56,28 @@ export const TC090: CardData = {
   ],
   id: "TC090",
   whyItWorks:
-    "Do-not-fix-yet discipline is the deliberate act of holding back solution mode while someone is still expressing, processing, or trying to feel understood. You notice the fixing impulse — advice, reassurance, a bright-side reframe, a plan, a comparison, a correction — and you visibly hold it, staying present and reflecting before you move to practical help. It works because people who bring a problem often fear being judged, corrected, rushed, or turned into an improvement project; when you can tolerate their reality without immediately making it about your answer, support feels safe rather than managerial, defensiveness drops, and any advice you offer later lands far better because the real need has become clear.",
+    "Do-not-fix-yet discipline means holding back solution mode while someone is still expressing, processing or trying to feel understood. You notice the fixing impulse (advice, reassurance, a bright-side reframe, a plan, a comparison) and visibly hold it, staying present and reflecting before you move to practical help. People who bring a problem often fear being judged, rushed or turned into an improvement project. When you can tolerate their reality first, support feels safe rather than managerial, and any advice you give later lands better because the real need is clear.",
   whatItIsNot: [
     "Not withholding help when direct, practical help is genuinely needed.",
     "Not pretending to listen while privately waiting to deliver your advice.",
     "Not letting someone spiral without support, or going passive and silent.",
     "Not therapeutic performance, forced softness, or fake depth.",
-    "Not passivity in a crisis — safety, medical, legal, abuse, or self-harm situations need action, not a pause.",
+    "Not passivity in a crisis: safety, medical, legal, abuse, or self-harm situations need action, not a pause.",
   ],
   overview: {
     coreFormula: [
-      "Notice -> Pause -> Name the non-fix -> Reflect -> Mode check -> Continue or shift.",
+      "Notice → Pause → Name the non-fix → Reflect → Mode check → Continue or shift.",
       'Ultra-short: "Not fixing yet. Listening first."',
       "Field line: I hear the problem, I won't fix it yet, I'll stay with the person, and I'll ask what kind of help is wanted before advising.",
-      '"I can see why this is heavy. I won\'t jump into fixing it yet — do you want me to just listen for a minute, or help you sort options?"',
+      '"I can see why this is heavy. I won\'t jump into fixing it yet. Do you want me to just listen for a minute, or help you sort options?"',
       '"I\'m not going to silver-line it. What part is sitting heaviest?"',
     ],
     minimumViableMove:
-      'Say one non-fixing line — "I won\'t try to fix this yet. I can just stay with you in it for a minute." — then listen and reflect before offering any solution.',
+      'Say one non-fixing line ("I won\'t try to fix this yet. I can just stay with you in it for a minute.") then listen and reflect before offering any solution.',
     impact: "Medium",
     difficulty: "Hard",
     misuse:
-      'Confusing non-fixing with doing nothing — saying "I won\'t fix this" and then offering no warmth, reflection, or support, so restraint collapses into passive abandonment. It also fails when you hide inside listening mode to dodge action the person clearly needs.',
+      'Confusing non-fixing with doing nothing: saying "I won\'t fix this" and then offering no warmth, reflection, or support, so restraint collapses into passive abandonment. It also fails when you hide inside listening mode to dodge action the person clearly needs.',
     bestFor: [
       "Venting, overwhelm, grief, shame, disappointment, rejection, burnout, frustration, anxiety, or confusion",
       "A friend, partner, colleague, client, or family member who says something painful and pauses",
@@ -123,7 +123,7 @@ export const TC090: CardData = {
         "Let me not fix. What do you need from me right now?",
         "I can hold this with you before we decide anything.",
         "I know I jump into solutions. I'm going to slow down.",
-        "That sounds awful. I won't fix it yet — what part is most frustrating?",
+        "That sounds awful. I won't fix it yet. What part is most frustrating?",
         "I know I usually try to solve this. What do you need from me right now?",
       ],
     },
@@ -202,7 +202,7 @@ export const TC090: CardData = {
     {
       condition: "There's immediate danger or time-critical action.",
       action:
-        "Act, escalate, seek appropriate help, or give direct practical support — don't hide behind non-fixing.",
+        "Act, escalate, seek appropriate help, or give direct practical support. Don't hide behind non-fixing.",
       phrase: "If there's a safety risk, let's deal with that first.",
     },
     {
@@ -214,7 +214,7 @@ export const TC090: CardData = {
     },
     {
       condition:
-        "They sound emotionally loaded — vulnerable, ashamed, angry, disappointed, or overwhelmed.",
+        "They sound emotionally loaded: vulnerable, ashamed, angry, disappointed, or overwhelmed.",
       action: "Hold the fix and offer listening first.",
       phrase: "I won't jump into fixing it. What's the hardest part right now?",
     },
@@ -226,8 +226,8 @@ export const TC090: CardData = {
     },
     {
       condition: "After a reflection, they open up or relax.",
-      action: "Stay in listening mode; don't reach for a plan.",
-      phrase: "Keep going — I'm with you.",
+      action: "Stay in listening mode. Don't reach for a plan.",
+      phrase: "Keep going, I'm with you.",
     },
     {
       condition: "They now ask for help.",
@@ -247,7 +247,7 @@ export const TC090: CardData = {
       best: "\"That's disappointing, especially after how much you put into it. I'm not going to silver-line it. What part is sitting heaviest?\"",
     },
     {
-      weak: '"Here\'s what I would do."',
+      weak: "\"Here's what I'd do.\"",
       better: '"I have thoughts if you want them."',
       best: '"I do have thoughts, but I don\'t want to rush past what this is like for you. Want listening first, or ideas now?"',
     },
@@ -257,7 +257,7 @@ export const TC090: CardData = {
       situation: "Friend venting about work",
       move: "Name the non-fix, then follow the frustration before mentioning any solution.",
       phrase:
-        "That sounds awful. I won't fix it yet — what part is most frustrating?",
+        "That sounds awful. I won't fix it yet. What part is most frustrating?",
     },
     {
       situation: "Partner sharing family stress",
@@ -273,7 +273,7 @@ export const TC090: CardData = {
     },
     {
       situation: "Client or customer upset",
-      move: "Resist the generic fix; understand the disruption first, then offer options.",
+      move: "Resist the generic fix. Understand the disruption first, then offer options.",
       phrase:
         "I'm not going to rush into a generic fix. First, what has this disrupted for you?",
     },
@@ -285,7 +285,7 @@ export const TC090: CardData = {
     },
     {
       situation: "High-stakes situation",
-      move: "Separate genuine urgency from processing; act if there's real risk, otherwise slow down.",
+      move: "Separate genuine urgency from processing. Act if there's real risk, otherwise slow down.",
       phrase:
         "If there's immediate safety risk, we act now. If not, I can slow down and understand first. Which is it?",
     },
@@ -300,25 +300,25 @@ export const TC090: CardData = {
       "They haven't yet asked for advice or next steps.",
     ],
     adjust: [
-      'They ask directly, "What should I do?" — move to permission-based advice.',
+      'They ask directly, "What should I do?" Move to permission-based advice.',
       "They start circling and clearly want structure.",
       "They name a deadline, decision, or risk that needs action now.",
       "They go shorter, flatter, or irritated, or say they don't want to talk about it.",
-      "They seem patronised by your support language — drop it and be plain.",
+      "They seem patronised by your support language. Drop it and be plain.",
       "They're venting endlessly to avoid a boundary or decision they need to make.",
-      "You realise you're withholding help they clearly want — offer it.",
+      "You realise you're withholding help they clearly want: offer it.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the reflex",
-      task: "Through the day, each time someone mentions a problem, silently notice the exact moment advice starts forming in you. Don't act on it — just count how often it happens.",
+      task: "Through the day, each time someone mentions a problem, silently notice the exact moment advice starts forming in you. Don't act on it, just count how often it happens.",
     },
     {
       day: "Day 2",
       title: "Rewrite your reflex",
-      task: "Take five complaints you commonly hear and write your automatic advice for each. Then rewrite each as a non-fixing support line, e.g. \"That sounds exhausting. I won't jump into fixing it — what's wearing you down most?\"",
+      task: "Take five complaints you commonly hear and write your automatic advice for each. Then rewrite each as a non-fixing support line, e.g. \"That sounds exhausting. I won't jump into fixing it. What's wearing you down most?\"",
     },
     {
       day: "Day 3",
@@ -328,7 +328,7 @@ export const TC090: CardData = {
     {
       day: "Day 4",
       title: "Name the non-fix out loud",
-      task: 'Once today, say a non-fixing line aloud before anything else — "I won\'t try to solve it yet, I can just listen for a minute" — and watch what the person does next.',
+      task: 'Once today, say a non-fixing line aloud before anything else ("I won\'t try to solve it yet, I can just listen for a minute") and watch what the person does next.',
     },
     {
       day: "Day 5",
@@ -338,12 +338,12 @@ export const TC090: CardData = {
     {
       day: "Day 6",
       title: "Reflect before you shift",
-      task: 'In one conversation, reflect the person\'s experience at least once ("So the hardest part is not knowing where you stand") before you ask about solutions or offer any.',
+      task: "In one conversation, reflect the person's experience at least once (\"So the hardest part isn't knowing where you stand\") before you ask about solutions or offer any.",
     },
     {
       day: "Day 7",
       title: "Practise the repair",
-      task: 'Deliberately catch yourself slipping into advice, then recover in one clean sentence: "I jumped into fixing. Let me back up — what\'s this like for you?" Aim to leave the person feeling accompanied, not managed.',
+      task: 'Deliberately catch yourself slipping into advice, then recover in one clean sentence: "I jumped into fixing. Let me back up. What\'s this like for you?" Aim to leave the person feeling accompanied, not managed.',
     },
   ],
   checklist: [
@@ -365,11 +365,11 @@ export const TC090: CardData = {
       'Person: "I\'m so done. I worked all weekend on that proposal and they dismissed it in five minutes."',
       "You: \"That's brutal. I'm not going to jump straight into fixing it. You put in real effort, and it sounds like they barely treated it as real work.\"",
       'Person: "Exactly. It made me feel stupid for caring."',
-      'You: "That\'s the painful part — not just the proposal, but feeling like caring cost you dignity. Want me to just stay with you in that for a minute, or help you think through what to do next?"',
+      'You: "That\'s the painful part, not just the proposal, but feeling like caring cost you dignity. Want me to just stay with you in that for a minute, or help you think through what to do next?"',
       'Person: "Just stay for a second. Then I might want help drafting a reply."',
       "Why it works: you hold the fix, reflect the meaning, ask for the mode, and make the later practical help genuinely welcome.",
     ],
-    note: 'The mid-tier version — "That sounds frustrating. Do you want advice or to vent?" — beats fixing, but the mode question still arrives before much contact. Make contact and reflect first, then offer the choice.',
+    note: 'The mid-tier version ("That sounds frustrating. Do you want advice or to vent?") beats fixing, but the mode question still arrives before much contact. Make contact and reflect first, then offer the choice.',
   },
   influencePayoff: {
     feeling: '"They didn\'t try to fix me. They actually stayed with it."',
@@ -393,10 +393,10 @@ export const TC090: CardData = {
   fieldTip: {
     headline:
       "Don't treat pain as a broken object. Treat it first as a human signal.",
-    body: "The discipline isn't never fixing — it's not fixing yet. Hold the solution long enough for the person to feel met, and the fix, when it comes, will actually be wanted.",
-    example: '"I will not fix first. I will understand first."',
-    dont: "Open with \"Here's what you should do…\" while they're still in the feeling.",
-    do: 'Open with "I won\'t try to fix this yet — I can just stay with you in it for a minute."',
+    body: "The discipline isn't never fixing. It's not fixing yet. Hold the solution long enough for the person to feel met, and the fix, when it comes, will actually be wanted.",
+    example: "\"I won't fix first. I'll understand first.\"",
+    dont: "Open with \"Here's what you should do...\" while they're still in the feeling.",
+    do: 'Open with "I won\'t try to fix this yet. I can just stay with you in it for a minute."',
   },
   method: [
     {
@@ -412,31 +412,31 @@ export const TC090: CardData = {
     {
       step: "3",
       title: "Name the non-fixing container",
-      body: 'Say one clean, low-drama line: "I won\'t try to solve it yet," or "I can just listen for a minute." Make the restraint visible enough to be felt — but keep it plain, not therapeutic.',
+      body: 'Say one clean, low-drama line: "I won\'t try to solve it yet," or "I can just listen for a minute." Make the restraint visible enough to be felt, but keep it plain, not therapeutic.',
     },
     {
       step: "4",
       title: "Reflect the current experience",
-      body: 'Offer a short reflection that shows you\'re tracking them: "That sounds exhausting," "No wonder that hit hard," or "So the hardest part is not knowing where you stand."',
+      body: 'Offer a short reflection that shows you\'re tracking them: "That sounds exhausting," "No wonder that hit hard," or "So the hardest part isn\'t knowing where you stand."',
     },
     {
       step: "5",
-      title: "Ask for the support mode — after contact",
+      title: "Ask for the support mode, after contact",
       body: 'Only once they feel met, offer the choice: "Do you want comfort, help thinking it through, or actual advice?" Asking too early still feels like pressure.',
     },
     {
       step: "6",
       title: "Shift cleanly, or recover fast",
-      body: 'If they choose listening, keep advice out. If they ask for help, give one concise next step, not a lecture. If you slipped into fixing, back up: "I jumped ahead — what\'s this like for you right now?" The move is small; the restraint is the skill.',
+      body: 'If they choose listening, keep advice out. If they ask for help, give one concise next step, not a lecture. If you slipped into fixing, back up: "I jumped ahead. What\'s this like for you right now?" The move is small. The restraint is the skill.',
     },
   ],
   liveThreadClues: [
-    '"You should…"',
-    '"Just…"',
-    '"At least…"',
-    '"Why don\'t you…"',
-    "\"Here's what I'd do…\"",
-    '"Have you tried…"',
+    '"You should..."',
+    '"Just..."',
+    '"At least..."',
+    '"Why don\'t you..."',
+    "\"Here's what I'd do...\"",
+    '"Have you tried..."',
     "The urge to reassure, diagnose, compare, or silver-line",
   ],
   depthDial: [
@@ -463,7 +463,7 @@ export const TC090: CardData = {
     {
       depth: "Advice",
       useWhen: "They explicitly ask for your view.",
-      phrase: "\"Here's what I'd try — but it's your call.\"",
+      phrase: "\"Here's what I'd try, but it's your call.\"",
     },
     {
       depth: "Action",
@@ -474,7 +474,7 @@ export const TC090: CardData = {
   commonMistakes: [
     {
       mistake: "Advice in a listening costume",
-      soundsLike: '"Do you want my advice?" — with the advice already loaded.',
+      soundsLike: '"Do you want my advice?", with the advice already loaded.',
       better: "\"I won't jump in yet. What's the hardest part right now?\"",
     },
     {
@@ -496,7 +496,7 @@ export const TC090: CardData = {
     {
       mistake: "Passive abandonment",
       soundsLike:
-        '"I won\'t fix this" — then silence, no warmth, no reflection.',
+        '"I won\'t fix this", then silence, no warmth, no reflection.',
       better: "\"I won't fix it yet, but I'm right here with you.\"",
     },
     {
@@ -508,11 +508,11 @@ export const TC090: CardData = {
       mistake: "Boundary avoidance",
       soundsLike: "Hiding in listening mode to dodge help they clearly need.",
       better:
-        "\"You've been heard — now let's do the concrete thing you're asking for.\"",
+        "\"You've been heard. Now let's do the concrete thing you're asking for.\"",
     },
   ],
   recoveryPhrases: [
-    "I jumped into fixing. Let me back up — what's this like for you right now?",
+    "I jumped into fixing. Let me back up. What's this like for you right now?",
     "That came out more advice-y than I meant. I can just listen.",
     "I moved to solutions before understanding the impact. Say more about that part.",
     "I think I tried to make it tidy too quickly. It might just be messy right now.",
@@ -522,42 +522,42 @@ export const TC090: CardData = {
     "I missed the support mode. What would actually help from me right now?",
   ],
   bestRecoveryLine:
-    "I jumped into fixing. Let me back up — what's this like for you right now?",
+    "I jumped into fixing. Let me back up. What's this like for you right now?",
   chains: [
     {
       label: "Support chain",
       sequence:
-        "TC012 Full-attention signal -> TC090 Do-Not-Fix-Yet -> TC004 Reflective listening -> TC040 Meaning reflection -> TC027 Permission-based advice",
+        "TC012 Full-attention signal → TC090 Do-Not-Fix-Yet → TC004 Reflective listening → TC040 Meaning reflection → TC027 Permission-based advice",
       example: [
         "Use when someone brings a vulnerable problem and later wants help.",
-        "\"You've got my full attention. I won't try to fix it yet — tell me what happened. …So it's less the task, more feeling unseen. …Want a couple of options now?\"",
+        "\"You've got my full attention. I won't try to fix it yet. Tell me what happened. ...So it's less the task, more feeling unseen. ...Want a couple of options now?\"",
       ],
     },
     {
       label: "Conflict chain",
       sequence:
-        "TC031 Slow down under pressure -> TC090 Do-Not-Fix-Yet -> TC005 Validation without agreement -> TC037 Double-sided reflection -> TC013 Clean request",
+        "TC031 Slow down under pressure → TC090 Do-Not-Fix-Yet → TC005 Validation without agreement → TC037 Double-sided reflection → TC013 Clean request",
       example: [
         "Use when your impulse is to solve, defend, or correct mid-argument.",
-        '"Let me slow down. I\'m not going to fix this on the spot. I get why you saw it that way — and I saw it differently. Can we take one thing at a time?"',
+        '"Let me slow down. I\'m not going to fix this on the spot. I get why you saw it that way, and I saw it differently. Can we take one thing at a time?"',
       ],
     },
     {
       label: "Leadership chain",
       sequence:
-        "TC011 Summary check -> TC090 Do-Not-Fix-Yet -> TC043 OARS -> TC027 Permission-based advice -> TC019 Small ask",
+        "TC011 Summary check → TC090 Do-Not-Fix-Yet → TC043 OARS → TC027 Permission-based advice → TC019 Small ask",
       example: [
         "Use when a team member is overloaded and you need to move from support to action without rushing them.",
-        "\"So the load's been relentless for weeks — have I got that right? I won't leap to fixes. …Ready to pick one small thing to take off your plate?\"",
+        "\"So the load's been relentless for weeks. Have I got that right? I won't leap to fixes. ...Ready to pick one small thing to take off your plate?\"",
       ],
     },
     {
       label: "Digital chain",
       sequence:
-        "TC024 Warm opening -> TC090 Do-Not-Fix-Yet -> TC030 Echo plus question -> TC041 Topic energy tracking -> TC027 Permission-based advice",
+        "TC024 Warm opening → TC090 Do-Not-Fix-Yet → TC030 Echo plus question → TC041 Topic energy tracking → TC027 Permission-based advice",
       example: [
         "Use when replying by text and you want to avoid the coldness of instant problem-solving.",
-        "\"Really glad you told me. I won't advice-dump. 'Dismissed in five minutes' — what stung most about that? …Want ideas now or later?\"",
+        "\"Really glad you told me. I won't advice-dump. 'Dismissed in five minutes'. What stung most about that? ...Want ideas now or later?\"",
       ],
     },
   ],
@@ -565,32 +565,32 @@ export const TC090: CardData = {
     {
       id: "TC015",
       reason:
-        "Both hold advice back. Use TC015 when you only need to stop early advice leaking out; use TC090 when the person needs active, accompanying presence, not just a pause.",
+        "Both hold advice back. Use TC015 when you only need to stop early advice leaking out. Use TC090 when the person needs active, accompanying presence, not just a pause.",
     },
     {
       id: "TC027",
       reason:
-        "The next step once support is established. Use TC090 while emotion is still live; switch to TC027 the moment they ask for input, to agree what kind and how much.",
+        "The next step once support is established. Use TC090 while emotion is still live. Switch to TC027 the moment they ask for input, to agree what kind and how much.",
     },
     {
       id: "TC004",
       reason:
-        "Reflective listening shows you understood the point beneath their words; TC090 is the discipline that stops that reflection from becoming a bridge into advice too soon.",
+        "Reflective listening shows you understood the point beneath their words. TC090 is the discipline that stops that reflection from becoming a bridge into advice too soon.",
     },
     {
       id: "TC005",
       reason:
-        "Validation without agreement endorses the experience without endorsing the conclusion — reach for it when disagreement is the issue, and TC090 when it's advice timing.",
+        "Validation without agreement endorses the experience without endorsing the conclusion: reach for it when disagreement is the issue, and TC090 when it's advice timing.",
     },
     {
       id: "TC040",
       reason:
-        "Meaning reflection names why a detail matters; use it only once TC090 has held the fix, or naming significance can tip into an implied solution.",
+        "Meaning reflection names why a detail matters. Use it only once TC090 has held the fix, or naming significance can tip into an implied solution.",
     },
     {
       id: "TC043",
       reason:
-        "OARS gives a coaching structure; if you're reaching for a framework because discomfort is high, steady the moment with TC090 first so the structure doesn't feel performative.",
+        "OARS gives a coaching structure. If you're reaching for a framework because discomfort is high, steady the moment with TC090 first so the structure doesn't feel performative.",
     },
   ],
 };
