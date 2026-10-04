@@ -6,7 +6,7 @@ export const TC003: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC003/TC003_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,11 +56,10 @@ export const TC003: CardData = {
   ],
   id: "TC003",
   whyItWorks:
-    "Comment-before-question is the habit of adding one short, honest reaction to what someone just said before you ask your next question, so they feel met rather than interrogated. It is a timing and attention move: you notice the live moment, respond to it in plain language, then ask one thing and stop, which keeps the other person oriented and unpressured. Because they can tell you took in what they already said, the question lands as interest instead of a demand, and they answer more openly.",
+    "Comment-before-question is the habit of adding one short, honest reaction to what someone just said before you ask your next question, so they feel met rather than interrogated. Because they can tell you took in what they already said, the question lands as interest instead of a demand, and they answer more openly.",
   whatItIsNot: [
     "It is not padding, flattery, therapy-speak, fake intimacy or a trick to earn a question. The comment must be true, brief and connected.",
-    "It is not manipulation, performance, emotional extraction or a way to force intimacy.",
-    "It is not a licence to keep talking — if the person resists, shortens their answers or redirects, release the technique and follow them.",
+    "It is not a licence to keep talking. If the person resists, shortens their answers or redirects, release the technique and follow them.",
   ],
   overview: {
     coreFormula: [
@@ -194,7 +193,7 @@ export const TC003: CardData = {
     {
       condition: "You're about to ask a question",
       action:
-        "Add one true comment first — unless urgency demands a direct answer.",
+        "Add one true comment first, unless urgency demands a direct answer.",
       phrase: '"That\'s a big shift. What made you decide?"',
     },
     {
@@ -210,7 +209,7 @@ export const TC003: CardData = {
     },
     {
       condition: "They gave a short, closed answer",
-      action: "Lower the pressure or change direction — don't push harder.",
+      action: "Lower the pressure or change direction. Don't push harder.",
       phrase: '"No need to get into it. I was just curious."',
     },
     {
@@ -221,7 +220,7 @@ export const TC003: CardData = {
     {
       condition: "They corrected your frame",
       action: "Take the correction, drop the technique, and just follow them.",
-      phrase: '"Fair enough — say more."',
+      phrase: '"Fair enough, say more."',
     },
   ],
   ladder: [
@@ -262,7 +261,7 @@ export const TC003: CardData = {
     },
     {
       situation: "Conflict or tension",
-      move: "Offer a neutral observation before asking about impact — keep any judgement out of the comment.",
+      move: "Offer a neutral observation before asking about impact. Keep any judgement out of the comment.",
       phrase:
         '"I can see this really got to you. What did it cost you on your side?"',
     },
@@ -303,7 +302,7 @@ export const TC003: CardData = {
     {
       day: "Day 1",
       title: "Spot the moments",
-      task: "Through today, catch three times someone shared something you could have reacted to before asking a question. Jot each one down — you're only training your eye for the cue.",
+      task: "Through today, catch three times someone shared something you could have reacted to before asking a question. Jot each one down. You're only training your eye for the cue.",
     },
     {
       day: "Day 2",
@@ -323,7 +322,7 @@ export const TC003: CardData = {
     {
       day: "Day 5",
       title: "One live rep",
-      task: "In a low-stakes conversation, use the move once — one comment, one question — then stop and listen. Note what the person did next.",
+      task: "In a low-stakes conversation, use the move once (one comment, one question) then stop and listen. Note what the person did next.",
     },
     {
       day: "Day 6",
@@ -333,14 +332,14 @@ export const TC003: CardData = {
     {
       day: "Day 7",
       title: "Recover on purpose",
-      task: 'Let one question come out too blunt on purpose, then use a recovery line — "That came out more like an interview than I meant" — and notice how the moment resets.',
+      task: 'Let one question come out too blunt on purpose, then use a recovery line ("That came out more like an interview than I meant") and notice how the moment resets.',
     },
   ],
   checklist: [
     "Did I catch the right moment to comment, or force one?",
     "Was my comment true, or just padding to soften the question?",
     "Did I keep it to one comment and one question?",
-    "Did I leave their autonomy intact — no disguised judgement or pressure?",
+    "Did I leave their autonomy intact, no disguised judgement or pressure?",
     "Did I stop after one move instead of overusing it?",
     "Did the exchange feel easier, or more self-conscious?",
   ],
@@ -349,7 +348,7 @@ export const TC003: CardData = {
       'Them: "I quit the course."',
       'You: "Why?"',
       'Them: "It just wasn\'t right."',
-      "Why it is weak:",
+      "Why it's weak:",
       "the bare question reads as a challenge",
       "they have to defend a decision instead of explaining it",
       "you get a closed, guarded answer",
@@ -366,10 +365,10 @@ export const TC003: CardData = {
       "Why this works:",
       "the comment shows you took in the decision before probing it",
       "the question asks how it happened, not just why, so it invites the story",
-      "one comment, one question — nothing stacked",
+      "one comment, one question, nothing stacked",
       "they open up instead of defending",
     ],
-    note: "The poor version interrogates; the advanced version reacts first, then asks — and the person keeps talking.",
+    note: "The poor version interrogates. The advanced version reacts first, then asks, and the person keeps talking.",
   },
   influencePayoff: {
     feeling: '"They actually took in what I said before asking for more."',
@@ -379,7 +378,7 @@ export const TC003: CardData = {
       "Questions become warmer and easier to answer.",
       "The other person doesn't have to defend, decode or rescue the conversation.",
       "Bare questions stop reading as challenges.",
-      "Relevance goes up — your question is visibly tied to what they just said.",
+      "Relevance goes up: your question is visibly tied to what they just said.",
       "Trust and conversational ease build without any exaggeration.",
       "The exchange flows instead of turning into question-answer-question.",
     ],
@@ -392,32 +391,32 @@ export const TC003: CardData = {
   },
   fieldTip: {
     headline: "One real comment buys one clean question.",
-    body: "The comment isn't there to be clever or kind — it's there to show you actually heard them before you ask for more. Keep it to a phrase, keep it true, then ask one thing and stop.",
+    body: "The comment isn't there to be clever or kind. It's there to show you actually heard them before you ask for more. Keep it to a phrase, keep it true, then ask one thing and stop.",
     example: '"That\'s a big shift. What made you decide?"',
-    dont: "Don't manufacture warmth you don't feel — a fake comment is more obvious than a bare question.",
+    dont: "Don't manufacture warmth you don't feel: a fake comment is more obvious than a bare question.",
     do: "Do let the comment be small. A five-word reaction is plenty.",
   },
   method: [
     {
       step: "1",
       title: "Notice the cue",
-      body: "Listen for the moment worth reacting to — a decision, a change, a surprise or a strong feeling they've just shared. That's what earns a comment before your question.",
+      body: "Listen for the moment worth reacting to: a decision, a change, a surprise or a strong feeling they've just shared. That's what earns a comment before your question.",
       examples: [
         { label: "They say", text: '"I ended up moving back home."' },
         {
           label: "The cue",
-          text: "a big change, said plainly — worth acknowledging",
+          text: "A big change, said plainly, and worth acknowledging",
         },
       ],
     },
     {
       step: "2",
       title: "Choose the smallest useful move",
-      body: "Pick the shortest true reaction, not the cleverest one. A five-word comment does the job; a paragraph turns it into a performance.",
+      body: "Pick the shortest true reaction, not the cleverest one. A five-word comment does the job. A paragraph turns it into a performance.",
       examples: [
         {
           label: "Too much",
-          text: '"Wow, that must have been such a complicated, emotional thing to navigate…"',
+          text: '"Wow, that must have been such a complicated, emotional thing to navigate..."',
         },
         { label: "Enough", text: '"That\'s a big move. What prompted it?"' },
       ],
@@ -440,7 +439,7 @@ export const TC003: CardData = {
     {
       step: "4",
       title: "Ask one question, then stop",
-      body: "Add a single clean question and let it land. Don't stack a second one — give them room to answer the first.",
+      body: "Add a single clean question and let it land. Don't stack a second one: give them room to answer the first.",
       examples: [
         { label: "Stacked", text: '"Where was it? Who with? How long?"' },
         { label: "One clean question", text: '"What was the hardest part?"' },
@@ -455,22 +454,22 @@ export const TC003: CardData = {
           label: "It's landing",
           text: "they answer with more than you asked for",
         },
-        { label: "Ease off", text: '"No pressure — we can leave it there."' },
+        { label: "Ease off", text: '"No pressure, we can leave it there."' },
       ],
     },
   ],
   liveThreadClues: [
-    '"I just…" / "I finally…" — a change or a relief worth naming',
-    '"I ended up…" — an unexpected path',
-    '"It turned out…" — a surprise',
-    '"I decided to…" — a choice they might want to explain',
-    '"We\'ve been…" — an ongoing situation with weight',
+    '"I just..." / "I finally..." A change or a relief worth naming',
+    '"I ended up..." An unexpected path',
+    '"It turned out..." A surprise',
+    '"I decided to..." A choice they might want to explain',
+    '"We\'ve been..." An ongoing situation with weight',
     "Any decision, transition or strong reaction they've just handed you",
   ],
   depthDial: [
     {
       depth: "Light",
-      useWhen: "early or casual — keep it feather-light",
+      useWhen: "early or casual, so keep it feather-light",
       phrase: '"Nice. What got you into it?"',
     },
     {
@@ -485,7 +484,7 @@ export const TC003: CardData = {
     },
     {
       depth: "Interpretive",
-      useWhen: "trust is solid and you've earned a read — hold it loosely",
+      useWhen: "trust is solid and you've earned a read: hold it loosely",
       phrase:
         '"That sounds like it came after real thought, not impulse. What was the moment it clarified?"',
     },
@@ -493,16 +492,16 @@ export const TC003: CardData = {
   commonMistakes: [
     {
       mistake: "The comment is longer than the question",
-      soundsLike: "a thirty-second preamble in front of a one-line question",
+      soundsLike: "A thirty-second preamble in front of a one-line question",
       better:
         'Keep the comment to a phrase: "That\'s a big shift. What changed?"',
     },
     {
       mistake: "Generic filler on repeat",
       soundsLike:
-        '"That\'s interesting." … "That\'s interesting." … "Interesting."',
+        '"That\'s interesting." ... "That\'s interesting." ... "Interesting."',
       better:
-        'Say something only you would say: "That\'s the opposite of what I expected. What shifted it?"',
+        "Say something only you'd say: \"That's the opposite of what I expected. What shifted it?\"",
     },
     {
       mistake: "Stacking questions after the comment",
@@ -523,7 +522,7 @@ export const TC003: CardData = {
     },
     {
       mistake: "Faking the comment to earn the question",
-      soundsLike: "a warm-sounding line you don't actually mean",
+      soundsLike: "A warm-sounding line you don't actually mean",
       better:
         "If nothing genuine comes to mind, just ask the question plainly.",
     },
@@ -533,10 +532,10 @@ export const TC003: CardData = {
     "Let me put that more simply.",
     "No need to answer that if it's too much detail.",
     "I'm curious, but we can leave it there.",
-    "Ignore the preamble — what I'm really asking is simpler.",
+    "Ignore the preamble. What I'm really asking is simpler.",
     "I got ahead of myself there. No pressure to get into it.",
     "That was a clumsy way to ask. Let me try again.",
-    "Forget how I framed it — what's the honest version?",
+    "Forget how I framed it. What's the honest version?",
   ],
   bestRecoveryLine: "That came out more like an interview than I meant.",
   chains: [
@@ -547,7 +546,7 @@ export const TC003: CardData = {
         'Them: "We finally moved house."',
         "You: \"That's a huge job. How's it feeling now it's done?\" (TC003)",
         'Them: "Exhausting but right."',
-        'You: "Exhausting how — the logistics, or the goodbyes?" (TC001)',
+        'You: "Exhausting how? The logistics, or the goodbyes?" (TC001)',
       ],
     },
     {
@@ -566,7 +565,7 @@ export const TC003: CardData = {
       example: [
         'You: "That\'s a lot of moving parts. What matters most to get right?" (TC003)',
         "Them: [lays out the priorities]",
-        'You: "So the deadline is fixed and the budget can flex a little — have I got that right?" (TC011)',
+        'You: "So the deadline is fixed and the budget can flex a little. Have I got that right?" (TC011)',
       ],
     },
     {
@@ -575,7 +574,7 @@ export const TC003: CardData = {
       example: [
         'You: "That sounds like a real turning point. What made it land?" (TC003)',
         "Them: [explains]",
-        'You: "So it wasn\'t the job itself — it was finally trusting your own read on it." (TC040)',
+        'You: "So it wasn\'t the job itself. It was finally trusting your own read on it." (TC040)',
       ],
     },
   ],
@@ -583,32 +582,32 @@ export const TC003: CardData = {
     {
       id: "TC001",
       reason:
-        "TC001 Live-Thread Follow-Ups follows the most alive part of their answer; TC003 shapes the question you ask next so it doesn't land abruptly. Comment first (TC003), then follow the thread (TC001).",
+        "TC001 Live thread follow-ups follows the most alive part of their answer. TC003 shapes the question you ask next so it doesn't land abruptly. Comment first (TC003), then follow the thread (TC001).",
     },
     {
       id: "TC033",
       reason:
-        'TC033 Minimal encouragers uses tiny signals ("mm", "go on") to keep them talking; TC003 adds one substantive comment before a question. Use TC033 to sustain, TC003 to open.',
+        'TC033 Minimal encouragers uses tiny signals ("mm", "go on") to keep them talking. TC003 adds one substantive comment before a question. Use TC033 to sustain, TC003 to open.',
     },
     {
       id: "TC034",
       reason:
-        "TC034 Two-option questions narrows the answer to two choices; TC003 warms the question before you ask it. Chain them when someone is vague.",
+        "TC034 Two-option questions narrows the answer to two choices. TC003 warms the question before you ask it. Chain them when someone is vague.",
     },
     {
       id: "TC038",
       reason:
-        "TC038 Conversation threading reopens or links earlier threads; TC003 makes the question that reopens a thread feel less abrupt.",
+        "TC038 Conversation threading reopens or links earlier threads. TC003 makes the question that reopens a thread feel less abrupt.",
     },
     {
       id: "TC011",
       reason:
-        "TC011 Summary check reflects back a summary to confirm you've understood; TC003 is the lighter opener that earns the question. Comment, ask, then confirm with TC011.",
+        "TC011 Summary check reflects back a summary to confirm you've understood. TC003 is the lighter opener that earns the question. Comment, ask, then confirm with TC011.",
     },
     {
       id: "TC040",
       reason:
-        "TC040 Meaning reflection reflects the deeper meaning back; TC003 is the everyday version that softens a single question. Reach for TC040 once the conversation has deepened.",
+        "TC040 Meaning reflection reflects the deeper meaning back. TC003 is the everyday version that softens a single question. Reach for TC040 once the conversation has deepened.",
     },
   ],
 };

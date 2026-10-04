@@ -6,7 +6,7 @@ export const TC009: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC009/TC009_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,11 +56,11 @@ export const TC009: CardData = {
   ],
   id: "TC009",
   whyItWorks:
-    "Anti-boomerasking is the discipline of asking a question, actually receiving the answer, and staying with the other person's thread before you add your own story, opinion or example. A good question is a door into their experience; a boomerang question is a runway for your own. It works because the person feels their answer genuinely mattered, which keeps momentum with them and builds trust — and it makes your own later self-disclosure land as connection rather than hijacking.",
+    "Anti-boomerasking is the discipline of asking a question, actually receiving the answer, and staying with the other person's thread before you add your own story, opinion or example. A good question is a door into their experience. A boomerang question is a runway for your own. It works because the person feels their answer genuinely mattered, which keeps momentum with them and builds trust, and it makes your own later self-disclosure land as connection rather than hijacking.",
   whatItIsNot: [
     "It is not never talking about yourself.",
     "It is not becoming an interviewer who only asks and never gives.",
-    "Your self-disclosure still happens — it just comes after support, and it usually returns to their thread.",
+    "Your self-disclosure still happens. It just comes after support, and it usually returns to their thread.",
     "It is not withholding to seem mysterious or to dodge real give-and-take.",
   ],
   overview: {
@@ -68,14 +68,14 @@ export const TC009: CardData = {
       "Ask → listen → follow-up or reflect → optional brief share → return.",
       "Question + support response + small self-disclosure + return question.",
       '"I have a version of that too, but I want to hear yours first."',
-      '"That reminds me of something, but before I hijack it — what happened next?"',
+      '"That reminds me of something, but before I hijack it, what happened next?"',
     ],
     minimumViableMove:
       "Ask one real follow-up or reflect before sharing your related story.",
     impact: "Low",
     difficulty: "Medium",
     misuse:
-      "The move fails when every question is secretly a setup for self-display — you ask, half-listen, then swing the topic back to your own story before the person feels heard.",
+      "The move fails when every question is secretly a setup for self-display. You ask, half-listen, then swing the topic back to your own story before the person feels heard.",
     bestFor: [
       "Keeping conversation centred on the other person when they are sharing something.",
       "Responding to stories, good news, stress, uncertainty, achievements or frustrations.",
@@ -100,9 +100,9 @@ export const TC009: CardData = {
       tag: "Catch-yourself one-liners",
       tone: "Quick",
       phrases: [
-        "Before I make this about me — what happened next?",
+        "Before I make this about me, what happened next?",
         "I have a related story, but yours is the one I want to hear first.",
-        "I nearly jumped in there — go on.",
+        "I nearly jumped in there. Go on.",
         "I want to stay with your version for a second.",
         "Let me not hijack that. What was that like?",
         "I asked because I actually want the answer.",
@@ -129,9 +129,9 @@ export const TC009: CardData = {
       tone: "Warm",
       phrases: [
         "I've had a smaller version of that, but yours sounds more intense.",
-        "That reminds me of something — but I'll keep it short.",
+        "That reminds me of something, but I'll keep it short.",
         "I relate to the uncertainty part. Mine was different, but I get the feeling.",
-        "I've a version of this too — not to compete, just because I recognise the pattern.",
+        "I've got a version of this too. Not to compete, just because I recognise the pattern.",
         "I'll give the two-sentence version, then I want to hear what happened next.",
         "My version was less dramatic, but the feeling was similar.",
       ],
@@ -142,8 +142,8 @@ export const TC009: CardData = {
       tag: "Hand the floor back",
       tone: "Direct",
       phrases: [
-        "Anyway, back to yours — what happened after that?",
-        "That is my version, but what did you do next?",
+        "Anyway, back to yours. What happened after that?",
+        "That's my version, but what did you do next?",
         "How did it land for you?",
         "Was that the part that bothered you most?",
         "Where did that leave things?",
@@ -156,8 +156,8 @@ export const TC009: CardData = {
       tag: "Help them savour the win",
       tone: "Warm",
       phrases: [
-        "That is a proper win. What was the best moment?",
-        "Nice — when did you realise it had gone well?",
+        "That's a proper win. What was the best moment?",
+        "Nice, when did you realise it had gone well?",
         "What part are you most pleased with?",
         "Who was the first person you told?",
         "What made that feel satisfying?",
@@ -198,29 +198,29 @@ export const TC009: CardData = {
       tag: "One-line messages",
       tone: "Quick",
       phrases: [
-        "Wait — I want the actual story. What happened?",
+        "Wait, I want the actual story. What happened?",
         "Before I turn this into my own rant: what did you do?",
         "That sounds like a lot. What was the hardest bit?",
         "I have a similar story, but yours first.",
         "What's the short version and the honest version?",
-        "That deserves more than 'nice' — what was the best part?",
+        "That deserves more than 'nice'. What was the best part?",
       ],
     },
   ],
   decisionTree: [
     {
       condition:
-        "They are sharing a story, a win, or a frustration — a cue this move is built for.",
+        "They are sharing a story, a win, or a frustration: a cue this move is built for.",
       action:
         "Use the minimum viable move: one real follow-up or reflection before anything of your own.",
       phrase: "What was the best part for you?",
     },
     {
       condition:
-        "There is no real cue — they want information, not conversation.",
+        "There is no real cue. They want information, not conversation.",
       action:
-        "Answer plainly, or pick a neighbouring technique; do not force restraint.",
-      phrase: "Here's the short answer — tell me if you want the detail.",
+        "Answer plainly, or pick a neighbouring technique. Do not force restraint.",
+      phrase: "Here's the short answer. Tell me if you want the detail.",
     },
     {
       condition: "The follow-up opened them up.",
@@ -230,31 +230,31 @@ export const TC009: CardData = {
     {
       condition: "You feel the urge to bridge to your own story.",
       action: "Give the two-sentence version, then return the floor.",
-      phrase:
-        "I have a version of that too — but yours first, what did you do?",
+      phrase: "I have a version of that too, but yours first. What did you do?",
     },
     {
       condition: "You have shifted too far onto yourself.",
       action: "Name it and hand the spotlight back.",
-      phrase: "I just made that about me — sorry, go on.",
+      phrase: "I just made that about me. Sorry, go on.",
     },
     {
       condition: "You have already used the move once.",
       action:
-        "Don't repeat it mechanically; move to summary, action, or ordinary contribution.",
+        "Don't repeat it mechanically. Move to summary, action, or ordinary contribution.",
       phrase: "So where did that leave things?",
     },
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"Have you been to Japan? I went last year and..." (asks only to tell their own story)',
+      better:
+        '"Have you been to Japan?" (listens briefly, then pivots to their own trip)',
+      best: '"Have you been to Japan?" Then one follow-up about their answer before sharing anything.',
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"How was your weekend? Mine was huge..."',
+      better: '"How was your weekend?" (then listens)',
+      best: '"How was your weekend?" Then "What was the best bit?" before mentioning yours.',
     },
   ],
   scenarios: [
@@ -270,13 +270,13 @@ export const TC009: CardData = {
     },
     {
       situation: "Conflict or objection",
-      move: "Add validation and slow down; do not weaponise the restraint.",
-      phrase: "Before I give my side — what mattered most to you here?",
+      move: "Add validation and slow down. Do not weaponise the restraint.",
+      phrase: "Before I give my side, what mattered most to you here?",
     },
     {
       situation: "Digital message",
       move: "Use one sentence. Avoid long explanations or stacked questions.",
-      phrase: "Wait — I want the actual story. What happened?",
+      phrase: "Wait, I want the actual story. What happened?",
     },
     {
       situation: "Shy or guarded person",
@@ -318,7 +318,7 @@ export const TC009: CardData = {
     {
       day: "Day 2",
       title: "Catch your own urge",
-      task: "In your own conversations, catch the launchpad urge — the moment you ask something mainly to set up your own story. Note when it happens, without changing anything yet.",
+      task: "In your own conversations, catch the launchpad urge: the moment you ask something mainly to set up your own story. Note when it happens, without changing anything yet.",
     },
     {
       day: "Day 3",
@@ -333,7 +333,7 @@ export const TC009: CardData = {
     {
       day: "Day 5",
       title: "Support before shifting, live",
-      task: "In one real conversation, ask a question and give a full support response — a follow-up or reflection — before adding anything about yourself.",
+      task: "In one real conversation, ask a question and give a full support response, a follow-up or reflection, before adding anything about yourself.",
     },
     {
       day: "Day 6",
@@ -343,7 +343,7 @@ export const TC009: CardData = {
     {
       day: "Day 7",
       title: "Recover on purpose",
-      task: "When you notice you've boomeranged — you will — practise naming it and returning the floor: 'I just made that about me, go on.' Notice how quickly it repairs the moment.",
+      task: "When you notice you've boomeranged (you will), practise naming it and returning the floor: 'I just made that about me. Go on.' Notice how quickly it repairs the moment.",
     },
   ],
   checklist: [
@@ -357,16 +357,16 @@ export const TC009: CardData = {
   example: {
     without: [
       "Person: I finally got to Japan last month.",
-      "You: Oh nice, do you like Tokyo? I went in 2019, honestly my trip was incredible — I stayed near Shinjuku and found this amazing ramen place…",
+      "You: Oh nice, do you like Tokyo? I went in 2019, honestly my trip was incredible. I stayed near Shinjuku and found this amazing ramen place...",
       "Person: Yeah, Tokyo was good.",
-      "Why it is weak:",
+      "Why it's weak:",
       "the question was just a runway for your own trip",
       "you never actually received their answer",
       "they shrink their story down to a flat 'good'",
     ],
     with: [
       "Person: I finally got to Japan last month.",
-      "You: Nice — what was the best part for you?",
+      "You: Nice. What was the best part for you?",
       "Person: Probably Kyoto. It was calmer than I expected.",
       "You: So Kyoto was the part that actually stayed with you?",
       "Person: Exactly. It felt different from the rest of the trip.",
@@ -382,7 +382,7 @@ export const TC009: CardData = {
   },
   influencePayoff: {
     feeling:
-      '"They actually wanted my answer — not just a gap to fill with their own story."',
+      '"They actually wanted my answer, not just a gap to fill with their own story."',
     principle:
       "People warm to you when they feel their answer genuinely mattered. Receiving before relating keeps momentum with them, and it makes your own later disclosure land as connection rather than competition.",
     gains: [
@@ -396,7 +396,7 @@ export const TC009: CardData = {
     whyMostFail: [
       "Every question is secretly a setup for self-display.",
       "They boomerang back to their own story before receiving the answer.",
-      "They relate too fast — 'that reminds me' before the person feels heard.",
+      "They relate too fast: 'that reminds me' before the person feels heard.",
       "They over-correct into interview mode and never reciprocate at all.",
     ],
   },
@@ -415,7 +415,7 @@ export const TC009: CardData = {
       examples: [
         {
           label: "Tell-tale",
-          text: '"Have you been to Japan?" — asked mainly so you can share your own trip.',
+          text: '"Have you been to Japan?" Asked mainly so you can share your own trip.',
         },
       ],
     },
@@ -442,7 +442,7 @@ export const TC009: CardData = {
       examples: [
         {
           label: "Bridge",
-          text: '"I have a version of that too, but yours sounds more complicated — what happened next?"',
+          text: '"I have a version of that too, but yours sounds more complicated. What happened next?"',
         },
       ],
     },
@@ -458,15 +458,15 @@ export const TC009: CardData = {
       examples: [
         {
           label: "Hand back",
-          text: '"Anyway, your version sounds different — what did you do after that?"',
+          text: '"Anyway, your version sounds different. What did you do after that?"',
         },
       ],
     },
   ],
   liveThreadClues: [
-    '"Oh, that reminds me of when I…"',
-    '"That happened to me too…"',
-    '"Funny you should say that, because I…"',
+    '"Oh, that reminds me of when I..."',
+    '"That happened to me too..."',
+    '"Funny you should say that, because I..."',
     "You already know what you'll say before they answer.",
     "You feel the urge to talk building while they're still speaking.",
     "The question is really a doorway to a story you want to tell.",
@@ -475,13 +475,13 @@ export const TC009: CardData = {
     {
       mistake: "Asking as a setup",
       soundsLike:
-        '"Have you been to Japan?" — then straight into your own Japan story.',
+        '"Have you been to Japan?", then straight into your own Japan story.',
       better:
         "Ask, listen, follow up, then share briefly only if it adds connection.",
     },
     {
       mistake: "Me-too interruption",
-      soundsLike: '"That happened to me too…" before they\'ve finished.',
+      soundsLike: '"That happened to me too..." before they\'ve finished.',
       better: "Reflect, or ask what happened next, first.",
     },
     {
@@ -507,21 +507,21 @@ export const TC009: CardData = {
     },
     {
       mistake: "Bridging too early",
-      soundsLike: '"That reminds me…" before they feel heard.',
+      soundsLike: '"That reminds me..." before they feel heard.',
       better: "Delay your story until after a genuine support response.",
     },
   ],
   recoveryPhrases: [
-    "I just turned that back to me — sorry, go on.",
+    "I just turned that back to me. Sorry, go on.",
     "I asked and then hijacked it. What were you saying?",
     "Let me not make that about me.",
     "I have a related story, but yours first.",
-    "Ignore my tangent — back to your version.",
+    "Ignore my tangent. Back to your version.",
     "That came out more self-focused than I meant.",
     "I jumped in too fast. What happened next?",
     "I want to hear the rest before I add mine.",
   ],
-  bestRecoveryLine: "I just turned that back to me — sorry, go on.",
+  bestRecoveryLine: "I just turned that back to me. Sorry, go on.",
   chains: [
     {
       label: "Conversation chain",
@@ -530,7 +530,7 @@ export const TC009: CardData = {
       example: [
         '"What was the best part for you?"',
         '"So that was the bit that stuck with you."',
-        '"I had a smaller version of that once — but what happened next for you?"',
+        '"I had a smaller version of that once, but what happened next for you?"',
       ],
     },
     {
@@ -538,7 +538,7 @@ export const TC009: CardData = {
       sequence:
         "Active-constructive response → replay the best moment → appreciation → optional related win.",
       example: [
-        '"That is a proper win — what was the best moment?"',
+        '"That\'s a proper win. What was the best moment?"',
         '"Nice, you clearly earned that."',
         '"It reminds me of one of mine, but tell me the rest first."',
       ],
@@ -551,7 +551,7 @@ export const TC009: CardData = {
         '"That sounds like a good story."',
         '"What made it stand out?"',
         '"So the surprising part wasn\'t the obvious one."',
-        '"I relate to that — but back to yours, what did you do?"',
+        '"I relate to that, but back to yours. What did you do?"',
       ],
     },
     {
@@ -569,32 +569,32 @@ export const TC009: CardData = {
     {
       id: "TC002",
       reason:
-        "TC002 is the choice to support rather than shift the topic onto yourself once someone shares; TC009 is the wider discipline of asking to understand, not to set up your own story.",
+        "TC002 is the choice to support rather than shift the topic onto yourself once someone shares. TC009 is the wider discipline of asking to understand, not to set up your own story.",
     },
     {
       id: "TC007",
       reason:
-        "Close cousin in the discipline family: TC007 stops you topping their story with a bigger one; TC009 stops you using the question itself as a runway for yours.",
+        "Close cousin in the discipline family: TC007 stops you topping their story with a bigger one. TC009 stops you using the question itself as a runway for yours.",
     },
     {
       id: "TC003",
       reason:
-        "TC003 adds a warm comment before the question so it doesn't feel like interrogation; TC009 governs why you ask at all and what you do with the answer.",
+        "TC003 adds a warm comment before the question so it doesn't feel like interrogation. TC009 governs why you ask at all and what you do with the answer.",
     },
     {
       id: "TC038",
       reason:
-        "TC038 tracks and returns to earlier threads across a whole conversation; TC009 is the narrower rule of receiving one answer before you relate.",
+        "TC038 tracks and returns to earlier threads across a whole conversation. TC009 is the narrower rule of receiving one answer before you relate.",
     },
     {
       id: "TC001",
       reason:
-        "TC001 is the positive move — following the most alive part of what they said; TC009 is the restraint that keeps you doing it instead of boomeranging to yourself.",
+        "TC001 is the positive move: following the most alive part of what they said. TC009 is the restraint that keeps you doing it instead of boomeranging to yourself.",
     },
     {
       id: "TC016",
       reason:
-        "For good news specifically: TC016 actively amplifies their win; TC009 keeps you from answering their win with one of your own.",
+        "For good news specifically: TC016 actively amplifies their win. TC009 keeps you from answering their win with one of your own.",
     },
   ],
 };

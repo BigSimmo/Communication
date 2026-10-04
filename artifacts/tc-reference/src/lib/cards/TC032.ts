@@ -6,7 +6,7 @@ export const TC032: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC032/TC032_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,22 +56,22 @@ export const TC032: CardData = {
   ],
   id: "TC032",
   whyItWorks:
-    "Name and detail memory is recalling one accurate thing about someone — their name, or a specific detail they shared earlier — and reusing it at the right moment so they feel recognised rather than processed. It is a specific, observable conversation move, not a general good memory. It works because being remembered is a quiet signal that someone mattered enough to be held in mind: it tells the other person you were actually listening, and that the relationship has continuity beyond this single exchange.",
+    "Name and detail memory is recalling one accurate thing about someone (their name, or a specific detail they shared earlier) and reusing it at the right moment so they feel recognised rather than processed. It is a specific, observable conversation move, not a general good memory. It works because being remembered is a quiet signal that someone mattered enough to be held in mind: it tells the other person you were actually listening, and that the relationship has continuity beyond this single exchange.",
   whatItIsNot: [
     "It is not a trick, a dominance move, a script, or a way to push someone past their boundary.",
     "It is not flattery or a way to soften someone up before an ask.",
-    "It is not surveillance — reciting a file of facts back at them is the opposite of the move.",
-    "It is not about remembering everything; it is one accurate detail used at the right moment.",
+    "It is not surveillance: reciting a file of facts back at them is the opposite of the move.",
+    "It is not about remembering everything. It is one accurate detail used at the right moment.",
   ],
   overview: {
     coreFormula: [
       "Cue → small move → pause → observe → follow or release.",
       "Good to see you, Maya.",
-      "You mentioned the presentation — how did it land?",
+      "You mentioned the presentation. How did it land?",
       "One name or one detail, used once, then hand the floor back.",
     ],
     minimumViableMove:
-      "Use their name once, or refer to one relevant detail they already shared — then stop and watch the response.",
+      "Use their name once, or refer to one relevant detail they already shared, then stop and watch the response.",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
@@ -101,11 +101,11 @@ export const TC032: CardData = {
       tone: "Quick",
       phrases: [
         "Good to see you, Maya.",
-        "Morning, Sam — good to catch you.",
+        "Morning, Sam, good to catch you.",
         "Priya, good to see you again.",
         "Welcome back, James.",
         "Nice to run into you, Tom.",
-        "Alex — perfect timing.",
+        "Alex, perfect timing.",
       ],
     },
     {
@@ -114,13 +114,13 @@ export const TC032: CardData = {
       tag: "A remembered detail that shows care",
       tone: "Warm",
       phrases: [
-        "You mentioned the presentation last week — how did it land?",
+        "You mentioned the presentation last week. How did it land?",
         "I remember you said mornings are easier for you.",
         "You had a big week with the move, right? How's the new place?",
-        "Last time we spoke you were about to run that first session — how did it go?",
+        "Last time we spoke you were about to run that first session. How did it go?",
         "How's your dad doing? You'd said he'd been unwell.",
         "Did you get to that gig you were looking forward to?",
-        "You were deep in exam season last time — is that all done now?",
+        "You were deep in exam season last time. Is that all done now?",
       ],
     },
     {
@@ -129,13 +129,13 @@ export const TC032: CardData = {
       tag: "Concise, non-performative",
       tone: "Professional",
       phrases: [
-        "You flagged the budget as the sticking point last time — where's that landed?",
+        "You flagged the budget as the sticking point last time. Where's that landed?",
         "Last meeting you wanted to hold the timeline. Still the priority?",
-        "You said the Sydney team owns that call — did you hear back?",
-        "I know onboarding was your focus this quarter — how's it tracking?",
+        "You said the Sydney team owns that call. Did you hear back?",
+        "I know onboarding was your focus this quarter. How's it tracking?",
         "You mentioned Q3 was tight. Has that eased at all?",
-        "Before we start — how did the board session go? You had that Thursday.",
-        "You'd wanted to loop Priya in on this — shall I hold off until she's across it?",
+        "Before we start, how did the board session go? You had that Thursday.",
+        "You'd wanted to loop Priya in on this. Shall I hold off until she's across it?",
       ],
     },
     {
@@ -145,10 +145,10 @@ export const TC032: CardData = {
       tone: "Direct",
       phrases: [
         "I may be misremembering, but was today the Sydney meeting?",
-        "Correct me if I've got this wrong — you're leading the rollout?",
+        "Correct me if I've got this wrong. You're leading the rollout?",
         "Was it Thursday you were flying out, or have I muddled that?",
-        "Remind me — is it Kate or Katie you prefer?",
-        "You said fortnightly, not weekly — did I get that right?",
+        "Remind me, is it Kate or Katie you prefer?",
+        "You said fortnightly, not weekly. Did I get that right?",
       ],
     },
     {
@@ -157,10 +157,10 @@ export const TC032: CardData = {
       tag: "Softening / release",
       tone: "Repair",
       phrases: [
-        "I may be reading this wrong — ignore it if it doesn't fit.",
+        "I may be reading this wrong. Ignore it if it doesn't fit.",
         "Sorry, I've mixed that up. What was it actually?",
         "That was someone else's news, wasn't it? My mistake.",
-        "We can stay with this or move on — your call.",
+        "We can stay with this or move on. Your call.",
         "I didn't mean to put you on the spot.",
         "Forget I mentioned it if it's not the right time.",
       ],
@@ -171,12 +171,12 @@ export const TC032: CardData = {
       tag: "One sentence only",
       tone: "Quick",
       phrases: [
-        "I may be reading this wrong, but this seems like the relevant thread.",
+        "Saw the news about the new role. Hope it's going well.",
         "Hope the presentation went well on Thursday.",
-        "Following up on the move — did it all go smoothly?",
+        "Following up on the move. Did it all go smoothly?",
         "You mentioned this week was hectic, so no rush replying.",
-        "Congrats on the launch — I know you'd been building up to it.",
-        "Thinking of you before the interview tomorrow — you'll do well.",
+        "Congrats on the launch. I know you'd been building up to it.",
+        "Thinking of you before the interview tomorrow. You'll do well.",
       ],
     },
     {
@@ -185,7 +185,7 @@ export const TC032: CardData = {
       tag: "Use a detail to ease pressure",
       tone: "High-stakes",
       phrases: [
-        "I know this matters a lot to you — you've said as much before.",
+        "I know this matters a lot to you. You've said as much before.",
         "Last time this came up it was a hard one. I haven't forgotten that.",
         "You told me you'd rather be told straight, so I will.",
         "You've said before you don't like being managed, so I'll just lay it out.",
@@ -197,11 +197,11 @@ export const TC032: CardData = {
     {
       condition: "They add detail",
       action: "Follow the thread they open.",
-      phrase: "Oh — how did that part go?",
+      phrase: "Oh. How did that part go?",
     },
     {
       condition: "They pause thoughtfully",
-      action: "Wait; don't rush to fill the silence.",
+      action: "Wait. Don't rush to fill the silence.",
       phrase: "No rush.",
     },
     {
@@ -224,12 +224,12 @@ export const TC032: CardData = {
     {
       weak: "So, what's new with you?",
       better: "Good to see you, Maya.",
-      best: "Good to see you, Maya — how did the presentation end up going?",
+      best: "Good to see you, Maya. How did the presentation end up going?",
     },
     {
       weak: "Tell me everything that's happened.",
-      better: "You mentioned the move — how's it going?",
-      best: "You mentioned the move was this week — how's the new place feeling? No need for the full rundown.",
+      better: "You mentioned the move. How's it going?",
+      best: "You mentioned the move was this week. How's the new place feeling? No need for the full rundown.",
     },
     {
       weak: "You said Thursday. It was definitely Thursday.",
@@ -240,23 +240,23 @@ export const TC032: CardData = {
   scenarios: [
     {
       situation: "Casual run-in",
-      move: "Use the minimum move — the name, or one light detail.",
-      phrase: "Good to see you, Maya — how was the trip?",
+      move: "Use the minimum move: the name, or one light detail.",
+      phrase: "Good to see you, Maya. How was the trip?",
     },
     {
       situation: "Professional discussion",
-      move: "Keep it concise and non-performative; tie the detail to the work.",
-      phrase: "You flagged the budget last time — where did that land?",
+      move: "Keep it concise and non-performative. Tie the detail to the work.",
+      phrase: "You flagged the budget last time. Where did that land?",
     },
     {
       situation: "Conflict or objection",
       move: "Pair the remembered detail with validation or an autonomy release.",
       phrase:
-        "I know this matters to you — you've said so before. It's still your call.",
+        "I know this matters to you. You've said so before. It's still your call.",
     },
     {
       situation: "Digital message",
-      move: "One sentence only; no stacked questions.",
+      move: "One sentence only. No stacked questions.",
       phrase: "Hope Thursday's presentation went well.",
     },
     {
@@ -269,7 +269,7 @@ export const TC032: CardData = {
       situation: "Reconnecting after a gap",
       move: "Lead with one accurate detail, not a barrage of catch-up questions.",
       phrase:
-        "Last time we spoke you'd just started the new role — how's it settling?",
+        "Last time we spoke you'd just started the new role. How's it settling?",
     },
   ],
   calibration: {
@@ -287,7 +287,7 @@ export const TC032: CardData = {
       "They look surprised or uneasy that you remembered.",
       "Withdrawal, confusion or a guarded tone.",
       "They stiffen or go quiet.",
-      "When in doubt, make the move smaller — or drop it entirely.",
+      "When in doubt, make the move smaller, or drop it entirely.",
       "Fall back to name only, no detail, if remembering feels like too much.",
     ],
   },
@@ -295,7 +295,7 @@ export const TC032: CardData = {
     {
       day: "Day 1",
       title: "Notice what's worth remembering",
-      task: "In three conversations today, catch one detail each worth holding — a name, a date, a preference, or something they clearly care about. Write them down.",
+      task: "In three conversations today, catch one detail each worth holding: a name, a date, a preference, or something they clearly care about. Write them down.",
     },
     {
       day: "Day 2",
@@ -305,7 +305,7 @@ export const TC032: CardData = {
     {
       day: "Day 3",
       title: "Weak, better, best",
-      task: "Take one line and write a weak, a better and a best version — escalating from generic, to name-plus-detail, to name-plus-detail-plus-space.",
+      task: "Take one line and write a weak, a better and a best version: escalating from generic, to name-plus-detail, to name-plus-detail-plus-space.",
     },
     {
       day: "Day 4",
@@ -338,19 +338,19 @@ export const TC032: CardData = {
   ],
   example: {
     without: [
-      'You (running into a colleague): "Oh hey — how\'s things?"',
+      'You (running into a colleague): "Oh hey. How\'s things?"',
       'Them: "Yeah, good thanks. You?"',
       'You: "Not bad. Busy."',
-      "Why it is weak:",
+      "Why it's weak:",
       "treats them like a stranger you've never spoken to",
       "gives no sign you remember anything about them",
       "the exchange stays flat and forgettable",
     ],
     with: [
-      'You: "Maya — good to see you. Did the presentation end up landing okay?"',
+      'You: "Maya, good to see you. Did the presentation end up landing okay?"',
       'Maya: "It did, actually. Bit nerve-racking, but it went well."',
       "You: \"That's a relief. You'd said it was the big one this quarter.\"",
-      'Maya: "Yeah — glad it\'s behind me."',
+      'Maya: "Yeah, glad it\'s behind me."',
       'You: "I bet. What\'s next, or are you taking a breather first?"',
       "Why this works:",
       "one accurate detail signals you were actually listening last time",
@@ -361,7 +361,7 @@ export const TC032: CardData = {
   },
   influencePayoff: {
     feeling:
-      '"They actually remembered — I mattered enough to be kept in mind."',
+      '"They actually remembered. I mattered enough to be kept in mind."',
     principle:
       "People feel valued when they see that something they said was held in mind and mattered to you.",
     gains: [
@@ -382,7 +382,7 @@ export const TC032: CardData = {
   fieldTip: {
     headline: "Remember lightly.",
     body: "The detail should feel like care, not a file note. One accurate thing, used once at the right moment, does more than a catalogue of facts recited back to prove you were paying attention.",
-    example: '"You had the big presentation Thursday — how did it land?"',
+    example: '"You had the big presentation Thursday. How did it land?"',
     dont: "Don't recite everything you remember to prove you were listening.",
     do: "Do pick the one detail that shows you cared, and let them take it from there.",
   },
@@ -390,7 +390,7 @@ export const TC032: CardData = {
     {
       step: "1",
       title: "Catch the cue",
-      body: "Listen for the detail worth holding: a name, a date, a preference, or something they clearly care about. You don't need to remember everything — just one accurate thing you can bring back later.",
+      body: "Listen for the detail worth holding: a name, a date, a preference, or something they clearly care about. You don't need to remember everything, just one accurate thing you can bring back later.",
       examples: [
         {
           label: "Worth catching",
@@ -408,7 +408,7 @@ export const TC032: CardData = {
       body: "Decide how much to reuse. Often the name alone, or a single detail, is plenty. More than one at a time tips from warmth into surveillance.",
       examples: [
         { label: "Light", text: '"Good to see you, Maya."' },
-        { label: "Warmer", text: '"Maya — how did Thursday go?"' },
+        { label: "Warmer", text: '"Maya. How did Thursday go?"' },
       ],
     },
     {
@@ -433,7 +433,7 @@ export const TC032: CardData = {
       title: "Follow or release",
       body: "If they open up, follow the thread they offer. If they stiffen, go quiet or look uneasy, ease off and make the next move smaller.",
       examples: [
-        { label: "Follow", text: '"Oh — how did that part go?"' },
+        { label: "Follow", text: '"Oh. How did that part go?"' },
         { label: "Release", text: '"Ignore that if it doesn\'t fit."' },
       ],
     },
@@ -455,17 +455,17 @@ export const TC032: CardData = {
     {
       depth: "Name + light detail",
       useWhen: "warming a familiar exchange",
-      phrase: "Maya — how was the trip?",
+      phrase: "Maya. How was the trip?",
     },
     {
       depth: "Detail + follow-up",
       useWhen: "there's time and rapport",
-      phrase: "You mentioned the presentation — how did it land?",
+      phrase: "You mentioned the presentation. How did it land?",
     },
     {
       depth: "Detail + feeling",
       useWhen: "real trust is present",
-      phrase: "You'd said the first month was full-on — has it eased?",
+      phrase: "You'd said the first month was full-on. Has it eased?",
     },
   ],
   commonMistakes: [
@@ -483,7 +483,7 @@ export const TC032: CardData = {
     {
       mistake: "Ignoring their response",
       soundsLike: "Pressing on after they've gone quiet or short.",
-      better: '"We can leave that — how are things otherwise?"',
+      better: '"We can leave that. How are things otherwise?"',
     },
     {
       mistake: "Using it to steer your agenda",
@@ -499,7 +499,7 @@ export const TC032: CardData = {
     {
       mistake: "Getting the detail wrong and doubling down",
       soundsLike: '"No, you definitely said Friday."',
-      better: '"I may have muddled that — what was it?"',
+      better: '"I may have muddled that. What was it?"',
     },
     {
       mistake: "Remembering the fact but not the feeling",
@@ -509,24 +509,21 @@ export const TC032: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I may be reading that wrong.",
-    "We don't have to stay with that.",
-    "Let me say that more simply.",
+    "I may have muddled that. What was it?",
+    "No need to get into it. I just thought of you.",
     "Ignore that if it doesn't fit.",
-    "What would be more useful right now?",
-    "Sorry — I've mixed that up with someone else.",
+    "Sorry, I've mixed that up with someone else.",
     "No pressure to get into it.",
     "Forget I mentioned it if it's not the right time.",
   ],
-  bestRecoveryLine:
-    "I may be reading that wrong — ignore it if it doesn't fit.",
+  bestRecoveryLine: "I may have muddled that. Ignore it if it doesn't fit.",
   chains: [
     {
       label: "Reconnect and open up",
       sequence:
-        "Name and detail memory → Summary check → Live-Thread Follow-Up",
+        "Name and detail memory → Summary check → Live thread follow-ups",
       example: [
-        '"Good to see you, Sam — you were mid-house-hunt last time."',
+        '"Good to see you, Sam. You were mid-house-hunt last time."',
         '"So it sounds like the search is still on, but you\'ve narrowed the area?"',
         '"What\'s making that one the front-runner?"',
       ],
@@ -538,7 +535,7 @@ export const TC032: CardData = {
       example: [
         '"I get why you\'d want to push the deadline."',
         '"You said last week the team was already stretched."',
-        '"It\'s your call in the end — you know the workload better than I do."',
+        '"It\'s your call in the end. You know the workload better than I do."',
       ],
     },
     {
@@ -556,27 +553,27 @@ export const TC032: CardData = {
     {
       id: "TC024",
       reason:
-        "Warm opening starts the interaction; Name and detail memory adds continuity by carrying a detail forward from last time.",
+        "Warm opening starts the interaction. Name and detail memory adds continuity by carrying a detail forward from last time.",
     },
     {
       id: "TC018",
       reason:
-        "Specific appreciation names present value; Name and detail memory recalls prior context they shared earlier.",
+        "Specific appreciation names present value. Name and detail memory recalls prior context they shared earlier.",
     },
     {
       id: "TC010",
       reason:
-        "Warm presence is the ongoing feel; Name and detail memory is one concrete signal of it.",
+        "Warm presence is the ongoing feel. Name and detail memory is one concrete signal of it.",
     },
     {
       id: "TC036",
       reason:
-        "Contextual opener uses the current situation; Name and detail memory uses a detail from a previous conversation.",
+        "Contextual opener uses the current situation. Name and detail memory uses a detail from a previous conversation.",
     },
     {
       id: "TC011",
       reason:
-        "Summary check plays back the gist of what was just said; Name and detail memory brings back a single detail from further back.",
+        "Summary check plays back the gist of what was just said. Name and detail memory brings back a single detail from further back.",
     },
   ],
 };

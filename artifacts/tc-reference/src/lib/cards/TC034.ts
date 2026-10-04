@@ -6,7 +6,7 @@ export const TC034: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC034/TC034_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,27 +56,27 @@ export const TC034: CardData = {
   ],
   id: "TC034",
   whyItWorks:
-    'A two-option question turns a broad or heavy question into two clear paths — with an escape hatch such as "or something else" — so the other person can answer easily without feeling trapped in a false choice. It works because an open question can be paralysing when someone is tired, unsure or overwhelmed: naming two plausible directions lowers the effort of replying and gives their thinking something to push against, while the escape hatch protects their autonomy and keeps the move a genuine offer rather than a nudge.',
+    'A two-option question turns a broad or heavy question into two clear paths (with an escape hatch such as "or something else") so the other person can answer easily without feeling trapped in a false choice. It works because an open question can be paralysing when someone is tired, unsure or overwhelmed: naming two plausible directions lowers the effort of replying and gives their thinking something to push against, while the escape hatch protects their autonomy and keeps the move a genuine offer rather than a nudge.',
   whatItIsNot: [
     "It is not a trick, a dominance move, or a way to push someone past their boundary.",
-    "It is not a rigid script — the two options are a starting offer, not the only answers allowed.",
+    "It is not a rigid script: the two options are a starting offer, not the only answers allowed.",
     "It is not a way to disguise your preferred answer as a free choice.",
     "It is a specific, observable conversation move, not a general personality trait.",
   ],
   overview: {
     coreFormula: [
       "Cue → small move → pause → observe → follow or release.",
-      "Is it more X, or more Y — or something else?",
+      "Is it more X, or more Y, or something else?",
       "Is it more timing or workload?",
-      "Short version or the detailed one — or neither right now?",
+      "Short version or the detailed one, or neither right now?",
       "Would email or a quick call be easier?",
     ],
     minimumViableMove:
-      'Offer two clear paths with a way out: "Is it more X, or more Y — or something else?"',
+      'Offer two clear paths with a way out: "Is it more X, or more Y, or something else?"',
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "Creating false choices that make the person feel cornered or led — two options that are really one disguised demand.",
+      "Creating false choices that make the person feel cornered or led: two options that are really one disguised demand.",
     bestFor: [
       "When a question is too broad to answer easily",
       "When you want to reduce someone's cognitive load",
@@ -119,10 +119,10 @@ export const TC034: CardData = {
       tag: "Warm, gentle options",
       tone: "Warm",
       phrases: [
-        "No rush — is it more the timing, or more the workload?",
+        "No rush. Is it more the timing, or more the workload?",
         "Whatever's easier: quick summary, or the full story?",
         "Do you want me to just listen, or actually help think it through?",
-        "Happy either way — dig into it now, or leave it for later?",
+        "Happy either way. Dig into it now, or leave it for later?",
         "Is this a 'need advice' thing, or a 'need a minute' thing?",
         "Sounds like a lot. Is it one big thing, or lots of small ones?",
         "Would a chat help, or would some space be better?",
@@ -139,7 +139,7 @@ export const TC034: CardData = {
         "Would email or a quick call be easier?",
         "Is this a scope question, or a timeline one?",
         "Should we ship the smaller version now, or hold for the full one?",
-        "Is the concern the cost, or the risk — or something else?",
+        "Is the concern the cost, or the risk, or something else?",
         "Are we aligned on the what, and just sorting the when?",
         "Is this a 'decide now' moment, or a 'gather more' one?",
       ],
@@ -165,13 +165,13 @@ export const TC034: CardData = {
       tag: "Release and de-escalate",
       tone: "Repair",
       phrases: [
-        "We can stay with this, or move on — your call.",
+        "We can stay with this, or move on. Your call.",
         "Ignore the options if neither fits.",
-        "Or something else entirely — I might be reading it wrong.",
-        "No pressure to pick either — I just wanted to make it easier to answer.",
+        "Or something else entirely. I might be reading it wrong.",
+        "No pressure to pick either. I just wanted to make it easier to answer.",
         "Would it help to name it, or would you rather leave it?",
         "Say 'neither' if I've missed it.",
-        "We don't have to stay with that.",
+        "Or neither. Tell me in your own words.",
       ],
     },
     {
@@ -180,11 +180,11 @@ export const TC034: CardData = {
       tag: "Clarity first, then options",
       tone: "High-stakes",
       phrases: [
-        "Before we go further — is this a today problem, or a this-week problem?",
+        "Before we go further, is this a today problem or a this-week problem?",
         "Do you want to solve it now, or cool off and come back to it?",
         "Is the sticking point the money, or the trust?",
         "Are we deciding this together, or do you need me to make the call?",
-        "Is it something I did, or something else going on — or both?",
+        "Is it something I did, or something else going on, or both?",
       ],
     },
   ],
@@ -196,13 +196,13 @@ export const TC034: CardData = {
     },
     {
       condition: "They pause thoughtfully",
-      action: "Wait — don't fill the silence.",
+      action: "Wait: don't fill the silence.",
       phrase: "",
     },
     {
       condition: "They look uncomfortable or cornered",
       action: "Release the move and widen it back out.",
-      phrase: '"Or something else entirely — your call."',
+      phrase: '"Or something else entirely. Your call."',
     },
     {
       condition: "They ask for advice",
@@ -217,24 +217,24 @@ export const TC034: CardData = {
     {
       condition: "Neither option is genuinely acceptable",
       action: "Drop the pair and ask openly.",
-      phrase: '"Forget those two — what would actually help?"',
+      phrase: '"Forget those two. What would actually help?"',
     },
   ],
   ladder: [
     {
       weak: 'Too broad, too fast: "Tell me everything."',
       better: "Is it more X, or more Y?",
-      best: "Is it more X, or more Y — or something else? Then stop and watch the response.",
+      best: "Is it more X, or more Y, or something else? Then stop and watch the response.",
     },
     {
       weak: "Tell me everything.",
       better: "Is it more timing or workload?",
-      best: "Is it more timing or workload? — only if that framing fits.",
+      best: "Is it more timing or workload? (only if that framing fits)",
     },
     {
       weak: "That's wrong.",
       better: "Short version or detailed version?",
-      best: "I might be reading it wrong, but — short version, or the detailed one?",
+      best: "I might be reading it wrong, but short version or the detailed one?",
     },
   ],
   scenarios: [
@@ -245,14 +245,14 @@ export const TC034: CardData = {
     },
     {
       situation: "Professional discussion",
-      move: "Keep it concise and non-performative; tie it to the decision.",
+      move: "Keep it concise and non-performative. Tie it to the decision.",
       phrase: '"Do you want to decide today, or revisit tomorrow?"',
     },
     {
       situation: "Conflict or objection",
       move: "Pair it with validation or autonomy release so it doesn't feel like steering.",
       phrase:
-        '"I can see this matters. Is it the timing, or the trust — or something else?"',
+        '"I can see this matters. Is it the timing, or the trust, or something else?"',
     },
     {
       situation: "Digital message",
@@ -268,7 +268,7 @@ export const TC034: CardData = {
     {
       situation: "Quiet or overwhelmed person",
       move: "Offer two gentle paths plus an easy exit so answering costs almost nothing.",
-      phrase: '"No rush — is it more one big thing, or lots of small ones?"',
+      phrase: '"No rush. Is it more one big thing, or lots of small ones?"',
     },
   ],
   calibration: {
@@ -276,7 +276,7 @@ export const TC034: CardData = {
       "They add detail and pick up the thread.",
       "Their tone softens.",
       "They answer quickly and easily.",
-      "They give you a third option — the real one.",
+      "They give you a third option: the real one.",
       "They relax into the topic instead of defending it.",
       "They start thinking out loud.",
     ],
@@ -320,16 +320,16 @@ export const TC034: CardData = {
     {
       day: "Day 6",
       title: "Say them aloud",
-      task: "Read every line out loud once in a normal voice; cut any that sound clever, coaxing or scripted.",
+      task: "Read every line out loud once in a normal voice. Cut any that sound clever, coaxing or scripted.",
     },
     {
       day: "Day 7",
       title: "Use one live",
-      task: "In a real low-stakes conversation, use the smallest version once, pause, watch the response — then stop.",
+      task: "In a real low-stakes conversation, use the smallest version once, pause, watch the response, then stop.",
     },
   ],
   checklist: [
-    "Did I preserve their autonomy — was there a genuine way out?",
+    "Did I preserve their autonomy? Was there a genuine way out?",
     "Did I use one move rather than several?",
     "Did I watch the response instead of pushing on?",
     "Did I stop when the energy dropped?",
@@ -340,7 +340,7 @@ export const TC034: CardData = {
     without: [
       'Person: "I\'m not sure how to handle it."',
       'You: "You\'re overthinking this. Just deal with it."',
-      "Why it is weak:",
+      "Why it's weak:",
       "dismisses the difficulty instead of helping",
       "leaves the open question just as heavy as before",
       "gives them nothing concrete to push against",
@@ -348,11 +348,11 @@ export const TC034: CardData = {
     ],
     with: [
       'Person: "I\'m not sure how to handle it."',
-      'You: "Is it more the timing, or more the workload — or something else?"',
+      'You: "Is it more the timing, or more the workload, or something else?"',
       "Person: \"Honestly, the timing. The work's fine, I just can't do it this week.\"",
       'You: "That helps. Do you want to decide the date now, or park it till tomorrow?"',
       "Person: \"Let's park it. I'll have a clearer head then.\"",
-      'You: "Good — we can stay with that or adjust."',
+      'You: "Good. We can stay with that or adjust."',
       "Why this works:",
       "turns a heavy open question into two easy paths",
       "the escape hatch keeps their autonomy intact",
@@ -383,9 +383,9 @@ export const TC034: CardData = {
   },
   fieldTip: {
     headline: "Two options should reduce effort, not remove freedom.",
-    body: 'The pair is a doorway, not a cage. Always leave the door open with "or something else" so the other person can hand you the answer you didn\'t think of — which is usually the real one.',
+    body: 'The pair is a doorway, not a cage. Always leave the door open with "or something else" so the other person can hand you the answer you didn\'t think of, which is usually the real one.',
     example:
-      '"Is it more the timing, or the workload — or something else?" → "Actually, it\'s neither. I just don\'t trust the plan."',
+      'You: "Is it more the timing, or the workload, or something else?" They say: "Actually, it\'s neither. I just don\'t trust the plan."',
     dont: "Don't offer two options that both lead where you want to go.",
     do: "Do make both options ones they'd be genuinely happy to pick, then add an exit.",
   },
@@ -393,7 +393,7 @@ export const TC034: CardData = {
     {
       step: "1",
       title: "Notice the cue",
-      body: 'Reach for this when an open question has stalled — the other person is vague, tired, overwhelmed, or answering "I don\'t know where to start." That heaviness is the signal that two clear paths would help.',
+      body: 'Reach for this when an open question has stalled: the other person is vague, tired, overwhelmed, or answering "I don\'t know where to start." That heaviness is the signal that two clear paths would help.',
     },
     {
       step: "2",
@@ -403,17 +403,17 @@ export const TC034: CardData = {
     {
       step: "3",
       title: "Use plain language",
-      body: 'Say it the way you\'d say anything else — "Now problem or later problem?" — not "Let me offer you two options here." The moment it sounds like a technique, it stops working. Add the escape hatch: "or something else."',
+      body: 'Say it the way you\'d say anything else ("Now problem or later problem?") not "Let me offer you two options here." The moment it sounds like a technique, it stops working. Add the escape hatch: "or something else."',
     },
     {
       step: "4",
       title: "Pause and observe",
-      body: "Ask, then stop. Give them room to pick, reject both, or hand you the third answer. Watch the tone and energy of the reply — that tells you whether the move landed or crowded them.",
+      body: "Ask, then stop. Give them room to pick, reject both, or hand you the third answer. Watch the tone and energy of the reply. That tells you whether the move landed or crowded them.",
     },
     {
       step: "5",
       title: "Follow or release",
-      body: "If they take an option and add detail, follow that thread. If they go short, confused or guarded, release the move — widen back to an open question or add warmth. Never repeat it mechanically.",
+      body: "If they take an option and add detail, follow that thread. If they go short, confused or guarded, release the move: widen back to an open question or add warmth. Never repeat it mechanically.",
     },
   ],
   liveThreadClues: [
@@ -428,12 +428,12 @@ export const TC034: CardData = {
     {
       mistake: "Building a false choice",
       soundsLike: '"Do you want to do it my way, or the wrong way?"',
-      better: '"Is it more X, or more Y — or something else?"',
+      better: '"Is it more X, or more Y, or something else?"',
     },
     {
       mistake: "Overusing the move",
-      soundsLike: "every reply framed as two options",
-      better: "one two-option question, then let them run",
+      soundsLike: "Every reply framed as two options",
+      better: "One two-option question, then let them run.",
     },
     {
       mistake: "Making it sound like a technique",
@@ -442,18 +442,18 @@ export const TC034: CardData = {
     },
     {
       mistake: "Ignoring the response",
-      soundsLike: "pushing on after they've gone quiet",
-      better: "pausing to watch, then following or releasing",
+      soundsLike: "Pushing on after they've gone quiet",
+      better: "Pause to watch, then follow or release.",
     },
     {
       mistake: "Using it to steer",
-      soundsLike: "two options that both lead to your agenda",
-      better: "two options they'd genuinely be happy with, plus an exit",
+      soundsLike: "Two options that both lead to your agenda",
+      better: "Two options they'd genuinely be happy with, plus an exit.",
     },
     {
       mistake: "Dropping the escape hatch",
       soundsLike: '"So is it A or B?"',
-      better: '"Is it A, or B — or neither?"',
+      better: '"Is it A, or B, or neither?"',
     },
     {
       mistake: "Stacking the options too high",
@@ -462,21 +462,18 @@ export const TC034: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I might be reading that wrong.",
-    "We don't have to stay with that.",
-    "Let me say that more simply.",
+    "Or neither. Tell me in your own words.",
     "Ignore the options if neither fits.",
-    "What would be more useful right now?",
-    "Forget the two — what's the honest answer?",
+    "Forget the two. What's the honest answer?",
     "No pressure to pick either.",
   ],
   bestRecoveryLine:
-    "I might be reading that wrong — ignore the options if neither fits.",
+    "Ignore the options if neither fits. What's the honest answer?",
   chains: [
     {
       label: "Clarify then explore",
       sequence:
-        "Two-Option Question → Summary check (TC011) → Live-Thread Follow-Up (TC001)",
+        "Two-option questions → Summary check (TC011) → Live thread follow-ups (TC001)",
       example: [
         '"Is it more timing or workload?"',
         '"So it\'s mainly the timing."',
@@ -486,7 +483,7 @@ export const TC034: CardData = {
     {
       label: "Reassure then release",
       sequence:
-        "Validation without agreement (TC005) → Two-Option Question → Autonomy release (TC021)",
+        "Validation without agreement (TC005) → Two-option questions → Autonomy release (TC021)",
       example: [
         '"I can see why that\'s stressful."',
         '"Do you want to decide today, or revisit tomorrow?"',
@@ -496,7 +493,7 @@ export const TC034: CardData = {
     {
       label: "Steady then narrow",
       sequence:
-        "Slow down under pressure (TC031) → Two-Option Question → Meaning reflection (TC040)",
+        "Slow down under pressure (TC031) → Two-option questions → Meaning reflection (TC040)",
       example: [
         '"Let\'s take this a step at a time."',
         '"Is the sticking point the plan, or the people?"',
@@ -508,22 +505,22 @@ export const TC034: CardData = {
     {
       id: "TC013",
       reason:
-        "Clean request asks for an action; a two-option question makes answering easier. Use TC013 when you need a thing done, TC034 when you need a decision made.",
+        "Clean request asks for an action. A two-option question makes answering easier. Use TC013 when you need a thing done, TC034 when you need a decision made.",
     },
     {
       id: "TC019",
       reason:
-        "Small ask reduces the scope of the action; a two-option question reduces the scope of the response. Reach for TC019 to shrink the task, TC034 to shrink the answer.",
+        "Small ask reduces the scope of the action. A two-option question reduces the scope of the response. Reach for TC019 to shrink the task, TC034 to shrink the answer.",
     },
     {
       id: "TC020",
       reason:
-        "Low-friction ask reduces the burden of saying yes; a two-option question reduces the ambiguity of how to answer.",
+        "Low-friction ask reduces the burden of saying yes. A two-option question reduces the ambiguity of how to answer.",
     },
     {
       id: "TC003",
       reason:
-        "Comment-before-question warms the question; a two-option question structures the answer. They combine well — comment first, then offer the pair.",
+        "Comment-before-question warms the question. A two-option question structures the answer. They combine well: comment first, then offer the pair.",
     },
     {
       id: "TC027",

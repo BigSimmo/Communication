@@ -6,7 +6,7 @@ export const TC045: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC045/TC045_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,27 +56,26 @@ export const TC045: CardData = {
   ],
   id: "TC045",
   whyItWorks:
-    "Ask-tell-ask is a three-part information-sharing move: ask for the person's starting point, tell them the key information concisely, then ask what they make of it. It works because you learn what they already know before you speak, so your telling lands on the real gap rather than over their head or beneath them - and the closing ask turns a monologue into shared understanding instead of a broadcast.",
+    "Ask-tell-ask is a three-part information-sharing move: ask for the person's starting point, tell them the key information concisely, then ask what they make of it. It works because you learn what they already know before you speak, so your telling lands on the real gap rather than over their head or beneath them, and the closing ask turns a monologue into shared understanding instead of a broadcast.",
   whatItIsNot: [
-    "It is not a script to recite mechanically - naming the framework out loud usually breaks it.",
+    "It is not a script to recite mechanically: naming the framework out loud usually breaks it.",
     "It is not a way to avoid listening or to compress emotion into a template.",
     "It is not a device for forcing the other person into your structure.",
     "It is not permission to lecture between two token questions.",
   ],
   overview: {
     coreFormula: [
-      "Ask -> Tell -> Ask",
+      "Ask → Tell → Ask",
       'Ask: "What\'s your sense of this so far?"',
       "Tell: the one point that matters, concisely.",
       'Ask: "How does that land?"',
-      "Field rule: use the structure to organise your thinking, then speak like a person.",
     ],
     minimumViableMove:
       "Ask one real question about where they are, tell one clear point, then ask what they make of it.",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      'It fails when the Tell swells into a lecture and the final Ask becomes cosmetic - you say "How does that land?" but have already stopped listening.',
+      'It fails when the Tell swells into a lecture and the final Ask becomes cosmetic. You say "How does that land?" but have already stopped listening.',
     bestFor: [
       "Teaching or explaining something new",
       "Giving feedback",
@@ -92,7 +91,7 @@ export const TC045: CardData = {
     "When the person has already declined your advice",
     "When physical safety or an emergency response takes priority",
     "Raw emotional moments where listening, validation or repair should come first",
-    "When the person clearly already understands - telling would only pad the moment",
+    "When the person clearly already understands: telling would only pad the moment",
   ],
   phraseBank: [
     {
@@ -105,7 +104,7 @@ export const TC045: CardData = {
         "Where are you with this already?",
         "What do you already know about it?",
         "What's your read on it?",
-        "Before I jump in - what's your starting point?",
+        "Before I jump in, what's your starting point?",
         "How much of the background have you got?",
         "What's your gut feeling on it?",
         "What have you tried so far?",
@@ -120,7 +119,7 @@ export const TC045: CardData = {
         "I want to make sure this is actually useful to you.",
         "Tell me where you're up to and I'll fill the gaps.",
         "I'd rather meet you where you are than talk over your head.",
-        "There's no wrong answer here - I just want your starting point.",
+        "There's no wrong answer here. I just want your starting point.",
         "Whatever you already know, we can build from there.",
         "I'll keep this short, and you tell me if it helps.",
         "Let me check I'm being useful and not just talking.",
@@ -134,8 +133,8 @@ export const TC045: CardData = {
       phrases: [
         "Quick context check: what's already landed with everyone?",
         "Here's the one thing that matters, then I'll take questions.",
-        "The headline is X; the detail is only there if you want it.",
-        "I'll give you the short version - say if you need more.",
+        "The headline is X. The detail is only there if you want it.",
+        "I'll give you the short version. Say if you need more.",
         "Where's the group on this before I share the update?",
         "I've put the main point first so you can scan it.",
         "That's the key point. What would make it clearer for the decision?",
@@ -148,7 +147,7 @@ export const TC045: CardData = {
       tone: "Direct",
       phrases: [
         "Here's the key point, in one line.",
-        "The main thing is X; the rest is only support.",
+        "The main thing is X. The rest is only support.",
         "That's the core of it. How does that land?",
         "What do you make of that?",
         "Does that match what you were expecting?",
@@ -163,13 +162,13 @@ export const TC045: CardData = {
       tag: "Reset and simplify",
       tone: "Repair",
       phrases: [
-        "I made that too structured - let me say it more simply.",
-        "That may not be the useful frame. Let me back up.",
-        "I don't want the structure to override the actual issue.",
-        "What part of that was useful, and what should we drop?",
+        "I told you more than you needed. What do you already know about this?",
+        "Let me stop and check. What do you make of that so far?",
+        "You probably know this part. Stop me if so.",
+        "What part of that was new to you?",
         "Let me try that again in plain words.",
         "I think I lectured a bit there. What's the real question?",
-        "Forget the framework - what do you actually need from me?",
+        "Forget the framework. What do you actually need from me?",
       ],
     },
     {
@@ -179,7 +178,7 @@ export const TC045: CardData = {
       tone: "High-stakes",
       phrases: [
         "Can I share what I'm seeing, and then hear your take?",
-        "Before I give feedback - what's your own read on how it went?",
+        "Before I give feedback, what's your own read on how it went?",
         "Here's the one thing I'd change. How does that sit with you?",
         "What have you been told so far?",
         "I'll tell you the main point plainly, then we can sit with it.",
@@ -192,7 +191,7 @@ export const TC045: CardData = {
     {
       condition: "The listener needs speed",
       action:
-        "Use the shortest version - one-line ask, one-line tell, one-line ask.",
+        "Use the shortest version: one-line ask, one-line tell, one-line ask.",
       phrase: "Quick sense-check: does this land?",
     },
     {
@@ -209,12 +208,12 @@ export const TC045: CardData = {
     {
       condition: "The listener needs action",
       action: "End with one clean next step rather than an open reflection.",
-      phrase: "So the next step is X - does that work?",
+      phrase: "So the next step is X. Does that work?",
     },
     {
       condition: "The listener already understands",
-      action: "Drop the Tell entirely; confirm and move on.",
-      phrase: "Sounds like you've got it - anything I can add?",
+      action: "Drop the Tell entirely. Confirm and move on.",
+      phrase: "Sounds like you've got it. Anything I can add?",
     },
   ],
   ladder: [
@@ -237,7 +236,7 @@ export const TC045: CardData = {
   scenarios: [
     {
       situation: "Work meeting",
-      move: "Check what's already landed, give one point, invite reaction - keeps your contribution concise and memorable.",
+      move: "Check what's already landed, give one point, invite reaction: keeps your contribution concise and memorable.",
       phrase:
         "Where's everyone on this? The key point is the deadline moved. What does that change for you?",
     },
@@ -255,7 +254,7 @@ export const TC045: CardData = {
     },
     {
       situation: "Difficult conversation",
-      move: "Use one sentence per step and pause between them; don't stack.",
+      move: "Use one sentence per step and pause between them. Don't stack.",
       phrase:
         "What's your sense of where we are? Here's what I'm worried about. What do you make of it?",
     },
@@ -267,7 +266,7 @@ export const TC045: CardData = {
     },
     {
       situation: "Clinical or high-stakes information",
-      move: "Ask what they already understand, tell the main point plainly, ask what it raises - with extra care.",
+      move: "Ask what they already understand, tell the main point plainly, ask what it raises, with extra care.",
       phrase:
         "What have you been told so far? The main thing is X. What questions does that bring up?",
     },
@@ -282,25 +281,25 @@ export const TC045: CardData = {
       'They say "that helps" or "right, so..." and keep going.',
     ],
     adjust: [
-      "They look confused or go quiet - slow down and simplify.",
-      "They challenge the framing - treat that as information, not resistance.",
-      "They seem to need the human context before the structure - validate first.",
-      "The Tell is getting long - cut back to the one point.",
-      "The final ask feels like a formality - ask something they'd actually answer.",
-      "It sounds defensive, performative, salesy or like a lecture - stop and speak plainly.",
-      "You realise you never asked what they already knew - back up and ask.",
+      "They look confused or go quiet: slow down and simplify.",
+      "They challenge the framing: treat that as information, not resistance.",
+      "They seem to need the human context before the structure: validate first.",
+      "The Tell is getting long: cut back to the one point.",
+      "The final ask feels like a formality. Ask something they'd actually answer.",
+      "It sounds defensive, performative, salesy or like a lecture: stop and speak plainly.",
+      "You realise you never asked what they already knew: back up and ask.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the urge",
-      task: "Notice three moments today when you're about to explain something. Just catch the urge to tell before you ask - no need to change anything yet.",
+      task: "Notice three moments today when you're about to explain something. Just catch the urge to tell before you ask. No need to change anything yet.",
     },
     {
       day: "Day 2",
       title: "Write one",
-      task: "Take a real situation and write a 60-second response using Ask -> Tell -> Ask. Mark the three parts so you can see them.",
+      task: "Take a real situation and write a 60-second response using Ask → Tell → Ask. Mark the three parts so you can see them.",
     },
     {
       day: "Day 3",
@@ -310,7 +309,7 @@ export const TC045: CardData = {
     {
       day: "Day 4",
       title: "Two voices",
-      task: "Say it aloud twice - once as a visible structure, once as plain speech. Keep the plain version and drop any step labels.",
+      task: "Say it aloud twice. Once as a visible structure, once as plain speech. Keep the plain version and drop any step labels.",
     },
     {
       day: "Day 5",
@@ -325,7 +324,7 @@ export const TC045: CardData = {
     {
       day: "Day 7",
       title: "Full run",
-      task: "Use the whole move once with someone real: ask their starting point, tell one point, ask what they make of it - and let their answer change what you say next.",
+      task: "Use the whole move once with someone real: ask their starting point, tell one point, ask what they make of it, and let their answer change what you say next.",
     },
   ],
   checklist: [
@@ -338,22 +337,22 @@ export const TC045: CardData = {
   ],
   example: {
     without: [
-      'You: "Okay, so the way the new system works is - there are three modules, each has its own login, the reporting sits under the second one, you\'ll want to set your filters first, then the export is a CSV, and permissions are role-based, so..."',
+      'You: "Okay, so the way the new system works is, there are three modules, each has its own login, the reporting sits under the second one, you\'ll want to set your filters first, then the export is a CSV, and permissions are role-based, so..."',
       'Them: "...right."',
       'You: "...and you can schedule the export, and there\'s an archive view, and..."',
-      'Them: "Sorry - which bit do I actually need?"',
-      "Why it is weak:",
+      'Them: "Sorry, which bit do I actually need?"',
+      "Why it's weak:",
       "tells before finding out what they already know",
       "buries the one point they needed under everything you know",
       "the final check never comes, so you don't notice they're lost",
       "the listener has to interrupt to find the signal",
     ],
     with: [
-      'You: "Before I explain - how much of the new system have you already used?"',
+      'You: "Before I explain, how much of the new system have you already used?"',
       'Them: "I\'ve logged in, but I got lost after that."',
       'You: "Got it. Then the one thing that matters: reporting lives under the second module, not the first. That\'s where most people get stuck."',
-      'Them: "Ah - that\'s exactly where I stopped."',
-      'You: "Makes sense. How does that sit - do you want to try it now, or shall I walk you through the filters?"',
+      'Them: "Ah, that\'s exactly where I stopped."',
+      'You: "Makes sense. How does that sit? Do you want to try it now, or shall I walk you through the filters?"',
       "Them: \"Let me try it, and I'll shout if I'm stuck.\"",
       "Why this works:",
       "asks first, so the telling lands on the real gap",
@@ -371,7 +370,7 @@ export const TC045: CardData = {
     gains: [
       "A clearer path through your point",
       "Lower cognitive load for the listener",
-      "Better sequencing - what matters first, first",
+      "Better sequencing: what matters first, first",
       "Fewer misunderstandings to unpick later",
       "The listener feels respected, not talked down to",
       "Buy-in, because they helped shape the understanding",
@@ -380,12 +379,12 @@ export const TC045: CardData = {
     whyMostFail: [
       "They skip the first Ask and tell straight away, so the information misses the gap.",
       "They let the Tell swell into a lecture.",
-      'They make the final Ask cosmetic - "Make sense?" while already moving on.',
+      'They make the final Ask cosmetic: "Make sense?" while already moving on.',
       "They deploy the structure in an emotional moment where listening or repair should come first.",
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
+    headline: "Ask before you tell, and ask again after.",
     body: "Use Ask-tell-ask to organise your thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. If they can tell you're running a framework, you've made the structure louder than the point.",
     example:
       "\"What's your sense of this so far? Here's the key point. How does that land?\"",
@@ -396,7 +395,7 @@ export const TC045: CardData = {
     {
       step: "1",
       title: "Decide it fits, silently",
-      body: "Choose Ask-tell-ask only when it serves the moment - someone needs information, feedback or an explanation. Then use it silently. Naming the framework out loud is the fastest way to make it sound rehearsed.",
+      body: "Choose Ask-tell-ask only when it serves the moment: someone needs information, feedback or an explanation. Then use it silently. Naming the framework out loud is the fastest way to make it sound rehearsed.",
       examples: [
         { label: "Don't", text: '"I\'m going to ask, then tell, then ask."' },
         { label: "Do", text: "Just start with a genuine question." },
@@ -414,7 +413,7 @@ export const TC045: CardData = {
     {
       step: "3",
       title: "Tell: one point, concisely",
-      body: "Say the single thing that matters most, in plain language. The main point is X; the rest is only support. Resist the urge to tell everything you know - length buries the signal.",
+      body: "Say the single thing that matters most, in plain language. The main point is X. The rest is only support. Resist the urge to tell everything you know: length buries the signal.",
       examples: [
         { label: "Weak", text: "a two-minute monologue covering every detail" },
         { label: "Better", text: '"The one thing that trips people up is X."' },
@@ -436,7 +435,7 @@ export const TC045: CardData = {
       examples: [
         {
           label: "Reset",
-          text: '"I made that too structured - let me say it more simply."',
+          text: '"I told you more than you needed. What do you already know about this?"',
         },
       ],
     },
@@ -453,7 +452,7 @@ export const TC045: CardData = {
     {
       depth: "One-line",
       useWhen: "quick check, low stakes",
-      phrase: '"Quick sense-check - does this land?"',
+      phrase: '"Quick sense-check: does this land?"',
     },
     {
       depth: "Standard",
@@ -472,60 +471,61 @@ export const TC045: CardData = {
     {
       mistake: "Skipping the first Ask",
       soundsLike:
-        '"So let me explain how this works..." - straight into telling',
+        '"So let me explain how this works..." (straight into telling)',
       better: '"What\'s your sense of this so far?" then tell.',
     },
     {
-      mistake: "Over-structuring - naming the framework out loud",
+      mistake: "Over-structuring: naming the framework out loud",
       soundsLike: '"I\'m going to Ask, then Tell, then Ask."',
       better: "Just do it: ask, say the point, ask again.",
     },
     {
       mistake: "Letting the Tell become a lecture",
-      soundsLike: "a two-minute monologue with no pause",
-      better: '"The main point is X - the rest is only support."',
+      soundsLike: "A two-minute monologue with no pause",
+      better: '"The main point is X: the rest is only support."',
     },
     {
       mistake: "Making the final Ask cosmetic",
       soundsLike: '"Make sense?" while already gathering your papers',
-      better: '"What do you make of that?" - then actually wait.',
+      better: '"What do you make of that?", then actually wait.',
     },
     {
       mistake: "Using it when emotion needs listening first",
-      soundsLike: "structuring information while they're still upset",
+      soundsLike: "Structuring information while they're still upset",
       better: "Validate first, then ask if they want the information.",
     },
     {
       mistake: "Ignoring the answer to your first Ask",
       soundsLike:
-        "asking their starting point, then giving your standard spiel anyway",
+        "Asking their starting point, then giving your standard spiel anyway",
       better: "Let what they already know change what you tell.",
     },
   ],
   recoveryPhrases: [
-    "I made that too structured - let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
-    "I think I lectured a bit there - what's the real question for you?",
+    "I told you more than you needed. What do you already know about this?",
+    "Let me stop and check. What do you make of that so far?",
+    "You probably know this part. Stop me if so.",
+    "What part of that was new to you?",
+    "I think I lectured a bit there. What's the real question for you?",
     "Let me try that again, shorter.",
-    "Forget my explanation for a second - where did I lose you?",
+    "Forget my explanation for a second. Where did I lose you?",
   ],
-  bestRecoveryLine: "I made that too structured - let me say it more simply.",
+  bestRecoveryLine:
+    "I told you more than you needed. What do you already know about this?",
   chains: [
     {
       label: "Clarity chain",
-      sequence: "Ask-tell-ask -> Summary check",
+      sequence: "Ask-tell-ask → Summary check",
       example: [
-        '"So before I explain - what\'s your read?"',
+        '"So before I explain, what\'s your read?"',
         '"Here\'s the key point."',
         '"How does that land?"',
-        "\"Just so we're aligned - what's your takeaway?\"",
+        "\"Just so we're aligned, what's your takeaway?\"",
       ],
     },
     {
       label: "Request chain",
-      sequence: "Ask-tell-ask -> Clean request",
+      sequence: "Ask-tell-ask → Clean request",
       example: [
         '"What\'s your sense of the blocker?"',
         '"The main issue is the sign-off is running late."',
@@ -535,7 +535,7 @@ export const TC045: CardData = {
     },
     {
       label: "Autonomy chain",
-      sequence: "Ask-tell-ask -> Autonomy release",
+      sequence: "Ask-tell-ask → Autonomy release",
       example: [
         '"Where are you leaning already?"',
         "\"Here's what I'd weigh up.\"",
@@ -545,10 +545,10 @@ export const TC045: CardData = {
     },
     {
       label: "Emotion-first chain",
-      sequence: "Validate -> Ask-tell-ask",
+      sequence: "Validate → Ask-tell-ask",
       example: [
         '"That sounds like a hard week."',
-        "\"When you're ready - what's your sense of where things stand?\"",
+        "\"When you're ready, what's your sense of where things stand?\"",
         "\"Here's the one thing I'd focus on.\"",
         '"What do you make of that?"',
       ],
@@ -558,27 +558,27 @@ export const TC045: CardData = {
     {
       id: "TC046",
       reason:
-        "Elicit-provide-elicit is the motivational-interviewing sibling. Use Ask-tell-ask for teaching and explaining; use Elicit-provide-elicit when the goal is drawing out the person's own motivation to change.",
+        "Elicit-provide-elicit is the motivational-interviewing sibling. Use Ask-tell-ask for teaching and explaining. Use Elicit-provide-elicit when the goal is drawing out the person's own motivation to change.",
     },
     {
       id: "TC027",
       reason:
-        "Permission-based advice: use Ask-tell-ask when the structure of the information is the main need; use Permission-based advice when you should ask leave before giving advice at all.",
+        "Permission-based advice: use Ask-tell-ask when the structure of the information is the main need. Use Permission-based advice when you should ask leave before giving advice at all.",
     },
     {
       id: "TC013",
       reason:
-        "Clean request: use Ask-tell-ask to build shared understanding; use Clean request when what's needed is a single clear ask, not an explanation.",
+        "Clean request: use Ask-tell-ask to build shared understanding. Use Clean request when what's needed is a single clear ask, not an explanation.",
     },
     {
       id: "TC043",
       reason:
-        "OARS is the broader listening toolkit. Use Ask-tell-ask for a specific piece of information; use OARS to keep a whole conversation open.",
+        "OARS is the broader listening toolkit. Use Ask-tell-ask for a specific piece of information. Use OARS to keep a whole conversation open.",
     },
     {
       id: "TC044",
       reason:
-        "BLUF: use it when the listener needs the bottom line first with no back-and-forth; use Ask-tell-ask when you want to check their starting point and their reaction.",
+        "BLUF: use it when the listener needs the bottom line first with no back-and-forth. Use Ask-tell-ask when you want to check their starting point and their reaction.",
     },
     {
       id: "TC011",

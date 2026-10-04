@@ -6,7 +6,7 @@ export const TC057: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC057/TC057_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,12 +56,12 @@ export const TC057: CardData = {
   ],
   id: "TC057",
   whyItWorks:
-    'Shared identity language is the disciplined use of accurate "we", "us", "our", or same-side wording. You notice a legitimate overlap — a shared role, team, craft, value, problem, place, learning curve, constraint, goal, or standard — and name it to reduce distance while keeping the difference intact. It works by shifting the perceived position from "you versus me" to "we are addressing something together", which is especially useful when people agree on the outcome but are tense about method, timing, status, or language. The move is not to manufacture sameness; it is to name a real overlap that is true, uncornering, and leaves the other person\'s choice untouched.',
+    'Shared identity language is the disciplined use of accurate "we", "us", "our" or same-side wording. You notice a legitimate overlap (a shared role, team, value, problem, constraint, goal or standard) and name it to reduce distance while keeping the difference intact. It shifts the perceived position from "you versus me" to "we\'re addressing something together", which helps most when people agree on the outcome but are tense about method, timing or status. The move is never to manufacture sameness, only to name a real overlap that leaves the other person\'s choice untouched.',
   whatItIsNot: [
     '"People like us do this" used as pressure.',
     '"We all agree" when agreement does not actually exist.',
     '"As your friend" when the relationship is not close enough to carry it.',
-    'Using "we" to hide personal responsibility — "we made a mistake" when only you did.',
+    'Using "we" to hide personal responsibility: "we made a mistake" when only you did.',
     "Attaching identity labels the other person has not accepted.",
   ],
   overview: {
@@ -77,7 +77,7 @@ export const TC057: CardData = {
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      'Reaching for "we" too early, too broadly, or too strategically — so the other person feels recruited or pressured rather than respected.',
+      'Reaching for "we" too early, too broadly, or too strategically. So the other person feels recruited or pressured rather than respected.',
     bestFor: [
       "Team discussions where people share an outcome but differ on process.",
       "Social conversations where a light shared category can create ease.",
@@ -120,7 +120,7 @@ export const TC057: CardData = {
       phrases: [
         "We're both trying to make this less awkward, I think.",
         "As two people who care about keeping this friendly, can we reset?",
-        "We both know this group can get intense; I'd like to keep it easy.",
+        "We both know this group can get intense. I'd like to keep it easy.",
         "We've both been through that version of the learning curve.",
         "We both want to leave this feeling good about it.",
         "I reckon we both value this more than being right.",
@@ -150,7 +150,7 @@ export const TC057: CardData = {
       tag: "De-escalation",
       tone: "Repair",
       phrases: [
-        "I don't think we're enemies here; I think we're protecting different concerns.",
+        "I don't think we're enemies here. I think we're protecting different concerns.",
         "We both seem to want respect in this conversation. Let me slow down.",
         "Same-side note: I want the decision to work, not just my version to win.",
         "We both care enough to be direct. Let's make the directness useful.",
@@ -172,7 +172,7 @@ export const TC057: CardData = {
         "We both need the next step to be executable today.",
         "We're both trying to avoid the same mess here.",
         "Neither of us wants to be back here next week redoing this.",
-        "We both want to move fast; let's make sure it's the right fast.",
+        "We both want to move fast. Let's make sure it's the right fast.",
       ],
     },
     {
@@ -183,10 +183,10 @@ export const TC057: CardData = {
       phrases: [
         "I don't want to overstate the common ground, but I think we both care about this.",
         "Correct me if this doesn't fit: the shared concern seems to be quality.",
-        "I'm not asking you to agree with me; I'm naming the part that seems shared.",
+        "I'm not asking you to agree with me. I'm naming the part that seems shared.",
         "Tell me if I'm over-reading it, but it sounds like we want the same outcome.",
-        "You don't have to accept the framing — does the underlying goal fit, though?",
-        'If "we" is too strong, say so; I only mean we both want this settled.',
+        "You don't have to accept the framing. Does the underlying goal fit, though?",
+        'If "we" is too strong, say so. I only mean we both want this settled.',
         "Does that shared goal fit, or am I reaching?",
       ],
     },
@@ -208,25 +208,25 @@ export const TC057: CardData = {
   decisionTree: [
     {
       condition: "You don't have a real shared anchor yet",
-      action: 'Discover common ground first; don\'t manufacture a "we".',
+      action: 'Discover common ground first. Don\'t manufacture a "we".',
       phrase: "What matters most to you in how this turns out?",
     },
     {
       condition: "The anchor is real but might feel assumed or loaded",
       action: "Use a softer outcome frame and invite correction.",
-      phrase: "Tell me if this doesn't fit — it seems like we both want [X].",
+      phrase: "Tell me if this doesn't fit. It seems like we both want [X].",
     },
     {
       condition: "They're resisting or setting a boundary",
       action:
-        "Don't use shared-identity language; validate and respect the boundary.",
-      phrase: "Fair enough — I'll speak only for myself here.",
+        "Don't use shared-identity language. Validate and respect the boundary.",
+      phrase: "Fair enough, I'll speak only for myself here.",
     },
     {
       condition: "The moment is tense",
       action:
         "Use a short same-side phrase plus a difference-respecting clause.",
-      phrase: "We're not enemies here; we're protecting different concerns.",
+      phrase: "We're not enemies here. We're protecting different concerns.",
     },
     {
       condition: "They only partly accept the frame",
@@ -236,8 +236,8 @@ export const TC057: CardData = {
     {
       condition: "They accept the frame",
       action:
-        "Move to a concrete next step that fits the need — ask, summary, choice, or repair.",
-      phrase: "Good — could we agree the owner and the next step now?",
+        "Move to a concrete next step that fits the need. Ask, summary, choice, or repair.",
+      phrase: "Good. Could we agree the owner and the next step now?",
     },
   ],
   ladder: [
@@ -245,7 +245,7 @@ export const TC057: CardData = {
       weak: '"Come on, we\'re all team players here." Uses identity as pressure and implies dissent is disloyalty.',
       better:
         '"I know we all want the launch to go well, even though we\'re split on timing."',
-      best: "\"We're both protecting the launch from different risks — you're protecting customer trust, I'm protecting schedule exposure. Could we compare the smallest release that protects both?\"",
+      best: "\"We're both protecting the launch from different risks. You're protecting customer trust, I'm protecting schedule exposure. Could we compare the smallest release that protects both?\"",
     },
     {
       weak: '"As friends, you should understand."',
@@ -256,13 +256,13 @@ export const TC057: CardData = {
     {
       weak: '"People like us don\'t complain."',
       better: '"We both care about handling this constructively."',
-      best: '"We both seem to care about being constructive — and that includes naming what isn\'t working without making it personal."',
+      best: '"We both seem to care about being constructive, and that includes naming what isn\'t working without making it personal."',
     },
   ],
   scenarios: [
     {
       situation: "Team disagreement",
-      move: "Name the shared outcome and keep both risks legitimate; don't use unity to end the debate.",
+      move: "Name the shared outcome and keep both risks legitimate. Don't use unity to end the debate.",
       phrase:
         "We're protecting different risks, but we share the goal of a decision people can execute.",
     },
@@ -306,10 +306,10 @@ export const TC057: CardData = {
       'They start using "we" back to you.',
     ],
     adjust: [
-      "They look sceptical or say the shared frame is too broad — narrow it or drop the label.",
-      "They resist the identity label but accept the outcome — keep the outcome, lose the label.",
-      'They answer with "maybe" or "I guess" without energy — check the frame actually fits.',
-      "The phrase sounds too polished for the relationship — say it plainer.",
+      "They look sceptical or say the shared frame is too broad: narrow it or drop the label.",
+      "They resist the identity label but accept the outcome. Keep the outcome, lose the label.",
+      'They answer with "maybe" or "I guess" without energy: check the frame actually fits.',
+      "The phrase sounds too polished for the relationship. Say it plainer.",
       "Stop if they say the identity doesn't fit.",
       "Stop if they're setting a boundary or accuse you of pressuring them.",
       "Stop if the moment needs accountability rather than unity language.",
@@ -320,7 +320,7 @@ export const TC057: CardData = {
     {
       day: "Day 1",
       title: "Spot the anchor",
-      task: "For five recent disagreements, write one true shared anchor for each — a goal, standard, concern, or constraint. Name nothing you can't actually point to.",
+      task: "For five recent disagreements, write one true shared anchor for each: a goal, standard, concern, or constraint. Name nothing you can't actually point to.",
     },
     {
       day: "Day 2",
@@ -330,7 +330,7 @@ export const TC057: CardData = {
     {
       day: "Day 3",
       title: "Add optionality",
-      task: 'Rewrite each sentence with one optionality marker — "I may be over-reading this, but..." or "Correct me if this doesn\'t fit..." — so the frame stays an invitation, not a claim.',
+      task: 'Rewrite each sentence with one optionality marker ("I may be over-reading this, but..." or "Correct me if this doesn\'t fit...") so the frame stays an invitation, not a claim.',
     },
     {
       day: "Day 4",
@@ -370,7 +370,7 @@ export const TC057: CardData = {
     ],
     with: [
       'A: "This feels like another rushed decision."',
-      "B: \"That's fair to name. I don't want us to become the kind of team that mistakes speed for clarity — and I don't want us stuck waiting for perfect information either. Could we agree what a good-enough decision looks like, then check whether this meets it?\"",
+      "B: \"That's fair to name. I don't want us to become the kind of team that mistakes speed for clarity, and I don't want us stuck waiting for perfect information either. Could we agree what a good-enough decision looks like, then check whether this meets it?\"",
       'A: "Yes. For me, good enough means owner, deadline, and rollback path."',
       'B: "Good. Same side: executable and reversible. Let\'s build those in."',
       "Why it works: B names a true shared standard, keeps the disagreement legitimate, and converts the shared frame into a concrete decision path.",
@@ -402,13 +402,13 @@ export const TC057: CardData = {
     example:
       '"We both care about [X], even if we see [Y] differently." That sentence is usually enough.',
     dont: "\"We're all on the same page here.\" (when you're not)",
-    do: '"We both want the handoff to be clean — even if we\'d sequence it differently."',
+    do: '"We both want the handoff to be clean, even if we\'d sequence it differently."',
   },
   method: [
     {
       step: "1",
-      title: "Perception",
-      body: "Notice a real overlap before you speak. Look for a shared goal, pressure, role, standard, concern, constraint, or relationship. If you can't point to something genuinely shared, don't manufacture it — discover it first.",
+      title: "Spot a real overlap",
+      body: "Notice a real overlap before you speak. Look for a shared goal, pressure, role, standard, concern, constraint, or relationship. If you can't point to something genuinely shared, don't manufacture it: discover it first.",
       examples: [
         {
           label: "Ask yourself",
@@ -418,7 +418,7 @@ export const TC057: CardData = {
     },
     {
       step: "2",
-      title: "Move",
+      title: "Name it modestly",
       body: 'Name the overlap modestly. Avoid grand claims and identity labels that may not fit. The smallest true "we" is the strongest one, because it\'s the hardest to argue with.',
       examples: [
         {
@@ -433,18 +433,18 @@ export const TC057: CardData = {
     },
     {
       step: "3",
-      title: "Phrase",
+      title: "Leave room for difference",
       body: "Say a same-side sentence that leaves room for difference: name the shared anchor, then add a clause that keeps the disagreement legitimate.",
       examples: [
         {
           label: "Shared + difference",
-          text: "We both want this to hold up — you're worried about quality, I'm worried about delay.",
+          text: "We both want this to hold up. You're worried about quality, I'm worried about delay.",
         },
       ],
     },
     {
       step: "4",
-      title: "Calibration",
+      title: "Watch how it lands",
       body: "Watch whether they soften, clarify, correct, or resist. Correcting the wording while staying engaged is a good sign. Resisting the label itself is a signal to ease off and keep only the outcome.",
       examples: [
         {
@@ -455,8 +455,8 @@ export const TC057: CardData = {
     },
     {
       step: "5",
-      title: "Recovery",
-      body: 'If the frame misses, step back and make it optional. Drop the label, keep the respect, and return to the concrete issue — don\'t defend the "we".',
+      title: "Make it optional if it misses",
+      body: 'If the frame misses, step back and make it optional. Drop the label, keep the respect, and return to the concrete issue. Don\'t defend the "we".',
       examples: [
         {
           label: "Release",
@@ -466,12 +466,12 @@ export const TC057: CardData = {
     },
     {
       step: "6",
-      title: "Chain",
-      body: "Follow the shared frame with a clean request, a summary check, a two-option question, or validation without agreement. The frame opens the door; the next move walks through it.",
+      title: "Follow with a next step",
+      body: "Follow the shared frame with a clean request, a summary check, a two-option question, or validation without agreement. The frame opens the door. The next move walks through it.",
       examples: [
         {
           label: "Full move",
-          text: "We both seem to care about getting this right for the customer. You're focused on reliability; I'm focused on timing. Can we map the smallest version that protects both?",
+          text: "We both seem to care about getting this right for the customer. You're focused on reliability. I'm focused on timing. Can we map the smallest version that protects both?",
         },
       ],
     },
@@ -489,12 +489,12 @@ export const TC057: CardData = {
       mistake: 'Using "we" before listening.',
       soundsLike: '"We all know the real answer here."',
       better:
-        '"Help me understand your read first — then let\'s see what we actually share."',
+        '"Help me understand your read first, then let\'s see what we actually share."',
     },
     {
       mistake: "Claiming an identity they haven't accepted.",
       soundsLike: '"As one of us, you\'ll get this."',
-      better: '"We both seem to care about X — tell me if that doesn\'t fit."',
+      better: '"We both seem to care about X. Tell me if that doesn\'t fit."',
     },
     {
       mistake: "Treating disagreement as betrayal of the group.",
@@ -519,7 +519,7 @@ export const TC057: CardData = {
   ],
   recoveryPhrases: [
     'I may have overstated the "we" there. Let me put it more simply.',
-    "I'm not trying to recruit you into my view — I just think we share a concern about this.",
+    "I'm not trying to recruit you into my view. I just think we share a concern about this.",
     "That label might not fit for you. The concrete point is [X].",
     "Fair correction. I shouldn't assume we see that identity the same way.",
     "Let me take the pressure out of that: you don't have to agree with the frame.",
@@ -557,7 +557,7 @@ export const TC057: CardData = {
       label: "Pause into repair",
       sequence: "Strategic pause → Shared identity language → Recovery phrase",
       example: [
-        'After a short pause: "I want to keep us on the same side of solving it — I may have said that too strongly."',
+        'After a short pause: "I want to keep us on the same side of solving it. I may have said that too strongly."',
       ],
     },
   ],
@@ -565,32 +565,32 @@ export const TC057: CardData = {
     {
       id: "TC054",
       reason:
-        "Similarity signalling flags a specific overlap (taste, background, experience). Use TC057 when the overlap is a shared identity or same-side goal; use TC054 when it's a point of similarity.",
+        "Similarity signalling flags a specific overlap (taste, background, experience). Use TC057 when the overlap is a shared identity or same-side goal. Use TC054 when it's a point of similarity.",
     },
     {
       id: "TC039",
       reason:
-        "Common-ground discovery finds the overlap through questions. Use TC039 when the shared ground isn't known yet; use TC057 once you can accurately name it — discovery versus declaration.",
+        "Common-ground discovery finds the overlap through questions. Use TC039 when the shared ground isn't known yet. Use TC057 once you can accurately name it: discovery versus declaration.",
     },
     {
       id: "TC017",
       reason:
-        'Values-based framing frames a choice around a value (fairness, craft, safety). Use TC057 when the sentence starts with "we both" or "as fellow"; use TC017 when it starts with "the value here is".',
+        'Values-based framing frames a choice around a value (fairness, craft, safety). Use TC057 when the sentence starts with "we both" or "as fellow". Use TC017 when it starts with "the value here is".',
     },
     {
       id: "TC022",
       reason:
-        "Status generosity elevates the other person's judgement or effort. Use TC022 to give credit or respect; use TC057 to name mutual belonging or shared purpose.",
+        "Status generosity elevates the other person's judgement or effort. Use TC022 to give credit or respect. Use TC057 to name mutual belonging or shared purpose.",
     },
     {
       id: "TC018",
       reason:
-        'Specific appreciation praises a concrete action. Use TC018 when the sentence says "I appreciate X"; use TC057 when it says "we both care about X".',
+        'Specific appreciation praises a concrete action. Use TC018 when the sentence says "I appreciate X". Use TC057 when it says "we both care about X".',
     },
     {
       id: "TC060",
       reason:
-        "Positive assumption assumes good intent when motive is unclear. Use TC060 when motive is the issue; use TC057 when relational position — same side or not — is the issue.",
+        "Positive assumption assumes good intent when motive is unclear. Use TC060 when motive is the issue. Use TC057 when relational position, same side or not, is the issue.",
     },
   ],
 };

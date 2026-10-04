@@ -6,7 +6,7 @@ export const TC077: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC077/TC077_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,13 +56,13 @@ export const TC077: CardData = {
   ],
   id: "TC077",
   whyItWorks:
-    "Agreement before disagreement is stating the part you can genuinely accept before you challenge, refine or reject another part of what was said. It is a sequencing move: mark the common ground or the valid piece first, then separate that from the exact point you do not accept. It works because disagreement usually fails in the first two seconds. If the other person hears only rejection, they defend the whole position; naming the true yes first narrows the conflict to the specific contested part. It is not about being softer for its own sake — it is about being more accurate: this part is right, and this other part is where I diverge.",
+    "Agreement before disagreement means stating the part you can genuinely accept before you challenge, refine or reject another part of what was said. Mark the common ground or the valid piece first, then separate it from the exact point you do not accept. Disagreement usually fails in the first two seconds: if the other person hears only rejection, they defend the whole position. Naming the true yes first narrows the conflict to the contested part, which is not softer so much as more accurate.",
   whatItIsNot: [
-    "It is not fake agreement — inventing a yes to make someone easier to persuade.",
+    "It is not fake agreement: inventing a yes to make someone easier to persuade.",
     "It is not surrender: you can accept one premise while rejecting a conclusion, method, request, accusation or next step.",
     'It is not the "yes, but" habit, where the yes is a decorative preface and the "but" cancels it immediately.',
-    "It is not conflict avoidance — a safety issue, boundary breach or compliance problem still needs a direct interruption first.",
-    "It is not a manipulation pattern to corner, pressure or sell; it exists to increase clarity, dignity and mutual accuracy.",
+    "It is not conflict avoidance: a safety issue, boundary breach or compliance problem still needs a direct interruption first.",
+    "It is not a manipulation pattern to corner, pressure or sell. It exists to increase clarity, dignity and mutual accuracy.",
   ],
   overview: {
     coreFormula: [
@@ -77,7 +77,7 @@ export const TC077: CardData = {
     impact: "High",
     difficulty: "Medium",
     misuse:
-      "The move fails when the agreement is tokenistic — a decorative yes used to soften a total no — or when you deliver it mechanically, hijack the topic onto your own point, or stack objections until the shared part disappears.",
+      "The move fails when the agreement is tokenistic, a decorative yes used to soften a total no, or when you deliver it mechanically, hijack the topic onto your own point, or stack objections until the shared part disappears.",
     bestFor: [
       "Workplace dissent and productive disagreement",
       "Feedback and performance conversations",
@@ -89,7 +89,7 @@ export const TC077: CardData = {
     ],
   },
   notFor: [
-    "The agreement would be false — you don't actually accept any part.",
+    "The agreement would be false. You don't actually accept any part.",
     "A boundary has already been crossed, or someone is unsafe.",
     "The other person is using bad-faith pressure.",
     "A fast, direct correction is what the moment requires.",
@@ -105,12 +105,12 @@ export const TC077: CardData = {
       phrases: [
         "I agree with the aim. I differ on the route.",
         "Agreed on the goal. Not on the method.",
-        "Yes to the what — let me flag the how.",
+        "Yes to the what. Let me flag the how.",
         "You're right about that part. The next part I'd separate.",
         "I'm with you on the problem. Less sure on the fix.",
         "Agree on the symptom. Not yet on the cause.",
         "Same page on the why. Different read on the timing.",
-        "I'm with you up to a point — here's where I split off.",
+        "I'm with you up to a point. Here's where I split off.",
       ],
     },
     {
@@ -149,7 +149,7 @@ export const TC077: CardData = {
       tag: "Name the split, offer the move",
       tone: "Direct",
       phrases: [
-        "I agree the goal is right. Where I differ is shipping without review — I'd suggest a 30-minute blocker-only pass.",
+        "I agree the goal is right. Where I differ is shipping without review. I'd suggest a 30-minute blocker-only pass.",
         "The part I agree with is that the handoff was unclear. The part I won't accept is that the whole delay sits with one person.",
         "I agree cost matters. I can't agree to that price without changing the scope.",
         "I agree the scope grew. I can't hold the same timeline unless we drop lower-priority work.",
@@ -179,11 +179,11 @@ export const TC077: CardData = {
       tone: "Repair",
       phrases: [
         "That sounded like a token yes before a no. Let me say the agreement more clearly.",
-        "I made my disagreement sound larger than it is. We agree on the aim; I only differ on the next step.",
+        "I made my disagreement sound larger than it is. We agree on the aim. I only differ on the next step.",
         "I don't want my disagreement to erase the part you got right.",
         "Let me restart: I agree that X matters. I just don't think Y follows from it.",
         "That came out as a setup. I did mean the first part.",
-        "I accepted one part too quickly — let me separate what I can agree with from what I can't.",
+        "I accepted one part too quickly. Let me separate what I can agree with from what I can't.",
       ],
     },
   ],
@@ -206,7 +206,7 @@ export const TC077: CardData = {
       action:
         "Agree with the shared observation, then present the evidence or the uncertainty.",
       phrase:
-        "We're seeing the same result. I read the cause differently — could we check?",
+        "We're seeing the same result. I read the cause differently. Could we check?",
     },
     {
       condition: "The disagreement is about values.",
@@ -230,15 +230,15 @@ export const TC077: CardData = {
   ],
   ladder: [
     {
-      weak: '"I disagree." Clear but broad — it makes the other person defend their whole position.',
+      weak: '"I disagree." Clear but broad. It makes the other person defend their whole position.',
       better:
         '"I agree with the goal, but I disagree with the plan." This separates aim from method, though "but" can still feel like cancellation.',
-      best: '"I agree with the goal: we need this resolved today. Where I differ is shipping without review — a 30-minute review protects the deadline better than a rollback tomorrow."',
+      best: '"I agree with the goal: we need this resolved today. Where I differ is shipping without review: a 30-minute review protects the deadline better than a rollback tomorrow."',
     },
     {
       weak: '"That\'s not true."',
-      better: '"Part of that is true."',
-      best: '"The part I agree with is that the handoff was unclear. The part I would not accept is that the whole delay sits with one person."',
+      better: '"Part of that\'s true."',
+      best: '"The part I agree with is that the handoff was unclear. The part I wouldn\'t accept is that the whole delay sits with one person."',
     },
     {
       weak: '"Your draft needs work."',
@@ -251,13 +251,13 @@ export const TC077: CardData = {
       situation: "A workplace plan under deadline",
       move: "Accept the pressure and the shared goal, narrow the disagreement to the method, offer a lighter path.",
       phrase:
-        "I agree the deadline matters. I disagree that skipping QA is the fastest path — I'd suggest a blocker-only review.",
+        "I agree the deadline matters. I disagree that skipping QA is the fastest path. I'd suggest a blocker-only review.",
     },
     {
       situation: "Feedback on someone's work",
       move: "Name a genuine strength, then challenge one specific part.",
       phrase:
-        "I agree the examples were strong. The part I'd challenge is the opening — it took too long to reach the point.",
+        "I agree the examples were strong. The part I'd challenge is the opening. It took too long to reach the point.",
     },
     {
       situation: "Negotiation on scope and price",
@@ -275,7 +275,7 @@ export const TC077: CardData = {
       situation: "An online or public reply",
       move: "Concede the shared observation, keep the contested point to one, invite a test.",
       phrase:
-        "Agreed on the problem. I'm less convinced by the cause — the data could also fit another explanation.",
+        "Agreed on the problem. I'm less convinced by the cause: the data could also fit another explanation.",
     },
     {
       situation: "Someone pushing for a quick yes",
@@ -294,12 +294,12 @@ export const TC077: CardData = {
       "They offer a next step or a test of their own.",
     ],
     adjust: [
-      'They say "so you disagree with everything" — re-name the specific agreement and separate the contested piece.',
-      'They say "you\'re not listening" or "that\'s not what I meant" — slow down and restate what you actually accept.',
-      'They use your agreement as proof you accepted the whole conclusion — clarify: "I agree with X, not with Y."',
-      "Their concern is emotional or identity-linked — add validation before the split.",
-      "The disagreement turns on facts, cost or safety — lead with evidence, not just wording.",
-      "They pressure you to accept a demand because you granted one valid part — move to boundary language.",
+      'They say "so you disagree with everything": re-name the specific agreement and separate the contested piece.',
+      'They say "you\'re not listening" or "that\'s not what I meant": slow down and restate what you actually accept.',
+      'They use your agreement as proof you accepted the whole conclusion: clarify: "I agree with X, not with Y."',
+      "Their concern is emotional or identity-linked: add validation before the split.",
+      "The disagreement turns on facts, cost or safety: lead with evidence, not just wording.",
+      "They pressure you to accept a demand because you granted one valid part: move to boundary language.",
     ],
   },
   drill: [
@@ -311,12 +311,12 @@ export const TC077: CardData = {
     {
       day: "Day 2",
       title: "Split the statement",
-      task: 'Take a disagreement you expect this week. Make two columns — "part I genuinely agree with" and "part I contest" — and speak one sentence from each.',
+      task: 'Take a disagreement you expect this week. Make two columns ("part I genuinely agree with" and "part I contest") and speak one sentence from each.',
     },
     {
       day: "Day 3",
       title: 'Replace "but"',
-      task: 'Rewrite five "I agree, but…" lines using "and," "where I differ," or a full stop, so the yes survives the sentence.',
+      task: 'Rewrite five "I agree, but..." lines using "and," "where I differ," or a full stop, so the yes survives the sentence.',
     },
     {
       day: "Day 4",
@@ -343,29 +343,29 @@ export const TC077: CardData = {
     "Did I name a real point of agreement, not a fake softener?",
     "Was the agreement specific enough that they could recognise it?",
     "Did I keep the agreement from implying full consent?",
-    "Was my disagreement narrow — one behavioural, factual or decision-specific point?",
+    "Was my disagreement narrow, one behavioural, factual or decision-specific point?",
     'Did I bridge with "and" or "where I differ" rather than a cancelling "but"?',
     "Did I give one reason and a next step without lecturing?",
   ],
   example: {
     without: [
-      'Them: "We should skip the review — everyone is waiting."',
+      'Them: "We should skip the review. Everyone is waiting."',
       "You: \"No, that's a bad idea. We can't do that.\"",
       "Why it's weak:",
       "the disagreement is global, not specific",
-      "it rejects the whole position, including the true part — people really are waiting",
+      "it rejects the whole position, including the true part. People really are waiting",
       "it invites a status contest rather than a decision",
     ],
     with: [
-      'Them: "We should skip the review — everyone is waiting."',
-      'You (better): "I agree that people are waiting, but I disagree with skipping review." Clearer — though the "but" can make the agreement feel perfunctory.',
+      'Them: "We should skip the review. Everyone is waiting."',
+      'You (better): "I agree that people are waiting, but I disagree with skipping review." Clearer, though the "but" can make the agreement feel perfunctory.',
       'You (advanced): "I agree the wait is becoming costly, and I want us to move today. Where I differ is the idea that skipping review saves time. If this comes back broken, we lose more than the review costs. I\'d suggest a 30-minute review with only release blockers."',
       "Why the advanced version works:",
       "it accepts the pressure and the shared goal",
       "it narrows the disagreement to the method, not the person",
       "it gives a concrete reason and a practical next move",
     ],
-    note: "The \"better\" line isn't wrong — it's just where most people stop. The advanced version keeps the yes intact and hands over a next step.",
+    note: "The \"better\" line isn't wrong. It's just where most people stop. The advanced version keeps the yes intact and hands over a next step.",
   },
   influencePayoff: {
     feeling:
@@ -375,13 +375,13 @@ export const TC077: CardData = {
     gains: [
       "Lower defensiveness",
       "Higher receptivity to your actual point",
-      "Perceived fairness — you heard the reasonable part first",
+      "Perceived fairness: you heard the reasonable part first",
       "A smaller, workable question: which part is shared, which is contested, what happens next",
       "More credibility for your dissent",
       "A protected relationship alongside a clear disagreement",
     ],
     whyMostFail: [
-      'The agreement is tokenistic — a decorative yes that a quick "but" immediately cancels.',
+      'The agreement is tokenistic: a decorative yes that a quick "but" immediately cancels.',
       "It's delivered mechanically, so it reads as a technique rather than a genuine signal.",
       "The speaker hijacks the topic onto their own point instead of staying on the person's actual claim.",
       "Objections sprawl until the shared part disappears under a pile of disagreements.",
@@ -393,18 +393,18 @@ export const TC077: CardData = {
     body: "When in doubt, separate the three things people fuse together: the concern, the conclusion and the next step. You can agree with the concern, question the conclusion, and still propose a different next step.",
     example: '"I agree with the aim. I differ on the route."',
     do: "Name what's true first, specifically enough that they'd recognise it.",
-    dont: 'Use the yes as a runway for a total no — that\'s the "token yes" everyone can feel.',
+    dont: 'Use the yes as a runway for a total no. That\'s the "token yes" everyone can feel.',
   },
   method: [
     {
       step: "1",
-      title: "Perception — find the true yes",
+      title: "Perception: find the true yes",
       body: "Listen for the part that is accurate, reasonable, understandable, values-aligned or emotionally valid. In a mixed-truth moment there is almost always one real point to accept.",
     },
     {
       step: "2",
-      title: "Move — name it specifically",
-      body: "State that part explicitly. Skip vague filler when you can name the real agreement — specificity is what makes the yes land as genuine rather than as a setup.",
+      title: "Move: name it specifically",
+      body: "State that part explicitly. Skip vague filler when you can name the real agreement: specificity is what makes the yes land as genuine rather than as a setup.",
       examples: [
         { label: "Vague", text: '"I hear you."' },
         {
@@ -415,7 +415,7 @@ export const TC077: CardData = {
     },
     {
       step: "3",
-      title: "Phrase — bridge without cancelling",
+      title: "Phrase: bridge without cancelling",
       body: 'Join the two halves with "and," "where I see it differently," "the part I\'d separate," or "my concern is." Add one brief reason and, if useful, a next step. Keep the disagreement to a single point.',
       examples: [
         { label: "Cancelling", text: '"I agree, but that won\'t work."' },
@@ -427,33 +427,33 @@ export const TC077: CardData = {
     },
     {
       step: "4",
-      title: "Calibration — watch the response",
+      title: "Calibration: watch the response",
       body: "Notice whether they relax, clarify, ask a better question or become more specific. If they tighten, slow down and validate the concern on its own before returning to the split.",
     },
     {
       step: "5",
-      title: "Recovery — repair a token yes",
-      body: 'If the agreement sounded tokenistic, name it and reset: "That came out as a setup. I did mean the first part — let me separate it more cleanly."',
+      title: "Recovery: repair a token yes",
+      body: 'If the agreement sounded tokenistic, name it and reset: "That came out as a setup. I did mean the first part. Let me separate it more cleanly."',
     },
     {
       step: "6",
-      title: "Chain — add structure when needed",
+      title: "Chain: add structure when needed",
       body: "When the moment needs more, combine with reflective listening, validation without agreement, double-sided reflection, SBI or NVC/OFNR.",
     },
   ],
   liveThreadClues: [
-    '"You always…" / "You never…" — one true instance wrapped in an overstatement',
-    '"We should just skip…" — real pressure attached to a risky shortcut',
-    '"This is the only way…" — a valid goal riding on a false constraint',
-    '"It\'s obvious that…" — a shared observation with a contested conclusion',
-    '"Everyone thinks…" — a real feeling stated as proven fact',
+    '"You always..." / "You never..." One true instance wrapped in an overstatement',
+    '"We should just skip..." Real pressure attached to a risky shortcut',
+    '"This is the only way..." A valid goal riding on a false constraint',
+    '"It\'s obvious that..." A shared observation with a contested conclusion',
+    '"Everyone thinks..." A real feeling stated as proven fact',
     "A claim that's half accurate and half overstated",
   ],
   depthDial: [
     {
       depth: "Light",
       useWhen: "low-stakes, quick exchange",
-      phrase: '"Agreed on the aim — I\'d differ on the route."',
+      phrase: '"Agreed on the aim. I\'d differ on the route."',
     },
     {
       depth: "Validating",
@@ -465,7 +465,7 @@ export const TC077: CardData = {
       depth: "Evidence",
       useWhen: "the split turns on facts, cost, timelines or safety",
       phrase:
-        '"We\'re seeing the same result. I read the cause differently — could we check?"',
+        '"We\'re seeing the same result. I read the cause differently. Could we check?"',
     },
     {
       depth: "Boundary",
@@ -476,7 +476,7 @@ export const TC077: CardData = {
   commonMistakes: [
     {
       mistake: "Token agreement",
-      soundsLike: '"I totally agree, but…" then a full rejection.',
+      soundsLike: '"I totally agree, but..." then a full rejection.',
       better:
         '"I agree the goal is right. The one thing I\'d change is the method."',
     },
@@ -496,12 +496,12 @@ export const TC077: CardData = {
       soundsLike:
         "Agreeing with a feeling when they asked for a factual answer.",
       better:
-        '"I get that it\'s frustrating — and on the numbers, I read it differently."',
+        '"I get that it\'s frustrating, and on the numbers, I read it differently."',
     },
     {
       mistake: 'Reaching for "but" too fast',
-      soundsLike: '"Yes, but…" — the yes vanishes.',
-      better: '"Yes — and where I differ is…"',
+      soundsLike: '"Yes, but..." The yes vanishes.',
+      better: '"Yes, and where I differ is..."',
     },
     {
       mistake: "Disagreement sprawl",
@@ -515,11 +515,11 @@ export const TC077: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that sound like a total disagreement. It isn't — I agree with the goal; I differ on the method.",
+    "I made that sound like a total disagreement. It isn't, I agree with the goal. I differ on the method.",
     "That sounded like a token yes before a no. Let me say the agreement more clearly.",
     "I don't want my disagreement to erase the part you got right.",
     "I accepted one part too quickly. Let me separate what I can agree with from what I can't.",
-    "You're right to call out that concern — my disagreement is with the conclusion, not the concern.",
+    "You're right to call out that concern. My disagreement is with the conclusion, not the concern.",
     "I'm not asking you to drop your point. I'm asking us to separate the shared part from the contested part.",
     "Let me restart: I agree that X matters. I just don't think Y follows from it.",
   ],
@@ -555,8 +555,8 @@ export const TC077: CardData = {
       label: "Disagree, then hand back the choice",
       sequence: "Agreement before disagreement → Autonomy release (TC021)",
       example: [
-        '"I agree the aim is right; I differ on the route."',
-        "\"You don't have to take my view — that's just the distinction I see.\"",
+        '"I agree the aim is right. I differ on the route."',
+        "\"You don't have to take my view. That's just the distinction I see.\"",
       ],
     },
   ],
@@ -564,17 +564,17 @@ export const TC077: CardData = {
     {
       id: "TC005",
       reason:
-        "Validation without agreement: use TC077 when you genuinely accept one part and then disagree with another; use TC005 when the feeling or concern makes sense but you don't accept the claim, conclusion or request. Choose TC077 only when the agreement is real.",
+        "Validation without agreement: use TC077 when you genuinely accept one part and then disagree with another. Use TC005 when the feeling or concern makes sense but you don't accept the claim, conclusion or request. Choose TC077 only when the agreement is real.",
     },
     {
       id: "TC014",
       reason:
-        "Validate the concern: use TC077 to make disagreement easier to hear; use TC014 when the worry itself first needs to be taken seriously. Ask whether they need acknowledgement or a decision distinction.",
+        "Validate the concern: use TC077 to make disagreement easier to hear. Use TC014 when the worry itself first needs to be taken seriously. Ask whether they need acknowledgement or a decision distinction.",
     },
     {
       id: "TC037",
       reason:
-        "Double-sided reflection: use TC077 when you're stating your own disagreement; use TC037 when you're reflecting the other person's ambivalence. Choose TC077 when your view must be explicit.",
+        "Double-sided reflection: use TC077 when you're stating your own disagreement. Use TC037 when you're reflecting the other person's ambivalence. Choose TC077 when your view must be explicit.",
     },
     {
       id: "TC052",
@@ -584,12 +584,12 @@ export const TC077: CardData = {
     {
       id: "TC053",
       reason:
-        "NVC / OFNR: use TC077 for one concise, bounded split; use NVC/OFNR when the moment needs full observation, feeling, need and request structure.",
+        "NVC / OFNR: use TC077 for one concise, bounded split. Use NVC/OFNR when the moment needs full observation, feeling, need and request structure.",
     },
     {
       id: "TC076",
       reason:
-        "Interrogation avoidance: use TC077 when clarity is owed and your dissent must be clear; use TC076 when the risk is making the other person feel cross-examined.",
+        "Interrogation avoidance: use TC077 when clarity is owed and your dissent must be clear. Use TC076 when the risk is making the other person feel cross-examined.",
     },
   ],
 };

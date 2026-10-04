@@ -6,7 +6,7 @@ export const TC023: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC023/TC023_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC023: CardData = {
   ],
   id: "TC023",
   whyItWorks:
-    'A loaded-word follow-up picks up the one emotionally charged word someone just used — "weird", "intense", "messy", "freeing" — and asks about that exact word in a short, natural way. It works because that charged word is usually the doorway into the meaningful part of what they were saying, and inviting them to define it makes them feel precisely heard rather than merely answered.',
+    'A loaded-word follow-up picks up the one emotionally charged word someone just used ("weird", "intense", "messy", "freeing") and asks about that exact word in a short, natural way. It works because that charged word is usually the doorway into the meaningful part of what they were saying, and inviting them to define it makes them feel precisely heard rather than merely answered.',
   whatItIsNot: [
     "It is not parroting every interesting word back at someone.",
     'It is not interrogating with a string of "why?" questions.',
@@ -65,20 +65,20 @@ export const TC023: CardData = {
   ],
   overview: {
     coreFormula: [
-      'Their word + "how?" — "Weird how?" / "Intense how?" / "Messy how?"',
-      'Small comment first — "That sounds like the important word. Intense how?"',
-      "Meaning check — \"When you say 'freeing', what do you mean?\"",
-      'Two options — "Good-weird or bad-weird?" / "Exciting-intense or stressful-intense?"',
-      "For a decision — \"When you say 'risky', is the concern timing, cost, or quality?\"",
+      'Their word + "how?" "Weird how?" / "Intense how?" / "Messy how?"',
+      'Small comment first: "That sounds like the important word. Intense how?"',
+      "Meaning check: \"When you say 'freeing', what do you mean?\"",
+      'Two options: "Good-weird or bad-weird?" / "Exciting-intense or stressful-intense?"',
+      "For a decision: \"When you say 'risky', is the concern timing, cost, or quality?\"",
     ],
     minimumViableMove:
-      'Pick the word carrying the most emotional charge and ask "[word] how?" — "Weird how?", "Intense how?", "Messy how?", "Freeing how?"',
+      'Pick the word carrying the most emotional charge and ask "[word] how?": "Weird how?", "Intense how?", "Messy how?", "Freeing how?"',
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "It fails when the echo sounds like a tactic, a challenge, or a therapy move — or when you keep echoing words to steer rather than to understand. The fix is a warm tone: ask once, let them answer, then reflect or contribute.",
+      "It fails when the echo sounds like a tactic, a challenge, or a therapy move, or when you keep echoing words to steer rather than to understand. The fix is a warm tone: ask once, let them answer, then reflect or contribute.",
     bestFor: [
-      'Someone uses a vague but charged descriptor — "weird", "messy", "intense", "complicated", "freeing", "awkward", "surprisingly good".',
+      'Someone uses a vague but charged descriptor: "weird", "messy", "intense", "complicated", "freeing", "awkward", "surprisingly good".',
       "The conversation is drifting and you want a simple way to deepen it.",
       "You want the other person to keep talking without a broad, generic question.",
       "Someone hints at emotion but does not fully spell it out.",
@@ -200,10 +200,10 @@ export const TC023: CardData = {
       tone: "High-stakes",
       phrases: [
         "No pressure to go into it, but when you say 'weird', what kind of weird?",
-        "Only if you want to unpack it — complicated how?",
+        "Only if you want to unpack it. Complicated how?",
         "Was it more awkward or more frustrating?",
         "What part of it felt most off?",
-        "You don't have to explain the whole thing — I'm just curious what you meant by 'intense'.",
+        "You don't have to explain the whole thing. I'm just curious what you meant by 'intense'.",
       ],
     },
   ],
@@ -217,7 +217,7 @@ export const TC023: CardData = {
     {
       condition: "They answer briefly",
       action: "Do not push. Comment lightly or move on.",
-      phrase: "Fair enough — sounds like one of those days.",
+      phrase: "Fair enough, sounds like one of those days.",
     },
     {
       condition: "They seem guarded",
@@ -227,7 +227,7 @@ export const TC023: CardData = {
     {
       condition: "They correct you",
       action: "Accept the correction and adjust your read.",
-      phrase: "Got it — not intense, more uncertain.",
+      phrase: "Got it, not intense, more uncertain.",
     },
     {
       condition: "They become vulnerable",
@@ -237,50 +237,50 @@ export const TC023: CardData = {
     {
       condition: "They get defensive",
       action: "Back off the interpretation and validate.",
-      phrase: "Fair — I may be over-reading one word.",
+      phrase: "Fair, I may be over-reading one word.",
     },
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version, then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts to the response.",
+      weak: '"Where was it?" (chases a surface fact)',
+      better: '"What happened?" (general)',
+      best: '"Draining how?" (picks up the loaded word)',
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"Draining? Why? Who? What did they do?" (a volley of questions)',
+      better: '"Draining how?"',
+      best: '"Draining how?" Then a pause, then a reflection of what they say.',
     },
   ],
   scenarios: [
     {
-      situation: 'Casual conversation — they say "It was weirdly intense."',
+      situation: 'Casual conversation: they say "It was weirdly intense."',
       move: "Echo the charged word, then reflect their answer before adding your own experience.",
       phrase: "Weirdly intense how?",
     },
     {
       situation:
-        'Networking — they say "It\'s been a messy year for the industry."',
+        'Networking: they say "It\'s been a messy year for the industry."',
       move: "Offer a two-option version so they can point at what they mean.",
-      phrase: "Messy in what way — people, funding, or direction?",
+      phrase: "Messy in what way? People, funding, or direction?",
     },
     {
-      situation: 'Workplace influence — they say "The plan feels risky."',
+      situation: 'Workplace influence: they say "The plan feels risky."',
       move: "Clarify the word toward a decision rather than debating it.",
       phrase: "When you say risky, which risk should we solve first?",
     },
     {
-      situation: 'Conflict — they say "That felt dismissive."',
+      situation: 'Conflict: they say "That felt dismissive."',
       move: "Name that you don't want to assume, then let them define the word.",
       phrase: "I don't want to assume. What made it feel dismissive?",
     },
     {
-      situation: 'Dating / social — they say "That trip was chaotic but fun."',
+      situation: 'Dating / social: they say "That trip was chaotic but fun."',
       move: "Play with a light two-option question to keep the energy up.",
       phrase: "Good-chaotic or never-again chaotic?",
     },
     {
-      situation: 'Digital / text — they text "Today was weird."',
+      situation: 'Digital / text: they text "Today was weird."',
       move: "Keep it to one short line so it's easy to answer.",
       phrase: "Good-weird or bad-weird?",
     },
@@ -301,20 +301,20 @@ export const TC023: CardData = {
       "They change topic quickly.",
       "They look away, withdraw or seem embarrassed.",
       "You've echoed several words in a row without contributing.",
-      'Soften it: add a small comment before the question, or offer an exit — "No pressure if you don\'t want to unpack it."',
-      'Move one step lighter — from meaning to fact — or switch from a question to a reflection: "So it felt off, but hard to name."',
+      'Soften it: add a small comment before the question, or offer an exit: "No pressure if you don\'t want to unpack it."',
+      'Move one step lighter, from meaning to fact, or switch from a question to a reflection: "So it felt off, but hard to name."',
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Notice the word",
-      task: "In every real conversation today, silently spot the one charged word — weird, messy, intense, freeing — without acting on it. Just train your ear.",
+      task: "In every real conversation today, silently spot the one charged word (weird, messy, intense, freeing) without acting on it. Just train your ear.",
     },
     {
       day: "Day 2",
       title: "Rehearse the move",
-      task: 'Say the minimum viable move out loud three times: pick a charged word and ask "[word] how?" — "Weird how?", "Intense how?", "Messy how?" Make it sound casual, not clever.',
+      task: 'Say the minimum viable move out loud three times: pick a charged word and ask "[word] how?", such as "Weird how?", "Intense how?" or "Messy how?" Make it sound casual, not clever.',
     },
     {
       day: "Day 3",
@@ -339,7 +339,7 @@ export const TC023: CardData = {
     {
       day: "Day 7",
       title: "Practise the repair",
-      task: 'Deliberately over-ask once, then use a recovery line — "That came out like an interrogation; I was just curious about the word you used" — and note how the repair lands.',
+      task: 'Deliberately over-ask once, then use a recovery line ("That came out like an interrogation. I was just curious about the word you used") and note how the repair lands.',
     },
   ],
   checklist: [
@@ -355,7 +355,7 @@ export const TC023: CardData = {
       'Person: "The meeting was fine, but the whole thing felt weirdly tense."',
       'You: "Why? What happened? Who was there? Was everyone angry?"',
       'Person: "No, not exactly..."',
-      'Why it fails: too many questions, too fast — it chases details before letting them define "weirdly tense".',
+      'Why it fails: too many questions, too fast. It chases details before letting them define "weirdly tense".',
     ],
     with: [
       'Person: "The meeting was fine, but the whole thing felt weirdly tense."',
@@ -365,18 +365,18 @@ export const TC023: CardData = {
       'Person: "Yes, exactly."',
       "Why it works: it echoes their own phrase, offers a gentle two-option question, and reflects the meaning back instead of interrogating.",
     ],
-    note: 'The quick version — just "Weirdly tense how?" — works too. The advanced version simply adds a light two-option question and a short reflection so they feel tracked, not questioned.',
+    note: 'The quick version (just "Weirdly tense how?") works too. The advanced version simply adds a light two-option question and a short reflection so they feel tracked, not questioned.',
   },
   influencePayoff: {
     feeling: '"They noticed the word that actually mattered to me."',
     principle:
       "People become more open with you once they feel you've registered their meaning, not just their topic.",
     gains: [
-      "Makes people feel precisely heard — you noticed the word that carried their meaning, not just the surface topic.",
-      "Creates momentum — they don't have to invent a new topic; they simply explain their own word.",
+      "Makes people feel precisely heard: you noticed the word that carried their meaning, not just the surface topic.",
+      "Creates momentum: they don't have to invent a new topic. They simply explain their own word.",
       "Signals attention, curiosity and social intelligence without a long or clever question.",
       "Surfaces values, concerns, hidden objections, excitement or uncertainty before you persuade or advise.",
-      'Keeps things natural — "Messy how?" sounds like a skilled conversationalist, not "Can you elaborate?"',
+      'Keeps things natural: "Messy how?" sounds like a skilled conversationalist, not "Can you elaborate?"',
       "Deepens a drifting conversation with the smallest possible move.",
     ],
     whyMostFail: [
@@ -388,11 +388,11 @@ export const TC023: CardData = {
   },
   fieldTip: {
     headline: "The loaded word is the doorway.",
-    body: "The emotionally charged word is usually where the real conversation lives. Pick it up lightly, then let them define it — the value is in their explanation, not your interpretation.",
+    body: "The emotionally charged word is usually where the real conversation lives. Pick it up lightly, then let them define it: the value is in their explanation, not your interpretation.",
     example:
       'They say "It was technically fine, just draining." Follow "draining", not "where was it?"',
-    dont: "Use it to corner, flatter, extract or prove a point.",
-    do: "Use it to clarify, respect and connect.",
+    dont: "Don't turn their word into evidence against them.",
+    do: 'Pick the most loaded word and ask "[word] how?" with genuine curiosity.',
   },
   method: [
     {
@@ -402,7 +402,7 @@ export const TC023: CardData = {
       examples: [
         {
           label: "Loaded",
-          text: "\"It was technically fine, just weird.\" — the live word is 'weird'.",
+          text: "\"It was technically fine, just weird.\" The live word is 'weird'.",
         },
       ],
     },
@@ -437,7 +437,7 @@ export const TC023: CardData = {
     {
       step: "6",
       title: "Reflect, then contribute",
-      body: "After they answer, reflect the meaning or follow the next loaded word — then add a little of your own after one or two follow-ups so it stays a conversation, not an interview.",
+      body: "After they answer, reflect the meaning or follow the next loaded word, then add a little of your own after one or two follow-ups so it stays a conversation, not an interview.",
     },
   ],
   liveThreadClues: [
@@ -447,7 +447,7 @@ export const TC023: CardData = {
     '"intense" / "messy" / "strange"',
     '"freeing" / "surprising"',
     '"not what I expected"',
-    '"...but..." — the charged word often lands right after',
+    '"...but..." (the charged word often lands right after it)',
   ],
   commonMistakes: [
     {
@@ -492,38 +492,38 @@ export const TC023: CardData = {
     "No pressure to unpack it. I just noticed that word.",
     "Let me ask that less clumsily.",
     "I may be reading too much into one word. What did you mean by it?",
-    "That came out like an interrogation. What I meant was, what kind of 'weird'?",
+    "That came out like an interrogation. What I meant was: what kind of 'weird'?",
     "We can leave it there if it's not worth going into.",
-    "Ignore the question if it's too much — I didn't mean to put you on the spot.",
-    "Fair enough — I'll stop analysing your word choice.",
+    "Ignore the question if it's too much. I didn't mean to put you on the spot.",
+    "Fair enough, I'll stop analysing your word choice.",
   ],
   bestRecoveryLine:
-    "I may be reading too much into one word — what did you mean by it?",
+    "I may be reading too much into one word. What did you mean by it?",
   chains: [
     {
       label: "Rapport chain",
       sequence:
-        "Warm comment -> loaded-word follow-up -> reflection -> light self-disclosure -> appreciation",
+        "Warm comment → loaded-word follow-up → reflection → light self-disclosure → appreciation",
       example: [
         '"That sounds like the good kind of tired. Rewarding how?"',
         '"So it was draining but worth it."',
-        '"I know that feeling — the best projects usually cost the most."',
+        '"I know that feeling: the best projects usually cost the most."',
       ],
     },
     {
       label: "Conversation-flow chain",
       sequence:
-        'Notice the charged word -> ask "[word] how?" -> let them define it -> follow the next thread',
+        'Notice the charged word → ask "[word] how?" → let them define it → follow the next thread',
       example: [
         '"Messy how?"',
         '"...so it was really the timing that made it messy."',
-        '"And the funding side — was that messy too?"',
+        '"And the funding side. Was that messy too?"',
       ],
     },
     {
       label: "Conflict chain",
       sequence:
-        "Validate the emotion -> loaded-word follow-up -> clarify the concern -> reflect -> propose a next step",
+        "Validate the emotion → loaded-word follow-up → clarify the concern → reflect → propose a next step",
       example: [
         '"I can hear that landed badly. What made it feel dismissive?"',
         '"So it was being talked over, not the decision itself."',
@@ -533,7 +533,7 @@ export const TC023: CardData = {
     {
       label: "Persuasion chain",
       sequence:
-        "Loaded-word follow-up -> identify the value or concern -> frame the suggestion around it -> release the decision",
+        "Loaded-word follow-up → identify the value or concern → frame the suggestion around it → release the decision",
       example: [
         "\"When you say 'risky', is it timing, cost, or quality?\"",
         '"If timing is the worry, we could stage it."',
