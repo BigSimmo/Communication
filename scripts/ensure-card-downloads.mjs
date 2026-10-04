@@ -55,7 +55,7 @@ if (
 const result = spawnSync(
   "pnpm",
   ["--filter", "@workspace/scripts", "run", "generate:card-downloads"],
-  { cwd: root, stdio: "inherit" },
+  { cwd: root, stdio: "inherit", shell: true },
 );
 if (result.status !== 0) process.exit(result.status ?? 1);
 

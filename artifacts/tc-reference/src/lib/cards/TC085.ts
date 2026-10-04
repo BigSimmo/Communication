@@ -6,7 +6,7 @@ export const TC085: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC085/TC085_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,17 +56,17 @@ export const TC085: CardData = {
   ],
   id: "TC085",
   whyItWorks:
-    "Question-stacking restraint means asking one real question at a time. When you notice yourself piling up two, three or five questions in a single turn, you stop, name the reset if needed, choose the one anchor question that best opens the next useful answer, and let the person answer before you add a follow-up. It works because a single question tells the other person exactly where to put their attention: they can answer more fully, feel less examined, and give you cleaner information. A question stack does the opposite — it makes people triage, so they answer only the last or easiest question, get defensive, or shut down.",
+    "Question-stacking restraint means asking one real question at a time. When you notice yourself piling up questions in a single turn, stop, choose the one anchor question that best opens the next useful answer, and let the person answer before you add a follow-up. A single question tells them exactly where to put their attention, so they answer more fully and feel less examined. A stack makes people triage: they answer the last or easiest question, get defensive or shut down.",
   whatItIsNot: [
     "It is not avoiding questions or becoming passive, withholding useful curiosity, or making the other person do all the work.",
-    "It is not controlling the conversation by asking only the question that serves you — the aim is clarity and ease, not extraction.",
-    "It is not the same as silence; silence can help after the one question, but the core move is choosing one clean question first.",
-    "It is not a ban on follow-ups — follow-ups are useful when they are sequenced. The restraint is against asking the follow-up before the first answer exists.",
-    "It is not legal, clinical, investigative or crisis-interviewing advice; in those settings follow the relevant professional protocol.",
+    "It is not controlling the conversation by asking only the question that serves you: the aim is clarity and ease, not extraction.",
+    "It is not the same as silence. Silence can help after the one question, but the core move is choosing one clean question first.",
+    "It is not a ban on follow-ups: follow-ups are useful when they are sequenced. The restraint is against asking the follow-up before the first answer exists.",
+    "It is not legal, clinical, investigative or crisis-interviewing advice. In those settings follow the relevant professional protocol.",
   ],
   overview: {
     coreFormula: [
-      "Stack: notice you are about to ask several questions.",
+      "Stack: notice you're about to ask several questions.",
       'Reset: "Let me make that one question."',
       "One anchor: ask the single question that best opens the next useful answer.",
       "Wait: leave room for the answer without adding a second prompt.",
@@ -78,7 +78,7 @@ export const TC085: CardData = {
     impact: "Low",
     difficulty: "Easy-Medium",
     misuse:
-      "You believe you are being engaged, but the other person experiences the stack as pressure — or you use carefully sequenced questions to extract more than they want to give.",
+      "You believe you are being engaged, but the other person experiences the stack as pressure, or you use carefully sequenced questions to extract more than they want to give.",
     bestFor: [
       "Emotionally loaded conversations where the other person needs space.",
       "Manager check-ins, coaching, mentoring and feedback conversations.",
@@ -107,7 +107,7 @@ export const TC085: CardData = {
         "What do you most want me to understand?",
         "Of those pieces, what should we start with?",
         "What felt most important about that?",
-        "What is the one piece I should understand first?",
+        "What's the one piece I should understand first?",
       ],
     },
     {
@@ -117,9 +117,9 @@ export const TC085: CardData = {
       tone: "Direct",
       phrases: [
         "I just asked too many things at once. Let me make it one.",
-        "Ignore the pile of questions. What is the main part?",
+        "Ignore the pile of questions. What's the main part?",
         "Let me slow that down. One question first.",
-        "I am curious about several pieces, but I will start with one.",
+        "I'm curious about several pieces, but I'll start with one.",
         "I just asked three things at once. Let me make it one: what matters most here?",
         "Would it be easier to answer what happened first, or what you need now?",
       ],
@@ -143,10 +143,10 @@ export const TC085: CardData = {
       tag: "Meetings and check-ins",
       tone: "Professional",
       phrases: [
-        "What is the main blocker right now?",
+        "What's the main blocker right now?",
         "What decision do we need first?",
-        "What is the one piece I should understand before we move on?",
-        "Let me simplify the question: what is the main blocker right now?",
+        "What's the one piece I should understand before we move on?",
+        "Let me simplify the question: what's the main blocker right now?",
         "One thing at a time: what support would help most this week?",
         "Of those areas, which one should we start with?",
         "Let me ask that cleanly: what changed between the first and second attempt?",
@@ -160,9 +160,9 @@ export const TC085: CardData = {
       phrases: [
         "I sent too many questions. Answer the easiest one first.",
         "Priority question only: can you confirm the deadline?",
-        "The rest can wait. First, what is the decision?",
+        "The rest can wait. First, what's the decision?",
         "I overloaded the message. The only thing I need now is the deadline.",
-        "One priority question, then I will follow up if it is needed.",
+        "One priority question, then I'll follow up if it's needed.",
       ],
     },
     {
@@ -171,12 +171,12 @@ export const TC085: CardData = {
       tag: "When it is tense",
       tone: "High-stakes",
       phrases: [
-        "I do not want to cross-examine you. What felt unfair?",
+        "I don't want to cross-examine you. What felt unfair?",
         "One question: what did I miss?",
         "What part of this is most important to repair?",
-        "I do not want to make you defend every point. What is the main thing?",
-        "I am going to slow the questioning down. What is the first thing we need to establish?",
-        "One question at a time — what do you most want me to understand?",
+        "I don't want to make you defend every point. What's the main thing?",
+        "I'm going to slow the questioning down. What's the first thing we need to establish?",
+        "One question at a time. What do you most want me to understand?",
       ],
     },
     {
@@ -185,13 +185,13 @@ export const TC085: CardData = {
       tag: "Backing up",
       tone: "Repair",
       phrases: [
-        "That came out like an interrogation. I am going to back up and listen.",
-        "You do not have to answer all of that. What feels easiest to start with?",
-        "I am going to drop the extra questions and listen to this part.",
+        "That came out like an interrogation. I'm going to back up and listen.",
+        "You don't have to answer all of that. What feels easiest to start with?",
+        "I'm going to drop the extra questions and listen to this part.",
         "Let me back up. What do you want me to understand first?",
-        "I am noticing I am trying to solve this by questioning you. I will pause.",
+        "I'm noticing I'm trying to solve this by questioning you. I'll pause.",
         "No need to cover every detail. Start wherever makes sense.",
-        "I have a follow-up, but I will hold it until you finish.",
+        "I have a follow-up, but I'll hold it until you finish.",
       ],
     },
   ],
@@ -217,7 +217,7 @@ export const TC085: CardData = {
     {
       condition: "The person is calm and it is operational",
       action: "Choose a clearer, task-focused anchor.",
-      phrase: "What is the main blocker right now?",
+      phrase: "What's the main blocker right now?",
     },
     {
       condition: "They answered fully",
@@ -229,14 +229,14 @@ export const TC085: CardData = {
       condition: "You have already stacked questions",
       action: "Name it, drop the extras, and ask one clean anchor.",
       phrase:
-        "I asked too many things at once. One question: what is the main part?",
+        "I asked too many things at once. One question: what's the main part?",
     },
   ],
   ladder: [
     {
       weak: '"Why did that happen? Who said what? Did you push back? What are you going to do?"',
       better: '"What happened first?"',
-      best: '"I am curious about a few things, but one question first: what happened first?"',
+      best: '"I\'m curious about a few things, but one question first: what happened first?"',
     },
     {
       weak: "Ask the next prepared question the moment they pause.",
@@ -252,13 +252,13 @@ export const TC085: CardData = {
   scenarios: [
     {
       situation: "Someone is upset",
-      move: "Skip the stack; ask what they most want to say first and stay with the answer.",
+      move: "Skip the stack. Ask what they most want to say first and stay with the answer.",
       phrase: "What part feels most important to say first?",
     },
     {
       situation: "Workplace blocker",
       move: "Ask the one blocker question, then choose a single operational follow-up.",
-      phrase: "What is the main blocker right now?",
+      phrase: "What's the main blocker right now?",
     },
     {
       situation: "Disagreement",
@@ -293,11 +293,11 @@ export const TC085: CardData = {
     ],
     adjust: [
       "They answer only the last question in a stack.",
-      'They say "I do not know where to start."',
+      'They say "I don\'t know where to start."',
       "They become defensive, short, or overly explanatory.",
       "They look like they are trying to remember every prompt.",
-      'They ask "which question do you want me to answer?" — you have already stacked too much.',
-      "They say they feel interrogated, pressured or judged — stop and repair.",
+      'They ask "which question do you want me to answer?" You have already stacked too much.',
+      "They say they feel interrogated, pressured or judged: stop and repair.",
       "The moment needs support, validation or silence more than another question.",
     ],
   },
@@ -350,15 +350,15 @@ export const TC085: CardData = {
     without: [
       'A: "The meeting went badly."',
       'B: "Why? What did they say? Did you defend the plan? Was Sam there? What are you going to do now?"',
-      'A: "I do not know. It was just a mess."',
-      "Why it is weak:",
+      'A: "I don\'t know. It was just a mess."',
+      "Why it's weak:",
       "five questions land in one breath and sound like a cross-examination",
-      "the person cannot tell which one to answer",
+      "the person can't tell which one to answer",
       'so they retreat into "it was just a mess" and give you nothing usable',
     ],
     with: [
       'A: "The meeting went badly."',
-      'B: "I have a few questions, but I will keep it to one: what moment made it turn?"',
+      'B: "I have a few questions, but I\'ll keep it to one: what moment made it turn?"',
       'A: "When the budget slide appeared. It looked like we were asking for approval before explaining why."',
       'B: "So the sequence created the reaction. What would have helped them understand the why first?"',
       "Why this works:",
@@ -367,18 +367,18 @@ export const TC085: CardData = {
       "the follow-up is earned by their answer, not read off a list",
       "reflecting first shows you tracked them rather than processed them",
     ],
-    note: 'The simple middle version works too — just "What happened first?" Any single clean question beats the pile.',
+    note: 'The simple middle version works too, just "What happened first?" Any single clean question beats the pile.',
   },
   influencePayoff: {
     feeling:
-      '"They actually listened — I could answer without being put on trial."',
+      '"They actually listened. I could answer without being put on trial."',
     principle:
       "When you ask one question, the other person knows exactly where to put their attention, so they answer more fully and feel less examined. Cleaner answers and less defensive friction follow.",
     gains: [
       "More usable information",
       "Better emotional safety",
       "More trust",
-      "Greater credibility — you sound calm, respectful and deliberate",
+      "Greater credibility: you sound calm, respectful and deliberate",
       "Less defensiveness",
       "The other person feels respected rather than processed",
     ],
@@ -398,13 +398,13 @@ export const TC085: CardData = {
   method: [
     {
       step: "1",
-      title: "Perception",
+      title: "Notice the stack forming",
       body: 'Notice the signs of stacking: multiple question marks forming, "and also...", rising speed, or the urge to cover every angle before the person has answered anything. Catching the reflex early is most of the skill.',
     },
     {
       step: "2",
-      title: "Move",
-      body: "Choose one anchor question — usually the one that opens the story, clarifies the need, or names the next action. Everything else gets dropped or parked for later.",
+      title: "Pick one anchor question",
+      body: "Choose one anchor question, usually the one that opens the story, clarifies the need, or names the next action. Everything else gets dropped or parked for later.",
       examples: [
         { label: "Story anchor", text: "What happened first?" },
         {
@@ -412,7 +412,7 @@ export const TC085: CardData = {
           text: "What felt most important about that?",
         },
         { label: "Need anchor", text: "What would help right now?" },
-        { label: "Blocker anchor", text: "What is the main thing in the way?" },
+        { label: "Blocker anchor", text: "What's the main thing in the way?" },
         {
           label: "Choice anchor",
           text: "Would it be easier to start with what happened or what you need now?",
@@ -421,23 +421,23 @@ export const TC085: CardData = {
     },
     {
       step: "3",
-      title: "Phrase",
+      title: "Reset out loud if you've stacked",
       body: 'If you have already stacked, name the reset out loud so the reset itself lowers pressure: "I just asked too many things at once. One question..." Naming it is often more disarming than the question that follows.',
     },
     {
       step: "4",
-      title: "Calibration",
-      body: "After you ask, watch whether the person relaxes, answers with detail, corrects the frame, or still looks overloaded — and let that shape your next turn rather than your prepared list.",
+      title: "Watch how it lands",
+      body: "After you ask, watch whether the person relaxes, answers with detail, corrects the frame, or still looks overloaded, and let that shape your next turn rather than your prepared list.",
     },
     {
       step: "5",
-      title: "Recovery",
-      body: 'If the pressure lands, apologise lightly and back up. The recovery should reduce demand, not add to it: do not apologise and then ask a fresh stack. "That came out like an interrogation. I am going to slow down."',
+      title: "Back up lightly",
+      body: 'If the pressure lands, apologise lightly and back up. The recovery should reduce demand, not add to it: do not apologise and then ask a fresh stack. "That came out like an interrogation. I\'m going to slow down."',
     },
     {
       step: "6",
-      title: "Chain",
-      body: "Combine with comment-before-question, reflective listening, a summary check, or a two-option question depending on the answer. Default to one question mark per turn — a two-option question can offer two choices but should still be one decision point.",
+      title: "Follow the answer",
+      body: "Combine with comment-before-question, reflective listening, a summary check, or a two-option question depending on the answer. Default to one question mark per turn: a two-option question can offer two choices but should still be one decision point.",
     },
   ],
   liveThreadClues: [
@@ -451,62 +451,61 @@ export const TC085: CardData = {
   commonMistakes: [
     {
       mistake:
-        "Curiosity flood — asking every question as soon as it occurs to you.",
+        "Curiosity flood: asking every question as soon as it occurs to you.",
       soundsLike: '"Why? What did they say? And then what? What will you do?"',
       better: '"What happened first?"',
     },
     {
       mistake:
-        'Disguised accusation — stacking "why" questions that sound like a cross-examination.',
+        'Disguised accusation: stacking "why" questions that sound like a cross-examination.',
       soundsLike: '"Why did you do that? Why didn\'t you check? Why now?"',
-      better: '"I do not want to cross-examine you. What felt unfair?"',
+      better: '"I don\'t want to cross-examine you. What felt unfair?"',
     },
     {
       mistake:
-        "Last-question bias — assuming the answer to the last question covers all of them.",
+        "Last-question bias: assuming the answer to the last question covers all of them.",
       soundsLike:
         'Four questions, and only "...what are you going to do?" gets answered.',
-      better: "Ask one question so there is nothing to triage.",
+      better: "Ask one question so there's nothing to triage.",
     },
     {
       mistake:
-        "Digital overload — one message with five asks, expecting a clean reply.",
+        "Digital overload: one message with five asks, expecting a clean reply.",
       soundsLike:
         '"Send the deck, confirm the budget, explain the change, and say who approved it."',
       better:
         '"Priority question: can you confirm the budget? The rest can wait."',
     },
     {
-      mistake:
-        "Over-correction — asking no questions and calling it restraint.",
+      mistake: "Over-correction: asking no questions and calling it restraint.",
       soundsLike: "Silence where a single clear question was needed.",
       better: "Ask the one anchor question, then wait.",
     },
     {
       mistake:
-        "Fake simplicity — one question that secretly contains three demands.",
+        "Fake simplicity: one question that secretly contains three demands.",
       soundsLike: '"Can you fix it, and by when, and who\'s helping?"',
-      better: '"What is the main thing in the way?"',
+      better: '"What\'s the main thing in the way?"',
     },
     {
       mistake:
-        "Interruption follow-up — asking a second question before the first answer is complete.",
+        "Interruption follow-up: asking a second question before the first answer is complete.",
       soundsLike: "Jumping in the moment they pause for breath.",
       better: "Let the full answer land, then follow from it.",
     },
   ],
   recoveryPhrases: [
     "I just asked too many things at once. Let me slow down.",
-    "That sounded like an interrogation. I am sorry. One question only.",
-    "You do not have to answer all of that. What feels easiest to start with?",
-    "I am going to drop the extra questions and listen to this part.",
+    "That sounded like an interrogation. I'm sorry. One question only.",
+    "You don't have to answer all of that. What feels easiest to start with?",
+    "I'm going to drop the extra questions and listen to this part.",
     "I overloaded the message. The only thing I need now is the deadline.",
     "Let me back up. What do you want me to understand first?",
-    "I am noticing I am trying to solve this by questioning you. I will pause.",
+    "I'm noticing I'm trying to solve this by questioning you. I'll pause.",
     "No need to cover every detail. Start wherever makes sense.",
   ],
   bestRecoveryLine:
-    "That came out like an interrogation. I am going to slow down and just listen.",
+    "That came out like an interrogation. I'm going to slow down and just listen.",
   chains: [
     {
       label: "Warm inquiry",
@@ -553,32 +552,32 @@ export const TC085: CardData = {
     {
       id: "TC003",
       reason:
-        "Use TC085 when the problem is too many questions in one turn; use TC003 when the count is fine but a single question lands abruptly and needs warmth or context first.",
+        "Use TC085 when the problem is too many questions in one turn. Use TC003 when the count is fine but a single question lands abruptly and needs warmth or context first.",
     },
     {
       id: "TC009",
       reason:
-        "Use TC085 when the other person is being asked too much; use TC009 when you are really asking to create a runway for your own story or opinion.",
+        "Use TC085 when the other person is being asked too much. Use TC009 when you are really asking to create a runway for your own story or opinion.",
     },
     {
       id: "TC015",
       reason:
-        "Use TC085 when your pressure comes through extra questions; use TC015 when it comes through solving, advising or fixing too soon.",
+        "Use TC085 when your pressure comes through extra questions. Use TC015 when it comes through solving, advising or fixing too soon.",
     },
     {
       id: "TC034",
       reason:
-        "Use TC085 when the person needs one open anchor or a reset from a pile; use TC034 when an easy choice between two clear options would reduce the burden.",
+        "Use TC085 when the person needs one open anchor or a reset from a pile. Use TC034 when an easy choice between two clear options would reduce the burden.",
     },
     {
       id: "TC043",
       reason:
-        "Use TC085 as a narrow restraint rule inside a conversation; use OARS (TC043) for the full open-question, affirm, reflect, summarise structure — and apply TC085 when the open questions start multiplying.",
+        "Use TC085 as a narrow restraint rule inside a conversation. Use OARS (TC043) for the full open-question, affirm, reflect, summarise structure, and apply TC085 when the open questions start multiplying.",
     },
     {
       id: "TC076",
       reason:
-        "Use TC085 when the specific issue is several questions in one turn; use TC076 when the whole style still feels investigative or power-heavy even with one question at a time.",
+        "Use TC085 when the specific issue is several questions in one turn. Use TC076 when the whole style still feels investigative or power-heavy even with one question at a time.",
     },
   ],
 };

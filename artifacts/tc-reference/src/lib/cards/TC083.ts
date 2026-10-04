@@ -6,7 +6,7 @@ export const TC083: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC083/TC083_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC083: CardData = {
   ],
   id: "TC083",
   whyItWorks:
-    'Asking what would make it workable is a collaborative feasibility question for moments when a request, plan, feedback point, or boundary meets friction. Instead of arguing for your version, you invite the other person to name the conditions, limits, changes, or supports that would make the next step viable. It works because it treats resistance as information about real constraints — timing, risk, workload, fairness, trust, authority, emotional load, or missing support — rather than as obstruction. Vague pushback becomes concrete conditions you can actually work with, and the person keeps the agency to say "nothing" or "not now."',
+    'Asking what would make it workable is a collaborative feasibility question for moments when a request, plan, feedback point or boundary meets friction. Instead of arguing for your version, you invite the other person to name the conditions, limits or supports that would make the next step viable. It treats resistance as information about real constraints (timing, risk, workload, fairness, trust, authority) rather than obstruction, so vague pushback becomes concrete conditions, and they keep the freedom to say "nothing" or "not now".',
   whatItIsNot: [
     'Not a disguised way to ask, "How can I make you say yes?"',
     "Not a replacement for accepting a clear boundary or a final no.",
@@ -72,11 +72,11 @@ export const TC083: CardData = {
       'Agree the next small step: "Let\'s use that as the constraint and adjust from there."',
     ],
     minimumViableMove:
-      'Validate the friction, then ask one question: "Got it. What would make this workable, if anything?" — and stay quiet while they think.',
+      'Validate the friction, then ask one question: "Got it. What would make this workable, if anything?", and stay quiet while they think.',
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      "The move becomes pressure when the speaker is not genuinely willing to accept the answer — asking what would make it workable and then arguing teaches the other person the question was not real.",
+      "The move becomes pressure when the speaker is not genuinely willing to accept the answer: asking what would make it workable and then arguing teaches the other person the question was not real.",
     bestFor: [
       "Someone is hesitant, vague, overloaded, or objecting but still engaged.",
       "A plan is blocked by logistics, risk, timing, scope, fairness, confidence, or missing context.",
@@ -162,7 +162,7 @@ export const TC083: CardData = {
         "If the answer is no, I'll respect that. Is there any version that would work?",
         "No pressure to solve it now. What would need to be true for this to work?",
         "I'll take a no. Is there a version that would feel okay, or should we drop it?",
-        "You don't have to make this work — I just want to understand what would.",
+        "You don't have to make this work. I just want to understand what would.",
         "If there's no workable version, that's useful to know too.",
         "Given what happened, what would make a reset workable from here?",
       ],
@@ -197,7 +197,7 @@ export const TC083: CardData = {
   decisionTree: [
     {
       condition: "They're emotionally activated",
-      action: "Validate first; don't ask for conditions yet.",
+      action: "Validate first. Don't ask for conditions yet.",
       phrase: "I may be moving too fast. Let me understand the concern first.",
     },
     {
@@ -303,19 +303,19 @@ export const TC083: CardData = {
       "The plan starts to take a realistic shape.",
     ],
     adjust: [
-      'They repeat "no" or close down — the boundary may be final, so release the ask.',
-      "They sound irritated — the question may feel like pressure, so name it and step back.",
-      "They give impossible conditions — they may be saying no indirectly; check whether any version exists.",
-      "They ask for time — offer a low-pressure follow-up point rather than pushing now.",
-      "You're filling the silence with your own suggestions — stop and let them answer.",
-      "You notice you only want a yes — you're no longer asking, you're pushing.",
+      'They repeat "no" or close down: the boundary may be final, so release the ask.',
+      "They sound irritated: the question may feel like pressure, so name it and step back.",
+      "They give impossible conditions. They may be saying no indirectly. Check whether any version exists.",
+      "They ask for time: offer a low-pressure follow-up point rather than pushing now.",
+      "You're filling the silence with your own suggestions: stop and let them answer.",
+      "You notice you only want a yes. You're no longer asking, you're pushing.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the resistance",
-      task: "Pick a recent moment someone pushed back on you. Write the hesitation in their own words — the actual sentence they said, or the delay you noticed.",
+      task: "Pick a recent moment someone pushed back on you. Write the hesitation in their own words: the actual sentence they said, or the delay you noticed.",
     },
     {
       day: "Day 2",
@@ -330,7 +330,7 @@ export const TC083: CardData = {
     {
       day: "Day 4",
       title: "Rehearse the silence",
-      task: "Say your question aloud, then stay quiet for a slow three seconds. Notice the urge to rescue the pause with a suggestion — and don't.",
+      task: "Say your question aloud, then stay quiet for a slow three seconds. Notice the urge to rescue the pause with a suggestion, and don't.",
     },
     {
       day: "Day 5",
@@ -340,7 +340,7 @@ export const TC083: CardData = {
     {
       day: "Day 6",
       title: "Respond without defending",
-      task: "Practise replying to one workable condition and one flat no. Adapt the plan for the first; accept the second cleanly, no argument.",
+      task: "Practise replying to one workable condition and one flat no. Adapt the plan for the first. Accept the second cleanly, no argument.",
     },
     {
       day: "Day 7",
@@ -370,7 +370,7 @@ export const TC083: CardData = {
       "B: I'm hesitant. Last time it expanded way beyond the original scope.",
       "A: That makes sense. I don't want to repeat that. What would make it workable this time, if anything?",
       "B: A hard two-hour cap, the data already cleaned, and someone else handling edits after draft one.",
-      "A: Those are concrete. I can commit to the two-hour cap and cleaned data. I'll find someone for the edits — and if I can't, I won't ask you to own it.",
+      "A: Those are concrete. I can commit to the two-hour cap and cleaned data. I'll find someone for the edits, and if I can't, I won't ask you to own it.",
       "B: That version I could consider.",
     ],
     note: 'The poor version defends the plan and treats "no" as something to argue with, so it ends in withdrawal. The advanced version validates the friction, asks one workable-conditions question, then builds the next step out of the conditions the other person names.',
@@ -381,7 +381,7 @@ export const TC083: CardData = {
       "The payoff is clarity, not pressure. When someone resists, most people defend their plan, cut the ask blindly, or abandon the conversation. This move opens a third route: discover what the other person would need for the plan to become viable.",
     gains: [
       "Reduces defensiveness by treating resistance as useful data.",
-      "Surfaces constraints that may be solvable — timing, information, risk, authority, fairness, or workload.",
+      "Surfaces constraints that may be solvable: timing, information, risk, authority, fairness, or workload.",
       "Protects trust by making decline a legitimate outcome.",
       "Builds better agreements from stated conditions rather than hidden assumptions.",
       "Prevents false yeses by making workability explicit before commitment.",
@@ -396,9 +396,9 @@ export const TC083: CardData = {
   },
   fieldTip: {
     headline: "Ask once, then actually listen.",
-    body: "If you ask what would make it workable and then immediately argue with the answer, you've taught the other person the question wasn't real. The skill is mostly in the pause afterwards — and in believing them when they say nothing would work.",
+    body: "If you ask what would make it workable and then immediately argue with the answer, you've taught the other person the question wasn't real. The skill is mostly in the pause afterwards, and in believing them when they say nothing would work.",
     example:
-      '"What would make this workable, if anything?" — then three seconds of silence.',
+      '"What would make this workable, if anything?", then three seconds of silence.',
     dont: "Ask, then talk them out of the very condition they just named.",
     do: "Ask, stay quiet, and build the next step out of what they tell you.",
   },
@@ -411,11 +411,11 @@ export const TC083: CardData = {
     {
       step: "2",
       title: "Validate the friction lightly",
-      body: "Name or acknowledge the constraint without arguing with it. A single sentence is enough — it lowers defensiveness so they can think with you instead of bracing against you.",
+      body: "Name or acknowledge the constraint without arguing with it. A single sentence is enough. It lowers defensiveness so they can think with you instead of bracing against you.",
       examples: [
         {
           label: "Say",
-          text: '"That makes sense — last time it ran way over."',
+          text: '"That makes sense. Last time it ran way over."',
         },
         { label: "Avoid", text: '"That shouldn\'t really be a problem."' },
       ],
@@ -459,22 +459,22 @@ export const TC083: CardData = {
     },
   ],
   liveThreadClues: [
-    '"I\'m not sure…"',
-    '"That\'s hard…"',
-    '"I don\'t think we can…"',
-    '"It depends…"',
-    '"It\'s complicated…"',
-    '"Maybe later…"',
-    '"We\'ll see…"',
+    '"I\'m not sure..."',
+    '"That\'s hard..."',
+    '"I don\'t think we can..."',
+    '"It depends..."',
+    '"It\'s complicated..."',
+    '"Maybe later..."',
+    '"We\'ll see..."',
     'Repeated delay or "I\'ll get to it"',
   ],
   commonMistakes: [
     {
       mistake: "Asking before the concern has been heard",
       soundsLike:
-        '"What would make this work?" — cut in before they\'ve finished explaining the problem.',
+        '"What would make this work?" Cut in before they\'ve finished explaining the problem.',
       better:
-        '"That sounds frustrating. Tell me the part that\'s hardest — then we can look at what would help."',
+        '"That sounds frustrating. Tell me the part that\'s hardest, then we can look at what would help."',
     },
     {
       mistake: "Answering your own question",
@@ -490,7 +490,7 @@ export const TC083: CardData = {
     },
     {
       mistake: "Treating a boundary as negotiable",
-      soundsLike: '"But what would make it workable?" — after a clear no.',
+      soundsLike: '"But what would make it workable?", after a clear no.',
       better: '"Understood. I\'ll leave it there."',
     },
     {
@@ -515,7 +515,7 @@ export const TC083: CardData = {
   ],
   recoveryPhrases: [
     "I may be pushing too hard. I'll step back.",
-    "That sounded like I was trying to talk you into it — that wasn't my intention.",
+    "That sounded like I was trying to talk you into it. That wasn't my intention.",
     "If the answer is no, I can accept that.",
     "Let me slow down and understand the concern first.",
     "I don't want to make this your problem to solve.",
@@ -527,7 +527,7 @@ export const TC083: CardData = {
     "I hear that there isn't a workable version right now. I'll work from that.",
   chains: [
     {
-      label: "Validation -> Workability -> Autonomy release",
+      label: "Validation → Workability → Autonomy release",
       sequence:
         "Validate the concern, ask what would make it workable, then affirm they can still decline.",
       example: [
@@ -537,7 +537,7 @@ export const TC083: CardData = {
       ],
     },
     {
-      label: "Clean request -> Workability -> Low-friction ask",
+      label: "Clean request → Workability → Low-friction ask",
       sequence:
         "State the request clearly, discover the conditions behind the resistance, then offer the smallest viable version.",
       example: [
@@ -547,7 +547,7 @@ export const TC083: CardData = {
       ],
     },
     {
-      label: "NVC/OFNR -> Workability -> Two-option question",
+      label: "NVC/OFNR → Workability → Two-option question",
       sequence:
         "Name observation, feeling, need and request without blame, ask for workable conditions, then offer two respectful options.",
       example: [
@@ -557,7 +557,7 @@ export const TC083: CardData = {
       ],
     },
     {
-      label: "SBI -> Workability -> Repair agreement",
+      label: "SBI → Workability → Repair agreement",
       sequence:
         "Describe the situation, behaviour and impact, ask what would make the new process workable, then agree the repair.",
       example: [
@@ -571,7 +571,7 @@ export const TC083: CardData = {
     {
       id: "TC014",
       reason:
-        "Validate the concern comes first when emotion is high — recognise the worry before asking for conditions. Use TC083 once they can think with you and you need constraints, not just acknowledgement.",
+        "Validate the concern comes first when emotion is high: recognise the worry before asking for conditions. Use TC083 once they can think with you and you need constraints, not just acknowledgement.",
     },
     {
       id: "TC013",
@@ -586,12 +586,12 @@ export const TC083: CardData = {
     {
       id: "TC021",
       reason:
-        "Autonomy release gives explicit freedom to decline. Attach it to TC083 — especially under power or high stakes — so the question doesn't tip into pressure.",
+        "Autonomy release gives explicit freedom to decline. Attach it to TC083, especially under power or high stakes, so the question doesn't tip into pressure.",
     },
     {
       id: "TC089",
       reason:
-        "Risk Reduction mitigates a risk you already understand. Use TC083 first, when the blocking risk is still unclear and you need the other person to surface it.",
+        "Risk reduction mitigates a risk you already understand. Use TC083 first, when the blocking risk is still unclear and you need the other person to surface it.",
     },
     {
       id: "TC034",

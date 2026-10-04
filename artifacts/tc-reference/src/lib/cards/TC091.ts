@@ -6,7 +6,7 @@ export const TC091: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC091/TC091_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -58,18 +58,18 @@ export const TC091: CardData = {
   whyItWorks:
     "Forced-humour restraint is noticing the urge to make a joke and deliberately choosing care, clarity, or quiet instead when the moment is not ready for humour. It works because forced humour usually tries to buy quick comfort but spends relational trust: withholding it keeps a tender or tense moment available for real connection, protects the other person's dignity, and makes you seem more attuned and less hungry for a laugh.",
   whatItIsNot: [
-    "It is not banning jokes, personality, warmth, teasing, or playfulness — a gentle, shared joke can bond people when they have clearly signalled they are open to it.",
+    "It is not banning jokes, personality, warmth, teasing, or playfulness: a gentle, shared joke can bond people when they have clearly signalled they are open to it.",
     "It is not moralising humour or making a conversation sterile and humourless.",
     "It is not dead seriousness in every difficult moment.",
-    "It is not passive silence — if a joke is wrong, you replace it with acknowledgement, curiosity, validation, a slower question, or a brief practical next step.",
-    'It is not using "I was just joking" as a shield; if a joke lands badly, the task is repair, not defence.',
+    "It is not passive silence. If a joke is wrong, you replace it with acknowledgement, curiosity, validation, a slower question, or a brief practical next step.",
+    'It is not using "I was just joking" as a shield. If a joke lands badly, the task is repair, not defence.',
   ],
   overview: {
     coreFormula: [
       "Care before clever: notice the joke impulse, check kindness, timing, and consent, choose the lowest-risk warm move, then repair fast if it misses.",
-      "One-line rule: if the joke protects you more than it supports them, do not say it.",
+      "One-line rule: if the joke protects you more than it supports them, don't say it.",
       'Replacement line: "That sounds [hard / big / a lot]. I\'m with you. What would help right now?"',
-      "Humour-permission (only where trust already exists): \"I've a lighter thought, but I don't want to undercut this — want it, or should we stay here?\"",
+      'Humour-permission (only where trust already exists): "I have a lighter thought, but I don\'t want to undercut this. Want it, or should we stay here?"',
       "Default when unsure: acknowledge first, joke later.",
     ],
     minimumViableMove:
@@ -103,7 +103,7 @@ export const TC091: CardData = {
       tag: "Quick restraint lines",
       tone: "Quick",
       phrases: [
-        "I nearly made a joke there — I won't.",
+        "I nearly made a joke there. I won't.",
         "Let me not joke past this.",
         "This isn't a punchline moment.",
         "I'll keep this straight.",
@@ -124,7 +124,7 @@ export const TC091: CardData = {
         "I don't want to fill this with a joke. I'm here.",
         "I'd rather hear more than lighten it. What's been the hardest part?",
         "That sounds heavier than the short version. What's sitting with you most?",
-        "No jokes from me on this one — it clearly means something.",
+        "No jokes from me on this one. It clearly means something.",
       ],
     },
     {
@@ -147,11 +147,11 @@ export const TC091: CardData = {
       tag: "Decision moments",
       tone: "Direct",
       phrases: [
-        "This is not a punchline moment. What do we need to decide?",
+        "This isn't a punchline moment. What do we need to decide?",
         "I'm going to keep this clean and direct.",
         "I'm tempted to break the tension, but we probably need the real conversation first.",
         "Let's stay with the decision before anyone lightens it.",
-        "I'll save the banter — what has to be true for this to work?",
+        "I'll save the banter. What has to be true for this to work?",
         "Straight question, no joke attached: where are we?",
       ],
     },
@@ -162,12 +162,12 @@ export const TC091: CardData = {
       tone: "Repair",
       phrases: [
         "That came out more joking than I intended. Let me try again properly.",
-        "That was a miss. I'm sorry — I made light of something that mattered.",
+        "That was a miss. I'm sorry, I made light of something that mattered.",
         "I can see that felt dismissive. I'll drop the joke and take the point seriously.",
-        "You're right; that wasn't the moment for humour.",
+        "You're right. That wasn't the moment for humour.",
         "I don't want you to have to explain why that was off. I get it, and I'm sorry.",
         "Let me drop the joke and answer you properly.",
-        "Starting again — what I should have said is…",
+        "Starting again. What I should have said is...",
       ],
     },
     {
@@ -190,10 +190,10 @@ export const TC091: CardData = {
       tag: "Digital / text",
       tone: "Quick",
       phrases: [
-        "Deleting my attempted joke — this deserves a straight answer.",
+        "Deleting my attempted joke. This deserves a straight answer.",
         "I started to type something lighter, but it might read wrong. I'm taking this seriously.",
-        "I don't want that to come across as dismissive — I mean this genuinely.",
-        "No emoji fix for this one; here's the honest version.",
+        "I don't want that to come across as dismissive. I mean this genuinely.",
+        "No emoji fix for this one. Here's the honest version.",
         "Straight reply, no joke: here's where I actually stand.",
       ],
     },
@@ -206,7 +206,7 @@ export const TC091: CardData = {
     },
     {
       condition: "The other person isn't clearly playful or opting in",
-      action: "Don't joke — the cues for shared humour aren't there.",
+      action: "Don't joke: the cues for shared humour aren't there.",
       phrase: "This sounds like it matters. Tell me more.",
     },
     {
@@ -224,14 +224,14 @@ export const TC091: CardData = {
     {
       condition: "Humour is genuinely welcome and low-risk",
       action:
-        "Keep it light, inclusive, and easy to drop — never the other person as the punchline.",
+        "Keep it light, inclusive, and easy to drop: never the other person as the punchline.",
       phrase: "",
     },
     {
       condition: "You already joked and it missed",
       action: "Repair once, then return attention to the topic.",
       phrase:
-        "That was a miss. I'm sorry — I made light of something that mattered.",
+        "That was a miss. I'm sorry, I made light of something that mattered.",
     },
   ],
   ladder: [
@@ -244,7 +244,7 @@ export const TC091: CardData = {
     {
       weak: '"Relax, I\'m kidding." Defends your intent instead of tracking the impact.',
       better:
-        '"That didn\'t land. Sorry — I was trying to lighten it, and I missed." Owns the miss.',
+        '"That didn\'t land. Sorry, I was trying to lighten it, and I missed." Owns the miss.',
       best: "\"I can see that felt dismissive. I'm sorry. I'll drop the joke and take the point seriously.\" Repairs without asking the other person to comfort you.",
     },
   ],
@@ -274,7 +274,7 @@ export const TC091: CardData = {
     },
     {
       situation: "Digital message",
-      move: "Write the serious sentence first; don't rely on tone or emoji to carry it.",
+      move: "Write the serious sentence first. Don't rely on tone or emoji to carry it.",
       phrase:
         "I started to type something lighter, but it might read wrong. I'm taking this seriously.",
     },
@@ -299,14 +299,14 @@ export const TC091: CardData = {
       "Someone goes quiet, looks away, or forces a laugh.",
       'They correct you, repeat the seriousness, or say "not funny" or "seriously though".',
       "You notice the joke is mostly easing your discomfort, not theirs.",
-      "In text, your line could read as dismissive — write the serious sentence first.",
+      "In text, your line could read as dismissive: write the serious sentence first.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the impulse",
-      task: "Through the day, silently note every moment you feel the urge to make a joke. Don't change anything yet — just count them and notice where they happen.",
+      task: "Through the day, silently note every moment you feel the urge to make a joke. Don't change anything yet, just count them and notice where they happen.",
     },
     {
       day: "Day 2",
@@ -326,7 +326,7 @@ export const TC091: CardData = {
     {
       day: "Day 5",
       title: "Repair rehearsal",
-      task: 'Practise three recovery lines out loud until they sound plain rather than theatrical, e.g. "That was a miss. I\'m sorry — I made light of something that mattered."',
+      task: 'Practise three recovery lines out loud until they sound plain rather than theatrical, e.g. "That was a miss. I\'m sorry, I made light of something that mattered."',
     },
     {
       day: "Day 6",
@@ -341,7 +341,7 @@ export const TC091: CardData = {
   ],
   checklist: [
     "What cue told me humour might be risky here?",
-    "Was my urge to joke for connection — or for relief, approval, defence, status, or avoidance?",
+    "Was my urge to joke for connection, or for relief, approval, defence, status, or avoidance?",
     "Who would have carried the cost if the joke had missed?",
     "Did I replace the joke with care, clarity, curiosity, or silence?",
     "Did the other person become more open, more guarded, or unchanged?",
@@ -351,7 +351,7 @@ export const TC091: CardData = {
     without: [
       'Alex: "I think I really messed up the presentation."',
       'Jordan: "Well, you always wanted to be memorable."',
-      'Alex: "…yeah."',
+      'Alex: "...yeah."',
       'Jordan: "Come on, I\'m joking."',
       "Why it fails: the joke lands before any care, and now Alex has to manage Jordan's intent on top of his own embarrassment.",
     ],
@@ -362,17 +362,17 @@ export const TC091: CardData = {
       'Jordan: "That sounds painful, especially if you\'d prepared hard. Do you want a quick debrief, some reassurance, or just a minute to vent?"',
       'Alex: "A debrief, but gentle."',
       'Jordan: "Got it. Let\'s start with what was recoverable."',
-      "Why it works: naming the withheld joke, then leading with warmth and a choice, gives Alex room to say what actually hurt — no performance required.",
+      "Why it works: naming the withheld joke, then leading with warmth and a choice, gives Alex room to say what actually hurt. No performance required.",
     ],
-    note: "The advanced move isn't grim seriousness; it's warmth with direction. Humour can return later, once Alex feels met.",
+    note: "The advanced move isn't grim seriousness. It's warmth with direction. Humour can return later, once Alex feels met.",
   },
   influencePayoff: {
-    feeling: '"They didn\'t laugh it off — they actually stayed with me."',
+    feeling: '"They didn\'t laugh it off. They actually stayed with me."',
     principle:
-      "Forced humour buys quick comfort but spends relational trust; restraint keeps a tender or tense moment available for real connection.",
+      "Forced humour buys quick comfort but spends relational trust. Restraint keeps a tender or tense moment available for real connection.",
     gains: [
       "Trust in tender moments",
-      "Subtle authority — you seem attuned, not hungry for a laugh",
+      "Subtle authority: you seem attuned, not hungry for a laugh",
       "Cleaner apologies and feedback",
       "Dignity protected for the vulnerable person",
       "Calmer, more grounded rooms under tension",
@@ -386,10 +386,10 @@ export const TC091: CardData = {
     ],
   },
   fieldTip: {
-    headline: "A joke is optional; dignity is not.",
-    body: 'If you\'re reaching for humour to escape the moment, lead with warmth first — humour can come back later once the person feels met. Pocket cue: "Care before clever." One-breath move: feel the joke, pause, look for consent, then say the serious sentence first.',
+    headline: "A joke is optional. Dignity is not.",
+    body: 'If you\'re reaching for humour to escape the moment, lead with warmth first: humour can come back later once the person feels met. Pocket cue: "Care before clever." One-breath move: feel the joke, pause, look for consent, then say the serious sentence first.',
     example:
-      'They say, "It was technically fine, just… a hard week." Instead of "Well, at least it\'s Friday," try: "That sounds like more than a hard week. What\'s going on?"',
+      'They say, "It was technically fine, just... a hard week." Instead of "Well, at least it\'s Friday," try: "That sounds like more than a hard week. What\'s going on?"',
     dont: "Reach for a joke to fill an awkward silence or soften your own discomfort.",
     do: "Pause one beat, check kindness-timing-consent, and offer a warm acknowledgement instead.",
   },
@@ -402,12 +402,12 @@ export const TC091: CardData = {
     {
       step: "2",
       title: "Check your motive",
-      body: "Ask whether the joke is for connection or for your own escape. Relief, approval, defence, status, and avoidance are the risk motives; only genuine connection is a green light.",
+      body: "Ask whether the joke is for connection or for your own escape. Relief, approval, defence, status, and avoidance are the risk motives. Only genuine connection is a green light.",
     },
     {
       step: "3",
       title: "Read the room",
-      body: "Look for soft faces, reciprocal play, relaxed posture, and a prior playful tone. If those cues are absent, slow down — and never read forced laughter as consent.",
+      body: "Look for soft faces, reciprocal play, relaxed posture, and a prior playful tone. If those cues are absent, slow down, and never read forced laughter as consent.",
     },
     {
       step: "4",
@@ -449,17 +449,17 @@ export const TC091: CardData = {
     {
       depth: "Full restraint",
       useWhen: "Grief, apology, conflict, or raw disclosure",
-      phrase: "No jokes here — what do you need?",
+      phrase: "No jokes here. What do you need?",
     },
     {
       depth: "Warm, no humour",
-      useWhen: "Tense but not hostile; the person seems fragile",
+      useWhen: "Tense but not hostile. The person seems fragile",
       phrase: "That sounds like a lot. I'm with you.",
     },
     {
       depth: "Ask permission",
       useWhen: "Some trust exists and you're unsure if levity would help",
-      phrase: "I've a lighter thought — want it, or should we stay here?",
+      phrase: "I have a lighter thought. Want it, or should we stay here?",
     },
     {
       depth: "Light, shared humour",
@@ -470,7 +470,7 @@ export const TC091: CardData = {
   commonMistakes: [
     {
       mistake: "Using humour to escape your own discomfort",
-      soundsLike: '"Anyway — at least it\'s a funny story now!"',
+      soundsLike: '"Anyway, at least it\'s a funny story now!"',
       better:
         "\"I don't want to make light of this. What's been the hardest part?\"",
     },
@@ -481,13 +481,13 @@ export const TC091: CardData = {
     },
     {
       mistake: "Joking right after an apology",
-      soundsLike: '"Sorry about that — anyway, you know me!"',
-      better: '"I\'m sorry for the impact. No jokes — I mean it."',
+      soundsLike: '"Sorry about that. Anyway, you know me!"',
+      better: '"I\'m sorry for the impact. No jokes, I mean it."',
     },
     {
       mistake: "Defending intent instead of repairing impact",
       soundsLike: '"Relax, I was just joking."',
-      better: "\"That landed badly. I'm sorry — I'll take it seriously.\"",
+      better: "\"That landed badly. I'm sorry, I'll take it seriously.\"",
     },
     {
       mistake: "Over-correcting into stiffness",
@@ -496,7 +496,7 @@ export const TC091: CardData = {
     },
     {
       mistake: "Self-deprecating jokes that fish for reassurance",
-      soundsLike: '"Ha, I\'m probably the worst person for this…"',
+      soundsLike: '"Ha, I\'m probably the worst person for this..."',
       better: "\"I'm finding this hard, but let's stay on you.\"",
     },
     {
@@ -506,30 +506,30 @@ export const TC091: CardData = {
     },
   ],
   recoveryPhrases: [
-    "That was a miss. I'm sorry — I made light of something that mattered.",
+    "That was a miss. I'm sorry, I made light of something that mattered.",
     "I was trying to ease the tension, but I can see it landed as dismissive. I'll take it seriously.",
     "Let me drop the joke and answer you properly.",
-    "You're right; that wasn't the moment for humour.",
+    "You're right. That wasn't the moment for humour.",
     "I don't want you to have to explain why that was off. I get it, and I'm sorry.",
-    "Starting again — what I should have said is…",
+    "Starting again. What I should have said is...",
     "I can see that felt dismissive. I'll take the point seriously.",
   ],
   bestRecoveryLine:
-    "That was a miss. I'm sorry — I made light of something that mattered.",
+    "That was a miss. I'm sorry, I made light of something that mattered.",
   chains: [
     {
       label: "Warm-presence chain",
       sequence:
-        "Withhold the joke -> steady presence (TC010) -> reflect the feeling (TC004)",
+        "Withhold the joke → steady presence (TC010) → reflect the feeling (TC004)",
       example: [
-        '"I\'ll not lighten this."',
+        '"I won\'t lighten this."',
         "Hold calm eye contact and an even tone.",
         '"It sounds like that really knocked you."',
       ],
     },
     {
       label: "Validation chain",
-      sequence: "Drop the joke -> validate without agreeing (TC005) -> ask",
+      sequence: "Drop the joke → validate without agreeing (TC005) → ask",
       example: [
         '"I don\'t want to joke past this."',
         '"It makes sense you\'d feel thrown by that."',
@@ -538,7 +538,7 @@ export const TC091: CardData = {
     },
     {
       label: "Restraint-stack chain",
-      sequence: "No joke (TC091) -> no premature fix (TC015) -> listen",
+      sequence: "No joke (TC091) → no premature fix (TC015) → listen",
       example: [
         '"Let me not joke this away."',
         '"And I\'ll hold off on solutions for a second."',
@@ -547,7 +547,7 @@ export const TC091: CardData = {
     },
     {
       label: "Disagreement chain",
-      sequence: "No sarcasm -> face-saving disagreement (TC092) -> your view",
+      sequence: "No sarcasm → face-saving disagreement (TC092) → your view",
       example: [
         '"I\'ll keep the sarcasm out of this."',
         '"You\'ve clearly thought about it, and I see it a little differently."',
@@ -559,32 +559,32 @@ export const TC091: CardData = {
     {
       id: "TC090",
       reason:
-        "Both protect you from sitting with discomfort. Use TC091 when the urge is to lighten or deflect with a joke; use TC090 when the urge is to fix or solve before the person is ready.",
+        "Both protect you from sitting with discomfort. Use TC091 when the urge is to lighten or deflect with a joke. Use TC090 when the urge is to fix or solve before the person is ready.",
     },
     {
       id: "TC015",
       reason:
-        "Use TC091 when a joke would dodge empathy; use TC015 when the risk is jumping to advice, coaching, or solutions too early.",
+        "Use TC091 when a joke would dodge empathy. Use TC015 when the risk is jumping to advice, coaching, or solutions too early.",
     },
     {
       id: "TC007",
       reason:
-        "Use TC091 when you'd be funny by topping their story; use TC007 when you'd answer their experience with a bigger or more impressive one of your own.",
+        "Use TC091 when you'd be funny by topping their story. Use TC007 when you'd answer their experience with a bigger or more impressive one of your own.",
     },
     {
       id: "TC009",
       reason:
-        "Use TC091 when you'd joke to pivot attention back to yourself; use TC009 when you ask a question mainly to earn your own turn to answer.",
+        "Use TC091 when you'd joke to pivot attention back to yourself. Use TC009 when you ask a question mainly to earn your own turn to answer.",
     },
     {
       id: "TC092",
       reason:
-        "Use TC091 when a joke or sarcasm would embarrass someone; use TC092 when the task is disagreeing without making the other person lose face.",
+        "Use TC091 when a joke or sarcasm would embarrass someone. Use TC092 when the task is disagreeing without making the other person lose face.",
     },
     {
       id: "TC099",
       reason:
-        "Use TC091 when a joke smuggles in status or self-promotion; use TC099 when the risk is self-praise dressed up as modesty or complaint.",
+        "Use TC091 when a joke smuggles in status or self-promotion. Use TC099 when the risk is self-praise dressed up as modesty or complaint.",
     },
   ],
 };

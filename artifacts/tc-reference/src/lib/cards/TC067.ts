@@ -6,7 +6,7 @@ export const TC067: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC067/TC067_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,7 +56,7 @@ export const TC067: CardData = {
   ],
   id: "TC067",
   whyItWorks:
-    "Advice request is the deliberate move of asking someone for a bounded piece of guidance because their experience, judgement, taste, role or perspective could genuinely help. It has five parts: name the specific context, give one true reason their view is useful, ask a single answerable question, make it easy to decline or answer briefly, then listen and take the answer in. It works because you treat the other person as capable and worth learning from without making them responsible for your outcome, so contributing feels voluntary rather than extracted. Their judgement feels seen, the ask is small enough to answer, and the request warms the relationship instead of loading it with obligation.",
+    "Advice request means asking someone for a bounded piece of guidance because their experience, judgement or perspective could genuinely help. Name the context, give one true reason their view is useful, ask a single answerable question, make it easy to decline, then listen and take the answer in. It works because you treat them as capable without making them responsible for your outcome, so contributing feels voluntary rather than extracted.",
   whatItIsNot: [
     "It is not fishing for validation while pretending to want advice.",
     "It is not outsourcing your judgement or making someone else responsible for your choice.",
@@ -241,9 +241,9 @@ export const TC067: CardData = {
   ],
   ladder: [
     {
-      weak: '"Can I pick your brain?" Vague, extractive and open-ended, so the person cannot tell the size of the request.',
+      weak: '"Can I pick your brain?" Vague, extractive and open-ended, so the person can\'t tell the size of the request.',
       better:
-        '"Could I ask your advice on this client email?" Clearer, but still does not specify the kind of advice or the effort needed.',
+        '"Could I ask your advice on this client email?" Clearer, but still doesn\'t specify the kind of advice or the effort needed.',
       best: '"Could I ask your advice on the opening line of this client email? You know this client well, and a quick instinct is enough." Specific scope, real relevance, low effort and an easy out.',
     },
     {
@@ -279,7 +279,7 @@ export const TC067: CardData = {
     },
     {
       situation: "Friend or personal conversation",
-      move: "Ask without turning the friend into a therapist; release the ask if they seem stretched.",
+      move: "Ask without turning the friend into a therapist. Release the ask if they seem stretched.",
       phrase:
         "Can I ask your advice on how to raise this kindly? I'm not asking you to carry the whole thing.",
     },
@@ -320,7 +320,7 @@ export const TC067: CardData = {
     {
       day: "Day 1",
       title: "Spot the cue",
-      task: "Through the day, catch four moments where someone near you genuinely has relevant judgement (a work decision, a social conversation, a digital message, a busy or senior person). Note each one; ask nothing yet.",
+      task: "Through the day, catch four moments where someone near you genuinely has relevant judgement (a work decision, a social conversation, a digital message, a busy or senior person). Note each one. Ask nothing yet.",
     },
     {
       day: "Day 2",
@@ -553,7 +553,7 @@ export const TC067: CardData = {
   ],
   recoveryPhrases: [
     "That was too big a question. Let me narrow it to one part.",
-    "A quick first instinct is enough; I don't need a full answer.",
+    "A quick first instinct is enough. I don't need a full answer.",
     "No pressure to answer now. I may have made it sound heavier than I meant.",
     "You don't need to solve it for me. I'm only asking for a pointer.",
     "I can see this is more than a quick question. I should narrow it or book proper time.",
@@ -607,32 +607,32 @@ export const TC067: CardData = {
     {
       id: "TC027",
       reason:
-        "Both are about advice, so direction decides. Asking for their advice is TC067; offering yours, with consent first, is TC027 (Permission-based advice).",
+        "Both are about advice, so direction decides. Asking for their advice is TC067. Offering yours, with consent first, is TC027 (Permission-based advice).",
     },
     {
       id: "TC013",
       reason:
-        '"What should I do?" can hide an action request. If you want guidance, use TC067; if you want a specific action or deliverable, use TC013 (Clean request).',
+        '"What should I do?" can hide an action request. If you want guidance, use TC067. If you want a specific action or deliverable, use TC013 (Clean request).',
     },
     {
       id: "TC015",
       reason:
-        "Asking for advice can slide into giving it. If your impulse is to fix them, use TC015 (Premature advice restraint); if you genuinely want their view, use TC067.",
+        "Asking for advice can slide into giving it. If your impulse is to fix them, use TC015 (Premature advice restraint). If you genuinely want their view, use TC067.",
     },
     {
       id: "TC022",
       reason:
-        "An advice request can look like status generosity. If there is a real question, use TC067; if it is pure credit or standing with no ask attached, use TC022 (Status generosity).",
+        "An advice request can look like status generosity. If there is a real question, use TC067. If it is pure credit or standing with no ask attached, use TC022 (Status generosity).",
     },
     {
       id: "TC020",
       reason:
-        '"A quick instinct is enough" is low-friction wording. If the central move is asking for advice, use TC067; if it is removing effort from any request, use TC020 (Low-friction ask).',
+        '"A quick instinct is enough" is low-friction wording. If the central move is asking for advice, use TC067. If it is removing effort from any request, use TC020 (Low-friction ask).',
     },
     {
       id: "TC018",
       reason:
-        '"You\'re good at this" may be appreciation or a setup. If it ends in an advice question, use TC067; if it ends in acknowledgement, use TC018 (Specific appreciation).',
+        '"You\'re good at this" may be appreciation or a setup. If it ends in an advice question, use TC067. If it ends in acknowledgement, use TC018 (Specific appreciation).',
     },
   ],
 };

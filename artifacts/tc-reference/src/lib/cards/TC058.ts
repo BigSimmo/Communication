@@ -6,7 +6,7 @@ export const TC058: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC058/TC058_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,28 +56,28 @@ export const TC058: CardData = {
   ],
   id: "TC058",
   whyItWorks:
-    'Feeling-plus-need reflection pairs what someone seems to be feeling with the unmet need, value, or preference that may sit underneath it - said tentatively, so they can accept, adjust, or decline it. It works because people become clearer and less guarded when they feel that both their emotion and the practical need beneath it have been heard. It shifts a stuck exchange from "what happened" to "what mattered and what was needed" without forcing depth, and it keeps their autonomy intact because they remain the authority on their own experience.',
+    'Feeling-plus-need reflection pairs what someone seems to be feeling with the unmet need, value, or preference that may sit underneath it: said tentatively, so they can accept, adjust, or decline it. It works because people become clearer and less guarded when they feel that both their emotion and the practical need beneath it have been heard. It shifts a stuck exchange from "what happened" to "what mattered and what was needed" without forcing depth, and it keeps their autonomy intact because they remain the authority on their own experience.',
   whatItIsNot: [
     'It is not mind reading, diagnosing, therapising, or telling someone what they "really" feel.',
     "It is not a way to corner someone into disclosing more than they want to.",
-    "It is not the full NVC / OFNR sequence - it is a single listening move that reflects feeling plus need and then hands the floor back.",
+    "It is not the full NVC / OFNR sequence. It is a single listening move that reflects feeling plus need and then hands the floor back.",
     "It is not a tool for making someone accept your interpretation or steering them toward your preferred outcome.",
   ],
   overview: {
     coreFormula: [
-      "Cue -> feeling -> likely need -> tentative phrase -> pause -> follow or release.",
+      "Cue → feeling → likely need → tentative phrase → pause → follow or release.",
       'Basic: "It sounds like you are [feeling] because you needed [need]."',
       'Softer: "I might be reading this wrong, but part of the [feeling] is needing [need]."',
       'Professional: "The concern isn\'t the change itself, but needing clearer notice before decisions move."',
-      'Digital: "Sounds frustrating - especially if what you needed was clearer timing upfront."',
+      'Digital: "Sounds frustrating, especially if what you needed was clearer timing upfront."',
       'Minimum: "It sounds frustrating because you needed clearer next steps."',
     ],
     minimumViableMove:
-      'Name one feeling plus one likely need in a single tentative sentence, then pause and let them accept, adjust, or decline - e.g. "It sounds frustrating because you needed clearer next steps."',
+      'Name one feeling plus one likely need in a single tentative sentence, then pause and let them accept, adjust, or decline: e.g. "It sounds frustrating because you needed clearer next steps."',
     impact: "Medium",
     difficulty: "Medium",
     misuse:
-      "The move fails when you overreach - stacking several needs, choosing a loaded or abstract need, or delivering it so confidently that the person feels analysed rather than heard.",
+      "The move fails when you overreach: stacking several needs, choosing a loaded or abstract need, or delivering it so confidently that the person feels analysed rather than heard.",
     bestFor: [
       "Someone sounds upset, disappointed, tense, relieved, or excited and the need beneath it is reasonably visible",
       "Facts alone are not explaining the emotional weight of the moment",
@@ -103,11 +103,11 @@ export const TC058: CardData = {
       tone: "Quick",
       phrases: [
         "It sounds frustrating because you needed clearer next steps.",
-        "Sounds frustrating - especially if what you needed was clearer timing upfront.",
+        "Sounds frustrating, especially if what you needed was clearer timing upfront.",
         "That sounds frustrating, especially if you needed more notice.",
         "Makes sense that this would feel tense if reliability was the need.",
         "Sounds like acknowledgement would help before solutions.",
-        "That sounds disappointing - you wanted it to matter to them.",
+        "That sounds disappointing. You wanted it to matter to them.",
         "I hear a need for a cleaner handoff. Is that close?",
         "Sounds like the need is more notice, not less work.",
       ],
@@ -151,7 +151,7 @@ export const TC058: CardData = {
         "It sounds like what mattered was needing respect for that boundary.",
         "It sounds like you needed the decision made before, not explained after.",
         "It sounds like the real need is being told early, not last.",
-        "Sounds like the ask is simple - knowing what matters first.",
+        "Sounds like the ask is simple. Knowing what matters first.",
         "It sounds like you needed a say in how it happened, not just the outcome.",
         "I hear a need for a clear owner and a firm timeline.",
         "It sounds like you needed one clear next step before more options.",
@@ -167,8 +167,8 @@ export const TC058: CardData = {
         "Maybe the anger is partly about needing a fairer process.",
         "It sounds like the issue was needing a real apology, not just an explanation.",
         "I hear that you needed me to check before deciding.",
-        "You're right - it sounds like you needed acknowledgement before explanation.",
-        "I can see why that landed badly; it sounds like you needed to be heard first.",
+        "You're right, it sounds like you needed acknowledgement before explanation.",
+        "I can see why that landed badly. It sounds like you needed to be heard first.",
         "Sounds like what stung was being added after the fact, not the change itself.",
       ],
     },
@@ -181,7 +181,7 @@ export const TC058: CardData = {
         "It sounds like the immediate need is safety and clarity.",
         "It sounds like this needs action first, then we can unpack the rest.",
         "It sounds like you need one clear next step before anything else.",
-        "I hear it - the priority right now is a decision, not a discussion.",
+        "I hear it: the priority right now is a decision, not a discussion.",
         "Sounds like what you need first is to know it's handled.",
         "I'll keep this practical: you need a clear owner and a timeline.",
       ],
@@ -193,12 +193,12 @@ export const TC058: CardData = {
       action:
         "Use plain reflective listening or a summary check instead of guessing a feeling.",
       phrase:
-        "So the main point is the timeline slipped - have I got that right?",
+        "So the main point is the timeline slipped. Have I got that right?",
     },
     {
       condition: "Feeling is clear but the need isn't",
       action:
-        "Name only the feeling (emotional labelling); don't reach for a need you can't see.",
+        "Name only the feeling (emotional labelling). Don't reach for a need you can't see.",
       phrase: "That sounds really frustrating.",
     },
     {
@@ -215,9 +215,9 @@ export const TC058: CardData = {
     {
       condition: "They accept, add, or correct",
       action:
-        "Follow an accept or add; take a correction gracefully and adjust your reading.",
+        "Follow an accept or add. Take a correction gracefully and adjust your reading.",
       phrase:
-        "Fair - so it was less about the notice and more about being asked.",
+        "Fair, so it was less about the notice and more about being asked.",
     },
     {
       condition: "They withdraw, or the moment now needs action",
@@ -251,37 +251,37 @@ export const TC058: CardData = {
   scenarios: [
     {
       situation: "Casual conversation",
-      move: "One short sentence in a normal tone; don't sound like a counsellor.",
+      move: "One short sentence in a normal tone. Don't sound like a counsellor.",
       phrase:
         "That sounds disappointing because you wanted them to remember it mattered.",
     },
     {
       situation: "Workplace conversation",
-      move: "Keep the need concrete - clarity, ownership, timing, priority - and skip psychological labels.",
+      move: "Keep the need concrete (clarity, ownership, timing, priority) and skip psychological labels.",
       phrase:
         "It sounds frustrating because you needed clearer ownership before the deadline.",
     },
     {
       situation: "Conflict or repair",
-      move: "Validate first if they feel dismissed, then name the need; don't use it in place of an apology.",
+      move: "Validate first if they feel dismissed, then name the need. Don't use it in place of an apology.",
       phrase:
         "I can see why that landed badly. It sounds like you needed acknowledgement before explanation.",
     },
     {
       situation: "Digital message",
-      move: "One sentence, no stacked prompts; add a release line so it can't misread as a verdict.",
+      move: "One sentence, no stacked prompts. Add a release line so it can't misread as a verdict.",
       phrase:
-        "Sounds frustrating, especially if what you needed was more notice before the decision. I may be reading that wrong.",
+        "Sounds frustrating, especially if what you needed was more notice before the decision. Is that close?",
     },
     {
       situation: "High-pressure moment",
-      move: "Prioritise safety, action, and clarity; don't force emotional processing.",
+      move: "Prioritise safety, action, and clarity. Don't force emotional processing.",
       phrase:
         "It sounds like you need one clear next step before anything else.",
     },
     {
       situation: "Coaching or mentoring",
-      move: "Use it to clarify motivation, not to diagnose; ask before moving into advice.",
+      move: "Use it to clarify motivation, not to diagnose. Ask before moving into advice.",
       phrase:
         "It sounds like the hesitation is partly needing more confidence before committing.",
     },
@@ -302,7 +302,7 @@ export const TC058: CardData = {
       "They become defensive, embarrassed, or irritated.",
       "They correct you sharply and don't continue.",
       "The moment now needs action, not reflection.",
-      "Rule: if the cue isn't clearly green, don't intensify - make the wording simpler or release the move.",
+      "Rule: if the cue isn't clearly green, don't intensify. Make the wording simpler or release the move.",
     ],
   },
   drill: [
@@ -314,7 +314,7 @@ export const TC058: CardData = {
     {
       day: "Day 2",
       title: "Name the need",
-      task: "For each of the ten lines, write one concrete need underneath - notice, clarity, respect, inclusion, reliability. Only pick needs the actual words support.",
+      task: "For each of the ten lines, write one concrete need underneath: notice, clarity, respect, inclusion, reliability. Only pick needs the actual words support.",
     },
     {
       day: "Day 3",
@@ -362,7 +362,7 @@ export const TC058: CardData = {
     ],
     with: [
       "A: They changed the timeline again and told me after everyone else.",
-      "B: It sounds frustrating because you needed enough notice to plan - and maybe to feel included, rather than added after the fact.",
+      "B: It sounds frustrating because you needed enough notice to plan, and maybe to feel included, rather than added after the fact.",
       "A: Yes. The planning matters, but being added after the fact is the part that stung.",
       "B: So the practical need was notice, and the human need was inclusion.",
       "A: Exactly.",
@@ -397,28 +397,28 @@ export const TC058: CardData = {
   },
   fieldTip: {
     headline: "Name one feeling plus one need, then stop.",
-    body: "The best field version is: \"It sounds [feeling] because you needed [need]. I may be reading that wrong.\" Don't chase a perfect insight - the goal isn't to be impressive, it's to make the next response easier, safer, and more accurate. If the phrase wouldn't sound normal in your own voice, make it smaller.",
+    body: "The best field version is: \"It sounds [feeling] because you needed [need]. Is that close?\" Don't chase a perfect insight: the goal isn't to be impressive, it's to make the next response easier, safer, and more accurate. If the phrase wouldn't sound normal in your own voice, make it smaller.",
     example:
-      "It sounds frustrating because you needed more warning - I may be reading that wrong.",
+      "It sounds frustrating because you needed more warning. Is that close?",
     dont: "Stack three needs, or deliver it so confidently it sounds like a diagnosis.",
     do: "Offer one feeling and one concrete need, tentatively, then pause.",
   },
   method: [
     {
       step: "1",
-      title: "Perception",
-      body: 'Notice the feeling cue before you name anything - tone, an intensity spike, hesitation, a repeated word, or a charged phrase like "again" or "after everyone else." You\'re looking for where the emotion actually sits, not just the facts being reported.',
+      title: "Notice the feeling cue",
+      body: 'Notice the feeling cue before you name anything: tone, an intensity spike, hesitation, a repeated word, or a charged phrase like "again" or "after everyone else." You\'re looking for where the emotion actually sits, not just the facts being reported.',
       examples: [
         {
           label: "Cue",
-          text: '"I was told at the last minute again." - the loaded words are "last minute" and "again."',
+          text: '"I was told at the last minute again." The loaded words are "last minute" and "again."',
         },
       ],
     },
     {
       step: "2",
       title: "Need read",
-      body: "Ask what need might sit under the feeling: clarity, respect, autonomy, safety, fairness, inclusion, rest, acknowledgement, choice, reliability, competence, privacy, support, or time. Pick the most concrete one the words support - a concrete need is safer than an abstract one.",
+      body: "Ask what need might sit under the feeling: clarity, respect, autonomy, safety, fairness, inclusion, rest, acknowledgement, choice, reliability, competence, privacy, support, or time. Pick the most concrete one the words support: a concrete need is safer than an abstract one.",
       examples: [
         {
           label: "Read",
@@ -429,7 +429,7 @@ export const TC058: CardData = {
     {
       step: "3",
       title: "Small phrase",
-      body: "Pair the feeling and the one need in a single short sentence. Keep it ordinary. Don't stack three possible needs - one feeling plus one likely need is enough.",
+      body: "Pair the feeling and the one need in a single short sentence. Keep it ordinary. Don't stack three possible needs: one feeling plus one likely need is enough.",
     },
     {
       step: "4",
@@ -439,12 +439,12 @@ export const TC058: CardData = {
     {
       step: "5",
       title: "Pause",
-      body: "Stop talking. The pause is the offer - it gives them room to accept, correct, or wave it away. Don't rescue the silence by adding a second need.",
+      body: "Stop talking. The pause is the offer. It gives them room to accept, correct, or wave it away. Don't rescue the silence by adding a second need.",
     },
     {
       step: "6",
       title: "Follow or release",
-      body: "Continue only if they open the thread; if they don't, release the move. If they correct you, take the correction and adjust - don't defend your reading.",
+      body: "Continue only if they open the thread. If they don't, release the move. If they correct you, take the correction and adjust. Don't defend your reading.",
       examples: [
         {
           label: "Full move",
@@ -516,67 +516,68 @@ export const TC058: CardData = {
       soundsLike:
         "It sounds like you feel X because you need Y. It sounds like you feel...",
       better:
-        'Vary it - sometimes just name the need: "You needed more notice."',
+        'Vary it, sometimes just name the need: "You needed more notice."',
     },
     {
       mistake: "Reflecting a need that flatters your agenda",
       soundsLike: "Sounds like you need me to make this call for you.",
       better:
-        "It sounds like you need a clearer process - the rest is your call.",
+        "It sounds like you need a clearer process: the rest is your call.",
     },
     {
       mistake: "Reflecting when the moment needs action or accountability",
       soundsLike: "It sounds like you're overwhelmed and need support.",
       better:
-        "You're right - let me fix the practical part first, then we can talk.",
+        "You're right, let me fix the practical part first, then we can talk.",
     },
   ],
   recoveryPhrases: [
     "I may have named the feeling wrong.",
     "Let me not put words in your mouth.",
-    "Maybe frustrated isn't the right word - what fits better?",
-    "I may have guessed the need wrong; ignore that if it doesn't fit.",
+    "Maybe frustrated isn't the right word. What fits better?",
+    "I may have guessed the need wrong. What did you actually need there?",
     "That sounded more formal than I meant. Let me say it plainly.",
     "I'm trying to understand, not analyse you.",
-    "We can keep this practical - what would help most right now?",
-    "You're right - the useful next step is action, not more reflection.",
+    "We can keep this practical. What would help most right now?",
+    "You're right, the useful next step is action, not more reflection.",
   ],
-  bestRecoveryLine: "I may be reading that wrong.",
+  bestRecoveryLine:
+    "I may have the need wrong. What mattered most to you there?",
   chains: [
     {
       label: "Listen then land",
       sequence:
-        "TC004 Reflective listening -> TC058 Feeling-plus-need reflection -> TC029 Strategic silence",
+        "TC004 Reflective listening → TC058 Feeling-plus-need reflection → TC029 Strategic silence",
       example: [
         '"The timeline changed after you\'d already planned around it."',
         '"That sounds frustrating because you needed more notice."',
-        "(pause - let them correct or continue)",
+        "(pause, let them correct or continue)",
       ],
     },
     {
       label: "Name then check",
       sequence:
-        "TC006 Emotional labelling -> TC058 Feeling-plus-need reflection -> TC011 Summary check",
+        "TC006 Emotional labelling → TC058 Feeling-plus-need reflection → TC011 Summary check",
       example: [
         '"You seem really annoyed by this."',
         '"Sounds like the annoyance is about needing clearer ownership."',
-        '"So the key issue is earlier notice and a clear owner - is that right?"',
+        '"So the key issue is earlier notice and a clear owner. Is that right?"',
       ],
     },
     {
       label: "Validate then release",
       sequence:
-        "TC014 Validate the concern -> TC058 Feeling-plus-need reflection -> TC021 Autonomy release",
+        "TC014 Validate the concern → TC058 Feeling-plus-need reflection → TC021 Autonomy release",
       example: [
         '"That\'s a fair thing to be frustrated about."',
         '"It sounds like you needed to be included before the decision."',
-        '"How you handle it from here is your call."',
+        '"How you handle it from here\'s your call."',
       ],
     },
     {
       label: "Listen then request",
       sequence:
-        "TC053 NVC / OFNR -> TC058 Feeling-plus-need reflection -> TC013 Clean request",
+        "TC053 NVC / OFNR → TC058 Feeling-plus-need reflection → TC013 Clean request",
       example: [
         '"When the plan changed without warning..."',
         '"...it sounds like what you needed was notice and respect for your time."',
@@ -588,32 +589,32 @@ export const TC058: CardData = {
     {
       id: "TC006",
       reason:
-        "Names only the feeling. Use TC006 when evidence is thin and the need isn't clear; move to TC058 once a plausible need is visible.",
+        "Names only the feeling. Use TC006 when evidence is thin and the need isn't clear. Move to TC058 once a plausible need is visible.",
     },
     {
       id: "TC040",
       reason:
-        "Reflects broader significance - identity, trust, what the event meant. Use TC040 for meaning; use TC058 for the practical or emotional need beneath the feeling.",
+        "Reflects broader significance: identity, trust, what the event meant. Use TC040 for meaning. Use TC058 for the practical or emotional need beneath the feeling.",
     },
     {
       id: "TC053",
       reason:
-        "The full observation-feeling-need-request structure. Use TC053 to build a request or repair; TC058 is the listening half with no ask attached.",
+        "The full observation-feeling-need-request structure. Use TC053 to build a request or repair. TC058 is the listening half with no ask attached.",
     },
     {
       id: "TC037",
       reason:
-        "For genuine ambivalence or two conflicting pulls. Use TC037 first when there are two sides; a single feeling-plus-need line can flatten mixed feelings.",
+        "For genuine ambivalence or two conflicting pulls. Use TC037 first when there are two sides. A single feeling-plus-need line can flatten mixed feelings.",
     },
     {
       id: "TC004",
       reason:
-        "Plain content-and-feeling reflection. Use TC004 when basic reflection is enough; TC058 adds a need and can feel too intimate if TC004 would do.",
+        "Plain content-and-feeling reflection. Use TC004 when basic reflection is enough. TC058 adds a need and can feel too intimate if TC004 would do.",
     },
     {
       id: "TC061",
       reason:
-        "Reflects vocal tone, rhythm, or delivery. If content is thin but tone is loud, use TC061; use TC058 when the feeling and need are inferable from what's said.",
+        "Reflects vocal tone, rhythm, or delivery. If content is thin but tone is loud, use TC061. Use TC058 when the feeling and need are inferable from what's said.",
     },
   ],
 };

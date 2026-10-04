@@ -6,7 +6,7 @@ export const TC026: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC026/TC026_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,22 +56,22 @@ export const TC026: CardData = {
   ],
   id: "TC026",
   whyItWorks:
-    "Tactical mirroring is a compact listening prompt: you echo a short, meaningful word or phrase the other person just used, usually with a curious tone, then stop talking. It invites them to expand without you steering the conversation too hard. It works because people elaborate when they feel heard, and echoing the exact part that carried the weight shows you caught what actually mattered - so they open up, correct, or reveal the real issue instead of defending a position.",
+    "Tactical mirroring is a compact listening prompt: you echo a short, meaningful word or phrase the other person just used, usually with a curious tone, then stop talking. It invites them to expand without you steering the conversation too hard. It works because people elaborate when they feel heard, and echoing the exact part that carried the weight shows you caught what actually mattered. So they open up, correct, or reveal the real issue instead of defending a position.",
   whatItIsNot: [
     "Not body-language mimicry.",
     "Not parroting entire sentences.",
     "Not repeating every point they make.",
     "Not mocking, correcting, or teasing their wording.",
     "Not a replacement for validation when emotion is high.",
-    "Not a trick to force disclosure; it requires genuine interest and respectful pacing.",
+    "Not a trick to force disclosure. It requires genuine interest and respectful pacing.",
   ],
   overview: {
     coreFormula: [
       "Key phrase + curious tone + pause.",
-      "Key phrase -> curious tone -> pause -> let them expand -> choose your next move.",
-      '"I\'m not sure it\'s workable." -> "Workable?" -> (pause)',
-      '"The price is too high." -> "High?" -> (pause)',
-      '"It got a bit messy." -> "Messy?" -> (pause)',
+      "Key phrase → curious tone → pause → let them expand → choose your next move.",
+      '"I\'m not sure it\'s workable." → "Workable?" → (pause)',
+      '"The price is too high." → "High?" → (pause)',
+      '"It got a bit messy." → "Messy?" → (pause)',
     ],
     minimumViableMove: "Mirror one to three words, then pause.",
     impact: "Medium",
@@ -220,22 +220,22 @@ export const TC026: CardData = {
     {
       condition: "They correct you",
       action: "Accept the correction and fold it in.",
-      phrase: "Got it - so it's more about ownership than the idea itself.",
+      phrase: "Got it, so it's more about ownership than the idea itself.",
     },
     {
       condition: "They look confused",
       action: "Translate the mirror into a plain question.",
-      phrase: "Sorry - I meant, what part of the timing worries you?",
+      phrase: "Sorry, I meant, what part of the timing worries you?",
     },
     {
       condition: "They seem mocked",
       action: "Repair immediately and clarify your intent.",
       phrase:
-        "I wasn't challenging you - I just wanted to get the bit that matters.",
+        "I wasn't challenging you. I just wanted to get the bit that matters.",
     },
     {
       condition: "They give a short answer",
-      action: "Stop mirroring; comment or shift depth.",
+      action: "Stop mirroring. Comment or shift depth.",
       phrase: "Fair enough. Here's where I've landed on it.",
     },
     {
@@ -245,15 +245,15 @@ export const TC026: CardData = {
     },
     {
       condition: "They ask what you think",
-      action: "Answer directly, then check you understood first.",
-      phrase: "Happy to say - but first, have I got the concern right?",
+      action: "Check you've understood, then answer directly.",
+      phrase: "Happy to say, but first, have I got the concern right?",
     },
   ],
   ladder: [
     {
-      weak: "Uses the technique mechanically or too often.",
-      better: "Uses the smallest useful version and then listens.",
-      best: "Uses it only when the cue is present, keeps the wording natural, and adjusts based on the response.",
+      weak: "\"So you're saying you're not sure it's workable?\" (parrots the whole sentence)",
+      better: '"Workable?" (then jumps straight in with a defence)',
+      best: '"Workable?" (curious tone, then a full pause while they explain)',
     },
     {
       weak: "Echoes with a flat or sceptical tone.",
@@ -261,9 +261,9 @@ export const TC026: CardData = {
       best: "Echoes with genuine curiosity, so it invites rather than challenges.",
     },
     {
-      weak: "Talks about the technique instead of doing it.",
-      better: "Performs one clear behavioural move.",
-      best: "Makes the move feel like ordinary skilled conversation.",
+      weak: '"Timing?" "Ownership?" "Risk?" (mirror after mirror)',
+      better: "One mirror, then a plain follow-up question.",
+      best: 'One mirror, then a reflection of what it revealed: "So the real worry is who owns it."',
     },
   ],
   scenarios: [
@@ -289,7 +289,7 @@ export const TC026: CardData = {
     },
     {
       situation: "Digital / text",
-      move: "Send the mirror as a short reply - no stacked questions.",
+      move: "Send the mirror as a short reply. No stacked questions.",
       phrase: "The timing?",
     },
     {
@@ -314,15 +314,15 @@ export const TC026: CardData = {
       "You've mirrored more than twice in a row.",
       "The conversation needs action, not more prompting.",
       "The person is distressed and needs validation.",
-      "Switch to a full reflection, a clean question, or validation.",
-      "Share your own view, use a summary check, and respond directly.",
+      "Fix: switch to a full reflection, a clean question, or validation.",
+      "Fix: share your own view, use a summary check, or respond directly.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Spot the loaded word",
-      task: "In three conversations, silently pick the single word or phrase carrying the most weight. Don't mirror yet - just notice what you'd echo if you did.",
+      task: "In three conversations, silently pick the single word or phrase carrying the most weight. Don't mirror yet, just notice what you'd echo if you did.",
     },
     {
       day: "Day 2",
@@ -337,7 +337,7 @@ export const TC026: CardData = {
     {
       day: "Day 4",
       title: "Tune the tone",
-      task: 'Practise one mirror ("The timing?") aloud three ways - flat, sceptical, and genuinely curious. Keep only the curious version and use it live.',
+      task: 'Practise one mirror ("The timing?") aloud three ways: flat, sceptical, and genuinely curious. Keep only the curious version and use it live.',
     },
     {
       day: "Day 5",
@@ -347,7 +347,7 @@ export const TC026: CardData = {
     {
       day: "Day 6",
       title: "Recover cleanly",
-      task: 'When a mirror lands awkwardly, practise one repair line - "I wasn\'t challenging that, I just wanted the bit that matters" - and carry on normally.',
+      task: 'When a mirror lands awkwardly, practise one repair line ("I wasn\'t challenging that, I just wanted the bit that matters") and carry on normally.',
     },
     {
       day: "Day 7",
@@ -380,9 +380,9 @@ export const TC026: CardData = {
       'You: "Messy because the process is unclear, or because people will push back?"',
       'Person: "Pushback. People will feel it was dropped on them."',
       'You: "That makes sense. The adoption risk is the real issue."',
-      'Why this works: one mirrored word - "Workable?" - opens the real objection, keeps you in their frame, and surfaces the adoption risk without pressure.',
+      'Why this works: one mirrored word ("Workable?") opens the real objection, keeps you in their frame, and surfaces the adoption risk without pressure.',
     ],
-    note: 'The lighter version is shorter still: just mirror "Workable?" and often a single echo is enough to get "The idea is fine - the issue is timing and who\'d own it." Reach for a follow-up question only if the first mirror doesn\'t open things up.',
+    note: 'The lighter version is shorter still. Often a single "Workable?" is enough to get "The idea is fine. The issue is timing and who\'d own it." Reach for a follow-up question only if the first mirror doesn\'t open things up.',
   },
   influencePayoff: {
     feeling: "They noticed the real part of what I said.",
@@ -405,11 +405,11 @@ export const TC026: CardData = {
   },
   fieldTip: {
     headline: "Mirror the meaning, not the sentence.",
-    body: "Echo the smallest phrase that carries the weight, then stop. If you find yourself explaining right after the mirror, you probably mirrored too soon - trust the pause to do the work.",
+    body: "Echo the smallest phrase that carries the weight, then stop. If you find yourself explaining right after the mirror, you probably mirrored too soon: trust the pause to do the work.",
     example:
-      'They say "It was technically fine, just weird." Don\'t ask "Where was it?" Mirror "Weird?" - that\'s the live thread.',
-    dont: 'Fill the silence, or echo a trivial word like "The table?"',
-    do: 'Echo the loaded word - "Weird?", "Risky?", "The timing?" - then let it breathe.',
+      'They say "It was technically fine, just weird." Don\'t ask "Where was it?" Mirror "Weird?" That\'s the live thread.',
+    dont: 'Don\'t fill the silence, or echo a trivial word like "The table?"',
+    do: 'Echo the loaded word ("Weird?", "Risky?", "The timing?") then let it breathe.',
   },
   method: [
     {
@@ -419,11 +419,11 @@ export const TC026: CardData = {
       examples: [
         {
           label: "Cue words",
-          text: '"but…", "honestly…", "the issue is…", "not really…", "messy", "risky", "too much"',
+          text: '"but...", "honestly...", "the issue is...", "not really...", "messy", "risky", "too much"',
         },
         {
           label: "They say",
-          text: '"It was technically fine, just weird." - the live thread is "weird".',
+          text: '"It was technically fine, just weird." The live thread is "weird".',
         },
       ],
     },
@@ -439,7 +439,7 @@ export const TC026: CardData = {
     {
       step: "3",
       title: "Use a warm, curious tone",
-      body: 'Sound like "I\'m interested", not "explain yourself". A slight upward inflection works; keep your face and voice soft so it doesn\'t feel like cross-examination.',
+      body: 'Sound like "I\'m interested", not "explain yourself". A slight upward inflection works. Keep your face and voice soft so it doesn\'t feel like cross-examination.',
       examples: [
         { label: "Interrogation", text: '"Risky?" said flat or sceptical.' },
         { label: "Invitation", text: '"Risky?" said with genuine curiosity.' },
@@ -447,18 +447,18 @@ export const TC026: CardData = {
     },
     {
       step: "4",
-      title: "Pause - and let it sit",
+      title: "Pause, and let it sit",
       body: "The pause is the move. Don't rescue the silence, add your interpretation, or leap in to defend your view. Give them room to fill it.",
     },
     {
       step: "5",
       title: "Let them expand before you respond",
-      body: "Wait for the extra information. They may clarify, soften, correct, or reveal what actually matters - often the real issue rather than the surface one.",
+      body: "Wait for the extra information. They may clarify, soften, correct, or reveal what actually matters, often the real issue rather than the surface one.",
     },
     {
       step: "6",
       title: "Choose your next move",
-      body: "Once they've opened up, follow with a reflection, a validation, a clean question, a clean request, or a values-based frame - whatever the moment needs.",
+      body: "Once they've opened up, follow with a reflection, a validation, a clean question, a clean request, or a values-based frame: whatever the moment needs.",
     },
     {
       step: "7",
@@ -467,10 +467,10 @@ export const TC026: CardData = {
     },
   ],
   liveThreadClues: [
-    '"but…"',
-    '"honestly…"',
-    '"the issue is…"',
-    '"not really…"',
+    '"but..."',
+    '"honestly..."',
+    '"the issue is..."',
+    '"not really..."',
     '"messy"',
     '"risky"',
     '"too much"',
@@ -516,30 +516,30 @@ export const TC026: CardData = {
   recoveryPhrases: [
     "Sorry, that sounded more like a technique than I meant. I was trying to understand.",
     "Let me ask that more normally.",
-    "I'm not challenging that - I'm trying to get the bit that matters.",
+    "I'm not challenging that. I'm trying to get the bit that matters.",
     "That came out too clipped. What I meant was, what part feels risky?",
     "I think I repeated that awkwardly. Say more about the timing issue?",
-    "Fair enough - let me respond directly.",
+    "Fair enough, let me respond directly.",
     "A bit much? No pressure if you'd rather not get into it.",
   ],
   bestRecoveryLine:
-    "I'm not challenging that - I'm trying to get the bit that matters.",
+    "I'm not challenging that. I'm trying to get the bit that matters.",
   chains: [
     {
       label: "Rapport chain",
       sequence:
-        "Warm comment -> tactical mirror -> reflection -> light self-disclosure",
+        "Warm comment → tactical mirror → reflection → light self-disclosure",
       example: [
         '"Loved that you just went for it."',
         '"Just went for it?"',
         '"So the leap was really the whole point."',
-        '"I\'m the same - I overthink, then jump."',
+        '"I\'m the same. I overthink, then jump."',
       ],
     },
     {
       label: "Negotiation chain",
       sequence:
-        "Mirror objection -> pause -> label concern -> ask what would make it workable",
+        "Mirror objection → pause → label concern → ask what would make it workable",
       example: [
         '"The price is too high."',
         '"High?"',
@@ -550,7 +550,7 @@ export const TC026: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Mirror grievance -> validate -> clarify need -> propose next step",
+        "Mirror grievance → validate → clarify need → propose next step",
       example: [
         '"I felt completely left out."',
         '"Left out?"',
@@ -560,12 +560,12 @@ export const TC026: CardData = {
     },
     {
       label: "Listening chain",
-      sequence: "Mirror -> pause -> reflective listening -> summary check",
+      sequence: "Mirror → pause → reflective listening → summary check",
       example: [
         '"Honestly, the whole thing is a mess."',
         '"A mess?"',
         '"So it\'s less one problem, more everything landing at once."',
-        '"Let me check I\'ve got it - the main worry is the workload, then the deadline."',
+        '"Let me check I\'ve got it: the main worry is the workload, then the deadline."',
       ],
     },
   ],
@@ -573,22 +573,22 @@ export const TC026: CardData = {
     {
       id: "TC023",
       reason:
-        "TC023 Loaded-Word Follow-Up chases a single emotionally charged word to open feeling. TC026 echoes a short phrase and pauses. Use TC023 when the charge sits in one word, not a phrase.",
+        "TC023 Loaded word follow-up chases a single emotionally charged word to open feeling. TC026 echoes a short phrase and pauses. Use TC023 when the charge sits in one word, not a phrase.",
     },
     {
       id: "TC025",
       reason:
-        "TC025 Exact-Word Pickup reuses the person's exact word inside your own sentence to show you caught it. TC026 echoes the phrase back on its own and stops. Use TC025 when you want to keep talking; TC026 when you want them to.",
+        "TC025 Exact word pickup reuses the person's exact word inside your own sentence to show you caught it. TC026 echoes the phrase back on its own and stops. Use TC025 when you want to keep talking, TC026 when you want them to.",
     },
     {
       id: "TC030",
       reason:
-        "TC030 Echo plus question echoes and adds a question in the same breath. TC026 echoes and stops - the pause does the work. Use TC030 when a bare mirror would feel too clipped.",
+        "TC030 Echo plus question echoes and adds a question in the same breath. TC026 echoes and stops: the pause does the work. Use TC030 when a bare mirror would feel too clipped.",
     },
     {
       id: "TC038",
       reason:
-        "TC038 Conversation threading tracks and returns to threads across a longer conversation. TC026 is a single in-the-moment echo. Use TC038 to manage several threads; TC026 to open the one in front of you.",
+        "TC038 Conversation threading tracks and returns to threads across a longer conversation. TC026 is a single in-the-moment echo. Use TC038 to manage several threads, TC026 to open the one in front of you.",
     },
   ],
 };

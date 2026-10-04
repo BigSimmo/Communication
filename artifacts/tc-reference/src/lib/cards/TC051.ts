@@ -6,7 +6,7 @@ export const TC051: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC051/TC051_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,12 +56,12 @@ export const TC051: CardData = {
   ],
   id: "TC051",
   whyItWorks:
-    "RASA is a four-step response structure — Receive, Appreciate, Summarise, Ask. You take in what someone actually said, acknowledge the contribution or feeling, reflect the core meaning back in a line, then ask one useful follow-up. It works because it makes thinking easier for the other person: they feel accurately heard, the point is sequenced so what matters comes first, and they are left with room to respond. Its pull comes from clarity and respect, not from pressure.",
+    "RASA is a four-step response structure: Receive, Appreciate, Summarise, Ask. You take in what someone actually said, acknowledge the contribution or feeling, reflect the core meaning back in a line, then ask one useful follow-up. It works because it makes thinking easier for the other person: they feel accurately heard, the point is sequenced so what matters comes first, and they are left with room to respond. Its pull comes from clarity and respect, not from pressure.",
   whatItIsNot: [
     "It is not a script to recite mechanically, or four letters to perform out loud.",
     "It is not a way to avoid listening, compress emotion into a template, or force the other person into your structure.",
-    "It is not a persuasion trick — the influence comes from the person feeling received, not managed.",
-    "If the structure makes the conversation less humane, it is the wrong move; slow down and use something simpler.",
+    "It is not a persuasion trick: the influence comes from the person feeling received, not managed.",
+    "If the structure makes the conversation less humane, it is the wrong move. Slow down and use something simpler.",
   ],
   overview: {
     coreFormula: [
@@ -70,14 +70,13 @@ export const TC051: CardData = {
       "Appreciate: acknowledge the contribution or feeling with a small, genuine signal.",
       "Summarise: reflect the core meaning back in one line.",
       "Ask: follow with one useful question that moves it forward.",
-      "Field rule: use the structure to organise thought, then speak like a person.",
     ],
     minimumViableMove:
-      "Silently run the four steps, then say one line that reflects the core point back and asks a single useful question — without ever naming the framework.",
+      "Silently run the four steps, then say one line that reflects the core point back and asks a single useful question, without ever naming the framework.",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
-      "It fails when you perform the four letters mechanically — announcing the structure or forcing every sentence into it — so the person feels processed rather than genuinely heard.",
+      "It fails when you perform the four letters mechanically (announcing the structure or forcing every sentence into it) so the person feels processed rather than genuinely heard.",
     bestFor: [
       "Active listening and making someone feel accurately heard",
       "Sensitive or emotional conversations handled with care",
@@ -102,14 +101,14 @@ export const TC051: CardData = {
       tag: "Short one-liners",
       tone: "Quick",
       phrases: [
-        "So the main thing is X — have I got that right?",
+        "So the main thing is X. Have I got that right?",
         "Let me make sure I've got it: the key point is X.",
         "What matters most here, in one line?",
-        "So, if I heard you right…",
+        "So, if I heard you right...",
         "The heart of it seems to be X. What's the next question?",
         "Say more about the part that matters most.",
         "Where would it help to go from here?",
-        "Quick check — is X the bit that really counts?",
+        "Quick check: is X the bit that really counts?",
       ],
     },
     {
@@ -118,12 +117,12 @@ export const TC051: CardData = {
       tag: "Warmth and acknowledgement",
       tone: "Warm",
       phrases: [
-        "Thanks for laying that out — I can tell you've thought about it.",
+        "Thanks for laying that out. I can tell you've thought about it.",
         "I appreciate you talking me through it.",
         "That's a lot to hold. I'm glad you said it.",
         "I can see why that matters to you.",
         "There's real care in how you put that.",
-        "I'm following you — keep going.",
+        "I'm following you. Keep going.",
         "That makes sense, and I appreciate the honesty.",
         "I want to get this right, so let me reflect it back.",
       ],
@@ -136,12 +135,12 @@ export const TC051: CardData = {
       phrases: [
         "Let me summarise where we've landed: we're aligned on the timeline, and you want to revisit the budget.",
         "So the decision on the table is X. Have I framed that fairly?",
-        "Here's what I'm hearing as the priority — tell me if I've missed anything.",
+        "Here's what I'm hearing as the priority. Tell me if I've missed anything.",
         "To keep this useful: the core issue is X, and the rest is context.",
         "I'll keep this short, then we can adjust it together.",
         "Summarising for the notes: X is agreed, Y is still open.",
-        "The main point is X; everything else is support.",
-        "Before we move on — what would be the most useful next step?",
+        "The main point is X. Everything else is support.",
+        "Before we move on, what would be the most useful next step?",
       ],
     },
     {
@@ -155,7 +154,7 @@ export const TC051: CardData = {
         "If I'm honest, the real question underneath this is X.",
         "Let me name it plainly: X. What do you want to do about it?",
         "That's the summary. What's the one thing you need from me?",
-        "So the choice is between X and Y — which one pulls at you more?",
+        "So the choice is between X and Y. Which one pulls at you more?",
         "Given all that, what's the next concrete step?",
       ],
     },
@@ -165,13 +164,13 @@ export const TC051: CardData = {
       tag: "Softening a mechanical moment",
       tone: "Repair",
       phrases: [
-        "I made that too structured — let me say it more simply.",
-        "That may not be the useful frame. Let me back up.",
-        "I don't want the structure to override the actual issue.",
-        "What part of that was useful, and what should we drop?",
-        "Forget the tidy version — what actually matters to you here?",
+        "Sorry, I cut in. Go on, I'm listening.",
+        "Let me say back what I heard before I respond.",
+        "I'm not trying to steer. Tell me more.",
+        "Did I summarise that fairly?",
+        "Forget the tidy version. What actually matters to you here?",
         "Let me check whether that structure is helping or just sounding neat.",
-        "Ignore my summary for a second — did I miss the real point?",
+        "Ignore my summary for a second. Did I miss the real point?",
       ],
     },
     {
@@ -180,11 +179,11 @@ export const TC051: CardData = {
       tag: "Validate before you structure",
       tone: "High-stakes",
       phrases: [
-        "Before I try to tidy this up — how are you actually doing with it?",
+        "Before I try to tidy this up, how are you actually doing with it?",
         "I don't want to summarise too soon. Take your time.",
         "Let me sit with what you said before I say anything back.",
         "That sounds really hard. I just want to make sure I've heard it.",
-        "I could reflect it back, but first — is there more you need to say?",
+        "I could reflect it back, but first, is there more you need to say?",
         "The point can wait. What do you need right now?",
         "I want to get this right, because it clearly matters.",
       ],
@@ -200,7 +199,7 @@ export const TC051: CardData = {
     {
       condition: "They're carrying emotion",
       action: "Validate first and delay the summary until they feel heard.",
-      phrase: "That sounds heavy. I'm here — take your time.",
+      phrase: "That sounds heavy. I'm here. Take your time.",
     },
     {
       condition: "They need to tell the story",
@@ -242,7 +241,7 @@ export const TC051: CardData = {
       situation: "Work meeting",
       move: "Run the structure silently, then contribute one concise, memorable summary.",
       phrase:
-        "So we're aligned on the timeline; the open question is budget. What do we want to decide today?",
+        "So we're aligned on the timeline. The open question is budget. What do we want to decide today?",
     },
     {
       situation: "Email or written update",
@@ -264,15 +263,15 @@ export const TC051: CardData = {
     },
     {
       situation: "Coaching or mentoring",
-      move: "Weight the Ask — reflect briefly, then hand the thinking back.",
+      move: "Weight the Ask: reflect briefly, then hand the thinking back.",
       phrase:
         "So the sticking point is X. What options have you already considered?",
     },
     {
       situation: "Someone in distress",
-      move: "Stay on Receive and Appreciate; don't summarise until they feel heard.",
+      move: "Stay on Receive and Appreciate. Don't summarise until they feel heard.",
       phrase:
-        "That's a lot to carry. I'm not going to rush you — say as much as you need.",
+        "That's a lot to carry. I'm not going to rush you. Say as much as you need.",
     },
   ],
   calibration: {
@@ -281,7 +280,7 @@ export const TC051: CardData = {
       "They ask a sharper, more focused question back.",
       "They summarise the point accurately themselves.",
       "They're able to choose a next step.",
-      'They say "exactly" or "that\'s it" — the summary landed.',
+      'They say "exactly" or "that\'s it": the summary landed.',
       "They relax and keep talking, rather than correcting you.",
     ],
     adjust: [
@@ -290,7 +289,7 @@ export const TC051: CardData = {
       "They seem to need the human context before any structure.",
       "The structure starts to sound defensive, performative or salesy.",
       "It's beginning to feel like a lecture rather than a conversation.",
-      "You're summarising before they've finished — slow down and receive more.",
+      "You're summarising before they've finished: slow down and receive more.",
     ],
   },
   drill: [
@@ -322,7 +321,7 @@ export const TC051: CardData = {
     {
       day: "Day 6",
       title: "Lead with appreciate",
-      task: "In a sensitive moment, receive and appreciate first — hold the summary until they've fully finished.",
+      task: "In a sensitive moment, receive and appreciate first: hold the summary until they've fully finished.",
     },
     {
       day: "Day 7",
@@ -344,8 +343,8 @@ export const TC051: CardData = {
       "You: \"Okay, I'm going to use a structure here. First, I receive what you're saying.\"",
       'You: "Second, I appreciate that you\'re frustrated."',
       'You: "Third, to summarise: the project is difficult."',
-      'You: "Fourth, my question is — what will you do next?"',
-      "Why it is weak:",
+      'You: "Fourth, my question is: what will you do next?"',
+      "Why it's weak:",
       "announces the framework out loud",
       "forces every sentence into a labelled step",
       "the summary is generic and adds nothing",
@@ -353,18 +352,18 @@ export const TC051: CardData = {
     ],
     with: [
       'Colleague: "I\'m drowning in this project. Every time I fix one thing, two more break."',
-      'You: "That sounds exhausting — like you can\'t get ahead of it." (receive + appreciate)',
+      'You: "That sounds exhausting, like you can\'t get ahead of it." (receive + appreciate)',
       "Colleague: \"Exactly. And I can't tell if it's the code or just me.\"",
       "You: \"So the worst part isn't the workload, it's not knowing where the problem actually is.\" (summarise)",
       "Colleague: \"Yeah. That's the bit that's doing my head in.\"",
       'You: "Would it help to map out where the breakages are first, before touching anything?" (ask)',
       'Colleague: "Actually, yes. That\'d stop me flailing."',
       "Why this works:",
-      "no framework is named — it just sounds like good listening",
+      "no framework is named: it just sounds like good listening",
       'the summary names the real issue, so they say "exactly"',
       "the question hands the next step back to them",
     ],
-    note: "The four steps run underneath the conversation. The other person never hears the scaffolding — they only feel understood.",
+    note: "The four steps run underneath the conversation. The other person never hears the scaffolding. They only feel understood.",
   },
   influencePayoff: {
     feeling: '"They actually heard the real point, not just the words."',
@@ -386,8 +385,8 @@ export const TC051: CardData = {
     ],
   },
   fieldTip: {
-    headline: "Scaffolding, not the conversation.",
-    body: "Use RASA to organise your thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography — they should never hear the four steps.",
+    headline: "Receive and summarise before you respond.",
+    body: "Use RASA to organise your thinking, then take the scaffolding down before you speak. The other person should feel clarity, not choreography. They should never hear the four steps.",
     example:
       '"So the real issue is the uncertainty, not the workload. What would make it feel manageable?"',
     dont: 'Announce it: "Let me receive, appreciate, summarise and ask here."',
@@ -397,7 +396,7 @@ export const TC051: CardData = {
     {
       step: "1",
       title: "Choose it, don't announce it",
-      body: "First decide whether structure actually serves this moment. If it does, use it silently — speak in plain language and never name the framework out loud.",
+      body: "First decide whether structure actually serves this moment. If it does, use it silently: speak in plain language and never name the framework out loud.",
     },
     {
       step: "2",
@@ -420,7 +419,7 @@ export const TC051: CardData = {
       examples: [
         {
           label: "Reflect the core",
-          text: "So the key point is X — the rest is support.",
+          text: "So the key point is X: the rest is support.",
         },
         { label: "Check it", text: "Have I got the crux right?" },
       ],
@@ -448,7 +447,7 @@ export const TC051: CardData = {
       mistake: "Announcing the framework",
       soundsLike: '"Let me receive, appreciate, summarise and ask here."',
       better:
-        '"That sounds exhausting. So the real problem is X — what would help?"',
+        '"That sounds exhausting. So the real problem is X. What would help?"',
     },
     {
       mistake: "Over-structuring, so the steps matter more than the person",
@@ -465,13 +464,13 @@ export const TC051: CardData = {
     {
       mistake: "Structuring over raw emotion",
       soundsLike: '"To summarise, you\'re upset."',
-      better: '"That sounds really hard. Take your time — I\'m listening."',
+      better: '"That sounds really hard. Take your time. I\'m listening."',
     },
     {
       mistake: "A generic summary that adds nothing",
       soundsLike: '"So, the project is difficult."',
       better:
-        '"So the worst part is not knowing where the problem actually is."',
+        '"So the worst part isn\'t knowing where the problem actually is."',
     },
     {
       mistake: "Skipping the check",
@@ -480,15 +479,15 @@ export const TC051: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I made that too structured — let me say it more simply.",
-    "That may not be the useful frame. Let me back up.",
-    "I don't want the structure to override the actual issue.",
-    "What part of that was useful, and what should we drop?",
-    "Forget my tidy summary — what actually matters to you here?",
+    "Sorry, I cut in. Go on, I'm listening.",
+    "Let me say back what I heard before I respond.",
+    "I'm not trying to steer. Tell me more.",
+    "Did I summarise that fairly?",
+    "Forget my tidy summary. What actually matters to you here?",
     "Let me try that again, less like a checklist.",
     "I think I summarised too soon. Say more.",
   ],
-  bestRecoveryLine: "I made that too structured — let me say it more simply.",
+  bestRecoveryLine: "Sorry, I cut in. Go on, I'm listening.",
   chains: [
     {
       label: "Clarify then confirm",
@@ -503,7 +502,7 @@ export const TC051: CardData = {
       sequence: "RASA → Clean request",
       example: [
         "Use the structure to surface the real issue.",
-        '"Now that\'s clear — could you send me the figures by Thursday?"',
+        '"Now that\'s clear, could you send me the figures by Thursday?"',
       ],
     },
     {
@@ -527,32 +526,32 @@ export const TC051: CardData = {
     {
       id: "TC004",
       reason:
-        "Reflective listening reflects meaning back without the appreciate-and-ask scaffolding; reach for RASA when you also want to acknowledge and move the conversation forward with one question.",
+        "Reflective listening reflects meaning back without the appreciate-and-ask scaffolding. Reach for RASA when you also want to acknowledge and move the conversation forward with one question.",
     },
     {
       id: "TC011",
       reason:
-        "Summary check is the 'Summarise' step run on its own to confirm understanding; RASA wraps that same check inside receiving, appreciating and asking.",
+        "Summary check is the 'Summarise' step run on its own to confirm understanding. RASA wraps that same check inside receiving, appreciating and asking.",
     },
     {
       id: "TC043",
       reason:
-        "OARS is the fuller motivational-interviewing toolkit; RASA is the quicker four-beat version for shaping a single response.",
+        "OARS is the fuller motivational-interviewing toolkit. RASA is the quicker four-beat version for shaping a single response.",
     },
     {
       id: "TC033",
       reason:
-        "Minimal encouragers are the small 'mm', 'go on' signals that power the Receive and Appreciate steps; use them alone when the person just needs room to keep talking.",
+        "Minimal encouragers are the small 'mm', 'go on' signals that power the Receive and Appreciate steps. Use them alone when the person just needs room to keep talking.",
     },
     {
       id: "TC012",
       reason:
-        "The Full-attention signal is the 'Receive' step made visible; use it on its own when presence matters more than reflecting anything back.",
+        "The Full-attention signal is the 'Receive' step made visible. Use it on its own when presence matters more than reflecting anything back.",
     },
     {
       id: "TC047",
       reason:
-        "STAR structures a story or example; switch to it when the person needs to narrate what happened rather than have their point summarised.",
+        "STAR structures a story or example. Switch to it when the person needs to narrate what happened rather than have their point summarised.",
     },
   ],
 };

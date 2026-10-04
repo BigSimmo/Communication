@@ -394,7 +394,7 @@ export default function Drill() {
               className="text-[13px] font-semibold"
               style={{ color: "var(--accent-green)" }}
             >
-              Great work — come back tomorrow
+              Great work. Come back tomorrow
             </p>
             {nextDrillEntry && (
               <p
@@ -420,9 +420,9 @@ export default function Drill() {
           <div className="grid grid-cols-3 gap-2">
             {(
               [
-                ["hard", "Hard", "Review soon", "Hard — review soon"],
-                ["good", "Good", "Review later", "Good — review later"],
-                ["easy", "Easy", "Much later", "Easy — review much later"],
+                ["hard", "Hard", "Review soon", "Hard: review soon"],
+                ["good", "Good", "Review later", "Good: review later"],
+                ["easy", "Easy", "Much later", "Easy: review much later"],
               ] as const
             ).map(([rating, label, hint, aria]) => (
               <button
@@ -529,7 +529,7 @@ export default function Drill() {
             style={{ color: "var(--fg-60)" }}
           >
             Each card has a 7-day practice plan. Complete today's task, then
-            come back tomorrow — one technique at a time, working through all{" "}
+            come back tomorrow for the next one, working through all{" "}
             {CARD_IDS.length} cards.
           </p>
         </div>

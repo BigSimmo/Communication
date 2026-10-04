@@ -6,7 +6,7 @@ export const TC024: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC024/TC024_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -59,7 +59,7 @@ export const TC024: CardData = {
     "A warm opening is the first five to fifteen seconds of an interaction, where you make the other person feel recognised, socially safe and oriented before you move into the real purpose. Warm first, then clear: the warmth is not there to delay the point but to make it easier to receive. A brief, genuine signal that you see the person lowers the sense of threat, so a request, a piece of feedback or a disagreement lands with less friction and less defensiveness.",
   whatItIsNot: [
     "It is not long small talk or a whole rapport routine performed before you get to the point.",
-    "It is not fake cheerfulness or forced enthusiasm - calm, quiet warmth counts too.",
+    "It is not fake cheerfulness or forced enthusiasm: calm, quiet warmth counts too.",
     "It is not apologetic padding or over-apologising for taking up someone's time.",
     "It is not a friendly preamble used to hide or soften a dishonest ask.",
     "It is not a delay: warm first, then clear, so the point arrives faster, not slower.",
@@ -67,7 +67,7 @@ export const TC024: CardData = {
   overview: {
     coreFormula: [
       "Recognition + a small warm or context signal + a clean purpose bridge.",
-      "Good to see you. Quick one - I wanted to ask about Friday.",
+      "Good to see you. Quick one: I wanted to ask about Friday.",
       "Thanks for making time. I know your day is packed, so I'll keep this tight.",
       "Nice to meet you. I heard you're the person who knows this area well.",
       "Before I jump in, I appreciate you being open to talking this through.",
@@ -98,7 +98,7 @@ export const TC024: CardData = {
     {
       id: "quick_low_pressure",
       label: "Quick / low-pressure",
-      tag: "Quick / low-pressure phrases",
+      tag: "Brief and easy",
       tone: "Quick",
       phrases: [
         "Good to see you. Quick one...",
@@ -113,22 +113,22 @@ export const TC024: CardData = {
     {
       id: "social_casual",
       label: "Social / casual",
-      tag: "Social / casual phrases",
+      tag: "Friends and new people",
       tone: "Warm",
       phrases: [
-        "Good to see you - how's your day actually been?",
+        "Good to see you. How's your day actually been?",
         "Nice to run into you. What have you been up to?",
         "I was hoping I'd get to ask you about this.",
         "You look like you've had a full day.",
         "I'm glad we got a minute to talk.",
-        "It's been too long - I've been meaning to catch you.",
+        "It's been too long. I've been meaning to catch you.",
         "Good to meet you. How do you know everyone here?",
       ],
     },
     {
       id: "professional_workplace",
       label: "Professional / workplace",
-      tag: "Professional / workplace phrases",
+      tag: "Meetings and colleagues",
       tone: "Professional",
       phrases: [
         "Thanks for making time. The thing I wanted to cover is...",
@@ -143,7 +143,7 @@ export const TC024: CardData = {
     {
       id: "requests",
       label: "Requests",
-      tag: "Requests phrases",
+      tag: "Before you ask",
       tone: "Direct",
       phrases: [
         "Can I ask a small favour?",
@@ -157,21 +157,21 @@ export const TC024: CardData = {
     {
       id: "conflict_difficult_topics",
       label: "Conflict / difficult topics",
-      tag: "Conflict / difficult topics phrases",
+      tag: "Raising something hard",
       tone: "High-stakes",
       phrases: [
         "I want to raise this carefully, not make it heavier than it needs to be.",
         "I value the relationship, so I'd rather be direct and respectful.",
         "This may be a bit uncomfortable, but I think it's worth saying clearly.",
         "Before I respond, I want to acknowledge this matters.",
-        "I'm not trying to attack the person; I want to sort out the issue.",
+        "I'm not trying to attack the person. I want to sort out the issue.",
         "I want to raise this carefully because I think it matters.",
       ],
     },
     {
       id: "high_status_busy_person",
       label: "High-status / busy person",
-      tag: "High-status / busy person phrases",
+      tag: "Brief and relevant",
       tone: "Direct",
       phrases: [
         "I know your time is tight, so I'll be brief.",
@@ -185,21 +185,21 @@ export const TC024: CardData = {
     {
       id: "digital_text",
       label: "Digital / text",
-      tag: "Digital / text phrases",
+      tag: "One human line, then the ask",
       tone: "Quick",
       phrases: [
-        "Quick ask - no pressure if today is too full.",
+        "Quick ask. No pressure if today is too full.",
         "Thought of you because of your point about X.",
         "Hope your week is going okay. One specific question...",
         "Can I get your quick read on this?",
         "Short version: I'm trying to decide between X and Y.",
-        "No rush on this - whenever suits.",
+        "No rush on this. Whenever suits.",
       ],
     },
     {
       id: "re_open_after_silence",
       label: "Re-open after silence",
-      tag: "Re-open after silence phrases",
+      tag: "Picking a thread back up",
       tone: "Repair",
       phrases: [
         "Picking this back up from the other day...",
@@ -207,7 +207,7 @@ export const TC024: CardData = {
         "I realised I left this hanging.",
         "Circling back, because your point stuck with me.",
         "Before we move on, I wanted to return to one thing.",
-        "Picking this back up from our last chat - your point about X stuck with me.",
+        "Picking this back up from our last chat. Your point about X stuck with me.",
       ],
     },
   ],
@@ -215,8 +215,8 @@ export const TC024: CardData = {
     {
       condition: "They respond warmly.",
       action:
-        "Continue naturally into the conversation or ask; don't over-explain the opening.",
-      phrase: "Great - so the thing I wanted to check is...",
+        "Continue naturally into the conversation or ask. Don't over-explain the opening.",
+      phrase: "Great, so the thing I wanted to check is...",
     },
     {
       condition: "They seem rushed.",
@@ -232,13 +232,12 @@ export const TC024: CardData = {
     {
       condition: 'They ask "What do you need?"',
       action: "Drop the warm-up and state the clean request.",
-      phrase:
-        "Fair enough - could you review the one-page version by Thursday?",
+      phrase: "Fair enough. Could you review the one-page version by Thursday?",
     },
     {
       condition: "They seem irritated.",
       action: "Acknowledge the time or pressure, then shorten or defer.",
-      phrase: "I can tell it's a bad moment - shall I catch you later?",
+      phrase: "I can tell it's a bad moment. Shall I catch you later?",
     },
     {
       condition: "They engage with small talk.",
@@ -251,12 +250,12 @@ export const TC024: CardData = {
     {
       weak: "Heyyyyy! Hope you're amazing! Sorry to bother you, this will only take a second...",
       better: "Hey, hope your day's going okay. Quick ask...",
-      best: "Hey, quick ask - no pressure if today's full.",
+      best: "Hey, quick ask. No pressure if today's full.",
     },
     {
       weak: "How are you? Good? Great. Anyway, I need...",
       better: "Good to see you. I wanted to ask about...",
-      best: "Good to see you. I'll keep this simple - I wanted your read on...",
+      best: "Good to see you. I'll keep this simple. I wanted your read on...",
     },
     {
       weak: "Sorry, sorry, I know you're busy, sorry, can I...",
@@ -293,13 +292,13 @@ export const TC024: CardData = {
     {
       situation: "Digital message",
       move: "Lead with a brief human line, then a clear ask.",
-      phrase: "Quick ask - no pressure if today is full.",
+      phrase: "Quick ask. No pressure if today is full.",
     },
     {
       situation: "Re-opening after silence",
       move: "Acknowledge the gap and reconnect with the earlier thread.",
       phrase:
-        "Picking this back up from our last chat - your point about X stuck with me.",
+        "Picking this back up from our last chat. Your point about X stuck with me.",
     },
   ],
   calibration: {
@@ -313,20 +312,20 @@ export const TC024: CardData = {
       "They ask you a question back before you've even made your ask.",
     ],
     adjust: [
-      'They say "What do you need?" or look impatient - give the bottom line sooner.',
-      "They give clipped answers to the warm opening - drop the small talk and get to the point.",
-      "The topic is urgent or emotionally serious - match the seriousness rather than opening cheerful.",
-      'You hear yourself apologising repeatedly - respect their time without shrinking: "I\'ll be brief."',
-      "The opening is running longer than the substance - bridge to purpose now.",
-      'The tone feels mismatched - reset: "Let me say this more directly."',
-      "You're reaching for warmth out of anxiety - shift to plain, respectful directness.",
+      'They say "What do you need?" or look impatient: give the bottom line sooner.',
+      "They give clipped answers to the warm opening. Drop the small talk and get to the point.",
+      "The topic is urgent or emotionally serious: match the seriousness rather than opening cheerful.",
+      'You hear yourself apologising repeatedly: respect their time without shrinking: "I\'ll be brief."',
+      "The opening is running longer than the substance: bridge to purpose now.",
+      'The tone feels mismatched: reset: "Let me say this more directly."',
+      "You're reaching for warmth out of anxiety: shift to plain, respectful directness.",
     ],
   },
   drill: [
     {
       day: "Day 1",
       title: "Learn the formula",
-      task: "Say the minimum viable move aloud three times - a simple greeting plus one warm, relevant line. Notice how short it can be and still land.",
+      task: "Say the minimum viable move aloud three times: a simple greeting plus one warm, relevant line. Notice how short it can be and still land.",
     },
     {
       day: "Day 2",
@@ -351,7 +350,7 @@ export const TC024: CardData = {
     {
       day: "Day 6",
       title: "Practise a recovery",
-      task: 'After a deliberately over-long opening, practise one recovery line: "I\'m giving too much preamble - quick version is..."',
+      task: 'After a deliberately over-long opening, practise one recovery line: "I\'m giving too much preamble. Quick version is..."',
     },
     {
       day: "Day 7",
@@ -372,7 +371,7 @@ export const TC024: CardData = {
       "You: \"Hey, sorry, sorry, I know you're busy. I just wanted to maybe ask something quickly, if that's okay...\"",
       'Person: "What is it?"',
       'You: "It\'s not a big deal, but..."',
-      "Why it is weak:",
+      "Why it's weak:",
       "buries the ask under apology and hedging",
       "makes the other person do the work of dragging it out",
       "signals low status and wastes the very time it claims to protect",
@@ -390,7 +389,7 @@ export const TC024: CardData = {
       "recognises the person, then bridges straight to a clear ask",
       "leaves them an easy yes and room to ask for more",
     ],
-    note: "Warm first, then clear - the recognition makes the ask easier to receive, it doesn't replace it.",
+    note: "Warm first, then clear: the recognition makes the ask easier to receive, it doesn't replace it.",
   },
   influencePayoff: {
     feeling: '"They saw me before they wanted something from me."',
@@ -407,15 +406,15 @@ export const TC024: CardData = {
     whyMostFail: [
       "They let the warm-up run longer than the substance, so it feels like stalling.",
       "They over-apologise or perform fake enthusiasm, which reads as neediness.",
-      "They hide the ask behind friendliness, then spring it - which feels like a bait and switch.",
+      "They hide the ask behind friendliness, then spring it, which feels like a bait and switch.",
       "They deliver the warmth mechanically, so it lands as a routine rather than recognition.",
     ],
   },
   fieldTip: {
     headline: "Warm first, then clear.",
-    body: "The best warm opening makes the other person feel seen without making them wait for the point. Use it to clarify, respect and connect - not to pressure, corner or extract.",
+    body: "The best warm opening makes the other person feel seen without making them wait for the point.",
     example:
-      '"Good to see you. I\'ll keep this simple - I wanted your read on one thing."',
+      '"Good to see you. I\'ll keep this simple. I wanted your read on one thing."',
     dont: "Open cheerful and chatty before serious content, then bury the ask at the very end.",
     do: "Recognise the person, match their temperature, then bridge straight to why you're there.",
   },
@@ -425,7 +424,7 @@ export const TC024: CardData = {
       title: "Orient to the person",
       body: "Use their name, eye contact, a brief greeting, or a nod to the shared context. Make them feel noticed before you move into content.",
       examples: [
-        { label: "Say", text: "Good to see you - I was hoping to catch you." },
+        { label: "Say", text: "Good to see you. I was hoping to catch you." },
       ],
     },
     {
@@ -446,7 +445,7 @@ export const TC024: CardData = {
       examples: [
         {
           label: "Signal",
-          text: "Thanks for making time - I know your day is packed.",
+          text: "Thanks for making time. I know your day is packed.",
         },
       ],
     },
@@ -455,7 +454,7 @@ export const TC024: CardData = {
       title: "Bridge to purpose early",
       body: "After the warm signal, say clearly why you're there. Warmth without direction can feel inefficient or evasive.",
       examples: [
-        { label: "Bridge", text: "Quick one - I wanted to ask about Friday." },
+        { label: "Bridge", text: "Quick one: I wanted to ask about Friday." },
       ],
     },
     {
@@ -470,11 +469,11 @@ export const TC024: CardData = {
     },
   ],
   liveThreadClues: [
-    '"What do you need?" - drop the warm-up and go straight to the ask.',
-    "Clipped, one-word replies - shorten and get to the point.",
-    "Phone in hand, half-turned away - lead with the bottom line.",
-    '"Good to see you too" - there\'s room for a warm beat.',
-    "A heavy topic already in the air - match it, don't brighten it.",
+    '"What do you need?" Drop the warm-up and go straight to the ask.',
+    "Clipped, one-word replies: shorten and get to the point.",
+    "Phone in hand, half-turned away: lead with the bottom line.",
+    '"Good to see you too." There\'s room for a warm beat.',
+    "A heavy topic already in the air: match it, don't brighten it.",
   ],
   depthDial: [
     {
@@ -490,7 +489,7 @@ export const TC024: CardData = {
     {
       depth: "Warm (10-15 sec)",
       useWhen: "Social meetings or first contact",
-      phrase: "Good to see you - how's your day actually been?",
+      phrase: "Good to see you. How's your day actually been?",
     },
     {
       depth: "Extended",
@@ -538,7 +537,7 @@ export const TC024: CardData = {
     },
   ],
   recoveryPhrases: [
-    "I'm giving too much preamble - quick version is...",
+    "I'm giving too much preamble. Quick version is...",
     "Let me get to the point.",
     "That sounded more apologetic than I meant. The simple ask is...",
     "I don't want to bury the lead.",
@@ -546,32 +545,32 @@ export const TC024: CardData = {
     "I realise that came across a bit formal. What I mean is...",
     "I'm trying to be considerate of your time, so I'll make it clear.",
   ],
-  bestRecoveryLine: "I'm giving too much preamble - quick version is...",
+  bestRecoveryLine: "I'm giving too much preamble. Quick version is...",
   chains: [
     {
       label: "Rapport chain",
       sequence:
-        "Warm opening -> contextual opener -> live-thread follow-up -> reflection -> light self-disclosure",
+        "Warm opening → contextual opener → live-thread follow-up → reflection → light self-disclosure",
       example: [
-        '"Good to see you - how\'s your day actually been?"',
+        '"Good to see you. How\'s your day actually been?"',
         '"Busy one? What\'s been the most full-on part?"',
-        '"That makes sense - I had a week like that recently too."',
+        '"That makes sense. I had a week like that recently too."',
       ],
     },
     {
       label: "Request chain",
       sequence:
-        "Warm opening -> clean request -> autonomy release -> next-action clarity",
+        "Warm opening → clean request → autonomy release → next-action clarity",
       example: [
-        '"Thanks for making time - quick one."',
+        '"Thanks for making time. Quick one."',
         '"Could you review the one-pager by Thursday?"',
-        '"No pressure if that\'s tight - just let me know either way."',
+        '"No pressure if that\'s tight. Just let me know either way."',
       ],
     },
     {
       label: "Conflict chain",
       sequence:
-        "Warm opening -> validate concern -> shared goal -> direct issue -> repair if needed",
+        "Warm opening → validate concern → shared goal → direct issue → repair if needed",
       example: [
         '"I value the relationship, so I\'d rather be direct."',
         '"I know the deadline mattered to you too."',
@@ -580,8 +579,7 @@ export const TC024: CardData = {
     },
     {
       label: "Professional chain",
-      sequence:
-        "Warm opening -> BLUF -> key reason -> ask/check -> summary check",
+      sequence: "Warm opening → BLUF → key reason → ask/check → summary check",
       example: [
         '"Good to connect. I\'ll give you the short version first."',
         '"My leaning is the simpler option now."',
@@ -593,27 +591,27 @@ export const TC024: CardData = {
     {
       id: "TC010",
       reason:
-        "Warm presence keeps warmth running across the whole interaction through attention, tone and timing; Warm opening is only the first 5-15 seconds. Use TC010 when the issue is your overall manner, not the entry.",
+        "Warm presence keeps warmth running across the whole interaction through attention, tone and timing. Warm opening is only the first 5-15 seconds. Use TC010 when the issue is your overall manner, not the entry.",
     },
     {
       id: "TC012",
       reason:
-        "Full-attention signal explicitly shows the person they have your focus; Warm opening recognises them and then bridges to purpose. Use TC012 when the point is to prove you're listening, not to open.",
+        "Full-attention signal explicitly shows the person they have your focus. Warm opening recognises them and then bridges to purpose. Use TC012 when the point is to prove you're listening, not to open.",
     },
     {
       id: "TC036",
       reason:
-        "Contextual opener starts from the shared situation or something specific in front of you; Warm opening can be a simple recognition. Use TC036 when a generic warm line would feel flat and the context gives you a better way in.",
+        "Contextual opener starts from the shared situation or something specific in front of you. Warm opening can be a simple recognition. Use TC036 when a generic warm line would feel flat and the context gives you a better way in.",
     },
     {
       id: "TC032",
       reason:
-        "Name and detail memory recalls something specific about the person; Warm opening needn't. Use TC032 when remembering a detail is itself the warm signal.",
+        "Name and detail memory recalls something specific about the person. Warm opening needn't. Use TC032 when remembering a detail is itself the warm signal.",
     },
     {
       id: "TC044",
       reason:
-        "BLUF leads with the bottom line and no warm-up; Warm opening spends a few seconds on recognition first. Use TC044 when they're rushed or warmth would only delay the point.",
+        "BLUF leads with the bottom line and no warm-up. Warm opening spends a few seconds on recognition first. Use TC044 when they're rushed or warmth would only delay the point.",
     },
     {
       id: "TC013",

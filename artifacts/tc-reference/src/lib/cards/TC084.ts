@@ -6,7 +6,7 @@ export const TC084: CardData = {
     {
       label: "Two-card (combined)",
       description:
-        "Front and back study cards on one sheet — the designed visual card.",
+        "Front and back study cards on one sheet: the designed visual card.",
       href: "cards/TC084/TC084_TwoCard_Combined.pdf",
       type: "pdf",
       group: "Visual Cards",
@@ -56,27 +56,27 @@ export const TC084: CardData = {
   ],
   id: "TC084",
   whyItWorks:
-    "Listening for values means hearing what a person is protecting, pursuing, missing or proud of beneath the surface content - the fairness, reliability, respect, craft, safety or belonging under their facts, complaint or excitement - and reflecting it back tentatively in ordinary language. It works because people usually speak in events and logistics while feeling the issue at the level of what they care about; when they hear that stake named without being forced, they stop having to prove why it matters and the conversation becomes cleaner and less repetitive.",
+    "Listening for values means hearing what a person is protecting, pursuing, missing or proud of beneath the surface content (the fairness, reliability, respect, craft, safety or belonging under their facts, complaint or excitement) and reflecting it back tentatively in ordinary language. It works because people usually speak in events and logistics while feeling the issue at the level of what they care about. When they hear that stake named without being forced, they stop having to prove why it matters and the conversation becomes cleaner and less repetitive.",
   whatItIsNot: [
     "It is not values-based persuasion, or framing a request around a value to move someone.",
     "It is not telling someone what they should value, or handing them a moral label.",
     "It is not a personality read, a therapy move, or a shortcut to intimacy.",
-    'It is not saying "you are a person who values X" unless the person has said so themselves; safer is "it sounds like X mattered there."',
+    'It is not saying "you\'re a person who values X" unless the person has said so themselves. Safer is "it sounds like X mattered there."',
   ],
   overview: {
     coreFormula: [
       "Surface content: what actually happened?",
-      "Value clue: what mattered in it - fairness, reliability, respect, craft, safety, belonging?",
+      "Value clue: what mattered in it, fairness, reliability, respect, craft, safety, belonging?",
       'Tentative phrase: "It sounds like..." / "Part of this may be..." / "I may be off, but..."',
       "Calibration: do they soften, add detail, clarify or correct?",
-      'Recovery: "I may be reading that wrong - use your wording, not mine."',
+      'Recovery: "I might have the value wrong. Use your wording, not mine."',
     ],
     minimumViableMove:
-      'Name one likely value tentatively and leave room for correction: "It sounds like the fairness piece really mattered there - tell me if that is off."',
+      'Name one likely value tentatively and leave room for correction: "It sounds like the fairness piece really mattered there. Tell me if that\'s off."',
     impact: "Medium",
     difficulty: "Hard",
     misuse:
-      "Overclaiming - acting as if you know the person's values better than they do. It fails when you stack several values into one sentence, moralise, or ignore a correction because your read felt insightful. If they tighten, go flat or change topic, drop the value read at once.",
+      "Overclaiming: acting as if you know the person's values better than they do. It fails when you stack several values into one sentence, moralise, or ignore a correction because your read felt insightful. If they tighten, go flat or change topic, drop the value read at once.",
     bestFor: [
       "When someone repeats a concern even after the facts are understood.",
       "When a complaint carries a fairness, respect, trust, safety or autonomy signal.",
@@ -147,7 +147,7 @@ export const TC084: CardData = {
         "It sounds like having room to choose was important there.",
         "It sounds like doing it properly mattered, not just finishing it.",
         "It sounds like you wanted the work to mean something.",
-        "The thread I am hearing is reliability. Correct me if that is off.",
+        "The thread I'm hearing is reliability. Correct me if that's off.",
         "I may be off, but it sounds like reliability was the real issue.",
       ],
     },
@@ -160,7 +160,7 @@ export const TC084: CardData = {
         "I may be reading this wrong, but the key value seems to be fairness.",
         "Sounds like the main thread here is trust, not the single incident.",
         "The bit you keep returning to seems to be being kept in the loop.",
-        "It reads like fairness is the part that stung. Tell me if that is off.",
+        "It reads like fairness is the part that stung. Tell me if that's off.",
         "Happy to stay practical, but it sounds like respect is the real issue.",
       ],
     },
@@ -170,13 +170,13 @@ export const TC084: CardData = {
       tag: "Hand it back",
       tone: "Repair",
       phrases: [
-        "Tell me if that is off.",
-        "I may be reading that wrong.",
+        "Tell me if that's off.",
+        "I might have named the wrong thing. What is it for you?",
         "Use your wording, not mine.",
         "That may be too strong a read.",
-        "We do not have to frame it that way.",
-        "We can keep this practical if that is more useful.",
-        "I do not want to put values in your mouth.",
+        "We don't have to frame it that way.",
+        "We can keep this practical if that's more useful.",
+        "I don't want to put values in your mouth.",
         "What would be the more accurate word?",
       ],
     },
@@ -187,7 +187,7 @@ export const TC084: CardData = {
       tone: "High-stakes",
       phrases: [
         "Let me check the value at stake before we solve it.",
-        "I do not want to overread this, but is the safety piece the main concern?",
+        "I don't want to overread this, but is the safety piece the main concern?",
         "It sounds like respect is the part we need to protect while we decide next steps.",
         "Before we decide, I want to check the value we need to protect: is it safety, choice, or something else?",
         "It sounds like the safety piece is central here. Correct me if I have that wrong.",
@@ -198,7 +198,7 @@ export const TC084: CardData = {
     {
       step: "1",
       title: "Listen for repeated energy",
-      body: "The value is usually where the person speeds up, slows down, repeats, intensifies or keeps returning. When they explain the same point again after the facts are already clear, that repetition is the signal - they are protecting something the logistics have not covered yet.\nExample: a colleague keeps circling back to the late change long after you have understood what changed.",
+      body: "The value is usually where the person speeds up, slows down, repeats, intensifies or keeps returning. When they explain the same point again after the facts are already clear, that repetition is the signal. They are protecting something the logistics have not covered yet.\nExample: a colleague keeps circling back to the late change long after you have understood what changed.",
     },
     {
       step: "2",
@@ -208,7 +208,7 @@ export const TC084: CardData = {
     {
       step: "3",
       title: "Choose the smallest word that fits",
-      body: 'Pick one ordinary value word the evidence actually supports - not the grandest one available. One value, not a stack. "Being kept in the loop" beats "you need control." If several values are possible, choose the smallest or ask a light question rather than guessing wildly.',
+      body: 'Pick one ordinary value word the evidence actually supports, not the grandest one available. One value, not a stack. "Being kept in the loop" beats "you need control." If several values are possible, choose the smallest or ask a light question rather than guessing wildly.',
     },
     {
       step: "4",
@@ -218,12 +218,12 @@ export const TC084: CardData = {
     {
       step: "5",
       title: "Add room for correction, then pause",
-      body: 'Attach a correction handle and stop talking: "tell me if that is off", "use your wording, not mine." The pause is where they own, edit or decline the read. Do not fill the silence by explaining why your interpretation made sense.',
+      body: 'Attach a correction handle and stop talking: "tell me if that\'s off", "use your wording, not mine." The pause is where they own, edit or decline the read. Do not fill the silence by explaining why your interpretation made sense.',
     },
     {
       step: "6",
       title: "Track the signal and follow it",
-      body: 'If it lands - they say "exactly", add detail, or offer a cleaner word - stay with their wording from here on. If it misses - they go flat, correct you or withdraw - back out cleanly and return to content. One small reflection is enough; you do not need to be right, you need to be listening.\nExample: "It sounds like the hard part was not only the delay; it was the reliability piece."',
+      body: 'If it lands (they say "exactly", add detail, or offer a cleaner word) stay with their wording from here on. If it misses (they go flat, correct you or withdraw) back out cleanly and return to content. One small reflection is enough. You do not need to be right, you need to be listening.\nExample: "It sounds like the hard part wasn\'t only the delay. It was the reliability piece."',
     },
   ],
   liveThreadClues: [
@@ -251,7 +251,7 @@ export const TC084: CardData = {
       "Trust that you are actually listening",
     ],
     whyMostFail: [
-      "They overclaim - acting as if they know the person's values better than the person does.",
+      "They overclaim: acting as if they know the person's values better than the person does.",
       "They stack several values into one sentence instead of naming one.",
       "They deliver it mechanically or therapeutically, so it sounds like a technique.",
       "They ignore a correction because their interpretation felt insightful.",
@@ -260,7 +260,7 @@ export const TC084: CardData = {
   },
   ladder: [
     {
-      weak: "You are obsessed with fairness.",
+      weak: "You're obsessed with fairness.",
       better: "Fairness matters to you.",
       best: "It sounds like the fairness piece really mattered in how this landed.",
     },
@@ -280,7 +280,7 @@ export const TC084: CardData = {
       best: "The respect piece seems to be what made it feel bigger than the task.",
     },
     {
-      weak: "You are a perfectionist.",
+      weak: "You're a perfectionist.",
       better: "Quality matters to you.",
       best: "It sounds like doing it properly mattered more than just finishing it.",
     },
@@ -289,15 +289,15 @@ export const TC084: CardData = {
     without: [
       "A: I told them twice the deadline was tight, and they still changed it at the last minute.",
       "B: You obviously have control issues.",
-      "A: No, that is not what I am saying.",
-      "Why it is weak: it slaps a personality label on a value, so the person spends the next turn defending themselves instead of feeling understood.",
+      "A: No, that's not what I'm saying.",
+      "Why it's weak: it slaps a personality label on a value, so the person spends the next turn defending themselves instead of feeling understood.",
     ],
     with: [
       "A: I told them twice the deadline was tight, and they still changed it at the last minute.",
-      "B: It sounds like the hard part was not only the change; it was not being able to rely on the agreement.",
-      "A: Exactly. If they had flagged it earlier, I would have been fine.",
+      "B: It sounds like the hard part wasn't only the change. It wasn't being able to rely on the agreement.",
+      "A: Exactly. If they had flagged it earlier, I'd have been fine.",
       "B: So the value at stake is predictability and being treated as part of the plan.",
-      "A: Yes, that is it.",
+      "A: Yes, that's it.",
     ],
     note: 'The advanced version names the likely value, checks it against the person\'s response, then keeps their confirmed wording ("predictability", "part of the plan") rather than the label "control issues."',
   },
@@ -326,7 +326,7 @@ export const TC084: CardData = {
     {
       mistake: "Ignoring a correction because your read felt insightful.",
       soundsLike: '"No, I really think it\'s about control."',
-      better: '"Fair enough - what would be the more accurate word?"',
+      better: '"Fair enough. What would be the more accurate word?"',
     },
     {
       mistake: "Confusing a passing preference with a deep value.",
@@ -336,7 +336,7 @@ export const TC084: CardData = {
     {
       mistake: "Reaching for a value read during acute distress.",
       soundsLike: '"It sounds like safety is your deepest value right now."',
-      better: '"Let\'s sort the immediate thing first - are you okay?"',
+      better: '"Let\'s sort the immediate thing first. Are you okay?"',
     },
   ],
   calibration: {
@@ -353,28 +353,28 @@ export const TC084: CardData = {
       "They shift back to facts only.",
       'They laugh awkwardly or say "I guess."',
       "They seem to accept the phrase just to avoid disagreeing.",
-      'They say "no, that is not it" - accept it and use their word.',
-      "They become defensive, embarrassed or withdrawn - release the read.",
+      'They say "no, that\'s not it": accept it and use their word.',
+      "They become defensive, embarrassed or withdrawn: release the read.",
       "The label starts to sound moralising or loaded.",
       "If the signal is not clearly green, make the next move smaller.",
     ],
   },
   recoveryPhrases: [
-    "I may be reading that wrong.",
+    "I might have the value wrong. What matters most here?",
     "Use your wording, not mine.",
     "That may be too strong a frame.",
     "Let me pull that back.",
-    "I do not want to put values in your mouth.",
+    "I don't want to put values in your mouth.",
     "Maybe the simpler version is just that the timing was hard.",
-    "We can stay with the practical side if that is more useful.",
+    "We can stay with the practical side if that's more useful.",
     "What would be the more accurate word?",
   ],
-  bestRecoveryLine: "I may be reading that wrong - use your wording, not mine.",
+  bestRecoveryLine: "I might have the value wrong. Use your wording, not mine.",
   chains: [
     {
       label: "Understand before you name",
       sequence:
-        "TC004 Reflective listening -> TC084 Listen for values -> TC029 Strategic silence",
+        "TC004 Reflective listening → TC084 Listen for values → TC029 Strategic silence",
       example: [
         "So it changed at the last minute and you'd already re-planned around it.",
         "It sounds like the reliability piece mattered more than the change itself.",
@@ -384,17 +384,17 @@ export const TC084: CardData = {
     {
       label: "Feeling to value",
       sequence:
-        "TC006 Emotional labelling -> TC084 Listen for values -> TC011 Summary check",
+        "TC006 Emotional labelling → TC084 Listen for values → TC011 Summary check",
       example: [
         "You sound genuinely let down.",
         "Part of this seems to be about being kept in the loop.",
-        "So the fix is earlier warning, not a different decision - have I got that right?",
+        "So the fix is earlier warning, not a different decision. Have I got that right?",
       ],
     },
     {
       label: "Meaning to autonomy",
       sequence:
-        "TC040 Meaning reflection -> TC084 Listen for values -> TC021 Autonomy release",
+        "TC040 Meaning reflection → TC084 Listen for values → TC021 Autonomy release",
       example: [
         "This one clearly meant a lot.",
         "It sounds like doing it properly is the part that mattered.",
@@ -403,7 +403,7 @@ export const TC084: CardData = {
     },
     {
       label: "Structure to request",
-      sequence: "TC043 OARS -> TC084 Listen for values -> TC013 Clean request",
+      sequence: "TC043 OARS → TC084 Listen for values → TC013 Clean request",
       example: [
         "(Open question, affirm, reflect, summarise.)",
         "It sounds like predictability is what would make this workable.",
@@ -414,31 +414,31 @@ export const TC084: CardData = {
   scenarios: [
     {
       situation:
-        'Casual conversation - a friend keeps returning to someone "not showing up."',
+        'Casual conversation: a friend keeps returning to someone "not showing up."',
       move: "Reflect the value gently and stay with their wording if they nod.",
       phrase: "Sounds like loyalty is the part that hurt.",
     },
     {
-      situation: "Workplace - a colleague keeps stressing last-minute changes.",
+      situation: "Workplace: a colleague keeps stressing last-minute changes.",
       move: "Name the value under the complaint, then summarise and move to action if they clarify the operational need.",
       phrase:
         "It sounds like reliability is the issue more than the change itself.",
     },
     {
-      situation: 'Conflict or repair - they say "it wasn\'t about the money."',
+      situation: 'Conflict or repair: they say "it wasn\'t about the money."',
       move: "Offer the likely value and accept a correction immediately.",
       phrase:
-        "It sounds like respect was the bigger piece. Tell me if that is off.",
+        "It sounds like respect was the bigger piece. Tell me if that's off.",
     },
     {
-      situation: "Digital message - a long note that repeats one principle.",
-      move: "Reflect the single thread; do not pile on follow-up questions.",
+      situation: "Digital message: a long note that repeats one principle.",
+      move: "Reflect the single thread. Do not pile on follow-up questions.",
       phrase: "I may be reading this wrong, but the thread I hear is fairness.",
     },
     {
       situation:
-        "High-stakes - safety, dignity, choice or trust is visibly at stake.",
-      move: "Check the value to protect out loud; if pressure rises, switch to direct safety and action language.",
+        "High-stakes: safety, dignity, choice or trust is visibly at stake.",
+      move: "Check the value to protect out loud. If pressure rises, switch to direct safety and action language.",
       phrase:
         "Before we decide, I want to check the value we need to protect: is it safety, choice, or something else?",
     },
@@ -446,7 +446,7 @@ export const TC084: CardData = {
   decisionTree: [
     {
       condition: "They are still telling the story.",
-      action: "Keep listening; do not name a value yet.",
+      action: "Keep listening. Do not name a value yet.",
       phrase: "",
     },
     {
@@ -467,19 +467,19 @@ export const TC084: CardData = {
     {
       condition: "They correct you.",
       action: "Accept it at once and switch to their word.",
-      phrase: "Fair enough - respect is the better word.",
+      phrase: "Fair enough, respect is the better word.",
     },
     {
       condition: "They go flat, or the moment needs action.",
-      action: "Release the read; return to content or act directly.",
-      phrase: "Let's stay practical - what needs to happen next?",
+      action: "Release the read. Return to content or act directly.",
+      phrase: "Let's stay practical. What needs to happen next?",
     },
   ],
   drill: [
     {
       day: "Day 1",
       title: "Collect real lines",
-      task: "Write five sentences someone might say after a frustrating or meaningful event - drawn from your own week where you can.",
+      task: "Write five sentences someone might say after a frustrating or meaningful event: drawn from your own week where you can.",
     },
     {
       day: "Day 2",
@@ -494,7 +494,7 @@ export const TC084: CardData = {
     {
       day: "Day 4",
       title: "Add correction space",
-      task: 'Attach a correction handle to each reflection - "tell me if that is off", "use your wording, not mine" - so the person can decline it.',
+      task: 'Attach a correction handle to each reflection ("tell me if that\'s off", "use your wording, not mine") so the person can decline it.',
     },
     {
       day: "Day 5",
@@ -522,42 +522,42 @@ export const TC084: CardData = {
   ],
   fieldTip: {
     headline: "Name the value lightly, then hand it back.",
-    body: "Values are heard best when they are offered, not declared. Say one possible value, tie it to what the person actually said, then let them own it, edit it or drop it. One small reflection is enough - the other person decides whether it fits.",
+    body: "Values are heard best when they are offered, not declared. Say one possible value, tie it to what the person actually said, then let them own it, edit it or drop it. One small reflection is enough: the other person decides whether it fits.",
     example:
-      "It sounds like [value] was the piece that mattered there - tell me if that is off.",
+      "It sounds like [value] was the piece that mattered there. Tell me if that's off.",
     dont: "You're someone who values fairness above everything.",
-    do: "It sounds like the fairness piece mattered here - is that right?",
+    do: "It sounds like the fairness piece mattered here. Is that right?",
   },
   relatedTechniques: [
     {
       id: "TC004",
       reason:
-        "Reflective listening captures content and feeling accurately. Use TC004 when the person mainly needs to be heard; move to TC084 only after a clear value cue. Start with TC004 if unsure.",
+        "Reflective listening captures content and feeling accurately. Use TC004 when the person mainly needs to be heard. Move to TC084 only after a clear value cue. Start with TC004 if unsure.",
     },
     {
       id: "TC006",
       reason:
-        "Emotional labelling names the feeling (anger, fear, relief); TC084 names the principle or stake underneath. Ask: am I naming a feeling, or a value? Do not call one the other.",
+        "Emotional labelling names the feeling (anger, fear, relief). TC084 names the principle or stake underneath. Ask: am I naming a feeling, or a value? Do not call one the other.",
     },
     {
       id: "TC017",
       reason:
-        "Values-based framing uses a value to frame a proposal or request; TC084 only listens for the person's own value. If you are trying to move them, use TC017 with autonomy release; if you are trying to understand them, use TC084.",
+        "Values-based framing uses a value to frame a proposal or request. TC084 only listens for the person's own value. If you are trying to move them, use TC017 with autonomy release. If you are trying to understand them, use TC084.",
     },
     {
       id: "TC037",
       reason:
-        'Double-sided reflection holds two competing sides or values. If you hear "part of me... but...", use TC037 first; use TC084 when one clear value is emerging beneath the story.',
+        'Double-sided reflection holds two competing sides or values. If you hear "part of me... but...", use TC037 first. Use TC084 when one clear value is emerging beneath the story.',
     },
     {
       id: "TC040",
       reason:
-        'Meaning reflection asks "why did it matter?"; values listening asks "what did it show they care about?" Use TC040 for broader significance, TC084 when the value itself is the key stake.',
+        'Meaning reflection asks "why did it matter?". Values listening asks "what did it show they care about?" Use TC040 for broader significance, TC084 when the value itself is the key stake.',
     },
     {
       id: "TC043",
       reason:
-        "OARS is a full listening framework (open question, affirm, reflect, summarise). Use TC043 to structure a whole conversation; use TC084 for the single, specific values reflection inside it.",
+        "OARS is a full listening framework (open question, affirm, reflect, summarise). Use TC043 to structure a whole conversation. Use TC084 for the single, specific values reflection inside it.",
     },
   ],
 };
