@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "node --test ./*.test.mjs",
     "generate:card-downloads": "pnpm run generate:card-pdfs && pnpm run generate:card-csvs && pnpm run generate:card-guides && pnpm run generate:card-quickcards",
     "generate:card-pdfs": "tsx ./src/generate-card-pdfs.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",

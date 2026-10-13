@@ -1,4 +1,5 @@
 import {
+  act,
   fireEvent,
   render,
   screen,
@@ -73,7 +74,10 @@ describe("Library smart search toggle", () => {
           <Library />
         </Wrapper>,
       );
-      fireEvent.click(screen.getByTestId("library-search-input"));
+      // The first render still initializes React.lazy after module prewarming.
+      await act(async () => {
+        fireEvent.click(screen.getByTestId("library-search-input"));
+      });
       const input = await screen.findByTestId("search-modal-input");
       if (query) fireEvent.change(input, { target: { value: query } });
       expect(input).toHaveClass("flex-1", "min-w-0");
