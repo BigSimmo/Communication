@@ -26,7 +26,7 @@ A mobile-first reference app for 98 communication techniques. It runs entirely i
 | Layer           | Technology                      |
 | --------------- | ------------------------------- |
 | Framework       | React + Vite                    |
-| Language        | TypeScript 5.9                  |
+| Language        | TypeScript 6.0                  |
 | Styling         | Tailwind CSS                    |
 | Routing         | Wouter                          |
 | Testing         | Vitest + @testing-library/react |
