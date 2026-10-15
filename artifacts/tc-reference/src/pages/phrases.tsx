@@ -453,7 +453,7 @@ function PhraseRow({
           onClick={onCardClick}
           aria-label={`View card ${phrase.cardId}: ${phrase.cardTitle}`}
           data-testid={`phrase-card-link-${phrase.cardId}`}
-          className="tap-band relative flex items-center gap-1.5 text-[12px] rounded-lg px-1 min-h-8 min-w-0 flex-1 transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)]"
+          className="relative flex items-center gap-1.5 text-[12px] rounded-lg px-1 min-h-11 min-w-0 flex-1 transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)]"
           style={{ color: "var(--fg-55)" }}
         >
           <span
