@@ -271,15 +271,15 @@ export default function Favourites() {
                             style={{ color: "var(--fg-55)" }}
                           >
                             <span
-                              className="font-semibold"
-                              style={{ color: "var(--brand-text)" }}
+                              className="font-medium tabular-nums"
+                              style={{ color: "var(--fg-55)" }}
                             >
                               {id}
                             </span>
                             <span aria-hidden="true">·</span>
                             <span>{meta.difficulty}</span>
                             <span
-                              className="ml-0.5 text-[11px] font-bold tracking-[0.08em] px-1.5 py-px rounded-md uppercase"
+                              className="ml-0.5 text-[11px] font-semibold px-1.5 py-px rounded-md"
                               style={{
                                 background: impact.bg,
                                 color: impact.color,
