@@ -7,6 +7,7 @@ import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { BackupSection } from "@/components/backup-section";
+import { AppearanceSection } from "@/components/appearance-section";
 
 const CARD_META: Record<
   string,
@@ -71,7 +72,7 @@ export default function Favourites() {
 
       {/* Sticky search bar */}
       <div
-        className="sticky z-10 px-4 md:px-6 py-3"
+        className="sticky z-10 px-4 md:px-6 py-3 sticky-under-header"
         style={{
           top: "var(--app-header-height, 56px)",
           background: "var(--surface-header)",
@@ -278,7 +279,7 @@ export default function Favourites() {
                             <span aria-hidden="true">·</span>
                             <span>{meta.difficulty}</span>
                             <span
-                              className="ml-0.5 text-[10px] font-bold tracking-wider px-1.5 py-px rounded-md uppercase"
+                              className="ml-0.5 text-[11px] font-bold tracking-wider px-1.5 py-px rounded-md uppercase"
                               style={{
                                 background: impact.bg,
                                 color: impact.color,
@@ -487,6 +488,7 @@ export default function Favourites() {
           </div>
         )}
 
+        <AppearanceSection />
         <BackupSection />
       </div>
     </div>

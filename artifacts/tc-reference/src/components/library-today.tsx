@@ -109,7 +109,7 @@ export function LibraryToday() {
         <TileText eyebrow={drillEyebrow} title={drillTitle} />
         <ChevronRight
           className="w-4 h-4 flex-shrink-0"
-          style={{ color: "var(--fg-40)" }}
+          style={{ color: "var(--fg-55)" }}
           aria-hidden="true"
         />
       </Link>
@@ -129,7 +129,7 @@ export function LibraryToday() {
           />
           <ChevronRight
             className="w-4 h-4 flex-shrink-0"
-            style={{ color: "var(--fg-40)" }}
+            style={{ color: "var(--fg-55)" }}
             aria-hidden="true"
           />
         </Link>
@@ -147,7 +147,7 @@ export function LibraryToday() {
           <TileText eyebrow="Mid conversation?" title="Quick Lookup a phrase" />
           <ChevronRight
             className="w-4 h-4 flex-shrink-0"
-            style={{ color: "var(--fg-40)" }}
+            style={{ color: "var(--fg-55)" }}
             aria-hidden="true"
           />
         </button>

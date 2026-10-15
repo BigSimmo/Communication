@@ -46,7 +46,7 @@ function useTextEntryFocused(): boolean {
  */
 export function BottomTabBar() {
   const [location] = useLocation();
-  const direction = useScrollDirection(24, 12, location);
+  const direction = useScrollDirection(56, 10, location);
   const typing = useTextEntryFocused();
   // Keyboard users tabbing through the bar keep it on screen
   const [focusWithin, setFocusWithin] = useState(false);

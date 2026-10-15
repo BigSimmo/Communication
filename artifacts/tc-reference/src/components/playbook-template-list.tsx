@@ -95,7 +95,7 @@ export function PlaybookTemplateList({
                     </span>
                     <ChevronRight
                       className="w-4 h-4 mt-0.5 flex-shrink-0"
-                      style={{ color: "var(--fg-40)" }}
+                      style={{ color: "var(--fg-55)" }}
                       aria-hidden="true"
                     />
                   </button>

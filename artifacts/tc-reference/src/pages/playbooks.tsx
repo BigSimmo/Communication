@@ -146,7 +146,9 @@ export default function Playbooks() {
         title="Playbooks"
         description="Chain techniques into a step by step plan for a conversation you can see coming."
         action={
-          !isEditing && (
+          // The empty state carries its own Create button
+          !isEditing &&
+          playbooks.length > 0 && (
             <button
               onClick={handleOpenCreate}
               data-playbook-create
@@ -543,7 +545,7 @@ export default function Playbooks() {
                           </span>
                           <ChevronRight
                             className="w-4 h-4 flex-shrink-0"
-                            style={{ color: "var(--fg-40)" }}
+                            style={{ color: "var(--fg-55)" }}
                             aria-hidden="true"
                           />
                         </button>

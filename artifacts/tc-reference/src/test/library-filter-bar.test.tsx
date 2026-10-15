@@ -94,8 +94,8 @@ describe("Library single line filter bar", () => {
   });
 });
 
-describe("App header compact mode", () => {
-  it("shrinks while scrolling down and restores on scroll up", async () => {
+describe("App header hide on scroll", () => {
+  it("slides away while scrolling down and returns on scroll up", async () => {
     Object.defineProperty(document.documentElement, "scrollHeight", {
       configurable: true,
       value: 5000,
@@ -106,7 +106,7 @@ describe("App header compact mode", () => {
       </Wrapper>,
     );
     const header = screen.getByTestId("app-header");
-    expect(header).toHaveAttribute("data-compact", "false");
+    expect(header).toHaveAttribute("data-hidden", "false");
 
     const scrollTo = (y: number) =>
       act(() => {
@@ -118,16 +118,14 @@ describe("App header compact mode", () => {
       });
 
     await scrollTo(200);
-    await waitFor(() => expect(header).toHaveAttribute("data-compact", "true"));
+    await waitFor(() => expect(header).toHaveAttribute("data-hidden", "true"));
     await waitFor(() =>
       expect(
         document.documentElement.style.getPropertyValue("--app-header-height"),
-      ).toContain("34px"),
+      ).not.toContain("52px"),
     );
 
     await scrollTo(150);
-    await waitFor(() =>
-      expect(header).toHaveAttribute("data-compact", "false"),
-    );
+    await waitFor(() => expect(header).toHaveAttribute("data-hidden", "false"));
   });
 });

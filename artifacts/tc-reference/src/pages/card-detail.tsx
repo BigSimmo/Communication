@@ -240,7 +240,7 @@ export default function CardDetail() {
   return (
     <AccordionContext.Provider value={{ openSections, toggleSection }}>
       <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
-        <CardHeader cardId={cardId} cardData={cardData} />
+        <CardHeader key={cardId} cardId={cardId} cardData={cardData} />
 
         <SectionNav
           navRef={navRef}
@@ -250,14 +250,16 @@ export default function CardDetail() {
         />
 
         {/* Content — accordion sections */}
-        <div className="px-3 md:px-4 pb-12 pt-2 flex flex-col gap-2">
+        <div className="px-3 md:px-4 pb-12 pt-1 flex flex-col gap-2">
           {(() => {
             const available = SECTIONS.filter((sec) =>
               sectionAvailable(sec.id),
             );
             const allOpen = available.every((sec) => openSections.has(sec.id));
+            // A slim right-aligned control: looks 28px tall so it doesn't
+            // push Overview down, while an invisible band keeps a 44px tap.
             return (
-              <div className="flex items-center justify-end px-1 pt-1">
+              <div className="flex justify-end">
                 <button
                   type="button"
                   onClick={() =>
@@ -267,9 +269,12 @@ export default function CardDetail() {
                         : new Set(available.map((sec) => sec.id)),
                     )
                   }
+                  aria-label={
+                    allOpen ? "Collapse all sections" : "Expand all sections"
+                  }
                   data-testid="button-toggle-all-sections"
-                  className="tap-target-y text-[12px] font-semibold px-2 rounded-lg transition-colors hover:bg-[var(--fg-05)]"
-                  style={{ color: "var(--brand-text)", minHeight: 32 }}
+                  className="relative h-7 px-2 rounded-lg text-[12px] font-semibold transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)] before:absolute before:inset-x-0 before:-inset-y-2 before:content-['']"
+                  style={{ color: "var(--brand-text)" }}
                 >
                   {allOpen ? "Collapse all" : "Expand all"}
                 </button>

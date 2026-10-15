@@ -274,7 +274,8 @@ describe("core accessibility contracts", () => {
       </PlaybookProvider>,
     );
 
-    fireEvent.click(screen.getByRole("button", { name: "Create" }));
+    // With no playbooks the empty state holds the only Create button
+    fireEvent.click(screen.getByRole("button", { name: "Create playbook" }));
     expect(screen.getByLabelText("Name")).toHaveAttribute("type", "text");
     expect(screen.getByLabelText("Description").tagName).toBe("TEXTAREA");
   });

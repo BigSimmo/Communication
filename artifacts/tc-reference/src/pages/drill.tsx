@@ -283,38 +283,6 @@ export default function Drill() {
               {cardTitle}
             </p>
           </div>
-
-          {/* Day indicator */}
-          <div
-            className="flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 rounded-xl"
-            style={{
-              background: done
-                ? "color-mix(in srgb, var(--accent-green) 12%, transparent)"
-                : "color-mix(in srgb, var(--brand) 12%, transparent)",
-              border: done
-                ? "1px solid color-mix(in srgb, var(--accent-green) 20%, transparent)"
-                : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
-            }}
-          >
-            <span
-              className="text-[18px] font-black leading-none"
-              style={{
-                color: done ? "var(--accent-green)" : "var(--brand-text)",
-              }}
-            >
-              {dayNum}
-            </span>
-            <span
-              className="text-[10px] font-semibold tracking-wide uppercase mt-0.5"
-              style={{
-                color: done
-                  ? "var(--accent-green)"
-                  : "color-mix(in srgb, var(--brand-text) 60%, transparent)",
-              }}
-            >
-              / 7
-            </span>
-          </div>
         </div>
 
         {/* Day progress dots */}
