@@ -69,6 +69,14 @@ function setHeaders(res, pathname) {
   for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
     res.setHeader(name, value);
   }
+  // sirv's lookup has no entry for Word files; with nosniff a blank type
+  // makes some phones refuse to open the download.
+  if (pathname.endsWith(".docx")) {
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    );
+  }
   if (pathname.startsWith("/assets/")) {
     res.setHeader("Cache-Control", IMMUTABLE);
   } else if (

@@ -412,6 +412,14 @@
   }
 }
 
+/* The sticky header changes height with scroll direction. Browser scroll
+   anchoring would compensate for that, which the direction hook then reads as
+   a reverse scroll, so the header and tab bar oscillated. */
+html,
+body {
+  overflow-anchor: none;
+}
+
 /* ── Phone tab bar: a floating dock above the home indicator ── */
 .tab-bar {
   z-index: var(--z-tabbar);
@@ -487,6 +495,14 @@
   width: 28px;
   height: 24px;
   transition: transform 120ms ease;
+}
+
+/* Small phones (iPhone SE): keep "Playbooks" whole */
+@media (max-width: 359.98px) {
+  .tab-bar-label {
+    font-size: 9.5px;
+    letter-spacing: -0.01em;
+  }
 }
 
 /* Landscape phones: slimmer, icon only */

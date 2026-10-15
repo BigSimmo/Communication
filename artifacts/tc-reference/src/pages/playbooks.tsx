@@ -64,6 +64,23 @@ export default function Playbooks() {
   };
 
   const handleMoveCard = (index: number, delta: -1 | 1) => {
+    // Keep focus on the moved card's control so keyboard and screen reader
+    // users can keep reordering; fall back to the other arrow at the ends.
+    const moved = selectedCards[index];
+    const target = index + delta;
+    const atEdge = target === 0 || target === selectedCards.length - 1;
+    const dir = atEdge
+      ? delta < 0
+        ? "later"
+        : "earlier"
+      : delta < 0
+        ? "earlier"
+        : "later";
+    requestAnimationFrame(() => {
+      document
+        .querySelector<HTMLButtonElement>(`[data-reorder="${moved}-${dir}"]`)
+        ?.focus();
+    });
     setSelectedCards((prev) => {
       const next = [...prev];
       const [moved] = next.splice(index, 1);
@@ -107,6 +124,12 @@ export default function Playbooks() {
     if (!deletingPlaybook) return;
     deletePlaybook(deletingPlaybook.id);
     setDeletingPlaybook(null);
+    // The deleted card's buttons are gone, so hand focus to Create
+    requestAnimationFrame(() =>
+      document
+        .querySelector<HTMLButtonElement>("[data-playbook-create]")
+        ?.focus(),
+    );
   };
 
   const handleToggleCardSelection = (cardId: string) => {
@@ -126,6 +149,7 @@ export default function Playbooks() {
           !isEditing && (
             <button
               onClick={handleOpenCreate}
+              data-playbook-create
               className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all shadow-sm active:scale-95"
               style={{
                 minHeight: 44,
@@ -349,6 +373,7 @@ export default function Playbooks() {
                       onClick={() => handleMoveCard(i, -1)}
                       disabled={i === 0}
                       aria-label={`Move ${title} earlier`}
+                      data-reorder={`${id}-earlier`}
                       className="tap-target w-8 h-8 flex items-center justify-center rounded-full disabled:opacity-30"
                       style={{ color: "var(--fg-60)" }}
                     >
@@ -359,6 +384,7 @@ export default function Playbooks() {
                       onClick={() => handleMoveCard(i, 1)}
                       disabled={i === selectedCards.length - 1}
                       aria-label={`Move ${title} later`}
+                      data-reorder={`${id}-later`}
                       className="tap-target w-8 h-8 flex items-center justify-center rounded-full disabled:opacity-30"
                       style={{ color: "var(--fg-60)" }}
                     >

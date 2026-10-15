@@ -383,6 +383,8 @@ export default function Library() {
         id="library-header-details"
         data-testid="library-header-details"
         aria-hidden={!showHeaderDetails}
+        // Collapsed controls must also leave the tab order
+        inert={!showHeaderDetails}
         className="sticky z-10 flex-shrink-0 px-3 md:px-6"
         style={{
           top: "var(--app-header-height, 56px)",

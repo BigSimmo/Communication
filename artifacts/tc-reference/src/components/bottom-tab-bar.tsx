@@ -94,7 +94,7 @@ export function BottomTabBar() {
                 aria-current={active ? "page" : undefined}
                 aria-label={
                   badge && item.id === "favourites"
-                    ? `${item.label}, ${badge} items`
+                    ? `${item.label}, ${badge} ${badge === "1" ? "item" : "items"}`
                     : item.label
                 }
                 data-testid={`nav-tab-${item.id}`}
