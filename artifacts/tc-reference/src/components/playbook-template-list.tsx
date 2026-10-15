@@ -35,7 +35,9 @@ export function PlaybookTemplateList({
         className="text-[12px] leading-relaxed mb-3 px-1"
         style={{ color: "var(--fg-55)" }}
       >
-        Load a sequence, then reorder or swap cards before you save it.
+        Load a sequence, then reorder or swap cards before you save it. These
+        are communication prompts and sit alongside local policy and clinical
+        procedures, not in place of them.
       </p>
       {GROUPS.map(({ context, label }) => {
         const items = PLAYBOOK_TEMPLATES.filter((t) => t.context === context);
