@@ -128,4 +128,29 @@ describe("App header hide on scroll", () => {
     await scrollTo(150);
     await waitFor(() => expect(header).toHaveAttribute("data-hidden", "false"));
   });
+
+  it("stays on screen while keyboard focus is inside it", async () => {
+    Object.defineProperty(document.documentElement, "scrollHeight", {
+      configurable: true,
+      value: 5000,
+    });
+    render(
+      <Wrapper>
+        <AppHeader />
+      </Wrapper>,
+    );
+    const header = screen.getByTestId("app-header");
+    act(() => within(header).getAllByRole("button")[0].focus());
+
+    await act(async () => {
+      Object.defineProperty(window, "scrollY", {
+        configurable: true,
+        value: 200,
+      });
+      window.dispatchEvent(new Event("scroll"));
+      // Let the rAF throttled scroll read run
+      await new Promise((r) => setTimeout(r, 50));
+    });
+    expect(header).toHaveAttribute("data-hidden", "false");
+  });
 });

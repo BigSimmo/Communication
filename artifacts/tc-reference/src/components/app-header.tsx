@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { Link, useLocation } from "wouter";
 import {
   Search,
@@ -115,8 +115,8 @@ export function AppHeader() {
   const { pdfUrl, pdfOpen, setPdfOpen } = usePdf();
   const { isCardFav, toggleCard } = useFavourites();
   const { theme, toggle } = useTheme();
-  // Shrinks to a slim reading bar while scrolling down, restores on the
-  // first deliberate scroll up or near the top. The shared hook clamps iOS
+  // Slides away while scrolling down, returns on the first deliberate
+  // scroll up or near the top. The shared hook clamps iOS
   // overscroll so rubber banding can't make the header flicker.
   const scrollingDown = useScrollDirection(56, 10, location) === "down";
 
@@ -131,8 +131,10 @@ export function AppHeader() {
 
   // The bar keeps one fixed height and slides out of view while reading, so
   // the page never reflows under the reader. It stays put while a panel it
-  // controls is open.
-  const hidden = scrollingDown && !searchOpen && !quickOpen && !pdfOpen;
+  // controls is open, or while keyboard focus is inside it.
+  const [focusWithin, setFocusWithin] = useState(false);
+  const hidden =
+    scrollingDown && !searchOpen && !quickOpen && !pdfOpen && !focusWithin;
   const headerHeight = 52;
 
   useEffect(() => {
@@ -211,6 +213,11 @@ export function AppHeader() {
         }}
         data-testid="app-header"
         data-hidden={hidden}
+        onFocus={() => setFocusWithin(true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node))
+            setFocusWithin(false);
+        }}
       >
         <div
           className="flex items-center h-full [--hdr-px:12px] sm:[--hdr-px:16px] md:[--hdr-px:24px] gap-2.5 md:gap-3 min-w-0"
