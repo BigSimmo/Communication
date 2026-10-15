@@ -65,7 +65,7 @@ export const TC040: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Hear the detail → infer the possible significance → phrase it tentatively → invite correction → pause.",
+      "Hear the detail, infer the possible significance, phrase it tentatively, invite correction, then pause.",
       "It sounds like that mattered because it changed what you could count on.",
       "It seems bigger than the event itself, maybe what it said about being trusted.",
       "The significance seems to be that you were left carrying it alone.",
@@ -485,9 +485,9 @@ export const TC040: CardData = {
   bestRecoveryLine: "I may be reading that wrong. Ignore it if it doesn't fit.",
   chains: [
     {
-      label: "Reflect → deepen → hold",
+      label: "Reflect, deepen, then hold",
       sequence:
-        "TC004 Reflective listening → TC040 Meaning reflection → TC029 Strategic silence",
+        "TC004 Reflective listening, TC040 Meaning reflection, then TC029 Strategic silence",
       example: [
         '"So it all landed at once." (reflect)',
         '"It sounds like the hard part was being left with it." (meaning)',
@@ -495,9 +495,9 @@ export const TC040: CardData = {
       ],
     },
     {
-      label: "Word → meaning → check",
+      label: "Word, meaning, then check",
       sequence:
-        "TC023 Loaded word follow-up → TC040 Meaning reflection → TC011 Summary check",
+        "TC023 Loaded word follow-up, TC040 Meaning reflection, then TC011 Summary check",
       example: [
         "\"You said 'dumped on'. Dumped on how?\" (loaded word)",
         '"It sounds like it meant you weren\'t trusted to be kept in the loop." (meaning)',
@@ -505,9 +505,9 @@ export const TC040: CardData = {
       ],
     },
     {
-      label: "Both sides → meaning → release",
+      label: "Both sides, meaning, then release",
       sequence:
-        "TC037 Double-sided reflection → TC040 Meaning reflection → TC021 Autonomy release",
+        "TC037 Double-sided reflection, TC040 Meaning reflection, then TC021 Autonomy release",
       example: [
         '"Part of you gets why it happened, part of you is still stung." (both sides)',
         '"It sounds like the sting is about respect, not the decision itself." (meaning)',

@@ -31,13 +31,6 @@ export const NAV_DESTINATIONS: NavDestination[] = [
     isActive: (loc) => loc === "/" || loc.startsWith("/card/"),
   },
   {
-    id: "playbooks",
-    label: "Playbooks",
-    href: "/playbooks",
-    icon: BookOpen,
-    isActive: (loc) => loc === "/playbooks",
-  },
-  {
     id: "phrases",
     label: "Phrases",
     href: "/phrases",
@@ -45,18 +38,25 @@ export const NAV_DESTINATIONS: NavDestination[] = [
     isActive: (loc) => loc === "/phrases",
   },
   {
-    id: "favourites",
-    label: "Saved",
-    href: "/favourites",
-    icon: Heart,
-    isActive: (loc) => loc === "/favourites",
-  },
-  {
     id: "drill",
     label: "Drill",
     href: "/drill",
     icon: Dumbbell,
     isActive: (loc) => loc === "/drill",
+  },
+  {
+    id: "playbooks",
+    label: "Playbooks",
+    href: "/playbooks",
+    icon: BookOpen,
+    isActive: (loc) => loc === "/playbooks",
+  },
+  {
+    id: "favourites",
+    label: "Saved",
+    href: "/favourites",
+    icon: Heart,
+    isActive: (loc) => loc === "/favourites",
   },
 ];
 

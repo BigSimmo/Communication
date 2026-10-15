@@ -66,7 +66,7 @@ export const TC027: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Understand → ask their mode → ask permission → give one concise idea → hand back the choice → check how it landed.",
+      "Understand, ask their mode, ask permission, give one concise idea, hand back the choice, then check how it landed.",
       "That sounds exhausting. Do you want me to just listen, or would it help if I offered one possible way to approach it?",
       "I have one thought, but I don't want to jump into fixing mode. Would it be useful?",
       "Would you like my honest take, or are you mainly wanting to vent right now?",
@@ -573,7 +573,7 @@ export const TC027: CardData = {
     {
       label: "Support chain",
       sequence:
-        "Reflect → ask permission → one concise suggestion → release ownership",
+        "Reflect, ask permission, one concise suggestion, then release ownership",
       example: [
         "That sounds exhausting.",
         "Do you want ideas, or just to be heard for a minute?",
@@ -584,7 +584,7 @@ export const TC027: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate the concern → ask permission → suggest one workable path → check the response",
+        "Validate the concern, ask permission, suggest one workable path, then check the response",
       example: [
         "I can see why that landed badly.",
         "Are you open to one possible way forward?",
@@ -595,7 +595,7 @@ export const TC027: CardData = {
     {
       label: "Leadership chain",
       sequence:
-        "Summary check → ask if feedback would help → offer one recommendation → agree the next step",
+        "Summary check, ask if feedback would help, offer one recommendation, then agree the next step",
       example: [
         "So the blocker is sign-off, not the build.",
         "Want my recommendation, or are you still mapping it?",
@@ -606,7 +606,7 @@ export const TC027: CardData = {
     {
       label: "Friendship chain",
       sequence:
-        "Listen → validate → ask comfort-or-advice → respond in the chosen mode",
+        "Listen, validate, ask comfort-or-advice, then respond in the chosen mode",
       example: [
         "That's a lot to carry.",
         "Do you want comfort, or do you want to problem-solve?",

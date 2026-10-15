@@ -546,7 +546,7 @@ export const TC012: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm presence → full-attention signal → live-thread follow-up → reflective listening → specific appreciation",
+        "Warm presence, full-attention signal, live-thread follow-up, reflective listening, then specific appreciation",
       example: [
         '"Good to see you. Come in."',
         'Phone away, turned toward them: "Go on, I\'m with you."',
@@ -558,7 +558,7 @@ export const TC012: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Stop multitasking → full-attention signal → validate the concern → summary check → respond or repair",
+        "Stop multitasking, full-attention signal, validate the concern, summary check, then respond or repair",
       example: [
         '"Let me stop and actually hear this."',
         '"You\'re right to raise it. I can see why that landed badly."',
@@ -569,7 +569,7 @@ export const TC012: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Full-attention signal → ask before you tell → listen for values → values-based framing → autonomy release",
+        "Full-attention signal, ask before you tell, listen for values, values-based framing, then autonomy release",
       example: [
         'Body toward them: "Talk me through it. What matters most here?"',
         '"So reliability is the thing you can\'t compromise on."',
@@ -580,7 +580,7 @@ export const TC012: CardData = {
     {
       label: "Leadership chain",
       sequence:
-        "Full-attention signal → concise summary → clarify the decision point → clean request → follow-up loop",
+        "Full-attention signal, concise summary, clarify the decision point, clean request, then follow-up loop",
       example: [
         '"Give me the headline. I\'ll close this and focus."',
         '"So the blocker is sign-off from finance."',

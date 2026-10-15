@@ -66,7 +66,7 @@ export const TC043: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Open → Affirm → Reflect → Summarise: pick the one move the moment needs.",
+      "Open, affirm, reflect, then summarise: pick the one move the moment needs.",
       'Open: "What matters most to you about this?"',
       'Affirm: "You\'ve clearly put real thought into this."',
       'Reflect: "So it sounds like the timing is the real sticking point."',
@@ -558,7 +558,7 @@ export const TC043: CardData = {
   chains: [
     {
       label: "Structure then check",
-      sequence: "OARS → Summary check (TC011)",
+      sequence: "OARS, then summary check (TC011)",
       example: [
         "Move through the moves, then confirm you both heard the same thing.",
         '"So the main point is the timeline slipping. Is that how you\'d put it too?"',
@@ -566,7 +566,7 @@ export const TC043: CardData = {
     },
     {
       label: "Structure then ask",
-      sequence: "OARS → Clean request (TC013)",
+      sequence: "OARS, then clean request (TC013)",
       example: [
         "Once the issue is clear, make the next ask specific.",
         '"Given all that, could you send me the revised dates by Thursday?"',
@@ -574,7 +574,7 @@ export const TC043: CardData = {
     },
     {
       label: "Structure then release",
-      sequence: "OARS → Autonomy release (TC021)",
+      sequence: "OARS, then autonomy release (TC021)",
       example: [
         "After summarising, hand the choice back.",
         "\"That's how it looks to me, but it's genuinely your call.\"",
@@ -582,7 +582,7 @@ export const TC043: CardData = {
     },
     {
       label: "Validate then structure",
-      sequence: "Validate the concern (TC014) → OARS",
+      sequence: "Validate the concern (TC014), then OARS",
       example: [
         "If emotion is high, acknowledge it first, then organise the thinking.",
         "\"That's a lot to carry. When you're ready, what matters most to sort out first?\"",

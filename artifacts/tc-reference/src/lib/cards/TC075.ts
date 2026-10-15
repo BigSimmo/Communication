@@ -559,7 +559,7 @@ export const TC075: CardData = {
     {
       label: "Feedback without erasure",
       sequence:
-        "Acknowledge effort → Summary check → Permission-based advice → Small ask",
+        "Acknowledge effort, summary check, permission-based advice, then small ask",
       example: [
         "I can see the groundwork you did here.",
         "The core point is X and the open issue is Y, right?",
@@ -570,7 +570,7 @@ export const TC075: CardData = {
     {
       label: "Emotional moment with effort underneath",
       sequence:
-        "Emotional labelling → Acknowledge effort → Meaning reflection → Autonomy release",
+        "Emotional labelling, acknowledge effort, meaning reflection, then autonomy release",
       example: [
         "This sounds draining.",
         "You've still been trying to handle it carefully.",
@@ -581,7 +581,7 @@ export const TC075: CardData = {
     {
       label: "Conflict repair",
       sequence:
-        "Slow down → Acknowledge effort → Double-sided reflection → Clean request",
+        "Slow down, acknowledge effort, double-sided reflection, then clean request",
       example: [
         "(Drop the pace and lower your volume.)",
         "I noticed you paused instead of escalating.",
@@ -592,7 +592,7 @@ export const TC075: CardData = {
     {
       label: "Digital decision support",
       sequence:
-        "Acknowledge effort → BLUF → Two-option question → Low-friction ask",
+        "Acknowledge effort, BLUF, two-option question, then low-friction ask",
       example: [
         "You did the work of making this easy to follow.",
         "Put the decision needed at the top.",

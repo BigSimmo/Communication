@@ -520,7 +520,7 @@ export const TC056: CardData = {
     {
       label: "Soften, detect, develop",
       sequence:
-        "TC003 Comment-before-question → TC056 Topic preference detection → TC001 Live-thread follow-ups",
+        "TC003 Comment-before-question, TC056 Topic preference detection, then TC001 Live-thread follow-ups",
       example: [
         '"That sounds like it took some thought."',
         '"You had a lot more detail on the customer side. Is that the thread to stay with?"',
@@ -530,7 +530,7 @@ export const TC056: CardData = {
     {
       label: "Track, test, switch",
       sequence:
-        "TC041 Topic energy tracking → TC056 Topic preference detection → TC059 Energy-based topic switching",
+        "TC041 Topic energy tracking, TC056 Topic preference detection, then TC059 Energy-based topic switching",
       example: [
         "Notice the energy shift across the whole conversation.",
         '"There\'s more life around the people side than the process side. Which is more useful?"',
@@ -539,7 +539,8 @@ export const TC056: CardData = {
     },
     {
       label: "Offer options, then read them",
-      sequence: "TC034 Two-option questions → TC056 Topic preference detection",
+      sequence:
+        "TC034 Two-option questions, then TC056 Topic preference detection",
       example: [
         '"Do you want to talk about the people side or the process side?"',
         '"I noticed more energy around the people side. Want to start there?"',
@@ -548,7 +549,7 @@ export const TC056: CardData = {
     {
       label: "Map, choose, bookmark",
       sequence:
-        "TC038 Conversation threading → TC056 Topic preference detection → TC065 Conversation bookmarking",
+        "TC038 Conversation threading, TC056 Topic preference detection, then TC065 Conversation bookmarking",
       example: [
         "Lay out the two or three live threads.",
         '"The roadmap thread seems the most useful right now, agreed?"',

@@ -65,7 +65,7 @@ export const TC016: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice the good news → show real interest → name a specific positive part → ask one energising follow-up → stay with their answer.",
+      "Notice the good news, show real interest, name a specific positive part, ask one energising follow-up, then stay with their answer.",
       "That's genuinely good news. What was the best part of it?",
       "That's a proper milestone. What moment made it feel real?",
       "You worked hard for that. How did you find out?",
@@ -497,7 +497,7 @@ export const TC016: CardData = {
     {
       label: "Full celebration",
       sequence:
-        "Full-attention signal → Active-constructive responding → Summary check",
+        "Full-attention signal, active-constructive responding, then summary check",
       example: [
         "Put your phone down and turn toward them.",
         '"That\'s a real win. What was the best part of finding out?"',
@@ -507,7 +507,7 @@ export const TC016: CardData = {
     {
       label: "Celebrate before advising",
       sequence:
-        "Reflective listening → Active-constructive responding → Permission-based advice",
+        "Reflective listening, active-constructive responding, then permission-based advice",
       example: [
         '"So you weren\'t sure it would come through, and now it has."',
         '"That\'s brilliant, you earned that. What are you most pleased about?"',
@@ -516,7 +516,7 @@ export const TC016: CardData = {
     },
     {
       label: "Low-pressure celebration",
-      sequence: "Active-constructive responding → Autonomy release",
+      sequence: "Active-constructive responding, then autonomy release",
       example: [
         '"That\'s genuinely good news. What made it land for you?"',
         '"No pressure to make a thing of it. I\'m just really glad for you."',

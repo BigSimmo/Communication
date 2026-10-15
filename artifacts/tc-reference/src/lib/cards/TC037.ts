@@ -65,7 +65,7 @@ export const TC037: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice the tension → reflect side A → reflect side B → keep both respectful → pause for correction or elaboration.",
+      "Notice the tension, reflect side A, reflect side B, keep both respectful, then pause for correction or elaboration.",
       "Part of you wants one thing, and part of you is worried about the cost.",
       "You can see the upside, and you're also tracking the risk.",
       "You want to say yes, and you're noticing what it would cost.",
@@ -496,7 +496,7 @@ export const TC037: CardData = {
     {
       label: "Hear it, then hold the silence",
       sequence:
-        "TC004 Reflective listening → TC037 Double-sided reflection → TC029 Strategic silence",
+        "TC004 Reflective listening, TC037 Double-sided reflection, then TC029 Strategic silence",
       example: [
         '"So it really knocked you."',
         '"Part of you wants to push on, and part of you needs a break first."',
@@ -506,7 +506,7 @@ export const TC037: CardData = {
     {
       label: "Both sides, then hand it back",
       sequence:
-        "TC005 Validation without agreement → TC037 Double-sided reflection → TC021 Autonomy release",
+        "TC005 Validation without agreement, TC037 Double-sided reflection, then TC021 Autonomy release",
       example: [
         '"It makes sense you\'d be wary."',
         '"You want to trust it, and you\'re not there yet."',
@@ -516,7 +516,7 @@ export const TC037: CardData = {
     {
       label: "Meaning first, then confirm",
       sequence:
-        "TC040 Meaning reflection → TC037 Double-sided reflection → TC011 Summary check",
+        "TC040 Meaning reflection, TC037 Double-sided reflection, then TC011 Summary check",
       example: [
         '"Sounds like it was about respect, not the money."',
         '"You want the apology, and you\'re not sure it would land."',

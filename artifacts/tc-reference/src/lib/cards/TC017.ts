@@ -65,7 +65,7 @@ export const TC017: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Listen for an endorsed value → name it tentatively → connect it to the choice → leave autonomy intact.",
+      "Listen for an endorsed value, name it tentatively, connect it to the choice, then leave autonomy intact.",
       "Given how much you care about fairness, the process might matter as much as the outcome.",
       "You've said quality matters more than speed here. Does that change the decision?",
       "If protecting trust is the value, the next step probably needs to be visible.",
@@ -537,7 +537,7 @@ export const TC017: CardData = {
     {
       label: "Understand then frame",
       sequence:
-        "TC012 Full-attention signal → TC017 Values-based framing → TC011 Summary check",
+        "TC012 Full-attention signal, TC017 Values-based framing, then TC011 Summary check",
       example: [
         "Give them your full attention while they lay out the problem.",
         '"The value I keep hearing is trust. Does the earlier option fit that better?"',
@@ -547,7 +547,7 @@ export const TC017: CardData = {
     {
       label: "Reflect then advise",
       sequence:
-        "TC004 Reflective listening → TC017 Values-based framing → TC027 Permission-based advice",
+        "TC004 Reflective listening, TC017 Values-based framing, then TC027 Permission-based advice",
       example: [
         '"So you\'re torn between telling them now and waiting."',
         '"You\'ve said being straight with people matters to you. Does that lean you one way?"',
@@ -556,7 +556,7 @@ export const TC017: CardData = {
     },
     {
       label: "Frame without pressure",
-      sequence: "TC017 Values-based framing → TC021 Autonomy release",
+      sequence: "TC017 Values-based framing, then TC021 Autonomy release",
       example: [
         '"If fairness is the priority, hearing both sides first probably fits."',
         "\"But it's genuinely your call. I'm only naming what you said mattered.\"",

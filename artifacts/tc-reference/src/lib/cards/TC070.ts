@@ -67,7 +67,7 @@ export const TC070: CardData = {
   overview: {
     coreFormula: [
       "Long form: Given [specific context], it makes sense that [reaction] would show up. That doesn't mean [the problem] is okay. It means your response has a reason. What would help now?",
-      "Short form: context → reaction → dignity → distinction → next step.",
+      "Short form: context, reaction, dignity, distinction, then next step.",
       'Pocket formula: "Given X, Y makes sense. That doesn\'t make X okay."',
       "Safety line: use it to increase clarity, ease and respect, never to pressure, corner or talk someone out of a reasonable standard.",
     ],
@@ -508,7 +508,7 @@ export const TC070: CardData = {
   chains: [
     {
       label: "Reflect, then normalise",
-      sequence: "TC004 Reflective listening → TC070 Careful normalising",
+      sequence: "TC004 Reflective listening, then TC070 Careful normalising",
       example: [
         '"So the part that stung was being told last, not the change itself."',
         '"Given that, it makes sense you feel sidelined, and that doesn\'t make the process okay."',
@@ -516,7 +516,7 @@ export const TC070: CardData = {
     },
     {
       label: "Name the feeling, then normalise",
-      sequence: "TC006 Emotional labelling → TC070 Careful normalising",
+      sequence: "TC006 Emotional labelling, then TC070 Careful normalising",
       example: [
         '"You seem more hurt than annoyed."',
         '"Given the history there, that makes sense."',
@@ -524,7 +524,7 @@ export const TC070: CardData = {
     },
     {
       label: "Normalise, then ask before advising",
-      sequence: "TC070 Careful normalising → TC027 Permission-based advice",
+      sequence: "TC070 Careful normalising, then TC027 Permission-based advice",
       example: [
         '"Given the pressure, it makes sense you\'re rattled."',
         '"Do you want a hand thinking it through, or just to get it off your chest?"',
@@ -532,7 +532,7 @@ export const TC070: CardData = {
     },
     {
       label: "Normalise, then move to repair",
-      sequence: "TC070 Careful normalising → TC053 NVC / OFNR",
+      sequence: "TC070 Careful normalising, then TC053 NVC / OFNR",
       example: [
         '"Your reaction has a reason."',
         '"When the plan changed with no heads-up, I felt blindsided, can we agree on some notice next time?"',

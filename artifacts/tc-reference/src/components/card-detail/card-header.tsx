@@ -1,3 +1,5 @@
+import { useId, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { CARD_CATEGORY_MAP, CARD_TITLE_MAP } from "./card-sections";
@@ -35,14 +37,20 @@ export function CardHeader({
   cardData: CardData;
 }) {
   const contrast = briefContrast(cardData);
+  const hasExample = Boolean(contrast.weak || contrast.best);
+  const [exampleOpen, setExampleOpen] = useState(false);
+  const exampleId = useId();
+  const impact = cardData.overview.impact;
+  const impactStyle = impact ? impactStyleFor(impact) : null;
   return (
     <>
       {/* ── Technique brief ──
-        Leads with the move itself plus the quickest weak/best contrast;
-        the full formula lives in Overview directly below. On phones the
-        header truncates the title behind its tools, so the brief repeats
-        it in full; from sm up the header shows it whole. */}
-      <div className="px-3 md:px-4 pt-4">
+        A compact, scannable lead: what it is, how hard, and the move itself,
+        so the section nav stays on the first phone screen. The weak/best
+        contrast folds behind a disclosure on phones and shows inline from md
+        up. On phones the header truncates the title behind its tools, so the
+        brief repeats it in full; from sm up the header shows it whole. */}
+      <div className="px-3 md:px-4 pt-3 md:pt-4">
         <div
           className="rounded-2xl p-4 sm:p-5 border relative overflow-hidden"
           style={{
@@ -51,9 +59,9 @@ export function CardHeader({
             borderColor: "color-mix(in srgb, var(--brand) 18%, var(--fg-08))",
           }}
         >
-          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <p
-              className="text-[11px] font-bold tracking-[0.12em] uppercase"
+              className="mr-auto min-w-0 text-[11px] font-bold tracking-[0.12em] uppercase"
               style={{ color: "var(--brand-text)" }}
             >
               <span className="sm:hidden">{cardId} · </span>
@@ -61,18 +69,9 @@ export function CardHeader({
                 {CARD_CATEGORY_MAP[cardId] ?? "Technique"}
               </span>
             </p>
-            {/* The header h1 carries the title from sm up; on phones it is
-              truncated there, so this heading shows it whole. */}
-            <h2
-              className="w-full sm:sr-only text-[22px] font-bold leading-tight tracking-[-0.01em]"
-              style={{ color: "var(--fg-90)" }}
-              data-testid="card-brief-title"
-            >
-              {CARD_TITLE_MAP[cardId] ?? cardId}
-            </h2>
             <div className="flex items-center gap-1.5">
               <span
-                className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
+                className="text-[11px] font-semibold leading-none px-2 py-[5px] rounded-full"
                 style={{
                   background: "var(--fg-06)",
                   color: "var(--fg-65)",
@@ -80,88 +79,115 @@ export function CardHeader({
               >
                 {cardData.overview.difficulty}
               </span>
-              {cardData.overview.impact &&
-                (() => {
-                  const impactStyle = impactStyleFor(cardData.overview.impact);
-                  return (
-                    <span
-                      className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
-                      style={{
-                        background: impactStyle.bg,
-                        color: impactStyle.color,
-                      }}
-                    >
-                      {cardData.overview.impact} impact
-                    </span>
-                  );
-                })()}
+              {impact && impactStyle && (
+                <span
+                  className="text-[11px] font-semibold leading-none px-2 py-[5px] rounded-full"
+                  style={{
+                    background: impactStyle.bg,
+                    color: impactStyle.color,
+                  }}
+                >
+                  {impact} impact
+                </span>
+              )}
             </div>
           </div>
 
+          {/* The header h1 carries the title from sm up; on phones it is
+            truncated there, so this heading shows it whole. */}
+          <h2
+            className="sm:sr-only mt-1.5 text-[22px] font-bold leading-[1.2] tracking-[-0.01em]"
+            style={{ color: "var(--fg-90)" }}
+            data-testid="card-brief-title"
+          >
+            {CARD_TITLE_MAP[cardId] ?? cardId}
+          </h2>
+
           <p
-            className="text-[11px] font-bold tracking-wider uppercase mt-4 mb-1.5"
+            className="text-[11px] font-bold tracking-wider uppercase mt-3 mb-1"
             style={{ color: "var(--fg-50)" }}
           >
             Minimum viable move
           </p>
           <p
-            className="text-[16px] font-semibold leading-snug"
+            className="text-[15px] sm:text-[16px] font-semibold leading-snug"
             style={{ color: "var(--fg-90)" }}
           >
             {cardData.overview.minimumViableMove}
           </p>
 
-          {contrast && (contrast.weak || contrast.best) && (
-            <div
-              className="mt-4 rounded-xl overflow-hidden text-[13px]"
-              style={{ border: "1px solid var(--fg-07)" }}
-              data-testid="card-brief-ladder"
-            >
-              {contrast.weak && (
-                <div
-                  className="flex gap-2.5 px-3.5 py-2.5"
-                  style={{ background: "var(--fg-02)" }}
-                >
-                  <span
-                    className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
-                    style={{ color: "var(--accent-red)" }}
-                  >
-                    Weak
-                  </span>
-                  <span
-                    className="min-w-0 leading-snug line-clamp-2"
-                    style={{ color: "var(--fg-55)" }}
-                  >
-                    {contrast.weak}
-                  </span>
-                </div>
-              )}
-              {contrast.best && (
-                <div
-                  className="flex gap-2.5 px-3.5 py-2.5"
+          {hasExample && (
+            <>
+              <button
+                type="button"
+                onClick={() => setExampleOpen((open) => !open)}
+                aria-expanded={exampleOpen}
+                aria-controls={exampleId}
+                data-testid="card-brief-example-toggle"
+                className="md:hidden -mx-2 -mb-2 mt-1 flex min-h-11 items-center gap-1.5 rounded-lg px-2 text-[13px] font-semibold transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)]"
+                style={{ color: "var(--brand-text)" }}
+              >
+                {exampleOpen ? "Hide example" : "Show example"}
+                <ChevronDown
+                  className="h-4 w-4 transition-transform duration-200"
                   style={{
-                    background:
-                      "color-mix(in srgb, var(--accent-green) 7%, transparent)",
-                    borderTop: contrast.weak
-                      ? "1px solid var(--fg-06)"
-                      : undefined,
+                    transform: exampleOpen ? "rotate(180deg)" : "none",
                   }}
-                >
-                  <span
-                    className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
-                    style={{ color: "var(--accent-green)" }}
+                  aria-hidden="true"
+                />
+              </button>
+              <div
+                id={exampleId}
+                className={`${exampleOpen ? "block mt-2 mb-1" : "hidden"} md:block md:mt-4 md:mb-0 rounded-xl overflow-hidden text-[13px]`}
+                style={{ border: "1px solid var(--fg-07)" }}
+                data-testid="card-brief-ladder"
+              >
+                {contrast.weak && (
+                  <div
+                    className="flex gap-2.5 px-3.5 py-2.5"
+                    style={{ background: "var(--fg-02)" }}
                   >
-                    Best
-                  </span>
-                  <span
-                    className="min-w-0 leading-snug font-medium line-clamp-3"
-                    style={{ color: "var(--fg-85)" }}
+                    <span
+                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
+                      style={{ color: "var(--accent-red)" }}
+                    >
+                      Weak
+                    </span>
+                    <span
+                      className="min-w-0 leading-snug line-clamp-2"
+                      style={{ color: "var(--fg-55)" }}
+                    >
+                      {contrast.weak}
+                    </span>
+                  </div>
+                )}
+                {contrast.best && (
+                  <div
+                    className="flex gap-2.5 px-3.5 py-2.5"
+                    style={{
+                      background:
+                        "color-mix(in srgb, var(--accent-green) 7%, transparent)",
+                      borderTop: contrast.weak
+                        ? "1px solid var(--fg-06)"
+                        : undefined,
+                    }}
                   >
-                    {contrast.best}
-                  </span>
-                </div>
-              )}
-            </div>
+                    <span
+                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
+                      style={{ color: "var(--accent-green)" }}
+                    >
+                      Best
+                    </span>
+                    <span
+                      className="min-w-0 leading-snug font-medium line-clamp-3"
+                      style={{ color: "var(--fg-85)" }}
+                    >
+                      {contrast.best}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </>
           )}
         </div>
       </div>

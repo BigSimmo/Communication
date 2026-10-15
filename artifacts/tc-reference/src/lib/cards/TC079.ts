@@ -526,7 +526,7 @@ export const TC079: CardData = {
   chains: [
     {
       label: "Validate, then differ",
-      sequence: "Validation without agreement → Permission to disagree",
+      sequence: "Validation without agreement, then permission to disagree",
       example: [
         '"I get why that worries you."',
         '"Can I offer a different read on the cause?"',
@@ -534,7 +534,7 @@ export const TC079: CardData = {
     },
     {
       label: "Permission, then evidence",
-      sequence: "Permission to disagree → SBI",
+      sequence: "Permission to disagree, then SBI",
       example: [
         '"May I challenge one part?"',
         '"In yesterday\'s meeting, when the decision changed after the deadline, the impact was rework for the whole team."',
@@ -542,7 +542,7 @@ export const TC079: CardData = {
     },
     {
       label: "Differ, then release",
-      sequence: "Permission to disagree → Autonomy release",
+      sequence: "Permission to disagree, then autonomy release",
       example: [
         '"I see it differently."',
         '"But you don\'t have to take my view as final."',
@@ -550,7 +550,7 @@ export const TC079: CardData = {
     },
     {
       label: "Differ, then move to workable",
-      sequence: "Permission to disagree → Ask what would make it workable",
+      sequence: "Permission to disagree, then ask what would make it workable",
       example: [
         '"I see the current plan differently."',
         '"What would make a smaller version workable?"',

@@ -1,37 +1,52 @@
-import { FileText } from "lucide-react";
+import { Eye, FileText } from "lucide-react";
+import { usePdf } from "@/lib/pdf-context";
 import type { CardData } from "@/lib/card-types";
 import { SectionAccordion } from "./section-accordion";
 
 // ── Downloads ──
 export function ResourcesSection({ cardData }: { cardData: CardData }) {
+  const { pdfUrl, setPdfOpen } = usePdf();
   return (
     <SectionAccordion
       id="resources"
       label="Downloads"
       subtitle="PDFs and reference files"
     >
-      <div
-        className="rounded-2xl px-4 py-3 mb-5 flex items-start gap-3"
-        style={{
-          background:
-            "color-mix(in srgb, var(--accent-purple) 7%, transparent)",
-          border:
-            "1px solid color-mix(in srgb, var(--accent-purple) 14%, transparent)",
-        }}
-      >
-        <FileText
-          className="w-4 h-4 mt-0.5 flex-shrink-0"
-          style={{ color: "var(--accent-purple)" }}
-          aria-hidden="true"
-        />
-        <p
-          className="text-[12px] leading-relaxed"
-          style={{ color: "var(--fg-55)" }}
+      {pdfUrl && (
+        <button
+          type="button"
+          onClick={() => setPdfOpen(true)}
+          data-testid="resources-view-pdf"
+          className="w-full rounded-2xl px-4 py-3.5 mb-5 flex items-center gap-3 text-left transition-all active:scale-[0.98]"
+          style={{
+            minHeight: 56,
+            background:
+              "color-mix(in srgb, var(--accent-purple) 7%, transparent)",
+            border:
+              "1px solid color-mix(in srgb, var(--accent-purple) 18%, transparent)",
+          }}
         >
-          The visual card PDF can also be viewed in-app using the PDF button in
-          the top navigation.
-        </p>
-      </div>
+          <Eye
+            className="w-4 h-4 flex-shrink-0"
+            style={{ color: "var(--accent-purple)" }}
+            aria-hidden="true"
+          />
+          <span className="flex-1 min-w-0">
+            <span
+              className="block text-[13px] font-semibold"
+              style={{ color: "var(--fg-85)" }}
+            >
+              View the visual card
+            </span>
+            <span
+              className="block text-[12px] mt-0.5"
+              style={{ color: "var(--fg-55)" }}
+            >
+              Opens the printable card here without leaving the app.
+            </span>
+          </span>
+        </button>
+      )}
 
       {(["Visual Cards", "Written Guides", "Practice Tools"] as const).map(
         (group) => {

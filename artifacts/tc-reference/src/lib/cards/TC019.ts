@@ -526,9 +526,9 @@ export const TC019: CardData = {
     "Let me make that smaller. Just the one thing, and only if it's easy.",
   chains: [
     {
-      label: "Attention → ask → check",
+      label: "Attention, ask, then check",
       sequence:
-        "TC012 Full-attention signal → TC019 Small ask → TC011 Summary check",
+        "TC012 Full-attention signal, TC019 Small ask, then TC011 Summary check",
       example: [
         '"I\'m with you on this."',
         '"Could you decide just the next step today?"',
@@ -536,9 +536,9 @@ export const TC019: CardData = {
       ],
     },
     {
-      label: "Listen → ask → advise",
+      label: "Listen, ask, then advise",
       sequence:
-        "TC004 Reflective listening → TC019 Small ask → TC027 Permission-based advice",
+        "TC004 Reflective listening, TC019 Small ask, then TC027 Permission-based advice",
       example: [
         '"So the whole thing feels overwhelming right now."',
         '"Could we just pick the one part to start with?"',
@@ -546,16 +546,16 @@ export const TC019: CardData = {
       ],
     },
     {
-      label: "Ask → release pressure",
-      sequence: "TC019 Small ask → TC021 Autonomy release",
+      label: "Ask, then release pressure",
+      sequence: "TC019 Small ask, then TC021 Autonomy release",
       example: [
         '"Could you look at just the first paragraph?"',
         '"But genuinely, no pressure. It\'s entirely your call."',
       ],
     },
     {
-      label: "Clarify → shrink",
-      sequence: "TC013 Clean request → TC019 Small ask",
+      label: "Clarify, then shrink",
+      sequence: "TC013 Clean request, then TC019 Small ask",
       example: [
         '"Here\'s exactly what I need."',
         '"And if that\'s a lot, even just the first step would help."',

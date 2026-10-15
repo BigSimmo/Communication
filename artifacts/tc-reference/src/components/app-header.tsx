@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { Link, useLocation } from "wouter";
 import {
   Search,
@@ -35,7 +35,7 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
 // Header title per top-level route. The Library keeps the brand name; other
 // pages name themselves so the header always says where you are.
 const PAGE_TITLES: Record<string, string> = {
-  "/": "TC Library",
+  "/": "Library",
   "/phrases": "Phrase Bank",
   "/drill": "Daily Drill",
   "/favourites": "Favourites",
@@ -115,10 +115,10 @@ export function AppHeader() {
   const { pdfUrl, pdfOpen, setPdfOpen } = usePdf();
   const { isCardFav, toggleCard } = useFavourites();
   const { theme, toggle } = useTheme();
-  // Shrinks to a slim reading bar while scrolling down, restores on the
-  // first deliberate scroll up or near the top. The shared hook clamps iOS
+  // Slides away while scrolling down, returns on the first deliberate
+  // scroll up or near the top. The shared hook clamps iOS
   // overscroll so rubber banding can't make the header flicker.
-  const compact = useScrollDirection(24, 12, location) === "down";
+  const scrollingDown = useScrollDirection(56, 10, location) === "down";
 
   const cardId = location.startsWith("/card/")
     ? location.replace("/card/", "").split("?")[0]
@@ -129,22 +129,29 @@ export function AppHeader() {
   const TitleTag: "h1" | "p" = location === "/" ? "h1" : "p";
   const cardMeta = cardId ? (CARD_META[cardId] ?? null) : null;
 
-  // Compact actions shrink to 28px and keep a full height hit area via CSS
-  // (see .app-header[data-compact] in index.css).
-  const headerHeight = compact ? 34 : 48;
+  // The bar keeps one fixed height and slides out of view while reading, so
+  // the page never reflows under the reader. It stays put while a panel it
+  // controls is open, or while keyboard focus is inside it.
+  const [focusWithin, setFocusWithin] = useState(false);
+  const hidden =
+    scrollingDown && !searchOpen && !quickOpen && !pdfOpen && !focusWithin;
+  const headerHeight = 52;
 
   useEffect(() => {
     // Includes the top safe-area inset so sticky elements offset by this var
     // sit flush below the header when it extends under the status bar
     // (standalone PWA with viewport-fit=cover; env() is 0px elsewhere).
+    // While hidden, sticky sub-bars move up to sit under the status bar.
     document.documentElement.style.setProperty(
       "--app-header-height",
-      `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
+      hidden
+        ? "env(safe-area-inset-top, 0px)"
+        : `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
     );
-  }, [headerHeight]);
+  }, [hidden]);
 
   const isLibraryRoute = location === "/";
-  const pageTitle = PAGE_TITLES[location] ?? "TC Library";
+  const pageTitle = PAGE_TITLES[location] ?? "Library";
 
   const searchButton = (testId: string) => (
     <HeaderIconButton
@@ -172,13 +179,13 @@ export function AppHeader() {
     </HeaderIconButton>
   );
 
-  // Hidden while the header is compact; it returns on scroll up
+  // Phones reach the theme setting from Saved; the header stays light
   const themeButton = (testId: string, className: string) => (
     <HeaderIconButton
       label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       testId={testId}
       onClick={toggle}
-      className={`header-compact-hide ${className}`}
+      className={className}
     >
       {theme === "dark" ? (
         <Sun className="w-4 h-4" aria-hidden="true" />
@@ -199,15 +206,18 @@ export function AppHeader() {
           borderBottom: "1px solid var(--fg-07)",
           paddingTop: "env(safe-area-inset-top, 0px)",
           height: `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
-          minHeight: `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
-          maxHeight: `calc(${headerHeight}px + env(safe-area-inset-top, 0px))`,
-          transform: "translateZ(0)",
-          contain: "layout paint",
-          transition:
-            "height 180ms ease, min-height 180ms ease, max-height 180ms ease",
+          // Slides up but leaves the status bar strip covered
+          transform: hidden
+            ? "translateY(calc(-100% + env(safe-area-inset-top, 0px)))"
+            : "translateY(0)",
         }}
         data-testid="app-header"
-        data-compact={compact}
+        data-hidden={hidden}
+        onFocus={() => setFocusWithin(true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node))
+            setFocusWithin(false);
+        }}
       >
         <div
           className="flex items-center h-full [--hdr-px:12px] sm:[--hdr-px:16px] md:[--hdr-px:24px] gap-2.5 md:gap-3 min-w-0"
@@ -244,8 +254,7 @@ export function AppHeader() {
                   className="font-bold leading-tight truncate"
                   style={{
                     color: "var(--fg-90)",
-                    fontSize: compact ? 13.5 : 15,
-                    transition: "font-size 180ms ease",
+                    fontSize: 15.5,
                   }}
                   data-testid="card-title"
                 >
@@ -277,6 +286,7 @@ export function AppHeader() {
                     testId="button-card-pdf"
                     active={pdfOpen}
                     onClick={() => setPdfOpen(true)}
+                    className="inline-flex header-wide-only"
                   >
                     <FileText className="w-4 h-4" aria-hidden="true" />
                   </HeaderIconButton>
@@ -299,46 +309,33 @@ export function AppHeader() {
                   aria-hidden="true"
                   className="flex md:hidden items-center justify-center flex-shrink-0"
                   style={{
-                    width: compact ? 22 : 30,
-                    height: compact ? 22 : 30,
-                    borderRadius: compact ? 7 : 9,
+                    width: 30,
+                    height: 30,
+                    borderRadius: 9,
                     background: "var(--gradient-active)",
                     boxShadow:
                       "0 1px 4px color-mix(in srgb, var(--brand) 30%, transparent), inset 0 1px 0 rgba(255,255,255,0.3)",
-                    transition:
-                      "width 180ms ease, height 180ms ease, border-radius 180ms ease",
                   }}
                 >
                   <BookOpen
-                    className={compact ? "w-3 h-3" : "w-[15px] h-[15px]"}
+                    className="w-[15px] h-[15px]"
                     style={{ color: "var(--brand-contrast)" }}
                     aria-hidden="true"
                   />
                 </span>
                 <div className="min-w-0 leading-none">
                   <p
-                    className="text-[9.5px] font-bold tracking-[0.14em] uppercase leading-none"
-                    style={{
-                      color: "var(--brand-text)",
-                      opacity: compact ? 0 : 0.85,
-                      maxHeight: compact ? 0 : 11,
-                      marginBottom: compact ? 0 : 2,
-                      overflow: "hidden",
-                      transition:
-                        "opacity 150ms ease, max-height 180ms ease, margin-bottom 180ms ease",
-                    }}
+                    className="text-[10px] font-bold tracking-[0.12em] uppercase leading-none mb-[3px]"
+                    style={{ color: "var(--brand-text)" }}
                     data-testid="library-subtitle"
                   >
-                    {PAGE_TITLES[location] && !isLibraryRoute
-                      ? "TC Library"
-                      : "Technique cards"}
+                    TC Reference
                   </p>
                   <TitleTag
                     className="font-bold leading-none truncate"
                     style={{
                       color: "var(--fg-90)",
-                      fontSize: compact ? 14 : 16,
-                      transition: "font-size 180ms ease",
+                      fontSize: 17,
                     }}
                     data-testid="library-title"
                   >
@@ -367,7 +364,7 @@ export function AppHeader() {
                   searchButton("button-header-search")
                 )}
                 {quickButton}
-                {themeButton("button-theme-toggle", "inline-flex")}
+                {themeButton("button-theme-toggle", "header-desktop-only")}
               </div>
             </div>
           )}

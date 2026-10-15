@@ -65,7 +65,7 @@ export const TC018: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Name the specific action → name the positive effect → keep it proportionate → stop before it becomes flattery.",
+      "Name the specific action, name the positive effect, keep it proportionate, then stop before it becomes flattery.",
       '"I appreciated how you grouped the actions. It saved everyone re-reading the thread."',
       "\"Thanks for chasing the supplier twice. It's the reason we didn't slip the deadline.\"",
       '"The way you let the customer finish before answering is why they calmed down."',
@@ -413,7 +413,7 @@ export const TC018: CardData = {
     {
       step: "3",
       title: "Name the action, then the effect",
-      body: 'Say what they did, then what it changed.\nFormula:\naction → effect\nExamples:\n"You chased the supplier twice, and that\'s why we didn\'t slip."\n"You let them finish before answering, and it calmed the whole room."\nThe action makes it true. The effect makes it matter.',
+      body: 'Say what they did, then what it changed.\nFormula:\naction, then effect\nExamples:\n"You chased the supplier twice, and that\'s why we didn\'t slip."\n"You let them finish before answering, and it calmed the whole room."\nThe action makes it true. The effect makes it matter.',
     },
     {
       step: "4",
@@ -513,7 +513,7 @@ export const TC018: CardData = {
     {
       label: "Trust-building chain",
       sequence:
-        "TC012 Full-attention signal → TC018 Specific appreciation → TC011 Summary check",
+        "TC012 Full-attention signal, TC018 Specific appreciation, then TC011 Summary check",
       example: [
         "Give them your full attention while they explain.",
         '"I appreciated how you sequenced that. It made the plan easy to follow."',
@@ -523,7 +523,7 @@ export const TC018: CardData = {
     {
       label: "Support-then-advice chain",
       sequence:
-        "TC004 Reflective listening → TC018 Specific appreciation → TC027 Permission-based advice",
+        "TC004 Reflective listening, TC018 Specific appreciation, then TC027 Permission-based advice",
       example: [
         '"So the tricky part was getting sign-off from two teams at once."',
         '"The way you kept both of them in the loop stopped it stalling."',
@@ -532,7 +532,7 @@ export const TC018: CardData = {
     },
     {
       label: "Low-pressure chain",
-      sequence: "TC018 Specific appreciation → TC021 Autonomy release",
+      sequence: "TC018 Specific appreciation, then TC021 Autonomy release",
       example: [
         '"Chasing the supplier twice is why we didn\'t slip. That mattered."',
         '"No need to do anything with that. I just wanted you to know."',

@@ -528,7 +528,8 @@ export const TC077: CardData = {
   chains: [
     {
       label: "Reflect first, then split",
-      sequence: "Reflective listening (TC004) → Agreement before disagreement",
+      sequence:
+        "Reflective listening (TC004), then agreement before disagreement",
       example: [
         '"So the worry is that we\'ll miss the launch window."',
         '"You\'re right that the window is tight. Where I differ is that skipping the test protects it."',
@@ -537,7 +538,7 @@ export const TC077: CardData = {
     {
       label: "Validate, then agree only with what's true",
       sequence:
-        "Validation without agreement (TC005) → Agreement before disagreement",
+        "Validation without agreement (TC005), then agreement before disagreement",
       example: [
         '"It makes sense you\'re frustrated after that call."',
         '"I agree the process was clumsy. I don\'t agree it was deliberate."',
@@ -545,7 +546,7 @@ export const TC077: CardData = {
     },
     {
       label: "Split, then structure the feedback",
-      sequence: "Agreement before disagreement → SBI (TC052)",
+      sequence: "Agreement before disagreement, then SBI (TC052)",
       example: [
         '"I agree the report was thorough."',
         '"In the meeting, the summary ran ten minutes, and we lost the decision time."',
@@ -553,7 +554,7 @@ export const TC077: CardData = {
     },
     {
       label: "Disagree, then hand back the choice",
-      sequence: "Agreement before disagreement → Autonomy release (TC021)",
+      sequence: "Agreement before disagreement, then autonomy release (TC021)",
       example: [
         '"I agree the aim is right. I differ on the route."',
         "\"You don't have to take my view. That's just the distinction I see.\"",

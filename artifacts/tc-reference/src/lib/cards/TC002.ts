@@ -64,8 +64,8 @@ export const TC002: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice the shift impulse → support their thread → invite one more detail → share only if it adds value → return to them.",
-      "Short form: notice → respond → invite → calibrate → release.",
+      "Notice the shift impulse, support their thread, invite one more detail, share only if it adds value, then return to them.",
+      "Short form: notice, respond, invite, calibrate, then release.",
       '"That sounds rough. What part went wrong?" then actually listen before you relate.',
       '"I\'ve been there too, but yours sounds like the bigger story. What happened?"',
       '"That\'s a big one. What was the best bit?" Support the win before you match it.',
@@ -533,8 +533,8 @@ export const TC002: CardData = {
     "Actually, your bit is the important one here. What happened next?",
   chains: [
     {
-      label: "Support → comment before question",
-      sequence: "TC002 → TC003",
+      label: "Support, then comment before question",
+      sequence: "TC002, then TC003",
       example: [
         'Them: "We finally shipped it."',
         'You (support): "That\'s a real milestone."',
@@ -542,8 +542,8 @@ export const TC002: CardData = {
       ],
     },
     {
-      label: "Support → summary check",
-      sequence: "TC002 → TC011",
+      label: "Support, then summary check",
+      sequence: "TC002, then TC011",
       example: [
         "They vent about a tangled week.",
         'You (support): "That sounds like a lot at once."',
@@ -551,8 +551,8 @@ export const TC002: CardData = {
       ],
     },
     {
-      label: "Support → specific appreciation",
-      sequence: "TC002 → TC018",
+      label: "Support, then specific appreciation",
+      sequence: "TC002, then TC018",
       example: [
         "They share a win.",
         'You (support): "What made it click?"',
@@ -560,8 +560,8 @@ export const TC002: CardData = {
       ],
     },
     {
-      label: "Support → echo plus question",
-      sequence: "TC002 → TC030",
+      label: "Support, then echo plus question",
+      sequence: "TC002, then TC030",
       example: [
         'Them: "It was fine, just weirdly tense."',
         'You (echo): "Weirdly tense..."',

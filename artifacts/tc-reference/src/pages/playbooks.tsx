@@ -15,6 +15,9 @@ import {
 import { usePlaybooks, Playbook } from "@/lib/playbook-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
+import { PageIntro } from "@/components/page-intro";
+import { PlaybookTemplateList } from "@/components/playbook-template-list";
+import type { PlaybookTemplate } from "@/lib/playbook-templates";
 
 const ALL_CARDS = Object.values(LIBRARY_CATEGORIES).flat();
 const CARD_MAP = Object.fromEntries(ALL_CARDS.map((c) => [c.id, c]));
@@ -61,6 +64,23 @@ export default function Playbooks() {
   };
 
   const handleMoveCard = (index: number, delta: -1 | 1) => {
+    // Keep focus on the moved card's control so keyboard and screen reader
+    // users can keep reordering; fall back to the other arrow at the ends.
+    const moved = selectedCards[index];
+    const target = index + delta;
+    const atEdge = target === 0 || target === selectedCards.length - 1;
+    const dir = atEdge
+      ? delta < 0
+        ? "later"
+        : "earlier"
+      : delta < 0
+        ? "earlier"
+        : "later";
+    requestAnimationFrame(() => {
+      document
+        .querySelector<HTMLButtonElement>(`[data-reorder="${moved}-${dir}"]`)
+        ?.focus();
+    });
     setSelectedCards((prev) => {
       const next = [...prev];
       const [moved] = next.splice(index, 1);
@@ -69,12 +89,13 @@ export default function Playbooks() {
     });
   };
 
-  // A worked example so the empty state shows what a playbook looks like
-  const handleOpenExample = () => {
+  // Templates load into the editor so they can be adjusted before saving
+  const handleUseTemplate = (template: PlaybookTemplate) => {
     handleOpenCreate();
-    setName("Difficult conversation");
-    setDescription("Open warmly, confirm understanding, then make the ask.");
-    setSelectedCards(["TC024", "TC011", "TC013"]);
+    setName(template.name);
+    setDescription(template.description);
+    setSelectedCards(template.cardIds);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleOpenEdit = (pb: Playbook) => {
@@ -103,6 +124,12 @@ export default function Playbooks() {
     if (!deletingPlaybook) return;
     deletePlaybook(deletingPlaybook.id);
     setDeletingPlaybook(null);
+    // The deleted card's buttons are gone, so hand focus to Create
+    requestAnimationFrame(() =>
+      document
+        .querySelector<HTMLButtonElement>("[data-playbook-create]")
+        ?.focus(),
+    );
   };
 
   const handleToggleCardSelection = (cardId: string) => {
@@ -114,34 +141,30 @@ export default function Playbooks() {
   };
 
   return (
-    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-6 gap-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1
-            className="text-xl font-bold tracking-tight"
-            style={{ color: "var(--fg-85)" }}
-          >
-            Playbooks
-          </h1>
-          <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
-            Chain communication techniques into custom guides.
-          </p>
-        </div>
-        {!isEditing && (
-          <button
-            onClick={handleOpenCreate}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[12px] font-bold transition-all shadow-sm active:scale-95"
-            style={{
-              minHeight: 44,
-              background:
-                "linear-gradient(135deg, var(--brand), var(--brand-bright))",
-              color: "var(--brand-contrast)",
-            }}
-          >
-            <Plus className="w-4 h-4" aria-hidden="true" /> Create
-          </button>
-        )}
-      </div>
+    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-4 md:pt-6 pb-6 gap-5">
+      <PageIntro
+        title="Playbooks"
+        description="Chain techniques into a step by step plan for a conversation you can see coming."
+        action={
+          // The empty state carries its own Create button
+          !isEditing &&
+          playbooks.length > 0 && (
+            <button
+              onClick={handleOpenCreate}
+              data-playbook-create
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all shadow-sm active:scale-95"
+              style={{
+                minHeight: 44,
+                background:
+                  "linear-gradient(135deg, var(--brand), var(--brand-bright))",
+                color: "var(--brand-contrast)",
+              }}
+            >
+              <Plus className="w-4 h-4" aria-hidden="true" /> Create
+            </button>
+          )
+        }
+      />
 
       {isEditing ? (
         <div
@@ -352,6 +375,7 @@ export default function Playbooks() {
                       onClick={() => handleMoveCard(i, -1)}
                       disabled={i === 0}
                       aria-label={`Move ${title} earlier`}
+                      data-reorder={`${id}-earlier`}
                       className="tap-target w-8 h-8 flex items-center justify-center rounded-full disabled:opacity-30"
                       style={{ color: "var(--fg-60)" }}
                     >
@@ -362,6 +386,7 @@ export default function Playbooks() {
                       onClick={() => handleMoveCard(i, 1)}
                       disabled={i === selectedCards.length - 1}
                       aria-label={`Move ${title} later`}
+                      data-reorder={`${id}-later`}
                       className="tap-target w-8 h-8 flex items-center justify-center rounded-full disabled:opacity-30"
                       style={{ color: "var(--fg-60)" }}
                     >
@@ -412,8 +437,8 @@ export default function Playbooks() {
                   className="text-[12px] max-w-[280px] mx-auto mt-1"
                   style={{ color: "var(--fg-55)" }}
                 >
-                  Combine multiple communication cards to map out structured
-                  dialogues or preparation flows.
+                  Build your own sequence of cards, or start from one of the
+                  templates below.
                 </p>
               </div>
               <button
@@ -427,13 +452,6 @@ export default function Playbooks() {
                 }}
               >
                 Create playbook
-              </button>
-              <button
-                onClick={handleOpenExample}
-                className="text-[12px] font-semibold px-3 rounded-lg transition-colors hover:bg-[var(--fg-05)]"
-                style={{ minHeight: 40, color: "var(--fg-60)" }}
-              >
-                Start from an example
               </button>
             </div>
           ) : (
@@ -489,43 +507,56 @@ export default function Playbooks() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2.5 items-center">
+                <ol className="flex flex-col gap-1.5">
                   {pb.cardIds.map((cid, i) => {
                     const c = CARD_MAP[cid];
                     if (!c) return null;
                     return (
-                      <div key={cid} className="flex items-center gap-1">
+                      <li key={cid}>
                         <button
                           onClick={() => setLocation(`/card/${cid}`)}
-                          className="tap-target-y flex items-center gap-1 px-3 py-1.5 rounded-lg text-[12px] font-medium transition-colors active:scale-95"
+                          className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left text-[13px] transition-colors active:scale-[0.98] hover:bg-[var(--fg-05)]"
                           style={{
-                            minHeight: 36,
-                            background: "var(--fg-05)",
-                            border: "1px solid var(--fg-08)",
-                            color: "var(--fg-65)",
+                            minHeight: 44,
+                            background: "var(--fg-03)",
+                            border: "1px solid var(--fg-07)",
+                            color: "var(--fg-80)",
                           }}
                         >
                           <span
-                            className="font-bold"
-                            style={{ color: "var(--brand-text)" }}
+                            className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0"
+                            style={{
+                              background:
+                                "color-mix(in srgb, var(--brand) 14%, transparent)",
+                              color: "var(--brand-text)",
+                            }}
+                            aria-hidden="true"
+                          >
+                            {i + 1}
+                          </span>
+                          <span className="flex-1 min-w-0 font-medium leading-snug">
+                            {c.title}
+                          </span>
+                          <span
+                            className="text-[11px] font-semibold flex-shrink-0"
+                            style={{ color: "var(--fg-45)" }}
                           >
                             {cid}
                           </span>
-                          <span>{c.title}</span>
-                        </button>
-                        {i < pb.cardIds.length - 1 && (
                           <ChevronRight
-                            className="w-3.5 h-3.5"
-                            style={{ color: "var(--fg-45)" }}
+                            className="w-4 h-4 flex-shrink-0"
+                            style={{ color: "var(--fg-55)" }}
+                            aria-hidden="true"
                           />
-                        )}
-                      </div>
+                        </button>
+                      </li>
                     );
                   })}
-                </div>
+                </ol>
               </div>
             ))
           )}
+          <PlaybookTemplateList onUse={handleUseTemplate} />
         </div>
       )}
 

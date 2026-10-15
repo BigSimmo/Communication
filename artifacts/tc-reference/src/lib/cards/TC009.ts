@@ -65,7 +65,7 @@ export const TC009: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Ask → listen → follow-up or reflect → optional brief share → return.",
+      "Ask, listen, follow-up or reflect, optional brief share, then return.",
       "Question + support response + small self-disclosure + return question.",
       '"I have a version of that too, but I want to hear yours first."',
       '"That reminds me of something, but before I hijack it, what happened next?"',
@@ -526,7 +526,7 @@ export const TC009: CardData = {
     {
       label: "Conversation chain",
       sequence:
-        "Live-thread follow-up → support response → brief self-disclosure → return to them.",
+        "Live-thread follow-up, support response, brief self-disclosure, then return to them.",
       example: [
         '"What was the best part for you?"',
         '"So that was the bit that stuck with you."',
@@ -536,7 +536,7 @@ export const TC009: CardData = {
     {
       label: "Good-news chain",
       sequence:
-        "Active-constructive response → replay the best moment → appreciation → optional related win.",
+        "Active-constructive response, replay the best moment, appreciation, then optional related win.",
       example: [
         '"That\'s a proper win. What was the best moment?"',
         '"Nice, you clearly earned that."',
@@ -546,7 +546,7 @@ export const TC009: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm comment → question → follow-up → reflection → bridge-and-return.",
+        "Warm comment, question, follow-up, reflection, then bridge-and-return.",
       example: [
         '"That sounds like a good story."',
         '"What made it stand out?"',
@@ -557,7 +557,7 @@ export const TC009: CardData = {
     {
       label: "Networking chain",
       sequence:
-        "Ask about their expertise → listen → reflect the challenge → ask their next goal → offer relevant value.",
+        "Ask about their expertise, listen, reflect the challenge, ask their next goal, then offer relevant value.",
       example: [
         '"What led you into that area?"',
         '"So the tricky part is the people, not the work."',

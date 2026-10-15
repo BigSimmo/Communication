@@ -545,7 +545,7 @@ export const TC029: CardData = {
     {
       label: "Listening chain",
       sequence:
-        "Reflective listening → strategic silence → summary check → live-thread follow-up",
+        "Reflective listening, strategic silence, summary check, then live-thread follow-up",
       example: [
         '"So the hard part was the uncertainty, not the work." [pause]',
         '"Let me check I have it: the ask is more clarity up front?"',
@@ -555,7 +555,7 @@ export const TC029: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate the concern → strategic silence → clarify the objection → ask what would make it workable",
+        "Validate the concern, strategic silence, clarify the objection, then ask what would make it workable",
       example: [
         '"I can see why that felt unfair." [pause]',
         '"What part felt most unfair?"',
@@ -565,7 +565,7 @@ export const TC029: CardData = {
     {
       label: "Request chain",
       sequence:
-        "Clean request → autonomy release → strategic silence → handle the response",
+        "Clean request, autonomy release, strategic silence, then handle the response",
       example: [
         '"Could you take the Friday slot?"',
         '"It\'s genuinely your call." [pause]',
@@ -575,7 +575,7 @@ export const TC029: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Values-based framing → concise recommendation → strategic silence → invite concerns",
+        "Values-based framing, concise recommendation, strategic silence, then invite concerns",
       example: [
         '"Since the priority is reducing risk, I\'d choose option B." [pause]',
         '"What concerns would you have?"',

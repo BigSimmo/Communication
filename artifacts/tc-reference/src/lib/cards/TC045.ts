@@ -65,7 +65,7 @@ export const TC045: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Ask → Tell → Ask",
+      "Ask, tell, then ask",
       'Ask: "What\'s your sense of this so far?"',
       "Tell: the one point that matters, concisely.",
       'Ask: "How does that land?"',
@@ -299,7 +299,7 @@ export const TC045: CardData = {
     {
       day: "Day 2",
       title: "Write one",
-      task: "Take a real situation and write a 60-second response using Ask → Tell → Ask. Mark the three parts so you can see them.",
+      task: "Take a real situation and write a 60-second response using Ask, tell, then ask. Mark the three parts so you can see them.",
     },
     {
       day: "Day 3",
@@ -515,7 +515,7 @@ export const TC045: CardData = {
   chains: [
     {
       label: "Clarity chain",
-      sequence: "Ask-tell-ask → Summary check",
+      sequence: "Ask-tell-ask, then summary check",
       example: [
         '"So before I explain, what\'s your read?"',
         '"Here\'s the key point."',
@@ -525,7 +525,7 @@ export const TC045: CardData = {
     },
     {
       label: "Request chain",
-      sequence: "Ask-tell-ask → Clean request",
+      sequence: "Ask-tell-ask, then clean request",
       example: [
         '"What\'s your sense of the blocker?"',
         '"The main issue is the sign-off is running late."',
@@ -535,7 +535,7 @@ export const TC045: CardData = {
     },
     {
       label: "Autonomy chain",
-      sequence: "Ask-tell-ask → Autonomy release",
+      sequence: "Ask-tell-ask, then autonomy release",
       example: [
         '"Where are you leaning already?"',
         "\"Here's what I'd weigh up.\"",
@@ -545,7 +545,7 @@ export const TC045: CardData = {
     },
     {
       label: "Emotion-first chain",
-      sequence: "Validate → Ask-tell-ask",
+      sequence: "Validate, then ask-tell-ask",
       example: [
         '"That sounds like a hard week."',
         "\"When you're ready, what's your sense of where things stand?\"",

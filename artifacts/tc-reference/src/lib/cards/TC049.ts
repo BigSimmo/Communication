@@ -65,7 +65,7 @@ export const TC049: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Context → Action → Result → Learning",
+      "Context, action, result, then learning",
       "Context: what the situation was. Action: what you did. Result: what happened. Learning: what you took from it.",
       'Worked: "The launch was slipping. I cut scope to the core feature. We shipped on time. I now agree the must-haves up front."',
       "Minimum viable move: Context: X. Action: Y. Result: Z. Learning: L.",
@@ -396,7 +396,7 @@ export const TC049: CardData = {
   chains: [
     {
       label: "Clarity chain",
-      sequence: "CARL → Summary check",
+      sequence: "CARL, then summary check",
       example: [
         '"...and the learning was to agree scope up front."',
         '"Does that match what you were expecting to hear?"',
@@ -404,7 +404,7 @@ export const TC049: CardData = {
     },
     {
       label: "Action chain",
-      sequence: "CARL → Clean request",
+      sequence: "CARL, then clean request",
       example: [
         '"...so the fix is a scope check at kickoff."',
         '"Could you add that to next week\'s agenda?"',
@@ -412,7 +412,7 @@ export const TC049: CardData = {
     },
     {
       label: "Autonomy chain",
-      sequence: "CARL → Autonomy release",
+      sequence: "CARL, then autonomy release",
       example: [
         "\"That's what I'd take from it.\"",
         "\"But it's your call how you'd handle it.\"",
@@ -420,7 +420,7 @@ export const TC049: CardData = {
     },
     {
       label: "Emotion-first chain",
-      sequence: "Validate the concern → CARL",
+      sequence: "Validate the concern, then CARL",
       example: [
         '"That deadline sounded genuinely stressful."',
         "\"Here's what happened and what I'd change...\"",
@@ -496,7 +496,7 @@ export const TC049: CardData = {
     {
       day: "Day 1",
       title: "Write it out",
-      task: "Take a real experience and write a 60-second response using Context → Action → Result → Learning.",
+      task: "Take a real experience and write a 60-second response using Context, action, result, then learning.",
     },
     {
       day: "Day 2",

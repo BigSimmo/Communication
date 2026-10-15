@@ -529,7 +529,7 @@ export const TC087: CardData = {
     {
       label: "Opening a new thread",
       sequence:
-        "Contextual opener → story invitation → minimal encouragers → meaning reflection",
+        "Contextual opener, story invitation, minimal encouragers, then meaning reflection",
       example: [
         '"Funny running into you here. How do you know the host?"',
         '"Oh, you two go way back. What\'s the story there?"',
@@ -539,7 +539,8 @@ export const TC087: CardData = {
     },
     {
       label: "Following the energy",
-      sequence: "Topic energy tracking → story invitation → exact-word pickup",
+      sequence:
+        "Topic energy tracking, story invitation, then exact-word pickup",
       example: [
         '"You\'ve mentioned the move a few times now."',
         '"How did the move come about?"',
@@ -548,7 +549,7 @@ export const TC087: CardData = {
     },
     {
       label: "Safety before questions",
-      sequence: "Warm presence → story invitation → strategic silence",
+      sequence: "Warm presence, story invitation, then strategic silence",
       example: [
         '"No rush, we\'ve got time."',
         '"Only if you want to, what led up to it?"',
@@ -558,7 +559,7 @@ export const TC087: CardData = {
     {
       label: "Understand before solving",
       sequence:
-        "Premature-advice restraint → story invitation → permission-based advice",
+        "Premature-advice restraint, story invitation, then permission-based advice",
       example: [
         '"Before I jump in with ideas -"',
         '"what led up to this from your side?"',

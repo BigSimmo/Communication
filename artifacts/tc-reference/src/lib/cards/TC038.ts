@@ -65,7 +65,7 @@ export const TC038: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice an earlier thread → ask permission to return → name the thread → ask one clean follow-up → release if energy is low.",
+      "Notice an earlier thread, ask permission to return, name the thread, ask one clean follow-up, then release if energy is low.",
       "Can I come back to something you said earlier about that part?",
       "Earlier you mentioned the timing. Is that still the key bit?",
       "There were two threads there: the workload and the uncertainty. Which one matters more?",
@@ -488,7 +488,7 @@ export const TC038: CardData = {
     {
       label: "Notice, thread, confirm",
       sequence:
-        "Live thread follow-ups (TC001) → Conversation threading (TC038) → Summary check (TC011)",
+        "Live thread follow-ups (TC001), conversation threading (TC038), then summary check (TC011)",
       example: [
         "They mention several things. You follow the live one in the moment (TC001).",
         "Later you reopen the thread that still matters (TC038).",
@@ -498,7 +498,7 @@ export const TC038: CardData = {
     {
       label: "Energy, thread, deepen",
       sequence:
-        "Topic energy tracking (TC041) → Conversation threading (TC038) → Echo plus question (TC030)",
+        "Topic energy tracking (TC041), conversation threading (TC038), then echo plus question (TC030)",
       example: [
         "You notice which topic has the most energy (TC041).",
         "You return to it deliberately once the moment is right (TC038).",
@@ -508,7 +508,7 @@ export const TC038: CardData = {
     {
       label: "Their word, thread, meaning",
       sequence:
-        "Exact word pickup (TC025) → Conversation threading (TC038) → Meaning reflection (TC040)",
+        "Exact word pickup (TC025), conversation threading (TC038), then meaning reflection (TC040)",
       example: [
         "You pick up the exact word they loaded with feeling (TC025).",
         "You reopen that thread when it won't add pressure (TC038).",

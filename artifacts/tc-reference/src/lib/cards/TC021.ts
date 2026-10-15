@@ -545,7 +545,7 @@ export const TC021: CardData = {
     {
       label: "Request chain",
       sequence:
-        "Clean request → small ask → low-friction ask → autonomy release → clean follow-up",
+        "Clean request, small ask, low-friction ask, autonomy release, then clean follow-up",
       example: [
         "Could you look at the first page?",
         "A five-minute read is plenty.",
@@ -556,7 +556,7 @@ export const TC021: CardData = {
     {
       label: "Advice chain",
       sequence:
-        "Reflect → ask permission → offer one suggestion → autonomy release → ask how it lands",
+        "Reflect, ask permission, offer one suggestion, autonomy release, then ask how it lands",
       example: [
         "Sounds like a tricky one.",
         "Want my take, or just a sounding board?",
@@ -567,7 +567,7 @@ export const TC021: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate concern → state your view → autonomy release → ask what would make it workable",
+        "Validate concern, state your view, autonomy release, then ask what would make it workable",
       example: [
         "I get why this feels off.",
         "My view is we keep it smaller.",
@@ -578,7 +578,7 @@ export const TC021: CardData = {
     {
       label: "Digital chain",
       sequence:
-        "Purpose-first message → specific ask → easy reply option → no-pressure line",
+        "Purpose-first message, specific ask, easy reply option, then no-pressure line",
       example: [
         "Quick one about Thursday's draft.",
         "Could you give it a five-minute read?",
@@ -589,7 +589,7 @@ export const TC021: CardData = {
     {
       label: "Dating / social chain",
       sequence:
-        "Warm invitation → autonomy release → accept the answer without punishing a no",
+        "Warm invitation, autonomy release, then accept the answer without punishing a no",
       example: [
         "I'd like to see you again this week.",
         "If you're not feeling it, no awkwardness.",

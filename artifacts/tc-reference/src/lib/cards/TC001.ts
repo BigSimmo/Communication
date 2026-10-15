@@ -65,8 +65,8 @@ export const TC001: CardData = {
   ],
   overview: {
     coreFormula: [
-      "The sequence: Notice → Comment → Ask → Reflect → Contribute.",
-      "Charged detail → small comment → one natural question.",
+      "The sequence: Notice, comment, ask, reflect, then contribute.",
+      "Charged detail, small comment, then one natural question.",
       "You said it was weirdly intense. Weirdly intense how?",
       "That sounds like it mattered. What made it important?",
       "You seemed to light up when you mentioned that. What do you like about it?",
@@ -487,7 +487,7 @@ export const TC001: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm comment → live-thread follow-up → reflection → light self-disclosure → appreciation",
+        "Warm comment, live-thread follow-up, reflection, light self-disclosure, then appreciation",
       example: [
         '"That sounds like a big shift."',
         '"What made you choose it?"',
@@ -499,7 +499,7 @@ export const TC001: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Understand goal → ask follow-up about values → frame suggestion around that value → release pressure",
+        "Understand goal, ask follow-up about values, frame suggestion around that value, then release pressure",
       example: [
         '"What are you hoping this solves?"',
         '"What matters most: speed, quality, or less stress?"',
@@ -510,7 +510,7 @@ export const TC001: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate → live-thread follow-up → clarify need → propose next step",
+        "Validate, live-thread follow-up, clarify need, then propose next step",
       example: [
         '"I can see why that felt frustrating."',
         '"What part bothered you most?"',
@@ -521,7 +521,7 @@ export const TC001: CardData = {
     {
       label: "Charisma chain",
       sequence:
-        "Playful observation → live-thread follow-up → reflection → light humour",
+        "Playful observation, live-thread follow-up, reflection, then light humour",
       example: [
         '"That sounds like the short version of a chaotic story."',
         '"What actually happened?"',

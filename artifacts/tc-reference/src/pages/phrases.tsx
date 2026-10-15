@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { PageIntro } from "@/components/page-intro";
 import { useLocation } from "wouter";
 import { Check, Copy, Heart, Search, X, MessagesSquare } from "lucide-react";
 import {
@@ -86,13 +87,8 @@ export default function Phrases() {
 
   if (!allPhrases) {
     return (
-      <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6">
-        <h1
-          className="text-[20px] font-bold leading-tight"
-          style={{ color: "var(--fg-90)" }}
-        >
-          Phrase Bank
-        </h1>
+      <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-4 md:pt-6">
+        <PageIntro title="Phrase Bank" />
         <div role="status" aria-live="polite" className="py-16 text-center">
           {loadFailed
             ? "Phrase Bank is unavailable right now."
@@ -105,26 +101,15 @@ export default function Phrases() {
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
       {/* ── Page header ── */}
-      <div className="px-4 md:px-6 pt-6 pb-4">
-        <div className="flex items-center gap-3 mb-1.5">
-          <h1
-            className="text-[20px] font-bold leading-tight"
-            style={{ color: "var(--fg-90)" }}
-          >
-            Phrase Bank
-          </h1>
-        </div>
-        <p
-          className="text-[12px] leading-relaxed"
-          style={{ color: "var(--fg-55)" }}
-        >
-          Browse and study every phrase from every card, filtered by tone.
-        </p>
-      </div>
+      <PageIntro
+        title="Phrase Bank"
+        description="Every phrase from every card. Filter by tone, search, then tap a phrase to copy it."
+        className="px-4 md:px-6 pt-4 md:pt-6 pb-3"
+      />
 
       {/* ── Sticky filter bar ── */}
       <div
-        className="sticky z-10 flex-shrink-0"
+        className="sticky z-10 flex-shrink-0 sticky-under-header"
         style={{
           top: "var(--app-header-height, 56px)",
           maxHeight: filterHidden ? 0 : 104,
@@ -178,12 +163,12 @@ export default function Phrases() {
             >
               All
               <span
-                className="text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none"
+                className="text-[11px] font-bold px-1.5 py-0.5 rounded-full leading-none"
                 style={{
                   background: !toneFilter
                     ? "rgba(15,23,36,0.18)"
                     : "var(--fg-08)",
-                  color: !toneFilter ? "var(--brand-contrast)" : "var(--fg-40)",
+                  color: !toneFilter ? "var(--brand-contrast)" : "var(--fg-60)",
                 }}
               >
                 {allPhrases.length}
@@ -215,12 +200,12 @@ export default function Phrases() {
                 >
                   {tone}
                   <span
-                    className="text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none"
+                    className="text-[11px] font-bold px-1.5 py-0.5 rounded-full leading-none"
                     style={{
                       background: active
                         ? "rgba(15,23,36,0.18)"
                         : "var(--fg-08)",
-                      color: active ? "var(--brand-contrast)" : "var(--fg-40)",
+                      color: active ? "var(--brand-contrast)" : "var(--fg-60)",
                     }}
                   >
                     {count}
@@ -482,6 +467,28 @@ function PhraseRow({
           </span>
         </button>
 
+        {/* Copy, then favourite: the same order as Quick Lookup. Both
+          are 36px to the eye and 44px to touch (tap-target). */}
+        <button
+          onClick={onCopy}
+          aria-label={copied ? "Copied" : "Copy phrase"}
+          data-testid={`phrase-copy-icon-btn`}
+          className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
+          style={{
+            background: copied
+              ? "color-mix(in srgb, var(--brand) 12%, transparent)"
+              : "transparent",
+          }}
+        >
+          {copied ? (
+            <Check
+              className="w-3.5 h-3.5"
+              style={{ color: "var(--brand-text)" }}
+            />
+          ) : (
+            <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-45)" }} />
+          )}
+        </button>
         {/* Fav button */}
         <button
           onClick={onFav}
@@ -499,28 +506,6 @@ function PhraseRow({
             style={{ color: faved ? "var(--brand-text)" : "var(--fg-50)" }}
             fill={faved ? "var(--brand-text)" : "none"}
           />
-        </button>
-
-        {/* Copy button */}
-        <button
-          onClick={onCopy}
-          aria-label={copied ? "Copied!" : `Copy phrase`}
-          data-testid={`phrase-copy-icon-btn`}
-          className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
-          style={{
-            background: copied
-              ? "color-mix(in srgb, var(--brand) 12%, transparent)"
-              : "transparent",
-          }}
-        >
-          {copied ? (
-            <Check
-              className="w-3.5 h-3.5"
-              style={{ color: "var(--brand-text)" }}
-            />
-          ) : (
-            <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-45)" }} />
-          )}
         </button>
       </div>
     </div>

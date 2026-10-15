@@ -438,20 +438,39 @@ function QuickModeContent() {
                         {phrase.text}
                       </span>
                     </button>
-                    <div className="flex items-center gap-1.5 pr-3 flex-shrink-0">
-                      {copiedPhrase === phrase.text ? (
-                        <Check
-                          className="w-4 h-4"
-                          style={{ color: "var(--brand-text)" }}
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <Copy
-                          className="w-4 h-4"
-                          style={{ color: "var(--fg-50)" }}
-                          aria-hidden="true"
-                        />
-                      )}
+                    <div className="flex items-center gap-1 pr-2 flex-shrink-0">
+                      {/* Copy, then favourite: the same order and size as
+                        the Phrase Bank. 36px to the eye, 44px to touch. */}
+                      <button
+                        onClick={() => handleCopy(phrase.text)}
+                        aria-label={
+                          copiedPhrase === phrase.text
+                            ? "Copied"
+                            : "Copy phrase"
+                        }
+                        tabIndex={-1}
+                        className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        style={{
+                          background:
+                            copiedPhrase === phrase.text
+                              ? "color-mix(in srgb, var(--brand) 10%, transparent)"
+                              : "transparent",
+                        }}
+                      >
+                        {copiedPhrase === phrase.text ? (
+                          <Check
+                            className="w-3.5 h-3.5"
+                            style={{ color: "var(--brand-text)" }}
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <Copy
+                            className="w-3.5 h-3.5"
+                            style={{ color: "var(--fg-50)" }}
+                            aria-hidden="true"
+                          />
+                        )}
+                      </button>
                       <button
                         onClick={() =>
                           togglePhrase({
@@ -466,7 +485,7 @@ function QuickModeContent() {
                             ? "Remove from favourites"
                             : "Save to favourites"
                         }
-                        className="quick-phrase-favourite w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
+                        className="quick-phrase-favourite tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
                         style={{
                           background: isFav
                             ? "color-mix(in srgb, var(--brand) 10%, transparent)"

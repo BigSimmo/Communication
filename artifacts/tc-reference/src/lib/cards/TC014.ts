@@ -527,7 +527,7 @@ export const TC014: CardData = {
     {
       label: "Objection chain",
       sequence:
-        "Validate concern → clarify objection → reduce risk → clean recommendation",
+        "Validate concern, clarify objection, reduce risk, then clean recommendation",
       example: [
         '"That\'s a fair concern."',
         '"Is the worry the cost or the upkeep?"',
@@ -538,7 +538,7 @@ export const TC014: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Name concern → agreement before disagreement → shared goal → next step",
+        "Name concern, agreement before disagreement, shared goal, then next step",
       example: [
         '"I can see why that felt unfair."',
         '"You\'re right that we moved too fast."',
@@ -548,7 +548,7 @@ export const TC014: CardData = {
     },
     {
       label: "Persuasion chain",
-      sequence: "Validate → values frame → smaller ask → autonomy release",
+      sequence: "Validate, values frame, smaller ask, then autonomy release",
       example: [
         '"That\'s a legitimate risk."',
         '"I know reliability matters most to you here."',
@@ -559,7 +559,7 @@ export const TC014: CardData = {
     {
       label: "Boundary chain",
       sequence:
-        "Validate feeling → state limit → explain briefly → offer alternative",
+        "Validate feeling, state limit, explain briefly, then offer alternative",
       example: [
         '"I get why you\'d want an answer tonight."',
         '"I\'m not able to decide this by then."',

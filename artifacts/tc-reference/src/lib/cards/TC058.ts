@@ -65,7 +65,7 @@ export const TC058: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Cue → feeling → likely need → tentative phrase → pause → follow or release.",
+      "Cue, feeling, likely need, tentative phrase, pause, then follow or release.",
       'Basic: "It sounds like you are [feeling] because you needed [need]."',
       'Softer: "I might be reading this wrong, but part of the [feeling] is needing [need]."',
       'Professional: "The concern isn\'t the change itself, but needing clearer notice before decisions move."',
@@ -547,7 +547,7 @@ export const TC058: CardData = {
     {
       label: "Listen then land",
       sequence:
-        "TC004 Reflective listening → TC058 Feeling-plus-need reflection → TC029 Strategic silence",
+        "TC004 Reflective listening, TC058 Feeling-plus-need reflection, then TC029 Strategic silence",
       example: [
         '"The timeline changed after you\'d already planned around it."',
         '"That sounds frustrating because you needed more notice."',
@@ -557,7 +557,7 @@ export const TC058: CardData = {
     {
       label: "Name then check",
       sequence:
-        "TC006 Emotional labelling → TC058 Feeling-plus-need reflection → TC011 Summary check",
+        "TC006 Emotional labelling, TC058 Feeling-plus-need reflection, then TC011 Summary check",
       example: [
         '"You seem really annoyed by this."',
         '"Sounds like the annoyance is about needing clearer ownership."',
@@ -567,7 +567,7 @@ export const TC058: CardData = {
     {
       label: "Validate then release",
       sequence:
-        "TC014 Validate the concern → TC058 Feeling-plus-need reflection → TC021 Autonomy release",
+        "TC014 Validate the concern, TC058 Feeling-plus-need reflection, then TC021 Autonomy release",
       example: [
         '"That\'s a fair thing to be frustrated about."',
         '"It sounds like you needed to be included before the decision."',
@@ -577,7 +577,7 @@ export const TC058: CardData = {
     {
       label: "Listen then request",
       sequence:
-        "TC053 NVC / OFNR → TC058 Feeling-plus-need reflection → TC013 Clean request",
+        "TC053 NVC / OFNR, TC058 Feeling-plus-need reflection, then TC013 Clean request",
       example: [
         '"When the plan changed without warning..."',
         '"...it sounds like what you needed was notice and respect for your time."',

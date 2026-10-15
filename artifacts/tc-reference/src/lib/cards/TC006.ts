@@ -563,7 +563,7 @@ export const TC006: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Label emotion → pause → reflect the meaning → live-thread follow-up → light self-disclosure",
+        "Label emotion, pause, reflect the meaning, live-thread follow-up, then light self-disclosure",
       example: [
         "You: That sounds like it really got under your skin.",
         "Them: Yeah. It's been building for weeks.",
@@ -574,7 +574,7 @@ export const TC006: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate the concern → label the emotion → name the shared goal → ask what would make it workable",
+        "Validate the concern, label the emotion, name the shared goal, then ask what would make it workable",
       example: [
         "You: It sounds like that landed as unfair.",
         "Them: It did.",
@@ -585,7 +585,7 @@ export const TC006: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Ask before you tell → label the concern → permission-based advice → values-based framing → release the decision",
+        "Ask before you tell, label the concern, permission-based advice, values-based framing, then release the decision",
       example: [
         "You: Can I offer one angle, or do you want to vent first?",
         "You: Sounds like the worry is being left to carry it alone.",
@@ -595,7 +595,7 @@ export const TC006: CardData = {
     {
       label: "Good-news chain",
       sequence:
-        "Label the positive emotion → active-constructive question → specific appreciation",
+        "Label the positive emotion, active-constructive question, then specific appreciation",
       example: [
         "You: You sound genuinely proud of this.",
         "You: What was the part that finally clicked?",

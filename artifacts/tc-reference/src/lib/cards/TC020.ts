@@ -533,7 +533,7 @@ export const TC020: CardData = {
   chains: [
     {
       label: "Understand, then ask",
-      sequence: "Full-attention signal → Low-friction ask → Summary check",
+      sequence: "Full-attention signal, low-friction ask, then summary check",
       example: [
         "Give them your full attention and let them finish.",
         "\"If it's easy, could you send the figures? If not, I'll pull them.\"",
@@ -543,7 +543,7 @@ export const TC020: CardData = {
     {
       label: "Listen, then offer",
       sequence:
-        "Reflective listening → Low-friction ask → Permission-based advice",
+        "Reflective listening, low-friction ask, then permission-based advice",
       example: [
         '"Sounds like the timing is the tricky part."',
         '"Want me to take a first pass? Only if that\'s genuinely helpful."',
@@ -552,7 +552,7 @@ export const TC020: CardData = {
     },
     {
       label: "Release the pressure",
-      sequence: "Low-friction ask → Autonomy release",
+      sequence: "Low-friction ask, then autonomy release",
       example: [
         '"If you\'ve got a spare ten minutes this week, could you look it over?"',
         '"Honestly, no obligation: a no won\'t cause me any problem."',

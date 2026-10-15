@@ -527,7 +527,7 @@ export const TC083: CardData = {
     "I hear that there isn't a workable version right now. I'll work from that.",
   chains: [
     {
-      label: "Validation → Workability → Autonomy release",
+      label: "Validation, workability, then autonomy release",
       sequence:
         "Validate the concern, ask what would make it workable, then affirm they can still decline.",
       example: [
@@ -537,7 +537,7 @@ export const TC083: CardData = {
       ],
     },
     {
-      label: "Clean request → Workability → Low-friction ask",
+      label: "Clean request, workability, then low-friction ask",
       sequence:
         "State the request clearly, discover the conditions behind the resistance, then offer the smallest viable version.",
       example: [
@@ -547,7 +547,7 @@ export const TC083: CardData = {
       ],
     },
     {
-      label: "NVC/OFNR → Workability → Two-option question",
+      label: "NVC/OFNR, workability, then two-option question",
       sequence:
         "Name observation, feeling, need and request without blame, ask for workable conditions, then offer two respectful options.",
       example: [
@@ -557,7 +557,7 @@ export const TC083: CardData = {
       ],
     },
     {
-      label: "SBI → Workability → Repair agreement",
+      label: "SBI, workability, then repair agreement",
       sequence:
         "Describe the situation, behaviour and impact, ask what would make the new process workable, then agree the repair.",
       example: [

@@ -46,7 +46,9 @@ export default defineConfig({
         name: "TC Reference Tool",
         short_name: "TC Reference",
         description:
-          "A mobile-first reference library of 98 communication techniques — phrase banks, decision trees, scenarios and daily practice drills.",
+          "A pocket reference of 98 communication techniques with phrase banks, decision trees, scenarios and daily practice drills. Works offline.",
+        lang: "en-AU",
+        dir: "ltr",
         id: ".",
         scope: ".",
         orientation: "portrait",
@@ -55,6 +57,27 @@ export default defineConfig({
         background_color: "#0f1724",
         display: "standalone",
         start_url: ".",
+        // Long-press shortcuts on the home screen icon (Android, desktop)
+        shortcuts: [
+          {
+            name: "Phrase Bank",
+            short_name: "Phrases",
+            url: "phrases",
+            icons: [{ src: "pwa-icon-192.png", sizes: "192x192" }],
+          },
+          {
+            name: "Daily Drill",
+            short_name: "Drill",
+            url: "drill",
+            icons: [{ src: "pwa-icon-192.png", sizes: "192x192" }],
+          },
+          {
+            name: "Favourites",
+            short_name: "Saved",
+            url: "favourites",
+            icons: [{ src: "pwa-icon-192.png", sizes: "192x192" }],
+          },
+        ],
         icons: [
           { src: "pwa-icon-192.png", sizes: "192x192", type: "image/png" },
           { src: "pwa-icon-512.png", sizes: "512x512", type: "image/png" },

@@ -533,7 +533,7 @@ export const TC093: CardData = {
     {
       label: "Open then reflect",
       sequence:
-        "Comment-before-question → How-so prompt → Reflective listening",
+        "Comment-before-question, how-so prompt, then reflective listening",
       example: [
         '"That sounds like a real concern. How are you seeing it?"',
         'Then reflect: "So the risk is adoption, not interest."',
@@ -541,7 +541,7 @@ export const TC093: CardData = {
     },
     {
       label: "Mirror then check",
-      sequence: "Exact-word pickup → How-so prompt → Summary check",
+      sequence: "Exact-word pickup, how-so prompt, then summary check",
       example: [
         "\"You said 'fragile.' How is it fragile?\"",
         'Then check: "Have I got that right?"',
@@ -549,7 +549,7 @@ export const TC093: CardData = {
     },
     {
       label: "Open then reduce risk",
-      sequence: "How-so prompt → Risk reduction → Bounded request",
+      sequence: "How-so prompt, risk reduction, then bounded request",
       example: [
         '"How do you see the risk playing out?"',
         '"What would reduce that risk?"',
@@ -558,7 +558,7 @@ export const TC093: CardData = {
     },
     {
       label: "Understand then advise",
-      sequence: "How-so prompt → Permission-based advice",
+      sequence: "How-so prompt, then permission-based advice",
       example: [
         '"How are you seeing the bottleneck?"',
         '"Would it help if I offered one option?"',

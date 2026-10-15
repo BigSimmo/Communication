@@ -530,28 +530,28 @@ export const TC061: CardData = {
     {
       label: "Hear it, then act",
       sequence:
-        "Reflective listening → Tone reflection → Small ask (TC004 → TC061 → TC019)",
+        "Reflective listening, tone reflection, small ask (TC004, TC061, then TC019)",
       example: [
         '"So the timeline changed twice. I\'m also hearing some frustration around the lack of warning. What would help most right now?"',
       ],
     },
     {
       label: "Name, then deepen",
-      sequence: "Tone reflection → Meaning reflection (TC061 → TC040)",
+      sequence: "Tone reflection, meaning reflection (TC061, then TC040)",
       example: [
         '"There\'s a guarded tone around this. It sounds like the real issue is whether the team will follow through this time."',
       ],
     },
     {
       label: "Check, then offer",
-      sequence: "Tone reflection → Permission-based advice (TC061 → TC027)",
+      sequence: "Tone reflection, permission-based advice (TC061, then TC027)",
       example: [
         '"I\'m hearing uncertainty rather than resistance. Would it be useful if I suggested two ways to reduce the risk?"',
       ],
     },
     {
       label: "Reflect, then release",
-      sequence: "Tone reflection → Autonomy release (TC061 → TC021)",
+      sequence: "Tone reflection, autonomy release (TC061, then TC021)",
       example: [
         "\"This sounds sensitive, and you don't have to go further than you want. I just want to make sure I'm not missing the tone.\"",
       ],

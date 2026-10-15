@@ -66,7 +66,7 @@ export const TC053: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Observation → Feeling → Need → Request",
+      "Observation, feeling, need, then request",
       "When X happened, I felt Y, because I need Z. Would you be willing to do A?",
       '"When the report went out without my name on it, I felt overlooked, because credit matters to me. Would you add it before the next send?"',
       "Use the structure to organise your thinking, then speak like a person.",
@@ -548,7 +548,7 @@ export const TC053: CardData = {
   chains: [
     {
       label: "Validate first, then structure",
-      sequence: "Validate the concern → NVC / OFNR",
+      sequence: "Validate the concern, then NVC / OFNR",
       example: [
         '"That sounds genuinely rough."',
         '"So, when the deadline moved, I felt caught out, and I need earlier warning. Could we flag changes sooner?"',
@@ -556,7 +556,7 @@ export const TC053: CardData = {
     },
     {
       label: "Structure, then check",
-      sequence: "NVC / OFNR → Summary check",
+      sequence: "NVC / OFNR, then summary check",
       example: [
         '"When X happened I felt Y. I need Z. Would you do A?"',
         '"Have I got that right from your side?"',
@@ -564,7 +564,7 @@ export const TC053: CardData = {
     },
     {
       label: "Structure, then release",
-      sequence: "NVC / OFNR → Autonomy release",
+      sequence: "NVC / OFNR, then autonomy release",
       example: [
         '"...would you be willing to do A?"',
         '"It\'s genuinely your call. I just wanted to ask straight."',
@@ -572,7 +572,7 @@ export const TC053: CardData = {
     },
     {
       label: "Structure, then a clean ask",
-      sequence: "NVC / OFNR → Clean request",
+      sequence: "NVC / OFNR, then clean request",
       example: [
         '"...because I need a bit more notice."',
         '"So the ask is: a text by six if it shifts."',

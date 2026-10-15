@@ -65,7 +65,7 @@ export const TC032: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Cue → small move → pause → observe → follow or release.",
+      "Cue, small move, pause, observe, then follow or release.",
       "Good to see you, Maya.",
       "You mentioned the presentation. How did it land?",
       "One name or one detail, used once, then hand the floor back.",
@@ -394,11 +394,11 @@ export const TC032: CardData = {
       examples: [
         {
           label: "Worth catching",
-          text: '"My presentation\'s on Thursday." → the date and the stakes.',
+          text: '"My presentation\'s on Thursday.", then the date and the stakes.',
         },
         {
           label: "Worth catching",
-          text: '"Mornings are easier for me." → a preference to honour later.',
+          text: '"Mornings are easier for me.", then a preference to honour later.',
         },
       ],
     },
@@ -521,7 +521,7 @@ export const TC032: CardData = {
     {
       label: "Reconnect and open up",
       sequence:
-        "Name and detail memory → Summary check → Live thread follow-ups",
+        "Name and detail memory, summary check, then live thread follow-ups",
       example: [
         '"Good to see you, Sam. You were mid-house-hunt last time."',
         '"So it sounds like the search is still on, but you\'ve narrowed the area?"',
@@ -531,7 +531,7 @@ export const TC032: CardData = {
     {
       label: "Recognise without agreeing",
       sequence:
-        "Validation without agreement → Name and detail memory → Autonomy release",
+        "Validation without agreement, name and detail memory, then autonomy release",
       example: [
         '"I get why you\'d want to push the deadline."',
         '"You said last week the team was already stretched."',
@@ -541,7 +541,7 @@ export const TC032: CardData = {
     {
       label: "Steady a tense moment",
       sequence:
-        "Slow down under pressure → Name and detail memory → Meaning reflection",
+        "Slow down under pressure, name and detail memory, then meaning reflection",
       example: [
         '"Let\'s not rush this one."',
         '"You\'ve told me before this project means a lot to you."',

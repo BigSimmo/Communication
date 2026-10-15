@@ -76,7 +76,7 @@ export function SectionNav({
   return (
     <div
       ref={navRef}
-      className="card-section-nav sticky z-10"
+      className="card-section-nav sticky z-10 sticky-under-header"
       style={{
         top: "var(--app-header-height, 48px)",
         background: "var(--surface-header)",

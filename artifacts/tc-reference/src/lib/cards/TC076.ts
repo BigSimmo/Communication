@@ -515,7 +515,7 @@ export const TC076: CardData = {
     {
       label: "Stiff-conversation warm-up",
       sequence:
-        "Warm presence → Comment-before-question → Interrogation avoidance",
+        "Warm presence, comment-before-question, then interrogation avoidance",
       example: [
         "It's good to actually catch up properly.",
         "That project sounded full-on.",
@@ -525,7 +525,7 @@ export const TC076: CardData = {
     {
       label: "Meaningful-phrase follow",
       sequence:
-        "Exact-word pickup → Interrogation avoidance → Echo plus question",
+        "Exact-word pickup, interrogation avoidance, then echo plus question",
       example: [
         "You said 'mismatch'. That word stood out.",
         "I won't dig into all of it.",
@@ -535,7 +535,7 @@ export const TC076: CardData = {
     {
       label: "Conflict clarity",
       sequence:
-        "Validation without agreement → Interrogation avoidance → Clarify objection",
+        "Validation without agreement, interrogation avoidance, then clarify objection",
       example: [
         "I can see why that landed badly.",
         "I want to understand, not cross-examine you.",
@@ -544,7 +544,7 @@ export const TC076: CardData = {
     },
     {
       label: "Professional next step",
-      sequence: "Summary check → Interrogation avoidance → Clean request",
+      sequence: "Summary check, interrogation avoidance, then clean request",
       example: [
         "So the timeline held but the scope grew.",
         "I'm after the cause, not the culprit: what most changed the plan?",

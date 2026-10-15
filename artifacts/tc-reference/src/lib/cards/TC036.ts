@@ -66,7 +66,7 @@ export const TC036: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Formula: notice shared context → name it simply → add an easy entry point → pause → follow the thread they choose.",
+      "Formula: notice shared context, name it simply, add an easy entry point, pause, then follow the thread they choose.",
       'Social: "Looks like we both ended up in the quieter corner. I\'m Sam."',
       'Meeting: "The shared question today is whether we narrow the scope or move the date."',
       "Clinical: \"I've read the referral, but I'd rather start with what feels most important from your side.\"",
@@ -556,7 +556,7 @@ export const TC036: CardData = {
     {
       label: "First-contact social opener",
       sequence:
-        "Notice the shared setting → name it lightly → introduce yourself or ask a low-effort question → pause → follow their first thread.",
+        "Notice the shared setting, name it lightly, introduce yourself or ask a low-effort question, pause, then follow their first thread.",
       example: [
         "\"Looks like we're both waiting for the same workshop. I'm Sam.\"",
       ],
@@ -564,7 +564,7 @@ export const TC036: CardData = {
     {
       label: "Focused meeting opener",
       sequence:
-        "Name the shared task → state the decision or question → invite correction → move into the agenda.",
+        "Name the shared task, state the decision or question, invite correction, then move into the agenda.",
       example: [
         '"The shared question today is whether we narrow the scope or move the date. Is that the right frame?"',
       ],
@@ -572,7 +572,7 @@ export const TC036: CardData = {
     {
       label: "Clinical-style opener",
       sequence:
-        "Acknowledge the referral → do not let paperwork make the first move → ask what matters most from their side → listen for the live thread → reflect.",
+        "Acknowledge the referral, do not let paperwork make the first move, ask what matters most from their side, listen for the live thread, then reflect.",
       example: [
         "\"I've read the referral, but I'd rather hear what feels most important from your side.\"",
       ],
@@ -580,7 +580,7 @@ export const TC036: CardData = {
     {
       label: "Re-entry after a gap",
       sequence:
-        "Recall the last live thread → check whether it is still current → ask what has changed → follow the new information → update the shared frame.",
+        "Recall the last live thread, check whether it is still current, ask what has changed, follow the new information, then update the shared frame.",
       example: [
         '"Last time Friday was the pressure point. Is that still the right place to start?"',
       ],

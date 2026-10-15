@@ -66,7 +66,7 @@ export const TC069: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Cue → Pause → Clarify → Name → Check → Respond.",
+      "Cue, pause, clarify, name, check, then respond.",
       "Cue: notice the objection without treating it as a threat.",
       "Pause: resist the reflex to explain or rebut.",
       "Clarify: ask one short neutral question about the real concern.",
@@ -560,7 +560,7 @@ export const TC069: CardData = {
   chains: [
     {
       label: "Clarify then acknowledge",
-      sequence: "Clarify objection → Validate the concern (TC014) → BLUF",
+      sequence: "Clarify objection, validate the concern (TC014), then BLUF",
       example: [
         '"What part feels least workable?"',
         '"The timeline, not by Friday."',
@@ -571,7 +571,7 @@ export const TC069: CardData = {
     {
       label: "Clarify then hold your line",
       sequence:
-        "Clarify objection → Validation without agreement (TC005) → Specific ask (TC068)",
+        "Clarify objection, validation without agreement (TC005), then specific ask (TC068)",
       example: [
         '"Is the worry the cost, or the timing?"',
         '"The cost."',
@@ -581,7 +581,7 @@ export const TC069: CardData = {
     },
     {
       label: "Clarify then release the pressure",
-      sequence: "Clarify objection → Autonomy release",
+      sequence: "Clarify objection, then autonomy release",
       example: [
         '"What\'s the real hesitation?"',
         '"I need to think it over."',
@@ -591,7 +591,7 @@ export const TC069: CardData = {
     },
     {
       label: "Clarify then ask permission",
-      sequence: "Clarify objection → Permission to disagree (TC079)",
+      sequence: "Clarify objection, then permission to disagree (TC079)",
       example: [
         '"Is it the plan, or the risk attached to it?"',
         '"The risk."',

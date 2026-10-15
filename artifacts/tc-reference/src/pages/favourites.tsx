@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PageIntro } from "@/components/page-intro";
 import { Link, useLocation } from "wouter";
 import { Heart, Copy, Check, Search, ChevronRight, X } from "lucide-react";
 import { useFavourites } from "@/lib/favourites-context";
@@ -6,6 +7,7 @@ import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { BackupSection } from "@/components/backup-section";
+import { AppearanceSection } from "@/components/appearance-section";
 
 const CARD_META: Record<
   string,
@@ -62,26 +64,15 @@ export default function Favourites() {
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
       {/* ── Page header ── */}
-      <div className="px-4 md:px-6 pt-6 pb-4">
-        <div className="flex items-center gap-3 mb-1.5">
-          <h1
-            className="text-[20px] font-bold leading-tight"
-            style={{ color: "var(--fg-90)" }}
-          >
-            Favourites
-          </h1>
-        </div>
-        <p
-          className="text-[12px] leading-relaxed"
-          style={{ color: "var(--fg-55)" }}
-        >
-          Quick access to your saved technique cards and favourite phrases.
-        </p>
-      </div>
+      <PageIntro
+        title="Favourites"
+        description="Your saved technique cards and phrases, ready to use."
+        className="px-4 md:px-6 pt-4 md:pt-6 pb-3"
+      />
 
       {/* Sticky search bar */}
       <div
-        className="sticky z-10 px-4 md:px-6 py-3"
+        className="sticky z-10 px-4 md:px-6 py-3 sticky-under-header"
         style={{
           top: "var(--app-header-height, 56px)",
           background: "var(--surface-header)",
@@ -288,7 +279,7 @@ export default function Favourites() {
                             <span aria-hidden="true">·</span>
                             <span>{meta.difficulty}</span>
                             <span
-                              className="ml-0.5 text-[10px] font-bold tracking-wider px-1.5 py-px rounded-md uppercase"
+                              className="ml-0.5 text-[11px] font-bold tracking-wider px-1.5 py-px rounded-md uppercase"
                               style={{
                                 background: impact.bg,
                                 color: impact.color,
@@ -497,6 +488,7 @@ export default function Favourites() {
           </div>
         )}
 
+        <AppearanceSection />
         <BackupSection />
       </div>
     </div>

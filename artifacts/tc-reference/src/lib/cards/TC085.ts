@@ -510,7 +510,7 @@ export const TC085: CardData = {
     {
       label: "Warm inquiry",
       sequence:
-        "Comment-before-question (TC003) → Question-stacking restraint (TC085) → Reflective listening (TC004)",
+        "Comment-before-question (TC003), question-stacking restraint (TC085), then reflective listening (TC004)",
       example: [
         '"That sounds like it carried a lot."',
         '"One question: what part stayed with you?"',
@@ -520,7 +520,7 @@ export const TC085: CardData = {
     {
       label: "Manager clarity",
       sequence:
-        "Summary check (TC011) → Question-stacking restraint (TC085) → Small ask (TC019)",
+        "Summary check (TC011), question-stacking restraint (TC085), then small ask (TC019)",
       example: [
         '"So the timeline slipped because review is blocked."',
         '"One question: what decision would unblock it?"',
@@ -530,7 +530,7 @@ export const TC085: CardData = {
     {
       label: "Conflict repair",
       sequence:
-        "Validation without agreement (TC005) → Question-stacking restraint (TC085) → Double-sided reflection (TC037)",
+        "Validation without agreement (TC005), question-stacking restraint (TC085), then double-sided reflection (TC037)",
       example: [
         "Validate the concern first.",
         "Ask one non-loaded question.",
@@ -540,7 +540,7 @@ export const TC085: CardData = {
     {
       label: "Digital cleanup",
       sequence:
-        "One-screen message (TC088) → Question-stacking restraint (TC085) → Clean request (TC013)",
+        "One-screen message (TC088), question-stacking restraint (TC085), then clean request (TC013)",
       example: [
         "Compress the message to one screen.",
         "Mark one priority question.",

@@ -46,13 +46,16 @@ function useTextEntryFocused(): boolean {
  */
 export function BottomTabBar() {
   const [location] = useLocation();
-  const direction = useScrollDirection(24, 12, location);
+  const direction = useScrollDirection(56, 10, location);
   const typing = useTextEntryFocused();
   // Keyboard users tabbing through the bar keep it on screen
   const [focusWithin, setFocusWithin] = useState(false);
   const hidden = (direction === "down" || typing) && !focusWithin;
 
   const badges = useNavBadges();
+  const activeIndex = NAV_DESTINATIONS.findIndex((item) =>
+    item.isActive(location),
+  );
 
   return (
     <nav
@@ -66,7 +69,20 @@ export function BottomTabBar() {
           setFocusWithin(false);
       }}
     >
-      <ul className="tab-bar-inner flex items-stretch">
+      <ul
+        className="tab-bar-inner flex items-stretch"
+        style={
+          { "--tab-count": NAV_DESTINATIONS.length } as React.CSSProperties
+        }
+      >
+        <li
+          aria-hidden="true"
+          className="tab-bar-indicator"
+          style={{
+            transform: `translateX(${Math.max(activeIndex, 0) * 100}%)`,
+            opacity: activeIndex < 0 ? 0 : 1,
+          }}
+        />
         {NAV_DESTINATIONS.map((item) => {
           const active = item.isActive(location);
           const badge = badges[item.id] ?? null;
@@ -78,7 +94,7 @@ export function BottomTabBar() {
                 aria-current={active ? "page" : undefined}
                 aria-label={
                   badge && item.id === "favourites"
-                    ? `${item.label}, ${badge} items`
+                    ? `${item.label}, ${badge} ${badge === "1" ? "item" : "items"}`
                     : item.label
                 }
                 data-testid={`nav-tab-${item.id}`}
@@ -97,18 +113,11 @@ export function BottomTabBar() {
                   }
                 }}
                 className="tab-bar-item h-full w-full flex flex-col items-center justify-center gap-[3px]"
-                style={{ color: active ? "var(--brand-text)" : "var(--fg-50)" }}
+                style={{ color: active ? "var(--brand-text)" : "var(--fg-55)" }}
               >
-                <span
-                  className="tab-bar-icon relative flex items-center justify-center rounded-full"
-                  style={{
-                    background: active
-                      ? "color-mix(in srgb, var(--brand) 11%, transparent)"
-                      : "transparent",
-                  }}
-                >
+                <span className="tab-bar-icon relative flex items-center justify-center">
                   <Icon
-                    className="w-[19px] h-[19px]"
+                    className="w-5 h-5"
                     strokeWidth={active ? 2.3 : 1.9}
                     fill={
                       active && item.id === "favourites"
@@ -132,7 +141,7 @@ export function BottomTabBar() {
                   )}
                 </span>
                 <span
-                  className="tab-bar-label text-[10px] leading-none truncate max-w-full px-1"
+                  className="tab-bar-label text-[10.5px] leading-none truncate max-w-full px-1"
                   style={{ fontWeight: active ? 700 : 600 }}
                 >
                   {item.label}

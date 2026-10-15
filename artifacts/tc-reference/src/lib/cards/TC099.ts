@@ -526,7 +526,7 @@ export const TC099: CardData = {
   chains: [
     {
       label: "Warm open, then share, then return",
-      sequence: "Warm opening → Humblebrag avoidance → Return focus",
+      sequence: "Warm opening, humblebrag avoidance, then return focus",
       example: [
         "Can I share a small win? I got accepted, and I'm really happy about it.",
         "What has been happening on your side?",
@@ -535,7 +535,7 @@ export const TC099: CardData = {
     {
       label: "Share, then credit specifically",
       sequence:
-        "Humblebrag avoidance → Specific appreciation (TC018) → Status generosity (TC022)",
+        "Humblebrag avoidance, specific appreciation (TC018), then status generosity (TC022)",
       example: [
         "The client response was strong, and I'm pleased with it.",
         "Priya's prep on the evidence is what made it land.",
@@ -544,7 +544,7 @@ export const TC099: CardData = {
     },
     {
       label: "Their moment first, yours later",
-      sequence: "No one-upping (TC007) → Humblebrag avoidance",
+      sequence: "No one-upping (TC007), then humblebrag avoidance",
       example: [
         "That's a huge result. Tell me how it happened.",
         "I have a related bit of good news too, if there's room for it later.",
@@ -552,7 +552,7 @@ export const TC099: CardData = {
     },
     {
       label: "Trim, then state it plainly",
-      sequence: "No-overexplaining (TC008) → Humblebrag avoidance",
+      sequence: "No-overexplaining (TC008), then humblebrag avoidance",
       example: [
         "Short version, no disclaimers:",
         "I got the role, and I'm proud of the work that got me there.",

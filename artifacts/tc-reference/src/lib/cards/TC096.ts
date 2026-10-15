@@ -558,7 +558,7 @@ export const TC096: CardData = {
   chains: [
     {
       label: "Warm open, then extend",
-      sequence: "TC024 Warm opening → TC096 Capitalisation extension",
+      sequence: "TC024 Warm opening, then TC096 Capitalisation extension",
       example: [
         "Open warmly, then extend the good news they slip in.",
         '"Good to see you, and hang on, didn\'t your results come through? What was the best part?"',
@@ -567,7 +567,7 @@ export const TC096: CardData = {
     {
       label: "Respond, then savour",
       sequence:
-        "TC016 Active-constructive responding → TC096 Capitalisation extension",
+        "TC016 Active-constructive responding, then TC096 Capitalisation extension",
       example: [
         "Respond actively first, then ask the best-part prompt.",
         '"That\'s genuinely brilliant. What was the moment you knew it had worked?"',
@@ -575,7 +575,8 @@ export const TC096: CardData = {
     },
     {
       label: "Name effort, then invite enjoyment",
-      sequence: "TC018 Specific appreciation → TC096 Capitalisation extension",
+      sequence:
+        "TC018 Specific appreciation, then TC096 Capitalisation extension",
       example: [
         "Name the specific effort, then let them enjoy the result.",
         '"You kept at that when it was messy. What part are you most proud of now it\'s landed?"',
@@ -583,7 +584,7 @@ export const TC096: CardData = {
     },
     {
       label: "Extend, then give space",
-      sequence: "TC096 Capitalisation extension → TC021 Autonomy release",
+      sequence: "TC096 Capitalisation extension, then TC021 Autonomy release",
       example: [
         "Extend once, then hand control of the celebration back to them.",
         '"What was the best part? ... No need to unpack it if you\'re already moving on."',

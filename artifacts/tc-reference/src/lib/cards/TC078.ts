@@ -513,7 +513,7 @@ export const TC078: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm opening → live-thread follow-up → callback bridge → specific appreciation",
+        "Warm opening, live-thread follow-up, callback bridge, then specific appreciation",
       example: [
         "Good to see you.",
         "What has been the best part?",
@@ -524,7 +524,7 @@ export const TC078: CardData = {
     {
       label: "Meeting chain",
       sequence:
-        "Summary check → callback bridge → clean request → autonomy release",
+        "Summary check, callback bridge, clean request, then autonomy release",
       example: [
         "So we have two options.",
         "Can I loop back to the risk Priya named earlier?",
@@ -535,7 +535,7 @@ export const TC078: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate the concern → callback bridge → permission to disagree → recovery phrase",
+        "Validate the concern, callback bridge, permission to disagree, then recovery phrase",
       example: [
         "I can see why that felt ignored.",
         "Earlier you said the timing mattered more than the content.",

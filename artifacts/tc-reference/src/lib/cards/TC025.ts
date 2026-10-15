@@ -66,7 +66,7 @@ export const TC025: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Exact phrase → small comment → natural follow-up.",
+      "Exact phrase, small comment, then natural follow-up.",
       "You called it 'oddly freeing'. Freeing how?",
       "'Hidden rules' is a good phrase. What are you noticing?",
       "When you say 'messy', do you mean emotionally or logistically?",
@@ -551,7 +551,7 @@ export const TC025: CardData = {
     {
       label: "Conversation flow chain",
       sequence:
-        "Listen for the phrase → ask about the exact word → let them clarify → follow the new thread",
+        "Listen for the phrase, ask about the exact word, let them clarify, then follow the new thread",
       example: [
         "Them: 'It's been messy.'",
         "You: 'Messy how? Emotionally or logistically?'",
@@ -562,7 +562,7 @@ export const TC025: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm comment → exact-word pickup → reflection → small self-disclosure → appreciation",
+        "Warm comment, exact-word pickup, reflection, small self-disclosure, then appreciation",
       example: [
         "'Chaotic but fun'. I love that. Chaotic how?",
         "'So the chaos was the good part.'",
@@ -573,7 +573,7 @@ export const TC025: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate the concern → exact-word pickup → clarify the meaning → summarise accurately → respond",
+        "Validate the concern, exact-word pickup, clarify the meaning, summarise accurately, then respond",
       example: [
         "'I can see this matters.'",
         "'When you say it felt \"dismissive\", what was the moment that landed that way?'",
@@ -584,7 +584,7 @@ export const TC025: CardData = {
     {
       label: "Callback chain",
       sequence:
-        "Exact-word pickup now → return to the phrase later → continuity and remembered detail",
+        "Exact-word pickup now, return to the phrase later, then continuity and remembered detail",
       example: [
         "Early: \"'Hidden rules'. What are they?\"",
         "Later: 'That sounds like another hidden-rules moment.'",

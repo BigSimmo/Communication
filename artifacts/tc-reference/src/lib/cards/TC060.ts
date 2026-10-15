@@ -524,28 +524,28 @@ export const TC060: CardData = {
   chains: [
     {
       label: "Assumption to clean request",
-      sequence: "Positive assumption → Clean request",
+      sequence: "Positive assumption, then clean request",
       example: [
         '"I\'m assuming this got crowded out. Can you send the status by 3?"',
       ],
     },
     {
       label: "Assumption to validation without agreement",
-      sequence: "Positive assumption → Validation without agreement",
+      sequence: "Positive assumption, then validation without agreement",
       example: [
         "\"I'm reading this as a risk concern. I can see why that matters. I don't yet agree with the conclusion.\"",
       ],
     },
     {
       label: "Assumption to permission-based advice",
-      sequence: "Positive assumption → Permission-based advice",
+      sequence: "Positive assumption, then permission-based advice",
       example: [
         "\"I'm assuming you've got a reason for the approach. Would it help if I shared one concern?\"",
       ],
     },
     {
       label: "Assumption to summary check",
-      sequence: "Positive assumption → Summary check",
+      sequence: "Positive assumption, then summary check",
       example: [
         '"Let me check I\'ve got this right: the delay was the escalation, not a change in priority."',
       ],
