@@ -374,7 +374,7 @@ export const TC084: CardData = {
     {
       label: "Understand before you name",
       sequence:
-        "TC004 Reflective listening → TC084 Listen for values → TC029 Strategic silence",
+        "TC004 Reflective listening, TC084 Listen for values, then TC029 Strategic silence",
       example: [
         "So it changed at the last minute and you'd already re-planned around it.",
         "It sounds like the reliability piece mattered more than the change itself.",
@@ -384,7 +384,7 @@ export const TC084: CardData = {
     {
       label: "Feeling to value",
       sequence:
-        "TC006 Emotional labelling → TC084 Listen for values → TC011 Summary check",
+        "TC006 Emotional labelling, TC084 Listen for values, then TC011 Summary check",
       example: [
         "You sound genuinely let down.",
         "Part of this seems to be about being kept in the loop.",
@@ -394,7 +394,7 @@ export const TC084: CardData = {
     {
       label: "Meaning to autonomy",
       sequence:
-        "TC040 Meaning reflection → TC084 Listen for values → TC021 Autonomy release",
+        "TC040 Meaning reflection, TC084 Listen for values, then TC021 Autonomy release",
       example: [
         "This one clearly meant a lot.",
         "It sounds like doing it properly is the part that mattered.",
@@ -403,7 +403,7 @@ export const TC084: CardData = {
     },
     {
       label: "Structure to request",
-      sequence: "TC043 OARS → TC084 Listen for values → TC013 Clean request",
+      sequence: "TC043 OARS, TC084 Listen for values, then TC013 Clean request",
       example: [
         "(Open question, affirm, reflect, summarise.)",
         "It sounds like predictability is what would make this workable.",

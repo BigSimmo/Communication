@@ -65,7 +65,7 @@ export const TC050: CardData = {
   ],
   overview: {
     coreFormula: [
-      "What? → So What? → Now What?",
+      "What? So what? Now what?",
       "What? = what actually happened, plainly and without interpretation.",
       "So What? = why it matters, what it means, what changed.",
       "Now What? = the next small, concrete step.",
@@ -524,7 +524,7 @@ export const TC050: CardData = {
   chains: [
     {
       label: "Confirm it landed",
-      sequence: "What? So what? Now what? → Summary check (TC011)",
+      sequence: "What? So what? Now what? Then summary check (TC011)",
       example: [
         '"So: setup is the drop-off, not demand, and the fix is onboarding."',
         '"Before we move, is that how you\'d put it too?"',
@@ -532,7 +532,7 @@ export const TC050: CardData = {
     },
     {
       label: "Turn it into an ask",
-      sequence: "What? So what? Now what? → Clean request (TC013)",
+      sequence: "What? So what? Now what? Then clean request (TC013)",
       example: [
         '"...so onboarding is the problem to solve."',
         '"Could you own the first-run redesign and share a draft by Friday?"',
@@ -540,7 +540,7 @@ export const TC050: CardData = {
     },
     {
       label: "Give them room",
-      sequence: "What? So what? Now what? → Autonomy release (TC021)",
+      sequence: "What? So what? Now what? Then autonomy release (TC021)",
       example: [
         "\"That's how I read it, and what I'd suggest.\"",
         "\"But it's your call. You're closer to it than I am.\"",
@@ -548,7 +548,7 @@ export const TC050: CardData = {
     },
     {
       label: "Feelings first, then structure",
-      sequence: "Validate the concern (TC014) → What? So what? Now what?",
+      sequence: "Validate the concern (TC014), then what? So what? Now what?",
       example: [
         '"I can see why that landed badly. That\'s fair."',
         "\"When you're ready, let's sort out what happened, what it means, and what we do next.\"",

@@ -539,7 +539,7 @@ export const TC072: CardData = {
     {
       label: "Warm open",
       sequence:
-        "TC036 Contextual opener → TC072 Low-pressure invitation → TC021 Autonomy release",
+        "TC036 Contextual opener, TC072 Low-pressure invitation, then TC021 Autonomy release",
       example: [
         "Name the shared context.",
         "Invite lightly.",
@@ -549,7 +549,7 @@ export const TC072: CardData = {
     {
       label: "Include and ease",
       sequence:
-        "TC022 Status generosity → TC072 Low-pressure invitation → TC020 Low-friction ask",
+        "TC022 Status generosity, TC072 Low-pressure invitation, then TC020 Low-friction ask",
       example: [
         "Recognise a real contribution.",
         "Invite optional input.",
@@ -559,7 +559,7 @@ export const TC072: CardData = {
     {
       label: "Connect without assuming",
       sequence:
-        "TC039 Common-ground discovery → TC054 Similarity signalling → TC072 Low-pressure invitation",
+        "TC039 Common-ground discovery, TC054 Similarity signalling, then TC072 Low-pressure invitation",
       example: [
         "Notice a genuine overlap.",
         "Name it modestly.",
@@ -569,7 +569,7 @@ export const TC072: CardData = {
     {
       label: "Re-enter and offer",
       sequence:
-        "TC071 Conversation re-entry after interruption → TC072 Low-pressure invitation → TC041 Topic energy tracking",
+        "TC071 Conversation re-entry after interruption, TC072 Low-pressure invitation, then TC041 Topic energy tracking",
       example: [
         "Return to the interrupted thread.",
         "Make continuing optional.",

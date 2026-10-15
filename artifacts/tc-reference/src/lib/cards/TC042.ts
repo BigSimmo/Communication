@@ -65,7 +65,7 @@ export const TC042: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Point → Reason → Example → Point",
+      "Point, reason, example, then point",
       "My point is X. The reason is Y. For example, Z. So the short answer is X.",
       "Point: lead with the one thing that matters.",
       "Reason: give the single strongest why, not every why.",
@@ -253,7 +253,7 @@ export const TC042: CardData = {
     },
     {
       condition: "The listener needs convincing",
-      action: "Use the full Point → Reason → Example → Point.",
+      action: "Use the full Point, reason, example, then point.",
       phrase:
         "Move it a week. Testing's behind, staging failed twice. So a week.",
     },
@@ -350,7 +350,7 @@ export const TC042: CardData = {
     {
       day: "Day 1",
       title: "Draft it",
-      task: "Take a real topic and write a 60-second answer using Point → Reason → Example → Point.",
+      task: "Take a real topic and write a 60-second answer using Point, reason, example, then point.",
     },
     {
       day: "Day 2",
@@ -488,7 +488,7 @@ export const TC042: CardData = {
   chains: [
     {
       label: "Clarity check",
-      sequence: "PREP → Summary check",
+      sequence: "PREP, then summary check",
       example: [
         "Make the point cleanly.",
         '"Just so we\'re aligned, what did you take from that?"',
@@ -497,7 +497,7 @@ export const TC042: CardData = {
     },
     {
       label: "Point into ask",
-      sequence: "PREP → Clean request",
+      sequence: "PREP, then clean request",
       example: [
         "\"I'd move the launch a week. Testing's behind.\"",
         '"So, concretely: can you push the announce date to the 14th?"',
@@ -505,7 +505,7 @@ export const TC042: CardData = {
     },
     {
       label: "Point then room",
-      sequence: "PREP → Autonomy release",
+      sequence: "PREP, then autonomy release",
       example: [
         "Make the point and give the reason.",
         "\"That's my read, but it's your call.\"",
@@ -513,7 +513,7 @@ export const TC042: CardData = {
     },
     {
       label: "Feelings first",
-      sequence: "Validation → PREP",
+      sequence: "Validation, then PREP",
       example: [
         '"Yeah, this deadline\'s brutal. I get it."',
         'Then: "Here\'s what I think we do, and why..."',

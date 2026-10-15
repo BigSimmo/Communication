@@ -505,7 +505,7 @@ export const TC063: CardData = {
         '"Only if you\'re comfortable: is there an assumption I should avoid?"',
     },
     {
-      mistake: "Immediate self-centering",
+      mistake: "Immediate self-centring",
       soundsLike: '"Good point, anyway, that\'s what I already assumed."',
       better: '"That reframes it for me. I had it as one problem."',
     },
@@ -531,7 +531,7 @@ export const TC063: CardData = {
     {
       label: "Warm entry into expertise",
       sequence:
-        "TC036 Contextual opener → TC063 Make them the expert → TC011 Summary check",
+        "TC036 Contextual opener, TC063 Make them the expert, then TC011 Summary check",
       example: [
         "Open from the present context.",
         "You've been closest to the rollout. What's one thing we should check first?",
@@ -541,7 +541,7 @@ export const TC063: CardData = {
     {
       label: "Respectful disagreement",
       sequence:
-        "TC005 Validation without agreement → TC063 Make them the expert → TC037 Double-sided reflection",
+        "TC005 Validation without agreement, TC063 Make them the expert, then TC037 Double-sided reflection",
       example: [
         "I can see why that risk matters.",
         "You've seen the vendor side more than I have. What usually causes the delay?",
@@ -551,7 +551,7 @@ export const TC063: CardData = {
     {
       label: "Learning without extracting",
       sequence:
-        "TC021 Autonomy release → TC063 Make them the expert → TC018 Specific appreciation",
+        "TC021 Autonomy release, TC063 Make them the expert, then TC018 Specific appreciation",
       example: [
         "Only if it's easy to answer:",
         "you know this community better than I do. What's one assumption I should avoid?",
@@ -560,7 +560,8 @@ export const TC063: CardData = {
     },
     {
       label: "Decision quality",
-      sequence: "TC044 BLUF → TC063 Make them the expert → TC013 Clean request",
+      sequence:
+        "TC044 BLUF, TC063 Make them the expert, then TC013 Clean request",
       example: [
         "We need to choose by Friday.",
         "You're closest to the data. What should we not miss?",

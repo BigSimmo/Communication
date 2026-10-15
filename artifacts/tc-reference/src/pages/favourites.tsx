@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PageIntro } from "@/components/page-intro";
 import { Link, useLocation } from "wouter";
 import { Heart, Copy, Check, Search, ChevronRight, X } from "lucide-react";
 import { useFavourites } from "@/lib/favourites-context";
@@ -62,22 +63,11 @@ export default function Favourites() {
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
       {/* ── Page header ── */}
-      <div className="px-4 md:px-6 pt-6 pb-4">
-        <div className="flex items-center gap-3 mb-1.5">
-          <h1
-            className="text-[20px] font-bold leading-tight"
-            style={{ color: "var(--fg-90)" }}
-          >
-            Favourites
-          </h1>
-        </div>
-        <p
-          className="text-[12px] leading-relaxed"
-          style={{ color: "var(--fg-55)" }}
-        >
-          Quick access to your saved technique cards and favourite phrases.
-        </p>
-      </div>
+      <PageIntro
+        title="Favourites"
+        description="Your saved technique cards and phrases, ready to use."
+        className="px-4 md:px-6 pt-4 md:pt-6 pb-3"
+      />
 
       {/* Sticky search bar */}
       <div

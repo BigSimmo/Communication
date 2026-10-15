@@ -66,7 +66,7 @@ export const TC100: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Event cue → light acknowledgement → interpretation question → silence → follow their read.",
+      "Event cue, light acknowledgement, interpretation question, silence, then follow their read.",
       "That was [brief neutral acknowledgement]. What did you make of it?",
       "When [event] happened, what was your read on it?",
       "No need to have a neat answer. What's your read so far?",
@@ -505,8 +505,8 @@ export const TC100: CardData = {
     "No need for a neat answer. I was just curious what your read was.",
   chains: [
     {
-      label: "Comment → meaning question → summary check",
-      sequence: "TC003 → TC100 → TC011",
+      label: "Comment, meaning question, then summary check",
+      sequence: "TC003, TC100, then TC011",
       example: [
         'TC003 Comment-before-question: "That sounds like a mixed signal."',
         'TC100: "What did you make of it?"',
@@ -514,8 +514,8 @@ export const TC100: CardData = {
       ],
     },
     {
-      label: "Energy tracking → meaning question → permission-based advice",
-      sequence: "TC041 → TC100 → TC027",
+      label: "Energy tracking, meaning question, then permission-based advice",
+      sequence: "TC041, TC100, then TC027",
       example: [
         "TC041 Topic energy tracking: notice they light up about one part of the story.",
         'TC100: "That part seems to stand out. What did you make of it?"',
@@ -523,8 +523,8 @@ export const TC100: CardData = {
       ],
     },
     {
-      label: "Echo plus question → meaning question → clean request",
-      sequence: "TC030 → TC100 → TC013",
+      label: "Echo plus question, meaning question, then clean request",
+      sequence: "TC030, TC100, then TC013",
       example: [
         "TC030 Echo plus question: \"'Weirdly formal'. What felt formal?\"",
         'TC100: "What did you make of that shift?"',
@@ -532,8 +532,8 @@ export const TC100: CardData = {
       ],
     },
     {
-      label: "Meaning reflection → meaning question → autonomy release",
-      sequence: "TC040 → TC100 → TC021",
+      label: "Meaning reflection, meaning question, then autonomy release",
+      sequence: "TC040, TC100, then TC021",
       example: [
         'TC040 Meaning reflection: "It sounds like the bigger issue is trust."',
         'TC100: "Is that your read too, or do you make something else of it?"',

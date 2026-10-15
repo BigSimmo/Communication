@@ -64,8 +64,8 @@ export const TC004: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Hear the words → identify the core meaning or feeling → reflect it briefly → pause for correction → proceed.",
-      "Short form: notice → name or respond → invite → calibrate → release.",
+      "Hear the words, identify the core meaning or feeling, reflect it briefly, pause for correction, then proceed.",
+      "Short form: notice, name or respond, invite, calibrate, then release.",
       "So the main thing is that the plan changed after you'd already committed.",
       "It sounds like the frustrating part was the lack of warning.",
       "You wanted support, not someone solving it instantly.",
@@ -519,7 +519,7 @@ export const TC004: CardData = {
   chains: [
     {
       label: "Reflect, then validate",
-      sequence: "TC004 → TC005",
+      sequence: "TC004, then TC005",
       example: [
         '"So the frustrating part was being left out of the call."',
         '"That makes sense. I\'d be annoyed too, even though I still think the call was right."',
@@ -527,7 +527,7 @@ export const TC004: CardData = {
     },
     {
       label: "Reflect, then ask permission before advice",
-      sequence: "TC004 → TC027",
+      sequence: "TC004, then TC027",
       example: [
         '"So you mainly wanted it heard, not fixed."',
         '"Would it help if I threw out an idea, or do you just want to vent for a bit?"',
@@ -535,7 +535,7 @@ export const TC004: CardData = {
     },
     {
       label: "Reflect, then summarise before moving on",
-      sequence: "TC004 → TC011",
+      sequence: "TC004, then TC011",
       example: [
         '"So it\'s the scope moving, not the deadline."',
         '"Let me play it back: two changes since Monday, and you want one owner before we restart."',
@@ -543,7 +543,7 @@ export const TC004: CardData = {
     },
     {
       label: "Reflect, then deepen to meaning",
-      sequence: "TC004 → TC040",
+      sequence: "TC004, then TC040",
       example: [
         '"So the hard part was the change landing without warning."',
         '"And I think what it really touches is whether your time gets respected at all."',

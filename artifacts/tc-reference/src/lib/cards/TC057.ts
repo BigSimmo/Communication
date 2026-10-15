@@ -532,7 +532,7 @@ export const TC057: CardData = {
   chains: [
     {
       label: "Warm opening into a clean request",
-      sequence: "Warm opening → Shared identity language → Clean request",
+      sequence: "Warm opening, shared identity language, then clean request",
       example: [
         '"Good to see you. We both want this to be easy to act on. Could you send the final version by Thursday?"',
       ],
@@ -540,7 +540,7 @@ export const TC057: CardData = {
     {
       label: "Reflective listening into a choice",
       sequence:
-        "Reflective listening → Shared identity language → Two-option question",
+        "Reflective listening, shared identity language, then two-option question",
       example: [
         "\"You're worried the timeline hides quality risk. We're both trying to protect the launch. Should we tighten scope or add a checkpoint?\"",
       ],
@@ -548,14 +548,15 @@ export const TC057: CardData = {
     {
       label: "Validation without agreement into a summary check",
       sequence:
-        "Validation without agreement → Shared identity language → Summary check",
+        "Validation without agreement, shared identity language, then summary check",
       example: [
         "\"I can see why that feels rushed. I don't think we're opposed on the outcome. Did I get the risk right?\"",
       ],
     },
     {
       label: "Pause into repair",
-      sequence: "Strategic pause → Shared identity language → Recovery phrase",
+      sequence:
+        "Strategic pause, shared identity language, then recovery phrase",
       example: [
         'After a short pause: "I want to keep us on the same side of solving it. I may have said that too strongly."',
       ],

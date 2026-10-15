@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { recordRecentCard } from "@/lib/recent-cards";
 import { useRoute, useLocation } from "wouter";
 import { copyToClipboard } from "@/lib/utils";
 import { loadCard } from "@/lib/card-loader";
@@ -60,6 +61,12 @@ export default function CardDetail() {
     setLoadFailedCardId(null);
   }
   const cardData = loadedCard?.cardId === cardId ? loadedCard.data : null;
+
+  // Remember successfully opened cards for the Library's "Pick up where you
+  // left off" strip.
+  useEffect(() => {
+    if (cardData) recordRecentCard(cardId);
+  }, [cardData, cardId]);
 
   const [expandedPhraseGroup, setExpandedPhraseGroup] = useState<string | null>(
     null,

@@ -35,7 +35,7 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
 // Header title per top-level route. The Library keeps the brand name; other
 // pages name themselves so the header always says where you are.
 const PAGE_TITLES: Record<string, string> = {
-  "/": "TC Library",
+  "/": "Library",
   "/phrases": "Phrase Bank",
   "/drill": "Daily Drill",
   "/favourites": "Favourites",
@@ -144,7 +144,7 @@ export function AppHeader() {
   }, [headerHeight]);
 
   const isLibraryRoute = location === "/";
-  const pageTitle = PAGE_TITLES[location] ?? "TC Library";
+  const pageTitle = PAGE_TITLES[location] ?? "Library";
 
   const searchButton = (testId: string) => (
     <HeaderIconButton
@@ -277,6 +277,7 @@ export function AppHeader() {
                     testId="button-card-pdf"
                     active={pdfOpen}
                     onClick={() => setPdfOpen(true)}
+                    className="inline-flex header-wide-only"
                   >
                     <FileText className="w-4 h-4" aria-hidden="true" />
                   </HeaderIconButton>
@@ -329,9 +330,7 @@ export function AppHeader() {
                     }}
                     data-testid="library-subtitle"
                   >
-                    {PAGE_TITLES[location] && !isLibraryRoute
-                      ? "TC Library"
-                      : "Technique cards"}
+                    TC Reference
                   </p>
                   <TitleTag
                     className="font-bold leading-none truncate"

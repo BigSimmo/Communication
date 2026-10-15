@@ -65,7 +65,7 @@ export const TC046: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Elicit → Provide → Elicit",
+      "Elicit, provide, then elicit",
       'Elicit: "What do you already know about this?" or "Would it help to hear one option?"',
       'Provide: one clear point, briefly: "The main thing is X."',
       'Elicit: "What do you make of that?" or "How does that fit your situation?"',
@@ -293,7 +293,7 @@ export const TC046: CardData = {
     {
       day: "Day 1",
       title: "Draft one loop",
-      task: "Write a 60-second response to a real advice moment using Elicit → Provide → Elicit, naming each step to yourself as you go.",
+      task: "Write a 60-second response to a real advice moment using Elicit, provide, then elicit, naming each step to yourself as you go.",
     },
     {
       day: "Day 2",
@@ -509,28 +509,28 @@ export const TC046: CardData = {
   chains: [
     {
       label: "Check it landed",
-      sequence: "Elicit-provide-elicit → Summary check",
+      sequence: "Elicit-provide-elicit, then summary check",
       example: [
         'Run the loop, then: "Just so we\'re on the same page, what did you take from that?"',
       ],
     },
     {
       label: "Turn it into action",
-      sequence: "Elicit-provide-elicit → Clean request",
+      sequence: "Elicit-provide-elicit, then clean request",
       example: [
         'Once the option is clear: "So, specifically, could you send me the draft by Thursday?"',
       ],
     },
     {
       label: "Hand back the choice",
-      sequence: "Elicit-provide-elicit → Autonomy release",
+      sequence: "Elicit-provide-elicit, then autonomy release",
       example: [
         "After your point: \"That's just one option, though. It's genuinely your call.\"",
       ],
     },
     {
       label: "Emotion first",
-      sequence: "Validate the concern → Elicit-provide-elicit",
+      sequence: "Validate the concern, then elicit-provide-elicit",
       example: [
         "\"That's a lot to carry. When you're ready, would it help to talk through one option?\"",
       ],

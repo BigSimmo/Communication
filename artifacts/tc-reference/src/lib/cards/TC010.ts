@@ -70,7 +70,7 @@ export const TC010: CardData = {
       "I'm glad we get a minute properly. What's been taking most of your attention?",
       "Before I jump into my bit, how are you seeing it?",
       "No pressure to go deep, but I'm curious what your take is.",
-      "Settle → orient → warm opener → low-pressure invitation → responsive follow-up.",
+      "Settle, orient, warm opener, low-pressure invitation, then responsive follow-up.",
     ],
     minimumViableMove:
       "Slow down, orient to them, and make one low-pressure warm comment before your question or point.",
@@ -556,7 +556,7 @@ export const TC010: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm presence → contextual opener → live-thread follow-up → reflective listening → specific appreciation.",
+        "Warm presence, contextual opener, live-thread follow-up, reflective listening, then specific appreciation.",
       example: [
         '"Good to see you. No rush. How\'s the day been?"',
         '"You mentioned the move went sideways. What was the sideways part?"',
@@ -567,7 +567,7 @@ export const TC010: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Warm presence → ask-before-tell → values-based framing → clean request → autonomy release.",
+        "Warm presence, ask-before-tell, values-based framing, clean request, then autonomy release.",
       example: [
         '"Before I give my view, how are you seeing it?"',
         "\"Given you care about getting this right, here's what I'd suggest.\"",
@@ -578,7 +578,7 @@ export const TC010: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Warm presence → validate the concern → slow down → clarify objection → shared-goal framing.",
+        "Warm presence, validate the concern, slow down, clarify objection, then shared-goal framing.",
       example: [
         '"Let\'s slow it down for a second. I want to understand before I respond."',
         '"I can see there\'s a real concern underneath this."',
@@ -589,7 +589,7 @@ export const TC010: CardData = {
     {
       label: "Dating / social chain",
       sequence:
-        "Warm presence → playful observation → low-pressure follow-up → reciprocal self-disclosure → callback humour.",
+        "Warm presence, playful observation, low-pressure follow-up, reciprocal self-disclosure, then callback humour.",
       example: [
         '"Okay, give me the non-boring version."',
         '"That sounds like there\'s a story there. No pressure though."',

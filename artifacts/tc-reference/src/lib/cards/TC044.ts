@@ -56,7 +56,7 @@ export const TC044: CardData = {
   ],
   id: "TC044",
   whyItWorks:
-    "BLUF, Bottom Line Up Front, means leading with the answer, recommendation or ask, then giving only the support that is actually needed. Its shape is Bottom line → key reason → implication → optional detail. Putting the conclusion first reduces the listener's cognitive load, sequences the information so the most important part lands first, and lets a busy person understand, decide or act without wading through your reasoning to find the point.",
+    "BLUF, Bottom Line Up Front, means leading with the answer, recommendation or ask, then giving only the support that is actually needed. Its shape is Bottom line, key reason, implication, then optional detail. Putting the conclusion first reduces the listener's cognitive load, sequences the information so the most important part lands first, and lets a busy person understand, decide or act without wading through your reasoning to find the point.",
   whatItIsNot: [
     "It is not a script to recite mechanically, one sentence per step.",
     "It is not a way to avoid listening, or to compress someone's emotion into a template.",
@@ -66,7 +66,7 @@ export const TC044: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Bottom line → key reason → implication → optional detail",
+      "Bottom line, key reason, implication, then optional detail",
       "Bottom line: I recommend X. The reason is Y. The next step is Z.",
       "The main point is X. The rest is only support.",
     ],
@@ -519,7 +519,7 @@ export const TC044: CardData = {
   chains: [
     {
       label: "Clarity chain",
-      sequence: "BLUF → Summary check",
+      sequence: "BLUF, then summary check",
       example: [
         '"Bottom line: I recommend we pause the rollout, mainly because of the security gap."',
         '"Before I go on, is that the read you were expecting, or does it surprise you?"',
@@ -527,7 +527,7 @@ export const TC044: CardData = {
     },
     {
       label: "Action chain",
-      sequence: "BLUF → Clean request",
+      sequence: "BLUF, then clean request",
       example: [
         '"The headline is we\'re two weeks behind."',
         '"So the ask is: can you free up one developer until the 20th?"',
@@ -535,7 +535,7 @@ export const TC044: CardData = {
     },
     {
       label: "Respect chain",
-      sequence: "BLUF → Autonomy release",
+      sequence: "BLUF, then autonomy release",
       example: [
         '"My recommendation is option B, because it\'s lower risk."',
         "\"But it's your call. You're closer to the client than I am.\"",
@@ -543,7 +543,7 @@ export const TC044: CardData = {
     },
     {
       label: "Emotion-first chain",
-      sequence: "Validation → BLUF",
+      sequence: "Validation, then BLUF",
       example: [
         '"I can see this deadline is stressing everyone, and that\'s fair."',
         "\"So here's where I've landed: we drop the third feature and ship the rest on time.\"",

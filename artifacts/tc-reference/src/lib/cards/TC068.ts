@@ -66,7 +66,7 @@ export const TC068: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Context in one line → specific action → specific object → specific output → boundary or opt-out.",
+      "Context in one line, specific action, specific object, specific output, then boundary or opt-out.",
       'Full: "Because [context], could you [action] [object] and send me [output] by [time]? No problem if that\'s not feasible."',
       'Minimum: "Could you [action] [object] and tell me [output]?"',
       'Pressure-safe: "Would it be reasonable to ask you to [action] [object] by [time]? If not, I can adjust the ask."',
@@ -548,7 +548,7 @@ export const TC068: CardData = {
   chains: [
     {
       label: "Decision under pressure",
-      sequence: "BLUF → Specific ask → Autonomy release",
+      sequence: "BLUF, specific ask, then autonomy release",
       example: [
         '"Bottom line: I need a decision on the launch date."',
         '"Could you choose to move it or hold it by 3 pm?"',
@@ -557,7 +557,7 @@ export const TC068: CardData = {
     },
     {
       label: "Listen first, then ask",
-      sequence: "Reflective listening → Specific ask",
+      sequence: "Reflective listening, then specific ask",
       example: [
         '"It sounds like speed matters more than polish right now."',
         '"Could you tell me the one risk that would make you stop the launch?"',
@@ -565,7 +565,7 @@ export const TC068: CardData = {
     },
     {
       label: "Shrink, then specify",
-      sequence: "Small ask → Specific ask",
+      sequence: "Small ask, then specific ask",
       example: [
         '"This is smaller than it looks, just one section."',
         '"Could you read the pricing page and send me the single likeliest objection?"',
@@ -573,7 +573,7 @@ export const TC068: CardData = {
     },
     {
       label: "Confirm, then ask",
-      sequence: "Summary check → Specific ask",
+      sequence: "Summary check, then specific ask",
       example: [
         '"So we agree the timeline holds and only the budget is open."',
         '"Could you tell me the one budget line you\'d cut first?"',

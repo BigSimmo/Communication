@@ -65,7 +65,7 @@ export const TC034: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Cue → small move → pause → observe → follow or release.",
+      "Cue, small move, pause, observe, then follow or release.",
       "Is it more X, or more Y, or something else?",
       "Is it more timing or workload?",
       "Short version or the detailed one, or neither right now?",
@@ -473,7 +473,7 @@ export const TC034: CardData = {
     {
       label: "Clarify then explore",
       sequence:
-        "Two-option questions → Summary check (TC011) → Live thread follow-ups (TC001)",
+        "Two-option questions, summary check (TC011), then live thread follow-ups (TC001)",
       example: [
         '"Is it more timing or workload?"',
         '"So it\'s mainly the timing."',
@@ -483,7 +483,7 @@ export const TC034: CardData = {
     {
       label: "Reassure then release",
       sequence:
-        "Validation without agreement (TC005) → Two-option questions → Autonomy release (TC021)",
+        "Validation without agreement (TC005), two-option questions, then autonomy release (TC021)",
       example: [
         '"I can see why that\'s stressful."',
         '"Do you want to decide today, or revisit tomorrow?"',
@@ -493,7 +493,7 @@ export const TC034: CardData = {
     {
       label: "Steady then narrow",
       sequence:
-        "Slow down under pressure (TC031) → Two-option questions → Meaning reflection (TC040)",
+        "Slow down under pressure (TC031), two-option questions, then meaning reflection (TC040)",
       example: [
         '"Let\'s take this a step at a time."',
         '"Is the sticking point the plan, or the people?"',

@@ -64,7 +64,7 @@ export const TC047: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Situation → Task → Action → Result",
+      "Situation, task, action, then result",
       'Situation: what was going on. "Two weeks from launch, our main supplier pulled out."',
       'Task: what you were responsible for. "I owned delivery, so it was on me to hold the date."',
       'Action: what you actually did. "I called three vendors, negotiated a rush order, and re-sequenced the build."',
@@ -516,7 +516,7 @@ export const TC047: CardData = {
   chains: [
     {
       label: "Clarity chain",
-      sequence: "STAR → Summary check",
+      sequence: "STAR, then summary check",
       example: [
         '"So that\'s the situation, what I did, and where it landed."',
         '"Does that match what you were asking, or have I missed the point?"',
@@ -524,7 +524,7 @@ export const TC047: CardData = {
     },
     {
       label: "Action chain",
-      sequence: "STAR → Clean request",
+      sequence: "STAR, then clean request",
       example: [
         '"...and that\'s how we shipped on time."',
         '"So my ask is simple: can we keep one backup supplier on the books?"',
@@ -532,7 +532,7 @@ export const TC047: CardData = {
     },
     {
       label: "Autonomy chain",
-      sequence: "STAR → Autonomy release",
+      sequence: "STAR, then autonomy release",
       example: [
         '"That\'s what worked for us last time."',
         '"But you know this context better than I do. Your call."',
@@ -540,7 +540,7 @@ export const TC047: CardData = {
     },
     {
       label: "Emotion-first chain",
-      sequence: "Validate → STAR",
+      sequence: "Validate, then STAR",
       example: [
         '"That sounds genuinely stressful. I get why it\'s frustrating."',
         "\"When you're ready, here's what happened and what I did about it.\"",

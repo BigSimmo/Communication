@@ -514,7 +514,7 @@ export const TC089: CardData = {
   chains: [
     {
       label: "Validate then bound",
-      sequence: "Validate the concern → Risk reduction → Small ask",
+      sequence: "Validate the concern, risk reduction, then small ask",
       example: [
         '"That time concern makes complete sense."',
         '"Could we make this a 10-minute trial rather than a standing meeting?"',
@@ -523,7 +523,7 @@ export const TC089: CardData = {
     },
     {
       label: "Clean request, capped",
-      sequence: "NVC / OFNR → Risk reduction → Autonomy release",
+      sequence: "NVC / OFNR, risk reduction, then autonomy release",
       example: [
         '"When the handoff slips, I feel stretched, because I need a predictable Friday."',
         '"My request is a one-week test, not a permanent rule."',
@@ -532,7 +532,7 @@ export const TC089: CardData = {
     },
     {
       label: "Safe feedback",
-      sequence: "SBI → Risk reduction → Recovery phrase",
+      sequence: "SBI, risk reduction, then recovery phrase",
       example: [
         '"In Monday\'s meeting, the direction changed after the interruption."',
         '"I want to raise it as one example, not a character judgement."',
@@ -542,7 +542,7 @@ export const TC089: CardData = {
     {
       label: "Workable pilot",
       sequence:
-        "Ask what would make it workable → Risk reduction → Clean request",
+        "Ask what would make it workable, risk reduction, then clean request",
       example: [
         '"What would make this workable for you?"',
         '"Good, let\'s protect those conditions."',

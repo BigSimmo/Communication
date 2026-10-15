@@ -535,7 +535,7 @@ export const TC054: CardData = {
     {
       label: "Bridge to a request",
       sequence:
-        "Common-ground discovery → Similarity signalling → Clean request",
+        "Common-ground discovery, similarity signalling, then clean request",
       example: [
         "Discover a real shared goal or constraint.",
         "Signal the similarity briefly.",
@@ -545,7 +545,8 @@ export const TC054: CardData = {
     },
     {
       label: "Warm up, then follow the energy",
-      sequence: "Warm presence → Similarity signalling → Topic energy tracking",
+      sequence:
+        "Warm presence, similarity signalling, then topic energy tracking",
       example: [
         "Create low-pressure attention.",
         "Name one true overlap.",
@@ -555,7 +556,7 @@ export const TC054: CardData = {
     },
     {
       label: "Overlap, then give status",
-      sequence: "Similarity signalling → Status generosity",
+      sequence: "Similarity signalling, then status generosity",
       example: [
         "Name a shared constraint.",
         "Give status to how they handled it.",
@@ -564,7 +565,7 @@ export const TC054: CardData = {
     },
     {
       label: "Overlap, then hold both sides",
-      sequence: "Similarity signalling → Double-sided reflection",
+      sequence: "Similarity signalling, then double-sided reflection",
       example: [
         "Name the shared point.",
         "Reflect both sides of the tension.",

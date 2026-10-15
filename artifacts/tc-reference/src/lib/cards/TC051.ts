@@ -65,7 +65,7 @@ export const TC051: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Receive → Appreciate → Summarise → Ask",
+      "Receive, appreciate, summarise, then ask",
       "Receive: give full attention and take in what they actually said.",
       "Appreciate: acknowledge the contribution or feeling with a small, genuine signal.",
       "Summarise: reflect the core meaning back in one line.",
@@ -296,7 +296,7 @@ export const TC051: CardData = {
     {
       day: "Day 1",
       title: "Learn the four steps",
-      task: "Memorise Receive → Appreciate → Summarise → Ask, then write one sentence for each step drawn from a real conversation you had today.",
+      task: "Memorise Receive, appreciate, summarise, then ask, then write one sentence for each step drawn from a real conversation you had today.",
     },
     {
       day: "Day 2",
@@ -491,7 +491,7 @@ export const TC051: CardData = {
   chains: [
     {
       label: "Clarify then confirm",
-      sequence: "RASA → Summary check",
+      sequence: "RASA, then summary check",
       example: [
         "Run the four steps to reflect the core point.",
         '"So the key point is X. Have I understood that the way you meant it?"',
@@ -499,7 +499,7 @@ export const TC051: CardData = {
     },
     {
       label: "Clarify then ask",
-      sequence: "RASA → Clean request",
+      sequence: "RASA, then clean request",
       example: [
         "Use the structure to surface the real issue.",
         '"Now that\'s clear, could you send me the figures by Thursday?"',
@@ -507,7 +507,7 @@ export const TC051: CardData = {
     },
     {
       label: "Clarify then release",
-      sequence: "RASA → Autonomy release",
+      sequence: "RASA, then autonomy release",
       example: [
         "Reflect the point, then hand the choice back.",
         "\"That's my read of it. But it's genuinely your call.\"",
@@ -515,7 +515,7 @@ export const TC051: CardData = {
     },
     {
       label: "Validate then structure",
-      sequence: "Validate the concern → RASA",
+      sequence: "Validate the concern, then RASA",
       example: [
         "If emotion is present, validate before you organise anything.",
         "\"It's completely fair to be frustrated. Can I reflect back what I'm hearing?\"",

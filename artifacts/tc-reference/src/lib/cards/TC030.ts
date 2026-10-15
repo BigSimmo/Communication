@@ -425,7 +425,7 @@ export const TC030: CardData = {
     {
       label: "Conversation chain",
       sequence:
-        "Warm comment → echo plus question → reflection → light self-disclosure",
+        "Warm comment, echo plus question, reflection, then light self-disclosure",
       example: [
         '"That sounds like a good problem to have. Oddly satisfying. Oddly how?"',
         '"So it\'s satisfying because it finally clicked."',
@@ -435,7 +435,7 @@ export const TC030: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate concern → echo plus question → summary check → ask what would make it workable",
+        "Validate concern, echo plus question, summary check, then ask what would make it workable",
       example: [
         '"I can see why that stung. Dismissed. What made it land that way?"',
         '"So it was less the decision, more that no one asked you first."',
@@ -445,7 +445,7 @@ export const TC030: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Echo value word → clarify priority → values frame → clean request → release",
+        "Echo value word, clarify priority, values frame, clean request, then release",
       example: [
         "\"You said 'sustainable'. Sustainable in what sense?\"",
         '"So the real priority is a pace we can keep, not just this quarter."',
@@ -455,7 +455,7 @@ export const TC030: CardData = {
     {
       label: "Networking chain",
       sequence:
-        "Warm opening → echo plus question → make them the expert → useful follow-up",
+        "Warm opening, echo plus question, make them the expert, then useful follow-up",
       example: [
         "\"That sounds like a fascinating project. 'Messy middle'. Messy how?\"",
         '"You clearly know this space. What do most people get wrong about it?"',

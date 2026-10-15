@@ -518,7 +518,7 @@ export const TC065: CardData = {
     "I bookmarked your point earlier and missed the return. Let me pick it up now.",
   chains: [
     {
-      label: "Bookmark → Thread return",
+      label: "Bookmark, then thread return",
       sequence: "Save the thread, then reopen it explicitly later.",
       example: [
         '"I want to bookmark the staffing risk because it may affect the plan."',
@@ -527,7 +527,7 @@ export const TC065: CardData = {
       ],
     },
     {
-      label: "Bookmark → Summary check",
+      label: "Bookmark, then summary check",
       sequence:
         "After several points, list the saved bookmarks and ask which comes next.",
       example: [
@@ -536,7 +536,7 @@ export const TC065: CardData = {
       ],
     },
     {
-      label: "Bookmark → Topic energy tracking",
+      label: "Bookmark, then topic energy tracking",
       sequence:
         "Save a useful thread, then follow the topic with more energy right now.",
       example: [
@@ -545,7 +545,7 @@ export const TC065: CardData = {
       ],
     },
     {
-      label: "Bookmark → Validation without agreement",
+      label: "Bookmark, then validation without agreement",
       sequence:
         "When the saved point is a concern, validate it before you evaluate it.",
       example: [

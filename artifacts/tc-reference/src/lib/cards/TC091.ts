@@ -520,7 +520,7 @@ export const TC091: CardData = {
     {
       label: "Warm-presence chain",
       sequence:
-        "Withhold the joke → steady presence (TC010) → reflect the feeling (TC004)",
+        "Withhold the joke, steady presence (TC010), then reflect the feeling (TC004)",
       example: [
         '"I won\'t lighten this."',
         "Hold calm eye contact and an even tone.",
@@ -529,7 +529,7 @@ export const TC091: CardData = {
     },
     {
       label: "Validation chain",
-      sequence: "Drop the joke → validate without agreeing (TC005) → ask",
+      sequence: "Drop the joke, validate without agreeing (TC005), then ask",
       example: [
         '"I don\'t want to joke past this."',
         '"It makes sense you\'d feel thrown by that."',
@@ -538,7 +538,7 @@ export const TC091: CardData = {
     },
     {
       label: "Restraint-stack chain",
-      sequence: "No joke (TC091) → no premature fix (TC015) → listen",
+      sequence: "No joke (TC091), no premature fix (TC015), then listen",
       example: [
         '"Let me not joke this away."',
         '"And I\'ll hold off on solutions for a second."',
@@ -547,7 +547,7 @@ export const TC091: CardData = {
     },
     {
       label: "Disagreement chain",
-      sequence: "No sarcasm → face-saving disagreement (TC092) → your view",
+      sequence: "No sarcasm, face-saving disagreement (TC092), then your view",
       example: [
         '"I\'ll keep the sarcasm out of this."',
         '"You\'ve clearly thought about it, and I see it a little differently."',

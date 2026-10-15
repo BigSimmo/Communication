@@ -66,7 +66,7 @@ export const TC090: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice → Pause → Name the non-fix → Reflect → Mode check → Continue or shift.",
+      "Notice, pause, name the non-fix, reflect, mode check, then continue or shift.",
       'Ultra-short: "Not fixing yet. Listening first."',
       "Field line: I hear the problem, I won't fix it yet, I'll stay with the person, and I'll ask what kind of help is wanted before advising.",
       '"I can see why this is heavy. I won\'t jump into fixing it yet. Do you want me to just listen for a minute, or help you sort options?"',
@@ -527,7 +527,7 @@ export const TC090: CardData = {
     {
       label: "Support chain",
       sequence:
-        "TC012 Full-attention signal → TC090 Do-Not-Fix-Yet → TC004 Reflective listening → TC040 Meaning reflection → TC027 Permission-based advice",
+        "TC012 Full-attention signal, TC090 Do-Not-Fix-Yet, TC004 Reflective listening, TC040 Meaning reflection, then TC027 Permission-based advice",
       example: [
         "Use when someone brings a vulnerable problem and later wants help.",
         "\"You've got my full attention. I won't try to fix it yet. Tell me what happened. ...So it's less the task, more feeling unseen. ...Want a couple of options now?\"",
@@ -536,7 +536,7 @@ export const TC090: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "TC031 Slow down under pressure → TC090 Do-Not-Fix-Yet → TC005 Validation without agreement → TC037 Double-sided reflection → TC013 Clean request",
+        "TC031 Slow down under pressure, TC090 Do-Not-Fix-Yet, TC005 Validation without agreement, TC037 Double-sided reflection, then TC013 Clean request",
       example: [
         "Use when your impulse is to solve, defend, or correct mid-argument.",
         '"Let me slow down. I\'m not going to fix this on the spot. I get why you saw it that way, and I saw it differently. Can we take one thing at a time?"',
@@ -545,7 +545,7 @@ export const TC090: CardData = {
     {
       label: "Leadership chain",
       sequence:
-        "TC011 Summary check → TC090 Do-Not-Fix-Yet → TC043 OARS → TC027 Permission-based advice → TC019 Small ask",
+        "TC011 Summary check, TC090 Do-Not-Fix-Yet, TC043 OARS, TC027 Permission-based advice, then TC019 Small ask",
       example: [
         "Use when a team member is overloaded and you need to move from support to action without rushing them.",
         "\"So the load's been relentless for weeks. Have I got that right? I won't leap to fixes. ...Ready to pick one small thing to take off your plate?\"",
@@ -554,7 +554,7 @@ export const TC090: CardData = {
     {
       label: "Digital chain",
       sequence:
-        "TC024 Warm opening → TC090 Do-Not-Fix-Yet → TC030 Echo plus question → TC041 Topic energy tracking → TC027 Permission-based advice",
+        "TC024 Warm opening, TC090 Do-Not-Fix-Yet, TC030 Echo plus question, TC041 Topic energy tracking, then TC027 Permission-based advice",
       example: [
         "Use when replying by text and you want to avoid the coldness of instant problem-solving.",
         "\"Really glad you told me. I won't advice-dump. 'Dismissed in five minutes'. What stung most about that? ...Want ideas now or later?\"",

@@ -526,7 +526,7 @@ export const TC039: CardData = {
     {
       label: "Repair to request",
       sequence:
-        "TC005 Validation without agreement → TC039 Common-ground discovery → TC013 Clean request",
+        "TC005 Validation without agreement, TC039 Common-ground discovery, then TC013 Clean request",
       example: [
         "\"That's a fair worry, and I'm not going to pretend it isn't.\" (validate)",
         '"We both want a process people can trust." (common ground)',
@@ -536,7 +536,7 @@ export const TC039: CardData = {
     {
       label: "Concern to ask",
       sequence:
-        "TC014 Validate the concern → TC039 Common-ground discovery → TC020 Low-friction ask",
+        "TC014 Validate the concern, TC039 Common-ground discovery, then TC020 Low-friction ask",
       example: [
         '"I get why the timing feels risky." (validate the concern)',
         '"Neither of us wants a rushed launch." (common ground)',
@@ -546,7 +546,7 @@ export const TC039: CardData = {
     {
       label: "Status to summary",
       sequence:
-        "TC022 Status generosity → TC039 Common-ground discovery → TC011 Summary check",
+        "TC022 Status generosity, TC039 Common-ground discovery, then TC011 Summary check",
       example: [
         '"You\'ve carried most of this, and it shows." (status generosity)',
         '"We both want it to land well." (common ground)',

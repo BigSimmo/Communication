@@ -586,7 +586,8 @@ export const TC092: CardData = {
   chains: [
     {
       label: "Attention first",
-      sequence: "TC012 Full-attention signal → TC092 Face-saving disagreement",
+      sequence:
+        "TC012 Full-attention signal, then TC092 Face-saving disagreement",
       example: [
         "When someone already feels exposed, give full attention before you introduce the difference.",
         "'I've got you. Say the whole thing.' Then: 'I'm with you on the goal. I see the timing differently.'",
@@ -595,7 +596,7 @@ export const TC092: CardData = {
     {
       label: "Validate, then differ",
       sequence:
-        "TC014 Validate the concern → TC092 Face-saving disagreement → TC013 Clean request",
+        "TC014 Validate the concern, TC092 Face-saving disagreement, then TC013 Clean request",
       example: [
         "Recognise the worry, name the disagreement, then make one clear ask.",
         "'The risk you're flagging is real. I don't think a full launch answers it. Could we test a limited release against the first-week volume?'",
@@ -604,7 +605,7 @@ export const TC092: CardData = {
     {
       label: "Reflect both sides, then add yours",
       sequence:
-        "TC037 Double-sided reflection → TC092 Face-saving disagreement",
+        "TC037 Double-sided reflection, then TC092 Face-saving disagreement",
       example: [
         "Reflect the tension they're already holding, then add your point of difference.",
         "'Part of you wants to ship, part of you knows support isn't ready. I lean towards the second for now.'",
@@ -613,7 +614,7 @@ export const TC092: CardData = {
     {
       label: "Disagree, then release",
       sequence:
-        "TC092 Face-saving disagreement → TC021 Autonomy release → TC029 Strategic silence",
+        "TC092 Face-saving disagreement, TC021 Autonomy release, then TC029 Strategic silence",
       example: [
         "Name the disagreement, hand the decision back, then stop talking.",
         "'I've said where I land. It's genuinely your call. I just wanted the risk visible.' Then silence.",

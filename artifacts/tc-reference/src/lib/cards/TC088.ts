@@ -66,7 +66,7 @@ export const TC088: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Purpose → context → ask → reply path → deadline or next step.",
+      "Purpose, context, ask, reply path, then deadline or next step.",
       'Minimum viable move: "Quick ask: can you approve the revised copy? Only the headline changed. Reply approve or edit by Thursday noon. I\'ll handle the update."',
       'Full field version: "Decision needed. We have two workable options. Choose A or B. A/B is enough. By 3 pm so I can brief the team."',
       "Field rule: if the reader can grasp the job of the message, why it matters, and how to respond without scrolling, you're close.",
@@ -493,7 +493,7 @@ export const TC088: CardData = {
   chains: [
     {
       label: "Bottom line first",
-      sequence: "TC044 BLUF → TC088 One-screen message",
+      sequence: "TC044 BLUF, then TC088 One-screen message",
       example: [
         "Lead with the bottom line, then keep the rest of the message inside one screen.",
         '"Bottom line: we can hit Friday. One approval needed: the extra $900, or reduce scope. Reply A or B by 3 pm."',
@@ -501,7 +501,7 @@ export const TC088: CardData = {
     },
     {
       label: "Clean the ask, then compress",
-      sequence: "TC013 Clean request → TC088 One-screen message",
+      sequence: "TC013 Clean request, then TC088 One-screen message",
       example: [
         "Sharpen the exact action first, then fit the whole message on one screen.",
         '"Can you sign off the headline change, nothing else, by 2 pm? Yes/no is enough."',
@@ -509,7 +509,7 @@ export const TC088: CardData = {
     },
     {
       label: "Easy to answer",
-      sequence: "TC088 One-screen message → TC034 Two-option questions",
+      sequence: "TC088 One-screen message, then TC034 Two-option questions",
       example: [
         "Compress the message, then hand the reader an A/B choice so they don't have to invent the next step.",
         '"Tuesday 10 or Thursday 2? If neither works, I\'ll send notes."',
@@ -517,7 +517,7 @@ export const TC088: CardData = {
     },
     {
       label: "Care before compression",
-      sequence: "TC012 Full-attention signal → TC088 One-screen message",
+      sequence: "TC012 Full-attention signal, then TC088 One-screen message",
       example: [
         "When the material is sensitive, signal care first, then make the ask clear rather than buried.",
         "\"I know this is a hard one, and I've read it properly. When you're ready I need your call on the list. Happy to talk it through first.\"",

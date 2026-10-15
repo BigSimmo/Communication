@@ -65,7 +65,7 @@ export const TC048: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Situation → Complication → Question → Answer",
+      "Situation, complication, question, then answer",
       "Situation: where things stand. Complication: what has changed or gone wrong. Question: the decision it forces. Answer: what you recommend.",
       "Minimum viable move: Situation X. Complication Y. Question: what should we do? Answer: Z.",
       'Worked example: "We shipped on time (S). But support tickets have doubled (C). Do we pause new features to fix it (Q)? I\'d pause for two weeks (A)."',
@@ -418,7 +418,7 @@ export const TC048: CardData = {
   chains: [
     {
       label: "Structure then confirm",
-      sequence: "SCQA → Summary check",
+      sequence: "SCQA, then summary check",
       example: [
         "Give the four-beat frame, then check it landed.",
         '"Before we move on, what did you take as the main point?"',
@@ -426,7 +426,7 @@ export const TC048: CardData = {
     },
     {
       label: "Structure then ask",
-      sequence: "SCQA → Clean request",
+      sequence: "SCQA, then clean request",
       example: [
         "Once the frame has made the problem clear, make the next step concrete.",
         '"So, can you approve the scope cut by Thursday?"',
@@ -434,7 +434,7 @@ export const TC048: CardData = {
     },
     {
       label: "Structure then release",
-      sequence: "SCQA → Autonomy release",
+      sequence: "SCQA, then autonomy release",
       example: [
         "Offer the answer, then hand the choice back.",
         "\"That's my recommendation, but it's genuinely your call.\"",
@@ -442,7 +442,7 @@ export const TC048: CardData = {
     },
     {
       label: "Validate then structure",
-      sequence: "Validate the concern → SCQA",
+      sequence: "Validate the concern, then SCQA",
       example: [
         "When emotion is present, acknowledge it before you organise anything.",
         "\"I know this deadline's been brutal. Can I lay out where we are and what I'd do?\"",

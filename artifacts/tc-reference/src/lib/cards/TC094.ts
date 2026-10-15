@@ -549,7 +549,7 @@ export const TC094: CardData = {
     "I hear the timing doesn't work. Would a smaller version help, or should I leave it?",
   chains: [
     {
-      label: "Clean request → Bounded request",
+      label: "Clean request, then bounded request",
       sequence: "State the ask clearly, then add the cost boundary.",
       example: [
         '"Could you look over the proposal?"',
@@ -557,7 +557,7 @@ export const TC094: CardData = {
       ],
     },
     {
-      label: "Bounded request → Autonomy release",
+      label: "Bounded request, then autonomy release",
       sequence: "Make the ask finite, then make refusal safe.",
       example: [
         '"Could you cover the front desk from nine to ten?"',
@@ -565,7 +565,7 @@ export const TC094: CardData = {
       ],
     },
     {
-      label: "Small ask → Bounded request",
+      label: "Small ask, then bounded request",
       sequence: "Shrink the action, then define its scope.",
       example: [
         '"Could you glance at one thing for me?"',
@@ -573,7 +573,7 @@ export const TC094: CardData = {
       ],
     },
     {
-      label: "Contextual opener → Bounded request",
+      label: "Contextual opener, then bounded request",
       sequence: "Briefly say why you are asking, then keep the ask bounded.",
       example: [
         '"You know this client better than anyone."',

@@ -555,7 +555,7 @@ export const TC080: CardData = {
     "I may have named that badly. What's the better word for what you're feeling?",
   chains: [
     {
-      label: "Emotional labelling → NURSE",
+      label: "Emotional labelling, then NURSE",
       sequence:
         "Name the emotion lightly, then add respect, support or exploration if a label alone isn't enough.",
       example: [
@@ -564,7 +564,7 @@ export const TC080: CardData = {
       ],
     },
     {
-      label: "NURSE → Summary check",
+      label: "NURSE, then summary check",
       sequence:
         "Acknowledge the emotion, then check you've understood the practical issue correctly.",
       example: [
@@ -573,7 +573,7 @@ export const TC080: CardData = {
       ],
     },
     {
-      label: "NURSE → Ask-tell-ask",
+      label: "NURSE, then ask-tell-ask",
       sequence:
         "Respond to emotion, ask what they already know, give the information, then check what landed.",
       example: [
@@ -583,7 +583,7 @@ export const TC080: CardData = {
       ],
     },
     {
-      label: "NURSE → Clean request or boundary",
+      label: "NURSE, then clean request or boundary",
       sequence:
         "Acknowledge the feeling, then state the next step or the limit cleanly.",
       example: [

@@ -506,7 +506,7 @@ export const TC028: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm vocal baseline → warm opening → live-thread follow-up → reflection → specific appreciation",
+        "Warm vocal baseline, warm opening, live-thread follow-up, reflection, then specific appreciation",
       example: [
         '"Hey, good to see you. How\'s your week actually been?"',
         '"That sounds like it mattered. What made it stand out?"',
@@ -516,7 +516,7 @@ export const TC028: CardData = {
     {
       label: "Request chain",
       sequence:
-        "Warm vocal baseline → clean request → autonomy release → next-action clarity",
+        "Warm vocal baseline, clean request, autonomy release, then next-action clarity",
       example: [
         '"Quick ask. Could you look at this by Thursday?"',
         '"Totally your call, though. No issue if the timing\'s tight."',
@@ -526,7 +526,7 @@ export const TC028: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Warm vocal baseline → validate the concern → agreement before disagreement → soft challenge",
+        "Warm vocal baseline, validate the concern, agreement before disagreement, then soft challenge",
       example: [
         '"I see why that\'s the concern."',
         "\"You're right that the timeline's tight. I'd agree there.\"",
@@ -536,7 +536,7 @@ export const TC028: CardData = {
     {
       label: "Leadership chain",
       sequence:
-        "Warm vocal baseline → BLUF → concise recommendation → check understanding",
+        "Warm vocal baseline, BLUF, concise recommendation, then check understanding",
       example: [
         '"Bottom line: I\'d hold the launch a week."',
         '"My recommendation is to fix the two blockers first."',
@@ -546,7 +546,7 @@ export const TC028: CardData = {
     {
       label: "Repair chain",
       sequence:
-        "Warm vocal baseline → name the awkwardness → clarify intent → reset",
+        "Warm vocal baseline, name the awkwardness, clarify intent, then reset",
       example: [
         '"That came out sharper than I meant."',
         '"What I was actually trying to say is..."',

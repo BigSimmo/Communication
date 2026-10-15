@@ -21,6 +21,7 @@ import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
 import { IMPACT_STYLES } from "@/lib/design-tokens";
+import { LibraryToday } from "@/components/library-today";
 
 // One glyph per category gives the list a visual rhythm without repeating
 // the TC code, which already sits in each row's meta line.
@@ -632,6 +633,7 @@ export default function Library() {
 
       {/* ── Card list ── (main already clears the phone tab bar) */}
       <div className="px-4 md:px-6 pt-4 pb-6 space-y-6">
+        {!hasFiltersActive && <LibraryToday />}
         {hasFiltersActive && hasResults && (
           <p
             className="px-1 -mb-2 text-[12px] font-medium"

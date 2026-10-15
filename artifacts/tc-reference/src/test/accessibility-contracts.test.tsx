@@ -180,10 +180,10 @@ describe("core accessibility contracts", () => {
     const links = within(bar).getAllByRole("link");
     expect(links.map((l) => l.getAttribute("href"))).toEqual([
       "/",
-      "/playbooks",
       "/phrases",
-      "/favourites",
       "/drill",
+      "/playbooks",
+      "/favourites",
     ]);
     expect(screen.getByTestId("nav-tab-library")).toHaveAttribute(
       "aria-current",
@@ -351,7 +351,7 @@ describe("core accessibility contracts", () => {
 
     expect(
       await screen.findByText(
-        "Browse and study every phrase from every card, filtered by tone.",
+        "Every phrase from every card. Filter by tone, search, then tap a phrase to copy it.",
         undefined,
         { timeout: 5000 },
       ),

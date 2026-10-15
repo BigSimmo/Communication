@@ -65,7 +65,7 @@ export const TC007: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Their moment → acknowledge → follow-up → optional brief bridge → return",
+      "Their moment, acknowledge, follow-up, optional brief bridge, then return",
       '"That sounds [specific quality]. What was [the alive part]?"',
       '"I have a version of that too, but I want to stay with yours first. What happened next?"',
       '"That reminds me of something similar, but your part is the interesting bit here: what did you do after that?"',
@@ -536,7 +536,7 @@ export const TC007: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Acknowledge → follow-up → reflect → optional brief bridge → return → appreciation",
+        "Acknowledge, follow-up, reflect, optional brief bridge, return, then appreciation",
       example: [
         '"That sounds like it mattered. What made it important?"',
         '"So the recognition landed more than the title."',
@@ -547,7 +547,7 @@ export const TC007: CardData = {
     {
       label: "Win chain",
       sequence:
-        "Celebrate → ask the best moment → notice the effort → reflect the meaning → let them savour it",
+        "Celebrate, ask the best moment, notice the effort, reflect the meaning, then let them savour it",
       example: [
         '"That\'s a proper win. When did it sink in?"',
         '"What part took the most work?"',
@@ -558,7 +558,7 @@ export const TC007: CardData = {
     {
       label: "Vulnerability chain",
       sequence:
-        "Slow down → validate → ask one gentle question → avoid matching pain → stay present",
+        "Slow down, validate, ask one gentle question, avoid matching pain, then stay present",
       example: [
         '"That sounds heavy."',
         '"What made it hardest?"',
@@ -569,7 +569,7 @@ export const TC007: CardData = {
     {
       label: "Group chain",
       sequence:
-        "Amplify their point → credit them → add briefly → return to the speaker",
+        "Amplify their point, credit them, add briefly, then return to the speaker",
       example: [
         '"Can we stay with that? There\'s a good lesson in it."',
         '"That\'s a better example than the one I had."',

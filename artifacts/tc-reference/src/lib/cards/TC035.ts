@@ -548,7 +548,7 @@ export const TC035: CardData = {
     {
       label: "Pressure answer",
       sequence:
-        'Notice pressure → "Let me take a second" → pause one breath → answer the cleanest part → stop before overexplaining',
+        'Notice pressure, "Let me take a second", pause one breath, answer the cleanest part, then stop before overexplaining',
       example: [
         '"Let me take a second with that." [pause]',
         "\"My concern isn't the goal. It's the amount we're trying to run at once.\"",
@@ -557,7 +557,7 @@ export const TC035: CardData = {
     {
       label: "Question with room",
       sequence:
-        "Ask a real question → close your mouth → hold the pause → minimal encourager only if they start → reflect the answer",
+        "Ask a real question, close your mouth, hold the pause, minimal encourager only if they start, then reflect the answer",
       example: [
         '"What would need to change for this to feel workable?" [pause]',
         "They think, then answer, and you reflect it back rather than filling the gap.",
@@ -566,7 +566,7 @@ export const TC035: CardData = {
     {
       label: "Clean apology",
       sequence:
-        "Own the specific behaviour → pause → do not defend → invite the rest → repair specifically",
+        "Own the specific behaviour, pause, do not defend, invite the rest, then repair specifically",
       example: [
         '"I interrupted you. I\'m sorry." [pause]',
         '"Finish the point and I\'ll stay quiet."',
@@ -575,7 +575,7 @@ export const TC035: CardData = {
     {
       label: "Boundary without dilution",
       sequence:
-        "State the boundary plainly → pause → add only the minimum next step",
+        "State the boundary plainly, pause, then add only the minimum next step",
       example: [
         '"I can\'t take that on this week." [pause]',
         '"I can review one page by Friday."',

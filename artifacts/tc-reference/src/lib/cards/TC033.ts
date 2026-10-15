@@ -65,7 +65,7 @@ export const TC033: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Cue → small move → pause → observe → follow or release.",
+      "Cue, small move, pause, observe, then follow or release.",
       'They trail off mid-thought. You: "mm", then stay quiet.',
       '"...and I didn\'t know what to say." You: "Go on."',
       '"Yeah." (then nothing, let them keep the floor)',
@@ -336,7 +336,7 @@ export const TC033: CardData = {
     {
       day: "Day 7",
       title: "Full pass",
-      task: "In a real conversation, run cue → small move → pause → observe → follow or release, and notice the moment to stop entirely.",
+      task: "In a real conversation, run cue, small move, pause, observe, then follow or release, and notice the moment to stop entirely.",
     },
   ],
   checklist: [
@@ -513,7 +513,7 @@ export const TC033: CardData = {
     {
       label: "Draw out, then check",
       sequence:
-        "Minimal encouragers → Summary check (TC011) → Live thread follow-ups (TC001)",
+        "Minimal encouragers, summary check (TC011), then live thread follow-ups (TC001)",
       example: [
         'Person talks it out while you signal: "Mm... go on."',
         'You: "So the sticking point is really the timing."',
@@ -523,7 +523,7 @@ export const TC033: CardData = {
     {
       label: "Steady an upset person",
       sequence:
-        "Validation without agreement (TC005) → Minimal encouragers → Autonomy release (TC021)",
+        "Validation without agreement (TC005), minimal encouragers, then autonomy release (TC021)",
       example: [
         '"That\'d frustrate anyone."',
         '"Mm. Go on."',
@@ -533,7 +533,7 @@ export const TC033: CardData = {
     {
       label: "Slow a heated moment",
       sequence:
-        "Slow down under pressure (TC031) → Minimal encouragers → Meaning reflection (TC040)",
+        "Slow down under pressure (TC031), minimal encouragers, then meaning reflection (TC040)",
       example: [
         '"Let\'s take this slowly."',
         '"Okay. Keep going."',

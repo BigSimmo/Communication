@@ -512,7 +512,7 @@ export const TC013: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm presence → clean request → autonomy release → appreciation",
+        "Warm presence, clean request, autonomy release, then appreciation",
       example: [
         '"Good to see you. Quick one."',
         '"Could you send the signed form by Thursday?"',
@@ -523,7 +523,7 @@ export const TC013: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Understand their goal → clean request → reduce friction → confirm next step",
+        "Understand their goal, clean request, reduce friction, then confirm next step",
       example: [
         '"You want this shipped without another delay, right?"',
         '"Could you approve the one-pager by midday?"',
@@ -534,7 +534,7 @@ export const TC013: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate concern → define request → offer choice → check fairness",
+        "Validate concern, define request, offer choice, then check fairness",
       example: [
         '"I get that the timing feels tight."',
         '"Could we lock who does what by Friday?"',
@@ -545,7 +545,7 @@ export const TC013: CardData = {
     {
       label: "Digital chain",
       sequence:
-        "Subject line → one-line context → clean ask → deadline → easy reply option",
+        "Subject line, one-line context, clean ask, deadline, then easy reply option",
       example: [
         'Subject: "Quick decision needed: option B"',
         '"We\'re finalising Friday."',

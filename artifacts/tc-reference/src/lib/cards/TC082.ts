@@ -537,7 +537,7 @@ export const TC082: CardData = {
     {
       label: "Live social warmth",
       sequence:
-        "TC010 Warm presence → TC082 Turn-toward bids → TC039 Common-ground discovery",
+        "TC010 Warm presence, TC082 Turn-toward bids, then TC039 Common-ground discovery",
       example: [
         "They make a small show-and-tell bid.",
         'You: "Show me. What am I looking at?"',
@@ -547,7 +547,7 @@ export const TC082: CardData = {
     {
       label: "Professional effort signal",
       sequence:
-        "TC082 Turn-toward bids → TC018 Specific appreciation → TC011 Summary check",
+        "TC082 Turn-toward bids, TC018 Specific appreciation, then TC011 Summary check",
       example: [
         "They mention a small win or some friction.",
         'You: "That sounds like it took persistence. What changed?"',
@@ -557,7 +557,7 @@ export const TC082: CardData = {
     {
       label: "Digital repair",
       sequence:
-        "TC082 Turn-toward bids → TC021 Autonomy release → TC072 Low-pressure invitation",
+        "TC082 Turn-toward bids, TC021 Autonomy release, then TC072 Low-pressure invitation",
       example: [
         "A message sat unanswered and the sender may feel ignored.",
         'You: "I saw this late. I do want to respond to what you were showing me."',
@@ -567,7 +567,7 @@ export const TC082: CardData = {
     {
       label: "Boundary plus warmth",
       sequence:
-        "TC082 Turn-toward bids → TC013 Clean request → TC021 Autonomy release",
+        "TC082 Turn-toward bids, TC013 Clean request, then TC021 Autonomy release",
       example: [
         "A bid arrives at a bad time.",
         "You: \"I want to hear it properly. I can't while I'm presenting. Come back at 2?\"",

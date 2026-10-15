@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { PageIntro } from "@/components/page-intro";
 import { useLocation } from "wouter";
 import { Check, Copy, Heart, Search, X, MessagesSquare } from "lucide-react";
 import {
@@ -86,13 +87,8 @@ export default function Phrases() {
 
   if (!allPhrases) {
     return (
-      <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6">
-        <h1
-          className="text-[20px] font-bold leading-tight"
-          style={{ color: "var(--fg-90)" }}
-        >
-          Phrase Bank
-        </h1>
+      <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-4 md:pt-6">
+        <PageIntro title="Phrase Bank" />
         <div role="status" aria-live="polite" className="py-16 text-center">
           {loadFailed
             ? "Phrase Bank is unavailable right now."
@@ -105,22 +101,11 @@ export default function Phrases() {
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
       {/* ── Page header ── */}
-      <div className="px-4 md:px-6 pt-6 pb-4">
-        <div className="flex items-center gap-3 mb-1.5">
-          <h1
-            className="text-[20px] font-bold leading-tight"
-            style={{ color: "var(--fg-90)" }}
-          >
-            Phrase Bank
-          </h1>
-        </div>
-        <p
-          className="text-[12px] leading-relaxed"
-          style={{ color: "var(--fg-55)" }}
-        >
-          Browse and study every phrase from every card, filtered by tone.
-        </p>
-      </div>
+      <PageIntro
+        title="Phrase Bank"
+        description="Every phrase from every card. Filter by tone, search, then tap a phrase to copy it."
+        className="px-4 md:px-6 pt-4 md:pt-6 pb-3"
+      />
 
       {/* ── Sticky filter bar ── */}
       <div

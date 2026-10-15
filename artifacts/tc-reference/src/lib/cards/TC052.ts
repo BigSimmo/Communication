@@ -65,7 +65,7 @@ export const TC052: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Situation → Behaviour → Impact.",
+      "Situation, behaviour, then impact.",
       "In situation X, I noticed behaviour Y. The impact was Z.",
       "In this morning's client call, you answered before Priya finished. The client looked unsure who to follow.",
       "In the review, you flagged the risk early. It saved us a fortnight.",
@@ -495,7 +495,7 @@ export const TC052: CardData = {
   chains: [
     {
       label: "Feedback then check",
-      sequence: "SBI → Summary check",
+      sequence: "SBI, then summary check",
       example: [
         '"In the call, you answered before Priya finished. The client looked unsure."',
         '"What\'s your read on that?"',
@@ -504,7 +504,7 @@ export const TC052: CardData = {
     },
     {
       label: "Feedback then ask",
-      sequence: "SBI → Clean request",
+      sequence: "SBI, then clean request",
       example: [
         '"The demo overran again and ate into the client\'s questions."',
         '"Could you cap it at ten minutes next sprint and leave the rest for Q&A?"',
@@ -512,7 +512,7 @@ export const TC052: CardData = {
     },
     {
       label: "Feedback then hand back control",
-      sequence: "SBI → Autonomy release",
+      sequence: "SBI, then autonomy release",
       example: [
         '"When the deadline moved, I heard it from the client, not you. It caught me flat-footed."',
         '"How you keep me looped in is your call. I just need to not be the last to know."',
@@ -520,7 +520,7 @@ export const TC052: CardData = {
     },
     {
       label: "Settle emotion first",
-      sequence: "Validation → SBI",
+      sequence: "Validation, then SBI",
       example: [
         '"That sounded like a genuinely rough week."',
         "\"When you're ready: one thing from the review I'd like to name.\"",

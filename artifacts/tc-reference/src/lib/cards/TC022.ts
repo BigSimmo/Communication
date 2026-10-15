@@ -535,7 +535,7 @@ export const TC022: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm opening → status generosity → live-thread follow-up → brief reflection → light self-disclosure",
+        "Warm opening, status generosity, live-thread follow-up, brief reflection, then light self-disclosure",
       example: [
         '"Good to see you. I still think about that call you made on the launch."',
         '"What made you push for the earlier date?"',
@@ -545,7 +545,7 @@ export const TC022: CardData = {
     {
       label: "Leadership chain",
       sequence:
-        "Notice the contribution → give specific credit → ask for their judgement → agree the next step",
+        "Notice the contribution, give specific credit, ask for their judgement, then agree the next step",
       example: [
         '"Your read on the constraint was the useful part today."',
         '"What would you look at first if it were your call?"',
@@ -555,7 +555,7 @@ export const TC022: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate the concern → credit the valid point → disagree with the idea if needed → return to the shared goal",
+        "Validate the concern, credit the valid point, disagree with the idea if needed, then return to the shared goal",
       example: [
         '"Your concern about timing is fair, and I don\'t want to skip past it."',
         '"I still see the risk differently, though."',
@@ -565,7 +565,7 @@ export const TC022: CardData = {
     {
       label: "Networking chain",
       sequence:
-        "Contextual opener → make them the expert → specific appreciation → an easy follow-up",
+        "Contextual opener, make them the expert, specific appreciation, then an easy follow-up",
       example: [
         '"You\'ve seen more versions of this than I have."',
         '"What would you look for first?"',

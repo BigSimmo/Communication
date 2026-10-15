@@ -525,7 +525,7 @@ export const TC074: CardData = {
     "I made that sound more like a threat than a boundary. Let me restate it.",
   chains: [
     {
-      label: "Validate → DESC",
+      label: "Validate, then DESC",
       sequence:
         "Acknowledge the concern first, then Describe, Specify and set the boundary.",
       example: [
@@ -534,7 +534,7 @@ export const TC074: CardData = {
       ],
     },
     {
-      label: "Resistance-as-information → DESC",
+      label: "Resistance-as-information, then DESC",
       sequence:
         "Explore the pushback first; if the boundary still stands, state DESC cleanly.",
       example: [
@@ -543,7 +543,7 @@ export const TC074: CardData = {
       ],
     },
     {
-      label: "DESC → Autonomy release",
+      label: "DESC, then autonomy release",
       sequence:
         "State the request and boundary, then hand back the choice so it doesn't read as coercion.",
       example: [
@@ -552,7 +552,7 @@ export const TC074: CardData = {
       ],
     },
     {
-      label: "DESC → Summary check",
+      label: "DESC, then summary check",
       sequence: "After the ask, confirm what they heard when accuracy matters.",
       example: [
         '"...and if it changes, launch moves to the next cycle."',
@@ -584,7 +584,7 @@ export const TC074: CardData = {
     {
       id: "TC021",
       reason:
-        "DESC → Autonomy release: follow DESC with autonomy release so the consequence doesn't read as coercion, 'you can decide how to handle it. I'm just clear on what I'll do next.'",
+        "DESC, then autonomy release: follow DESC with autonomy release so the consequence doesn't read as coercion, 'you can decide how to handle it. I'm just clear on what I'll do next.'",
     },
     {
       id: "TC081",

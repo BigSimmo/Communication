@@ -63,8 +63,8 @@ export const TC003: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Hear the content → make one relevant comment → ask one question → stop and listen.",
-      "Short form: notice → name or respond → invite → calibrate → release.",
+      "Hear the content, make one relevant comment, ask one question, then stop and listen.",
+      "Short form: notice, name or respond, invite, calibrate, then release.",
       '"That sounds like a big shift. What made you decide?"',
       '"That\'s a lot to weigh up. Which part mattered most?"',
       '"Sounds like it came after some thought. What tipped it?"',
@@ -311,7 +311,7 @@ export const TC003: CardData = {
     },
     {
       day: "Day 3",
-      title: "Weak → better → best",
+      title: "Weak, better, best",
       task: "Take one bare question you ask often. Write it three ways: weak (bare), better (add context), best (warm and easy to answer).",
     },
     {
@@ -540,8 +540,8 @@ export const TC003: CardData = {
   bestRecoveryLine: "That came out more like an interview than I meant.",
   chains: [
     {
-      label: "Comment → follow the answer",
-      sequence: "TC003 → TC001",
+      label: "Comment, then follow the answer",
+      sequence: "TC003, then TC001",
       example: [
         'Them: "We finally moved house."',
         "You: \"That's a huge job. How's it feeling now it's done?\" (TC003)",
@@ -550,8 +550,8 @@ export const TC003: CardData = {
       ],
     },
     {
-      label: "Comment → offer two options",
-      sequence: "TC003 → TC034",
+      label: "Comment, then offer two options",
+      sequence: "TC003, then TC034",
       example: [
         'Them: "I\'m rethinking the whole plan."',
         "You: \"That's a big rethink. What's driving it?\" (TC003)",
@@ -560,8 +560,8 @@ export const TC003: CardData = {
       ],
     },
     {
-      label: "Comment → check the summary",
-      sequence: "TC003 → TC011",
+      label: "Comment, then check the summary",
+      sequence: "TC003, then TC011",
       example: [
         'You: "That\'s a lot of moving parts. What matters most to get right?" (TC003)',
         "Them: [lays out the priorities]",
@@ -569,8 +569,8 @@ export const TC003: CardData = {
       ],
     },
     {
-      label: "Comment → reflect the meaning",
-      sequence: "TC003 → TC040",
+      label: "Comment, then reflect the meaning",
+      sequence: "TC003, then TC040",
       example: [
         'You: "That sounds like a real turning point. What made it land?" (TC003)',
         "Them: [explains]",

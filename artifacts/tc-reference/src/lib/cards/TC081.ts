@@ -66,7 +66,7 @@ export const TC081: CardData = {
   ],
   overview: {
     coreFormula: [
-      "COIN = Context → Observation → Impact → Next step.",
+      "COIN = Context, observation, impact, then next step.",
       'Context: "In yesterday\'s client handoff..."',
       'Observation: "...the risk note was missing from the summary..."',
       'Impact: "...so the next person had to reconstruct the issue under time pressure..."',
@@ -545,32 +545,32 @@ export const TC081: CardData = {
     "I made that sound like a character judgement. Let me narrow it to the behaviour.",
   chains: [
     {
-      label: "Warm opening → COIN",
-      sequence: "Warm opening → COIN",
+      label: "Warm opening, then COIN",
+      sequence: "Warm opening, then COIN",
       example: [
         '"Good to catch you. I know this week\'s been full-on."',
         '"In this morning\'s review, we moved past the risk before Alex finished. The impact was that we had to reopen it. Next time, can we let the owner finish?"',
       ],
     },
     {
-      label: "Validate → COIN",
-      sequence: "Validate the concern → COIN",
+      label: "Validate, then COIN",
+      sequence: "Validate the concern, then COIN",
       example: [
         "\"You're right that the timeline was brutal. That part wasn't on you.\"",
         '"Still, in the handoff the status field was blank, so triage stalled. Next time, can we fill it before closing?"',
       ],
     },
     {
-      label: "Permission → COIN",
-      sequence: "Permission-based advice → COIN",
+      label: "Permission, then COIN",
+      sequence: "Permission-based advice, then COIN",
       example: [
         '"Can I share one specific note from the meeting?"',
         '"In the planning chat, my estimate changed before I\'d explained the constraint. The impact was a plan that looked cleaner than it was. Next time, can we check the constraint first?"',
       ],
     },
     {
-      label: "COIN → Summary check → Autonomy release",
-      sequence: "COIN → Summary check → Autonomy release",
+      label: "COIN, summary check, then autonomy release",
+      sequence: "COIN, summary check, then autonomy release",
       example: [
         '"...so next time, can we confirm dependencies before assigning the owner?"',
         '"Just to check we\'re aligned: we lock dependencies first, then assign?"',

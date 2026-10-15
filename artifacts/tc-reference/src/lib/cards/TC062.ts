@@ -520,7 +520,7 @@ export const TC062: CardData = {
   chains: [
     {
       label: "Return then confirm",
-      sequence: "Topic energy tracking → Thread return → Summary check",
+      sequence: "Topic energy tracking, thread return, then summary check",
       example: [
         '"You seemed more specific when you mentioned the handover. Can I come back to that?"',
         '"So the handover gap is the real constraint."',
@@ -528,7 +528,7 @@ export const TC062: CardData = {
     },
     {
       label: "Return then deepen",
-      sequence: "Thread return → Echo plus question → Meaning reflection",
+      sequence: "Thread return, echo plus question, then meaning reflection",
       example: [
         "\"Can I return to the trust part? You said 'not transparent', in what way?\"",
         '"So it\'s less about the decision and more about being left out of it."',
@@ -536,7 +536,7 @@ export const TC062: CardData = {
     },
     {
       label: "Return then decide",
-      sequence: "Thread return → Two-option questions → Clean request",
+      sequence: "Thread return, two-option questions, then clean request",
       example: [
         '"Can we return to ownership? Is this more a design decision or a resourcing decision?"',
         '"Could you take the resourcing call by Friday?"',
@@ -545,7 +545,7 @@ export const TC062: CardData = {
     {
       label: "Return then repair",
       sequence:
-        "Thread return → Validation without agreement → Boundary or repair",
+        "Thread return, validation without agreement, then boundary or repair",
       example: [
         '"Can we return to the concern about fairness? I can see why that felt uneven."',
         '"I still see the decision differently, but I want to repair the process."',

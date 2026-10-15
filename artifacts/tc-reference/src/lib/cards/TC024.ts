@@ -550,7 +550,7 @@ export const TC024: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm opening → contextual opener → live-thread follow-up → reflection → light self-disclosure",
+        "Warm opening, contextual opener, live-thread follow-up, reflection, then light self-disclosure",
       example: [
         '"Good to see you. How\'s your day actually been?"',
         '"Busy one? What\'s been the most full-on part?"',
@@ -560,7 +560,7 @@ export const TC024: CardData = {
     {
       label: "Request chain",
       sequence:
-        "Warm opening → clean request → autonomy release → next-action clarity",
+        "Warm opening, clean request, autonomy release, then next-action clarity",
       example: [
         '"Thanks for making time. Quick one."',
         '"Could you review the one-pager by Thursday?"',
@@ -570,7 +570,7 @@ export const TC024: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Warm opening → validate concern → shared goal → direct issue → repair if needed",
+        "Warm opening, validate concern, shared goal, direct issue, then repair if needed",
       example: [
         '"I value the relationship, so I\'d rather be direct."',
         '"I know the deadline mattered to you too."',
@@ -579,7 +579,7 @@ export const TC024: CardData = {
     },
     {
       label: "Professional chain",
-      sequence: "Warm opening → BLUF → key reason → ask/check → summary check",
+      sequence: "Warm opening, BLUF, key reason, ask/check, then summary check",
       example: [
         '"Good to connect. I\'ll give you the short version first."',
         '"My leaning is the simpler option now."',

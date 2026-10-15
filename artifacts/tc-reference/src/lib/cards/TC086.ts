@@ -542,7 +542,7 @@ export const TC086: CardData = {
   chains: [
     {
       label: "Enter a tense conversation",
-      sequence: "Warm opening → LEAP → Autonomy release → Small ask",
+      sequence: "Warm opening, LEAP, autonomy release, then small ask",
       example: [
         "Use when the other person walks in expecting pressure.",
         "Open warm, run the full LEAP sequence, hand choice back, then make one small ask.",
@@ -550,7 +550,7 @@ export const TC086: CardData = {
     },
     {
       label: "Rebuild after over-questioning",
-      sequence: "Question-stacking restraint → LEAP → Story invitation",
+      sequence: "Question-stacking restraint, LEAP, then story invitation",
       example: [
         "Use when you've fired too many questions and trust has dipped.",
         "Stop stacking questions, run LEAP to lower the threat, then invite the fuller story.",
@@ -558,7 +558,7 @@ export const TC086: CardData = {
     },
     {
       label: "High emotion, information later",
-      sequence: "Emotional labelling → LEAP → Elicit-provide-elicit",
+      sequence: "Emotional labelling, LEAP, then elicit-provide-elicit",
       example: [
         "Use when feeling is high but facts may help once it settles.",
         "Name the emotion, run LEAP, then offer information only once they invite it.",
@@ -566,7 +566,7 @@ export const TC086: CardData = {
     },
     {
       label: "Autonomy plus real risk",
-      sequence: "LEAP → Boundary statement → Risk reduction",
+      sequence: "LEAP, boundary statement, then risk reduction",
       example: [
         "Use when choice matters but harm or safety still has to be handled.",
         "Run LEAP, state the limit plainly, then agree the least intrusive safe step.",

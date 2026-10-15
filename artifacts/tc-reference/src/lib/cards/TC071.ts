@@ -509,7 +509,7 @@ export const TC071: CardData = {
   chains: [
     {
       label: "Re-enter, then follow the thread",
-      sequence: "TC071 → TC001 → TC040",
+      sequence: "TC071, TC001, then TC040",
       example: [
         '"You were saying the handover felt chaotic. Want to pick that back up?"',
         '"What made it feel chaotic?"',
@@ -518,7 +518,7 @@ export const TC071: CardData = {
     },
     {
       label: "Re-enter, then check the energy",
-      sequence: "TC071 → TC041 → TC059",
+      sequence: "TC071, TC041, then TC059",
       example: [
         '"We were on the promotion conversation."',
         '"Still useful to continue, or did the customer issue become the priority?"',
@@ -527,7 +527,7 @@ export const TC071: CardData = {
     },
     {
       label: "Bookmark, then re-enter",
-      sequence: "TC065 → TC071",
+      sequence: "TC065, then TC071",
       example: [
         '"Let\'s park the budget-risk point and come back after this call."',
         '"We\'re back, the bookmark was budget risk. Want to finish it?"',
@@ -535,7 +535,7 @@ export const TC071: CardData = {
     },
     {
       label: "Re-enter, then release autonomy",
-      sequence: "TC071 → TC021",
+      sequence: "TC071, then TC021",
       example: [
         '"You were saying the deadline matters and the plan still feels unrealistic."',
         '"Want to finish that thought, or should we leave it for now?"',

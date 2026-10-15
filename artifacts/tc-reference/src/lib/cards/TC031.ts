@@ -65,7 +65,7 @@ export const TC031: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Cue → one beat → drop the pace → simplest true sentence → pause → follow or release.",
+      "Cue, one beat, drop the pace, simplest true sentence, pause, then follow or release.",
       '"Let me slow that down. The main point is..."',
       '"I need a beat before I answer." (then answer, slowly)',
       '"One thing at a time. Here\'s the simple version."',
@@ -477,7 +477,7 @@ export const TC031: CardData = {
     {
       label: "Steady then clarify",
       sequence:
-        "Slow down under pressure → Summary check → Live thread follow-ups",
+        "Slow down under pressure, summary check, then live thread follow-ups",
       example: [
         '"Let me slow that down. The main issue is the timeline."',
         '"So the timeline is the sticking point, not the budget?"',
@@ -487,7 +487,7 @@ export const TC031: CardData = {
     {
       label: "Validate then release",
       sequence:
-        "Validation without agreement → Slow down under pressure → Autonomy release",
+        "Validation without agreement, slow down under pressure, then autonomy release",
       example: [
         '"I can see why this is frustrating."',
         '"Let me take it one thing at a time. The core point is this."',
@@ -496,7 +496,7 @@ export const TC031: CardData = {
     },
     {
       label: "Steady then go deeper",
-      sequence: "Slow down under pressure → Meaning reflection",
+      sequence: "Slow down under pressure, then meaning reflection",
       example: [
         '"Give me a beat. The main thing I\'m hearing is you feel rushed on this."',
         '"It sounds like what matters to you is having enough time to do it well."',

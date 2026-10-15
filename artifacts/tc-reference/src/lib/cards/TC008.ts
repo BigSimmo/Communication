@@ -65,7 +65,7 @@ export const TC008: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Point → one reason → optional example → pause or check.",
+      "Point, one reason, optional example, then pause or check.",
       "My view is X. The main reason is Y. [pause]",
       "Short version: X. The detail is Y if useful.",
       "I'd do X, mainly because Y. Happy to unpack it if helpful.",
@@ -550,7 +550,7 @@ export const TC008: CardData = {
   chains: [
     {
       label: "Boundary chain",
-      sequence: "Warmth → clean no → alternative → stop explaining",
+      sequence: "Warmth, clean no, alternative, then stop explaining",
       example: [
         '"I\'d genuinely love to help with this."',
         '"I can\'t take it on right now, though."',
@@ -560,7 +560,7 @@ export const TC008: CardData = {
     },
     {
       label: "Influence chain",
-      sequence: "BLUF → one reason → values frame → autonomy release",
+      sequence: "BLUF, one reason, values frame, then autonomy release",
       example: [
         '"Bottom line: I\'d go with B."',
         '"It solves the main issue with the least complexity."',
@@ -570,7 +570,7 @@ export const TC008: CardData = {
     },
     {
       label: "Leadership chain",
-      sequence: "Headline → rationale → next action → check obstacles",
+      sequence: "Headline, rationale, next action, then check obstacles",
       example: [
         '"We\'re on track for Friday."',
         '"The one risk is the vendor sign-off."',
@@ -581,7 +581,7 @@ export const TC008: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate → key concern → one reason → pause → clarify if needed",
+        "Validate, key concern, one reason, pause, then clarify if needed",
       example: [
         '"I get why you\'d want to ship now."',
         '"My one concern is the data migration."',

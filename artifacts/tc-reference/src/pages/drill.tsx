@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { PageIntro } from "@/components/page-intro";
 import { useLocation } from "wouter";
 import {
   Flame,
@@ -145,27 +146,15 @@ export default function Drill() {
   }
 
   return (
-    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-6 pb-10 gap-5">
+    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-4 md:pt-6 pb-10 gap-5">
       {/* ── Page header ── */}
-      <div>
-        <div className="flex items-center gap-3 mb-1.5">
-          <h1
-            className="text-[20px] font-bold leading-tight"
-            style={{ color: "var(--fg-90)" }}
-          >
-            Daily Drill
-          </h1>
-        </div>
-        <p
-          className="text-[12px] leading-relaxed"
-          style={{ color: "var(--fg-55)" }}
-        >
-          Reinforce communication techniques with quick daily scenario drills.
-        </p>
-      </div>
+      <PageIntro
+        title="Daily Drill"
+        description="One technique a day, seven short practice tasks each. Rate how it went to set when it comes back."
+      />
 
       {/* ── Streak + overall progress row ── */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <div className="flex items-center gap-2">
           <Flame
             className="w-5 h-5"

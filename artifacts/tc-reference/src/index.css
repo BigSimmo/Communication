@@ -209,6 +209,9 @@
 
   /* Surface backgrounds */
   --surface-header: rgba(15, 23, 36, 0.96);
+  --surface-dock: rgba(24, 33, 48, 0.88);
+  --shadow-dock:
+    0 10px 30px -8px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   --surface-float: rgba(15, 23, 36, 0.8);
   --surface-dd: hsl(217, 42%, 13%);
   --surface-sidebar: hsl(217, 42%, 10%);
@@ -258,8 +261,10 @@
   --z-header: 30;
   --z-tabbar: 35;
 
-  /* Phone tab bar height, excluding the home indicator inset */
-  --tabbar-height: 52px;
+  /* Phone tab bar dock height, and the gap under it (at least the home
+     indicator inset) */
+  --tabbar-height: 58px;
+  --tabbar-gap: max(8px, env(safe-area-inset-bottom, 0px));
   --z-overlay: 50;
   --z-modal: 60;
   --z-search: 70;
@@ -357,6 +362,9 @@
   --fg-02: rgba(15, 23, 36, 0.02);
 
   --surface-header: rgba(248, 249, 251, 0.96);
+  --surface-dock: rgba(255, 255, 255, 0.9);
+  --shadow-dock:
+    0 10px 28px -10px rgba(15, 23, 36, 0.28), 0 1px 3px rgba(15, 23, 36, 0.06);
   --surface-float: rgba(248, 249, 251, 0.88);
   --surface-dd: hsl(0, 0%, 99%);
   --surface-sidebar: hsl(210, 20%, 98%);
@@ -398,60 +406,93 @@
   .app-header,
   .app-header *,
   .tab-bar,
+  .tab-bar *,
   .card-section-nav * {
     transition: none !important;
   }
 }
 
-/* ── Phone tab bar ── */
+/* ── Phone tab bar: a floating dock above the home indicator ── */
 .tab-bar {
   z-index: var(--z-tabbar);
-  background: var(--surface-header);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  backdrop-filter: blur(20px) saturate(1.4);
-  border-top: 1px solid var(--fg-07);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  padding-left: env(safe-area-inset-left, 0px);
-  padding-right: env(safe-area-inset-right, 0px);
+  padding-bottom: var(--tabbar-gap);
+  padding-left: max(10px, env(safe-area-inset-left, 0px));
+  padding-right: max(10px, env(safe-area-inset-right, 0px));
   transform: translateY(0);
-  transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: transform;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   user-select: none;
+  pointer-events: none;
 }
 
 /* Slides fully off screen (including the home indicator band) while reading */
 .tab-bar[data-hidden="true"] {
-  transform: translateY(calc(100% + 1px));
-  pointer-events: none;
+  transform: translateY(calc(100% + 2px));
 }
 
 .tab-bar-inner {
+  position: relative;
   height: var(--tabbar-height);
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 4px;
+  border-radius: 24px;
+  background: var(--surface-dock);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid var(--fg-08);
+  box-shadow: var(--shadow-dock);
+  pointer-events: auto;
+}
+
+.tab-bar[data-hidden="true"] .tab-bar-inner {
+  pointer-events: none;
+}
+
+/* Sliding pill behind the active destination */
+.tab-bar-indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 8px) / var(--tab-count, 5));
+  border-radius: 19px;
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand) 24%, transparent);
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 150ms ease;
+  pointer-events: none;
 }
 
 .tab-bar-item {
+  position: relative;
   touch-action: manipulation;
+  border-radius: 19px;
   transition: color 150ms ease;
 }
 
+.tab-bar-item:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: -2px;
+}
+
 .tab-bar-item:active .tab-bar-icon {
-  transform: scale(0.92);
+  transform: scale(0.9);
 }
 
 .tab-bar-icon {
-  width: 46px;
-  height: 26px;
-  transition:
-    background-color 150ms ease,
-    transform 120ms ease;
+  width: 28px;
+  height: 24px;
+  transition: transform 120ms ease;
 }
 
 /* Landscape phones: slimmer, icon only */
 @media (max-height: 500px) {
   :root {
-    --tabbar-height: 42px;
+    --tabbar-height: 44px;
   }
   .tab-bar-label {
     display: none;
@@ -488,9 +529,7 @@
 
 /* Content clears the tab bar and the home indicator on phones */
 .app-main {
-  padding-bottom: calc(
-    var(--tabbar-height) + env(safe-area-inset-bottom, 0px) + 16px
-  );
+  padding-bottom: calc(var(--tabbar-height) + var(--tabbar-gap) + 20px);
 }
 
 @media (min-width: 768px) {
@@ -505,6 +544,25 @@
 .card-header-action,
 .tap-band {
   position: relative;
+}
+
+/* Header actions that give way on narrow phones so the card title keeps
+   room. Each has an in-page equivalent (theme on the other tabs, the visual
+   card PDF in Downloads). */
+.header-desktop-only {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .header-desktop-only {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 399.98px) {
+  .header-wide-only {
+    display: none !important;
+  }
 }
 
 /* Compact header while scrolling: 28px actions inside a 34px bar */
@@ -588,8 +646,8 @@
 
 /* Forced-colours / Windows High Contrast: restore borders stripped by the OS */
 @media (forced-colors: active) {
-  .tab-bar {
-    border-top: 1px solid CanvasText !important;
+  .tab-bar-inner {
+    border: 1px solid CanvasText !important;
   }
   .tab-bar-item[aria-current="page"] .tab-bar-icon {
     outline: 2px solid Highlight;

@@ -68,10 +68,10 @@ export const TC026: CardData = {
   overview: {
     coreFormula: [
       "Key phrase + curious tone + pause.",
-      "Key phrase → curious tone → pause → let them expand → choose your next move.",
-      '"I\'m not sure it\'s workable." → "Workable?" → (pause)',
-      '"The price is too high." → "High?" → (pause)',
-      '"It got a bit messy." → "Messy?" → (pause)',
+      "Key phrase, curious tone, pause, let them expand, then choose your next move.",
+      '"I\'m not sure it\'s workable.", "Workable?", then (pause)',
+      '"The price is too high.", "High?", then (pause)',
+      '"It got a bit messy.", "Messy?", then (pause)',
     ],
     minimumViableMove: "Mirror one to three words, then pause.",
     impact: "Medium",
@@ -528,7 +528,7 @@ export const TC026: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm comment → tactical mirror → reflection → light self-disclosure",
+        "Warm comment, tactical mirror, reflection, then light self-disclosure",
       example: [
         '"Loved that you just went for it."',
         '"Just went for it?"',
@@ -539,7 +539,7 @@ export const TC026: CardData = {
     {
       label: "Negotiation chain",
       sequence:
-        "Mirror objection → pause → label concern → ask what would make it workable",
+        "Mirror objection, pause, label concern, then ask what would make it workable",
       example: [
         '"The price is too high."',
         '"High?"',
@@ -550,7 +550,7 @@ export const TC026: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Mirror grievance → validate → clarify need → propose next step",
+        "Mirror grievance, validate, clarify need, then propose next step",
       example: [
         '"I felt completely left out."',
         '"Left out?"',
@@ -560,7 +560,7 @@ export const TC026: CardData = {
     },
     {
       label: "Listening chain",
-      sequence: "Mirror → pause → reflective listening → summary check",
+      sequence: "Mirror, pause, reflective listening, then summary check",
       example: [
         '"Honestly, the whole thing is a mess."',
         '"A mess?"',

@@ -515,7 +515,7 @@ export const TC011: CardData = {
     {
       label: "Listening chain",
       sequence:
-        "Open question → reflective listening → summary check → deeper follow-up",
+        "Open question, reflective listening, summary check, then deeper follow-up",
       example: [
         '"What\'s been going on with it?"',
         '"That sounds exhausting."',
@@ -526,7 +526,7 @@ export const TC011: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Ask goals → summary check → values frame → clean recommendation → autonomy release",
+        "Ask goals, summary check, values frame, clean recommendation, then autonomy release",
       example: [
         '"What matters most to you here?"',
         '"So control and fairness beat speed for you."',
@@ -537,7 +537,7 @@ export const TC011: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate → summary check → agreement before disagreement → calibrated question",
+        "Validate, summary check, agreement before disagreement, then calibrated question",
       example: [
         '"I get why that stung."',
         '"You\'re not just annoyed at the delay. You feel sidelined."',
@@ -548,7 +548,7 @@ export const TC011: CardData = {
     {
       label: "Repair chain",
       sequence:
-        "Name the rupture → own your part → summary check → ask what was missed",
+        "Name the rupture, own your part, summary check, then ask what was missed",
       example: [
         '"I think I got ahead of you."',
         '"That was my agenda, not yours."',

@@ -515,7 +515,7 @@ export const TC064: CardData = {
     {
       label: "Let-them-talk chain",
       sequence:
-        "TC033 Minimal encouragers → TC064 Check before interpreting → TC004 Reflective listening",
+        "TC033 Minimal encouragers, TC064 Check before interpreting, then TC004 Reflective listening",
       example: [
         "Give them room to keep going.",
         "Check the one read you're unsure about.",
@@ -525,7 +525,7 @@ export const TC064: CardData = {
     {
       label: "Emotion chain",
       sequence:
-        "TC064 Check before interpreting → TC006 Emotional labelling → TC005 Validation without agreement",
+        "TC064 Check before interpreting, TC006 Emotional labelling, then TC005 Validation without agreement",
       example: [
         "Check which feeling is actually present.",
         "Name it only once it's confirmed.",
@@ -535,7 +535,7 @@ export const TC064: CardData = {
     {
       label: "Clarify-then-act chain",
       sequence:
-        "TC064 Check before interpreting → TC011 Summary check → TC013 Clean request",
+        "TC064 Check before interpreting, TC011 Summary check, then TC013 Clean request",
       example: [
         "Check the interpretation.",
         "Summarise the clarified point back to them.",
@@ -545,7 +545,7 @@ export const TC064: CardData = {
     {
       label: "Advice chain",
       sequence:
-        "TC036 Contextual opener → TC064 Check before interpreting → TC027 Permission-based advice",
+        "TC036 Contextual opener, TC064 Check before interpreting, then TC027 Permission-based advice",
       example: [
         "Set the context.",
         "Clarify what they actually need.",

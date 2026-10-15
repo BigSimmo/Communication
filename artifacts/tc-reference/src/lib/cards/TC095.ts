@@ -66,8 +66,8 @@ export const TC095: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Full sequence: Describe → Express → Assert → Reinforce, then stay Mindful, Appear confident, Negotiate.",
-      "Minimum viable move: facts → impact → ask or no → why it helps.",
+      "Full sequence: Describe, express, assert, then reinforce, then stay Mindful, Appear confident, Negotiate.",
+      "Minimum viable move: facts, impact, ask or no, then why it helps.",
       'Four-sentence form: "When X happened, Y was the effect. I need Z. That would help because A. I can flex on B, but the main ask is Z."',
       "Boundary form: \"When X happens, it creates Y. I can't do Z. What I can do is A. If that doesn't work, we need another plan.\"",
       "Field rule: be precise about the request and flexible about the route.",
@@ -550,7 +550,7 @@ export const TC095: CardData = {
   chains: [
     {
       label: "Feedback, then ask",
-      sequence: "SBI → DEAR MAN",
+      sequence: "SBI, then DEAR MAN",
       example: [
         "SBI: In the last two reports, the figures arrived under a day before deadline, which left the review rushed.",
         "DEAR MAN: So for the next one I need them by noon the day before. That cuts the error risk.",
@@ -558,7 +558,7 @@ export const TC095: CardData = {
     },
     {
       label: "Validate, then hold the line",
-      sequence: "Validation without agreement → DEAR MAN",
+      sequence: "Validation without agreement, then DEAR MAN",
       example: [
         "I can see this weekend is stressful for you.",
         "I still can't cover Saturday. I can help you message the group today to find someone.",
@@ -566,7 +566,7 @@ export const TC095: CardData = {
     },
     {
       label: "Start light, add structure",
-      sequence: "Clean request → DEAR MAN",
+      sequence: "Clean request, then DEAR MAN",
       example: [
         "Please send the figures earlier next time.",
         "If it's brushed off: The last two came in under a day before deadline, which leaves me rushing. I need them by noon the day before. If the appendix is late, send the core figures first.",
@@ -574,7 +574,7 @@ export const TC095: CardData = {
     },
     {
       label: "Ask, then release",
-      sequence: "DEAR MAN → Autonomy release",
+      sequence: "DEAR MAN, then autonomy release",
       example: [
         "I need the draft by noon, because that gives us time to catch issues.",
         "You may not be able to agree to that. I still need to be clear about what I can and can't take on.",

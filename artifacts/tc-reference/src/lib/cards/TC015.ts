@@ -66,10 +66,10 @@ export const TC015: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Reflect first → mode check → permissioned suggestion → fit check.",
+      "Reflect first, mode check, permissioned suggestion, then fit check.",
       '"That sounds [hard part]. Do you want me to listen, help think it through, or suggest options?"',
       '"I have one thought, but I don\'t want to steamroll you. Useful, or not yet?"',
-      "Operating rhythm: notice → small move → pause → calibrate → follow or release.",
+      "Operating rhythm: notice, small move, pause, calibrate, then follow or release.",
     ],
     minimumViableMove:
       'Reflect once, then ask: "Do you want ideas, or do you want me to just hear you out for a minute?"',
@@ -583,7 +583,7 @@ export const TC015: CardData = {
     {
       label: "Friendship chain",
       sequence:
-        'Validate → "solutions or solidarity?" → let them vent → reflect → contribute lightly',
+        'Validate, "solutions or solidarity?", let them vent, reflect, then contribute lightly',
       example: [
         "\"That's rubbish, I'm sorry.\"",
         '"Do you want solutions or solidarity?"',
@@ -594,7 +594,7 @@ export const TC015: CardData = {
     {
       label: "Workplace chain",
       sequence:
-        "Clarify outcome → ask if advice is wanted → give one concise option → check fit",
+        "Clarify outcome, ask if advice is wanted, give one concise option, then check fit",
       example: [
         '"What are you trying to protect here?"',
         '"Want a recommendation, or shall we map it first?"',
@@ -605,7 +605,7 @@ export const TC015: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Pause → validate the concern → don't fix or defend → ask what needs understanding → respond",
+        "Pause, validate the concern, don't fix or defend, ask what needs understanding, then respond",
       example: [
         '"Let me slow down."',
         '"I can see why that felt dismissive."',
@@ -615,7 +615,7 @@ export const TC015: CardData = {
     {
       label: "Influence chain",
       sequence:
-        "Understand goal → identify constraint → permissioned advice → small next step → release",
+        "Understand goal, identify constraint, permissioned advice, small next step, then release",
       example: [
         '"What matters most to you here?"',
         '"So the constraint is time, not money."',

@@ -503,7 +503,7 @@ export const TC023: CardData = {
     {
       label: "Rapport chain",
       sequence:
-        "Warm comment → loaded-word follow-up → reflection → light self-disclosure → appreciation",
+        "Warm comment, loaded-word follow-up, reflection, light self-disclosure, then appreciation",
       example: [
         '"That sounds like the good kind of tired. Rewarding how?"',
         '"So it was draining but worth it."',
@@ -513,7 +513,7 @@ export const TC023: CardData = {
     {
       label: "Conversation-flow chain",
       sequence:
-        'Notice the charged word → ask "[word] how?" → let them define it → follow the next thread',
+        'Notice the charged word, ask "[word] how?", let them define it, then follow the next thread',
       example: [
         '"Messy how?"',
         '"...so it was really the timing that made it messy."',
@@ -523,7 +523,7 @@ export const TC023: CardData = {
     {
       label: "Conflict chain",
       sequence:
-        "Validate the emotion → loaded-word follow-up → clarify the concern → reflect → propose a next step",
+        "Validate the emotion, loaded-word follow-up, clarify the concern, reflect, then propose a next step",
       example: [
         '"I can hear that landed badly. What made it feel dismissive?"',
         '"So it was being talked over, not the decision itself."',
@@ -533,7 +533,7 @@ export const TC023: CardData = {
     {
       label: "Persuasion chain",
       sequence:
-        "Loaded-word follow-up → identify the value or concern → frame the suggestion around it → release the decision",
+        "Loaded-word follow-up, identify the value or concern, frame the suggestion around it, then release the decision",
       example: [
         "\"When you say 'risky', is it timing, cost, or quality?\"",
         '"If timing is the worry, we could stage it."',

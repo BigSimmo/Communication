@@ -64,8 +64,8 @@ export const TC005: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Name what makes sense → avoid endorsing the claim → state your boundary or view separately → invite the next step.",
-      "Short form: notice → name or respond → invite → calibrate → release.",
+      "Name what makes sense, avoid endorsing the claim, state your boundary or view separately, then invite the next step.",
+      "Short form: notice, name or respond, invite, calibrate, then release.",
       '"I can see why that landed that way, even though I read the decision differently."',
       "\"That's a reasonable concern to raise. The frustration makes sense. I don't see it the same way.\"",
       '"I can see why it felt dismissive. I don\'t think that was the intent, but the impact is worth talking through."',
@@ -533,7 +533,7 @@ export const TC005: CardData = {
   chains: [
     {
       label: "Reflect, then validate",
-      sequence: "TC004 Reflective listening → TC005",
+      sequence: "TC004 Reflective listening, then TC005",
       example: [
         'Them: "You moved ahead without me."',
         'You (reflect): "So it felt like the decision happened over your head."',
@@ -542,7 +542,7 @@ export const TC005: CardData = {
     },
     {
       label: "Validate, then a clean request",
-      sequence: "TC005 → TC013 Clean request",
+      sequence: "TC005, then TC013 Clean request",
       example: [
         '"I can see why the timeline frustrated you."',
         '"Going forward, could you flag blockers in the standup rather than after?"',
@@ -550,7 +550,7 @@ export const TC005: CardData = {
     },
     {
       label: "Validate, then release the pressure",
-      sequence: "TC005 → TC021 Autonomy release",
+      sequence: "TC005, then TC021 Autonomy release",
       example: [
         '"It makes sense that you\'d want to decide this now."',
         '"It\'s genuinely your call. Take the time you need."',
@@ -558,7 +558,7 @@ export const TC005: CardData = {
     },
     {
       label: "Validate, then ask before advising",
-      sequence: "TC005 → TC027 Permission-based advice",
+      sequence: "TC005, then TC027 Permission-based advice",
       example: [
         '"That\'s a fair thing to be worried about."',
         '"Do you want my take, or just a sounding board right now?"',

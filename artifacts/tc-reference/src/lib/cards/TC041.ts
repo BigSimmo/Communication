@@ -65,7 +65,7 @@ export const TC041: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice the shift → ask one low-pressure follow-up → watch for confirmation → follow or release.",
+      "Notice the shift, ask one low-pressure follow-up, watch for confirmation, then follow or release.",
       "You seemed a bit more interested when you mentioned that. Want to go there for a second?",
       "That part seems most relevant. Should we focus there?",
       "You had more to say about that part. Want to stay with it, or go another direction?",
@@ -541,7 +541,7 @@ export const TC041: CardData = {
   chains: [
     {
       label: "Comment, then track",
-      sequence: "TC003 → TC041",
+      sequence: "TC003, then TC041",
       example: [
         "TC003 Comment-before-question softens the ask.",
         "TC041 then picks the question based on the topic with more energy.",
@@ -550,7 +550,7 @@ export const TC041: CardData = {
     },
     {
       label: "Track, then follow the thread",
-      sequence: "TC041 → TC001",
+      sequence: "TC041, then TC001",
       example: [
         "TC041 notices which thread is live.",
         "TC001 Live thread follow-ups follows it with a natural next move.",
@@ -559,7 +559,7 @@ export const TC041: CardData = {
     },
     {
       label: "Track, then echo and ask",
-      sequence: "TC041 → TC030",
+      sequence: "TC041, then TC030",
       example: [
         "TC041 identifies the higher-energy topic.",
         "TC030 Echo plus question echoes a short phrase, then asks one question.",
@@ -568,7 +568,7 @@ export const TC041: CardData = {
     },
     {
       label: "Track, then offer options",
-      sequence: "TC041 → TC034",
+      sequence: "TC041, then TC034",
       example: [
         "TC041 spots several possible threads.",
         "TC034 Two-option questions offers a choice plus an escape hatch.",

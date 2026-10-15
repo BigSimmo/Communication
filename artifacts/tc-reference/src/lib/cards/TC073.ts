@@ -59,7 +59,7 @@ export const TC073: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice resistance → name it neutrally → ask what it carries → reflect the answer → adapt or stop.",
+      "Notice resistance, name it neutrally, ask what it carries, reflect the answer, then adapt or stop.",
       "Hesitation + neutral label + one diagnostic question + respect for the choice.",
       "I'm hearing some hesitation. What's the main thing that doesn't work for you?",
       "I'm noticing a yes-but. I don't want to push past it. Is the concern risk, timing, workload, trust, or fit?",
@@ -541,9 +541,9 @@ export const TC073: CardData = {
     "You don't have to justify the no. I was asking to understand, not to pressure you.",
   chains: [
     {
-      label: "Concern → workable",
+      label: "Concern, then workable",
       sequence:
-        "Resistance-as-information → Validation without agreement → Ask what would make it workable",
+        "Resistance-as-information, validation without agreement, then ask what would make it workable",
       example: [
         '"I hear hesitation. What\'s the main concern?"',
         '"That concern makes sense. I\'m not assuming the whole conclusion is right."',
@@ -553,7 +553,7 @@ export const TC073: CardData = {
     {
       label: "Release the pressure",
       sequence:
-        "Resistance-as-information → Autonomy release → Low-friction ask",
+        "Resistance-as-information, autonomy release, then low-friction ask",
       example: [
         "\"I'm hearing resistance. What's it pointing to?\"",
         '"A no is genuinely okay here."',
@@ -563,7 +563,7 @@ export const TC073: CardData = {
     {
       label: "Hold both sides",
       sequence:
-        "Resistance-as-information → Double-sided reflection → Permission-based advice",
+        "Resistance-as-information, double-sided reflection, then permission-based advice",
       example: [
         '"Part of you sees the value, and part of you sees the risk."',
         '"Would it help if I shared one option, or would you rather stay with the concern?"',
@@ -571,7 +571,7 @@ export const TC073: CardData = {
     },
     {
       label: "After feedback",
-      sequence: "Resistance-as-information → SBI → Repair",
+      sequence: "Resistance-as-information, SBI, then repair",
       example: [
         '"I think my feedback landed as blame. What are you hearing me say?"',
         '"Here\'s the specific behaviour and its impact, cleanly."',

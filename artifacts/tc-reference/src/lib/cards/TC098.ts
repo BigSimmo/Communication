@@ -66,7 +66,7 @@ export const TC098: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Feeling signal → brief validation → permission or bridge → facts, details or next step.",
+      "Feeling signal, brief validation, permission or bridge, then facts, details or next step.",
       'Feeling signal: name the emotional weight without overclaiming, "That sounds frustrating."',
       'Brief validation: show why it makes sense from their side, "I can see why it landed that way."',
       'Bridge: signal the turn, "The piece I want to check is..." (never "but" first).',
@@ -522,7 +522,7 @@ export const TC098: CardData = {
   chains: [
     {
       label: "Upset and partly inaccurate",
-      sequence: "TC006 → TC098 → TC005",
+      sequence: "TC006, TC098, then TC005",
       example: [
         "When they're upset and some of the story is wrong.",
         "Name the emotion (Emotional labelling), put emotion before facts, then validate without agreeing to the false detail.",
@@ -531,7 +531,7 @@ export const TC098: CardData = {
     },
     {
       label: "Activated and tangled",
-      sequence: "TC029 → TC098 → TC011",
+      sequence: "TC029, TC098, then TC011",
       example: [
         "When someone is activated and the story is a knot.",
         "Pause, acknowledge the emotion before facts, then run a summary check.",
@@ -540,7 +540,7 @@ export const TC098: CardData = {
     },
     {
       label: "Feeling plus meaning",
-      sequence: "TC004 → TC098 → TC040",
+      sequence: "TC004, TC098, then TC040",
       example: [
         "When a disclosure carries both feeling and significance.",
         "Reflect what you heard, sequence emotion before analysis, then reflect what it seems to mean.",
@@ -549,7 +549,7 @@ export const TC098: CardData = {
     },
     {
       label: "Repair and a next step",
-      sequence: "TC098 → TC053 → TC013",
+      sequence: "TC098, TC053, then TC013",
       example: [
         "When a conflict needs repair and a clear ask.",
         "Meet the emotion first, structure the issue with OFNR, then make one clean request.",

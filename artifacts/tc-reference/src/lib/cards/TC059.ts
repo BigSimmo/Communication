@@ -66,7 +66,7 @@ export const TC059: CardData = {
   ],
   overview: {
     coreFormula: [
-      "Notice energy → close respectfully → bridge to a live thread → offer choice → calibrate after the switch.",
+      "Notice energy, close respectfully, bridge to a live thread, offer choice, then calibrate after the switch.",
       'Compact: "This topic may be complete for now. The more useful thread seems to be X. Want to move there?"',
       'Soft: "I might be wrong, but the energy seems to be more around X than Y. Should we follow X for a bit?"',
       'Meeting: "We seem to have enough on this point. Unless there\'s a live concern, I suggest we move to the next decision."',
@@ -534,7 +534,7 @@ export const TC059: CardData = {
     {
       label: "Read then move",
       sequence:
-        "TC041 Topic energy tracking → TC059 Energy-based topic switching → TC038 Conversation threading",
+        "TC041 Topic energy tracking, TC059 Energy-based topic switching, then TC038 Conversation threading",
       example: [
         "Notice where energy is rising and falling, switch to the better thread, then keep continuity as it develops.",
         '"The energy picked up around delivery. Shall we follow that? ... Good, so the real question there\'s timing."',
@@ -543,7 +543,7 @@ export const TC059: CardData = {
     {
       label: "Detect then move",
       sequence:
-        "TC056 Topic preference detection → TC059 Energy-based topic switching → TC054 Similarity signalling",
+        "TC056 Topic preference detection, TC059 Energy-based topic switching, then TC054 Similarity signalling",
       example: [
         "Detect what interests them, move toward it, then build rapport through shared ground.",
         "\"You lit up on the design side. Let's go there. ... I'm the same. That's the part I actually enjoy.\"",
@@ -552,7 +552,7 @@ export const TC059: CardData = {
     {
       label: "Reflect first, then move",
       sequence:
-        "TC058 Feeling-plus-need reflection → TC059 Energy-based topic switching",
+        "TC058 Feeling-plus-need reflection, then TC059 Energy-based topic switching",
       example: [
         "Reflect the emotion first. Switch only after the person signals enoughness or relief.",
         '"Sounds like that was heavy and you needed it heard. ... Ready to move to what happens next, or stay a bit longer?"',
@@ -561,7 +561,7 @@ export const TC059: CardData = {
     {
       label: "Slow, switch, state",
       sequence:
-        "TC031 Slow down under pressure → TC059 Energy-based topic switching → TC044 BLUF",
+        "TC031 Slow down under pressure, TC059 Energy-based topic switching, then TC044 BLUF",
       example: [
         "Slow the pace, switch from circling context to the useful issue, then state the decision point clearly.",
         '"Let\'s take a breath. The live issue is timeline, not background. Bottom line: we need a date by Friday."',
