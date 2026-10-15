@@ -41,7 +41,7 @@ export function LadderSection({
                 className="flex-1 p-4 bg-red-500/5"
                 style={{ borderRight: "1px solid var(--fg-05)" }}
               >
-                <p className="text-[11px] font-bold tracking-widest text-red-400 uppercase mb-2">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-red-400 uppercase mb-2">
                   Weak
                 </p>
                 <p className="text-[12px] text-foreground/60 leading-snug">
@@ -49,7 +49,7 @@ export function LadderSection({
                 </p>
               </div>
               <div className="flex-1 p-4 bg-blue-500/5">
-                <p className="text-[11px] font-bold tracking-widest text-blue-400 uppercase mb-2">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-blue-400 uppercase mb-2">
                   Better
                 </p>
                 <p className="text-[12px] text-foreground/70 leading-snug">
@@ -60,7 +60,7 @@ export function LadderSection({
             <div className="p-4 bg-green-500/5">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1">
-                  <p className="text-[11px] font-bold tracking-widest text-green-400 uppercase mb-2">
+                  <p className="text-[11px] font-bold tracking-[0.08em] text-green-400 uppercase mb-2">
                     Best
                   </p>
                   <p className="text-[13px] font-medium text-foreground/90 leading-snug">

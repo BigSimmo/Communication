@@ -33,7 +33,7 @@ export function OverviewSection({
         }}
       >
         <p
-          className="text-[11px] font-bold tracking-widest uppercase mb-3"
+          className="text-[11px] font-bold tracking-[0.08em] uppercase mb-3"
           style={{ color: "var(--brand-text)" }}
         >
           Core formula
@@ -95,7 +95,7 @@ export function OverviewSection({
             aria-expanded={whyOpen}
           >
             <p
-              className="text-[11px] font-bold tracking-widest uppercase"
+              className="text-[11px] font-bold tracking-[0.08em] uppercase"
               style={{ color: "var(--accent-purple)" }}
             >
               Why it works
@@ -164,7 +164,7 @@ export function OverviewSection({
           border: "1px solid var(--fg-06)",
         }}
       >
-        <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-3">
+        <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-3">
           Best for
         </p>
         <ul className="space-y-2">

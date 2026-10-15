@@ -129,7 +129,7 @@ export function BottomTabBar() {
                   {badge && (
                     <span
                       aria-hidden="true"
-                      className="absolute -top-1 left-[calc(50%+6px)] min-w-[15px] h-[15px] px-[3px] rounded-full text-[9px] font-bold leading-none flex items-center justify-center"
+                      className="absolute -top-1 left-[calc(50%+6px)] min-w-[16px] h-[16px] px-[3px] rounded-full text-[11px] font-bold leading-none flex items-center justify-center"
                       style={{
                         background: "var(--brand)",
                         color: "var(--brand-contrast)",
@@ -141,7 +141,7 @@ export function BottomTabBar() {
                   )}
                 </span>
                 <span
-                  className="tab-bar-label text-[10.5px] leading-none truncate max-w-full px-1"
+                  className="tab-bar-label text-[11px] leading-none truncate max-w-full px-1"
                   style={{ fontWeight: active ? 700 : 600 }}
                 >
                   {item.label}

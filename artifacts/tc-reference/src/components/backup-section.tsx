@@ -87,7 +87,7 @@ export function BackupSection() {
     >
       <h2
         id="backup-heading"
-        className="text-[11px] font-semibold tracking-widest uppercase mb-2"
+        className="text-[11px] font-semibold tracking-[0.08em] uppercase mb-2"
         style={{ color: "var(--fg-55)" }}
       >
         Back up your data

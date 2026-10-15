@@ -104,7 +104,7 @@ export function CardHeader({
           </h2>
 
           <p
-            className="text-[11px] font-bold tracking-wider uppercase mt-3 mb-1"
+            className="text-[11px] font-bold tracking-[0.08em] uppercase mt-3 mb-1"
             style={{ color: "var(--fg-50)" }}
           >
             Minimum viable move
@@ -148,7 +148,7 @@ export function CardHeader({
                     style={{ background: "var(--fg-02)" }}
                   >
                     <span
-                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
+                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-[0.08em] pt-px"
                       style={{ color: "var(--accent-red)" }}
                     >
                       Weak
@@ -173,7 +173,7 @@ export function CardHeader({
                     }}
                   >
                     <span
-                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-wider pt-px"
+                      className="w-10 flex-shrink-0 text-[11px] font-bold uppercase tracking-[0.08em] pt-px"
                       style={{ color: "var(--accent-green)" }}
                     >
                       Best

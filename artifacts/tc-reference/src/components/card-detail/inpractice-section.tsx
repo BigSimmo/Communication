@@ -26,7 +26,7 @@ export function InPracticeSection({ cardData }: { cardData: CardData }) {
             }}
           >
             <p
-              className="text-[11px] font-bold tracking-widest uppercase"
+              className="text-[11px] font-bold tracking-[0.08em] uppercase"
               style={{ color: "var(--accent-red)" }}
             >
               Without this technique
@@ -61,7 +61,7 @@ export function InPracticeSection({ cardData }: { cardData: CardData }) {
             }}
           >
             <p
-              className="text-[11px] font-bold tracking-widest uppercase"
+              className="text-[11px] font-bold tracking-[0.08em] uppercase"
               style={{ color: "var(--accent-green)" }}
             >
               With this technique

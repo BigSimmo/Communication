@@ -18,7 +18,7 @@ export function AppearanceSection() {
     >
       <h2
         id="appearance-heading"
-        className="text-[11px] font-bold tracking-widest uppercase mb-2.5"
+        className="text-[11px] font-bold tracking-[0.08em] uppercase mb-2.5"
         style={{ color: "var(--fg-55)" }}
       >
         Appearance

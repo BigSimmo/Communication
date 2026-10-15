@@ -34,7 +34,7 @@ export function RecoverySection({
           }}
         >
           <p
-            className="text-[11px] font-bold tracking-widest uppercase mb-2"
+            className="text-[11px] font-bold tracking-[0.08em] uppercase mb-2"
             style={{ color: "var(--accent-emerald)" }}
           >
             Best all-purpose line
