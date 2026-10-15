@@ -48,7 +48,7 @@ export function PrevNextNav({
           )}
           <span className="min-w-0 flex-1" aria-hidden="true">
             <span
-              className="block text-[11px] font-semibold uppercase tracking-wider"
+              className="block text-[11px] font-semibold uppercase tracking-[0.08em]"
               style={{ color: "var(--fg-50)" }}
             >
               {dir} · {card.id}

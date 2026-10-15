@@ -393,7 +393,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                   aria-hidden="true"
                 />
                 <p
-                  className="text-[11px] font-semibold tracking-widest uppercase"
+                  className="text-[11px] font-semibold tracking-[0.08em] uppercase"
                   style={{ color: "var(--fg-55)" }}
                 >
                   Smart starts
@@ -460,7 +460,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
           {!searchLoading && !searchFailed && results.length > 0 && (
             <div>
               <p
-                className="text-[11px] font-semibold tracking-widest uppercase px-4 pt-3 pb-1.5"
+                className="text-[11px] font-semibold tracking-[0.08em] uppercase px-4 pt-3 pb-1.5"
                 style={{ color: "var(--fg-55)" }}
               >
                 Results
@@ -497,7 +497,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                       }}
                     >
                       <div
-                        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
+                        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
                         style={{
                           background: result.loaded
                             ? "color-mix(in srgb, var(--brand) 14%, transparent)"
@@ -545,7 +545,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                         />
                       ) : (
                         <span
-                          className="text-[10px] font-medium px-2 py-0.5 rounded-full flex-shrink-0"
+                          className="text-[11px] font-medium px-2 py-0.5 rounded-full flex-shrink-0"
                           style={{
                             background: "var(--fg-05)",
                             color: "var(--fg-55)",
@@ -605,7 +605,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
             <div>
               <div className="flex items-center justify-between px-4 pt-3 pb-1.5">
                 <p
-                  className="text-[11px] font-semibold tracking-widest uppercase"
+                  className="text-[11px] font-semibold tracking-[0.08em] uppercase"
                   style={{ color: "var(--fg-55)" }}
                 >
                   Recent

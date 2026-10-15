@@ -116,11 +116,6 @@ export default function Drill() {
 
   const dayNum = activeDayIndex + 1;
 
-  const totalSessions = CARD_IDS.length * 7;
-  const completedSessions =
-    state.cardIndex * 7 + state.dayIndex + (done ? 1 : 0);
-  const overallPct = Math.round((completedSessions / totalSessions) * 100);
-
   const handleComplete = (rating: "hard" | "good" | "easy" = "good") => {
     updateSRS(cardId, rating);
     const newState = completeDrill(state);
@@ -216,26 +211,6 @@ export default function Drill() {
         </div>
       </div>
 
-      {/* ── Overall progress bar ── */}
-      <div
-        className="h-1 rounded-full overflow-hidden"
-        style={{ background: "var(--fg-06)" }}
-        role="progressbar"
-        aria-valuenow={completedSessions}
-        aria-valuemin={0}
-        aria-valuemax={totalSessions}
-        aria-label={`Overall drill progress: ${overallPct}%`}
-      >
-        <div
-          className="h-full rounded-full transition-all duration-500"
-          style={{
-            width: `${overallPct}%`,
-            background:
-              "linear-gradient(90deg, var(--brand), var(--brand-bright))",
-          }}
-        />
-      </div>
-
       {/* ── Main drill card ── */}
       <div
         className="rounded-2xl p-5"
@@ -253,12 +228,8 @@ export default function Drill() {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span
-                className="text-[11px] font-bold tracking-widest uppercase"
-                style={{
-                  color: done
-                    ? "var(--accent-green)"
-                    : "color-mix(in srgb, var(--brand-text) 70%, transparent)",
-                }}
+                className="text-[12px] font-medium tabular-nums"
+                style={{ color: "var(--fg-55)" }}
               >
                 {cardId}
               </span>

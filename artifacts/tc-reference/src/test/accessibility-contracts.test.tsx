@@ -262,8 +262,9 @@ describe("core accessibility contracts", () => {
     expect(card.tagName).toBe("A");
     expect(card).toHaveAttribute("href", "/card/TC001");
     expect(within(card).queryByRole("button")).not.toBeInTheDocument();
+    // IDs are quiet metadata; amber is kept for actions and high impact
     expect(within(card).getByText(/^TC001/)).toHaveStyle({
-      color: "var(--brand-text)",
+      color: "var(--fg-55)",
     });
   });
 

@@ -73,7 +73,7 @@ export function ResourcesSection({ cardData }: { cardData: CardData }) {
           return (
             <div key={group} className="mb-5">
               <p
-                className="text-[11px] font-bold tracking-widest uppercase mb-3"
+                className="text-[11px] font-bold tracking-[0.08em] uppercase mb-3"
                 style={{ color: "var(--fg-55)" }}
               >
                 {group}
@@ -122,7 +122,7 @@ export function ResourcesSection({ cardData }: { cardData: CardData }) {
                         </p>
                       </div>
                       <span
-                        className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full flex-shrink-0 ml-1"
+                        className="text-[11px] font-bold uppercase tracking-[0.08em] px-2 py-1 rounded-full flex-shrink-0 ml-1"
                         style={{ background: ts.bg, color: ts.color }}
                       >
                         {resource.type}

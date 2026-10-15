@@ -197,7 +197,7 @@ export default function Playbooks() {
           <div className="flex flex-col gap-1.5">
             <label
               htmlFor="playbook-name"
-              className="text-[11px] font-bold tracking-wider uppercase"
+              className="text-[11px] font-bold tracking-[0.08em] uppercase"
               style={{ color: "var(--fg-55)" }}
             >
               Name
@@ -220,7 +220,7 @@ export default function Playbooks() {
           <div className="flex flex-col gap-1.5">
             <label
               htmlFor="playbook-description"
-              className="text-[11px] font-bold tracking-wider uppercase"
+              className="text-[11px] font-bold tracking-[0.08em] uppercase"
               style={{ color: "var(--fg-55)" }}
             >
               Description
@@ -241,7 +241,7 @@ export default function Playbooks() {
 
           <div className="flex flex-col gap-2">
             <label
-              className="text-[11px] font-bold tracking-wider uppercase"
+              className="text-[11px] font-bold tracking-[0.08em] uppercase"
               style={{ color: "var(--fg-55)" }}
             >
               Select Techniques ({selectedCards.length} selected)
@@ -281,7 +281,7 @@ export default function Playbooks() {
                 return (
                   <div key={category} className="flex flex-col gap-1.5">
                     <p
-                      className="px-3 pt-2 text-[10px] font-bold uppercase tracking-wider"
+                      className="px-3 pt-2 text-[11px] font-bold uppercase tracking-[0.08em]"
                       style={{ color: "var(--fg-50)" }}
                     >
                       {category}

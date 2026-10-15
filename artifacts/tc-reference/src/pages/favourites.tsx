@@ -170,8 +170,8 @@ export default function Favourites() {
             </button>
             <button
               onClick={() => setLocation("/phrases")}
-              className="mt-2 text-[13px] font-semibold px-5 min-h-11 rounded-full transition-colors hover:bg-[var(--fg-05)]"
-              style={{ color: "var(--fg-60)" }}
+              className="mt-2 text-[13px] font-semibold px-5 min-h-11 rounded-full underline underline-offset-4 transition-colors hover:bg-[var(--fg-05)]"
+              style={{ color: "var(--brand-text)" }}
             >
               Or open the Phrase Bank
             </button>
@@ -198,7 +198,7 @@ export default function Favourites() {
           <div>
             <div className="flex items-center justify-between mb-3 px-1">
               <h2
-                className="text-[11px] font-semibold tracking-widest uppercase"
+                className="text-[11px] font-semibold tracking-[0.08em] uppercase"
                 style={{ color: "var(--fg-55)" }}
               >
                 Techniques
@@ -271,15 +271,15 @@ export default function Favourites() {
                             style={{ color: "var(--fg-55)" }}
                           >
                             <span
-                              className="font-semibold"
-                              style={{ color: "var(--brand-text)" }}
+                              className="font-medium tabular-nums"
+                              style={{ color: "var(--fg-55)" }}
                             >
                               {id}
                             </span>
                             <span aria-hidden="true">·</span>
                             <span>{meta.difficulty}</span>
                             <span
-                              className="ml-0.5 text-[11px] font-bold tracking-wider px-1.5 py-px rounded-md uppercase"
+                              className="ml-0.5 text-[11px] font-semibold px-1.5 py-px rounded-md"
                               style={{
                                 background: impact.bg,
                                 color: impact.color,
@@ -320,7 +320,7 @@ export default function Favourites() {
           <div>
             <div className="flex items-center justify-between mb-3 px-1">
               <h2
-                className="text-[11px] font-semibold tracking-widest uppercase"
+                className="text-[11px] font-semibold tracking-[0.08em] uppercase"
                 style={{ color: "var(--fg-55)" }}
               >
                 Phrases
@@ -370,7 +370,7 @@ export default function Favourites() {
                         style={{ borderBottom: "1px solid var(--fg-05)" }}
                       >
                         <div
-                          className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
+                          className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
                           style={{
                             background: "var(--brand)",
                             color: "var(--brand-contrast)",

@@ -145,7 +145,7 @@ export function LibraryFilterSheet({
               <section key={group.testId} className="pt-3">
                 <h3
                   id={headingId}
-                  className="mb-2 text-[11px] font-bold uppercase tracking-widest"
+                  className="mb-2 text-[11px] font-bold uppercase tracking-[0.08em]"
                   style={{ color: "var(--fg-50)" }}
                 >
                   {group.label}

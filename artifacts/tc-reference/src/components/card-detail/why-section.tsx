@@ -21,7 +21,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
         }}
       >
         <p
-          className="text-[11px] font-bold tracking-widest uppercase mb-2"
+          className="text-[11px] font-bold tracking-[0.08em] uppercase mb-2"
           style={{ color: "var(--accent-purple)" }}
         >
           What they feel
@@ -41,7 +41,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
           border: "1px solid var(--fg-06)",
         }}
       >
-        <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-2">
+        <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-2">
           The principle
         </p>
         <p className="text-[14px] leading-relaxed text-foreground/80">
@@ -56,7 +56,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
           border: "1px solid var(--fg-06)",
         }}
       >
-        <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-3">
+        <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-3">
           What it builds
         </p>
         <div className="flex flex-wrap gap-2">
@@ -87,7 +87,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
         }}
       >
         <p
-          className="text-[11px] font-bold tracking-widest uppercase mb-3"
+          className="text-[11px] font-bold tracking-[0.08em] uppercase mb-3"
           style={{ color: "var(--accent-red)" }}
         >
           Why most people fail
@@ -122,7 +122,7 @@ export function WhySection({ cardData }: { cardData: CardData }) {
             border: "1px solid var(--fg-04)",
           }}
         >
-          <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-3">
+          <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-3">
             What it is not
           </p>
           <ul className="space-y-2.5">

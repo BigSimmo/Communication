@@ -26,7 +26,7 @@ export function PlaybookTemplateList({
     <section aria-labelledby="playbook-templates-heading" className="mt-2">
       <h2
         id="playbook-templates-heading"
-        className="text-[11px] font-bold tracking-widest uppercase mb-1 px-1"
+        className="text-[11px] font-bold tracking-[0.08em] uppercase mb-1 px-1"
         style={{ color: "var(--fg-50)" }}
       >
         Start from a template

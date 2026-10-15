@@ -242,7 +242,7 @@ export function AppHeader() {
               <div className="flex-1 min-w-0 flex items-center gap-2">
                 {/* The ID tag gives way to the title on narrow phones */}
                 <span
-                  className="hidden sm:inline text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
+                  className="hidden sm:inline text-[11px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
                   style={{
                     background: "var(--brand)",
                     color: "var(--brand-contrast)",
@@ -325,7 +325,7 @@ export function AppHeader() {
                 </span>
                 <div className="min-w-0 leading-none">
                   <p
-                    className="text-[10px] font-bold tracking-[0.12em] uppercase leading-none mb-[3px]"
+                    className="text-[11px] font-bold tracking-[0.12em] uppercase leading-none mb-[3px]"
                     style={{ color: "var(--brand-text)" }}
                     data-testid="library-subtitle"
                   >

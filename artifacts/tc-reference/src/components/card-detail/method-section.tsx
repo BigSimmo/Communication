@@ -34,7 +34,7 @@ export function MethodSection({
           }}
         >
           <p
-            className="text-[11px] font-bold tracking-widest uppercase mb-2"
+            className="text-[11px] font-bold tracking-[0.08em] uppercase mb-2"
             style={{ color: "var(--brand-text)" }}
           >
             Guiding principle
@@ -147,7 +147,7 @@ export function MethodSection({
                   {m.examples!.map((ex, j) => (
                     <div key={j} className="flex items-start gap-2.5">
                       <span
-                        className="text-[10px] font-bold tracking-wider uppercase mt-1 flex-shrink-0 w-[64px]"
+                        className="text-[11px] font-bold tracking-[0.08em] uppercase mt-1 flex-shrink-0 w-[64px]"
                         style={{ color: "var(--fg-55)" }}
                       >
                         {ex.label}
@@ -175,7 +175,7 @@ export function MethodSection({
             border: "1px solid var(--fg-06)",
           }}
         >
-          <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-1">
+          <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-1">
             Live-thread clues
           </p>
           <p className="text-[12px] text-foreground/50 mb-3">
@@ -201,7 +201,7 @@ export function MethodSection({
 
       {cardData.depthDial && cardData.depthDial.length > 0 && (
         <div className="mt-5">
-          <p className="text-[11px] font-bold tracking-widest text-foreground/55 uppercase mb-1">
+          <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-1">
             The depth dial
           </p>
           <p className="text-[12px] text-foreground/50 mb-3">

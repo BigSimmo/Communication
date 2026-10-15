@@ -762,7 +762,7 @@ export default function Library() {
             <div className="relative flex-1 min-w-0">
               <Search
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none"
-                style={{ color: "var(--fg-30)" }}
+                style={{ color: "var(--fg-55)" }}
                 aria-hidden="true"
               />
               <input
@@ -777,7 +777,7 @@ export default function Library() {
                 data-search-toggle="true"
                 data-search-open-on-focus="true"
                 data-testid="library-search-input"
-                className="w-full min-w-0 h-9 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-30)]"
+                className="w-full min-w-0 h-9 pointer-coarse:h-11 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-55)]"
                 style={{
                   background: "var(--fg-05)",
                   border: "1px solid var(--fg-08)",
@@ -870,7 +870,7 @@ export default function Library() {
                 <X className="w-3 h-3" aria-hidden="true" />
                 Reset
                 <span
-                  className="ml-0.5 rounded-full px-1.5 py-0.5 text-[10px] leading-none"
+                  className="ml-0.5 rounded-full px-1.5 py-0.5 text-[11px] leading-none"
                   style={{
                     background:
                       "color-mix(in srgb, var(--brand) 16%, transparent)",
@@ -968,7 +968,7 @@ export default function Library() {
             <span className="flex-shrink-0">Filters</span>
             {sheetFilterCount > 0 && (
               <span
-                className="flex-shrink-0 min-w-[18px] h-[18px] px-1.5 rounded-full text-[10px] font-bold leading-none inline-flex items-center justify-center"
+                className="flex-shrink-0 min-w-[18px] h-[18px] px-1.5 rounded-full text-[11px] font-bold leading-none inline-flex items-center justify-center"
                 style={{
                   background: "var(--gradient-active)",
                   color: "var(--brand-contrast)",
@@ -1026,7 +1026,7 @@ export default function Library() {
               data-testid={`category-section-${cat.toLowerCase().replace(/[\s/]+/g, "-")}`}
             >
               <h2
-                className="flex items-baseline justify-between text-[11px] font-bold tracking-widest uppercase mb-2.5 px-1"
+                className="flex items-baseline justify-between text-[11px] font-bold tracking-[0.08em] uppercase mb-2.5 px-1"
                 style={{ color: "var(--fg-50)" }}
               >
                 <span>{cat}</span>
@@ -1091,15 +1091,15 @@ export default function Library() {
                             style={{ color: "var(--fg-55)" }}
                           >
                             <span
-                              className="font-semibold"
-                              style={{ color: "var(--brand-text)" }}
+                              className="font-medium tabular-nums"
+                              style={{ color: "var(--fg-55)" }}
                             >
                               {card.id}
                             </span>
                             <span aria-hidden="true">·</span>
                             <span>{CARD_DIFFICULTY[card.id]}</span>
                             <span
-                              className="ml-0.5 text-[10px] font-bold tracking-wider px-1.5 py-px rounded-md uppercase"
+                              className="ml-0.5 text-[11px] font-semibold px-1.5 py-px rounded-md"
                               style={{
                                 background: badge.bg,
                                 color: badge.color,

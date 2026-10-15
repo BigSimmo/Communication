@@ -44,7 +44,7 @@ export function MistakesSection({
               {/* Labels sit above the text on phones, beside it on wider screens */}
               <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2.5">
                 <span
-                  className="text-[11px] font-bold tracking-wider uppercase sm:mt-1 flex-shrink-0 sm:w-[72px]"
+                  className="text-[11px] font-bold tracking-[0.08em] uppercase sm:mt-1 flex-shrink-0 sm:w-[72px]"
                   style={{ color: "var(--accent-red)" }}
                 >
                   Sounds like
@@ -58,7 +58,7 @@ export function MistakesSection({
               </div>
               <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2.5">
                 <span
-                  className="text-[11px] font-bold tracking-wider uppercase sm:mt-1 flex-shrink-0 sm:w-[72px]"
+                  className="text-[11px] font-bold tracking-[0.08em] uppercase sm:mt-1 flex-shrink-0 sm:w-[72px]"
                   style={{ color: "var(--accent-green)" }}
                 >
                   Better

@@ -115,7 +115,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                     </span>
                     {badge && (
                       <span
-                        className="min-w-[18px] h-[18px] px-1.5 rounded-full text-[10px] font-bold leading-none flex items-center justify-center"
+                        className="min-w-[18px] h-[18px] px-1.5 rounded-full text-[11px] font-bold leading-none flex items-center justify-center"
                         style={{
                           background: active ? "var(--brand)" : "var(--fg-08)",
                           color: active
