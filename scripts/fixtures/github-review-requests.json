@@ -1,0 +1,103 @@
+{
+  "notifications": [
+    [
+      {
+        "unread": true,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/ExampleOrg/example-repo/pulls/1"
+        }
+      },
+      {
+        "unread": true,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/OtherOrg/example-repo/pulls/2"
+        }
+      },
+      {
+        "unread": true,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/ExampleOrg/example-repo/pulls/3"
+        }
+      },
+      {
+        "unread": true,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/ExampleOrg/example-repo/pulls/4"
+        }
+      },
+      {
+        "unread": true,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/ExampleOrg/example-repo/pulls/5"
+        }
+      },
+      {
+        "unread": false,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/ExampleOrg/example-repo/pulls/6"
+        }
+      },
+      {
+        "unread": true,
+        "reason": "mention",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/ExampleOrg/example-repo/pulls/7"
+        }
+      },
+      {
+        "unread": true,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/ExampleOrg/example-repo/pulls/1?scope=all"
+        }
+      },
+      {
+        "unread": true,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com.evil.invalid/repos/ExampleOrg/example-repo/pulls/8"
+        }
+      },
+      {
+        "unread": true,
+        "reason": "review_requested",
+        "subject": {
+          "type": "PullRequest",
+          "url": "https://api.github.com/repos/ExampleOrg/example-repo/pulls/1"
+        }
+      }
+    ]
+  ],
+  "pulls": {
+    "1": {
+      "state": "open",
+      "merged_at": null,
+      "title": "Synthetic review request",
+      "requested_teams": [{ "slug": "example-team" }],
+      "requested_reviewers": [{ "login": "example-reviewer" }]
+    },
+    "3": { "state": "closed", "merged_at": "2026-10-01T00:00:00Z" },
+    "4": {
+      "state": "open",
+      "merged_at": null,
+      "requested_teams": [{ "slug": "another-team" }],
+      "requested_reviewers": []
+    },
+    "5": { "state": "closed", "merged_at": null }
+  }
+}

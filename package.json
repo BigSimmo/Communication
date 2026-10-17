@@ -15,6 +15,7 @@
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
     "typecheck": "pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck",
     "code-review": "node scripts/code-reviewer.mjs",
+    "agent-rules:check": "node scripts/validate-agent-rules.mjs && node --test scripts/agent-rules.test.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint ."

@@ -98,6 +98,10 @@ pnpm app:stop    # stop the tracked local app process
 pnpm --filter @workspace/tc-reference test
 ```
 
+Agent instruction and skill packaging checks run offline with `pnpm run agent-rules:check`
+(or the two dependency-free Node commands in [packaged skill guidance](docs/agents/packaged-skills.md)).
+These checks do not start the app or contact GitHub, memory services or external reviewers.
+
 ### Type-check everything
 
 ```bash

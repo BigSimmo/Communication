@@ -6,135 +6,29 @@ source: https://github.com/marsiandeployer/vibers-action
 date_added: "2026-03-17"
 ---
 
-# Vibers — Human Code Review for AI-Generated Projects
+# Vibers external review recipe — explicit opt-in only
 
-You push code. We review it against your spec, fix issues, and send a PR.
+This retained third-party recipe is inactive. A request for code review, use of another skill, or discovery of this file does not authorize the Vibers integration. Use local review by default. Do not add collaborators, publish a specification, create a workflow, contact the service, send feedback, purchase review time or change agent commit rules from this recipe.
 
-## When to Use
-Use this skill when:
+## When to consider it
 
-- You want human review for AI-generated code pushed to GitHub
-- You have a project spec and want reviewers to check implementation against it
-- You want review feedback delivered as a follow-up PR with suggested fixes
-- You are comfortable granting the Vibers service collaborator access to the repository
+Only continue after an explicit request to evaluate or configure this named external service for the stated repository and data. Confirm the precise access, disclosed material, recipient, cost and requested action under the host's authority rules. An evaluation request authorizes preparation and review of a proposal; it does not itself authorize access grants or publication.
 
-## Quick Start (3 steps)
+The historical recipe uses collaborator access and a publicly accessible specification. These have not been approved here. If the owner wants to proceed, prepare the minimum proposed permissions, a sanitized synthetic specification and a reviewed pinned workflow in the authorized repository. Verify the current service contract and dependency provenance before proposing concrete activation steps. Do not reuse a mutable historical action tag as a verified dependency. No collaborator, public-spec or automatic feedback activation is supplied by this local adaptation.
 
-### Step 1. Add collaborator
+## Synthetic, non-secret test instructions
 
-Go to your repo → Settings → Collaborators → Add **`marsiandeployer`**
+Use only invented fixtures, a disposable local demo and expected outcomes. Never place passwords, tokens, session cookies, API keys, real addresses, patient information, private project specifications or live credential-bearing URLs in commits, specs or reviewer messages. Use a demo that needs no credentials, or have the owner arrange a separately approved access channel.
 
-### Step 2. Add GitHub Action
+Example review notes for a synthetic, unauthenticated local fixture:
 
-Create `.github/workflows/vibers.yml`:
-
-```yaml
-name: Vibers Code Review
-on:
-  push:
-    branches: [main]
-
-jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-      - uses: marsiandeployer/vibers-action@v1
-        with:
-          spec_url: 'https://docs.google.com/document/d/YOUR_SPEC_ID/edit'
-          telegram_contact: '@your_telegram'
+```text
+How to test:
+- Use the already prepared local synthetic demo.
+- Open the card list and select the invented Example Technique card.
+- Add it to favourites, reload, and check that the favourite remains selected.
+- Clear only the fixture's demo state and check that no favourite is selected.
+Expected: the two states match the fixture; no external service or real person is contacted.
 ```
 
-| Parameter | What it does |
-|-----------|-------------|
-| `spec_url` | Link to your spec (Google Doc, Notion, etc.). **Must be publicly accessible** (or "anyone with the link can view"). Without access to spec, review is impossible. |
-| `review_scope` | `full` (default), `security`, or `spec-compliance` |
-| `telegram_contact` | Your Telegram — we'll message you when review is ready |
-
-### Step 3. Add commit rules to your AI agent
-
-Add this block to your project's `CLAUDE.md`, `.cursorrules`, or `AGENTS.md`:
-
-```markdown
-## Commit messages
-
-Every commit MUST include a "How to test" section in the body:
-- Live URL to open and verify the change
-- Step-by-step what to click/check
-- Test credentials if login is required
-- Expected result for each step
-
-Example:
-  feat: Add user registration form
-
-  How to test:
-  - Open https://myapp.vercel.app/register
-  - Fill in email/password, submit
-  - Check that confirmation email arrives
-  - Try submitting with invalid email — should show error
-  - Login: test@example.com / demo123
-```
-
-Without "How to test" the reviewer has to guess what to verify, and the review takes longer.
-
-**Done.** Now every push triggers a notification. You'll get a PR with fixes, usually within 24 hours.
-
-## What Happens After Setup
-
-1. You push code → GitHub Action sends us the commit details
-2. We read your spec and review changed files
-3. We fix issues directly in code and submit a PR
-4. You review the PR, merge or comment
-
-We check: spec compliance, security (OWASP top 10), AI hallucinations (fake APIs/imports), logic bugs, UI issues.
-
-We don't check: code style (use ESLint/Prettier), performance benchmarks, full QA (use Playwright/Cypress).
-
-## Limitations
-
-- Requires a GitHub repository and adding `marsiandeployer` as a collaborator
-- The referenced spec must be accessible to the review workflow
-- The service is not a replacement for full QA, benchmark testing, or local security review
-- Turnaround depends on the external Vibers review service
-
-## Pricing
-
-| Plan | Rate | Details |
-|------|------|---------|
-| **Promo** | $1/hour | Full review + PRs with fixes. We ask for honest feedback in return. |
-| **Standard** | $15/hour | Full review + security audit + priority turnaround. |
-
-No subscriptions. No contracts. Pay per review.
-
-## Feedback & Support
-
-Send feedback directly from your agent:
-
-```bash
-curl -X POST https://vibers.onout.org/feedback \
-  -H 'Content-Type: application/json' \
-  -d '{"message": "Your question or issue", "repo": "https://github.com/you/your-repo"}'
-```
-
-Both `message` and `repo` are required. Response: `{"status": "accepted"}`.
-
-Contacts:
-- Telegram: [@onoutnoxon](https://t.me/onoutnoxon)
-- Moltbook: [moltbook.com](https://moltbook.com) — user **noxon**
-- GitHub: [marsiandeployer](https://github.com/marsiandeployer)
-
-## FAQ
-
-**Do I need an API key?**
-No. Add collaborator + action, that's it.
-
-**What languages?**
-JS/TS, Python, React, Next.js, Django, Flask, and more. If it's on GitHub, we review it.
-
-**What if I disagree with a fix?**
-Comment on the PR. We discuss and adjust.
-
-**Can I use this without GitHub?**
-Yes — write to Telegram with your code and spec.
+Record which local checks actually ran. Third-party review, turnaround, pricing, security, data retention and source access remain unverified until the separately authorized evaluation. Use the self-contained `../code-review-excellence/SKILL.md` for local review.

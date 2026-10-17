@@ -1,6 +1,6 @@
 ---
 name: gh-review-requests
-description: Fetch unread GitHub notifications for open PRs where review is requested from a specified team or opened by a team member. Use when asked to "find PRs I need to review", "show my review requests", "what needs my review", "fetch GitHub review requests", or "check team review queue".
+description: Find unread GitHub review-request notifications for open PRs in one confirmed repository, filtered by a confirmed team or reviewer.
 allowed-tools: Bash
 risk: safe
 source: community
@@ -8,82 +8,32 @@ source: community
 
 # GitHub Review Requests
 
-Fetch unread `review_requested` notifications for open (unmerged) PRs, filtered by a GitHub team.
+Use this skill only for an authorized read of a repository's review queue. The packaged helper is `../../../scripts/github-review-requests.mjs` relative to this skill directory; run the commands below from the repository root. It requires Node and an already authenticated GitHub CLI (`gh`). Do not install tools, authenticate, change permissions or broaden access just because this skill needs them.
 
-**Requires**: GitHub CLI (`gh`) authenticated.
+## Confirm the scope
 
-## When to Use
-- You need to find unread GitHub PR review requests for a specific team.
-- You want to check which open PRs currently need your review or a teammate's review.
-- You need a filtered review queue instead of manually browsing GitHub notifications.
+This helper supports github.com only. Inspect the actual checkout and `git remote get-url origin`, and verify that the remote host is github.com before deriving a repository name. Stop for GitHub Enterprise or another host; host-aware support needs a separately scoped change. Derive the GitHub `OWNER/REPO` from that remote or the user's explicit repository, and confirm a different destination before reading it. Never assume an organization from this copied skill. This checkout belongs to `BigSimmo/Communication`; use a different repository only when the task authorizes it.
 
-## Step 1: Identify the Team
+Choose exactly one filter: a confirmed `OWNER/TEAM-SLUG` belonging to the repository owner's organization, or an explicit GitHub reviewer login. Do not guess a team slug from a display name. If the owner is a personal account with no teams, use the authorized reviewer login; do not switch to another organization.
 
-If the user has not specified a team, ask:
+## Read the scoped queue
 
-> Which GitHub team should I filter by? (e.g. `streaming-platform`)
-
-Accept either a team slug (`streaming-platform`) or a display name ("Streaming Platform") — convert to lowercase-hyphenated slug before passing to the script.
-
-## Step 2: Run the Script
+For a synthetic example organization and team:
 
 ```bash
-uv run ${CLAUDE_SKILL_ROOT}/scripts/fetch_review_requests.py --org getsentry --teams <team-slug>
+node scripts/github-review-requests.mjs --repo ExampleOrg/example-repo --team ExampleOrg/example-team
 ```
 
-To filter by multiple teams, pass a comma-separated list:
+For a reviewer:
 
 ```bash
-uv run ${CLAUDE_SKILL_ROOT}/scripts/fetch_review_requests.py --org getsentry --teams <team slugs>
+node scripts/github-review-requests.mjs --repo ExampleOrg/example-repo --reviewer example-reviewer
 ```
 
-### Script output
+Replace those synthetic operands with the confirmed scope. The helper validates the operands, passes arguments directly to `gh` without a shell, reads only the repository's notifications and PR endpoints, and checks that the PR is open, unmerged and still requests that team/reviewer. It does not mark notifications read or enumerate organization members. A team filter is for requested teams, not PRs merely authored by team members.
 
-```json
-{
-  "total": 3,
-  "prs": [
-    {
-      "notification_id": "12345",
-      "title": "feat(kafka): add workflow to restart a broker",
-      "url": "https://github.com/getsentry/ops/pull/19144",
-      "repo": "getsentry/ops",
-      "pr_number": 19144,
-      "author": "bmckerry",
-      "reasons": ["opened by: bmckerry"]
-    }
-  ]
-}
-```
+## Present results and limits
 
-`reasons` will contain one or both of:
-- `"review requested from: <Team Name>"` — the team is a requested reviewer
-- `"opened by: <login>"` — the PR author is a team member
+Present PR number, title, URL and reason from the JSON result. Report zero only after a successful lookup; unavailable tooling, denied access and a failed request are not an empty queue. Results cover unread notifications visible to the authenticated principal; absence does not prove the whole team's queue is empty.
 
-## Step 3: Present Results
-
-Display results as a markdown table with full URLs:
-
-| # | Title | URL | Reason |
-|---|-------|-----|--------|
-| 1 | feat(kafka): add workflow to restart a broker | https://github.com/getsentry/ops/pull/19144 | opened by: evanh |
-
-If `total` is 0, say: "No unread review requests found for that team."
-
-## Fallback
-
-If the script fails, run manually:
-
-```bash
-gh api notifications --paginate
-```
-
-Then for each `review_requested` notification, check:
-- `gh api repos/{repo}/pulls/{number}` — skip if `state == "closed"` or `merged_at` is set
-- `gh api repos/{repo}/pulls/{number}/requested_reviewers` — check `teams[].name`
-- `gh api orgs/{org}/teams/{slug}/members` — check if author is a member
-
-## Limitations
-- Use this skill only when the task clearly matches the scope described above.
-- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
-- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+If the helper or notification access is unavailable, disclose the limitation. When authorized and supported, an explicitly scoped connector query or `gh pr list --repo github.com/OWNER/REPO --state open --search 'team-review-requested:OWNER/TEAM'` can show current open team review requests, but does not establish unread-notification state. A personal reviewer query uses `review-requested:LOGIN` in the same repository. Never fall back to account-wide notifications/search or a different owner/team. Read-only permission is inherited from the task and host; the recipe grants no new authority.

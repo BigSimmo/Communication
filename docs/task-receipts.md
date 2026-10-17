@@ -12,6 +12,8 @@ Status is In progress, Blocked, Needs you, Paused, Completed or Cancelled. Recor
 
 When code/config/instructions change, refresh the relevant maintained document and same task receipt as part of the owned diff. Respect file claims; hand conflicting document updates to their owner. Do not regenerate unrelated docs. Changes to these rules need the same reviewed documentation process. Shared master/adapters are maintained separately; do not edit them from this project task.
 
+For agent skill packaging changes, record the offline check result and any declared reference-only or unavailable workflow boundary from [packaged skill guidance](agents/packaged-skills.md). A structural validator pass does not verify native client loading or external services.
+
 ## Local-only receipt bridge
 
 `python scripts/export-task-receipt.py --input <sanitised-metadata.json> --output-directory <private-task-workspace>` writes a deterministic per-project/per-task JSON file. Python 3 is required; no packages, service, network or API key is used. Output stays local; an authorised parent session must verify its destination and reconcile it. Use one exporter writer per task. Do not place private receipt inputs in tracked Git.
@@ -28,4 +30,4 @@ Codex and Cursor Agent use the root AGENTS.md. Claude Code uses CLAUDE.md and it
 
 Use the supported global adapter for shared master preferences; the maintained source is the user's ai-rules/global-rules.md. Propose evidence-backed shared changes to that source's owner; update relevant owned project documentation and the same task receipt locally. Do not copy the master or create another ledger. A source change, a file sync and actual loaded context are separate evidence states.
 
-To activate these branch-only changes without touching active canonical work, select this prepared task worktree as the client's workspace and start a fresh session (or use a supported context reload and verify it). Canonical checkout activation requires its reviewed repository integration workflow. An existing chat can retain older context; file changes do not retroactively enforce instructions. No universal event capture is installed.
+To load the rules for the current checkout, select its workspace and verify the intended branch and revision, then start a fresh session (or use a supported context reload and verify it). Unmerged changes apply only in workspaces that contain them; integration into another checkout follows its reviewed repository workflow. An existing chat can retain older context; file changes do not retroactively enforce instructions. No universal event capture is installed.

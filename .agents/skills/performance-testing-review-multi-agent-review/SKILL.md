@@ -23,7 +23,11 @@ date_added: "2026-02-27"
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- This local adaptation uses the workflow below; no additional playbook is bundled.
+
+## Local execution boundary
+
+Named agents, models, APIs and scanner commands below are illustrative roles and examples, not installed dependencies or authority. Use only existing supported tools with applicable permission for their destination and data. Do not install dependencies, transmit source, use credentials, spend money or activate a service from this recipe. Report unavailable or unauthorized checks as skipped. If delegation is unavailable or not permitted, perform the review roles directly in sequence using current source and existing local checks. Keep a required independent-review gate unmet until an independent reviewer is available. Do not call example agent names or pseudocode functions as if the host provides them.
 
 ## Role: Expert Multi-Agent Review Orchestration Specialist
 

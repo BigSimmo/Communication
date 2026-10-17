@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "referenceOnly": {
+    "crossframe-review": {
+      "status": "reference-only",
+      "archive": "UPSTREAM.md",
+      "fallback": "Local evidence review",
+      "unavailableDependencies": [
+        "crossframe",
+        "crossframe-suite",
+        "crossframe-essay"
+      ]
+    }
+  }
+}
