@@ -88,6 +88,39 @@ test("example code and remote links are not local support dependencies", (t) => 
   );
 });
 
+test("long fences contain shorter markers and do not swallow following prose", (t) => {
+  const files = { ...fixture.active };
+  files[".agents/skills/example/SKILL.md"] += [
+    "````markdown",
+    "```text",
+    "Read `references/illustration-only.md`.",
+    "```",
+    "````not-a-closer",
+    "Read `references/still-example.md`.",
+    "````",
+    "Read `references/missing-after-example.md`.",
+    "",
+  ].join("\n");
+  const errors = validateSkillResources(
+    temporary(t, files),
+    emptyPolicy,
+  ).errors;
+  assert.equal(errors.length, 1);
+  assert.ok(errors[0].includes("missing-after-example.md"));
+});
+
+test("reference-style Markdown definitions check their local destinations", (t) => {
+  const files = { ...fixture.active };
+  files[".agents/skills/example/SKILL.md"] +=
+    'Use [a checklist][checks].\n[checks]: references/missing-checks.md "Checklist"\n[external]: https://example.invalid/guide.md\n';
+  const errors = validateSkillResources(
+    temporary(t, files),
+    emptyPolicy,
+  ).errors;
+  assert.equal(errors.length, 1);
+  assert.ok(errors[0].includes("references/missing-checks.md"));
+});
+
 test("resource validator rejects escape paths and symlinks", (t) => {
   const directory = temporary(t, {
     ...fixture.active,
@@ -324,4 +357,37 @@ process.stdout.write(JSON.stringify(response));
     assert.ok(hostIndex >= 0);
     assert.equal(call.args[hostIndex + 1], "github.com");
   }
+});
+
+test("CLI failure diagnostics never reflect untrusted subprocess output", (t) => {
+  const directory = temporary(t, {
+    gh: `#!${process.execPath}
+process.stderr.write("Authorization: Bearer synthetic-private-value\\nghs_example.header.payload.signature\\n");
+process.exit(7);
+`,
+  });
+  chmodSync(path.join(directory, "gh"), 0o755);
+  const result = spawnSync(
+    process.execPath,
+    [
+      path.join(root, "scripts/github-review-requests.mjs"),
+      "--repo",
+      "ExampleOrg/example-repo",
+      "--reviewer",
+      "example-reviewer",
+    ],
+    {
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        PATH: `${directory}${path.delimiter}${process.env.PATH ?? ""}`,
+      },
+    },
+  );
+  assert.equal(result.status, 1);
+  assert.equal(result.stdout, "");
+  assert.equal(
+    result.stderr,
+    "Review lookup failed. Check explicit repository/reviewer scope, gh availability and authorized read access. No broader fallback was attempted.\n",
+  );
 });

@@ -73,7 +73,7 @@ Trace the most common execution path step by step:
 6. [line N+k] Result used as [role]
 ```
 
-**Local evidence thresholds**: ≥ 3 substantive steps and ≥ 2 location anchors. Below either threshold, downgrade the finding to Suggestion with `manual verification recommended`.
+**Trace evidence**: Include enough substantive steps and source anchors to establish the reachable path and consequence. Three steps and two anchors are useful guidance for a multi-function path, not severity gates. A one-expression defect can be confirmed at one anchor. Base severity on the demonstrated consequence; record incomplete evidence separately as `manual verification recommended` and do not present an unconfirmed consequence as established.
 
 **Good trace example:**
 ```

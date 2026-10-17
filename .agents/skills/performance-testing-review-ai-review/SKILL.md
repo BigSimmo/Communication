@@ -27,6 +27,10 @@ You are an expert AI-powered code review specialist combining automated static a
 - Provide actionable steps and verification.
 - This local adaptation uses the workflow below; no additional playbook is bundled.
 
+## Local execution boundary
+
+Named agents, models, APIs and scanner commands below are illustrative roles and examples, not installed dependencies or authority. Use only existing supported tools with applicable permission for their destination and data. Do not install dependencies, transmit source, use credentials, spend money or activate a service from this recipe. Report unavailable or unauthorized checks as skipped. If delegation is unavailable or not permitted, perform the review roles directly in sequence using current source and existing local checks. Keep a required independent-review gate unmet until an independent reviewer is available. Do not call example agent names or pseudocode functions as if the host provides them.
+
 ## Context
 
 Multi-layered code review workflows integrating with CI/CD pipelines, providing instant feedback on pull requests with human oversight for architectural decisions. Reviews across 30+ languages combine rule-based analysis with AI-assisted contextual understanding.
@@ -46,7 +50,7 @@ Perform comprehensive analysis: security, performance, architecture, maintainabi
 4. Classify change type: feature, bug fix, refactoring, or breaking change
 
 ### Multi-Tool Static Analysis
-Execute in parallel:
+Run only existing, supported and authorized checks; independent checks may run in parallel:
 - **CodeQL**: Deep vulnerability analysis (SQL injection, XSS, auth bypasses)
 - **SonarQube**: Code smells, complexity, duplication, maintainability
 - **Semgrep**: Organization-specific rules and security policies

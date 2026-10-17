@@ -139,28 +139,10 @@ if (
   try {
     const result = await fetchReviewRequests(parseScope(process.argv.slice(2)));
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
-  } catch (error) {
-    const redact = (value) =>
-      String(value)
-        .replace(
-          /\b(?:gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+)\b/g,
-          "[REDACTED]",
-        )
-        .replace(
-          /(token|authorization|password|secret)\s*[:=]\s*\S+/gi,
-          "$1=[REDACTED]",
-        );
+  } catch {
     process.stderr.write(
       "Review lookup failed. Check explicit repository/reviewer scope, gh availability and authorized read access. No broader fallback was attempted.\n",
     );
-    process.stderr.write(
-      `${redact(error instanceof Error ? error.message : error)}\n`,
-    );
-    if (typeof error?.status === "number")
-      process.stderr.write(`gh exited with status ${error.status}\n`);
-    const stderr =
-      typeof error?.stderr === "string" ? error.stderr.split(/\r?\n/, 1)[0] : "";
-    if (stderr) process.stderr.write(`gh: ${redact(stderr)}\n`);
     process.exitCode = 1;
   }
 }

@@ -45,19 +45,34 @@ function markdownFiles(directory, errors) {
 function proseLines(text) {
   let fence = null;
   return text.split(/\r?\n/).map((line, index) => {
-    const marker = line.match(/^\s*(`{3,}|~{3,})/);
-    if (marker) {
-      if (!fence) fence = marker[1][0];
-      else if (marker[1][0] === fence) fence = null;
+    const marker = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+    if (fence) {
+      if (
+        marker &&
+        marker[1][0] === fence.character &&
+        marker[1].length >= fence.length &&
+        /^[\t ]*$/.test(marker[2])
+      )
+        fence = null;
       return [index + 1, ""];
     }
-    return [index + 1, fence ? "" : line];
+    if (marker && (marker[1][0] !== "`" || !marker[2].includes("`"))) {
+      fence = { character: marker[1][0], length: marker[1].length };
+      return [index + 1, ""];
+    }
+    return [index + 1, line];
   });
 }
 
 export function resourceReferences(text) {
   const references = [];
   for (const [line, prose] of proseLines(text)) {
+    const definition = prose.match(/^ {0,3}\[[^\]]+\]:\s*(?:<([^>]+)>|(\S+))/);
+    if (definition) {
+      const ref = definition[1] ?? definition[2];
+      if (!/^(?:[a-z][a-z\d+.-]*:|#)/i.test(ref))
+        references.push({ line, ref });
+    }
     for (const match of prose.matchAll(
       /(?<!!)\[[^\]]+\]\(([^\s)]+)(?:\s+"[^"]*")?\)/g,
     )) {
@@ -185,27 +200,15 @@ export function validateInstructionInvariants(root) {
     path.join(root, "docs/agents/shared-context-and-memory.md"),
   );
   if (
-    !memory.includes("use `containerTag` for `search_memory`") ||
-    !memory.includes("`namespace` for approved `add_memory`") ||
-    !memory.includes("only `documentId` for `get_document`") ||
+    !memory.includes("`get_document`") ||
+    !memory.includes("`namespace`") ||
     !memory.includes("For this repository use only `communication_engineering`")
   )
     errors.push(
-      "Memory guide must require the operation-specific Supermemory scope contract",
+      "Memory guide must require the confirmed owning namespace for document reads",
     );
   if (
     /without a scope argument|document ID, without|project's `containerTag`(?!.*namespace)/.test(
-      memory,
-    ) ||
-    /search_memory[^.\n]*(?:without (?:a )?scope|without `?containerTag`?)/i.test(
-      memory,
-    ) ||
-    /add_memory[^.\n]*(?:without (?:a )?scope|without `?namespace`?)/i.test(
-      memory,
-    ) ||
-    /search_memory[^.\n]*`namespace`/i.test(memory) ||
-    /add_memory[^.\n]*`containerTag`/i.test(memory) ||
-    /get_document[^.\n]*(?:`namespace`|`containerTag`|scope argument)/i.test(
       memory,
     )
   )
