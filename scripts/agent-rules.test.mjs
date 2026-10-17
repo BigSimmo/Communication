@@ -31,6 +31,23 @@ const queue = JSON.parse(
   ),
 );
 const emptyPolicy = { schemaVersion: 1, referenceOnly: {} };
+const instructionPaths = [
+  "docs/agents/shared-context-and-memory.md",
+  "docs/task-receipts.md",
+  ".agents/skills/comprehensive-review-full-review/SKILL.md",
+  ".agents/skills/git-pr-workflows-git-workflow/SKILL.md",
+  ".agents/skills/gh-review-requests/SKILL.md",
+  ".agents/skills/vibers-code-review/SKILL.md",
+];
+
+function instructionFiles() {
+  return Object.fromEntries(
+    instructionPaths.map((file) => [
+      file,
+      readFileSync(path.join(root, file), "utf8"),
+    ]),
+  );
+}
 
 function temporary(t, files) {
   const directory = mkdtempSync(
@@ -121,6 +138,88 @@ test("reference-style Markdown definitions check their local destinations", (t) 
   assert.ok(errors[0].includes("references/missing-checks.md"));
 });
 
+test("multiline reference definitions check destinations and preserve external links", (t) => {
+  const files = { ...fixture.active };
+  files[".agents/skills/example/SKILL.md"] += [
+    "Use [the checks][checks], [the other guide][other], and [the existing guide][present].",
+    "[checks]:",
+    '  references/missing-checks.md "Checklist"',
+    "[other]:",
+    "  <references/missing-other.md>",
+    '  "Optional next-line title"',
+    "[present]:",
+    "  references/checks.md",
+    "[external]:",
+    "  <https://example.invalid/guide.md>",
+    '  "Remote title"',
+    "",
+  ].join("\n");
+  const errors = validateSkillResources(
+    temporary(t, files),
+    emptyPolicy,
+  ).errors;
+  assert.equal(errors.length, 2);
+  assert.ok(
+    errors.some((error) => error.includes("references/missing-checks.md")),
+  );
+  assert.ok(
+    errors.some((error) => error.includes("references/missing-other.md")),
+  );
+});
+
+for (const [name, example] of [
+  ["quote", ["> ```text", "> Read `references/example-only.md`.", "> ```"]],
+  ["list", ["- ```text", "  Read `references/example-only.md`.", "  ```"]],
+  [
+    "list continuation",
+    ["- Example", "  ```text", "  Read `references/example-only.md`.", "  ```"],
+  ],
+  [
+    "nested list",
+    [
+      "- Parent",
+      "  - ```text",
+      "    Read `references/example-only.md`.",
+      "    ```",
+    ],
+  ],
+  [
+    "ordered list",
+    ["10. ~~~text", "    Read `references/example-only.md`.", "    ~~~"],
+  ],
+  [
+    "quote in list",
+    ["- > ```text", "  > Read `references/example-only.md`.", "  > ```"],
+  ],
+  [
+    "list in quote",
+    ["> - ```text", ">   Read `references/example-only.md`.", ">   ```"],
+  ],
+  [
+    "quote ending without a closer",
+    ["> ```text", "> Read `references/example-only.md`."],
+  ],
+  [
+    "list ending without a closer",
+    ["- ```text", "  Read `references/example-only.md`."],
+  ],
+]) {
+  test(`${name} fences ignore examples while checking following prose`, (t) => {
+    const files = { ...fixture.active };
+    files[".agents/skills/example/SKILL.md"] += [
+      ...example,
+      "Read `references/missing-after-example.md`.",
+      "",
+    ].join("\n");
+    const errors = validateSkillResources(
+      temporary(t, files),
+      emptyPolicy,
+    ).errors;
+    assert.equal(errors.length, 1);
+    assert.ok(errors[0].includes("references/missing-after-example.md"));
+  });
+}
+
 test("resource validator rejects escape paths and symlinks", (t) => {
   const directory = temporary(t, {
     ...fixture.active,
@@ -184,25 +283,70 @@ test("newly installed upstream dependency forces packaging review", (t) => {
 });
 
 test("instruction regression checks reject stale memory, activation and routing", (t) => {
-  const paths = [
-    "docs/agents/shared-context-and-memory.md",
-    "docs/task-receipts.md",
-    ".agents/skills/comprehensive-review-full-review/SKILL.md",
-    ".agents/skills/git-pr-workflows-git-workflow/SKILL.md",
-    ".agents/skills/gh-review-requests/SKILL.md",
-    ".agents/skills/vibers-code-review/SKILL.md",
-  ];
-  const files = Object.fromEntries(
-    paths.map((file) => [file, readFileSync(path.join(root, file), "utf8")]),
-  );
-  files[paths[0]] +=
-    "\nsearch_memory without containerTag\nadd_memory without namespace\nget_document without a scope argument\n";
+  const paths = instructionPaths;
+  const files = instructionFiles();
+  files[paths[0]] += "\nget_document without a scope argument\n";
   files[paths[1]] += "\nActivate these branch-only changes.\n";
   files[paths[2]] += '\nUse Task tool with subagent_type="unavailable"\n';
   const errors = validateInstructionInvariants(temporary(t, files));
   assert.ok(errors.some((error) => error.includes("scope")));
   assert.ok(errors.some((error) => error.includes("activation")));
   assert.ok(errors.some((error) => error.includes("routing")));
+});
+
+for (const [operation, instruction] of [
+  ["search_memory", "search_memory without containerTag"],
+  ["search_memory", "search_memory without namespace"],
+  ["add_memory", "add_memory without namespace"],
+  ["get_document", "get_document without a scope argument"],
+  ["get_document", "Use only documentId for get_document"],
+  [
+    "search_memory",
+    "search_memory without namespace; add_memory using namespace=communication_engineering",
+  ],
+]) {
+  test(`memory scope rejects the independent directive: ${instruction}`, (t) => {
+    const files = instructionFiles();
+    files[instructionPaths[0]] += `\n${instruction}\n`;
+    const errors = validateInstructionInvariants(temporary(t, files));
+    assert.ok(
+      errors.some(
+        (error) =>
+          error.startsWith(`${operation}:`) && error.includes("unscoped"),
+      ),
+    );
+  });
+}
+
+for (const operation of ["search_memory", "get_document", "add_memory"]) {
+  test(`memory scope requires an affirmative namespace contract for ${operation}`, (t) => {
+    const files = instructionFiles();
+    files[instructionPaths[0]] = files[instructionPaths[0]].replace(
+      `\`${operation}\``,
+      "the operation",
+    );
+    const errors = validateInstructionInvariants(temporary(t, files));
+    assert.ok(
+      errors.some(
+        (error) =>
+          error.startsWith(`${operation}:`) &&
+          error.includes("confirmed namespace"),
+      ),
+    );
+  });
+}
+
+test("memory scope preserves current namespace arguments and prohibitions on unscoped calls", (t) => {
+  const files = instructionFiles();
+  files[instructionPaths[0]] += [
+    "",
+    "Never call search_memory without namespace.",
+    "Do not invoke get_document without namespace.",
+    "Never use add_memory without namespace.",
+    "Use search_memory without containerTag, using namespace=communication_engineering.",
+    "",
+  ].join("\n");
+  assert.deepEqual(validateInstructionInvariants(temporary(t, files)), []);
 });
 
 test("queue operands require an explicit repo and one same-owner team or reviewer", () => {

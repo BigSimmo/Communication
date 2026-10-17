@@ -42,32 +42,79 @@ function markdownFiles(directory, errors) {
   return files;
 }
 
+function containerContent(line, containers) {
+  let content = line;
+  for (const container of containers) {
+    const prefix =
+      container === ">"
+        ? content.match(/^ {0,3}>[\t ]?/)
+        : content.match(new RegExp(`^ {${container}}`));
+    if (!prefix) return null;
+    content = content.slice(prefix[0].length);
+  }
+  return content;
+}
+
+function markdownContainers(line) {
+  const containers = [];
+  let content = line;
+  while (true) {
+    const quote = content.match(/^ {0,3}>[\t ]?/);
+    const list = content.match(/^ {0,3}(?:[-+*]|\d{1,9}[.)])[\t ]+/);
+    const prefix = quote ?? list;
+    if (!prefix) return { content, containers };
+    containers.push(quote ? ">" : prefix[0].length);
+    content = content.slice(prefix[0].length);
+  }
+}
+
 function proseLines(text) {
   let fence = null;
+  let containers = [];
   return text.split(/\r?\n/).map((line, index) => {
-    const marker = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+    if (!line.trim()) return [index + 1, "", null];
     if (fence) {
-      if (
-        marker &&
-        marker[1][0] === fence.character &&
-        marker[1].length >= fence.length &&
-        /^[\t ]*$/.test(marker[2])
-      )
-        fence = null;
-      return [index + 1, ""];
+      const content = containerContent(line, fence.containers);
+      if (content !== null) {
+        const marker = content.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+        if (
+          marker &&
+          marker[1][0] === fence.character &&
+          marker[1].length >= fence.length &&
+          /^[\t ]*$/.test(marker[2])
+        )
+          fence = null;
+        return [index + 1, "", null];
+      }
+      // Leaving a quote/list ends its fenced block; following prose stays active.
+      fence = null;
     }
+    const continuation = containerContent(line, containers);
+    const parsed = markdownContainers(continuation ?? line);
+    containers =
+      continuation === null
+        ? parsed.containers
+        : [...containers, ...parsed.containers];
+    const marker = parsed.content.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
     if (marker && (marker[1][0] !== "`" || !marker[2].includes("`"))) {
-      fence = { character: marker[1][0], length: marker[1].length };
-      return [index + 1, ""];
+      fence = { character: marker[1][0], length: marker[1].length, containers };
+      return [index + 1, "", null];
     }
-    return [index + 1, line];
+    return [index + 1, parsed.content, JSON.stringify(containers)];
   });
 }
 
 export function resourceReferences(text) {
   const references = [];
-  for (const [line, prose] of proseLines(text)) {
-    const definition = prose.match(/^ {0,3}\[[^\]]+\]:\s*(?:<([^>]+)>|(\S+))/);
+  const lines = proseLines(text);
+  for (const [index, [line, prose, containers]] of lines.entries()) {
+    const head = prose.match(/^ {0,3}\[[^\]]+\]:[\t ]*(.*)$/);
+    const destination =
+      head?.[1] ||
+      (head && lines[index + 1]?.[2] === containers
+        ? lines[index + 1][1].trimStart()
+        : "");
+    const definition = destination.match(/^(?:<([^>]+)>|(\S+))/);
     if (definition) {
       const ref = definition[1] ?? definition[2];
       if (!/^(?:[a-z][a-z\d+.-]*:|#)/i.test(ref))
@@ -200,17 +247,68 @@ export function validateInstructionInvariants(root) {
     path.join(root, "docs/agents/shared-context-and-memory.md"),
   );
   if (
-    !memory.includes("`get_document`") ||
-    !memory.includes("`namespace`") ||
     !memory.includes("For this repository use only `communication_engineering`")
   )
     errors.push(
-      "Memory guide must require the confirmed owning namespace for document reads",
+      "Memory guide must require the confirmed Communication owning namespace",
     );
+  // Bounded prose contracts: relate namespace to each operation, then reject
+  // individual unscoped directives instead of relying on unrelated keywords.
+  const sentences = proseLines(memory)
+    .map(([, prose]) => prose)
+    .join("\n")
+    .replace(/`/g, "")
+    .split(/(?<=[.!?])\s+|\n+/);
+  for (const operation of ["search_memory", "get_document", "add_memory"]) {
+    const scoped = sentences.some(
+      (sentence) =>
+        sentence.includes(operation) &&
+        /\bnamespace\b/.test(sentence) &&
+        /\b(?:every|each|must|required|confirmed)\b/.test(sentence) &&
+        /\b(?:pass|use)\b/.test(sentence),
+    );
+    if (!scoped)
+      errors.push(
+        `${operation}: memory guide must require the confirmed namespace for every call`,
+      );
+    for (const sentence of sentences) {
+      const operations = [
+        ...sentence.matchAll(/\b(?:search_memory|get_document|add_memory)\b/g),
+      ];
+      for (const [index, match] of operations.entries()) {
+        if (match[0] !== operation) continue;
+        const prefix = sentence.slice(0, match.index).trim();
+        if (
+          /(?:never|do not|don't)\s+(?:call|invoke|use|run)\s*$/i.test(prefix)
+        )
+          continue;
+        const instruction = sentence.slice(
+          match.index + operation.length,
+          operations[index + 1]?.index,
+        );
+        const unscoped =
+          /\bwithout\s+(?:(?:a|an|the|explicit)\s+)*(?:namespace|containerTag|scope(?:\s+argument)?)\b/i.test(
+            instruction,
+          ) ||
+          /\b(?:omit|skip)\s+(?:(?:a|the|explicit)\s+)*(?:namespace|containerTag|scope)\b/i.test(
+            instruction,
+          ) ||
+          (operation === "get_document" &&
+            (/\b(?:only|just)\s+(?:the\s+)?(?:documentId|document ID)\b/i.test(
+              instruction,
+            ) ||
+              /\bonly\s+(?:the\s+)?(?:documentId|document ID)\s+for\s*$/i.test(
+                prefix,
+              )));
+        const namespaceAlternative =
+          /\b(?:with|using|use|pass)\s+namespace\b/i.test(instruction);
+        if (unscoped && !namespaceAlternative)
+          errors.push(`${operation}: memory guide prescribes an unscoped call`);
+      }
+    }
+  }
   if (
-    /without a scope argument|document ID, without|project's `containerTag`(?!.*namespace)/.test(
-      memory,
-    )
+    /document ID, without|project's `containerTag`(?!.*namespace)/.test(memory)
   )
     errors.push("Memory guide prescribes an unscoped or stale contract");
   const receipt = read(path.join(root, "docs/task-receipts.md"));
