@@ -20,6 +20,9 @@ for (const [label, ua, executable, status] of [
   ["npm executable", "", "C:/bin/npm-cli.js", 1],
   ["yarn executable", "", "C:/bin/yarn.cjs", 1],
   ["pnpm", "pnpm/10.15.0", "", 0],
+  ["pnpm 11", "pnpm/11.1.1", "", 0],
+  ["pnpm 9", "pnpm/9.15.0", "", 1],
+  ["pnpm 10.14", "pnpm/10.14.0", "", 1],
   ["pnpm executable", "", "C:/bin/pnpm.cjs", 0],
   ["unknown", "", "", 0],
 ])
@@ -145,7 +148,10 @@ test("manifest requires a pnpm client that honours verifyDepsBeforeRun", () => {
     readFileSync(new URL("../package.json", import.meta.url), "utf8"),
   );
   assert.equal(manifest.engines.pnpm, ">=10.15.0");
-  assert.match(manifest.packageManager, /^pnpm@10\.(1[5-9]|[2-9]\d)\./);
+  const pinned = /^pnpm@(\d+)\.(\d+)\.\d+/.exec(manifest.packageManager);
+  assert.ok(pinned, "packageManager must pin pnpm");
+  const [major, minor] = [Number(pinned[1]), Number(pinned[2])];
+  assert.ok(major > 10 || (major === 10 && minor >= 15));
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
   assert.doesNotMatch(readme, /pnpm 9\+/);
 });
