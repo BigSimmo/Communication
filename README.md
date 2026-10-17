@@ -57,7 +57,7 @@ scripts/
 ### Prerequisites
 
 - Node.js 24+
-- pnpm 9+
+- pnpm 10.15.0+ (the declared `packageManager`; older clients may ignore `verifyDepsBeforeRun`)
 
 ### Install dependencies
 
@@ -98,8 +98,17 @@ pnpm app:stop    # stop the tracked local app process
 pnpm --filter @workspace/tc-reference test
 ```
 
-Agent instruction and skill packaging checks run offline with `pnpm run agent-rules:check`
-(or the two dependency-free Node commands in [packaged skill guidance](docs/agents/packaged-skills.md)).
+Before installing dependencies, run agent instruction and skill packaging checks directly:
+
+```bash
+node scripts/validate-agent-rules.mjs
+node --test scripts/agent-rules.test.mjs
+```
+
+After explicitly installing dependencies, `pnpm run agent-rules:check` is an alias for those commands.
+The workspace requests failure on stale dependencies rather than an implicit install; inherited
+package-manager settings can override that policy, so use direct Node commands for pre-install checks.
+See [packaged skill guidance](docs/agents/packaged-skills.md).
 These checks do not start the app or contact GitHub, memory services or external reviewers.
 
 ### Type-check everything
