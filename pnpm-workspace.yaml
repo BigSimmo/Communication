@@ -27,6 +27,9 @@
 # ============================================================================
 minimumReleaseAge: 1440
 
+# Report stale dependencies before run/exec instead of installing them implicitly.
+verifyDepsBeforeRun: error
+
 packages:
   - artifacts/*
   - scripts

@@ -19,6 +19,14 @@ node scripts/validate-agent-rules.mjs
 node --test scripts/agent-rules.test.mjs
 ```
 
-`pnpm run agent-rules:check` runs both commands; the existing code-review CI workflow invokes it. The validator checks literal local support paths and Markdown links in active skill prose, including supporting Markdown files, plus the reference-only wrapper's paths and declared activation boundary. Fenced code examples, external links and generic optional project guidance filenames are not treated as bundled support files. Tests exercise missing/escaping paths, symlinks, archived dependency status, stale instruction regressions and synthetic repository-scoped review queues. It does not validate arbitrary prose semantics, remote URLs, actual client loading, upstream archives or live service behavior.
+Use these direct Node commands before installing dependencies. After an explicit dependency install,
+`pnpm run agent-rules:check` is an alias for both commands; the existing code-review CI workflow invokes
+it after its install step. The workspace sets `verifyDepsBeforeRun: error`, supported by the declared
+[pnpm 10.15.0 implementation](https://github.com/pnpm/pnpm/blob/v10.15.0/exec/plugin-commands-script-runners/src/runDepsStatusCheck.ts),
+so ordinary run/exec commands report stale dependencies instead of installing them. Inherited
+package-manager settings can override workspace policy; the direct Node route avoids that outer
+package-manager behavior for pre-install checks.
+
+The validator checks literal local support paths and Markdown links in active skill prose, including supporting Markdown files, plus the reference-only wrapper's paths and declared activation boundary. Fenced code examples, external links and generic optional project guidance filenames are not treated as bundled support files. Tests exercise missing/escaping paths, symlinks, archived dependency status, stale instruction regressions and synthetic repository-scoped review queues. It does not validate arbitrary prose semantics, remote URLs, actual client loading, upstream archives or live service behavior.
 
 For a read-only host smoke check, open the intended checkout and revision in a fresh supported client, inspect native loading evidence, then use invented examples for an unavailable agent type, wrong-project memory document, unavailable memory connector and explicit Vibers opt-in. Expected behavior is the documented supported fallback or unmet gate, no account-default retrieval, no automatic external activation, and an honest scope/limits report. Do not use real credentials, private source, services or patient information to test instruction loading.
