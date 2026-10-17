@@ -90,9 +90,7 @@ If no new imports and no structural changes → skip, no finding.
 
 ## Severity Calibration
 
-Apply the Iron Law format from `../_shared/common.md`. Each risk in `../_shared/decay-risks.md` has its own Severity
-Guide with numeric thresholds — use those as the primary reference. When a finding sits
-on the boundary between two tiers, use this as a tiebreaker:
+Use the four-field finding format defined in the entry skill. The upstream per-risk numeric thresholds are not bundled; justify severity with the observed consequence:
 - 🔴 Critical — actively breaking velocity or creating production risk *today*
 - 🟡 Warning — will if left unaddressed through the next few features
 - 🟢 Suggestion — worth fixing when nearby, not urgent
@@ -151,13 +149,12 @@ Label the risk as the test decay risk name (e.g., "Coverage Illusion", "Mock Abu
 "Test Obscurity").
 
 > **Note:** Step 7 is a fast check, not a full test audit. When systemic test problems
-> are found, note in the Summary: "Consider running `/brooks-lint:brooks-test` for a
-> complete test quality diagnosis."
+> are found, note in the Summary: "A deeper test quality review is needed; the upstream test-review skill is not bundled."
 
 ---
 
 ## Output
 
-Use the standard Report Template from `../_shared/common.md`.
+Use the local report fields in `SKILL.md`: scope, four-field findings, checks, limits and next action.
 Mode: PR Review
 Scope: list the files reviewed (excluding skipped generated files).

@@ -1,0 +1,21 @@
+{
+  "active": {
+    ".agents/skills/example/SKILL.md": "---\nname: example\n---\nRead `references/checks.md`.\n",
+    ".agents/skills/example/references/checks.md": "# Checks\nUse [the entry](../SKILL.md#checks).\n"
+  },
+  "referenceOnly": {
+    ".agents/skills/archive/SKILL.md": "---\nname: archive\nactivation: reference-only\n---\nDo not execute the archived setup.\nRetained source: `UPSTREAM.md`.\n## Local evidence review\nCheck the supplied evidence and report limits.\n",
+    ".agents/skills/archive/UPSTREAM.md": "# Upstream archive\nRead `../absent-suite/SKILL.md`.\n"
+  },
+  "policy": {
+    "schemaVersion": 1,
+    "referenceOnly": {
+      "archive": {
+        "status": "reference-only",
+        "archive": "UPSTREAM.md",
+        "fallback": "Local evidence review",
+        "unavailableDependencies": ["absent-suite"]
+      }
+    }
+  }
+}

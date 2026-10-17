@@ -16,24 +16,19 @@ license_source: https://github.com/hyhmrright/brooks-lint/blob/main/LICENSE
 Use this skill when you need pR code review that surfaces decay risks, design smells, and maintainability issues with concrete Symptom → Source → Consequence → Remedy findings, drawing on twelve classic engineering books. Triggers when: user asks to review code, check a PR, shares a diff or pastes code asking...
 
 
-## Setup
+## Local packaging and scope
 
-1. Read `../_shared/common.md` for the Iron Law, Project Config, Report Template, and Health Score rules
-2. Read `../_shared/source-coverage.md` for book-level coverage, exceptions, and tradeoffs
-3. Read `../_shared/decay-risks.md` for symptom definitions and source attributions
-4. Read `pr-review-guide.md` in this directory for the analysis process
+This is a self-contained local adaptation, not the complete upstream Brooks-Lint suite. Its shared configuration, source-coverage catalogue, risk taxonomy and numerical Health Score contract are not bundled. Do not load missing sibling skills or claim upstream grading compatibility, book-level coverage or an exact score.
 
-## Process
+Read `pr-review-guide.md` for the retained analysis process. Establish the user's diff or selected files using the actual repository and changed-file list; state any sampling. Use the named risks and evidence in that guide rather than invented upstream thresholds. A large diff or long function is a review lead, not by itself a demonstrated defect.
 
-**If the user has not specified files or pasted code:** apply Auto Scope Detection
-from `../_shared/common.md` to determine the review scope before proceeding.
+## Process and output
 
-1. Understand the review scope, then scan for each decay risk in the order specified (Steps 1–6 of the guide)
-2. Run the Quick Test Check (Step 7 of the guide) — skip for docs-only or non-production changes
-3. Apply the Iron Law to every finding
-4. Output using the Report Template from common.md
-
-**Mode line in report:** `PR Review`
+1. Establish scope and the change's intended behavior.
+2. Use the guide's change propagation, cognitive overload, duplication, complexity, dependency and domain checks when applicable.
+3. Apply the guide's test check to behavior changes. Do not create findings from stylistic thresholds without a concrete consequence.
+4. For each finding record Symptom (source location), Source (verified contract or principle), Consequence (reachable effect), and Remedy (small actionable fix). Separate confirmed findings from questions and unavailable evidence.
+5. Report mode `PR Review`, scope, findings by severity, checks actually run, limits and next action. No findings is a valid result.
 
 ## Limitations
 

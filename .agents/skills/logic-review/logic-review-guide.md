@@ -9,12 +9,12 @@ This sentence is the reference point: anything the trace contradicts is a candid
 
 Select the review entry point before tracing:
 - Single function input: trace that function and any local callees reached from it.
-- Single file input: identify public/exported functions, functions changed recently, and functions touching external state. If the file exceeds `common.md` §9 limits, choose at most 3 high-risk functions and state the uncovered functions in Scope.
+- Single file input: identify public/exported functions, functions changed recently, and functions touching external state. For a large file, choose at most 3 high-risk functions and state the uncovered functions in Scope.
 - Pasted snippet without line numbers: anchor trace steps to function names and expressions; do not invent line numbers.
 
 ## Step 2: Build Premises
 
-Run through every applicable item in **`../_shared/semiformal-checklist.md`** — Name Resolution, Type Contracts, State Preconditions, Control Flow Assumptions. Read its "What is NOT a Premise" section before writing.
+Check name resolution, type and caller/callee contracts, state preconditions, and control-flow assumptions. Ground each premise in visible code, language semantics or a verified contract; an assumption about user intent or unseen callers is not established evidence. Mark partial premises explicitly.
 
 Write premises **before** starting the trace.
 
@@ -53,7 +53,7 @@ Minimum ledger coverage:
 - **Callee paths (L6):** local callees returning null/None/undefined, raising, mutating arguments, or returning a different shape.
 - **Control/resource paths (L5/L8):** every early return, throw/raise, catch/except, break/continue after acquisition or required post-condition. **L5 exhaustive enumeration:** when a required side-effect (audit log, metric, notification, state update) must run on every exit, verify EVERY exit path independently — `return`, explicit `raise`/`throw`, implicit raises from callees, `break`, `continue`. Name each skipped path separately in the finding; a finding that identifies only the first skipped path is incomplete. Example: "Two paths skip `audit_log.record`: (1) `return _unauthorized()` at line 3, (2) `raise BadRequest` at line 5." Note: if the skipped operation is a resource release or rollback, reclassify as L8 and apply the same exhaustive path logic there.
 - **State/concurrency paths (L4/L7):** mutation during iteration, shared mutable defaults, aliases, closures, await/callback/task boundaries. For L4 also check: does the function mutate its argument AND return it (aliased-return dual contract)? For L7: does the hazard require two concurrent execution contexts — if yes it is L7, not L4 (e.g. lock-order inversion between goroutines is L7 even though it involves mutation).
-  - **L4 aliased-return trap (high priority):** When a function BOTH mutates its input in-place AND returns the same object, this is an L4 finding — not a style issue. The caller may write `result = func(original)` and assume `original` is unchanged. Trace: (a) confirm mutation is in-place (e.g., `list.sort()`, `del arr[i]`, `arr[i], arr[j] = arr[j], arr[i]`); (b) confirm the function returns the SAME object (not a copy); (c) construct a Trigger showing `original` is unexpectedly modified. This is L4, not L3 or L7.
+  - **L4 aliased-return trap (high priority):** When a function BOTH mutates its input in-place AND returns the same object, this is an L4 candidate; report it only if the trace contradicts the actual contract. Check whether the caller contract actually promises that `original` remains unchanged; mutation and aliased return alone do not prove a bug. Trace: (a) confirm mutation is in-place (e.g., `list.sort()`, `del arr[i]`, `arr[i], arr[j] = arr[j], arr[i]`); (b) confirm the function returns the SAME object (not a copy); (c) construct a Trigger showing `original` is unexpectedly modified. This is L4, not L3 or L7.
   - **L7 async interleaving (critical for asyncio/coroutines):** When shared mutable state is accessed across `await`/`yield` boundaries, the bug is L7 even if no threads are involved — asyncio coroutines interleave on a single thread via the event loop. Key indicator: a check-then-act pattern with an `await` between the check and the act. Do NOT classify asyncio interleaving as L4.
   - **L7 memory model hazards (Java/C++/Go):** For double-checked locking, volatile/atomic, happens-before: always check BOTH (a) the visibility hazard (missing volatile/atomic) AND (b) the initialization-before-publish ordering (is the object fully constructed before other threads can see it?). Two-step trace: step 1 = reordering/visibility, step 2 = consequence of observing partially-constructed object.
 - **Time/locale paths (L9):** naive/aware datetime, DST, locale-sensitive parse/sort/format, implicit encoding.
@@ -73,7 +73,7 @@ Trace the most common execution path step by step:
 6. [line N+k] Result used as [role]
 ```
 
-**Minimum thresholds** (per `../_shared/semiformal-guide.md`): ≥ 3 substantive steps and ≥ 2 location anchors. Below either threshold, downgrade the finding to Suggestion with `manual verification recommended`.
+**Local evidence thresholds**: ≥ 3 substantive steps and ≥ 2 location anchors. Below either threshold, downgrade the finding to Suggestion with `manual verification recommended`.
 
 **Good trace example:**
 ```
@@ -226,7 +226,7 @@ Dry-run: ⚠️ Initial remedy [description] failed check (b) — [new issue]. R
 ## Step 7: Compute Score and Output
 
 1. Start at 100. Deduct per confirmed finding (Critical −15, Warning −7, Suggestion −2).
-2. Fill in the Report Template from `report-template.md`.
+2. Clamp the local heuristic score at zero and use the report shape in `SKILL.md`; list coverage and unresolved assumptions alongside it.
 3. Summary: most critical finding, recommended next action, whether the logic is safe to ship.
 
 ## Step 8: Execution Verification Gate (Optional — when runtime is available)

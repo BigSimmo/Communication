@@ -70,23 +70,21 @@ If you cannot construct all five, report as MEDIUM (needs verification).
 
 ---
 
-## Step 1: Classify Triggers and Load References
+## Step 1: Classify Triggers
 
-For each workflow, identify triggers and load the appropriate reference:
+This local adaptation is self-contained. The upstream reference collection is not bundled; use the checks below and trace the actual workflow rather than assuming access to external examples.
 
-| Trigger / Pattern | Load Reference |
+| Trigger / Pattern | Inline check |
 |---|---|
-| `pull_request_target` | `references/pwn-request.md` |
-| `issue_comment` with command parsing | `references/comment-triggered-commands.md` |
-| `${{ }}` in `run:` blocks | `references/expression-injection.md` |
-| PATs / deploy keys / elevated credentials | `references/credential-escalation.md` |
-| Checkout PR code + config file loading | `references/ai-prompt-injection-via-ci.md` |
-| Third-party actions (especially unpinned) | `references/supply-chain.md` |
-| `permissions:` block or secrets usage | `references/permissions-and-secrets.md` |
-| Self-hosted runners, cache/artifact usage | `references/runner-infrastructure.md` |
-| Any confirmed finding | `references/real-world-attacks.md` |
-
-Load references selectively — only what's relevant to the triggers found.
+| `pull_request_target` | Check 1: Pwn Request |
+| `issue_comment` with command parsing | Check 3: Unauthorized Command Execution |
+| Expressions in shell blocks | Check 2: Expression Injection |
+| PATs / deploy keys / elevated credentials | Check 4: Credential Escalation |
+| Checkout PR code + config loading | Check 5: Config File Poisoning |
+| Third-party actions | Check 6: Supply Chain |
+| Permissions or secrets usage | Check 7: Permissions and Secrets |
+| Self-hosted runners, caches or artifacts | Check 8: Runner Infrastructure |
+| Any candidate finding | Step 3: Validate Before Reporting |
 
 ## Step 2: Check for Vulnerability Classes
 

@@ -343,10 +343,9 @@ Part of code review is dependency review:
 - [ ] **Approve** — Ready to merge
 - [ ] **Request changes** — Issues must be addressed
 ```
-## See Also
+## Local checklist coverage
 
-- For detailed security review guidance, see `references/security-checklist.md`
-- For performance review checks, see `references/performance-checklist.md`
+Use the Security and Performance checks above. Additional upstream checklists are not bundled; report any domain that needs deeper specialist review as unverified.
 
 ## Common Rationalizations
 
