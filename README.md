@@ -57,7 +57,7 @@ scripts/
 ### Prerequisites
 
 - Node.js 24+
-- pnpm 9+
+- pnpm 10.15.0+ (the declared `packageManager`; older clients may ignore `verifyDepsBeforeRun`)
 
 ### Install dependencies
 

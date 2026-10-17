@@ -139,3 +139,13 @@ test("outer pnpm run applies the workspace policy without installing stale depen
   for (const [name, contents] of Object.entries(files))
     assert.equal(readFileSync(join(root, name), "utf8"), contents);
 });
+
+test("manifest requires a pnpm client that honours verifyDepsBeforeRun", () => {
+  const manifest = JSON.parse(
+    readFileSync(new URL("../package.json", import.meta.url), "utf8"),
+  );
+  assert.equal(manifest.engines.pnpm, ">=10.15.0");
+  assert.match(manifest.packageManager, /^pnpm@10\.(1[5-9]|[2-9]\d)\./);
+  const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  assert.doesNotMatch(readme, /pnpm 9\+/);
+});
