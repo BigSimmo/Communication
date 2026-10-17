@@ -1,321 +1,402 @@
-import { spawnSync } from "child_process";
-import fs from "fs";
+import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-// Color helpers
-const colors = {
-  reset: "\x1b[0m",
-  green: "\x1b[32m",
-  red: "\x1b[31m",
-  yellow: "\x1b[33m",
-  blue: "\x1b[34m",
-  cyan: "\x1b[36m",
-  bold: "\x1b[1m",
-};
+class ReviewError extends Error {}
 
-console.log(
-  `${colors.cyan}${colors.bold}=== Running Automated Code Reviewer ===${colors.reset}\n`,
-);
-
-// 1. Detect changed files in Git
-function getChangedFiles() {
-  const files = new Set();
-
-  // In CI the checkout is clean, so compare against the base ref instead
-  // (e.g. CODE_REVIEW_BASE=origin/main for a pull request)
-  const base = process.env.CODE_REVIEW_BASE;
-  if (base) {
-    const committed = spawnSync(
-      "git",
-      ["diff", "--name-only", "--diff-filter=ACMR", `${base}...HEAD`],
-      { encoding: "utf8" },
-    );
-    if (committed.status !== 0) {
-      console.error(
-        `${colors.red}Could not diff against ${base}: ${committed.stderr.trim()}${colors.reset}`,
+export function parseArguments(args) {
+  if (args.length === 0) return { mode: "local" };
+  const values = {};
+  for (let i = 0; i < args.length; i += 2) {
+    const name = args[i];
+    if (
+      !["--base", "--head"].includes(name) ||
+      values[name] ||
+      !args[i + 1] ||
+      args[i + 1].startsWith("-")
+    )
+      throw new ReviewError(
+        "Usage: code-reviewer.mjs [--base <commit> --head <commit>]; unknown, duplicate or unsupported argument",
       );
-      process.exit(1);
+    values[name] = args[i + 1];
+  }
+  if (!values["--base"] || !values["--head"])
+    throw new ReviewError("Committed mode requires both --base and --head");
+  return { mode: "committed", base: values["--base"], head: values["--head"] };
+}
+function git(args, { cwd, run }) {
+  const result = run("git", args, {
+    cwd,
+    encoding: "utf8",
+    maxBuffer: 50 * 1024 * 1024,
+  });
+  // Never forward command output: errors and tools may contain source values.
+  if (result.error || result.status !== 0)
+    throw new ReviewError(
+      "Git selection failed; comparison or repository state is unavailable",
+    );
+  return result.stdout;
+}
+function nulList(text) {
+  return text.split("\0").filter(Boolean);
+}
+function eligible(file) {
+  const parts = file.split("/");
+  return (
+    !parts.some((p) =>
+      ["node_modules", ".git", ".local", ".temp-skills"].includes(p),
+    ) && !["pnpm-lock.yaml", "package.json"].includes(path.posix.basename(file))
+  );
+}
+function safePath(cwd, file) {
+  const full = path.resolve(cwd, file);
+  const relative = path.relative(cwd, full);
+  if (
+    !relative ||
+    relative.startsWith(`..${path.sep}`) ||
+    relative === ".." ||
+    path.isAbsolute(relative)
+  )
+    throw new ReviewError("Selected path is outside the checkout");
+  return full;
+}
+function assertCommittedCheckoutStable(selected, context) {
+  if (selected.mode !== "committed") return;
+  const currentHead = git(
+    ["rev-parse", "--verify", "--end-of-options", "HEAD^{commit}"],
+    context,
+  ).trim();
+  if (currentHead !== selected.headSha)
+    throw new ReviewError("Checkout HEAD changed during committed review");
+  if (git(["status", "--porcelain=v1", "-z", "--untracked-files=all"], context))
+    throw new ReviewError("Checkout changed during committed review");
+}
+export function selectFiles(
+  options,
+  { cwd = process.cwd(), run = spawnSync, io = fs } = {},
+) {
+  const context = { cwd, run };
+  let candidates, baseSha, headSha;
+  let deleted = [];
+  if (options.mode === "committed") {
+    const resolve = (ref) => {
+      const sha = git(
+        ["rev-parse", "--verify", "--end-of-options", `${ref}^{commit}`],
+        context,
+      ).trim();
+      if (!/^[0-9a-f]{40}$/i.test(sha))
+        throw new ReviewError(
+          "Comparison did not resolve to a full commit SHA",
+        );
+      return sha;
+    };
+    baseSha = resolve(options.base);
+    headSha = resolve(options.head);
+    if (resolve("HEAD") !== headSha)
+      throw new ReviewError(
+        "Checkout HEAD does not match selected head commit",
+      );
+    // Workspace checks must run against the selected tree, not later dirty inputs.
+    if (
+      git(["status", "--porcelain=v1", "-z", "--untracked-files=all"], context)
+    )
+      throw new ReviewError(
+        "Committed mode requires the selected head's clean tracked/index/untracked checkout",
+      );
+    candidates = nulList(
+      git(
+        [
+          "diff",
+          "--name-only",
+          "-z",
+          "--no-renames",
+          "--diff-filter=ACMRT",
+          baseSha,
+          headSha,
+          "--",
+        ],
+        context,
+      ),
+    );
+    deleted = nulList(
+      git(
+        [
+          "diff",
+          "--name-only",
+          "-z",
+          "--no-renames",
+          "--diff-filter=D",
+          baseSha,
+          headSha,
+          "--",
+        ],
+        context,
+      ),
+    );
+  } else {
+    candidates = [
+      ...new Set([
+        ...nulList(
+          git(
+            [
+              "diff",
+              "--cached",
+              "--name-only",
+              "-z",
+              "--no-renames",
+              "--diff-filter=ACMRTD",
+              "--",
+            ],
+            context,
+          ),
+        ),
+        ...nulList(
+          git(
+            [
+              "diff",
+              "--name-only",
+              "-z",
+              "--no-renames",
+              "--diff-filter=ACMRTD",
+              "--",
+            ],
+            context,
+          ),
+        ),
+        ...nulList(
+          git(["ls-files", "--others", "--exclude-standard", "-z"], context),
+        ),
+      ]),
+    ];
+  }
+  const files = [],
+    skipped = deleted.map((file) => ({
+      file,
+      reason: "deleted in selected head",
+    }));
+  for (const file of candidates) {
+    if (!eligible(file)) {
+      skipped.push({ file, reason: "configured exclusion" });
+      continue;
     }
-    committed.stdout
-      .split("\n")
-      .forEach((f) => f.trim() && files.add(f.trim()));
-  }
-
-  // Staged files
-  const staged = spawnSync("git", ["diff", "--cached", "--name-only"], {
-    encoding: "utf8",
-  });
-  if (staged.status === 0) {
-    staged.stdout.split("\n").forEach((f) => f.trim() && files.add(f.trim()));
-  }
-
-  // Unstaged files
-  const unstaged = spawnSync("git", ["diff", "--name-only"], {
-    encoding: "utf8",
-  });
-  if (unstaged.status === 0) {
-    unstaged.stdout.split("\n").forEach((f) => f.trim() && files.add(f.trim()));
-  }
-
-  // Untracked files
-  const status = spawnSync("git", ["status", "--porcelain"], {
-    encoding: "utf8",
-  });
-  if (status.status === 0) {
-    status.stdout.split("\n").forEach((line) => {
-      const match = line.match(/^\?\?\s+(.+)$/);
-      if (match) {
-        files.add(match[1].trim());
+    const full = safePath(cwd, file);
+    let stat;
+    try {
+      stat = io.lstatSync(full);
+    } catch (error) {
+      if (options.mode === "local" && error.code === "ENOENT") {
+        skipped.push({ file, reason: "deleted in current working tree" });
+        continue;
       }
-    });
-  }
-
-  return Array.from(files).filter((f) => {
-    // Exclude node_modules, temp files, lock files, package files, etc.
-    return (
-      fs.existsSync(f) &&
-      fs.lstatSync(f).isFile() &&
-      !f.includes("node_modules") &&
-      !f.includes("pnpm-lock.yaml") &&
-      !f.includes("package.json") &&
-      !f.includes(".git") &&
-      !f.includes(".local") &&
-      !f.includes(".temp-skills")
-    );
-  });
-}
-
-const changedFiles = getChangedFiles();
-
-if (changedFiles.length === 0) {
-  console.log(
-    `${colors.green}No modified files found. Workspace is clean!${colors.reset}`,
-  );
-  process.exit(0);
-}
-
-console.log(
-  `${colors.bold}Scanning ${changedFiles.length} modified file(s):${colors.reset}`,
-);
-changedFiles.forEach((f) => console.log(" - " + f));
-console.log("");
-
-let hasErrors = false;
-const warningsList = [];
-const errorsList = [];
-
-// 2. Formatting Check (Prettier)
-console.log(
-  `${colors.bold}[1/4] Checking Formatting (Prettier)...${colors.reset}`,
-);
-const formattingFailures = [];
-for (const file of changedFiles) {
-  // Prettier formatting is supported for many text formats
-  if (/\.(js|jsx|ts|tsx|css|md|json|html|yml|yaml)$/.test(file)) {
-    const check = spawnSync("pnpm", ["exec", "prettier", "--check", file], {
-      encoding: "utf8",
-      shell: true,
-    });
-    if (check.status !== 0) {
-      formattingFailures.push(file);
-    }
-  }
-}
-
-if (formattingFailures.length > 0) {
-  console.log(
-    `${colors.red}✗ Formatting issues found in the following files:${colors.reset}`,
-  );
-  formattingFailures.forEach((f) => {
-    console.log("  - " + f);
-    errorsList.push("Prettier formatting: " + f);
-  });
-  hasErrors = true;
-} else {
-  console.log(
-    `${colors.green}✓ All files are correctly formatted!${colors.reset}`,
-  );
-}
-console.log("");
-
-// 3. TypeScript Type-Checking
-// CI runs typecheck and tests as separate steps first; skip the repeats there.
-const skipChecks = process.env.CODE_REVIEW_SKIP_CHECKS === "1";
-let tsChanged = !skipChecks && changedFiles.some((f) => /\.(ts|tsx)$/.test(f));
-console.log(`${colors.bold}[2/4] Typechecking (TypeScript)...${colors.reset}`);
-if (tsChanged) {
-  console.log("TS/TSX file change detected. Running workspace typecheck...");
-  const typecheck = spawnSync("pnpm", ["run", "typecheck"], {
-    encoding: "utf8",
-    stdio: "inherit",
-    shell: true,
-  });
-  if (typecheck.status !== 0) {
-    console.log(`${colors.red}✗ TypeScript compilation failed.${colors.reset}`);
-    errorsList.push("TypeScript typecheck compilation errors");
-    hasErrors = true;
-  } else {
-    console.log(
-      `${colors.green}✓ TypeScript compiled successfully with no type errors!${colors.reset}`,
-    );
-  }
-} else {
-  console.log(
-    `${colors.yellow}⚠ Skipping typecheck (no TS/TSX changes, or already run in CI).${colors.reset}`,
-  );
-}
-console.log("");
-
-// 4. Test Suite Execution (Vitest)
-let refChanged =
-  !skipChecks &&
-  changedFiles.some((f) => f.startsWith("artifacts/tc-reference/"));
-console.log(
-  `${colors.bold}[3/4] Running Test Suite (Vitest)...${colors.reset}`,
-);
-if (refChanged) {
-  console.log("Client-side or lib change detected. Running tests...");
-  const tests = spawnSync(
-    "pnpm",
-    [
-      "--filter",
-      "@workspace/tc-reference",
-      "test",
-      "--",
-      "--test-timeout=20000",
-    ],
-    { encoding: "utf8", stdio: "inherit", shell: true },
-  );
-  if (tests.status !== 0) {
-    console.log(`${colors.red}✗ Vitest test suite failed.${colors.reset}`);
-    errorsList.push("Vitest test suite failures");
-    hasErrors = true;
-  } else {
-    console.log(
-      `${colors.green}✓ All tests passed successfully!${colors.reset}`,
-    );
-  }
-} else {
-  console.log(
-    `${colors.yellow}⚠ Skipping tests (no app changes, or already run in CI).${colors.reset}`,
-  );
-}
-console.log("");
-
-// 5. Code Quality & Security Audits
-console.log(
-  `${colors.bold}[4/4] Running Code Quality & Security Audits...${colors.reset}`,
-);
-
-// Regex rules (constructed dynamically to prevent self-matching)
-const rules = [
-  {
-    name: "Hardcoded Credential / Secret Leak",
-    pattern: new RegExp(
-      // Require a digit so slug-style names like "tc-recent-searches" pass
-      "(const|let|var|env)\\s+\\w*(key|secret|password|token|auth)\\w*\\s*=\\s*['\"`](?=[^'\"`]*\\d)[A-Za-z0-9+/=_-]{16,}['\"`]",
-      "i",
-    ),
-    severity: "error",
-    message:
-      "Potential hardcoded credential or secret detected. Move to environment variables.",
-  },
-  {
-    name: "Leftover Debug Console Log",
-    pattern: new RegExp("console" + "\\.log\\("),
-    severity: "warning",
-    message:
-      "Leftover console.log statement. Clean up or use a logger in production code.",
-    exclude: /test|spec|scripts|tool/i,
-  },
-  {
-    name: "Active Deb" + "ugger Statement",
-    pattern: new RegExp("\\bdeb" + "ugger\\b"),
-    severity: "error",
-    message: "Active deb" + "ugger statement left in code.",
-  },
-  {
-    name: "Unresolved TO" + "DO Task",
-    pattern: new RegExp("\\b(TO" + "DO|FIX" + "ME)\\b"),
-    severity: "warning",
-    message: "Unresolved TO" + "DO or FIX" + "ME comment.",
-  },
-];
-
-for (const file of changedFiles) {
-  try {
-    const content = fs.readFileSync(file, "utf8");
-    const lines = content.split("\n");
-
-    // File length warning
-    if (lines.length > 500 && /\.(ts|tsx|js|jsx)$/.test(file)) {
-      const msg =
-        "File exceeds 500 lines (" +
-        lines.length +
-        " lines). Consider refactoring to break it down.";
-      console.log(
-        `${colors.yellow}⚠ WARNING in ${file}: ${msg}${colors.reset}`,
+      throw new ReviewError(
+        `Cannot inspect selected file ${JSON.stringify(file)}; review incomplete`,
       );
-      warningsList.push(file + ": Exceeds 500 lines");
     }
-
-    // Pattern checks
-    lines.forEach((line, index) => {
-      const lineNum = index + 1;
-      rules.forEach((rule) => {
-        if (rule.exclude && rule.exclude.test(file)) return;
-        if (rule.pattern.test(line)) {
-          const detail =
-            file +
-            ":" +
-            lineNum +
-            ": " +
-            rule.message +
-            ' (Line: "' +
-            line.trim() +
-            '")';
-          if (rule.severity === "error") {
-            console.log(
-              `${colors.red}✗ ERROR: [${rule.name}] in ${detail}${colors.reset}`,
-            );
-            errorsList.push("[" + rule.name + "] " + detail);
-            hasErrors = true;
-          } else {
-            console.log(
-              `${colors.yellow}⚠ WARNING: [${rule.name}] in ${detail}${colors.reset}`,
-            );
-            warningsList.push("[" + rule.name + "] " + detail);
-          }
-        }
+    if (!stat.isFile() || stat.isSymbolicLink())
+      throw new ReviewError(
+        `Unsupported selected file ${JSON.stringify(file)}; review incomplete`,
+      );
+    let content;
+    try {
+      content = io.readFileSync(full, "utf8");
+    } catch {
+      throw new ReviewError(
+        `Cannot read selected file ${JSON.stringify(file)}; review incomplete`,
+      );
+    }
+    if (
+      options.mode === "committed" &&
+      content !== git(["show", `${headSha}:${file}`], context)
+    )
+      throw new ReviewError(
+        `Selected content differs from head commit: ${JSON.stringify(file)}`,
+      );
+    files.push({ file, content });
+  }
+  return {
+    mode: options.mode,
+    baseSha,
+    headSha,
+    candidates: [...candidates, ...deleted],
+    skipped,
+    files,
+  };
+}
+// No source snippets, including on lines that trigger several different rules.
+export function audit(files) {
+  const rules = [
+    {
+      name: "Hardcoded Credential / Secret Leak",
+      pattern:
+        /(const|let|var|env)\s+\w*(key|secret|password|token|auth)\w*\s*=\s*['"`](?=[^'"`]*\d)[A-Za-z0-9+/=_-]{16,}['"`]/i,
+      severity: "error",
+      message:
+        "Potential hardcoded credential; move it to an approved environment variable.",
+    },
+    {
+      name: "Leftover Debug Console Log",
+      pattern: new RegExp("console" + "\\.log\\("),
+      severity: "warning",
+      message: "Use a production logger or remove the debug statement.",
+      exclude: /test|spec|scripts|tool/i,
+    },
+    {
+      name: "Active Deb" + "ugger Statement",
+      pattern: new RegExp("\\bdeb" + "ugger\\b"),
+      severity: "error",
+      message: "Remove the active deb" + "ugger statement.",
+    },
+    {
+      name: "Unresolved TO" + "DO Task",
+      pattern: new RegExp("\\b(TO" + "DO|FIX" + "ME)\\b"),
+      severity: "warning",
+      message: "Review the unresolved task.",
+    },
+  ];
+  const findings = [];
+  for (const { file, content } of files) {
+    const lines = content.split("\n");
+    if (lines.length > 500 && /\.(ts|tsx|js|jsx)$/.test(file))
+      findings.push({
+        file,
+        line: 1,
+        name: "File length",
+        severity: "warning",
+        message: `File exceeds 500 lines (${lines.length}); consider splitting it.`,
       });
+    lines.forEach((line, index) => {
+      for (const rule of rules)
+        if (
+          (!rule.exclude || !rule.exclude.test(file)) &&
+          rule.pattern.test(line)
+        )
+          findings.push({
+            file,
+            line: index + 1,
+            name: rule.name,
+            severity: rule.severity,
+            message: rule.message,
+          });
     });
-  } catch (err) {
-    console.warn("Failed to audit file " + file + ": " + err.message);
+  }
+  return findings;
+}
+export function review(
+  options,
+  { cwd = process.cwd(), run = spawnSync, io = fs, log = console.log } = {},
+) {
+  const selected = selectFiles(options, { cwd, run, io });
+  log(
+    `Review scope: ${selected.mode}${selected.mode === "committed" ? ` base=${selected.baseSha} head=${selected.headSha}` : " staged + unstaged + untracked union; current working content"}`,
+  );
+  log(
+    `Selected ${selected.candidates.length} path(s), scanning ${selected.files.length}; skipped ${selected.skipped.length}.`,
+  );
+  for (const { file } of selected.files) log(` - ${JSON.stringify(file)}`);
+  for (const { file, reason } of selected.skipped)
+    log(`Skipped ${JSON.stringify(file)}: ${reason}`);
+  if (!selected.files.length) {
+    assertCommittedCheckoutStable(selected, { cwd, run });
+    log(
+      "No eligible changed files to scan for this comparison; this does not certify a clean workspace or application gates.",
+    );
+    return { exitCode: 0, selected, findings: [], checks: [] };
+  }
+  const findings = audit(selected.files);
+  for (const f of findings)
+    log(
+      `${f.severity.toUpperCase()} ${JSON.stringify(f.file)}:${f.line} [${f.name}] ${f.message}`,
+    );
+  const checks = [];
+  const check = (name, command, args) => {
+    const result = run(command, args, {
+      cwd,
+      encoding: "utf8",
+      maxBuffer: 50 * 1024 * 1024,
+      windowsHide: true,
+    });
+    const passed = !result.error && result.status === 0;
+    checks.push({ name, passed });
+    log(
+      `${passed ? "PASS" : "FAIL"} ${name}; raw tool output suppressed to prevent source/secret echo.`,
+    );
+  };
+  const prettier = path.join(
+    cwd,
+    "node_modules",
+    "prettier",
+    "bin",
+    "prettier.cjs",
+  );
+  const formatting = selected.files.filter(({ file }) =>
+    /\.(m?js|jsx|ts|tsx|css|md|json|html|yml|yaml)$/.test(file),
+  );
+  if (formatting.length) {
+    if (!io.existsSync(prettier)) {
+      checks.push({ name: "Formatting", passed: false });
+      log(
+        "FAIL Formatting: installed local Prettier is unavailable; no package download attempted.",
+      );
+    } else
+      check("Formatting", process.execPath, [
+        prettier,
+        "--check",
+        ...formatting.map((f) => safePath(cwd, f.file)),
+      ]);
+  }
+  const pnpm = (args) =>
+    process.platform === "win32"
+      ? [
+          process.env.ComSpec || "cmd.exe",
+          ["/d", "/s", "/c", `pnpm ${args.join(" ")}`],
+        ]
+      : ["pnpm", args]; // These arguments are fixed internal constants.
+  const skipChecks = process.env.CODE_REVIEW_SKIP_CHECKS === "1";
+  if (!skipChecks && selected.files.some((f) => /\.(ts|tsx)$/.test(f.file)))
+    check("TypeScript", ...pnpm(["run", "typecheck"]));
+  else log("SKIP TypeScript: no selected TS/TSX file.");
+  if (
+    !skipChecks &&
+    selected.files.some((f) => f.file.startsWith("artifacts/tc-reference/"))
+  )
+    check(
+      "Vitest",
+      ...pnpm([
+        "--filter",
+        "@workspace/tc-reference",
+        "test",
+        "--",
+        "--test-timeout=20000",
+      ]),
+    );
+  else log("SKIP Vitest: no selected client/lib file.");
+  const errors = findings.filter((f) => f.severity === "error").length,
+    warnings = findings.length - errors;
+  const exitCode = errors || checks.some((c) => !c.passed) ? 1 : 0;
+  if (!exitCode) assertCommittedCheckoutStable(selected, { cwd, run });
+  log(
+    `Review summary: ${errors} audit error(s), ${warnings} warning(s), ${checks.filter((c) => !c.passed).length} failed selected check(s).`,
+  );
+  log(
+    exitCode
+      ? "Code review failed."
+      : "Selected code review checks passed; skipped/unselected gates remain unverified.",
+  );
+  return { exitCode, selected, findings, checks };
+}
+export function main(args = process.argv.slice(2), dependencies = {}) {
+  try {
+    return review(parseArguments(args), dependencies).exitCode;
+  } catch (error) {
+    (dependencies.log || console.error)(
+      `Review incomplete: ${error instanceof ReviewError ? error.message : "operation failed; raw diagnostics suppressed"}`,
+    );
+    return 1;
   }
 }
-
-console.log("\n" + colors.bold + "=== Review Summary ===" + colors.reset);
-console.log(
-  "Errors: " +
-    (errorsList.length === 0 ? colors.green : colors.red) +
-    errorsList.length +
-    colors.reset,
-);
-console.log(
-  "Warnings: " +
-    (warningsList.length === 0 ? colors.green : colors.yellow) +
-    warningsList.length +
-    colors.reset +
-    "\n",
-);
-
-if (hasErrors) {
-  console.log(
-    `${colors.red}${colors.bold}✗ Code Review Failed.${colors.reset} Please fix the issues before committing.`,
-  );
-  process.exit(1);
-} else {
-  console.log(
-    `${colors.green}${colors.bold}✓ Code Review Passed!${colors.reset} All critical gates verified.`,
-  );
-  process.exit(0);
-}
+if (
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+)
+  process.exitCode = main();

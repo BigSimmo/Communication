@@ -1,12 +1,23 @@
-import { spawn, spawnSync } from "node:child_process";
+import { spawn } from "node:child_process";
 import { existsSync, openSync } from "node:fs";
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import net from "node:net";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { randomUUID } from "node:crypto";
+import {
+  assertProcessOwnership,
+  assertStartStateAvailable,
+  canonicalCheckout,
+  parseRecordedState,
+  readProcessIdentity,
+  stopVerifiedProcess,
+  withLocalAppStateLock,
+} from "./local-process-identity.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const rootDir = path.resolve(__dirname, "..");
+const rootDir = canonicalCheckout(path.resolve(__dirname, ".."));
+const launcherPath = path.join(rootDir, "scripts", "local-app-server.mjs");
 const appDir = path.join(rootDir, "artifacts", "tc-reference");
 const stateDir = path.join(rootDir, ".local", "communication-app");
 const statePath = path.join(stateDir, "state.json");
@@ -25,22 +36,31 @@ if (!Number.isInteger(port) || port <= 0 || port > 65535) {
   throw new Error(`Invalid local app port: ${port}`);
 }
 
-const command = process.argv[2] ?? "run";
-
-switch (command) {
-  case "run":
-    await run();
-    break;
-  case "guard":
-    await guard();
-    break;
-  case "stop":
-    await stop();
-    break;
-  default:
-    console.error(`Unknown command: ${command}`);
-    console.error("Usage: node ./scripts/local-app.mjs <run|guard|stop>");
-    process.exit(1);
+export async function main(args = process.argv.slice(2)) {
+  if (
+    args.length > 1 ||
+    (args[0] && !["run", "guard", "stop"].includes(args[0]))
+  )
+    throw new Error("Usage: node ./scripts/local-app.mjs <run|guard|stop>");
+  switch (args[0] ?? "run") {
+    case "run":
+      return withLocalAppStateLock(stateDir, run);
+    case "guard":
+      return guard();
+    case "stop":
+      return withLocalAppStateLock(stateDir, stop);
+  }
+}
+if (
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+) {
+  try {
+    await main();
+  } catch (error) {
+    console.error(error.message);
+    process.exitCode = 1;
+  }
 }
 
 async function run() {
@@ -54,21 +74,30 @@ async function run() {
     return;
   }
 
+  assertStartStateAvailable(state);
+
   if (!(await isPortFree())) {
-    console.error(
-      `${url} is already in use, but it is not the recorded ${appId} server.`,
+    throw new Error(
+      `${url} is already in use, but it is not the recorded ${appId} server. Use a different COMMUNICATION_APP_PORT or stop the other app.`,
     );
-    console.error(
-      "Use a different COMMUNICATION_APP_PORT or stop the other app.",
-    );
-    process.exit(1);
   }
 
-  const child = spawnDevServer();
-
+  if (!["win32", "linux"].includes(process.platform))
+    throw new Error(
+      `Verified process ownership is unsupported on ${process.platform}; no server started`,
+    );
+  const launchToken = randomUUID();
+  const child = spawnDevServer(launchToken);
+  await new Promise((resolve, reject) => {
+    child.once("spawn", resolve);
+    child.once("error", reject);
+  });
   child.unref();
 
-  await writeState({
+  // Store only the live process generation actually observed, never a wall-clock
+  // approximation that could accidentally match a recycled PID.
+  const nextState = {
+    schemaVersion: 2,
     appId,
     pid: child.pid,
     port,
@@ -80,15 +109,31 @@ async function run() {
     stdoutPath,
     stderrPath,
     startedAt: new Date().toISOString(),
-  });
+    launchToken,
+    launcherPath,
+    executable: process.execPath,
+    processGeneration: null,
+  };
+  // If metadata is unavailable, retain a pending identity for manual recovery;
+  // never invent a generation or leave an unrecorded launched process.
+  await writeState(nextState);
+  try {
+    const live = readProcessIdentity(child.pid);
+    nextState.processGeneration = live.generation;
+    assertProcessOwnership(nextState, live, ownershipContext());
+    await writeState(nextState);
+  } catch {
+    throw new Error(
+      `Server launch recorded at ${statePath}, but live process identity is unverifiable; automatic stop refused. Inspect its PID and logs manually.`,
+    );
+  }
 
   try {
     await waitForHealthyUrl();
   } catch (error) {
-    console.error(error.message);
-    console.error(`Server log: ${stdoutPath}`);
-    console.error(`Error log: ${stderrPath}`);
-    process.exit(1);
+    throw new Error(
+      `${error.message}\nServer log: ${stdoutPath}\nError log: ${stderrPath}`,
+    );
   }
 
   await openProtectedBrowser();
@@ -96,7 +141,7 @@ async function run() {
   console.log(`isolated browser profile: ${browserProfileDir}`);
 }
 
-function spawnDevServer() {
+function spawnDevServer(launchToken) {
   const commonOptions = {
     cwd: rootDir,
     detached: true,
@@ -109,30 +154,16 @@ function spawnDevServer() {
     windowsHide: true,
   };
 
-  if (process.platform === "win32") {
-    return spawn(
-      process.env.ComSpec ?? "cmd.exe",
-      [
-        "/d",
-        "/s",
-        "/c",
-        `pnpm --filter @workspace/tc-reference exec vite --config vite.config.ts --host ${host}`,
-      ],
-      commonOptions,
-    );
-  }
-
   return spawn(
-    "pnpm",
+    process.execPath,
     [
-      "--filter",
-      "@workspace/tc-reference",
-      "exec",
-      "vite",
-      "--config",
-      "vite.config.ts",
-      "--host",
-      host,
+      launcherPath,
+      "--root",
+      rootDir,
+      "--token",
+      launchToken,
+      "--port",
+      String(port),
     ],
     commonOptions,
   );
@@ -156,37 +187,27 @@ async function guard() {
 
 async function stop() {
   const state = await readState();
-  if (!state?.pid || state.appId !== appId) {
+  if (!state) {
     console.log(`not-running ${appId} ${url}`);
     return;
   }
 
-  if (isPidAlive(state.pid)) {
-    stopProcessTree(state.pid);
-  }
-
-  await rm(statePath, { force: true });
+  await stopVerifiedProcess(state, ownershipContext(), {
+    readState,
+    removeState: () => rm(statePath),
+  });
   console.log(`stopped ${appId} ${url}`);
 }
 
-function stopProcessTree(pid) {
-  if (process.platform === "win32") {
-    spawnSync("taskkill.exe", ["/PID", String(pid), "/T", "/F"], {
-      stdio: "ignore",
-      windowsHide: true,
-    });
-    return;
-  }
-
-  try {
-    process.kill(-pid);
-  } catch {
-    try {
-      process.kill(pid);
-    } catch {
-      // The process may exit between the liveness check and the signal.
-    }
-  }
+function ownershipContext() {
+  return {
+    rootDir,
+    launcherPath,
+    executable: process.execPath,
+    appId,
+    port,
+    host,
+  };
 }
 
 async function isReusableState(state) {
@@ -201,6 +222,11 @@ async function isReusableState(state) {
   }
 
   try {
+    assertProcessOwnership(
+      state,
+      readProcessIdentity(state.pid),
+      ownershipContext(),
+    );
     await waitForHealthyUrl(2_000);
     return true;
   } catch {
@@ -343,9 +369,10 @@ function findBrowserExecutable() {
 
 async function readState() {
   try {
-    return JSON.parse(await readFile(statePath, "utf8"));
-  } catch {
-    return null;
+    return parseRecordedState(await readFile(statePath, "utf8"));
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw new Error("Cannot read recorded local app state; state preserved");
   }
 }
 
