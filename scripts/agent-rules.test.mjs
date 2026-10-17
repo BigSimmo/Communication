@@ -162,7 +162,8 @@ test("instruction regression checks reject stale memory, activation and routing"
   const files = Object.fromEntries(
     paths.map((file) => [file, readFileSync(path.join(root, file), "utf8")]),
   );
-  files[paths[0]] += "\nget_document without a scope argument\n";
+  files[paths[0]] +=
+    "\nsearch_memory without containerTag\nadd_memory without namespace\nget_document without a scope argument\n";
   files[paths[1]] += "\nActivate these branch-only changes.\n";
   files[paths[2]] += '\nUse Task tool with subagent_type="unavailable"\n';
   const errors = validateInstructionInvariants(temporary(t, files));
