@@ -92,6 +92,30 @@ Optional helper:
 pnpm app:stop    # stop the tracked local app process
 ```
 
+Run, guard and stop bind the server to this checkout's dedicated Node launcher,
+launch token and observed process start identity. Stop rechecks live ownership
+before terminating the process. A health response and a saved PID alone do not
+establish ownership. Legacy or unverifiable state is kept for manual inspection;
+the checkout-local lock prevents overlapping cooperating start and stop calls.
+An abandoned lock or state record needs inspection and explicit recovery approval.
+These safeguards have local mocked regression coverage; a real launch and stop
+still need separate acceptance.
+
+### Automated reviewer
+
+`pnpm code-review` scans the union of staged, unstaged and non-ignored untracked
+paths using current working content. It reports rule, file and line without
+printing source snippets or raw tool output. For an exact committed comparison,
+run `pnpm code-review --base <commit> --head <commit>`. Both references must
+resolve, HEAD must match the selected head, and the checkout must be clean. CI
+uses the PR or push event's exact head and base; an unavailable base fails closed.
+Formatting uses installed local Prettier without a package download. Focused
+offline regressions are available through:
+
+```bash
+node --test scripts/code-reviewer.test.mjs scripts/local-process-identity.test.mjs
+```
+
 ### Run tests
 
 ```bash

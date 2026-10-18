@@ -1,7 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import {
-  chmodSync,
   mkdtempSync,
   mkdirSync,
   readFileSync,
@@ -60,6 +59,35 @@ function temporary(t, files) {
     writeFileSync(file, text);
   }
   return directory;
+}
+
+function ghPreload(body) {
+  // Patch the built-in before the CLI's ESM import binds execFileSync. This
+  // keeps fixture calls inside Node on Windows as well as POSIX.
+  return `const { syncBuiltinESMExports } = require("node:module");
+const childProcess = require("node:child_process");
+childProcess.execFileSync = (command, args) => {
+  if (command !== "gh") throw new Error("Unexpected subprocess");
+  ${body}
+};
+childProcess.execFileSync.__communicationGhTestIntercept = true;
+syncBuiltinESMExports();
+`;
+}
+
+function assertGhPreloadBound(preload) {
+  const probe = spawnSync(
+    process.execPath,
+    [
+      "--require",
+      preload,
+      "--input-type=module",
+      "--eval",
+      'import { execFileSync } from "node:child_process"; if (execFileSync.__communicationGhTestIntercept !== true) process.exit(4);',
+    ],
+    { encoding: "utf8" },
+  );
+  assert.equal(probe.status, 0, probe.stderr);
 }
 
 test("current corpus has complete active resources and explicit archived activation", () => {
@@ -321,7 +349,7 @@ for (const [operation, instruction] of [
 for (const operation of ["search_memory", "get_document", "add_memory"]) {
   test(`memory scope requires an affirmative namespace contract for ${operation}`, (t) => {
     const files = instructionFiles();
-    files[instructionPaths[0]] = files[instructionPaths[0]].replace(
+    files[instructionPaths[0]] = files[instructionPaths[0]].replaceAll(
       `\`${operation}\``,
       "the operation",
     );
@@ -447,13 +475,12 @@ test("denied notification access propagates without a broader fallback", async (
 test("CLI pins github.com even when inherited GH_HOST names another host", (t) => {
   const directory = temporary(t, {
     "queue.json": JSON.stringify(queue),
-    gh: `#!${process.execPath}
+    "gh-preload.cjs": ghPreload(`
 const fs = require("node:fs");
-const args = process.argv.slice(2);
 const hostIndex = args.indexOf("--hostname");
 const effectiveHost = hostIndex < 0 ? process.env.GH_HOST : args[hostIndex + 1];
 fs.appendFileSync(process.env.COMMUNICATION_GH_ARGV_LOG, JSON.stringify({ args, inheritedHost: process.env.GH_HOST, effectiveHost }) + "\\n");
-if (effectiveHost !== "github.com") process.exit(72);
+if (effectiveHost !== "github.com") throw new Error("Unexpected host");
 const fixture = JSON.parse(fs.readFileSync(process.env.COMMUNICATION_GH_QUEUE_FIXTURE, "utf8"));
 const endpoint = args.at(-1);
 const response = endpoint === "repos/ExampleOrg/example-repo/notifications?per_page=100"
@@ -461,15 +488,17 @@ const response = endpoint === "repos/ExampleOrg/example-repo/notifications?per_p
   : /^repos\\/ExampleOrg\\/example-repo\\/pulls\\/[1-9]\\d*$/.test(endpoint)
     ? fixture.pulls[endpoint.split("/").at(-1)]
     : undefined;
-if (response === undefined) process.exit(73);
-process.stdout.write(JSON.stringify(response));
-`,
+if (response === undefined) throw new Error("Unexpected endpoint");
+return JSON.stringify(response);
+`),
   });
-  chmodSync(path.join(directory, "gh"), 0o755);
   const log = path.join(directory, "argv.jsonl");
+  assertGhPreloadBound(path.join(directory, "gh-preload.cjs"));
   const result = spawnSync(
     process.execPath,
     [
+      "--require",
+      path.join(directory, "gh-preload.cjs"),
       path.join(root, "scripts/github-review-requests.mjs"),
       "--repo",
       "ExampleOrg/example-repo",
@@ -480,7 +509,6 @@ process.stdout.write(JSON.stringify(response));
       encoding: "utf8",
       env: {
         ...process.env,
-        PATH: `${directory}${path.delimiter}${process.env.PATH ?? ""}`,
         GH_HOST: "enterprise.invalid",
         COMMUNICATION_GH_ARGV_LOG: log,
         COMMUNICATION_GH_QUEUE_FIXTURE: path.join(directory, "queue.json"),
@@ -505,15 +533,18 @@ process.stdout.write(JSON.stringify(response));
 
 test("CLI failure diagnostics never reflect untrusted subprocess output", (t) => {
   const directory = temporary(t, {
-    gh: `#!${process.execPath}
-process.stderr.write("Authorization: Bearer synthetic-private-value\\nghs_example.header.payload.signature\\n");
-process.exit(7);
-`,
+    "gh-preload.cjs": ghPreload(`
+require("node:fs").writeFileSync(process.env.COMMUNICATION_GH_ARGV_LOG, JSON.stringify(args));
+throw new Error("Authorization: Bearer synthetic-private-value\\nghs_example.header.payload.signature");
+`),
   });
-  chmodSync(path.join(directory, "gh"), 0o755);
+  const log = path.join(directory, "argv.json");
+  assertGhPreloadBound(path.join(directory, "gh-preload.cjs"));
   const result = spawnSync(
     process.execPath,
     [
+      "--require",
+      path.join(directory, "gh-preload.cjs"),
       path.join(root, "scripts/github-review-requests.mjs"),
       "--repo",
       "ExampleOrg/example-repo",
@@ -524,11 +555,17 @@ process.exit(7);
       encoding: "utf8",
       env: {
         ...process.env,
-        PATH: `${directory}${path.delimiter}${process.env.PATH ?? ""}`,
+        COMMUNICATION_GH_ARGV_LOG: log,
       },
     },
   );
   assert.equal(result.status, 1);
+  assert.deepEqual(JSON.parse(readFileSync(log, "utf8")).slice(0, 4), [
+    "api",
+    "--hostname",
+    "github.com",
+    "--method",
+  ]);
   assert.equal(result.stdout, "");
   assert.equal(
     result.stderr,
