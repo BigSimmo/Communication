@@ -30,3 +30,10 @@ Before every billable run, read **Spending approval for each billable run** in `
 This is the standalone `BigSimmo/Communication` repository. Use its current README and package scripts; preserve concurrent work and verify the actual checkout and repository destinations before writes. Do not transfer PsychSift, Ward Flow or Caring Contacts services or permissions here.
 
 Read and follow [task lifecycle and receipt handoff](docs/task-receipts.md) at task start, checkpoint, blocker, resume and completion. Reuse the original task identity; local receipt export is a handoff, not canonical reconciliation or permission to publish. Keep transcripts, credentials and private data out of receipts.
+
+## Git safety
+
+- Never push to `main`, directly or by any other route. Every change reaches `main` only through a pull request.
+- Never force-push (`--force`, `--force-with-lease`, `+refspec`), and never rewrite history on any branch that has been pushed.
+- Never bypass hooks or checks (`--no-verify`, disabled hooks). If a hook fails for environmental reasons, report it rather than working around it.
+- Fetch and integrate `origin/main` into your branch before each push, then push it as a normal fast-forward.
