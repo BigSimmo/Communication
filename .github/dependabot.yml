@@ -18,6 +18,13 @@ updates:
       - dependency-name: react
       - dependency-name: react-dom
       - dependency-name: vite
+      # @types/node follows the Node 24 runtime contract
+      # (scripts/node-runtime-contract.test.mjs); bump it together with the runtime.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      # plugin-react 6 requires Vite 8; it waits for a deliberate Vite 8 upgrade.
+      - dependency-name: "@vitejs/plugin-react"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
