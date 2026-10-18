@@ -36,4 +36,4 @@ Read and follow [task lifecycle and receipt handoff](docs/task-receipts.md) at t
 - Never push to `main`, directly or by any other route. Every change reaches `main` only through a pull request.
 - Never force-push (`--force`, `--force-with-lease`, `+refspec`), and never rewrite history on any branch that has been pushed.
 - Never bypass hooks or checks (`--no-verify`, disabled hooks). If a hook fails for environmental reasons, report it rather than working around it.
-- Fetch and integrate `origin/main` into your branch before each push, then push it as a normal fast-forward.
+- Fetch and merge `origin/main` into your branch before each push (`git fetch origin && git merge origin/main`), then push it as a normal fast-forward. Rebase only commits that have never been pushed.
