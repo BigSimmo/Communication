@@ -6,6 +6,7 @@ import { createServer } from "node:http";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import sirv from "sirv";
+import { acceptableEncodings } from "./server-encoding.mjs";
 
 const defaultRoot = path.join(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -109,6 +110,9 @@ export function createRequestHandler(root = defaultRoot) {
   const serve = sirv(root, {
     single: true,
     etag: true,
+    // Serve the .br/.gz files written by scripts/precompress.mjs at build time.
+    brotli: true,
+    gzip: true,
     setHeaders: (res, pathname) => setHeaders(res, pathname, headers),
   });
   const notFound = (req, res) => {
@@ -118,6 +122,9 @@ export function createRequestHandler(root = defaultRoot) {
     res.end(req.method === "HEAD" ? undefined : indexHtml);
   };
   return (req, res) => {
+    req.headers["accept-encoding"] = acceptableEncodings(
+      req.headers["accept-encoding"],
+    );
     let pathname = "/";
     try {
       pathname = decodeURIComponent(

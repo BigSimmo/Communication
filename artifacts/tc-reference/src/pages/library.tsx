@@ -1046,7 +1046,6 @@ export default function Library() {
                     <li key={card.id} className="relative max-w-full min-w-0">
                       <Link
                         href={`/card/${card.id}`}
-                        aria-label={`${card.title} (${card.id}), ${badge.label.toLowerCase()} impact, ${CARD_DIFFICULTY[card.id]}`}
                         data-testid={`card-link-${card.id}`}
                         data-library-card={card.id}
                         onClick={(e: React.MouseEvent<HTMLElement>) => {
@@ -1106,6 +1105,10 @@ export default function Library() {
                               }}
                             >
                               {badge.label}
+                              {/* The visible text is the accessible name
+                                  (WCAG 2.5.3 label-in-name); this just
+                                  says what the badge means. */}
+                              <span className="sr-only"> impact</span>
                             </span>
                           </span>
                         </span>
