@@ -27,15 +27,15 @@ const LIBRARY_CARDS = Object.values(LIBRARY_CATEGORIES).flat();
 
 // The catalogue is the Top500 sequence TC001–TC100 with two intentional gaps:
 // TC055 and TC097 were duplicate builds in the source set (of TC054 and TC096),
-// so those ids are deliberately absent. Result: 98 unique techniques.
+// so those ids are deliberately absent. TC101–TC109 were added in Oct 2026 for gap techniques. Result: 107 unique techniques.
 const MISSING_IDS = new Set(["TC055", "TC097"]);
 const EXPECTED_IDS = Array.from(
-  { length: 100 },
+  { length: 109 },
   (_, i) => `TC${String(i + 1).padStart(3, "0")}`,
 ).filter((id) => !MISSING_IDS.has(id));
 
 describe("card content invariants", () => {
-  it("has all 98 techniques (TC001–TC100 minus TC055/TC097) in both cards.ts and data.ts", () => {
+  it("has all 107 techniques (TC001–TC109 minus TC055/TC097) in both cards.ts and data.ts", () => {
     expect(CARD_IDS.slice().sort()).toEqual(EXPECTED_IDS);
     expect(LIBRARY_CARDS.map((c) => c.id).sort()).toEqual(EXPECTED_IDS);
   });

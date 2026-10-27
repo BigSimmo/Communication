@@ -1,12 +1,12 @@
 # TC Reference Tool
 
-A mobile-first reference app for 98 communication techniques. It runs entirely in the browser, with user data kept in `localStorage`.
+A mobile-first reference app for 107 communication techniques. It runs entirely in the browser, with user data kept in `localStorage`.
 
 ---
 
 ## Features
 
-- 98 technique cards (voice/presence, influence/framing, clarity/direction, connection/warmth, resilience/recovery)
+- 107 technique cards (voice/presence, influence/framing, clarity/direction, connection/warmth, resilience/recovery)
 - Library with category, impact and difficulty filters, sort controls and a live result count
 - Phrase Bank (4,000+ phrases, filterable by tone and full-text searchable)
 - Daily drill with streak tracking and spaced-repetition review

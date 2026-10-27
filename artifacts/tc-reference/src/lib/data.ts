@@ -78,6 +78,13 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       impact: "high",
       difficulty: "Easy-Medium",
     },
+    {
+      id: "TC106",
+      title: "Contrasting (don't/do)",
+      loaded: true,
+      impact: "medium",
+      difficulty: "Easy-Medium",
+    },
   ],
   "Clarity / Direction": [
     {
@@ -282,6 +289,13 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       loaded: true,
       impact: "medium",
       difficulty: "Hard",
+    },
+    {
+      id: "TC102",
+      title: "Positive no (Yes! No. Yes?)",
+      loaded: true,
+      impact: "high",
+      difficulty: "Medium",
     },
   ],
   "Connection / Warmth": [
@@ -614,6 +628,27 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       impact: "medium",
       difficulty: "Easy-Medium",
     },
+    {
+      id: "TC104",
+      title: "Soft start-up",
+      loaded: true,
+      impact: "high",
+      difficulty: "Easy-Medium",
+    },
+    {
+      id: "TC108",
+      title: "Graceful exit",
+      loaded: true,
+      impact: "medium",
+      difficulty: "Easy",
+    },
+    {
+      id: "TC109",
+      title: "Looping for understanding",
+      loaded: true,
+      impact: "high",
+      difficulty: "Medium",
+    },
   ],
   "Resilience / Recovery": [
     {
@@ -713,6 +748,34 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       loaded: true,
       impact: "low",
       difficulty: "Easy-Medium",
+    },
+    {
+      id: "TC101",
+      title: "Effective apology",
+      loaded: true,
+      impact: "high",
+      difficulty: "Medium",
+    },
+    {
+      id: "TC103",
+      title: "Receive feedback well",
+      loaded: true,
+      impact: "high",
+      difficulty: "Medium",
+    },
+    {
+      id: "TC105",
+      title: "Take a break, then repair",
+      loaded: true,
+      impact: "high",
+      difficulty: "Medium",
+    },
+    {
+      id: "TC107",
+      title: "Fogging and broken record",
+      loaded: true,
+      impact: "medium",
+      difficulty: "Medium",
     },
   ],
 };
