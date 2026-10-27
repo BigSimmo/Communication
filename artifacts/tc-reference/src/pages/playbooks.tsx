@@ -431,7 +431,8 @@ export default function Playbooks() {
             >
               <FolderHeart
                 className="w-10 h-10 stroke-[1.5]"
-                style={{ color: "var(--fg-22)" }}
+                style={{ color: "var(--fg-45)" }}
+                aria-hidden="true"
               />
               <div>
                 <p
