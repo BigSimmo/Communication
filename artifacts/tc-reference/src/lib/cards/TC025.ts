@@ -326,7 +326,7 @@ export const TC025: CardData = {
       "They correct you sharply, or go shorter and more guarded.",
       "You've repeated several words in a row, or the topic is too sensitive to echo.",
       "Switch from repeating their word to reflecting the meaning: 'That part sounds important.'",
-      "Give them an exit: 'No need to unpack it if it was just a throwaway phrase.'",
+      "Give them an exit: 'No need to go into it if it was just a throwaway phrase.'",
       "Share a small contribution so it doesn't turn into an interview.",
       "Apologise if your tone came out mocking or analytical, then ask something lighter.",
     ],

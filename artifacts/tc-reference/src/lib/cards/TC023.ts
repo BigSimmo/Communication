@@ -301,7 +301,7 @@ export const TC023: CardData = {
       "They change topic quickly.",
       "They look away, withdraw or seem embarrassed.",
       "You've echoed several words in a row without contributing.",
-      'Soften it: add a small comment before the question, or offer an exit: "No pressure if you don\'t want to unpack it."',
+      'Soften it: add a small comment before the question, or offer an exit: "No pressure if you don\'t want to go into it."',
       'Move one step lighter, from meaning to fact, or switch from a question to a reflection: "So it felt off, but hard to name."',
     ],
   },

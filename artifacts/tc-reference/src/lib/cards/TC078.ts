@@ -70,7 +70,7 @@ export const TC078: CardData = {
       "Can I go back to something you said earlier, X? I didn't want to lose that. What was behind it?",
       "You mentioned X before. That sounded important. Do you want to say more about it?",
       "Looping back to X for a second: what should I understand there?",
-      "Before we move on, I want to return to X. Is that still worth unpacking?",
+      "Before we move on, I want to return to X. Is that still worth going into?",
       'Short version: "Quick callback to X. What did you mean by that?"',
     ],
     minimumViableMove: "Can I come back to the part where you said X?",
@@ -276,7 +276,7 @@ export const TC078: CardData = {
       situation: "Conflict",
       move: "Earlier you said the apology felt late. Is timing the part that still matters?",
       phrase:
-        "We don't need to unpack it now, but I don't want to ignore the timing point.",
+        "We don't need to go into it now, but I don't want to ignore the timing point.",
     },
   ],
   calibration: {
