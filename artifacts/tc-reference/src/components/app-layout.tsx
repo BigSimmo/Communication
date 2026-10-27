@@ -43,7 +43,6 @@ export function AppLayout({ children }: AppLayoutProps) {
         <Link
           href="/"
           className="flex items-center gap-2.5 px-5 pt-6 pb-5 rounded-lg"
-          aria-label="TC Library home"
         >
           <span
             aria-hidden="true"
