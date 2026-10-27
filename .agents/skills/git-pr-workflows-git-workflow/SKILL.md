@@ -112,7 +112,7 @@ External scanners, AI services, profilers and model choices in role prompts are 
 
 ### 2. PR Metadata and Automation Setup
 - Perform this role directly, or assign it through an available permitted agent tool using the role prompt below.
-- Prompt: "Configure PR metadata: 1) Assign appropriate reviewers based on CODEOWNERS, 2) Add labels (type, priority, component), 3) Link related issues, 4) Set milestone if applicable, 5) Use a merge commit (`gh pr merge --merge`; squash and rebase merging are disabled in this repository), 6) Set up auto-merge if all checks pass. Consider draft status: [--draft-pr flag]. Include test status: [insert test summary]."
+- Prompt: "Configure PR metadata: 1) Assign appropriate reviewers based on CODEOWNERS, 2) Add labels (type, priority, component), 3) Link related issues, 4) Set milestone if applicable, 5) Use a merge commit (`gh pr merge <number> --merge --repo BigSimmo/Communication`, always naming the repository explicitly; squash and rebase merging are disabled in this repository), 6) Set up auto-merge if all checks pass. Consider draft status: [--draft-pr flag]. Include test status: [insert test summary]."
 - Context from previous: PR description, test results, review status
 - Expected output: PR configuration commands and automation rules
 
@@ -145,7 +145,7 @@ In case of issues after merge:
 - **Branch Naming**: `(feature|bugfix|hotfix|docs|chore)/<ticket-id>-<brief-description>`
 - **PR Size**: Keep PRs under 400 lines for effective review
 - **Review Response**: Address review comments within 24 hours
-- **Merge Strategy**: Merge commits only (`gh pr merge --merge`); squash and rebase merging are disabled in this repository
+- **Merge Strategy**: Merge commits only (`gh pr merge <number> --merge --repo BigSimmo/Communication`; always pass `--repo` so the command cannot act on another checkout's repository); squash and rebase merging are disabled in this repository
 - **Sign-Off**: Require at least 2 approvals for main branch changes
 
 ## Limitations
