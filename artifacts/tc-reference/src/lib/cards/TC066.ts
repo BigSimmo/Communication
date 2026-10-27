@@ -62,7 +62,7 @@ export const TC066: CardData = {
     },
   ],
   whyItWorks:
-    "BIFF stands for Brief, Informative, Friendly, Firm. It is a response structure for messages where the emotional heat is higher than the useful information: hostile emails, baiting texts, sprawling complaints and inaccurate claims. Instead of matching the tone or correcting every point, you answer only what needs a reply, civilly, and close with a clear next step. A BIFF reply is harder to attack, easier to understand and easier for a third party to trust, and it removes the handles that keep the conflict going.",
+    "BIFF stands for Brief, Informative, Friendly, Firm. It is a response structure for messages where the emotional heat is higher than the useful information: hostile emails, baiting texts, sprawling complaints and inaccurate claims. Often the best reply is none: if the message is only between the two of you, you can let it go, and reply when other people will read it or an inaccurate claim could matter later. When you do reply, instead of matching the tone or correcting every point, you answer only what needs a reply, civilly, and close with a clear next step. A BIFF reply is harder to attack, easier to understand and easier for a third party to trust, and it removes the handles that keep the conflict going.",
   whatItIsNot: [
     "It is not a way to dodge accountability when you actually caused harm.",
     "It is not a substitute for empathy when someone needs real care rather than containment.",
@@ -303,7 +303,7 @@ export const TC066: CardData = {
     {
       condition: "The message did not actually require a reply.",
       action:
-        "Do not reply, or archive and monitor. Silence is a legitimate BIFF move.",
+        "Often best not to reply. Archive and monitor. Reply only if others will see it or an inaccurate claim could matter later.",
       phrase: "",
     },
     {
