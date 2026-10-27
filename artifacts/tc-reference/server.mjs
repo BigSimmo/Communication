@@ -89,7 +89,14 @@ function setHeaders(res, pathname) {
   }
 }
 
-const serve = sirv(root, { single: true, etag: true, setHeaders });
+// Serve the .br/.gz files written by scripts/precompress.mjs at build time.
+const serve = sirv(root, {
+  single: true,
+  etag: true,
+  brotli: true,
+  gzip: true,
+  setHeaders,
+});
 
 const server = createServer((req, res) => serve(req, res));
 
