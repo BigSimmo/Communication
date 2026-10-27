@@ -62,7 +62,7 @@ export const TC002: CardData = {
     },
   ],
   whyItWorks:
-    "Support response over shift response is the habit of responding to the other person's experience before shifting to your own related story or idea. When a self-reference comes to mind, you first support their thread with acknowledgement, curiosity or appreciation, and only then decide whether your own point still adds anything. It works because people become receptive to you once they feel heard: a support response keeps their moment intact, while a shift response quietly tells them the floor was never really theirs.",
+    "Support response over shift response is the habit of responding to the other person's experience before shifting to your own related story or idea. When a self-reference comes to mind, you first support their thread with acknowledgement, curiosity or appreciation, and only then decide whether your own point still adds anything. It works because people become receptive to you once they feel heard: a support response keeps their moment intact, while a shift response quietly tells them the floor was never really theirs. Sociologist Charles Derber named the two moves: a shift response turns the talk to you (me too), while a support response keeps it on them, usually with a curious question.",
   whatItIsNot: [
     "It is not never talking about yourself, suppressing reciprocity, or performing endless questions. It is a sequencing discipline: their moment first, your contribution second if it still serves the conversation.",
     "It is not self-erasure or false modesty. Your story can still come. It just comes after theirs has landed.",

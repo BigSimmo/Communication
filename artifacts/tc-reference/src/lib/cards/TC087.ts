@@ -520,7 +520,7 @@ export const TC087: CardData = {
     "Makes sense. We can leave it there.",
     "Thanks, I didn't want to over-ask.",
     "I just stacked a few questions there. The main one is: what context matters most?",
-    "I appreciate you trusting me with that. We don't have to keep unpacking it.",
+    "I appreciate you trusting me with that. We don't have to keep going into it.",
     "Completely fine. I appreciate the headline.",
   ],
   bestRecoveryLine:

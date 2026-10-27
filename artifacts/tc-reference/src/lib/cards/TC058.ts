@@ -179,7 +179,7 @@ export const TC058: CardData = {
       tone: "High-stakes",
       phrases: [
         "It sounds like the immediate need is safety and clarity.",
-        "It sounds like this needs action first, then we can unpack the rest.",
+        "It sounds like this needs action first, then we can talk through the rest.",
         "It sounds like you need one clear next step before anything else.",
         "I hear it: the priority right now is a decision, not a discussion.",
         "Sounds like what you need first is to know it's handled.",

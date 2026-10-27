@@ -134,7 +134,7 @@ export const TC036: CardData = {
       tag: "Naming the shared work",
       tone: "Professional",
       phrases: [
-        "Before we get into the detail, the main thing today is to align on the next step.",
+        "Before we get into the detail, the main thing today is to agree the next step.",
         "I know we've limited time, so I'll start with the context.",
         "This seems like the right moment to separate what's urgent from what's important.",
         "Before we solve it, can I quickly name what I think the situation is?",

@@ -175,7 +175,7 @@ export const TC040: CardData = {
         "I might have this wrong, but it sounds like the real worry is whether it happens again.",
         "It sounds like what's under this is whether you can count on it next time.",
         "That seems to matter because it changed what feels safe here.",
-        "It sounds like the hard part isn't what happened. It's what it might mean going forward.",
+        "It sounds like the hard part isn't what happened. It's what it might mean from here.",
         "Take your time. This one seems to run deeper than the facts.",
         "If I've read that wrong, tell me, but it seems bigger than the event.",
       ],

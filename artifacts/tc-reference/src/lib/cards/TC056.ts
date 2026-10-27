@@ -158,7 +158,7 @@ export const TC056: CardData = {
       tag: "Text-based calibration",
       tone: "Quick",
       phrases: [
-        "Your last reply had a lot more detail around [topic]. Want to unpack that?",
+        "Your last reply had a lot more detail around [topic]. Want to say more about that?",
         "Seems like [topic] may be the more useful thread. I can follow that if you want.",
         "This part seems to have more detail for you. Want me to follow it?",
         "You came back to [topic] twice. Worth a proper thread?",

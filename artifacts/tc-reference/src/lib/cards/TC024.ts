@@ -205,7 +205,7 @@ export const TC024: CardData = {
         "Picking this back up from the other day...",
         "I wanted to come back to what we were discussing.",
         "I realised I left this hanging.",
-        "Circling back, because your point stuck with me.",
+        "Coming back to this, because your point stuck with me.",
         "Before we move on, I wanted to return to one thing.",
         "Picking this back up from our last chat. Your point about X stuck with me.",
       ],

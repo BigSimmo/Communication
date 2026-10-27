@@ -133,10 +133,10 @@ export const TC064: CardData = {
       tone: "Professional",
       phrases: [
         "Before I respond, can I check the concern you want me to address?",
-        "Is the risk you're flagging mainly quality, timing, cost, or stakeholder trust?",
+        "Is the risk you're flagging mainly quality, timing, cost, or trust with the people involved?",
         "I hear a possible concern about ownership. Is that accurate?",
         "Are you asking for a decision, a sounding board, or just visibility?",
-        "Can I check the frame, are we reviewing quality, alignment, or next steps?",
+        "Can I check the frame: are we reviewing quality, shared direction, or next steps?",
         "Before I plan around this, is it a hard blocker or a preference?",
         "Is this feedback on the direction, or on the detail?",
       ],
