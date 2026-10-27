@@ -34,4 +34,17 @@ describe("playbook templates", () => {
       expect(template.name.length, template.id).toBeLessThan(40);
     }
   });
+
+  it("give every named framework a well-formed https source", () => {
+    const named = /\b(ISBAR|iSoBAR|SPIKES|Open Disclosure|SBI|DEAR MAN)\b/;
+    for (const template of PLAYBOOK_TEMPLATES) {
+      if (named.test(template.description)) {
+        expect(template.sources?.length ?? 0, template.id).toBeGreaterThan(0);
+      }
+      for (const source of template.sources ?? []) {
+        expect(source.label.trim(), template.id).not.toBe("");
+        expect(new URL(source.url).protocol, template.id).toBe("https:");
+      }
+    }
+  });
 });
