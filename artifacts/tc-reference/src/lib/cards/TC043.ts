@@ -56,7 +56,7 @@ export const TC043: CardData = {
   ],
   id: "TC043",
   whyItWorks:
-    "OARS is the four core listening moves (Open questions, Affirmations, Reflections and Summaries) used flexibly to help someone think out loud. Rather than jumping to advice, you pick the move the moment needs: an open question to invite, an affirmation to recognise genuine effort, a reflection to show you've heard, a summary to tie it together. It works because people think more clearly and stay more willing when they feel understood first.",
+    "OARS is the four core listening moves (Open questions, Affirmations, Reflections and Summaries) used flexibly to help someone think out loud. Rather than jumping to advice, you pick the move the moment needs: an open question to invite, an affirmation to recognise genuine effort, a reflection to show you've heard, a summary to tie it together. It works because people think more clearly and stay more willing when they feel understood first. OARS is the core skill set of motivational interviewing (Miller and Rollnick).",
   whatItIsNot: [
     "It is not a script to recite line by line: the four letters are options to choose from, not a running order you must complete every time.",
     "It is not a way to avoid listening, or to compress someone's emotion into a neat template.",

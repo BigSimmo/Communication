@@ -56,7 +56,7 @@ export const TC086: CardData = {
   ],
   id: "TC086",
   whyItWorks:
-    "LEAP (Listen, Empathise, Agree, Partner) is a relationship-first sequence for moments when direct persuasion, correction, or advice would only harden resistance. Instead of the usual correct, explain, pressure, argue, you go the other way: enter their world, show that their experience makes sense from their side, name the one part you can honestly agree with, then invite a small next step that keeps their choice intact. It works by lowering threat: people who feel accurately heard and not shamed have far more room to think.",
+    "LEAP (Listen, Empathise, Agree, Partner) is a relationship-first sequence for moments when direct persuasion, correction, or advice would only harden resistance. Instead of the usual correct, explain, pressure, argue, you go the other way: enter their world, show that their experience makes sense from their side, name the one part you can honestly agree with, then invite a small next step that keeps their choice intact. It works by lowering threat: people who feel accurately heard and not shamed have far more room to think. LEAP was developed by Dr Xavier Amador, growing out of helping his brother, who had schizophrenia, accept treatment. The everyday version here borrows its listen-first order for any stuck disagreement.",
   whatItIsNot: [
     "It is not agreement with every claim. You can empathise with a fear without endorsing a false belief, or agree that someone wants freedom without agreeing that every choice is safe.",
     'It is not a debate trick. If the hidden agenda is "pretend to listen so I can get my way," it turns manipulative and usually fails.',

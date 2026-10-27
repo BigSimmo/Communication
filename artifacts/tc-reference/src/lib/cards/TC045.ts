@@ -56,7 +56,7 @@ export const TC045: CardData = {
   ],
   id: "TC045",
   whyItWorks:
-    "Ask-tell-ask is a three-part information-sharing move: ask for the person's starting point, tell them the key information concisely, then ask what they make of it. It works because you learn what they already know before you speak, so your telling lands on the real gap rather than over their head or beneath them, and the closing ask turns a monologue into shared understanding instead of a broadcast.",
+    "Ask-tell-ask is a three-part information-sharing move: ask for the person's starting point, tell them the key information concisely, then ask what they make of it. It works because you learn what they already know before you speak, so your telling lands on the real gap rather than over their head or beneath them, and the closing ask turns a monologue into shared understanding instead of a broadcast. Ask-tell-ask is taught by VitalTalk, the clinician communication programme.",
   whatItIsNot: [
     "It is not a script to recite mechanically: naming the framework out loud usually breaks it.",
     "It is not a way to avoid listening or to compress emotion into a template.",

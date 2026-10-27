@@ -56,7 +56,7 @@ export const TC052: CardData = {
   ],
   id: "TC052",
   whyItWorks:
-    "SBI gives feedback by naming three things in order: the specific Situation, the observable Behaviour, and its concrete Impact, without attacking character or intention. Naming the moment tells the person exactly what you mean. Describing what they did rather than what you assume they meant keeps them from getting defensive. Stating the impact shows why it matters. Sequenced this way, feedback is easier to take in and harder to argue with, because you are describing what happened rather than judging who they are.",
+    "SBI gives feedback by naming three things in order: the specific Situation, the observable Behaviour, and its concrete Impact, without attacking character or intention. Naming the moment tells the person exactly what you mean. Describing what they did rather than what you assume they meant keeps them from getting defensive. Stating the impact shows why it matters. Sequenced this way, feedback is easier to take in and harder to argue with, because you are describing what happened rather than judging who they are. The Center for Creative Leadership adds a fourth step, Intent (SBII): ask what they were aiming for, which turns one-way feedback into a two-way conversation and lets you both see any gap between intent and impact.",
   whatItIsNot: [
     "It is not a script to recite mechanically, or a model to announce out loud.",
     "It is not a way to avoid listening or to compress someone's feelings into a template.",
@@ -66,12 +66,12 @@ export const TC052: CardData = {
   overview: {
     coreFormula: [
       "Situation, behaviour, then impact.",
-      "In situation X, I noticed behaviour Y. The impact was Z.",
+      "In situation X, I noticed behaviour Y. The impact was Z. What were you going for?",
       "In this morning's client call, you answered before Priya finished. The client looked unsure who to follow.",
       "In the review, you flagged the risk early. It saved us a fortnight.",
     ],
     minimumViableMove:
-      "Name one specific situation, the observable behaviour you actually saw, and the concrete impact it had, then stop and listen.",
+      "Name one specific situation, the observable behaviour you actually saw, and the concrete impact it had, then ask what they intended and listen.",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:

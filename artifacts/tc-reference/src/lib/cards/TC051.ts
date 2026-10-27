@@ -56,7 +56,7 @@ export const TC051: CardData = {
   ],
   id: "TC051",
   whyItWorks:
-    "RASA is a four-step response structure: Receive, Appreciate, Summarise, Ask. You take in what someone actually said, acknowledge the contribution or feeling, reflect the core meaning back in a line, then ask one useful follow-up. It works because it makes thinking easier for the other person: they feel accurately heard, the point is sequenced so what matters comes first, and they are left with room to respond. Its pull comes from clarity and respect, not from pressure.",
+    "RASA is a four-step response structure: Receive, Appreciate, Summarise, Ask. Julian Treasure's version: you pay full attention to what someone actually says, show you are with them through small listening noises like \"hmm\", \"oh\" or \"OK\", reflect the core meaning back in a line, then ask one useful follow-up. It works because it makes thinking easier for the other person: they feel accurately heard, the point is sequenced so what matters comes first, and they are left with room to respond. Its pull comes from clarity and respect, not from pressure.",
   whatItIsNot: [
     "It is not a script to recite mechanically, or four letters to perform out loud.",
     "It is not a way to avoid listening, compress emotion into a template, or force the other person into your structure.",
@@ -67,7 +67,7 @@ export const TC051: CardData = {
     coreFormula: [
       "Receive, appreciate, summarise, then ask",
       "Receive: give full attention and take in what they actually said.",
-      "Appreciate: acknowledge the contribution or feeling with a small, genuine signal.",
+      "Appreciate: small listening noises like \"hmm\", \"oh\" or \"OK\" that show you are with them.",
       "Summarise: reflect the core meaning back in one line.",
       "Ask: follow with one useful question that moves it forward.",
     ],
