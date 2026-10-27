@@ -39,7 +39,7 @@ function byteLength(source: string | Uint8Array): number {
 export function verifyCardBuildContract(
   manifest: ViteManifest,
   serviceWorkerSource: string,
-  expectedCardCount = 98,
+  expectedCardCount = 107,
   buildFiles?: BuildFileContents,
 ): CardBuildProof {
   const cardDetailKey = Object.keys(manifest).find((key) =>
@@ -205,7 +205,7 @@ async function main() {
   const proof = verifyCardBuildContract(
     manifest,
     serviceWorkerSource,
-    98,
+    107,
     buildFiles,
   );
   process.stdout.write(`CARD_BUILD_CONTRACT ${JSON.stringify(proof)}\n`);

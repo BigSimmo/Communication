@@ -101,6 +101,15 @@ import { TC096 } from "./cards/TC096";
 import { TC098 } from "./cards/TC098";
 import { TC099 } from "./cards/TC099";
 import { TC100 } from "./cards/TC100";
+import { TC101 } from "./cards/TC101";
+import { TC102 } from "./cards/TC102";
+import { TC103 } from "./cards/TC103";
+import { TC104 } from "./cards/TC104";
+import { TC105 } from "./cards/TC105";
+import { TC106 } from "./cards/TC106";
+import { TC107 } from "./cards/TC107";
+import { TC108 } from "./cards/TC108";
+import { TC109 } from "./cards/TC109";
 
 export const CARD_DATA: Record<string, CardData> = {
   TC001,
@@ -201,4 +210,13 @@ export const CARD_DATA: Record<string, CardData> = {
   TC098,
   TC099,
   TC100,
+  TC101,
+  TC102,
+  TC103,
+  TC104,
+  TC105,
+  TC106,
+  TC107,
+  TC108,
+  TC109,
 };

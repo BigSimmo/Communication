@@ -55,8 +55,15 @@ export const TC083: CardData = {
     },
   ],
   id: "TC083",
+  sources: [
+    {
+      label:
+        'Black Swan Group (Chris Voss), Timing your calibrated question: "How am I supposed to do that?"',
+      url: "https://www.blackswanltd.com/newsletter/timing-your-calibrated-question-how-to-use-how-am-i-supposed-to-do-that-effectively",
+    },
+  ],
   whyItWorks:
-    'Asking what would make it workable is a collaborative feasibility question for moments when a request, plan, feedback point or boundary meets friction. Instead of arguing for your version, you invite the other person to name the conditions, limits or supports that would make the next step viable. It treats resistance as information about real constraints (timing, risk, workload, fairness, trust, authority) rather than obstruction, so vague pushback becomes concrete conditions, and they keep the freedom to say "nothing" or "not now".',
+    'Asking what would make it workable is a collaborative feasibility question for moments when a request, plan, feedback point or boundary meets friction. Instead of arguing for your version, you invite the other person to name the conditions, limits or supports that would make the next step viable. It treats resistance as information about real constraints (timing, risk, workload, fairness, trust, authority) rather than obstruction, so vague pushback becomes concrete conditions, and they keep the freedom to say "nothing" or "not now". When the request itself is unrealistic, Chris Voss\'s calibrated question "How am I supposed to do that?" does the same job: asked warmly, after you have acknowledged their side, it invites them to solve the constraint with you instead of hearing a flat no.',
   whatItIsNot: [
     'Not a disguised way to ask, "How can I make you say yes?"',
     "Not a replacement for accepting a clear boundary or a final no.",
@@ -193,8 +200,28 @@ export const TC083: CardData = {
         "If I can't meet that, I won't pretend the plan still works.",
       ],
     },
+    {
+      id: "calibrated-how",
+      label: 'Calibrated "how" questions',
+      tag: "When the ask itself is unrealistic",
+      tone: "Direct",
+      phrases: [
+        "How am I supposed to do that by tomorrow?",
+        "How would you like me to fit this in with everything else?",
+        "What's the biggest obstacle on your side?",
+        "How does this fit with what we agreed last week?",
+        "What would you need from me to make that possible?",
+      ],
+    },
   ],
   decisionTree: [
+    {
+      condition: "The request itself is unrealistic",
+      action:
+        "Acknowledge their position first, then ask a calm, curious how question and stay quiet. Never use it on a fair offer.",
+      phrase:
+        "I can see this matters. How am I supposed to do that by tomorrow?",
+    },
     {
       condition: "They're emotionally activated",
       action: "Validate first. Don't ask for conditions yet.",
@@ -469,6 +496,13 @@ export const TC083: CardData = {
     'Repeated delay or "I\'ll get to it"',
   ],
   commonMistakes: [
+    {
+      mistake: 'Firing a "how" question too early',
+      soundsLike:
+        '"How am I supposed to do that?" said sharply, before you have acknowledged their side.',
+      better:
+        'Show you understand their pressure first, then ask warmly: "I get why it\'s urgent. How am I supposed to do that by tomorrow?"',
+    },
     {
       mistake: "Asking before the concern has been heard",
       soundsLike:

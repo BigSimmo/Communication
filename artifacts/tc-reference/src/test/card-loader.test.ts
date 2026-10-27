@@ -30,7 +30,7 @@ describe("card loader", () => {
     expect(secondLoad).toBe(firstLoad);
 
     const cards = await firstLoad;
-    expect(Object.keys(cards)).toHaveLength(98);
+    expect(Object.keys(cards)).toHaveLength(107);
     expect(cards.TC001.id).toBe("TC001");
     expect(await secondLoad).toBe(cards);
   });
