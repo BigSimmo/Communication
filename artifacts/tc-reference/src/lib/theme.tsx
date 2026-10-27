@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useStorageSync } from "./storage-sync";
 
 type Theme = "light" | "dark";
 
@@ -12,16 +13,21 @@ const ThemeContext = createContext<ThemeContextValue>({
   toggle: () => {},
 });
 
-function getInitialTheme(): Theme {
+const STORAGE_KEY = "tc_theme";
+const LIGHT_QUERY = "(prefers-color-scheme: light)";
+
+function getStoredTheme(): Theme | null {
   try {
-    const stored = localStorage.getItem("tc_theme");
+    const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === "light" || stored === "dark") return stored;
   } catch {}
   // Anything other than the two known values (a hand-edited or legacy entry)
   // is ignored in favour of the system preference.
-  return window.matchMedia?.("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
+  return null;
+}
+
+function getSystemTheme(): Theme {
+  return window.matchMedia?.(LIGHT_QUERY).matches ? "light" : "dark";
 }
 
 function applyTheme(theme: Theme) {
@@ -39,16 +45,35 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  // Only an explicit choice is persisted. Until the user toggles, the theme
+  // follows the system preference, including changes while the app is open.
+  const [stored, setStored] = useState<Theme | null>(getStoredTheme);
+  const [system, setSystem] = useState<Theme>(getSystemTheme);
+  const theme = stored ?? system;
 
   useEffect(() => {
     applyTheme(theme);
-    try {
-      localStorage.setItem("tc_theme", theme);
-    } catch {}
   }, [theme]);
 
-  const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+  useEffect(() => {
+    const mql = window.matchMedia?.(LIGHT_QUERY);
+    if (!mql?.addEventListener) return;
+    const onChange = (e: MediaQueryListEvent) =>
+      setSystem(e.matches ? "light" : "dark");
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  // Keep tabs in step when the theme is chosen in another window.
+  useStorageSync([STORAGE_KEY], () => setStored(getStoredTheme()));
+
+  const toggle = () => {
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    setStored(next);
+    try {
+      localStorage.setItem(STORAGE_KEY, next);
+    } catch {}
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, toggle }}>

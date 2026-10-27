@@ -252,6 +252,19 @@ describe("getDueCardsCount / loadSRSMap", () => {
     },
   );
 
+  it("ignores reviews for card ids that no longer exist (F-05)", () => {
+    localStorage.setItem(
+      SRS_KEY,
+      JSON.stringify({
+        TC001: entry("2026-03-01"),
+        TC999: entry("2026-03-01"),
+        OLD_ID: entry("2026-03-01"),
+      }),
+    );
+    expect(getDueCardsCount()).toBe(1);
+    expect(Object.keys(loadSRSMap())).toEqual(["TC001"]);
+  });
+
   it("drops malformed entries and keeps valid ones", () => {
     localStorage.setItem(
       SRS_KEY,
