@@ -779,3 +779,28 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
     },
   ],
 };
+
+/**
+ * "Start here" core set: the 15 highest-yield everyday moves, in the order
+ * a new reader's drill visits them. Every id must exist above (checked in
+ * content-invariants). Order matters; it is the new-reader drill order.
+ */
+export const CORE_CARD_IDS: readonly string[] = [
+  "TC004",
+  "TC006",
+  "TC011",
+  "TC009",
+  "TC016",
+  "TC082",
+  "TC013",
+  "TC052",
+  "TC095",
+  "TC066",
+  "TC005",
+  "TC002",
+  "TC101",
+  "TC102",
+  "TC103",
+];
+
+export const CORE_CARD_SET: ReadonlySet<string> = new Set(CORE_CARD_IDS);
