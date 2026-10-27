@@ -239,7 +239,7 @@ export const TC086: CardData = {
   ladder: [
     {
       weak: "\"You're wrong, but I'm listening.\"",
-      better: '"I hear that you don\'t see it that way. What am I missing?"',
+      better: '"Sounds like you don\'t see it that way. What am I missing?"',
       best: '"From your side, this feels like people are deciding for you. I can see why that would make you resist. I agree you should have a say. Can we find one step that keeps your choice intact and still handles the concern?"',
     },
     {

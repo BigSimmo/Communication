@@ -76,7 +76,7 @@ export const TC066: CardData = {
       "Brief: one short paragraph. Informative: facts, not counter-claims. Friendly: civil language, no contempt. Firm: a clear end, boundary, or action.",
       "Thanks for the update. The report was sent at 4:15 pm yesterday. I'll resend it now, and use email for any further changes.",
       "I understand this is frustrating. The meeting is Thursday at 10 am. I'll discuss the agenda in the meeting, not by text.",
-      "I hear that you disagree. My decision remains the same. I'm available to discuss implementation steps, not personal accusations.",
+      "I understand you disagree. My decision remains the same. I'm available to discuss implementation steps, not personal accusations.",
     ],
     minimumViableMove:
       "Write three sentences: one civil opening, one factual answer, one firm next step.",
@@ -117,7 +117,7 @@ export const TC066: CardData = {
         "I've read your message.",
         "I understand this is important to you.",
         "I can see this has been frustrating.",
-        "I hear that you disagree.",
+        "I know you see it differently.",
       ],
     },
     {
@@ -180,10 +180,10 @@ export const TC066: CardData = {
       tag: "De-escalating a personal thread",
       tone: "Repair",
       phrases: [
-        "I hear that you're upset. I can help with the appointment on Friday at 10 am. I'm not available for blame by text.",
+        "I can tell you're upset. I can help with the appointment on Friday at 10 am. I'm not available for blame by text.",
         "Thanks for letting me know. I'll bring the forms at pickup. I'm not going to discuss blame by text.",
         "I understand this is stressful. I can take Dad to the Friday appointment at 10 am, and discuss anything broader when we're both calmer.",
-        "I hear that you're upset. The plan is 5 pm at Mum's. I'm not going to revisit insults from the text thread.",
+        "I know you're upset. The plan is 5 pm at Mum's. I'm not going to revisit insults from the text thread.",
       ],
     },
     {
@@ -472,7 +472,7 @@ export const TC066: CardData = {
       situation: "Family accusation",
       move: "Acknowledge the feeling briefly, offer the concrete help, and decline the blame.",
       phrase:
-        "I hear that you're upset. I can help with the appointment on Friday at 10 am. I'm not available for blame by text.",
+        "I can tell you're upset. I can help with the appointment on Friday at 10 am. I'm not available for blame by text.",
     },
     {
       situation: "Repeated bait or a demand to apologise",

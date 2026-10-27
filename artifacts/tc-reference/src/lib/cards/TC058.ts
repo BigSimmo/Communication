@@ -166,7 +166,7 @@ export const TC058: CardData = {
         "It sounds like you felt hurt because you needed your side to be taken seriously.",
         "Maybe the anger is partly about needing a fairer process.",
         "It sounds like the issue was needing a real apology, not just an explanation.",
-        "I hear that you needed me to check before deciding.",
+        "Sounds like you needed me to check before deciding.",
         "You're right, it sounds like you needed acknowledgement before explanation.",
         "I can see why that landed badly. It sounds like you needed to be heard first.",
         "Sounds like what stung was being added after the fact, not the change itself.",

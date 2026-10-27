@@ -1,4 +1,4 @@
-import { LIBRARY_CATEGORIES } from "./data";
+import { CORE_CARD_IDS, LIBRARY_CATEGORIES } from "./data";
 import {
   isFiniteNumber,
   isIntegerInRange,
@@ -14,6 +14,19 @@ export const CARD_IDS = Object.values(LIBRARY_CATEGORIES)
   .map((c) => c.id)
   .sort();
 
+/**
+ * Drill order for readers who start fresh: the "Start here" core set first,
+ * then every other card in id order. Same length as CARD_IDS.
+ */
+export const CORE_FIRST_CARD_IDS: readonly string[] = [
+  ...CORE_CARD_IDS.filter((id) => CARD_IDS.includes(id)),
+  ...CARD_IDS.filter((id) => !CORE_CARD_IDS.includes(id)),
+];
+
+/** "core-first" for new drills; absent on drills saved before it existed,
+    which keep the id order so a saved cardIndex still means the same card. */
+export type DrillOrder = "core-first";
+
 export interface DrillState {
   cardIndex: number;
   dayIndex: number;
@@ -21,6 +34,7 @@ export interface DrillState {
   lastCompletionDate: string | null;
   prevCardIndex: number;
   prevDayIndex: number;
+  order?: DrillOrder;
 }
 
 export const DRILL_STORAGE_KEY = "tc_drill_state";
@@ -33,7 +47,14 @@ const DEFAULT_STATE: DrillState = {
   lastCompletionDate: null,
   prevCardIndex: -1,
   prevDayIndex: -1,
+  order: "core-first",
 };
+
+/** The card id at a drill index, in the order this drill uses. */
+export function drillCardId(state: Pick<DrillState, "order">, index: number) {
+  const ids = state.order === "core-first" ? CORE_FIRST_CARD_IDS : CARD_IDS;
+  return ids[index] ?? ids[0];
+}
 
 function localISO(date: Date): string {
   const y = date.getFullYear();
@@ -62,6 +83,8 @@ const LAST_DAY_INDEX = 6;
  */
 export function sanitiseDrillState(value: unknown): DrillState {
   if (!isRecord(value)) return DEFAULT_STATE;
+  const order: DrillOrder | undefined =
+    value.order === "core-first" ? "core-first" : undefined;
   const lastCard = CARD_IDS.length - 1;
   const pick = <K extends keyof DrillState>(
     key: K,
@@ -85,6 +108,7 @@ export function sanitiseDrillState(value: unknown): DrillState {
     prevDayIndex: pick("prevDayIndex", (v) =>
       isIntegerInRange(v, -1, LAST_DAY_INDEX),
     ),
+    ...(order ? { order } : {}),
   };
 }
 
@@ -135,6 +159,7 @@ export function completeDrill(state: DrillState): DrillState {
     lastCompletionDate: today,
     prevCardIndex: state.cardIndex,
     prevDayIndex: state.dayIndex,
+    ...(state.order ? { order: state.order } : {}),
   };
 }
 
