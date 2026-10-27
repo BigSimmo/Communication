@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Dumbbell, History, Zap, ChevronRight } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import {
-  CARD_IDS,
+  drillCardId,
   getDueCardsCount,
   isCompletedToday,
   isStreakActive,
@@ -68,7 +68,7 @@ export function LibraryToday() {
     const drill = loadDrillState();
     const done = isCompletedToday(drill);
     const streak = isStreakActive(drill) ? drill.streak : 0;
-    const nextCard = CARD_IDS[drill.cardIndex] ?? CARD_IDS[0];
+    const nextCard = drillCardId(drill, drill.cardIndex);
     return {
       done,
       streak,

@@ -3,6 +3,8 @@ import {
   applySM2,
   CARD_IDS,
   completeDrill,
+  CORE_FIRST_CARD_IDS,
+  drillCardId,
   DRILL_STATE_EVENT,
   getDueCardsCount,
   getTodayISO,
@@ -27,7 +29,12 @@ const DEFAULT_DRILL: DrillState = {
   lastCompletionDate: null,
   prevCardIndex: -1,
   prevDayIndex: -1,
+  order: "core-first",
 };
+
+/** A drill saved before the core-first order existed (no order field). */
+const LEGACY_DRILL: DrillState = { ...DEFAULT_DRILL };
+delete LEGACY_DRILL.order;
 
 function fresh(overrides: Partial<CardSRS> = {}): CardSRS {
   return {
@@ -309,6 +316,7 @@ describe("daily streak (completeDrill)", () => {
       lastCompletionDate: "2026-03-10",
       prevCardIndex: 3,
       prevDayIndex: 2,
+      order: "core-first",
     });
     expect(isCompletedToday(next)).toBe(true);
     expect(isStreakActive(next)).toBe(true);
@@ -398,7 +406,7 @@ describe("loadDrillState / saveDrillState", () => {
       JSON.stringify({ cardIndex: 2, dayIndex: 1, streak: 3 }),
     );
     expect(loadDrillState()).toEqual({
-      ...DEFAULT_DRILL,
+      ...LEGACY_DRILL,
       cardIndex: 2,
       dayIndex: 1,
       streak: 3,
@@ -426,7 +434,7 @@ describe("loadDrillState / saveDrillState", () => {
       }),
     );
     expect(loadDrillState()).toEqual({
-      ...DEFAULT_DRILL,
+      ...LEGACY_DRILL,
       streak: 5,
       prevDayIndex: 4,
     });
@@ -442,7 +450,7 @@ describe("loadDrillState / saveDrillState", () => {
         dayIndex: -1,
       }),
     );
-    expect(loadDrillState()).toEqual(DEFAULT_DRILL);
+    expect(loadDrillState()).toEqual(LEGACY_DRILL);
   });
 
   it("notifies listeners and survives a failing storage write", () => {
@@ -454,5 +462,50 @@ describe("loadDrillState / saveDrillState", () => {
     expect(() => saveDrillState(DEFAULT_DRILL)).not.toThrow();
     expect(listener).toHaveBeenCalledTimes(1);
     window.removeEventListener(DRILL_STATE_EVENT, listener);
+  });
+});
+
+describe("core-first drill order", () => {
+  beforeEach(() => localStorage.clear());
+
+  it("lists every card exactly once, core set first", () => {
+    expect([...CORE_FIRST_CARD_IDS].sort()).toEqual(CARD_IDS);
+    expect(CORE_FIRST_CARD_IDS.slice(0, 3)).toEqual([
+      "TC004",
+      "TC006",
+      "TC011",
+    ]);
+  });
+
+  it("starts a new reader on the first core card", () => {
+    const state = loadDrillState();
+    expect(state.order).toBe("core-first");
+    expect(drillCardId(state, 0)).toBe("TC004");
+  });
+
+  it("keeps a saved drill on the same card (no order field means id order)", () => {
+    localStorage.setItem(
+      DRILL_KEY,
+      JSON.stringify({ ...LEGACY_DRILL, cardIndex: 5 }),
+    );
+    const state = loadDrillState();
+    expect(state.order).toBeUndefined();
+    expect(drillCardId(state, 5)).toBe(CARD_IDS[5]);
+  });
+
+  it("carries the order through a completed week", () => {
+    const next = completeDrill({ ...DEFAULT_DRILL, dayIndex: 6 });
+    expect(next.order).toBe("core-first");
+    expect(drillCardId(next, next.cardIndex)).toBe("TC006");
+    const legacy = completeDrill({ ...LEGACY_DRILL, dayIndex: 6 });
+    expect(legacy.order).toBeUndefined();
+  });
+
+  it("ignores an unknown stored order", () => {
+    localStorage.setItem(
+      DRILL_KEY,
+      JSON.stringify({ ...LEGACY_DRILL, order: "random" }),
+    );
+    expect(loadDrillState().order).toBeUndefined();
   });
 });
