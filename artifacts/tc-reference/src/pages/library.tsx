@@ -1052,7 +1052,7 @@ export default function Library() {
                     <li key={card.id} className="relative max-w-full min-w-0">
                       <Link
                         href={`/card/${card.id}`}
-                        aria-label={`${card.title} (${card.id}), ${badge.label.toLowerCase()} impact, ${CARD_DIFFICULTY[card.id]}`}
+                        aria-label={`${card.title} (${card.id}), ${badge.label.toLowerCase()} impact, ${CARD_DIFFICULTY[card.id]}${CORE_CARD_SET.has(card.id) ? ", start here" : ""}`}
                         data-testid={`card-link-${card.id}`}
                         data-library-card={card.id}
                         onClick={(e: React.MouseEvent<HTMLElement>) => {
