@@ -6,6 +6,7 @@ import { createServer } from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sirv from "sirv";
+import { acceptableEncodings } from "./server-encoding.mjs";
 
 const root = path.join(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -98,7 +99,12 @@ const serve = sirv(root, {
   setHeaders,
 });
 
-const server = createServer((req, res) => serve(req, res));
+const server = createServer((req, res) => {
+  req.headers["accept-encoding"] = acceptableEncodings(
+    req.headers["accept-encoding"],
+  );
+  serve(req, res);
+});
 
 server.listen(port, host, () => {
   console.log(`Serving ${root} on http://${host}:${port}`);
