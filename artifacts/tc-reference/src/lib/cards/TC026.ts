@@ -56,7 +56,7 @@ export const TC026: CardData = {
   ],
   id: "TC026",
   whyItWorks:
-    "Tactical mirroring is a compact listening prompt: you echo a short, meaningful word or phrase the other person just used, usually with a curious tone, then stop talking. It invites them to expand without you steering the conversation too hard. It works because people elaborate when they feel heard, and echoing the exact part that carried the weight shows you caught what actually mattered. So they open up, correct, or reveal the real issue instead of defending a position.",
+    "Tactical mirroring is a compact listening prompt: you echo a short, meaningful word or phrase the other person just used, usually with a curious tone, then stop talking. It invites them to expand without you steering the conversation too hard. It works because people elaborate when they feel heard, and echoing the exact part that carried the weight shows you caught what actually mattered. So they open up, correct, or reveal the real issue instead of defending a position. The Black Swan Group, founded by Chris Voss, defines a mirror simply: repeat the last one to three words the person just said.",
   whatItIsNot: [
     "Not body-language mimicry.",
     "Not parroting entire sentences.",
