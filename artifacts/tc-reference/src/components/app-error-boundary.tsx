@@ -1,4 +1,5 @@
 import { Component, createRef, type ErrorInfo, type ReactNode } from "react";
+import { reloadToLatest } from "@/lib/sw-update";
 import { Link } from "wouter";
 import { AlertCircle, RefreshCw } from "lucide-react";
 
@@ -114,7 +115,7 @@ export class AppErrorBoundary extends Component<Props, State> {
           <div className="flex flex-col items-center gap-2">
             <button
               type="button"
-              onClick={() => window.location.reload()}
+              onClick={() => void reloadToLatest()}
               className="inline-flex items-center justify-center gap-2 text-[13px] font-semibold px-5 min-h-11 rounded-full transition-all active:scale-95"
               style={{
                 background: "color-mix(in srgb, var(--brand) 12%, transparent)",

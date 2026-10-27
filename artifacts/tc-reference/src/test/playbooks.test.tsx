@@ -3,6 +3,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   PlaybookProvider,
   usePlaybooks,
+  cleanPlaybookText,
+  PLAYBOOK_DESCRIPTION_MAX_LENGTH,
+  PLAYBOOK_NAME_MAX_LENGTH,
   type Playbook,
 } from "../lib/playbook-context";
 
@@ -48,7 +51,7 @@ describe("PlaybookProvider", () => {
       description: "Hard talks",
       cardIds: ["TC014"],
     });
-    expect(first.id).toMatch(/^pb_[a-z0-9]+$/);
+    expect(first.id).toMatch(/^pb_[a-z0-9-]+$/);
     expect(second.cardIds).toEqual([]);
     expect(second.id).not.toBe(first.id);
 
@@ -170,6 +173,34 @@ describe("PlaybookProvider", () => {
       result.current.createPlaybook("In memory", "");
     });
     expect(result.current.playbooks).toHaveLength(1);
+  });
+
+  it("trims and length-limits names and descriptions on create and update (F-07)", () => {
+    const { result } = renderPlaybooks();
+    let pb!: Playbook;
+    act(() => {
+      pb = result.current.createPlaybook("  My plan  ", "\n  Why  \t");
+    });
+    expect(pb).toMatchObject({ name: "My plan", description: "Why" });
+
+    act(() => {
+      result.current.updatePlaybook(
+        pb.id,
+        " " + "n".repeat(PLAYBOOK_NAME_MAX_LENGTH + 20),
+        "d".repeat(PLAYBOOK_DESCRIPTION_MAX_LENGTH + 5) + "  ",
+        [],
+      );
+    });
+    const updated = result.current.getPlaybook(pb.id)!;
+    expect(updated.name).toBe("n".repeat(PLAYBOOK_NAME_MAX_LENGTH));
+    expect(updated.description).toBe(
+      "d".repeat(PLAYBOOK_DESCRIPTION_MAX_LENGTH),
+    );
+    expect(stored()).toEqual([updated]);
+  });
+
+  it("does not leave trailing spaces when clamping cuts at a space", () => {
+    expect(cleanPlaybookText("ab cd", 3)).toBe("ab");
   });
 
   it("throws when used outside the provider", () => {

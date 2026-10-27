@@ -1,4 +1,10 @@
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation, useRoute } from "wouter";
 import { SearchModal } from "../components/search-modal";
@@ -133,7 +139,10 @@ describe("lazy card consumer transitions", () => {
 
     await act(async () => cards.resolve(CARD_DATA));
 
-    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+    // The text index import adds a hop before the card fallback settles.
+    await waitFor(() =>
+      expect(screen.queryByRole("status")).not.toBeInTheDocument(),
+    );
     expect(screen.getAllByTestId(/^quick-copy-/)).toHaveLength(120);
   });
 

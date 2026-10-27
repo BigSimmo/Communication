@@ -7,6 +7,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
+      "virtual:card-text-index": path.resolve(
+        import.meta.dirname,
+        "src/test/card-text-index-stub.ts",
+      ),
     },
   },
   test: {

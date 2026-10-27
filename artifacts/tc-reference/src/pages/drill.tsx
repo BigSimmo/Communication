@@ -22,7 +22,10 @@ import {
   isStreakActive,
   updateSRS,
   getDueCardsCount,
+  DRILL_STORAGE_KEY,
+  SRS_STORAGE_KEY,
 } from "@/lib/drill-state";
+import { useStorageSync } from "@/lib/storage-sync";
 
 const CARD_TITLE_MAP: Record<string, string> = Object.values(LIBRARY_CATEGORIES)
   .flat()
@@ -44,6 +47,15 @@ export default function Drill() {
     data: CardData | null;
   } | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
+  // Bumped by the Retry button to re-run the card load after a failure.
+  const [loadAttempt, setLoadAttempt] = useState(0);
+
+  // Another tab completed a drill or rated a card: pick up its progress so
+  // completing here doesn't overwrite it with a stale in-memory copy.
+  useStorageSync([DRILL_STORAGE_KEY, SRS_STORAGE_KEY], () => {
+    setState(loadDrillState());
+    setDueCount(getDueCardsCount());
+  });
 
   const done = isCompletedToday(state);
   const completionRef = useRef<HTMLDivElement>(null);
@@ -96,7 +108,7 @@ export default function Drill() {
     return () => {
       active = false;
     };
-  }, [cardId]);
+  }, [cardId, loadAttempt]);
 
   useEffect(() => {
     if (!done) return;
@@ -124,18 +136,34 @@ export default function Drill() {
     setDueCount(getDueCardsCount());
   };
 
+  const retryLoad = () => {
+    setLoadFailed(false);
+    setLoadAttempt((n) => n + 1);
+  };
+
   if (!cardData) {
     return (
-      <div
-        className="flex items-center justify-center min-h-[60vh] px-8 text-center"
-        role="status"
-        aria-live="polite"
-        aria-busy={!loadFailed}
-      >
+      <div className="flex flex-col items-center justify-center gap-4 min-h-[60vh] px-8 text-center">
         <h1 className="sr-only">Daily Drill</h1>
-        {loadFailed
-          ? "Drill content is unavailable right now."
-          : "Loading drill…"}
+        <div role="status" aria-live="polite" aria-busy={!loadFailed}>
+          {loadFailed
+            ? "Drill content is unavailable right now."
+            : "Loading drill…"}
+        </div>
+        {loadFailed && (
+          <button
+            type="button"
+            onClick={retryLoad}
+            className="min-h-[44px] px-4 rounded-xl text-[13px] font-bold transition-all active:scale-95"
+            style={{
+              background:
+                "linear-gradient(135deg, var(--brand), var(--brand-bright))",
+              color: "var(--brand-contrast)",
+            }}
+          >
+            Retry
+          </button>
+        )}
       </div>
     );
   }

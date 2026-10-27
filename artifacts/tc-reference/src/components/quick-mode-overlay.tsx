@@ -3,8 +3,7 @@ import { useLocation } from "wouter";
 import { X, Check, Copy, Heart } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { isSpeakablePhrase } from "@/lib/card-types";
-import type { CardData } from "@/lib/card-types";
-import { loadAllCards } from "@/lib/card-loader";
+import { loadCardTextIndex, type CardTextIndex } from "@/lib/card-text-index";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
@@ -31,9 +30,7 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
   for (const c of cards) CARD_TITLE_MAP_QM[c.id] = c.title;
 }
 
-function buildQuickGroups(
-  cards: Readonly<Record<string, CardData>>,
-): QuickGroup[] {
+function buildQuickGroups(cards: CardTextIndex): QuickGroup[] {
   const groupsMap = new Map<string, QuickGroup>();
   // Many cards share stock lines ("What was that like?"). Keep one row per
   // line per group and remember every card it came from.
@@ -84,7 +81,7 @@ let quickGroupsCache: ReadonlyArray<QuickGroup> | null = null;
 
 function loadQuickGroups(): Promise<ReadonlyArray<QuickGroup>> {
   if (!quickGroupsPromise) {
-    const pending = loadAllCards()
+    const pending = loadCardTextIndex()
       .then((cards) => {
         const groups = Object.freeze(buildQuickGroups(cards));
         quickGroupsCache = groups;

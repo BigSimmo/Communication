@@ -12,7 +12,12 @@ import {
   FolderHeart,
   AlertTriangle,
 } from "lucide-react";
-import { usePlaybooks, Playbook } from "@/lib/playbook-context";
+import {
+  usePlaybooks,
+  Playbook,
+  PLAYBOOK_DESCRIPTION_MAX_LENGTH,
+  PLAYBOOK_NAME_MAX_LENGTH,
+} from "@/lib/playbook-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { PageIntro } from "@/components/page-intro";
@@ -206,6 +211,7 @@ export default function Playbooks() {
               id="playbook-name"
               type="text"
               value={name}
+              maxLength={PLAYBOOK_NAME_MAX_LENGTH}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g., Difficult feedback"
               className="w-full text-[13px] px-3.5 py-2.5 rounded-xl outline-none"
@@ -228,6 +234,7 @@ export default function Playbooks() {
             <textarea
               id="playbook-description"
               value={description}
+              maxLength={PLAYBOOK_DESCRIPTION_MAX_LENGTH}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Brief purpose of this playbook…"
               className="w-full text-[13px] px-3.5 py-2.5 rounded-xl outline-none min-h-[70px] resize-none"
@@ -424,7 +431,8 @@ export default function Playbooks() {
             >
               <FolderHeart
                 className="w-10 h-10 stroke-[1.5]"
-                style={{ color: "var(--fg-22)" }}
+                style={{ color: "var(--fg-45)" }}
+                aria-hidden="true"
               />
               <div>
                 <p

@@ -16,7 +16,8 @@ export interface FavouritesState {
   phrases: FavouritePhrase[];
 }
 
-const STORAGE_KEY = "tc_favourites";
+export const FAVOURITES_STORAGE_KEY = "tc_favourites";
+const STORAGE_KEY = FAVOURITES_STORAGE_KEY;
 const DEFAULT: FavouritesState = { cardIds: [], phrases: [] };
 
 // Favourite phrases are keyed by (cardId, text). Card content was normalised

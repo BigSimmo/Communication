@@ -23,7 +23,8 @@ export interface DrillState {
   prevDayIndex: number;
 }
 
-const STORAGE_KEY = "tc_drill_state";
+export const DRILL_STORAGE_KEY = "tc_drill_state";
+const STORAGE_KEY = DRILL_STORAGE_KEY;
 
 const DEFAULT_STATE: DrillState = {
   cardIndex: 0,
@@ -157,7 +158,9 @@ export interface CardSRS {
   nextReviewDate: string;
 }
 
-const SRS_STORAGE_KEY = "tc_srs_reviews";
+export const SRS_STORAGE_KEY = "tc_srs_reviews";
+
+const KNOWN_CARD_IDS = new Set(CARD_IDS);
 
 /** SM-2 never lets the ease factor drop below this. */
 export const MIN_EFACTOR = 1.3;
@@ -174,15 +177,17 @@ function isValidSRSEntry(value: unknown): value is Omit<CardSRS, "cardId"> {
 }
 
 /**
- * Keeps every stored SRS entry with numeric interval / repetition / efactor
- * and a YYYY-MM-DD nextReviewDate; drops the rest. The map key is the card id,
- * so cardId is taken from the key.
+ * Keeps every stored SRS entry for a card that still exists, with numeric
+ * interval / repetition / efactor and a YYYY-MM-DD nextReviewDate; drops the
+ * rest. Entries for unknown card ids (renamed or removed cards, or a backup
+ * from another version) could never be reviewed and would inflate the due
+ * count forever. The map key is the card id, so cardId is taken from the key.
  */
 export function sanitiseSRSMap(value: unknown): Record<string, CardSRS> {
   const out: Record<string, CardSRS> = {};
   if (!isRecord(value)) return out;
   for (const [cardId, entry] of Object.entries(value)) {
-    if (!isValidSRSEntry(entry)) continue;
+    if (!KNOWN_CARD_IDS.has(cardId) || !isValidSRSEntry(entry)) continue;
     out[cardId] = {
       cardId,
       interval: entry.interval,

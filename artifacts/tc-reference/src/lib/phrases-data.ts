@@ -4,7 +4,7 @@ import {
   inferPhraseTone,
 } from "./card-types";
 import type { CanonicalTone } from "./card-types";
-import { loadAllCards } from "./card-loader";
+import { loadCardTextIndex } from "./card-text-index";
 import { LIBRARY_CATEGORIES } from "./data";
 
 export interface AggregatedPhrase {
@@ -28,7 +28,7 @@ export function loadAllAggregatedPhrases(): Promise<
   ReadonlyArray<AggregatedPhrase>
 > {
   if (!phrasesPromise) {
-    const pending = loadAllCards()
+    const pending = loadCardTextIndex()
       .then((cards) => {
         const result: AggregatedPhrase[] = [];
         for (const [cardId, card] of Object.entries(cards)) {
