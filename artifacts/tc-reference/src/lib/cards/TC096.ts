@@ -56,7 +56,7 @@ export const TC096: CardData = {
   ],
   id: "TC096",
   whyItWorks:
-    'Capitalisation extension is a response pattern for positive news. When someone shares a win, a relief, a proud moment or good feedback, you don\'t stop at "nice": you mark the good thing, add one specific reason it matters, and invite them to say a little more about the best part. It works because people become more open with you when they trust that their good news will be handled well rather than ignored, hijacked or turned into your status opportunity. Recognise it, name a concrete piece of it, extend it with one short prompt, and let them choose the size of the celebration.',
+    'Capitalisation extension is a response pattern for positive news. When someone shares a win, a relief, a proud moment or good feedback, you don\'t stop at "nice": you mark the good thing, add one specific reason it matters, and invite them to say a little more about the best part. It works because people become more open with you when they trust that their good news will be handled well rather than ignored, hijacked or turned into your status opportunity. Recognise it, name a concrete piece of it, extend it with one short prompt, and let them choose the size of the celebration. It builds on Shelly Gable and colleagues research on capitalisation: good news shared and met with active, constructive interest boosts wellbeing and closeness.',
   whatItIsNot: [
     "Not generic praise or forced enthusiasm, and not a demand that they be more excited than they actually are.",
     'Not a competition: "That reminds me of my bigger win."',
@@ -186,7 +186,7 @@ export const TC096: CardData = {
       tag: "Ease off, hand it back",
       tone: "Repair",
       phrases: [
-        "No need to unpack it if you're already moving on.",
+        "No need to go into it if you're already moving on.",
         "We can just mark it and keep going.",
         "Only if you want to say more: what was the best part?",
         "I may have made that bigger than you wanted. I just meant: good news.",
@@ -228,7 +228,7 @@ export const TC096: CardData = {
     {
       condition: "They don't elaborate, or you realise you overshot",
       action: "Release the pressure or hand the moment back to them.",
-      phrase: "No need to unpack it. I'm glad it happened.",
+      phrase: "No need to go into it. I'm glad it happened.",
     },
   ],
   ladder: [

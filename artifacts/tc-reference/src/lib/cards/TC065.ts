@@ -121,7 +121,7 @@ export const TC065: CardData = {
         "I want to bookmark that story about your sister. It sounds like there's a lot there. Finish this part first.",
         "That matters to me. Let me hold it so it doesn't get lost, and come back once you've finished.",
         "I don't want to rush past that. Can we finish this bit, then I want to hear the rest?",
-        "Keep going, I'm parking that gently, and I promise to circle back.",
+        "Keep going, I'm parking that gently, and I promise to come back to it.",
         "There's more in that than we have time for now. I really do want to return to it.",
       ],
     },

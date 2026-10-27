@@ -56,7 +56,7 @@ export const TC001: CardData = {
   ],
   id: "TC001",
   whyItWorks:
-    "A live-thread follow-up is a question or comment that follows the most emotionally alive, meaningful, surprising, funny, tense, proud, uncertain, or specific part of what someone just said. It works because people open up and warm to you when they feel you noticed the real part of what they said, not just the surface facts.",
+    "A live-thread follow-up is a question or comment that follows the most emotionally alive, meaningful, surprising, funny, tense, proud, uncertain, or specific part of what someone just said. It works because people open up and warm to you when they feel you noticed the real part of what they said, not just the surface facts. In Huang and colleagues 2017 studies, people who asked more questions, especially follow-up questions, were better liked, because they came across as more responsive.",
   whatItIsNot: [
     'It is not simply "ask more questions": too many questions can feel like an interview.',
     "It is not therapy-speak or clinical probing.",

@@ -56,7 +56,7 @@ export const TC082: CardData = {
   ],
   id: "TC082",
   whyItWorks:
-    'Turn-toward bids means noticing a small bid for contact, attention, help, humour or acknowledgement, then giving it a clear, warm response instead of ignoring it, dismissing it or competing with it. Bids are sometimes obvious ("Can I show you something?") but more often indirect: a sigh, a joke, a side comment, a photo or a tiny update. People rarely judge warmth by big speeches. They judge it by whether you noticed the small reach, and answered bids build trust that compounds.',
+    'Turn-toward bids means noticing a small bid for contact, attention, help, humour or acknowledgement, then giving it a clear, warm response instead of ignoring it, dismissing it or competing with it. Bids are sometimes obvious ("Can I show you something?") but more often indirect: a sigh, a joke, a side comment, a photo or a tiny update. People rarely judge warmth by big speeches. They judge it by whether you noticed the small reach, and answered bids build trust that compounds. In Gottman research, couples still married six years later had turned toward bids 86 percent of the time. Couples who divorced averaged 33 percent.',
   whatItIsNot: [
     "Not constant availability, and not letting every small signal override your task, boundary, or fatigue.",
     "Not interrogation: turning every bid into a long question chain.",

@@ -185,7 +185,7 @@ export const TC093: CardData = {
         "I'm not challenging it. I'm trying to understand how it works.",
         "That sounds important. How is it showing up?",
         "I want to understand before responding. How do you mean?",
-        "No pressure to unpack everything. How is that showing up?",
+        "No pressure to go into everything. How is that showing up?",
       ],
     },
   ],
@@ -524,7 +524,7 @@ export const TC093: CardData = {
     "You don't need to justify it. I'm just trying to understand what you're noticing.",
     "Let me soften that. What's the main thing pointing you that way?",
     "I might be missing context. What part should I understand first?",
-    "We can pause there if it's not useful to unpack.",
+    "We can pause there if it's not useful to go further.",
     "Thanks, that gives me the picture. I don't need more detail than you want to share.",
   ],
   bestRecoveryLine:

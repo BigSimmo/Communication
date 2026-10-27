@@ -131,7 +131,7 @@ export const TC023: CardData = {
       tone: "Warm",
       phrases: [
         "That sentence is doing a lot of work. 'Weird' how?",
-        "Okay, 'surprisingly good' needs unpacking.",
+        "Okay, 'surprisingly good'? Tell me more.",
         "You can't say 'wild' and then just move on.",
         "You said 'weirdly fun'. I like that phrase. Weirdly how?",
         "Good-chaos or absolutely-not-chaos?",
@@ -200,7 +200,7 @@ export const TC023: CardData = {
       tone: "High-stakes",
       phrases: [
         "No pressure to go into it, but when you say 'weird', what kind of weird?",
-        "Only if you want to unpack it. Complicated how?",
+        "Only if you want to get into it. Complicated how?",
         "Was it more awkward or more frustrating?",
         "What part of it felt most off?",
         "You don't have to explain the whole thing. I'm just curious what you meant by 'intense'.",
@@ -489,7 +489,7 @@ export const TC023: CardData = {
   ],
   recoveryPhrases: [
     "That sounded more intense than I meant. I was just curious about the word you used.",
-    "No pressure to unpack it. I just noticed that word.",
+    "No pressure to get into it. I just noticed that word.",
     "Let me ask that less clumsily.",
     "I may be reading too much into one word. What did you mean by it?",
     "That came out like an interrogation. What I meant was: what kind of 'weird'?",

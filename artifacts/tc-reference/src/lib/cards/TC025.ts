@@ -204,7 +204,7 @@ export const TC025: CardData = {
         "I might be picking up the wrong word, but 'tiring' stood out.",
         "No pressure to go into it, but what did you mean by 'heavy'?",
         "You said 'fine-ish'. That sounds like there's a caveat.",
-        "'Draining' stood out. You don't have to unpack it, but I noticed.",
+        "'Draining' stood out. You don't have to get into it, but I noticed.",
       ],
     },
   ],
@@ -243,7 +243,7 @@ export const TC025: CardData = {
     {
       condition: "They say it was just a throwaway word",
       action: "Drop it gracefully and move to something lighter.",
-      phrase: "Fair enough, no need to unpack it.",
+      phrase: "Fair enough, no need to go into it.",
     },
   ],
   ladder: [
@@ -542,7 +542,7 @@ export const TC025: CardData = {
     "I may have over-read that phrase. What did you mean by it?",
     "That came out more analytical than I meant.",
     "I was picking up your word, not trying to pin you to it.",
-    "No pressure to unpack it if it was just a throwaway phrase.",
+    "No pressure to go into it if it was just a throwaway line.",
     "Let me ask that more normally.",
     "I think I repeated that with the wrong tone. I meant it as curiosity.",
   ],

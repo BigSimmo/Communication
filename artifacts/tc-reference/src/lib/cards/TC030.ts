@@ -150,7 +150,7 @@ export const TC030: CardData = {
         "By 'not sustainable', what are you seeing?",
         "What does 'done properly' mean here?",
         "You mentioned 'alignment'. Alignment around what?",
-        "When you say 'priority', what should we optimise for?",
+        "When you say 'priority', what matters most: speed, cost or quality?",
         "'Blocked'. Blocked by what?",
       ],
     },
@@ -160,7 +160,7 @@ export const TC030: CardData = {
       tag: "Precise, time-respecting asks",
       tone: "Direct",
       phrases: [
-        "When you say 'priority', what specifically should we optimise for?",
+        "When you say 'priority', what specifically matters most here?",
         "By 'concise', do you mean one page or just the decision points?",
         "When you say 'too slow', where is the bottleneck?",
         "What does 'good enough' look like here?",

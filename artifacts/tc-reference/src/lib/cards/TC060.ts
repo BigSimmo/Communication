@@ -134,7 +134,7 @@ export const TC060: CardData = {
       tag: "Professional context",
       tone: "Professional",
       phrases: [
-        "I'm assuming this was a bandwidth issue rather than a priority call. Where does it stand now?",
+        "I'm assuming this was a time issue rather than a priority call. Where does it stand now?",
         "I'm reading this as a constraint, not resistance. What constraint should we solve for?",
         "I'm assuming the team had a reason for that trade-off. Can you talk me through it?",
         "I'm assuming there's a process reason behind that. Let me check before I give a firm answer.",

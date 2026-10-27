@@ -193,7 +193,7 @@ export const TC041: CardData = {
       tag: "Message-length",
       tone: "Quick",
       phrases: [
-        "That point sounds like the live one. Want to unpack it?",
+        "That point sounds like the live one. Want to say more about it?",
         "That seems to be the stronger thread. Happy to go there.",
         "Sounds like there's more in that part. Say more?",
         "Want to focus on the first thing or the second?",
