@@ -1,6 +1,8 @@
 import { createContext, useContext, useState } from "react";
 import type { FavouritesState, FavouritePhrase } from "./favourites-state";
+import { useStorageSync } from "./storage-sync";
 import {
+  FAVOURITES_STORAGE_KEY,
   loadFavouritesState,
   toggleFavouriteCard,
   toggleFavouritePhrase,
@@ -23,6 +25,11 @@ export function FavouritesProvider({
   children: React.ReactNode;
 }) {
   const [state, setState] = useState<FavouritesState>(loadFavouritesState);
+
+  // Another tab changed favourites: reload so our next toggle builds on it.
+  useStorageSync([FAVOURITES_STORAGE_KEY], () =>
+    setState(loadFavouritesState()),
+  );
 
   const toggleCard = (cardId: string) =>
     setState((s) => toggleFavouriteCard(s, cardId));

@@ -22,7 +22,10 @@ import {
   isStreakActive,
   updateSRS,
   getDueCardsCount,
+  DRILL_STORAGE_KEY,
+  SRS_STORAGE_KEY,
 } from "@/lib/drill-state";
+import { useStorageSync } from "@/lib/storage-sync";
 
 const CARD_TITLE_MAP: Record<string, string> = Object.values(LIBRARY_CATEGORIES)
   .flat()
@@ -44,6 +47,13 @@ export default function Drill() {
     data: CardData | null;
   } | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
+
+  // Another tab completed a drill or rated a card: pick up its progress so
+  // completing here doesn't overwrite it with a stale in-memory copy.
+  useStorageSync([DRILL_STORAGE_KEY, SRS_STORAGE_KEY], () => {
+    setState(loadDrillState());
+    setDueCount(getDueCardsCount());
+  });
 
   const done = isCompletedToday(state);
   const completionRef = useRef<HTMLDivElement>(null);
