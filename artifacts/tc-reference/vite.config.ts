@@ -56,26 +56,37 @@ export default defineConfig({
         theme_color: "#0f1724",
         background_color: "#0f1724",
         display: "standalone",
+        // Fall back gracefully on browsers without standalone support.
+        display_override: ["standalone", "minimal-ui"],
         start_url: ".",
+        prefer_related_applications: false,
+        // Reopen an existing window rather than stacking new ones.
+        launch_handler: { client_mode: ["navigate-existing", "auto"] },
         // Long-press shortcuts on the home screen icon (Android, desktop)
         shortcuts: [
           {
             name: "Phrase Bank",
             short_name: "Phrases",
             url: "phrases",
-            icons: [{ src: "pwa-icon-192.png", sizes: "192x192" }],
+            icons: [
+              { src: "pwa-icon-192.png", sizes: "192x192", type: "image/png" },
+            ],
           },
           {
             name: "Daily Drill",
             short_name: "Drill",
             url: "drill",
-            icons: [{ src: "pwa-icon-192.png", sizes: "192x192" }],
+            icons: [
+              { src: "pwa-icon-192.png", sizes: "192x192", type: "image/png" },
+            ],
           },
           {
             name: "Favourites",
             short_name: "Saved",
             url: "favourites",
-            icons: [{ src: "pwa-icon-192.png", sizes: "192x192" }],
+            icons: [
+              { src: "pwa-icon-192.png", sizes: "192x192", type: "image/png" },
+            ],
           },
         ],
         icons: [
@@ -84,10 +95,60 @@ export default defineConfig({
           // Full-bleed with artwork inside the 80% safe zone so Android masks
           // never expose transparent corners.
           {
+            src: "pwa-maskable-192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "maskable",
+          },
+          {
             src: "pwa-maskable-512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",
+          },
+          // Single-colour silhouettes for themed (Android 13+) icons.
+          {
+            src: "pwa-monochrome-192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "monochrome",
+          },
+          {
+            src: "pwa-monochrome-512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "monochrome",
+          },
+        ],
+        // Richer install UI on Android/desktop Chrome. Not precached.
+        screenshots: [
+          {
+            src: "screenshots/library-narrow.webp",
+            sizes: "780x1688",
+            type: "image/webp",
+            form_factor: "narrow",
+            label: "Library of 98 communication techniques",
+          },
+          {
+            src: "screenshots/phrases-narrow.webp",
+            sizes: "780x1688",
+            type: "image/webp",
+            form_factor: "narrow",
+            label: "Phrase Bank with tone filters",
+          },
+          {
+            src: "screenshots/card-narrow.webp",
+            sizes: "780x1688",
+            type: "image/webp",
+            form_factor: "narrow",
+            label: "A technique card",
+          },
+          {
+            src: "screenshots/library-wide.webp",
+            sizes: "1280x800",
+            type: "image/webp",
+            form_factor: "wide",
+            label: "Library on a wide screen",
           },
         ],
       },
