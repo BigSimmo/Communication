@@ -197,4 +197,34 @@ describe("card content invariants", () => {
       true,
     );
   });
+
+  it("gives every named-framework card a well-formed https source", () => {
+    // Acronym frameworks and research-named techniques must say where they
+    // come from. Add a source when adding a new named framework.
+    const NAMED = [
+      "TC009",
+      "TC016",
+      "TC048",
+      "TC050",
+      "TC051",
+      "TC052",
+      "TC053",
+      "TC066",
+      "TC074",
+      "TC082",
+      "TC095",
+      "TC096",
+    ];
+    for (const id of NAMED) {
+      expect(CARD_DATA[id]?.sources?.length ?? 0, id).toBeGreaterThan(0);
+    }
+    for (const [id, card] of Object.entries(CARD_DATA)) {
+      for (const source of card.sources ?? []) {
+        expect(source.label.trim(), id).not.toBe("");
+        expect(new URL(source.url).protocol, `${id}: ${source.url}`).toBe(
+          "https:",
+        );
+      }
+    }
+  });
 });

@@ -55,6 +55,12 @@ export const TC053: CardData = {
     },
   ],
   id: "TC053",
+  sources: [
+    {
+      label: "Center for Nonviolent Communication: NVC 101",
+      url: "https://www.cnvc.org/learn/nvc-101",
+    },
+  ],
   whyItWorks:
     "NVC / OFNR (Nonviolent Communication) is a four-part way of saying something hard: state a plain observation, name the feeling it stirred, connect that to the need underneath, then make one clear, doable request. Separating the fact from the feeling, the need and the ask keeps difficult expression from tipping into blame, so the other person can hear the point and act on it instead of defending themselves.",
   whatItIsNot: [

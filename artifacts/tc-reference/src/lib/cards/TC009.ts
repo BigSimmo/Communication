@@ -55,6 +55,12 @@ export const TC009: CardData = {
     },
   ],
   id: "TC009",
+  sources: [
+    {
+      label: "Brooks and Yeomans 2025, Boomerasking (J Exp Psychol Gen)",
+      url: "https://www.hbs.edu/faculty/Pages/item.aspx?num=66867",
+    },
+  ],
   whyItWorks:
     "Anti-boomerasking is the discipline of asking a question, actually receiving the answer, and staying with the other person's thread before you add your own story, opinion or example. A good question is a door into their experience. A boomerang question is a runway for your own. It works because the person feels their answer genuinely mattered, which keeps momentum with them and builds trust, and it makes your own later self-disclosure land as connection rather than hijacking.",
   whatItIsNot: [

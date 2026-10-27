@@ -55,6 +55,12 @@ export const TC074: CardData = {
     },
   ],
   id: "TC074",
+  sources: [
+    {
+      label: "Yale: Using DESC (after Bower and Bower, Asserting Yourself)",
+      url: "https://your.yale.edu/sites/default/files/2025-03/adviformanagers_usingdesctomakeyourdifficultconversations.pdf",
+    },
+  ],
   whyItWorks:
     "DESC is a four-step way to make an assertive request or set a boundary without it turning into blame, threat or a character judgement. You Describe the observable behaviour, Express its effect, Specify the concrete change you want, and name the Consequence: a clear next step or choice, not a punishment. It works because it separates observation from judgement, feeling from accusation, request from demand, and consequence from punishment, which lowers defensiveness and makes your concern easy to understand and easy to respond to.",
   whatItIsNot: [

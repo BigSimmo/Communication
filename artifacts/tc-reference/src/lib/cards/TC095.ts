@@ -55,6 +55,12 @@ export const TC095: CardData = {
     },
   ],
   id: "TC095",
+  sources: [
+    {
+      label: "DBT interpersonal effectiveness: DEAR MAN",
+      url: "https://dbt.tools/interpersonal_effectiveness/dear-man.php",
+    },
+  ],
   whyItWorks:
     "DEAR MAN is an assertive framework for getting a clear request, refusal or boundary into a hard conversation without making the other person guess, sliding into blame or collapsing into apology. Describe what happened, Express how it affects you, Assert what you want or won't do, and Reinforce the constructive reason. Then stay Mindful, Appear confident and Negotiate the workable details. It gives you a short sequence you can remember under pressure, and separating the non-negotiable core from the flexible details lets the other person cooperate without feeling cornered.",
   whatItIsNot: [

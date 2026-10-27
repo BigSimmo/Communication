@@ -155,8 +155,15 @@ export interface FieldTip {
   do?: string;
 }
 
+/** Where a technique or named framework comes from, so claims stay traceable. */
+export interface CardSource {
+  label: string;
+  url: string;
+}
+
 export interface CardData {
   id: string;
+  sources?: CardSource[];
   pdfUrl?: string;
   overview: CardOverview;
   phraseBank: PhraseGroup[];

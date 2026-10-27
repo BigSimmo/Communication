@@ -55,6 +55,12 @@ export const TC002: CardData = {
     },
   ],
   id: "TC002",
+  sources: [
+    {
+      label: "Derber, The Pursuit of Attention (shift vs support response)",
+      url: "https://www.goodreads.com/book/show/273223.The_Pursuit_of_Attention",
+    },
+  ],
   whyItWorks:
     "Support response over shift response is the habit of responding to the other person's experience before shifting to your own related story or idea. When a self-reference comes to mind, you first support their thread with acknowledgement, curiosity or appreciation, and only then decide whether your own point still adds anything. It works because people become receptive to you once they feel heard: a support response keeps their moment intact, while a shift response quietly tells them the floor was never really theirs.",
   whatItIsNot: [

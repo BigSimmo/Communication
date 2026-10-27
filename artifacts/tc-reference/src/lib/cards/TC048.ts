@@ -55,6 +55,12 @@ export const TC048: CardData = {
     },
   ],
   id: "TC048",
+  sources: [
+    {
+      label: "Barbara Minto, the Pyramid Principle (SCQ framework)",
+      url: "https://barbaraminto.com/",
+    },
+  ],
   whyItWorks:
     "SCQA is a way of organising what you say so the listener can follow it without effort: you frame the Situation, name the Complication that makes it matter, make the Question explicit, then give your Answer. It works because it hands the listener the shape of your point before asking them to judge it. They know where things stand, what has changed, what decision is on the table, and what you recommend, in the order the mind naturally wants them. Clarity, not pressure, is what makes it persuasive.",
   whatItIsNot: [

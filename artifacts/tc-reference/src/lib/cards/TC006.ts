@@ -55,6 +55,12 @@ export const TC006: CardData = {
     },
   ],
   id: "TC006",
+  sources: [
+    {
+      label: "Lieberman et al. 2007, affect labelling (Psychological Science)",
+      url: "https://pubmed.ncbi.nlm.nih.gov/17576282/",
+    },
+  ],
   whyItWorks:
     "Emotional labelling means tentatively naming the feeling, concern or emotional tone under what someone is saying, then letting them accept, correct or expand it. It is not mind-reading, diagnosing, or telling someone how they feel. It works because people lower their guard and argue less once they sense the emotion has been heard: naming the feeling out loud, gently, turns vague tension into something you can both look at together, and makes any advice, disagreement or boundary that follows far easier to receive.",
   whatItIsNot: [
