@@ -14,6 +14,7 @@ import type { CardData } from "@/lib/card-types";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import {
   CARD_IDS,
+  drillCardId,
   DrillState,
   loadDrillState,
   saveDrillState,
@@ -62,12 +63,12 @@ export default function Drill() {
   const activeDayIndex =
     done && state.prevDayIndex >= 0 ? state.prevDayIndex : state.dayIndex;
 
-  const cardId = CARD_IDS[activeCardIndex] ?? CARD_IDS[0];
+  const cardId = drillCardId(state, activeCardIndex);
   const cardData = activeCard?.cardId === cardId ? activeCard.data : null;
   const drillEntry = cardData?.drill[activeDayIndex];
   const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
 
-  const nextCardId = CARD_IDS[state.cardIndex] ?? CARD_IDS[0];
+  const nextCardId = drillCardId(state, state.cardIndex);
   const nextCardTitle = CARD_TITLE_MAP[nextCardId] ?? nextCardId;
   const nextDrillEntry =
     nextCard?.cardId === nextCardId

@@ -8,7 +8,7 @@ import {
   inferPhraseTone,
   isSpeakablePhrase,
 } from "@/lib/cards";
-import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { CORE_CARD_IDS, LIBRARY_CATEGORIES } from "@/lib/data";
 import { loadAllAggregatedPhrases } from "@/lib/phrases-data";
 
 const PUBLIC_DIR = path.resolve(
@@ -226,5 +226,16 @@ describe("card content invariants", () => {
         );
       }
     }
+  });
+});
+
+describe("start here core set", () => {
+  it("has 15 unique existing cards, including the three new everyday cards", () => {
+    expect(CORE_CARD_IDS).toHaveLength(15);
+    expect(new Set(CORE_CARD_IDS).size).toBe(15);
+    for (const id of CORE_CARD_IDS) expect(CARD_DATA).toHaveProperty(id);
+    expect(CORE_CARD_IDS).toEqual(
+      expect.arrayContaining(["TC101", "TC102", "TC103"]),
+    );
   });
 });

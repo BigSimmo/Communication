@@ -23,7 +23,7 @@ import {
   Mic,
   Target,
 } from "lucide-react";
-import { LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
+import { CORE_CARD_SET, LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
@@ -301,11 +301,12 @@ const DIFFICULTY_OPTIONS: DropdownOption[] = DIFFICULTY_LEVELS.map((diff) => ({
 }));
 
 const SORT_OPTIONS: DropdownOption[] = [
+  { value: "core", label: "Start here first", short: "Start here" },
   { value: "impact", label: "Impact · high first", short: "Impact" },
   { value: "difficulty", label: "Difficulty · easy first", short: "Easiest" },
 ];
 
-type SortKey = "default" | "impact" | "difficulty";
+type SortKey = "default" | "core" | "impact" | "difficulty";
 
 // ── Scroll restoration ──
 // Leaving the Library saves where the reader was (sessionStorage) against an
@@ -656,7 +657,12 @@ export default function Library() {
       );
     }
 
-    if (sortBy === "impact") {
+    if (sortBy === "core") {
+      filtered.sort(
+        (a, b) =>
+          Number(CORE_CARD_SET.has(b.id)) - Number(CORE_CARD_SET.has(a.id)),
+      );
+    } else if (sortBy === "impact") {
       filtered.sort((a, b) => IMPACT_ORDER[a.impact] - IMPACT_ORDER[b.impact]);
     } else if (sortBy === "difficulty") {
       filtered.sort(
@@ -1046,7 +1052,7 @@ export default function Library() {
                     <li key={card.id} className="relative max-w-full min-w-0">
                       <Link
                         href={`/card/${card.id}`}
-                        aria-label={`${card.title} (${card.id}), ${badge.label.toLowerCase()} impact, ${CARD_DIFFICULTY[card.id]}`}
+                        aria-label={`${card.title} (${card.id}), ${badge.label.toLowerCase()} impact, ${CARD_DIFFICULTY[card.id]}${CORE_CARD_SET.has(card.id) ? ", start here" : ""}`}
                         data-testid={`card-link-${card.id}`}
                         data-library-card={card.id}
                         onClick={(e: React.MouseEvent<HTMLElement>) => {
@@ -1085,6 +1091,19 @@ export default function Library() {
                             style={{ color: "var(--fg-90)" }}
                           >
                             {card.title}
+                            {CORE_CARD_SET.has(card.id) && (
+                              <span
+                                className="ml-1.5 inline-block align-middle rounded-full px-1.5 py-px text-[10.5px] font-semibold leading-4"
+                                style={{
+                                  background:
+                                    "color-mix(in srgb, var(--brand) 14%, transparent)",
+                                  color: "var(--brand-text)",
+                                }}
+                                data-testid={`core-badge-${card.id}`}
+                              >
+                                Start here
+                              </span>
+                            )}
                           </span>
                           <span
                             className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12px]"
