@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { VitePWA } from "vite-plugin-pwa";
+import { cardTextIndexPlugin } from "./card-text-index-plugin";
 
 const rawPort = process.env.PORT ?? "5173";
 
@@ -33,6 +34,8 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    // Slim, precached text index so search and phrases work offline.
+    cardTextIndexPlugin(path.resolve(import.meta.dirname, "src/lib/cards")),
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: [
@@ -155,6 +158,9 @@ export default defineConfig({
           const facadeId = chunkInfo.facadeModuleId?.replaceAll("\\", "/");
           if (facadeId && /\/src\/lib\/cards\/TC\d{3}\.ts$/.test(facadeId)) {
             return "assets/cards/[name]-[hash].js";
+          }
+          if (facadeId === "\0virtual:card-text-index") {
+            return "assets/card-text-data-[hash].js";
           }
           return "assets/[name]-[hash].js";
         },

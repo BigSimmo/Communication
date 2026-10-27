@@ -1,4 +1,5 @@
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
+import { gzipSync } from "node:zlib";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -139,6 +140,51 @@ export function verifyCardBuildContract(
   };
 }
 
+/** Upper bound for the precached offline text index (decoded bytes). */
+export const MAX_TEXT_INDEX_BYTES = 1024 * 1024;
+
+export interface TextIndexProof {
+  file: string;
+  bytes: number;
+  gzipBytes: number;
+  precached: true;
+}
+
+/**
+ * The card text index (search / Phrase Bank / Quick Lookup offline data)
+ * must be emitted once, be precached by the service worker, and stay small.
+ */
+export function verifyOfflineTextIndex(
+  assetFiles: string[],
+  serviceWorkerSource: string,
+  readAsset: (file: string) => Uint8Array,
+): TextIndexProof {
+  const indexFiles = assetFiles.filter((file) =>
+    /^assets\/card-text-data-[A-Za-z0-9_-]{6,}\.js$/.test(file),
+  );
+  if (indexFiles.length !== 1) {
+    throw new Error(
+      `Expected exactly one card text index chunk, found ${indexFiles.length}`,
+    );
+  }
+  const [file] = indexFiles;
+  if (!serviceWorkerSource.includes(file)) {
+    throw new Error(`Card text index ${file} must be in the precache`);
+  }
+  const source = readAsset(file);
+  if (source.byteLength > MAX_TEXT_INDEX_BYTES) {
+    throw new Error(
+      `Card text index ${file} is ${source.byteLength} bytes, above ${MAX_TEXT_INDEX_BYTES}`,
+    );
+  }
+  return {
+    file,
+    bytes: source.byteLength,
+    gzipBytes: gzipSync(source).byteLength,
+    precached: true,
+  };
+}
+
 async function main() {
   const scriptDir = path.dirname(fileURLToPath(import.meta.url));
   const outputDir = path.resolve(scriptDir, "../dist/public");
@@ -163,6 +209,26 @@ async function main() {
     buildFiles,
   );
   process.stdout.write(`CARD_BUILD_CONTRACT ${JSON.stringify(proof)}\n`);
+
+  const assetFiles = (await readdir(path.join(outputDir, "assets"))).map(
+    (name) => `assets/${name}`,
+  );
+  const indexSources = new Map(
+    await Promise.all(
+      assetFiles
+        .filter((file) => file.includes("card-text-data"))
+        .map(
+          async (file) =>
+            [file, await readFile(path.join(outputDir, file))] as const,
+        ),
+    ),
+  );
+  const textIndex = verifyOfflineTextIndex(
+    assetFiles,
+    serviceWorkerSource,
+    (file) => indexSources.get(file) ?? new Uint8Array(),
+  );
+  process.stdout.write(`CARD_TEXT_INDEX ${JSON.stringify(textIndex)}\n`);
 }
 
 const invokedPath = process.argv[1]
