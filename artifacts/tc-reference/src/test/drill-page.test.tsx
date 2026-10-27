@@ -10,7 +10,11 @@ import { useLocation } from "wouter";
 import Drill from "../pages/drill";
 import { loadCard } from "../lib/card-loader";
 import { CARD_DATA } from "../lib/cards";
-import { CARD_IDS, loadDrillState, loadSRSMap } from "../lib/drill-state";
+import {
+  CORE_FIRST_CARD_IDS,
+  loadDrillState,
+  loadSRSMap,
+} from "../lib/drill-state";
 
 vi.mock("wouter");
 vi.mock("../lib/card-loader", () => ({
@@ -41,7 +45,7 @@ async function renderDrill() {
 describe("Drill page (F-12)", () => {
   it("shows today's task for the first card", async () => {
     await renderDrill();
-    const first = CARD_DATA[CARD_IDS[0]];
+    const first = CARD_DATA[CORE_FIRST_CARD_IDS[0]];
     expect(screen.getByText(first.drill[0].task)).toBeInTheDocument();
     expect(screen.getByText("Start your streak")).toBeInTheDocument();
   });
@@ -65,7 +69,7 @@ describe("Drill page (F-12)", () => {
         streak: 1,
         lastCompletionDate: "2026-03-10",
       });
-      expect(loadSRSMap()[CARD_IDS[0]].interval).toBe(interval);
+      expect(loadSRSMap()[CORE_FIRST_CARD_IDS[0]].interval).toBe(interval);
       expect(
         screen.queryByRole("button", { name: "Good: review later" }),
       ).toBeNull();
@@ -89,7 +93,7 @@ describe("Drill page (F-12)", () => {
   it("opens the full card", async () => {
     await renderDrill();
     fireEvent.click(screen.getByTestId("drill-view-card"));
-    expect(navigate).toHaveBeenCalledWith(`/card/${CARD_IDS[0]}`);
+    expect(navigate).toHaveBeenCalledWith(`/card/${CORE_FIRST_CARD_IDS[0]}`);
   });
 
   it("shows the unavailable state when the card can't load", async () => {
