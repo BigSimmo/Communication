@@ -7,6 +7,7 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@fontsource/inter/800.css";
 import "./index.css";
+import { registerServiceWorker, reloadToLatest } from "./lib/sw-update";
 
 // After a deploy, an open tab can ask for lazy chunks that no longer exist.
 // Vite fires vite:preloadError for those; reload once to pick up the new
@@ -26,7 +27,7 @@ window.addEventListener("vite:preloadError", (event) => {
     return;
   }
   event.preventDefault();
-  window.location.reload();
+  void reloadToLatest();
 });
 
 // Once the app has loaded and stayed up past the guard window, clear the flag
@@ -40,3 +41,11 @@ window.addEventListener("load", () => {
 });
 
 createRoot(document.getElementById("root")!).render(<App />);
+
+// Register after load so the worker's precache download never competes with
+// first paint (this also drops the render-blocking registerSW.js script).
+if (import.meta.env.PROD && "serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    void registerServiceWorker();
+  });
+}

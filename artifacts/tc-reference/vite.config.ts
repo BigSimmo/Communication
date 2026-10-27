@@ -37,7 +37,10 @@ export default defineConfig({
     // Slim, precached text index so search and phrases work offline.
     cardTextIndexPlugin(path.resolve(import.meta.dirname, "src/lib/cards")),
     VitePWA({
-      registerType: "autoUpdate",
+      // "prompt": a new build waits until the user accepts the update toast
+      // (src/lib/sw-update.ts), which registers the worker itself.
+      registerType: "prompt",
+      injectRegister: false,
       includeAssets: [
         "favicon.svg",
         "apple-touch-icon.png",
@@ -165,9 +168,25 @@ export default defineConfig({
         // Keep enough headroom for non-card app-shell chunks. Individual card
         // scripts are excluded above and cached only after a card is visited.
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+        // Delete precaches left by older workbox versions.
+        cleanupOutdatedCaches: true,
+        // The precached SPA shell is the offline fallback for every app route.
+        // Navigation preload is deliberately off: navigations are answered
+        // from precache, so a preload request would only waste bandwidth.
         navigateFallback: "index.html",
         navigateFallbackDenylist: [/\/cards\//],
         runtimeCaching: [
+          {
+            // Images outside the precache (JPEG/WebP social and install
+            // screenshots) — serve cached, refresh in the background.
+            urlPattern: ({ request, sameOrigin }) =>
+              sameOrigin && request.destination === "image",
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "images",
+              expiration: { maxEntries: 40, maxAgeSeconds: 60 * 60 * 24 * 30 },
+            },
+          },
           {
             // NetworkFirst, not CacheFirst: card PDFs live at stable URLs but
             // are regenerated on every build, so prefer fresh copies online
