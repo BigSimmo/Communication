@@ -1,5 +1,5 @@
 import { inferPhraseTone } from "./card-types";
-import { loadAllCards } from "./card-loader";
+import { loadCardTextIndex } from "./card-text-index";
 import { LIBRARY_CATEGORIES } from "./data";
 
 export interface RankedResult {
@@ -38,7 +38,7 @@ let searchCorpusPromise: Promise<ReadonlyArray<SearchCorpusEntry>> | null =
 
 function loadSearchCorpus(): Promise<ReadonlyArray<SearchCorpusEntry>> {
   if (!searchCorpusPromise) {
-    const pending = loadAllCards()
+    const pending = loadCardTextIndex()
       .then((cards) =>
         Object.freeze(
           Object.entries(cards).map(([id, card]) => {
