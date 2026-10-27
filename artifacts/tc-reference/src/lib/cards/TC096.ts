@@ -587,7 +587,7 @@ export const TC096: CardData = {
       sequence: "TC096 Capitalisation extension, then TC021 Autonomy release",
       example: [
         "Extend once, then hand control of the celebration back to them.",
-        '"What was the best part? ... No need to unpack it if you\'re already moving on."',
+        '"What was the best part? ... No need to go into it if you\'re already moving on."',
       ],
     },
   ],
