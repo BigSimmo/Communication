@@ -4,6 +4,7 @@ import { UpdateToast } from "@/components/update-toast";
 import {
   __resetSwUpdateForTests,
   registerServiceWorker,
+  reloadToLatest,
 } from "@/lib/sw-update";
 
 class FakeTarget {
@@ -100,5 +101,41 @@ describe("service worker update prompt", () => {
     await expect(
       registerServiceWorker(container as never, "/"),
     ).resolves.toBeNull();
+  });
+
+  it("prompts for an install already in progress at registration", async () => {
+    const { container, registration } = setup();
+    const worker = new FakeWorker();
+    registration.installing = worker;
+    render(<UpdateToast />);
+    await act(async () => {
+      await registerServiceWorker(container as never, "/");
+      worker.state = "installed";
+      registration.waiting = worker;
+      worker.emit("statechange");
+    });
+    expect(screen.getByTestId("update-toast")).toBeInTheDocument();
+  });
+
+  it("chunk recovery activates a newer worker instead of reloading the old build", async () => {
+    const { container, registration } = setup();
+    await registerServiceWorker(container as never, "/");
+    const worker = new FakeWorker();
+    registration.update.mockImplementationOnce(async () => {
+      registration.waiting = worker;
+    });
+    const reload = vi.fn();
+    await reloadToLatest(reload);
+    expect(worker.postMessage).toHaveBeenCalledWith({ type: "SKIP_WAITING" });
+    expect(reload).not.toHaveBeenCalled();
+  });
+
+  it("chunk recovery falls back to a plain reload when no update exists", async () => {
+    const { container, registration } = setup();
+    await registerServiceWorker(container as never, "/");
+    registration.update.mockRejectedValueOnce(new Error("offline"));
+    const reload = vi.fn();
+    await reloadToLatest(reload);
+    expect(reload).toHaveBeenCalledTimes(1);
   });
 });

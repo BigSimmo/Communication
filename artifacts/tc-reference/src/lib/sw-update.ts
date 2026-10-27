@@ -12,6 +12,7 @@ const UPDATE_CHECK_INTERVAL_MS = 60 * 60 * 1000;
 type Listener = (waiting: ServiceWorker | null) => void;
 
 let waitingWorker: ServiceWorker | null = null;
+let activeRegistration: ServiceWorkerRegistration | null = null;
 const listeners = new Set<Listener>();
 
 function setWaiting(worker: ServiceWorker | null) {
@@ -49,9 +50,13 @@ export async function registerServiceWorker(
     return null;
   }
 
+  activeRegistration = registration;
   if (registration.waiting && container.controller) {
     setWaiting(registration.waiting);
   }
+  // An install that began before this resolved (e.g. from another tab) has
+  // already fired updatefound, so attach to it directly.
+  trackInstalling(registration, container);
   registration.addEventListener("updatefound", () =>
     trackInstalling(registration, container),
   );
@@ -92,8 +97,35 @@ export function useUpdateAvailable(): boolean {
   return available;
 }
 
+/**
+ * Reload into the newest build. Used by missing-chunk recovery: in prompt
+ * mode a plain reload would be answered by the old worker's precached HTML,
+ * which still points at the removed chunk. Looks for a newer worker first and
+ * activates it (the controllerchange listener then reloads); otherwise does a
+ * normal reload.
+ */
+export async function reloadToLatest(
+  reload: () => void = () => window.location.reload(),
+): Promise<void> {
+  if (!waitingWorker && activeRegistration) {
+    try {
+      await activeRegistration.update();
+    } catch {
+      // Offline or server error: fall through to a plain reload.
+    }
+    const pending = activeRegistration.waiting;
+    if (pending && !waitingWorker) setWaiting(pending);
+  }
+  if (waitingWorker) {
+    applyUpdate();
+    return;
+  }
+  reload();
+}
+
 /** Test-only reset of module state. */
 export function __resetSwUpdateForTests() {
   waitingWorker = null;
+  activeRegistration = null;
   listeners.clear();
 }
