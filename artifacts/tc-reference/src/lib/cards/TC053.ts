@@ -56,7 +56,7 @@ export const TC053: CardData = {
   ],
   id: "TC053",
   whyItWorks:
-    "NVC / OFNR (Nonviolent Communication) is a four-part way of saying something hard: state a plain observation, name the feeling it stirred, connect that to the need underneath, then make one clear, doable request. Separating the fact from the feeling, the need and the ask keeps difficult expression from tipping into blame, so the other person can hear the point and act on it instead of defending themselves.",
+    "NVC / OFNR (Nonviolent Communication) is a four-part way of saying something hard: state a plain observation, name the feeling it stirred, connect that to the need underneath, then make one clear, doable request. Separating the fact from the feeling, the need and the ask keeps difficult expression from tipping into blame, so the other person can hear the point and act on it instead of defending themselves. NVC was developed by Marshall Rosenberg, founder of the Center for Nonviolent Communication.",
   whatItIsNot: [
     'It is not a script to recite mechanically: naming the steps out loud ("my feeling is...") kills it.',
     "It is not a way to avoid listening, compress emotion into a template, or force the other person into your structure.",

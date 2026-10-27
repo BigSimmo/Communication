@@ -178,7 +178,7 @@ export const TC044: CardData = {
         "I can keep this short, then we adjust together.",
         "Tell me if you'd rather I slow down and give the background first.",
         "If the headline-first approach isn't landing, say so and I'll switch.",
-        "Happy to unpack any part that felt too compressed.",
+        "Happy to expand any part that felt too short.",
         "That may not be the right frame. Let me back up.",
       ],
     },

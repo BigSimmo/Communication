@@ -138,7 +138,7 @@ export const TC043: CardData = {
         "So it sounds like the timing is the real sticking point.",
         "You're saying the work isn't the problem: the workload is.",
         "It seems like you're keener than you're letting on.",
-        "What I'm hearing is that fairness matters more than speed here.",
+        "Sounds like fairness matters more than speed here.",
         "So part of this is excitement and part of it is nerves.",
         "Let me make sure I have it: you want in, just not yet.",
       ],
