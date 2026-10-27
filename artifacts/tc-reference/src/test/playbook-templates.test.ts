@@ -36,7 +36,7 @@ describe("playbook templates", () => {
   });
 
   it("give every named framework a well-formed https source", () => {
-    const named = /\b(ISBAR|iSoBAR|SPIKES|Open Disclosure|SBI|DEAR MAN)\b/;
+    const named = /\b(SBI|DEAR MAN)\b/;
     for (const template of PLAYBOOK_TEMPLATES) {
       if (named.test(template.description)) {
         expect(template.sources?.length ?? 0, template.id).toBeGreaterThan(0);

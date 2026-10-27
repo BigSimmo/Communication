@@ -18,51 +18,25 @@ export const PLAYBOOK_TEMPLATES: PlaybookTemplate[] = [
     id: "clinical-handover-isbar",
     name: "Clinical handover",
     description:
-      "Use your local handover structure. In WA Health that is iSoBAR: identify, situation, observations, background, agree to a plan, read-back. Lead with the bottom line, state exactly what you need, then have the receiver read it back.",
+      "Structure it with ISBAR: identify, situation, background, assessment, recommendation. Lead with the bottom line, state exactly what you need, then confirm it was heard correctly.",
     context: "Clinical",
     cardIds: ["TC044", "TC048", "TC013", "TC011"],
-    sources: [
-      {
-        label: "WA Health: Clinical handover (iSoBAR)",
-        url: "https://www.health.wa.gov.au/Articles/A_E/Clinical-handover",
-      },
-      {
-        label: "ACSQHC: Clinical handover",
-        url: "https://www.safetyandquality.gov.au/our-work/communicating-safety/clinical-handover",
-      },
-    ],
   },
   {
     id: "breaking-bad-news-spikes",
     name: "Breaking bad news",
     description:
-      "Follow the SPIKES shape: set up the conversation, check their understanding, ask how much they want to know, share the news in small pieces without jargon, respond to emotion, then summarise and plan next steps. Leave room for silence.",
+      "Follow the SPIKES shape: set up the conversation, check their understanding, share the news in small pieces and respond to emotion before planning next steps. Leave room for silence.",
     context: "Clinical",
     cardIds: ["TC012", "TC045", "TC029", "TC080", "TC011"],
-    sources: [
-      {
-        label: "Baile et al. 2000, SPIKES (The Oncologist)",
-        url: "https://pubmed.ncbi.nlm.nih.gov/10964998/",
-      },
-      {
-        label: "NCI PDQ: Communication in cancer care",
-        url: "https://www.cancer.gov/about-cancer/coping/adjusting-to-cancer/communication-hp-pdq",
-      },
-    ],
   },
   {
     id: "open-disclosure",
     name: "Open disclosure conversation",
     description:
-      "Use the elements of the Australian Open Disclosure Framework: an apology or expression of regret that includes the words I am sorry or we are sorry, a factual explanation, a chance for the person to tell their experience, the potential consequences and the steps being taken. Acknowledge the impact before the detail.",
+      "Use the elements of the Australian Open Disclosure Framework: an apology or expression of regret, a factual explanation, the person's perspective and the steps being taken. Acknowledge the impact before the detail.",
     context: "Clinical",
     cardIds: ["TC098", "TC045", "TC004", "TC050"],
-    sources: [
-      {
-        label: "ACSQHC: Open disclosure",
-        url: "https://www.safetyandquality.gov.au/open-disclosure",
-      },
-    ],
   },
   {
     id: "distressed-relative",
