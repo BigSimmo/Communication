@@ -36,7 +36,7 @@ describe("playbook templates", () => {
   });
 
   it("give every named framework a well-formed https source", () => {
-    const named = /\b(SBI|DEAR MAN)\b/;
+    const named = /\b(ISBAR|iSoBAR|SPIKES|Open Disclosure|SBI|DEAR MAN)\b/;
     for (const template of PLAYBOOK_TEMPLATES) {
       if (named.test(template.description)) {
         expect(template.sources?.length ?? 0, template.id).toBeGreaterThan(0);
@@ -46,5 +46,14 @@ describe("playbook templates", () => {
         expect(new URL(source.url).protocol, template.id).toBe("https:");
       }
     }
+  });
+
+  it("keep medical playbooks in their own section, apart from everyday ones", () => {
+    for (const template of PLAYBOOK_TEMPLATES) {
+      expect(template.section, template.id).toBe(
+        template.context === "Clinical" ? "medical" : "everyday",
+      );
+    }
+    expect(PLAYBOOK_TEMPLATES.some((t) => t.section === "everyday")).toBe(true);
   });
 });

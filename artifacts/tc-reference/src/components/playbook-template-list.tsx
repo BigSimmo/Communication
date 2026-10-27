@@ -1,4 +1,4 @@
-import { Stethoscope, Briefcase, ChevronRight } from "lucide-react";
+import { Stethoscope, MessageCircle, ChevronRight } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import {
   PLAYBOOK_TEMPLATES,
@@ -11,9 +11,19 @@ const CARD_TITLES: Record<string, string> = Object.fromEntries(
     .map((c) => [c.id, c.title]),
 );
 
-const GROUPS: { context: PlaybookTemplate["context"]; label: string }[] = [
-  { context: "Clinical", label: "Clinical conversations" },
-  { context: "Workplace", label: "Workplace conversations" },
+// Everyday communication comes first. Medical and clinical playbooks are kept
+// but sit in their own clearly labelled section so they never mix in.
+const GROUPS: {
+  section: PlaybookTemplate["section"];
+  label: string;
+  note?: string;
+}[] = [
+  { section: "everyday", label: "Everyday conversations" },
+  {
+    section: "medical",
+    label: "Medical & clinical communication",
+    note: "For health settings. These are communication prompts and sit alongside local policy and clinical procedures, not in place of them.",
+  },
 ];
 
 // Ready made sequences the user can load into the editor, adjust and save.
@@ -35,17 +45,28 @@ export function PlaybookTemplateList({
         className="text-[12px] leading-relaxed mb-3 px-1"
         style={{ color: "var(--fg-55)" }}
       >
-        Load a sequence, then reorder or swap cards before you save it. These
-        are communication prompts and sit alongside local policy and clinical
-        procedures, not in place of them.
+        Load a sequence, then reorder or swap cards before you save it.
       </p>
-      {GROUPS.map(({ context, label }) => {
-        const items = PLAYBOOK_TEMPLATES.filter((t) => t.context === context);
+      {GROUPS.map(({ section, label, note }) => {
+        const items = PLAYBOOK_TEMPLATES.filter((t) => t.section === section);
         if (items.length === 0) return null;
-        const Icon = context === "Clinical" ? Stethoscope : Briefcase;
+        const Icon = section === "medical" ? Stethoscope : MessageCircle;
+        const headingId = `playbook-section-${section}`;
         return (
-          <div key={context} className="mb-4">
+          <div
+            key={section}
+            role="group"
+            aria-labelledby={headingId}
+            data-testid={`playbook-section-${section}`}
+            className={section === "medical" ? "mb-4 mt-6 pt-4" : "mb-4"}
+            style={
+              section === "medical"
+                ? { borderTop: "1px solid var(--fg-07)" }
+                : undefined
+            }
+          >
             <h3
+              id={headingId}
               className="flex items-center gap-1.5 text-[12px] font-semibold mb-2 px-1"
               style={{ color: "var(--fg-70)" }}
             >
@@ -56,6 +77,14 @@ export function PlaybookTemplateList({
               />
               {label}
             </h3>
+            {note && (
+              <p
+                className="text-[12px] leading-relaxed mb-2 px-1"
+                style={{ color: "var(--fg-55)" }}
+              >
+                {note}
+              </p>
+            )}
             <ul className="grid gap-2 sm:grid-cols-2">
               {items.map((t) => (
                 <li key={t.id}>
