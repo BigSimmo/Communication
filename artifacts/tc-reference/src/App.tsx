@@ -17,6 +17,7 @@ import { ThemeProvider } from "@/lib/theme";
 import { PdfProvider } from "@/lib/pdf-context";
 import { AppLayout } from "@/components/app-layout";
 import { AppErrorBoundary } from "@/components/app-error-boundary";
+import { UpdateToast } from "@/components/update-toast";
 
 function RouteFallback() {
   return (
@@ -80,6 +81,7 @@ function App() {
                   <AppLayout>
                     <RoutedContent />
                   </AppLayout>
+                  <UpdateToast />
                 </WouterRouter>
               </PdfProvider>
             </PlaybookProvider>
