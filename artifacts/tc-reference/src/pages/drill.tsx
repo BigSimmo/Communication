@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { PageIntro } from "@/components/page-intro";
+import { DrillRecall } from "@/components/drill-recall";
 import { useLocation } from "wouter";
 import {
   Flame,
@@ -321,6 +322,12 @@ export default function Drill() {
             >
               {drillEntry.task}
             </p>
+            {!done && cardData.overview.minimumViableMove && (
+              <DrillRecall
+                key={`${cardId}-${activeDayIndex}`}
+                move={cardData.overview.minimumViableMove}
+              />
+            )}
           </>
         )}
       </div>
