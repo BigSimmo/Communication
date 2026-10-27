@@ -125,7 +125,7 @@ export const TC076: CardData = {
         "I'm curious, but no pressure to go into it. What drew you to that?",
         "That sounds heavy. I won't dig. Would it help to talk about what comes next?",
         "Only if you want to: was that more of a relief or more of a loss?",
-        "No pressure to unpack it. What matters most to you at the moment?",
+        "No pressure to go into it. What matters most to you at the moment?",
       ],
     },
     {
@@ -154,7 +154,7 @@ export const TC076: CardData = {
         "Answer whichever is easiest: timing, budget, or scope?",
         "No need for a long reply. Was the main issue timing, tone, or something else?",
         "I sent too many questions. Just answer the first one if it's useful.",
-        "This might be easier live. No pressure to unpack it by text.",
+        "This might be easier live. No pressure to get into it by text.",
         "You can ignore this if it's too much to type. What was the headline?",
         "Give me the short version and I'll follow up only if I need to.",
         "Whichever is simpler to answer is fine by me.",
