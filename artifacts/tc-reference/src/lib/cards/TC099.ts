@@ -56,7 +56,7 @@ export const TC099: CardData = {
   ],
   id: "TC099",
   whyItWorks:
-    'Humblebrag avoidance is the discipline of sharing good news cleanly instead of hiding it inside complaint, false modesty, embarrassment, or coded status signalling. It works because it removes the hidden ask: the listener no longer has to detect that your "problem" is actually praise, demand, or a quiet bid for admiration. A win named directly, with one honest feeling and proportionate context, lowers status threat, so people can celebrate you without feeling managed or tricked into admiring you.',
+    'Humblebrag avoidance is the discipline of sharing good news cleanly instead of hiding it inside complaint, false modesty, embarrassment, or coded status signalling. It works because it removes the hidden ask: the listener no longer has to detect that your "problem" is actually praise, demand, or a quiet bid for admiration. A win named directly, with one honest feeling and proportionate context, lowers status threat, so people can celebrate you without feeling managed or tricked into admiring you. Sezer, Gino and Norton (2018) found humblebrags were liked less than straightforward bragging and seen as insincere.',
   whatItIsNot: [
     "It is not hiding every achievement or pretending success does not matter.",
     "It is not making yourself smaller so others feel comfortable, or apologising for good news.",
@@ -146,7 +146,7 @@ export const TC099: CardData = {
       tone: "Direct",
       phrases: [
         "Yes, it went well. I'm proud of the result, and I'm still taking in what it means.",
-        "The rollout reduced rework, and I learned that earlier stakeholder checks matter.",
+        "The rollout reduced rework, and I learned that checking in with people earlier matters.",
         "I'm proud of the work, and I can own it without inflating it.",
         "Here's the evidence, the impact, and what I'd do differently.",
         "I'm not fishing for reassurance. I just wanted to share the update plainly.",
@@ -286,7 +286,7 @@ export const TC099: CardData = {
       situation: "Performance review",
       move: "State evidence, impact, and learning without apology or false modesty.",
       phrase:
-        "The rollout reduced rework by 18 percent. I'm proud of the result, and I learned that earlier stakeholder checks matter.",
+        "The rollout reduced rework by 18 percent. I'm proud of the result, and I learned that checking in with people earlier matters.",
     },
     {
       situation: "Family or old friends",

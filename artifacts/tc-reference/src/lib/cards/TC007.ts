@@ -56,7 +56,7 @@ export const TC007: CardData = {
   ],
   id: "TC007",
   whyItWorks:
-    "No one-upping discipline is the practice of resisting the impulse to top, match, correct, or redirect someone's story with your own bigger, worse, better, more dramatic, or more impressive version. It works because it changes who the moment belongs to: when you let their story land before adding yours, they feel respected rather than outshone, and people become more receptive to you once they sense you are not competing with them.",
+    "No one-upping discipline is the practice of resisting the impulse to top, match, correct, or redirect someone's story with your own bigger, worse, better, more dramatic, or more impressive version. It works because it changes who the moment belongs to: when you let their story land before adding yours, they feel respected rather than outshone, and people become more receptive to you once they sense you are not competing with them. Derber calls the topping story a shift response. It often hides behind a brief supportive comment before the turn back to yourself.",
   whatItIsNot: [
     "It is not never sharing your own experiences.",
     "It is not being passive, bland, or falsely humble.",

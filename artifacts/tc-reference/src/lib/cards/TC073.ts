@@ -173,7 +173,7 @@ export const TC073: CardData = {
         "We can stop here. I'm asking to understand, not to reopen pressure.",
         "If this is a firm boundary, I'll respect it and not keep probing.",
         "You don't have to justify it. I asked to understand, not to push.",
-        "Is it useful to unpack the hesitation, or would you rather leave it there?",
+        "Is it useful to talk through the hesitation, or would you rather leave it there?",
         "I can work with that. We can adapt, pause, or drop it.",
       ],
     },

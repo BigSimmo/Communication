@@ -119,7 +119,7 @@ export const TC008: CardData = {
         "Does that answer the question?",
         "Do you want the short version or the full version?",
         "Is that enough detail, or useful to go deeper?",
-        "I can unpack that if helpful.",
+        "I can explain more if that helps.",
         "I'll pause there.",
         "That's the gist. Want more?",
       ],

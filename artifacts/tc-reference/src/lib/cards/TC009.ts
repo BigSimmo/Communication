@@ -62,7 +62,7 @@ export const TC009: CardData = {
     },
   ],
   whyItWorks:
-    "Anti-boomerasking is the discipline of asking a question, actually receiving the answer, and staying with the other person's thread before you add your own story, opinion or example. A good question is a door into their experience. A boomerang question is a runway for your own. It works because the person feels their answer genuinely mattered, which keeps momentum with them and builds trust, and it makes your own later self-disclosure land as connection rather than hijacking.",
+    "Anti-boomerasking is the discipline of asking a question, actually receiving the answer, and staying with the other person's thread before you add your own story, opinion or example. A good question is a door into their experience. A boomerang question is a runway for your own. It works because the person feels their answer genuinely mattered, which keeps momentum with them and builds trust, and it makes your own later self-disclosure land as connection rather than hijacking. Brooks and Yeomans named the pattern boomerasking. In their studies people saw boomeraskers as insincere and preferred partners who simply shared.",
   whatItIsNot: [
     "It is not never talking about yourself.",
     "It is not becoming an interviewer who only asks and never gives.",
