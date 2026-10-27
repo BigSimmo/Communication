@@ -55,6 +55,12 @@ export const TC066: CardData = {
     },
   ],
   id: "TC066",
+  sources: [
+    {
+      label: "High Conflict Institute: the BIFF method",
+      url: "https://www.highconflictinstitute.com/biff/",
+    },
+  ],
   whyItWorks:
     "BIFF stands for Brief, Informative, Friendly, Firm. It is a response structure for messages where the emotional heat is higher than the useful information: hostile emails, baiting texts, sprawling complaints and inaccurate claims. Instead of matching the tone or correcting every point, you answer only what needs a reply, civilly, and close with a clear next step. A BIFF reply is harder to attack, easier to understand and easier for a third party to trust, and it removes the handles that keep the conflict going.",
   whatItIsNot: [

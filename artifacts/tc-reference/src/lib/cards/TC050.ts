@@ -55,6 +55,13 @@ export const TC050: CardData = {
     },
   ],
   id: "TC050",
+  sources: [
+    {
+      label:
+        "University of Edinburgh Reflection Toolkit: What? So what? Now what?",
+      url: "https://reflection.ed.ac.uk/reflectors-toolkit/reflecting-on-experience/what-so-what-now-what",
+    },
+  ],
   whyItWorks:
     'What? So what? Now what? is a reflective framework that sorts an experience or a point into three moves: what actually happened, what it means, and what you will do next. Keeping observation, meaning and action apart stops them blurring into a vague sense that "something happened", so reflection becomes usable. It works because it arrives in the order the mind needs (facts first, then significance, then the next step) which lowers the listener\'s cognitive load and makes the point easy to follow and easy to act on.',
   whatItIsNot: [

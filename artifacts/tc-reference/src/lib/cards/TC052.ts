@@ -55,6 +55,12 @@ export const TC052: CardData = {
     },
   ],
   id: "TC052",
+  sources: [
+    {
+      label: "Center for Creative Leadership: SBI feedback model",
+      url: "https://www.ccl.org/articles/leading-effectively-articles/sbi-feedback-model-a-quick-win-to-improve-talent-conversations-development/",
+    },
+  ],
   whyItWorks:
     "SBI gives feedback by naming three things in order: the specific Situation, the observable Behaviour, and its concrete Impact, without attacking character or intention. Naming the moment tells the person exactly what you mean. Describing what they did rather than what you assume they meant keeps them from getting defensive. Stating the impact shows why it matters. Sequenced this way, feedback is easier to take in and harder to argue with, because you are describing what happened rather than judging who they are.",
   whatItIsNot: [

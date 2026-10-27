@@ -55,6 +55,12 @@ export const TC096: CardData = {
     },
   ],
   id: "TC096",
+  sources: [
+    {
+      label: "Gable et al. 2004, capitalisation (JPSP)",
+      url: "https://pubmed.ncbi.nlm.nih.gov/15301629/",
+    },
+  ],
   whyItWorks:
     'Capitalisation extension is a response pattern for positive news. When someone shares a win, a relief, a proud moment or good feedback, you don\'t stop at "nice": you mark the good thing, add one specific reason it matters, and invite them to say a little more about the best part. It works because people become more open with you when they trust that their good news will be handled well rather than ignored, hijacked or turned into your status opportunity. Recognise it, name a concrete piece of it, extend it with one short prompt, and let them choose the size of the celebration.',
   whatItIsNot: [

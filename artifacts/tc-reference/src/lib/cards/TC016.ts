@@ -55,6 +55,12 @@ export const TC016: CardData = {
     },
   ],
   id: "TC016",
+  sources: [
+    {
+      label: "Gable et al. 2004, sharing positive events (JPSP)",
+      url: "https://pubmed.ncbi.nlm.nih.gov/15301629/",
+    },
+  ],
   whyItWorks:
     "Active-constructive responding means meeting someone's good news with visible interest, a specific note of what is good about it, and one follow-up that helps them relive or expand the moment: treating good news as a thread to join, not a cue to change the subject. It works because how you respond to a person's wins shapes the relationship as much as how you respond to their setbacks. When you actively share their positive emotion, they feel seen, the good moment lasts longer, and the bond gets stronger. A flat \"nice\" or a quick pivot to your own story quietly tells them their news did not really matter to you.",
   whatItIsNot: [

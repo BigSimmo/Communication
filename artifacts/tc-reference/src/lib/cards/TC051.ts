@@ -55,6 +55,12 @@ export const TC051: CardData = {
     },
   ],
   id: "TC051",
+  sources: [
+    {
+      label: "Julian Treasure, 5 ways to listen better (TED)",
+      url: "https://www.juliantreasure.com/ted-talks",
+    },
+  ],
   whyItWorks:
     "RASA is a four-step response structure: Receive, Appreciate, Summarise, Ask. You take in what someone actually said, acknowledge the contribution or feeling, reflect the core meaning back in a line, then ask one useful follow-up. It works because it makes thinking easier for the other person: they feel accurately heard, the point is sequenced so what matters comes first, and they are left with room to respond. Its pull comes from clarity and respect, not from pressure.",
   whatItIsNot: [
