@@ -148,7 +148,7 @@ export const TC058: CardData = {
       tag: "Clear, direct reflections",
       tone: "Direct",
       phrases: [
-        "It sounds like what mattered was needing respect for that boundary.",
+        "It sounds like you needed that boundary respected.",
         "It sounds like you needed the decision made before, not explained after.",
         "It sounds like the real need is being told early, not last.",
         "Sounds like the ask is simple. Knowing what matters first.",

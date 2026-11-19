@@ -140,7 +140,7 @@ export const TC060: CardData = {
         "I'm assuming there's a process reason behind that. Let me check before I give a firm answer.",
         "I'm assuming everyone's trying to protect the outcome. What's the clean next step?",
         "I'm assuming the escalation pulled you away, not a change in priorities.",
-        "I'm assuming this got crowded out rather than dropped. Can we reset the deadline?",
+        "I'm guessing other priorities got in the way. Can we agree a new date?",
       ],
     },
     {
