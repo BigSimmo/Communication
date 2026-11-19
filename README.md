@@ -13,7 +13,7 @@ A mobile-first reference app for 107 communication techniques. It runs entirely 
 - Playbooks: chain techniques into your own step-by-step guides
 - Favourites for cards and phrases via localStorage persistence
 - Quick Lookup overlay for fast in-conversation phrase recall, scoped to the open card with one tap to widen to all cards
-- Keyboard-accessible global search (`Cmd+K` / `Ctrl+K`), and left/right arrow keys to step between cards
+- Keyboard-accessible global search (`Cmd+K` / `Ctrl+K`) that matches as you type, forgives typos and word forms, and maps everyday words to card vocabulary through a hand-kept synonym list (`artifacts/tc-reference/src/lib/search-synonyms.ts`), and left/right arrow keys to step between cards
 - Light/dark theme persistence
 - Back up and restore your data: export favourites, drill progress, playbooks and settings to a JSON file from the Favourites page, and import it on any device
 - Mobile-first navigation with a bottom tab bar, 44px touch targets and safe-area (notch) support

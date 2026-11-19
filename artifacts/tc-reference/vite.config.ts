@@ -248,7 +248,11 @@ export default defineConfig({
         // a monolithic chunk. Each import.meta.glob card remains independent.
         manualChunks(id: string) {
           if (id.includes("node_modules")) {
-            return id.includes("lucide-react") ? "icons" : "vendor";
+            if (id.includes("lucide-react")) return "icons";
+            // Search loads lazily with the search screen; keep its engine
+            // out of the vendor chunk that every page loads first.
+            if (id.includes("minisearch")) return "search-engine";
+            return "vendor";
           }
           return undefined;
         },
