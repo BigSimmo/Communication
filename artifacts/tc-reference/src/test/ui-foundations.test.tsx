@@ -83,11 +83,13 @@ describe("SegmentedTabs ids", () => {
     function NumericTabs() {
       const [value, setValue] = useState<"a" | "b">("a");
       return (
-        <SegmentedTabs
-          tabs={[
-            { id: "a", label: "First" },
-            { id: "b", label: "Second" },
-          ]}
+        <SegmentedTabs<"a" | "b">
+          tabs={
+            [
+              { id: "a", label: "First" },
+              { id: "b", label: "Second" },
+            ] as const
+          }
           value={value}
           onChange={setValue}
           label="Numbered"
