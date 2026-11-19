@@ -8,6 +8,7 @@ import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { impactStyleFor } from "@/lib/design-tokens";
 import { BackupSection } from "@/components/backup-section";
 import { AppearanceSection } from "@/components/appearance-section";
+import { OfflineCardsSection } from "@/components/offline-cards-section";
 
 const CARD_META: Record<
   string,
@@ -489,6 +490,7 @@ export default function Favourites() {
         )}
 
         <AppearanceSection />
+        <OfflineCardsSection />
         <BackupSection />
       </div>
     </div>
