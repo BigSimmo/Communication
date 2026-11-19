@@ -32,3 +32,53 @@ export const IMPACT_STYLES: Record<
 export function impactStyleFor(impact: string) {
   return IMPACT_STYLES[impact.toLowerCase() as CardImpact] ?? IMPACT_STYLES.low;
 }
+
+/**
+ * One colour per Library category, for the category dot and label. Values
+ * live in index.css as `--cat-*` (dark defaults, light overrides). Keys match
+ * LIBRARY_CATEGORIES; `label` is the full name shown on a card, `short` the
+ * one-word name used on chips.
+ */
+export const CATEGORY_STYLES: Record<
+  string,
+  { label: string; short: string; color: string }
+> = {
+  "Voice / Presence": {
+    label: "Voice and presence",
+    short: "Voice",
+    color: "var(--cat-voice)",
+  },
+  "Influence / Framing": {
+    label: "Influence and framing",
+    short: "Influence",
+    color: "var(--cat-influence)",
+  },
+  "Clarity / Direction": {
+    label: "Clarity and direction",
+    short: "Clarity",
+    color: "var(--cat-clarity)",
+  },
+  "Connection / Warmth": {
+    label: "Connection and warmth",
+    short: "Connection",
+    color: "var(--cat-connection)",
+  },
+  "Resilience / Recovery": {
+    label: "Resilience and recovery",
+    short: "Resilience",
+    color: "var(--cat-resilience)",
+  },
+};
+
+const UNKNOWN_CATEGORY = { color: "var(--fg-55)" };
+
+/** Style for a category name; unknown names get a neutral dot and their own name. */
+export function categoryStyleFor(category: string) {
+  return (
+    CATEGORY_STYLES[category] ?? {
+      label: category,
+      short: category,
+      ...UNKNOWN_CATEGORY,
+    }
+  );
+}

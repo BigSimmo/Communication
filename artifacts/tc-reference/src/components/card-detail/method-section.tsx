@@ -147,7 +147,7 @@ export function MethodSection({
                   {m.examples!.map((ex, j) => (
                     <div key={j} className="flex items-start gap-2.5">
                       <span
-                        className="text-[11px] font-bold tracking-[0.08em] uppercase mt-1 flex-shrink-0 w-[64px]"
+                        className="text-[11px] font-bold tracking-[0.08em] uppercase mt-1 flex-shrink-0 w-[92px] leading-tight break-words"
                         style={{ color: "var(--fg-55)" }}
                       >
                         {ex.label}
