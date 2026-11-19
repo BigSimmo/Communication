@@ -15,10 +15,17 @@ export const BACKUP_VERSION = 1;
  * must have. "json-object"/"json-array" values are stored with
  * JSON.stringify; "theme" is stored as the bare string "light" or "dark".
  * Deeper validation stays with each feature's own loader.
+ *
+ * tc_drill_state holds the drill's track, pace and rounds alongside its
+ * place and streak, so they travel in the same entry. Backups made before
+ * tracks existed restore unchanged and read as the Everything track at a
+ * week per card (see sanitiseDrillState).
  */
 export const BACKUP_KEYS = {
   tc_favourites: "json-object",
+  // cardIndex, dayIndex, streak, track, pace, rounds, order, ...
   tc_drill_state: "json-object",
+  // SM-2 review per card, fed by the Not yet / Getting there / Confident rating.
   tc_srs_reviews: "json-object",
   tc_playbooks: "json-array",
   "tc-recent-searches": "json-array",
