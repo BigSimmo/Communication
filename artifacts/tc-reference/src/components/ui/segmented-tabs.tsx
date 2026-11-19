@@ -44,9 +44,11 @@ export function SegmentedTabs<T extends string>({
     else return;
     e.preventDefault();
     onChange(tabs[next].id);
-    listRef.current
-      ?.querySelector<HTMLElement>(`#${idBase}-tab-${tabs[next].id}`)
-      ?.focus();
+    // Index, not an id selector: ids may hold characters a selector would
+    // need escaped.
+    const buttons =
+      listRef.current?.querySelectorAll<HTMLElement>('[role="tab"]');
+    buttons?.[next]?.focus();
   };
 
   return (

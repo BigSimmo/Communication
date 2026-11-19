@@ -78,6 +78,31 @@ describe("SegmentedTabs", () => {
   });
 });
 
+describe("SegmentedTabs ids", () => {
+  it("moves focus when the id base is not a valid CSS identifier", () => {
+    function NumericTabs() {
+      const [value, setValue] = useState<"a" | "b">("a");
+      return (
+        <SegmentedTabs
+          tabs={[
+            { id: "a", label: "First" },
+            { id: "b", label: "Second" },
+          ]}
+          value={value}
+          onChange={setValue}
+          label="Numbered"
+          idBase="123:x"
+        />
+      );
+    }
+    render(<NumericTabs />);
+    fireEvent.keyDown(screen.getByRole("tab", { name: "First" }), {
+      key: "ArrowRight",
+    });
+    expect(screen.getByRole("tab", { name: "Second" })).toHaveFocus();
+  });
+});
+
 describe("BottomSheet", () => {
   it("renders nothing while closed", () => {
     render(
@@ -106,6 +131,17 @@ describe("BottomSheet", () => {
     expect(
       screen.getByRole("button", { name: "Show 38 techniques" }),
     ).toBeInTheDocument();
+  });
+
+  it("offers a Done button when no action is given, so focus has a home", () => {
+    const onClose = vi.fn();
+    render(
+      <BottomSheet open onClose={onClose} title="About">
+        <p>Text only</p>
+      </BottomSheet>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Done" }));
+    expect(onClose).toHaveBeenCalledOnce();
   });
 
   it("closes on Escape and on the backdrop", () => {

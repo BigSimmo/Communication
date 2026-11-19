@@ -8,7 +8,9 @@ interface BottomSheetProps {
   open: boolean;
   onClose: () => void;
   title: string;
-  /** Right side of the title row, e.g. a Done or Reset button. */
+  /** Right side of the title row, e.g. a Reset button. Defaults to a Done
+      button that closes the sheet, so the sheet always holds a focusable
+      control for the focus trap. */
   action?: ReactNode;
   /** Pinned below the scrolling content, above the home indicator. */
   footer?: ReactNode;
@@ -90,7 +92,16 @@ export function BottomSheet({
           >
             {title}
           </h2>
-          {action}
+          {action ?? (
+            <button
+              type="button"
+              onClick={onClose}
+              className="h-11 px-3 text-[17px] font-bold"
+              style={{ color: "var(--brand-text)" }}
+            >
+              Done
+            </button>
+          )}
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-5 pb-4">
           {children}
