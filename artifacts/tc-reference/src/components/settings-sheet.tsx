@@ -4,6 +4,7 @@ import { Check, ChevronRight, CloudOff, Download } from "lucide-react";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
 import { AppearanceSection } from "@/components/appearance-section";
 import { BackupSection } from "@/components/backup-section";
+import { OfflineCardsSection } from "@/components/offline-cards-section";
 import { categoryStyleFor } from "@/lib/design-tokens";
 import { loadDrillState } from "@/lib/drill-state";
 import type { DrillPace, DrillTrack } from "@/lib/drill-state";
@@ -134,6 +135,7 @@ function DeviceSection() {
             </span>
           </span>
         </div>
+        <OfflineCardsSection />
         {standalone ? (
           <div className="settings-row">
             <Download

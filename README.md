@@ -17,7 +17,7 @@ A mobile-first reference app for 107 communication techniques. It runs entirely 
 - Light/dark theme persistence
 - Back up and restore your data: export favourites, drill progress, playbooks and settings to a JSON file from the Favourites page, and import it on any device
 - Mobile-first navigation with a bottom tab bar, 44px touch targets and safe-area (notch) support
-- Installable PWA: the app shell, global search, the Phrase Bank and Quick Lookup work offline after the first visit (a slim card text index is precached); full card pages and downloads work offline once they have been opened while online
+- Installable PWA: the app shell, global search, the Phrase Bank and Quick Lookup work offline after the first visit (a slim card text index is precached); full card pages and downloads work offline once they have been opened while online, and **Save all cards for offline** on the Favourites page saves every card (about 4 MB) in one step; downloads stay on demand
 
 ---
 

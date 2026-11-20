@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
-import librarySource from "../pages/library.tsx?raw";
+import librarySource from "../components/library/card-row.tsx?raw";
 import { IMPACT_STYLES } from "../lib/design-tokens";
 
 type Color = [number, number, number, number];

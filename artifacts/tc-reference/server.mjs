@@ -23,6 +23,7 @@ const NO_CACHE_FILES = new Set([
   "/sw.js",
   "/registerSW.js",
   "/manifest.webmanifest",
+  "/card-chunks.json",
 ]);
 
 // Client-side routes (see src/App.tsx). Other extensionless paths still get

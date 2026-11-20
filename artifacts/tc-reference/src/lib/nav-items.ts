@@ -27,8 +27,10 @@ export const NAV_DESTINATIONS: NavDestination[] = [
     label: "Library",
     href: "/",
     icon: Home,
-    // Cards live inside the Library, so it stays lit while reading one
-    isActive: (loc) => loc === "/" || loc.startsWith("/card/"),
+    // Cards and the Start here path live inside the Library, so it stays
+    // lit while reading them
+    isActive: (loc) =>
+      loc === "/" || loc === "/start" || loc.startsWith("/card/"),
   },
   {
     id: "phrases",
@@ -62,10 +64,12 @@ export const NAV_DESTINATIONS: NavDestination[] = [
 
 const PAGE_TITLES: Record<string, string> = {
   "/": "Library",
+  "/help": "Help me right now",
   "/playbooks": "Playbooks",
   "/phrases": "Phrase Bank",
   "/favourites": "Saved",
   "/drill": "Daily Drill",
+  "/start": "Start here",
 };
 
 const CARD_TITLES: Record<string, string> = Object.fromEntries(
@@ -79,6 +83,7 @@ export function pageTitle(location: string): string {
     const cardId = location.split("/")[2]?.split("?")[0] ?? "";
     return CARD_TITLES[cardId] ?? "Card not found";
   }
+  if (location.startsWith("/help/")) return "Help me right now";
   return PAGE_TITLES[location] ?? "Page not found";
 }
 

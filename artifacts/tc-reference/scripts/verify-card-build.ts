@@ -185,13 +185,50 @@ export function verifyOfflineTextIndex(
   };
 }
 
+export interface CardChunkListProof {
+  listed: number;
+}
+
+/**
+ * card-chunks.json drives "Save all cards for offline", so it must name
+ * exactly the card chunks this build emitted.
+ */
+export function verifyCardChunkList(
+  manifest: ViteManifest,
+  listSource: string,
+): CardChunkListProof {
+  const expected = Object.entries(manifest)
+    .filter(([key]) => /src\/lib\/cards\/TC\d{3}\.ts$/.test(key))
+    .map(([, entry]) => entry.file)
+    .sort();
+  const list = JSON.parse(listSource) as {
+    buildId?: unknown;
+    chunks?: unknown;
+  };
+  if (typeof list.buildId !== "string" || list.buildId === "") {
+    throw new Error("card-chunks.json must carry the app's build id");
+  }
+  const listed = list.chunks;
+  if (
+    !Array.isArray(listed) ||
+    JSON.stringify([...listed].sort()) !== JSON.stringify(expected)
+  ) {
+    throw new Error(
+      "card-chunks.json must list exactly the card chunks in the Vite manifest",
+    );
+  }
+  return { listed: listed.length };
+}
+
 async function main() {
   const scriptDir = path.dirname(fileURLToPath(import.meta.url));
   const outputDir = path.resolve(scriptDir, "../dist/public");
-  const [manifestSource, serviceWorkerSource] = await Promise.all([
-    readFile(path.join(outputDir, ".vite/manifest.json"), "utf8"),
-    readFile(path.join(outputDir, "sw.js"), "utf8"),
-  ]);
+  const [manifestSource, serviceWorkerSource, chunkListSource] =
+    await Promise.all([
+      readFile(path.join(outputDir, ".vite/manifest.json"), "utf8"),
+      readFile(path.join(outputDir, "sw.js"), "utf8"),
+      readFile(path.join(outputDir, "card-chunks.json"), "utf8"),
+    ]);
   const manifest = JSON.parse(manifestSource) as ViteManifest;
   const buildFiles = Object.fromEntries(
     await Promise.all(
@@ -209,6 +246,8 @@ async function main() {
     buildFiles,
   );
   process.stdout.write(`CARD_BUILD_CONTRACT ${JSON.stringify(proof)}\n`);
+  const chunkList = verifyCardChunkList(manifest, chunkListSource);
+  process.stdout.write(`CARD_CHUNK_LIST ${JSON.stringify(chunkList)}\n`);
 
   const assetFiles = (await readdir(path.join(outputDir, "assets"))).map(
     (name) => `assets/${name}`,

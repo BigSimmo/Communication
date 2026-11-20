@@ -36,10 +36,12 @@ for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
 // pages name themselves so the header always says where you are.
 const PAGE_TITLES: Record<string, string> = {
   "/": "Library",
+  "/help": "Help me right now",
   "/phrases": "Phrase Bank",
   "/drill": "Daily Drill",
   "/favourites": "Saved",
   "/playbooks": "Playbooks",
+  "/start": "Start here",
 };
 
 // Header actions share one quiet style. "brand" tints the icon amber for the
@@ -151,7 +153,8 @@ export function AppHeader() {
   }, [hidden]);
 
   const isLibraryRoute = location === "/";
-  const pageTitle = PAGE_TITLES[location] ?? "Library";
+  const pageTitle =
+    PAGE_TITLES[location.replace(/^\/help\/.*/, "/help")] ?? "Library";
 
   const searchButton = (testId: string) => (
     <HeaderIconButton
