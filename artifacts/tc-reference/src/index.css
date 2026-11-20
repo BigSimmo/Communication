@@ -822,3 +822,12 @@ body:has([data-search-screen]) .app-header,
 body:has([data-search-screen]) .tab-bar {
   display: none;
 }
+
+/* Sideways-scrolling chip rows: scroll without a visible scrollbar */
+.no-scrollbar {
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
