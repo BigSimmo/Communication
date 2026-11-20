@@ -1,5 +1,6 @@
 import { useState, useCallback, useLayoutEffect, useRef } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
+import { SEARCH_ENTRY_STATE, searchHref } from "@/components/search/search-nav";
 import {
   ChevronDown,
   SearchX,
@@ -142,13 +143,7 @@ export default function Library() {
   const panelRef = useRef<HTMLDivElement>(null);
   const searchRowRef = useRef<HTMLDivElement>(null);
   const [, setLocation] = useLocation();
-  const {
-    searchOpen,
-    searchQuery,
-    setSearchQuery,
-    openSearch,
-    headerDetailsOpen,
-  } = useNav();
+  const { searchQuery, setSearchQuery, headerDetailsOpen } = useNav();
   const { isCardFav, toggleCard } = useFavourites();
   const scrollDirection = useScrollDirection(SCROLL_DIRECTION_THRESHOLD);
 
@@ -500,73 +495,23 @@ export default function Library() {
                 style={{ color: "var(--fg-55)" }}
                 aria-hidden="true"
               />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search techniques and phrases…"
+              {/* Looks like a field, is a link: search lives on its own
+                  screen, so there is nothing to type into here. */}
+              <Link
+                href={searchHref()}
+                state={SEARCH_ENTRY_STATE}
                 aria-label="Search techniques, phrases and playbooks"
-                data-search-toggle="true"
-                data-search-open-on-focus="true"
                 data-testid="library-search-input"
-                className="w-full min-w-0 h-9 pointer-coarse:h-11 text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-55)]"
+                className="flex items-center w-full min-w-0 h-9 pointer-coarse:h-11 text-[12px] rounded-xl transition-all focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[color:var(--brand)]"
                 style={{
                   background: "var(--fg-05)",
                   border: "1px solid var(--fg-08)",
-                  color: "var(--fg-90)",
+                  color: "var(--fg-55)",
                   padding: "0 34px 0 34px",
                 }}
-                onFocus={(e) => {
-                  if (
-                    e.currentTarget.hasAttribute("data-suppress-search-open")
-                  ) {
-                    e.currentTarget.removeAttribute(
-                      "data-suppress-search-open",
-                    );
-                    return;
-                  }
-                  openSearch();
-                  e.currentTarget.style.borderColor =
-                    "color-mix(in srgb, var(--brand) 45%, transparent)";
-                  e.currentTarget.style.boxShadow =
-                    "0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent)";
-                }}
-                onClick={(e) => {
-                  e.currentTarget.focus();
-                  if (
-                    e.currentTarget.hasAttribute("data-suppress-search-open")
-                  ) {
-                    e.currentTarget.removeAttribute(
-                      "data-suppress-search-open",
-                    );
-                    return;
-                  }
-                  if (!searchOpen) openSearch();
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = "var(--fg-08)";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  aria-label="Clear search"
-                  data-testid="library-search-clear"
-                  className="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
-                >
-                  <span
-                    className="w-6 h-6 flex items-center justify-center rounded-full"
-                    style={{ background: "var(--fg-08)" }}
-                  >
-                    <X
-                      className="w-3.5 h-3.5"
-                      style={{ color: "var(--fg-50)" }}
-                      aria-hidden="true"
-                    />
-                  </span>
-                </button>
-              )}
+              >
+                <span className="truncate">Search techniques and phrases…</span>
+              </Link>
             </div>
 
             <button

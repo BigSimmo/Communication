@@ -14,7 +14,26 @@ import { QuickModeProvider } from "../lib/quick-mode";
 import { ThemeProvider } from "../lib/theme";
 import { PdfProvider } from "../lib/pdf-context";
 
-vi.mock("wouter");
+vi.mock("wouter", () => ({
+  useLocation: vi.fn(),
+  Link: ({
+    href,
+    children,
+    ...props
+  }: {
+    href: string;
+    children?: React.ReactNode;
+    state?: unknown;
+  }) => {
+    const rest = { ...props };
+    delete rest.state;
+    return (
+      <a href={href} {...rest}>
+        {children}
+      </a>
+    );
+  },
+}));
 
 beforeAll(async () => {
   // Warm the lazy search hand-over once so these interaction tests measure
@@ -65,23 +84,20 @@ beforeEach(() => {
 // search field and Ctrl/Cmd+K still "open search" through the nav context;
 // what opens is a hand-over that sends the reader to the search screen.
 describe("opening search from the header and the Library", () => {
-  it("goes to the search screen from the Library search field", async () => {
+  it("links the Library search field straight to the search screen", () => {
     render(
       <Wrapper>
         <AppHeader />
         <Library />
       </Wrapper>,
     );
-    const input = screen.getByTestId("library-search-input");
+    const field = screen.getByTestId("library-search-input");
 
-    fireEvent.click(input);
-
-    await waitFor(() => {
-      expect(navigate).toHaveBeenCalledWith("/search", {
-        state: SEARCH_ENTRY_STATE,
-      });
-    });
-    expect(navigate).toHaveBeenCalledTimes(1);
+    expect(field.tagName).toBe("A");
+    expect(field).toHaveAttribute("href", "/search");
+    expect(field).toHaveAccessibleName(
+      "Search techniques, phrases and playbooks",
+    );
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
@@ -178,23 +194,6 @@ describe("opening search from the header and the Library", () => {
 
     expect(toggle).toHaveAttribute("aria-expanded", "true");
     expect(details).toHaveAttribute("aria-hidden", "false");
-    expect(navigate).not.toHaveBeenCalled();
-  });
-
-  it("consumes the one-shot suppression marker before opening search", () => {
-    render(
-      <Wrapper>
-        <AppHeader />
-        <Library />
-      </Wrapper>,
-    );
-
-    const input = screen.getByTestId("library-search-input");
-    input.setAttribute("data-suppress-search-open", "true");
-
-    fireEvent.focus(input);
-
-    expect(input).not.toHaveAttribute("data-suppress-search-open");
     expect(navigate).not.toHaveBeenCalled();
   });
 
