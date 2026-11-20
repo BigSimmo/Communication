@@ -9,7 +9,7 @@ A mobile-first reference app for 107 communication techniques. It runs entirely 
 - 107 technique cards (voice/presence, influence/framing, clarity/direction, connection/warmth, resilience/recovery)
 - Library with category, impact and difficulty filters, sort controls and a live result count
 - Phrase Bank (4,000+ phrases, filterable by tone and full-text searchable)
-- Daily drill with streak tracking and spaced-repetition review
+- Daily drill: pick a track (Core 15, one category, a playbook or everything) and a pace, rate each technique Not yet, Getting there or Confident, and review it again when it comes due; streak tracking and undo included
 - Playbooks: chain techniques into your own step-by-step guides
 - Favourites for cards and phrases via localStorage persistence
 - Quick Lookup overlay for fast in-conversation phrase recall, scoped to the open card with one tap to widen to all cards
