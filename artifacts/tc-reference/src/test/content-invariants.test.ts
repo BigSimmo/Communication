@@ -80,6 +80,22 @@ describe("card content invariants", () => {
     }
   });
 
+  it("never repeats a phrase within a card's phrase bank", () => {
+    for (const [id, card] of Object.entries(CARD_DATA)) {
+      const seen = new Map<string, string>();
+      for (const group of card.phraseBank) {
+        for (const phrase of group.phrases) {
+          const key = phrase.trim().toLowerCase();
+          expect(
+            seen.get(key),
+            `${id}/${group.id} repeats "${phrase}"`,
+          ).toBeUndefined();
+          seen.set(key, group.id);
+        }
+      }
+    }
+  });
+
   it("only references existing cards from relatedTechniques", () => {
     for (const [id, card] of Object.entries(CARD_DATA)) {
       for (const related of card.relatedTechniques ?? []) {

@@ -172,7 +172,7 @@ export const TC070: CardData = {
         "Given the stakes, it makes sense your body went straight to alert mode.",
         "That's a human response to pressure, not a character flaw.",
         "Given the timing and the impact, I can see why this feels serious.",
-        "Under that much pressure, a strong reaction is understandable.",
+        "Pressure like that would rattle most people.",
       ],
     },
     {
