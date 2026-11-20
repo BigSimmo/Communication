@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useFavourites } from "@/lib/favourites-context";
 import {
+  getDueCardsCount,
   loadDrillState,
   isCompletedToday,
   isStreakActive,
@@ -88,16 +89,32 @@ export function pageTitle(location: string): string {
   return PAGE_TITLES[location] ?? "Page not found";
 }
 
-// Small counters shown on nav items: saved items, and the drill streak (or a
-// tick once today's drill is done)
+// Small counters shown on nav items: saved items, and for the drill the
+// number of reviews due (what needs doing comes first), else a tick once
+// today's drill is done, else the running streak.
 export function useNavBadges(): Partial<Record<NavDestinationId, string>> {
   const { totalCount } = useFavourites();
   const drill = loadDrillState();
+  const due = getDueCardsCount();
   const badges: Partial<Record<NavDestinationId, string>> = {};
   if (totalCount > 0)
     badges.favourites = totalCount > 99 ? "99+" : String(totalCount);
-  if (isStreakActive(drill) && drill.streak > 0)
-    badges.drill = String(drill.streak);
+  if (due > 0) badges.drill = due > 99 ? "99+" : String(due);
   else if (isCompletedToday(drill)) badges.drill = "✓";
+  else if (isStreakActive(drill) && drill.streak > 0)
+    badges.drill = String(drill.streak);
   return badges;
+}
+
+/** Spoken name for a nav item, with what its badge means. */
+export function navItemLabel(
+  item: NavDestination,
+  badge: string | null,
+): string {
+  if (!badge) return item.label;
+  if (item.id === "favourites")
+    return `${item.label}, ${badge} ${badge === "1" ? "item" : "items"}`;
+  if (item.id === "drill" && getDueCardsCount() > 0)
+    return `${item.label}, ${badge} ${badge === "1" ? "review" : "reviews"} due`;
+  return item.label;
 }

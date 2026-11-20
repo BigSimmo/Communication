@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { NAV_DESTINATIONS, useNavBadges } from "@/lib/nav-items";
+import { NAV_DESTINATIONS, navItemLabel, useNavBadges } from "@/lib/nav-items";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
 
 // Text entry that summons the on-screen keyboard. A fixed bottom bar would
@@ -92,11 +92,7 @@ export function BottomTabBar() {
               <Link
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                aria-label={
-                  badge && item.id === "favourites"
-                    ? `${item.label}, ${badge} ${badge === "1" ? "item" : "items"}`
-                    : item.label
-                }
+                aria-label={navItemLabel(item, badge)}
                 data-testid={`nav-tab-${item.id}`}
                 tabIndex={hidden ? -1 : undefined}
                 onClick={(e) => {

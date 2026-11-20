@@ -9,6 +9,7 @@ import { usePdf } from "@/lib/pdf-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { useBodyScrollLock } from "@/hooks/use-body-scroll-lock";
 import { useCardTabs } from "@/hooks/use-card-tabs";
+import { useSwipe } from "@/hooks/use-swipe";
 import { useCardPdf } from "@/hooks/use-card-pdf";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { useTabBarHidden } from "@/hooks/use-tab-bar-hidden";
@@ -16,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { DockBar } from "@/components/ui/dock-bar";
 import {
   ALL_CARD_IDS,
+  CARD_TABS,
   LOADED_CARD_IDS,
   LOADED_CARDS_NAV,
   TAB_SECTIONS,
@@ -87,6 +89,17 @@ function CardView({
   });
   const { copied, copy } = useCopyFeedback();
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
+  // On a phone a quick sideways swipe on the content moves one tab along.
+  const swipe = useSwipe({
+    onSwipeLeft: () => {
+      const i = CARD_TABS.findIndex((t) => t.id === tab);
+      if (i < CARD_TABS.length - 1) selectTab(CARD_TABS[i + 1].id);
+    },
+    onSwipeRight: () => {
+      const i = CARD_TABS.findIndex((t) => t.id === tab);
+      if (i > 0) selectTab(CARD_TABS[i - 1].id);
+    },
+  });
   const tabBarHidden = useTabBarHidden();
 
   // Publish the tabs bar's height so section scroll-margins match it. It is
@@ -137,6 +150,7 @@ function CardView({
     role: "tabpanel" as const,
     "aria-labelledby": `card-tab-${id}`,
     hidden: tab !== id,
+    ...swipe,
   });
 
   const prevNext = (

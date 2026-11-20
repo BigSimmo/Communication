@@ -161,7 +161,6 @@ export function AppHeader() {
       label="Open smart search"
       active={searchOpen}
       expanded={searchOpen}
-      controls="search-popout-panel"
       testId={testId}
       searchToggle
       onClick={toggleSearch}

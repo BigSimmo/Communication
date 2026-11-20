@@ -327,7 +327,7 @@ export function SearchResults({
                       type="button"
                       onClick={() => onKind(group)}
                       data-testid={`search-see-all-${group}`}
-                      className="tap-target-y -my-2 pl-3 text-[13px] font-semibold"
+                      className="tap-target-y -my-2 min-h-6 pl-3 text-[13px] font-semibold"
                       style={{ color: "var(--brand-text)" }}
                     >
                       See all {counts[group]}

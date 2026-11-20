@@ -44,7 +44,7 @@ export function Chip({
       )}
       {children}
       {count !== undefined && (
-        <span className="text-[12px] font-bold opacity-60">{count}</span>
+        <span className="text-[12px] font-semibold tabular-nums">{count}</span>
       )}
     </button>
   );

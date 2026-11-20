@@ -18,7 +18,7 @@ export function DockBar({ children, aboveTabBar = true }: DockBarProps) {
   return (
     <div
       data-testid="dock-bar"
-      className="fixed inset-x-0 px-4 pointer-events-none motion-reduce:transition-none"
+      className="fixed inset-x-0 md:left-[200px] px-4 pointer-events-none motion-reduce:transition-none"
       style={{
         bottom,
         zIndex: "var(--z-header)" as unknown as number,

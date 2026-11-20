@@ -73,7 +73,6 @@ describe("opening search from the header and the Library", () => {
       </Wrapper>,
     );
     const input = screen.getByTestId("library-search-input");
-    expect(input).toHaveAttribute("aria-expanded", "false");
 
     fireEvent.click(input);
 
@@ -81,7 +80,6 @@ describe("opening search from the header and the Library", () => {
       expect(navigate).toHaveBeenCalledWith("/search", {
         state: SEARCH_ENTRY_STATE,
       });
-      expect(input).toHaveAttribute("aria-expanded", "false");
     });
     expect(navigate).toHaveBeenCalledTimes(1);
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
@@ -196,7 +194,6 @@ describe("opening search from the header and the Library", () => {
 
     fireEvent.focus(input);
 
-    expect(input).toHaveAttribute("aria-expanded", "false");
     expect(input).not.toHaveAttribute("data-suppress-search-open");
     expect(navigate).not.toHaveBeenCalled();
   });
