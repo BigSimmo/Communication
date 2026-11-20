@@ -169,12 +169,13 @@ describe("lazy card consumer transitions", () => {
     render(<Drill />);
 
     fireEvent.click(
-      await screen.findByRole("button", { name: "Good: review later" }),
+      await screen.findByRole("button", { name: /^Getting there/ }),
+    );
+    fireEvent.click(
+      screen.getByRole("button", { name: "Finish today's drill" }),
     );
 
-    expect(
-      await screen.findByText("Great work. Come back tomorrow"),
-    ).toBeInTheDocument();
+    expect(await screen.findByText("Day 1 done")).toBeInTheDocument();
   });
 
   it("announces Phrase Bank loading before rendering aggregate phrases", async () => {
