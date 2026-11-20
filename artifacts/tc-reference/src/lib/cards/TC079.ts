@@ -194,7 +194,7 @@ export const TC079: CardData = {
         "Different read, if helpful: I think the risk is scope, not demand.",
         "One possible counterpoint: the evidence may support a narrower claim.",
         "I may be missing context, but I see one risk differently.",
-        "Can I flag a concern before we lock this?",
+        "Before we lock this in, one concern from me?",
         "Quick counterpoint, take it or leave it: I'd sequence this the other way.",
         "Happy to be wrong here: one thing gives me pause.",
       ],
