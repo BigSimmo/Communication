@@ -21,6 +21,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
+const BASE =
+  "inline-flex items-center justify-center gap-2 font-bold transition-transform active:scale-[0.98] motion-reduce:transition-none disabled:opacity-50 disabled:pointer-events-none";
+
+/** The button look for a link that acts as a main action. */
+export function buttonClass(variant: Variant = "secondary", size: Size = "md") {
+  return cn(BASE, VARIANT[variant], SIZE[size]);
+}
+
 /**
  * The one button standard: three variants, two sizes, both at least 44px
  * tall. Amber (primary) is for the single main action on a screen.
@@ -36,12 +44,7 @@ export function Button({
   return (
     <button
       type={type}
-      className={cn(
-        "inline-flex items-center justify-center gap-2 font-bold transition-transform active:scale-[0.98] motion-reduce:transition-none disabled:opacity-50 disabled:pointer-events-none",
-        VARIANT[variant],
-        SIZE[size],
-        className,
-      )}
+      className={cn(BASE, VARIANT[variant], SIZE[size], className)}
       {...rest}
     >
       {children}

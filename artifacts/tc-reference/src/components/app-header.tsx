@@ -41,6 +41,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/drill": "Daily Drill",
   "/favourites": "Favourites",
   "/playbooks": "Playbooks",
+  "/start": "Start here",
 };
 
 // Header actions share one quiet style. "brand" tints the icon amber for the

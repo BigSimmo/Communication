@@ -85,10 +85,10 @@ describe("Library phone filter sheet", () => {
     expect(trigger).toHaveAccessibleName("Filters, 1 active: Voice");
     expect(screen.getByTestId("library-filters-count")).toHaveTextContent("1");
 
-    // The segmented bar (400px and up) stays in sync
-    expect(screen.getByTestId("filter-category")).toHaveAttribute(
-      "aria-label",
-      `Category filter: ${category}`,
+    // The category chips stay in sync
+    expect(screen.getByTestId("category-chip-voice-presence")).toHaveAttribute(
+      "aria-pressed",
+      "true",
     );
 
     fireEvent.click(showButton);
