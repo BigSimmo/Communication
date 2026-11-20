@@ -1,106 +1,169 @@
-import { useEffect, useRef, useState } from "react";
-import { PageIntro } from "@/components/page-intro";
-import { DrillRecall } from "@/components/drill-recall";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { useLocation } from "wouter";
-import {
-  Flame,
-  CheckCircle2,
-  ChevronRight,
-  ArrowRight,
-  Dumbbell,
-  Sparkles,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Chip } from "@/components/ui/chip";
+import { DockBar } from "@/components/ui/dock-bar";
+import { DrillDone } from "@/components/drill-done";
+import { DrillRating } from "@/components/drill-rating";
+import { DrillReviewSheet } from "@/components/drill-review-sheet";
+import { DrillReviews } from "@/components/drill-reviews";
+import { DrillTaskCard } from "@/components/drill-task-card";
+import { DrillTrackSheet } from "@/components/drill-track-sheet";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { loadCard } from "@/lib/card-loader";
 import type { CardData } from "@/lib/card-types";
-import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { categoryStyleFor } from "@/lib/design-tokens";
 import {
-  CARD_IDS,
-  drillCardId,
-  DrillState,
-  loadDrillState,
-  saveDrillState,
   completeDrill,
-  isCompletedToday,
-  isStreakActive,
-  updateSRS,
-  getDueCardsCount,
   DRILL_STORAGE_KEY,
+  drillCardId,
+  drillTaskIndex,
+  getDueCardIds,
+  isCompletedToday,
+  loadDrillState,
+  loadSRSMap,
+  saveDrillState,
+  setDrillPace,
+  setDrillTrack,
   SRS_STORAGE_KEY,
+  trackCardIds,
+  trackDays,
+  updateSRS,
+  type DrillPace,
+  type DrillRating as Rating,
+  type DrillState,
+  type DrillTrack,
 } from "@/lib/drill-state";
+import {
+  clearDraft,
+  clearUndo,
+  draftKey,
+  emptyDraft,
+  loadDraft,
+  loadUndo,
+  saveDraft,
+  saveUndo,
+  undoDrill,
+  type DrillDraft,
+} from "@/lib/drill-session";
+import {
+  CORE_TRACK_NAME,
+  DRILL_CARD_META,
+  drillCardTitle,
+  durationLabel,
+  gapClause,
+  previewGaps,
+  RATING_LABELS,
+  sameTrack,
+  trackName,
+  weekStrip,
+} from "@/lib/drill-view";
+import { usePlaybooks } from "@/lib/playbook-context";
 import { useStorageSync } from "@/lib/storage-sync";
 
-const CARD_TITLE_MAP: Record<string, string> = Object.values(LIBRARY_CATEGORIES)
-  .flat()
-  .reduce<Record<string, string>>((acc, c) => {
-    acc[c.id] = c.title;
-    return acc;
-  }, {});
+const EYEBROW = "text-[12px] font-bold uppercase tracking-[0.06em]";
+
+/** A playbook track's name comes from the reader's playbooks, so only this
+    needs the playbook context; the other tracks name themselves. */
+function PlaybookTrackName({ track }: { track: DrillTrack }) {
+  const { playbooks } = usePlaybooks();
+  return <>{trackName(track, playbooks)}</>;
+}
+
+/** The main action: a floating bar in thumb reach on phones, in the page
+    flow from tablet width up, where there is no tab bar to sit above. */
+function Dock({ children }: { children: ReactNode }) {
+  const wide = useMediaQuery("(min-width: 768px)");
+  return wide ? (
+    <div className="flex gap-2.5">{children}</div>
+  ) : (
+    <DockBar>{children}</DockBar>
+  );
+}
+
+/** A drill nobody has touched: still on the default track at its start. */
+function isUntouched(state: DrillState): boolean {
+  return (
+    state.track.kind === "everything" &&
+    state.lastCompletionDate === null &&
+    state.cardIndex === 0 &&
+    state.dayIndex === 0 &&
+    state.rounds === 0
+  );
+}
 
 export default function Drill() {
-  const [, setLocation] = useLocation();
+  const [, navigate] = useLocation();
   const [state, setState] = useState<DrillState>(() => loadDrillState());
-  const [dueCount, setDueCount] = useState(() => getDueCardsCount());
-  const [activeCard, setActiveCard] = useState<{
-    cardId: string;
-    data: CardData | null;
-  } | null>(null);
-  const [nextCard, setNextCard] = useState<{
+  const [srsMap, setSrsMap] = useState(() => loadSRSMap());
+  const [card, setCard] = useState<{
     cardId: string;
     data: CardData | null;
   } | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
   // Bumped by the Retry button to re-run the card load after a failure.
   const [loadAttempt, setLoadAttempt] = useState(0);
+  const [trackSheet, setTrackSheet] = useState<"closed" | "open" | "suggest">(
+    "closed",
+  );
+  const [reviewId, setReviewId] = useState<string | null>(null);
+  const [announcement, setAnnouncement] = useState("");
+
+  // The task the drill points at: today's until it is finished, then
+  // tomorrow's.
+  const currentId = drillCardId(state, state.cardIndex);
+  const currentKey = draftKey(currentId, state.dayIndex);
+  const [storedDraft, setStoredDraft] = useState<DrillDraft>(() =>
+    loadDraft(currentKey),
+  );
+  const draft =
+    storedDraft.key === currentKey ? storedDraft : emptyDraft(currentKey);
+  const updateDraft = (patch: Partial<DrillDraft>) => {
+    const next = { ...draft, ...patch };
+    setStoredDraft(next);
+    saveDraft(next);
+  };
 
   // Another tab completed a drill or rated a card: pick up its progress so
-  // completing here doesn't overwrite it with a stale in-memory copy.
+  // finishing here doesn't overwrite it with a stale in-memory copy.
   useStorageSync([DRILL_STORAGE_KEY, SRS_STORAGE_KEY], () => {
     setState(loadDrillState());
-    setDueCount(getDueCardsCount());
+    setSrsMap(loadSRSMap());
   });
 
-  const done = isCompletedToday(state);
-  const completionRef = useRef<HTMLDivElement>(null);
-  const wasDoneRef = useRef(done);
+  const completedToday = isCompletedToday(state);
+  // Finished for today, unless the reader chose to do tomorrow's task early.
+  const done = completedToday && !draft.ahead;
+  const undo = useMemo(() => (done ? loadUndo(state) : null), [done, state]);
 
+  const completionRef = useRef<HTMLDivElement>(null);
+  const taskHeadingRef = useRef<HTMLHeadingElement>(null);
+  const wasDoneRef = useRef(done);
   useEffect(() => {
-    if (done && !wasDoneRef.current) {
-      requestAnimationFrame(() => completionRef.current?.focus());
+    if (done !== wasDoneRef.current) {
+      // Finishing announces the result; Undo and "do tomorrow's task now"
+      // land on the task they reopened.
+      const target = done ? completionRef : taskHeadingRef;
+      requestAnimationFrame(() => target.current?.focus());
     }
     wasDoneRef.current = done;
   }, [done]);
-  const streakActive = isStreakActive(state);
-
-  const activeCardIndex =
-    done && state.prevCardIndex >= 0 ? state.prevCardIndex : state.cardIndex;
-  const activeDayIndex =
-    done && state.prevDayIndex >= 0 ? state.prevDayIndex : state.dayIndex;
-
-  const cardId = drillCardId(state, activeCardIndex);
-  const cardData = activeCard?.cardId === cardId ? activeCard.data : null;
-  const drillEntry = cardData?.drill[activeDayIndex];
-  const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
-
-  const nextCardId = drillCardId(state, state.cardIndex);
-  const nextCardTitle = CARD_TITLE_MAP[nextCardId] ?? nextCardId;
-  const nextDrillEntry =
-    nextCard?.cardId === nextCardId
-      ? nextCard.data?.drill[state.dayIndex]
-      : undefined;
 
   // A new card starts a fresh load: clear any earlier failure during render.
-  const [prevCardId, setPrevCardId] = useState(cardId);
-  if (cardId !== prevCardId) {
-    setPrevCardId(cardId);
+  const [prevCardId, setPrevCardId] = useState(currentId);
+  if (currentId !== prevCardId) {
+    setPrevCardId(currentId);
     setLoadFailed(false);
   }
 
   useEffect(() => {
     let active = true;
-    loadCard(cardId).then(
+    loadCard(currentId).then(
       (data) => {
         if (!active) return;
-        setActiveCard({ cardId, data });
+        setCard({ cardId: currentId, data });
         if (!data) setLoadFailed(true);
       },
       () => {
@@ -110,32 +173,81 @@ export default function Drill() {
     return () => {
       active = false;
     };
-  }, [cardId, loadAttempt]);
+  }, [currentId, loadAttempt]);
 
-  useEffect(() => {
-    if (!done) return;
-    let active = true;
-    loadCard(nextCardId).then(
-      (data) => {
-        if (active) setNextCard({ cardId: nextCardId, data });
-      },
-      () => {
-        if (active) setNextCard({ cardId: nextCardId, data: null });
-      },
+  const cardData = card?.cardId === currentId ? card.data : null;
+  const taskEntry = cardData
+    ? (cardData.drill[drillTaskIndex(state.pace, state.dayIndex)] ??
+      cardData.drill[cardData.drill.length - 1])
+    : undefined;
+
+  const cardCount = trackCardIds(state).length;
+  const hasPrev = state.prevCardIndex >= 0;
+  const prevId = hasPrev ? drillCardId(state, state.prevCardIndex) : null;
+  // The card on screen: the one just finished, or the one being drilled.
+  const shownIndex = done && hasPrev ? state.prevCardIndex : state.cardIndex;
+
+  // Reviews that have come round. Today's own technique is left out while
+  // it is being drilled: finishing the drill rates it anyway.
+  const due = useMemo(
+    () =>
+      getDueCardIds(srsMap)
+        .filter((id) => done || id !== currentId)
+        .map((id) => srsMap[id]),
+    [srsMap, done, currentId],
+  );
+
+  const finish = () => {
+    if (!draft.rating) return;
+    const srsBefore = srsMap[currentId] ?? null;
+    updateSRS(currentId, draft.rating);
+    const next = completeDrill(state);
+    saveDrillState(next);
+    saveUndo({
+      before: state,
+      after: next,
+      cardId: currentId,
+      srsBefore,
+      rating: draft.rating,
+      ahead: completedToday,
+    });
+    clearDraft();
+    setStoredDraft(emptyDraft(""));
+    setState(next);
+    setSrsMap(loadSRSMap());
+  };
+
+  const handleUndo = () => {
+    if (!undo) return;
+    const before = undoDrill(undo);
+    setState(before);
+    setSrsMap(loadSRSMap());
+    setStoredDraft(loadDraft(draftKey(undo.cardId, before.dayIndex)));
+    setAnnouncement("Undone. The task is open again.");
+  };
+
+  const applyTrack = (track: DrillTrack, pace: DrillPace) => {
+    let next = state;
+    if (!sameTrack(track, state.track)) next = setDrillTrack(next, track);
+    if (pace !== next.pace) next = setDrillPace(next, pace);
+    if (next !== state) {
+      saveDrillState(next);
+      // A finish on the old track can't be undone onto the new one.
+      clearUndo();
+      clearDraft();
+      setStoredDraft(emptyDraft(""));
+      setState(next);
+    }
+    setTrackSheet("closed");
+  };
+
+  const rateReview = (cardId: string, rating: Rating) => {
+    const updated = updateSRS(cardId, rating);
+    setSrsMap(loadSRSMap());
+    setReviewId(null);
+    setAnnouncement(
+      `${drillCardTitle(cardId)} ${gapClause(updated.interval)}.`,
     );
-    return () => {
-      active = false;
-    };
-  }, [done, nextCardId]);
-
-  const dayNum = activeDayIndex + 1;
-
-  const handleComplete = (rating: "hard" | "good" | "easy" = "good") => {
-    updateSRS(cardId, rating);
-    const newState = completeDrill(state);
-    saveDrillState(newState);
-    setState(newState);
-    setDueCount(getDueCardsCount());
   };
 
   const retryLoad = () => {
@@ -143,361 +255,307 @@ export default function Drill() {
     setLoadAttempt((n) => n + 1);
   };
 
-  if (!cardData) {
-    return (
-      <div className="flex flex-col items-center justify-center gap-4 min-h-[60vh] px-8 text-center">
-        <h1 className="sr-only">Daily Drill</h1>
-        <div role="status" aria-live="polite" aria-busy={!loadFailed}>
-          {loadFailed
-            ? "Drill content is unavailable right now."
-            : "Loading drill…"}
-        </div>
-        {loadFailed && (
+  const header = (
+    <header className="flex items-end justify-between gap-3">
+      <div className="min-w-0 flex flex-col gap-1">
+        <p
+          className={EYEBROW}
+          style={{ color: "var(--fg-60)" }}
+          data-testid="drill-track-label"
+        >
+          {state.track.kind === "playbook" ? (
+            <PlaybookTrackName track={state.track} />
+          ) : (
+            trackName(state.track)
+          )}{" "}
+          · {shownIndex + 1} of {cardCount}
+        </p>
+        <h1
+          className="sr-only md:not-sr-only md:text-[32px] md:leading-[1.1] md:font-extrabold md:tracking-[-0.02em]"
+          style={{ color: "var(--fg-90)" }}
+        >
+          Daily Drill
+        </h1>
+      </div>
+      <Chip
+        aria-pressed={undefined}
+        aria-haspopup="dialog"
+        onClick={() => setTrackSheet("open")}
+        data-testid="drill-change-track"
+      >
+        Change track
+      </Chip>
+    </header>
+  );
+
+  const sheets = (
+    <>
+      {trackSheet !== "closed" && (
+        <DrillTrackSheet
+          state={state}
+          dueCount={due.length}
+          suggestCore={trackSheet === "suggest"}
+          onApply={applyTrack}
+          onClose={() => setTrackSheet("closed")}
+        />
+      )}
+      {reviewId && (
+        <DrillReviewSheet
+          cardId={reviewId}
+          srs={srsMap[reviewId]}
+          onRate={rateReview}
+          onOpenCard={(id) => navigate(`/card/${id}`)}
+          onClose={() => setReviewId(null)}
+        />
+      )}
+      {/* Says what a review or an undo just did; the sheets and buttons
+          that caused it are gone by then. */}
+      <p aria-live="polite" className="sr-only" data-testid="drill-announce">
+        {announcement}
+      </p>
+    </>
+  );
+
+  const page =
+    "flex flex-col w-full max-w-2xl mx-auto px-4 md:px-6 pt-3 md:pt-6 pb-24 md:pb-10 gap-4";
+
+  if (done) {
+    const week = weekStrip(state);
+    const nextTitle = drillCardTitle(currentId);
+    const nextIsNewCard = state.dayIndex === 0;
+    // Day zero with a card behind it means that card's last day was just
+    // finished. Back at the first card from the last one, so was the track.
+    const finishedCard = hasPrev && nextIsNewCard;
+    const finishedTrack =
+      finishedCard &&
+      state.cardIndex === 0 &&
+      state.prevCardIndex === cardCount - 1;
+    const prevTitle = prevId ? drillCardTitle(prevId) : "";
+
+    let milestone: ReactNode;
+    if (finishedTrack) {
+      milestone = (
+        <>
+          That is the whole track. It starts again tomorrow, or you can{" "}
           <button
             type="button"
-            onClick={retryLoad}
-            className="min-h-[44px] px-4 rounded-xl text-[13px] font-bold transition-all active:scale-95"
-            style={{
-              background:
-                "linear-gradient(135deg, var(--brand), var(--brand-bright))",
-              color: "var(--brand-contrast)",
-            }}
+            className="font-semibold underline"
+            style={{ color: "var(--brand-text)" }}
+            onClick={() => setTrackSheet("open")}
           >
-            Retry
+            pick a new one
           </button>
-        )}
+          .
+        </>
+      );
+    } else if (finishedCard && state.pace > 1) {
+      milestone = `You have finished ${prevTitle}. It will come back for review. Next up: ${nextTitle}.`;
+    }
+
+    return (
+      <div className={page}>
+        {header}
+        <DrillDone
+          statusRef={completionRef}
+          title={
+            hasPrev && state.pace > 1
+              ? `Day ${state.prevDayIndex + 1} done`
+              : "Done for today"
+          }
+          detail={
+            prevId
+              ? `${prevTitle}${undo ? ` · rated ${RATING_LABELS[undo.rating]}` : ""}`
+              : undefined
+          }
+          onUndo={undo ? handleUndo : undefined}
+          streak={state.streak}
+          week={week}
+          milestone={milestone}
+          next={
+            nextIsNewCard
+              ? { meta: "Tomorrow · Next technique", title: nextTitle }
+              : {
+                  meta: `Tomorrow · Day ${state.dayIndex + 1} of ${state.pace}`,
+                  title: taskEntry?.title ?? nextTitle,
+                }
+          }
+        >
+          <DrillReviews due={due} onOpen={setReviewId} />
+        </DrillDone>
+        <Dock>
+          <Button
+            className="flex-1"
+            style={{
+              background: "var(--surface-dd)",
+              border: "1px solid var(--fg-15)",
+              boxShadow: "var(--shadow-dock)",
+            }}
+            onClick={() => updateDraft({ ahead: true })}
+            data-testid="drill-do-next"
+          >
+            Do tomorrow's task now
+          </Button>
+        </Dock>
+        {sheets}
       </div>
     );
   }
 
-  return (
-    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-4 md:pt-6 pb-10 gap-5">
-      {/* ── Page header ── */}
-      <PageIntro
-        title="Daily Drill"
-        description="One technique a day, seven short practice tasks each. Rate how it went to set when it comes back."
-      />
-
-      {/* ── Streak + overall progress row ── */}
-      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        <div className="flex items-center gap-2">
-          <Flame
-            className="w-5 h-5"
-            style={{
-              color:
-                streakActive && state.streak > 0
-                  ? "var(--brand-text)"
-                  : "var(--fg-22)",
-            }}
-            aria-hidden="true"
-          />
-          <span
-            className="text-[13px] font-bold"
-            style={{
-              color:
-                streakActive && state.streak > 0
-                  ? "var(--brand-text)"
-                  : "var(--fg-55)",
-            }}
+  if (!cardData || !taskEntry) {
+    return (
+      <div className={page}>
+        {header}
+        <div className="flex flex-col items-center justify-center gap-4 min-h-[50vh] px-4 text-center">
+          <div
+            role="status"
+            aria-live="polite"
+            aria-busy={!loadFailed}
+            style={{ color: "var(--fg-70)" }}
           >
-            {streakActive && state.streak > 0
-              ? `${state.streak} day streak`
-              : "Start your streak"}
-          </span>
-          {/* A week of dots makes the streak something to see and extend */}
-          <span className="flex items-center gap-1 ml-1" aria-hidden="true">
-            {Array.from({ length: 7 }, (_, i) => (
-              <span
-                key={i}
-                className="w-1.5 h-1.5 rounded-full"
-                style={{
-                  background:
-                    streakActive && i < Math.min(state.streak, 7)
-                      ? "var(--brand)"
-                      : "var(--fg-15)",
-                }}
-              />
-            ))}
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          {dueCount > 0 && (
-            <span
-              className="text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-0.5"
-              style={{
-                background: "color-mix(in srgb, var(--brand) 14%, transparent)",
-                color: "var(--brand-text)",
-              }}
-            >
-              <Sparkles className="w-3 h-3" aria-hidden="true" /> {dueCount} due
-            </span>
+            {loadFailed
+              ? "Drill content is unavailable right now."
+              : "Loading drill…"}
+          </div>
+          {loadFailed && (
+            <Button variant="primary" size="sm" onClick={retryLoad}>
+              Retry
+            </Button>
           )}
-          <span
-            className="text-[12px] font-medium"
-            style={{ color: "var(--fg-55)" }}
-          >
-            Card {activeCardIndex + 1} of {CARD_IDS.length} · Day {dayNum} of 7
-          </span>
         </div>
+        {sheets}
       </div>
+    );
+  }
 
-      {/* ── Main drill card ── */}
-      <div
-        className="rounded-2xl p-5"
-        style={{
-          background: done
-            ? "color-mix(in srgb, var(--accent-green) 6%, transparent)"
-            : "color-mix(in srgb, var(--brand) 7%, transparent)",
-          border: done
-            ? "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)"
-            : "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
-        }}
-      >
-        {/* Card ID + title row */}
-        <div className="flex items-start justify-between gap-3 mb-4">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span
-                className="text-[12px] font-medium tabular-nums"
-                style={{ color: "var(--fg-55)" }}
-              >
-                {cardId}
-              </span>
-              {done && (
-                <span
-                  className="flex items-center gap-1 text-[11px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full"
-                  style={{
-                    background:
-                      "color-mix(in srgb, var(--accent-green) 12%, transparent)",
-                    color: "var(--accent-green)",
-                  }}
-                >
-                  <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
-                  Done
-                </span>
-              )}
-            </div>
-            <p
-              className="text-[15px] font-bold leading-snug"
+  const category = categoryStyleFor(DRILL_CARD_META[currentId]?.category ?? "");
+  const dayLabel =
+    state.pace === 1 ? "One day" : `Day ${state.dayIndex + 1} of ${state.pace}`;
+  const everything = durationLabel(trackDays(state.track, state.pace));
+  const core = durationLabel(trackDays({ kind: "core" }, 3));
+
+  return (
+    <div className={page}>
+      {header}
+
+      {isUntouched(state) && (
+        <button
+          type="button"
+          onClick={() => setTrackSheet("suggest")}
+          data-testid="drill-track-hint"
+          className="rounded-[20px] px-4 py-[13px] min-h-14 flex items-center gap-3 text-left transition-colors hover:bg-[var(--surface-card-hover)]"
+          style={{
+            background: "color-mix(in srgb, var(--brand) 8%, transparent)",
+            border:
+              "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+          }}
+        >
+          <span className="flex-1 min-w-0 flex flex-col gap-0.5">
+            <span
+              className="text-[17px] leading-[1.3] font-semibold"
               style={{ color: "var(--fg-90)" }}
             >
-              {cardTitle}
-            </p>
-          </div>
-        </div>
-
-        {/* Day progress dots */}
-        <div className="flex gap-1.5 mb-4" aria-label={`Day ${dayNum} of 7`}>
-          {Array.from({ length: 7 }).map((_, i) => {
-            const isPast = i < activeDayIndex || (done && i === activeDayIndex);
-            const isCurrent = i === activeDayIndex && !done;
-            return (
-              <div
-                key={i}
-                className="flex-1 h-1.5 rounded-full transition-all duration-300"
-                style={{
-                  background: isPast
-                    ? "var(--accent-green)"
-                    : isCurrent
-                      ? "var(--brand)"
-                      : "var(--fg-08)",
-                }}
-                aria-hidden="true"
-              />
-            );
-          })}
-        </div>
-
-        {/* Drill entry title + task */}
-        {drillEntry && (
-          <>
-            <p
-              className="text-[11px] font-semibold tracking-wide uppercase mb-2"
-              style={{ color: "var(--fg-55)" }}
+              Pick a track that fits
+            </span>
+            <span
+              className="text-[13px] leading-[1.4]"
+              style={{ color: "var(--fg-70)" }}
             >
-              {drillEntry.day} · {drillEntry.title}
-            </p>
-            <p
-              className="text-[15px] leading-relaxed font-medium"
-              style={{ color: "var(--fg-82)" }}
-            >
-              {drillEntry.task}
-            </p>
-            {!done && cardData.overview.minimumViableMove && (
-              <DrillRecall
-                key={`${cardId}-${activeDayIndex}`}
-                move={cardData.overview.minimumViableMove}
-              />
-            )}
-          </>
-        )}
-      </div>
-
-      {/* ── CTA or Done state ── */}
-      {done ? (
-        <div
-          ref={completionRef}
-          role="status"
-          aria-live="polite"
-          tabIndex={-1}
-          className="rounded-2xl p-4 flex items-center gap-3"
-          style={{
-            background:
-              "color-mix(in srgb, var(--accent-green) 6%, transparent)",
-            border:
-              "1px solid color-mix(in srgb, var(--accent-green) 13%, transparent)",
-          }}
-        >
-          <CheckCircle2
-            className="w-5 h-5 flex-shrink-0"
-            style={{ color: "var(--accent-green)" }}
+              Everything takes {everything.about ? "about " : ""}
+              {everything.text} at a week each. {CORE_TRACK_NAME} takes{" "}
+              {core.about ? "about " : ""}
+              {core.text}.
+            </span>
+          </span>
+          <ChevronRight
+            className="w-5 h-5 flex-none"
+            style={{ color: "var(--fg-60)" }}
             aria-hidden="true"
           />
-          <div className="flex-1 min-w-0">
-            <p
-              className="text-[13px] font-semibold"
-              style={{ color: "var(--accent-green)" }}
-            >
-              Great work. Come back tomorrow
-            </p>
-            {nextDrillEntry && (
-              <p
-                className="text-[12px] mt-0.5 truncate"
-                style={{ color: "var(--fg-55)" }}
-              >
-                Next: {nextCardId} · {nextDrillEntry.day} ·{" "}
-                {nextDrillEntry.title}
-              </p>
-            )}
-          </div>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-2.5">
-          <p
-            className="text-[12px] font-semibold text-center"
-            style={{ color: "var(--fg-55)" }}
-          >
-            How confident do you feel with this technique?
-          </p>
-          {/* One neutral control: the labels carry the meaning, so the
-            three choices don't need three extra accent colours. */}
-          <div className="grid grid-cols-3 gap-2">
-            {(
-              [
-                ["hard", "Hard", "Review soon", "Hard: review soon"],
-                ["good", "Good", "Review later", "Good: review later"],
-                ["easy", "Easy", "Much later", "Easy: review much later"],
-              ] as const
-            ).map(([rating, label, hint, aria]) => (
-              <button
-                key={rating}
-                onClick={() => handleComplete(rating)}
-                aria-label={aria}
-                className="py-3 px-2 rounded-xl text-[13px] font-bold transition-all border text-center active:scale-[0.98] border-[var(--fg-10)] bg-[var(--fg-03)] hover:border-[color-mix(in_srgb,var(--brand)_40%,transparent)] hover:bg-[color-mix(in_srgb,var(--brand)_8%,transparent)]"
-                style={{ color: "var(--fg-85)" }}
-              >
-                <span className="block">{label}</span>
-                <span
-                  className="block text-[11px] font-medium mt-0.5"
-                  style={{ color: "var(--fg-55)" }}
-                >
-                  {hint}
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
+        </button>
       )}
 
-      {/* ── View full card link ── */}
-      <button
-        onClick={() => setLocation(`/card/${cardId}`)}
-        data-testid="drill-view-card"
-        className="w-full flex items-center justify-between px-4 py-3.5 rounded-2xl transition-all duration-150 text-left"
-        style={{
-          background: "var(--fg-03)",
-          border: "1px solid var(--fg-07)",
-        }}
-      >
-        <div>
-          <p
-            className="text-[13px] font-semibold"
-            style={{ color: "var(--fg-75)" }}
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center justify-between gap-3">
+          <h2
+            ref={taskHeadingRef}
+            tabIndex={-1}
+            className="min-w-0 flex items-center gap-2 text-[17px] leading-[1.3] font-semibold outline-none"
+            style={{ color: "var(--fg-90)" }}
           >
-            View full card
-          </p>
-          <p className="text-[12px] mt-0.5" style={{ color: "var(--fg-55)" }}>
-            Phrases, decision tree, scenarios and more
-          </p>
-        </div>
-        <ChevronRight
-          className="w-4 h-4 flex-shrink-0"
-          style={{ color: "var(--fg-45)" }}
-          aria-hidden="true"
-        />
-      </button>
-
-      {/* ── After completing full card cycle hint ── */}
-      {done && state.prevCardIndex >= 0 && state.prevDayIndex === 6 && (
-        <div
-          className="flex items-center gap-3 rounded-2xl px-4 py-3"
-          style={{
-            background: "color-mix(in srgb, var(--brand) 6%, transparent)",
-            border:
-              "1px solid color-mix(in srgb, var(--brand) 13%, transparent)",
-          }}
-        >
-          <ArrowRight
-            className="w-4 h-4 flex-shrink-0"
-            style={{ color: "var(--brand-text)" }}
-            aria-hidden="true"
-          />
-          <p
-            className="text-[12px] font-medium"
-            style={{ color: "var(--fg-50)" }}
-          >
-            You finished all 7 days on{" "}
-            <span style={{ color: "var(--brand-text)" }}>{cardTitle}</span>.
-            Tomorrow starts{" "}
-            <span style={{ color: "var(--brand-text)" }}>{nextCardTitle}</span>.
-          </p>
-        </div>
-      )}
-
-      {/* ── Quick tip ── */}
-      {!done && (
-        <div
-          className="rounded-2xl px-4 py-3"
-          style={{
-            background: "var(--fg-02)",
-            border: "1px solid var(--fg-05)",
-          }}
-        >
-          <div className="flex items-center gap-2 mb-1">
-            <Dumbbell
-              className="w-3.5 h-3.5"
-              style={{
-                color: "color-mix(in srgb, var(--brand-text) 50%, transparent)",
-              }}
+            <span
               aria-hidden="true"
+              className="w-2 h-2 rounded-full flex-none"
+              style={{ background: category.color }}
             />
-            <p
-              className="text-[11px] font-semibold tracking-wide uppercase"
-              style={{ color: "var(--fg-55)" }}
-            >
-              How it works
-            </p>
-          </div>
-          <p
-            className="text-[12px] leading-relaxed"
+            <span className="truncate">{drillCardTitle(currentId)}</span>
+          </h2>
+          <span
+            className="text-[13px] whitespace-nowrap"
             style={{ color: "var(--fg-60)" }}
           >
-            Each card has a 7-day practice plan. Complete today's task, then
-            come back tomorrow for the next one, working through all{" "}
-            {CARD_IDS.length} cards.
-          </p>
+            {dayLabel}
+          </span>
         </div>
-      )}
+        <div className="flex gap-[5px]" aria-hidden="true">
+          {Array.from({ length: state.pace }, (_, i) => (
+            <span
+              key={i}
+              className="flex-1 h-1.5 rounded-full"
+              style={{
+                background:
+                  i <= state.dayIndex ? "var(--brand)" : "var(--fg-10)",
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <DrillTaskCard
+        move={cardData.overview.minimumViableMove}
+        taskTitle={taskEntry.title}
+        task={taskEntry.task}
+        recallShown={draft.recallShown}
+        onShowRecall={() => updateDraft({ recallShown: true })}
+        note={draft.note}
+        onNoteChange={(note) => updateDraft({ note })}
+      />
+
+      <Button
+        variant="quiet"
+        size="sm"
+        className="self-start px-1 -my-1.5"
+        onClick={() => navigate(`/card/${currentId}`)}
+        data-testid="drill-view-card"
+      >
+        Open the full technique
+        <ChevronRight className="w-4 h-4" aria-hidden="true" />
+      </Button>
+
+      <DrillRating
+        value={draft.rating}
+        onChange={(rating) => updateDraft({ rating })}
+        gaps={previewGaps(currentId, srsMap[currentId])}
+      />
+
+      <DrillReviews due={due} onOpen={setReviewId} />
+
+      <Dock>
+        <Button
+          variant="primary"
+          className="flex-1"
+          style={{ boxShadow: "var(--shadow-dock)" }}
+          disabled={!draft.rating}
+          onClick={finish}
+          data-testid="drill-finish"
+        >
+          {draft.rating
+            ? completedToday
+              ? "Finish this task"
+              : "Finish today's drill"
+            : "Rate it to finish"}
+        </Button>
+      </Dock>
+      {sheets}
     </div>
   );
 }

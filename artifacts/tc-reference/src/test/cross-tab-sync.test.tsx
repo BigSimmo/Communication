@@ -123,7 +123,7 @@ describe("cross-tab drill progress", () => {
   it("shows a drill completed in another tab instead of offering it again", async () => {
     render(<Drill />);
     expect(
-      await screen.findByRole("button", { name: /good/i }),
+      await screen.findByRole("button", { name: /^Getting there/ }),
     ).toBeInTheDocument();
 
     const before = loadDrillState();
@@ -137,7 +137,8 @@ describe("cross-tab drill progress", () => {
     };
     writeFromOtherTab("tc_drill_state", JSON.stringify(completed));
 
-    expect(screen.queryByRole("button", { name: /good/i })).toBeNull();
+    expect(screen.queryByRole("button", { name: /^Getting there/ })).toBeNull();
+    expect(screen.getByRole("status")).toHaveTextContent("Day 1 done");
     expect(loadDrillState()).toEqual(completed);
   });
 });
