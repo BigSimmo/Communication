@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { recordRecentCard } from "@/lib/recent-cards";
+import { markStartCardOpened } from "@/lib/start-path";
 import { useRoute, useLocation } from "wouter";
 import { copyToClipboard } from "@/lib/utils";
 import { loadCard } from "@/lib/card-loader";
@@ -65,7 +66,9 @@ export default function CardDetail() {
   // Remember successfully opened cards for the Library's "Pick up where you
   // left off" strip.
   useEffect(() => {
-    if (cardData) recordRecentCard(cardId);
+    if (!cardData) return;
+    recordRecentCard(cardId);
+    markStartCardOpened(cardId);
   }, [cardData, cardId]);
 
   const [expandedPhraseGroup, setExpandedPhraseGroup] = useState<string | null>(
