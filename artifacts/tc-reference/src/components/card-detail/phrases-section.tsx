@@ -161,7 +161,7 @@ export function PhrasesSection({
                         }}
                       >
                         <p
-                          className="text-[13px] leading-snug pr-3 flex-1"
+                          className="phrase-text text-[13px] leading-snug pr-3 flex-1"
                           style={{
                             color:
                               copiedPhrase === phrase

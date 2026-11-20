@@ -497,7 +497,7 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav }: PhraseRowProps) {
         className="flex-1 min-w-0 text-left py-3 flex flex-col gap-0.5"
       >
         <span
-          className="text-[16px] leading-[1.4] font-medium"
+          className="phrase-text text-[16px] leading-[1.4] font-medium"
           style={{ color: copied ? "var(--brand-text)" : "var(--fg-90)" }}
         >
           {phrase.text}

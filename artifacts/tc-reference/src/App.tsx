@@ -20,6 +20,7 @@ import { PdfProvider } from "@/lib/pdf-context";
 import { AppLayout } from "@/components/app-layout";
 import { AppErrorBoundary } from "@/components/app-error-boundary";
 import { UpdateToast } from "@/components/update-toast";
+import { PreferencesSync } from "@/lib/preferences";
 
 function RouteFallback() {
   return (
@@ -86,6 +87,7 @@ function App() {
                     <RoutedContent />
                   </AppLayout>
                   <UpdateToast />
+                  <PreferencesSync />
                 </WouterRouter>
               </PdfProvider>
             </PlaybookProvider>

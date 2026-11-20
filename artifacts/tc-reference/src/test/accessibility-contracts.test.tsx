@@ -127,7 +127,7 @@ describe("core accessibility contracts", () => {
   it.each([
     ["/", "Library"],
     ["/drill", "Daily Drill"],
-    ["/favourites", "Favourites"],
+    ["/favourites", "Saved"],
     ["/phrases", "Phrase Bank"],
     ["/playbooks", "Playbooks"],
     ["/card/TC001", "Live thread follow-ups"],
