@@ -1,0 +1,204 @@
+/* Display preferences (Settings sheet) and print layouts. Imported from
+   index.css; kept outside @layer so these rules outrank Tailwind utilities. */
+
+/* Larger phrase text: anything that shows a sayable line carries
+   .phrase-text, and grows when the setting is on. */
+:root[data-large-phrases] .phrase-text {
+  font-size: 1.1875rem !important;
+  line-height: 1.4 !important;
+}
+
+/* The one-phrase card the share sheet prints. Never shown on screen. */
+.print-target {
+  display: none;
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* App chrome, floating bars, sheets and anything marked to skip */
+  .app-header,
+  .tab-bar,
+  body aside,
+  [data-print-hide],
+  [role="dialog"],
+  [role="status"]:empty {
+    display: none !important;
+  }
+
+  .app-main {
+    padding: 0 !important;
+  }
+  /* The desktop sidebar is hidden, so the page takes the full width */
+  .md\:pl-\[200px\] {
+    padding-left: 0 !important;
+  }
+
+  /* Sticky bars would repeat or overlap on every page */
+  .sticky,
+  .sticky-under-header {
+    position: static !important;
+  }
+
+  /* Icon-only buttons (save, copy, remove) mean nothing on paper */
+  button:has(> svg:only-child) {
+    display: none !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* Keep rows, cards and sections whole across page breaks */
+  li,
+  section,
+  [data-print-keep] {
+    break-inside: avoid;
+  }
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  /* A card prints every tab, not just the one open on screen */
+  [role="tabpanel"][hidden] {
+    display: block !important;
+  }
+  [role="tablist"] {
+    display: none !important;
+  }
+
+  /* While the share sheet is open, print only its phrase card */
+  body:has(> .print-target) > :not(.print-target) {
+    display: none !important;
+  }
+  body > .print-target {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10mm;
+    min-height: 60vh;
+    padding: 0 6mm;
+    color: #0f172a;
+    font-family: var(--app-font-sans);
+  }
+  .print-phrase-source {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #475569;
+  }
+  .print-phrase-text {
+    font-family: var(--app-font-serif);
+    font-size: 28pt;
+    line-height: 1.25;
+  }
+  .print-phrase-hint,
+  .print-phrase-link {
+    font-size: 11pt;
+    color: #475569;
+    word-break: break-all;
+  }
+}
+
+/* Settings sheet building blocks */
+.settings-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-60);
+  padding: 0 4px;
+}
+.settings-card {
+  border-radius: 16px;
+  background: var(--fg-05);
+  border: 1px solid var(--fg-08);
+  overflow: hidden;
+}
+.settings-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 16px;
+}
+.settings-card > * + * {
+  border-top: 1px solid var(--fg-07);
+}
+.settings-row-title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--fg-90);
+}
+.settings-row-meta {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--fg-70);
+}
+/* iOS-style switch on a native checkbox, so it stays a real form control */
+.settings-switch {
+  appearance: none;
+  flex: none;
+  position: relative;
+  width: 51px;
+  height: 31px;
+  border-radius: 999px;
+  background: var(--fg-30);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.settings-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+.settings-switch:checked {
+  background: var(--brand);
+}
+.settings-switch:checked::after {
+  transform: translateX(20px);
+}
+.settings-switch:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .settings-switch,
+  .settings-switch::after {
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  .settings-switch {
+    border: 1px solid CanvasText;
+  }
+  .settings-switch:checked::after {
+    background: Highlight;
+  }
+}

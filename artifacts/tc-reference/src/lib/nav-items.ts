@@ -64,7 +64,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/": "Library",
   "/playbooks": "Playbooks",
   "/phrases": "Phrase Bank",
-  "/favourites": "Favourites",
+  "/favourites": "Saved",
   "/drill": "Daily Drill",
 };
 
