@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { CloudDownload, CircleCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   OfflineCardsBuildMismatch,
   offlineCardsStatus,
@@ -10,9 +11,6 @@ import {
 } from "@/lib/offline-cards";
 
 type Phase = "idle" | "saving" | "done" | "error" | "outdated";
-
-const buttonClass =
-  "inline-flex items-center justify-center gap-2 text-[13px] font-semibold px-5 min-h-11 rounded-full transition-all active:scale-95 disabled:opacity-60 disabled:active:scale-100";
 
 /** Lets the user save every card for offline use on this device. */
 export function OfflineCardsSection() {
@@ -82,26 +80,18 @@ export function OfflineCardsSection() {
       "Cards you've opened already work offline. Save the rest (about 4 MB) to use any card without a connection. PDFs and other downloads still save when you open them.";
   }
 
+  // Sits inside the Settings sheet's "This device" card, as one row.
   return (
     <section
       aria-labelledby="offline-cards-heading"
-      className="rounded-2xl p-5 mb-4"
-      style={{
-        background: "var(--fg-02)",
-        border: "1px solid var(--fg-06)",
-      }}
+      className="flex flex-col gap-2 px-4 py-3"
       data-testid="offline-cards-section"
     >
-      <h2
-        id="offline-cards-heading"
-        className="text-[11px] font-semibold tracking-[0.08em] uppercase mb-2"
-        style={{ color: "var(--fg-55)" }}
-      >
+      <h4 id="offline-cards-heading" className="settings-row-title">
         Offline cards
-      </h2>
+      </h4>
       <p
-        className="text-[13px] leading-relaxed mb-4"
-        style={{ color: "var(--fg-55)" }}
+        className="settings-row-meta"
         role="status"
         aria-live="polite"
         data-testid="offline-cards-message"
@@ -109,17 +99,11 @@ export function OfflineCardsSection() {
         {message}
       </p>
       {supported && phase !== "outdated" && (
-        <button
-          type="button"
+        <Button
+          size="sm"
           onClick={handleSave}
           disabled={phase === "saving" || (allSaved && phase !== "error")}
-          className={buttonClass}
-          style={{
-            background: "color-mix(in srgb, var(--brand) 12%, transparent)",
-            border:
-              "1px solid color-mix(in srgb, var(--brand) 25%, transparent)",
-            color: "var(--brand-text)",
-          }}
+          className="self-start"
           data-testid="offline-cards-save"
         >
           {allSaved && phase !== "error" ? (
@@ -132,7 +116,7 @@ export function OfflineCardsSection() {
             : phase === "error"
               ? "Try again"
               : "Save all cards for offline"}
-        </button>
+        </Button>
       )}
     </section>
   );

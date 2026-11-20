@@ -1,60 +1,82 @@
-import { Moon, Sun } from "lucide-react";
+import { useId } from "react";
 import { useTheme } from "@/lib/theme";
+import type { ThemeChoice } from "@/lib/theme";
+import { usePreferences } from "@/lib/preferences";
 
-const OPTIONS = [
-  { value: "light", label: "Light", Icon: Sun },
-  { value: "dark", label: "Dark", Icon: Moon },
-] as const;
+const OPTIONS: { value: ThemeChoice; label: string }[] = [
+  { value: "system", label: "System" },
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+];
 
-// Phones keep the header light, so the theme lives here with the other
-// device settings. Desktop still has the header toggle.
+/** Theme (System, Light, Dark) and the larger phrase text switch. */
 export function AppearanceSection() {
-  const { theme, toggle } = useTheme();
+  const { choice, setChoice } = useTheme();
+  const { prefs, update } = usePreferences();
+  const switchId = useId();
+
   return (
     <section
       aria-labelledby="appearance-heading"
-      className="mt-8 px-1"
+      className="flex flex-col gap-2"
       data-testid="appearance-section"
     >
-      <h2
-        id="appearance-heading"
-        className="text-[11px] font-bold tracking-[0.08em] uppercase mb-2.5"
-        style={{ color: "var(--fg-55)" }}
-      >
+      <h3 id="appearance-heading" className="settings-eyebrow">
         Appearance
-      </h2>
+      </h3>
       <div
-        role="group"
+        role="radiogroup"
         aria-label="Theme"
-        className="grid grid-cols-2 gap-1 p-1 rounded-2xl"
-        style={{
-          background: "var(--fg-04)",
-          border: "1px solid var(--fg-07)",
-        }}
+        className="grid grid-cols-3 gap-0 rounded-[14px] p-[3px]"
+        style={{ background: "var(--fg-08)" }}
       >
-        {OPTIONS.map(({ value, label, Icon }) => {
-          const active = theme === value;
+        {OPTIONS.map(({ value, label }) => {
+          const active = choice === value;
           return (
             <button
               key={value}
               type="button"
-              aria-pressed={active}
-              onClick={() => {
-                if (!active) toggle();
-              }}
+              role="radio"
+              aria-checked={active}
+              onClick={() => setChoice(value)}
               data-testid={`appearance-${value}`}
-              className="flex items-center justify-center gap-2 min-h-11 rounded-xl text-[13px] font-semibold transition-colors"
-              style={{
-                background: active ? "var(--surface-card)" : "transparent",
-                boxShadow: active ? "var(--shadow-card)" : "none",
-                color: active ? "var(--fg-90)" : "var(--fg-60)",
-              }}
+              className="h-10 rounded-[11px] text-[15px] font-semibold transition-colors"
+              style={
+                active
+                  ? {
+                      background: "var(--surface-dd)",
+                      color: "var(--fg-90)",
+                      boxShadow: "0 1px 4px rgba(0,0,0,0.25)",
+                    }
+                  : { color: "var(--fg-70)" }
+              }
             >
-              <Icon className="w-4 h-4" aria-hidden="true" />
               {label}
             </button>
           );
         })}
+      </div>
+      <div className="settings-card">
+        <div className="settings-row">
+          <label
+            htmlFor={switchId}
+            className="settings-row-title flex-1 min-w-0 flex flex-col gap-0.5 cursor-pointer"
+          >
+            Larger phrase text
+            <span className="settings-row-meta">
+              Easier to read a line at a glance
+            </span>
+          </label>
+          <input
+            id={switchId}
+            type="checkbox"
+            role="switch"
+            className="settings-switch"
+            checked={prefs.largePhrases}
+            onChange={(e) => update({ largePhrases: e.target.checked })}
+            data-testid="setting-large-phrases"
+          />
+        </div>
       </div>
     </section>
   );

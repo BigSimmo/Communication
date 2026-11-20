@@ -15,6 +15,7 @@ const SAMPLE = {
   tc_playbooks: JSON.stringify([{ id: "p1", name: "Mine", steps: [] }]),
   "tc-recent-searches": JSON.stringify(["calm"]),
   tc_theme: "light",
+  tc_preferences: JSON.stringify({ largePhrases: true }),
 };
 
 function seed() {

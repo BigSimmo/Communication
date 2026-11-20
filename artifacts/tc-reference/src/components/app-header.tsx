@@ -39,7 +39,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/help": "Help me right now",
   "/phrases": "Phrase Bank",
   "/drill": "Daily Drill",
-  "/favourites": "Favourites",
+  "/favourites": "Saved",
   "/playbooks": "Playbooks",
   "/start": "Start here",
 };

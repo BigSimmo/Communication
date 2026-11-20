@@ -49,7 +49,7 @@ describe("BackupSection (F-12)", () => {
       .spyOn(HTMLAnchorElement.prototype, "click")
       .mockImplementation(() => {});
     render(<BackupSection />);
-    fireEvent.click(screen.getByRole("button", { name: "Export" }));
+    fireEvent.click(screen.getByRole("button", { name: "Export backup" }));
     expect(click).toHaveBeenCalledTimes(1);
     const blob = createUrl.mock.calls[0][0] as Blob;
     expect(blob.type).toBe("application/json");
