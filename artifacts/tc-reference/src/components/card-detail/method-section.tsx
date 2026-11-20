@@ -1,279 +1,183 @@
-import { Check, Copy } from "lucide-react";
-import type { CardData } from "@/lib/card-types";
-import { SectionAccordion } from "./section-accordion";
+import type { CardData, MethodStep } from "@/lib/card-types";
+import {
+  CardBlock,
+  CopyRow,
+  ExpandingRows,
+  Label,
+  Meta,
+  NumberDisc,
+  Phrase,
+  SayBlock,
+  Surface,
+} from "./card-ui";
+import { CoreFormula } from "./overview-section";
 
 // Field-tip text often already opens with its own label ("Don't open with...",
-// "They say: ..."). Only add the chip label when the text doesn't carry one.
+// "They say: ..."). Only add the label when the text doesn't carry one.
 function labelled(label: string, text: string, carries: RegExp): string {
   return carries.test(text.trim()) ? text : `${label}: ${text}`;
 }
 
-// ── The Method ──
-export function MethodSection({
-  cardData,
-  copiedPhrase,
-  handleCopy,
-}: {
-  cardData: CardData;
-  copiedPhrase: string | null;
-  handleCopy: (phrase: string) => void;
-}) {
+// ── How deep to go ──
+// Each row copies its line; the depth and when to use it sit above it, so
+// nothing is squeezed into a narrow side column on a phone.
+export function DepthDialSection({ cardData }: { cardData: CardData }) {
+  if (!cardData.depthDial || cardData.depthDial.length === 0) return null;
   return (
-    <SectionAccordion
-      id="method"
-      label="The method"
-      subtitle={`${cardData.method?.length ?? 0}-step guide`}
-    >
-      {cardData.fieldTip && (
-        <div
-          className="rounded-2xl p-4 sm:p-5 mb-5"
-          style={{
-            background: "color-mix(in srgb, var(--brand) 8%, transparent)",
-            border:
-              "1px solid color-mix(in srgb, var(--brand) 20%, transparent)",
-          }}
-        >
-          <p
-            className="text-[11px] font-bold tracking-[0.08em] uppercase mb-2"
-            style={{ color: "var(--brand-text)" }}
-          >
-            Guiding principle
-          </p>
-          <p className="text-[15px] font-bold text-foreground/90 mb-1.5 leading-snug">
-            {cardData.fieldTip.headline}
-          </p>
-          <p className="text-[13px] leading-relaxed text-foreground/65 whitespace-pre-line">
-            {cardData.fieldTip.body}
-          </p>
-          {cardData.fieldTip.example && (
-            <div
-              className="mt-3 rounded-xl p-3"
-              style={{
-                background: "var(--fg-03)",
-                border: "1px solid var(--fg-06)",
-              }}
-            >
-              <p className="text-[12px] italic text-foreground/60 mb-2">
-                {labelled(
-                  "Example",
-                  cardData.fieldTip.example,
-                  /^(they (say|said)|example)\b/i,
-                )}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {cardData.fieldTip.dont && (
-                  <span
-                    className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-red) 8%, transparent)",
-                      border:
-                        "1px solid color-mix(in srgb, var(--accent-red) 18%, transparent)",
-                      color: "var(--accent-red)",
-                    }}
-                  >
-                    {labelled(
-                      "Don't",
-                      cardData.fieldTip.dont,
-                      /^(don't|do not)\b/i,
-                    )}
-                  </span>
-                )}
-                {cardData.fieldTip.do && (
-                  <span
-                    className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-green) 8%, transparent)",
-                      border:
-                        "1px solid color-mix(in srgb, var(--accent-green) 18%, transparent)",
-                      color: "var(--accent-green)",
-                    }}
-                  >
-                    {labelled("Do", cardData.fieldTip.do, /^do\b(?! not)/i)}
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* One number per step, beside the title. No side rail, so the text
-          keeps the full width on phones. */}
-      <ol className="space-y-2.5">
-        {cardData.method!.map((m) => {
-          const hasExamples = !!m.examples && m.examples.length > 0;
-          return (
-            <li
-              key={m.step}
-              className="rounded-2xl p-4"
-              style={{
-                background: "var(--fg-03)",
-                border: "1px solid var(--fg-06)",
-              }}
-            >
-              <div className="flex items-start gap-2.5 mb-1.5">
+    <CardBlock title="How deep to go" meta="Match the trust you have">
+      <Surface divided data-testid="depth-dial">
+        {cardData.depthDial.map((row) => (
+          <CopyRow
+            key={row.depth}
+            text={row.phrase}
+            above={
+              <span className="flex flex-wrap items-baseline gap-x-2">
                 <span
-                  className="w-6 h-6 mt-[-1px] rounded-full flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
-                  style={{
-                    background: "var(--brand)",
-                    color: "var(--brand-contrast)",
-                  }}
-                  aria-hidden="true"
+                  className="text-[14px] font-semibold"
+                  style={{ color: "var(--fg-90)" }}
                 >
-                  {m.step}
+                  {row.depth}
                 </span>
-                <p className="text-[15px] leading-snug font-bold text-foreground/90">
-                  <span className="sr-only">Step {m.step}: </span>
-                  {m.title}
-                </p>
-              </div>
-              <p
-                className={`text-[14px] text-foreground/75 leading-relaxed whitespace-pre-line ${
-                  hasExamples ? "mb-3" : ""
-                }`}
-              >
-                {m.body}
-              </p>
-              {hasExamples && (
-                <div
-                  className="space-y-1.5 rounded-xl p-3"
-                  style={{
-                    background: "var(--fg-02)",
-                    border: "1px solid var(--fg-04)",
-                  }}
-                >
-                  {m.examples!.map((ex, j) => (
-                    <div key={j} className="flex items-start gap-2.5">
-                      <span
-                        className="text-[11px] font-bold tracking-[0.08em] uppercase mt-1 flex-shrink-0 w-[92px] leading-tight break-words"
-                        style={{ color: "var(--fg-55)" }}
-                      >
-                        {ex.label}
-                      </span>
-                      <p
-                        className="text-[13px] flex-1"
-                        style={{ color: "var(--fg-78)" }}
-                      >
-                        {ex.text}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </li>
-          );
-        })}
-      </ol>
-
-      {cardData.liveThreadClues && cardData.liveThreadClues.length > 0 && (
-        <div
-          className="rounded-2xl p-4 sm:p-5 mt-5"
-          style={{
-            background: "var(--fg-03)",
-            border: "1px solid var(--fg-06)",
-          }}
-        >
-          <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-1">
-            Live-thread clues
-          </p>
-          <p className="text-[12px] text-foreground/50 mb-3">
-            Words that usually mark the thread worth pulling
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {cardData.liveThreadClues.map((c) => (
-              <span
-                key={c}
-                className="text-[12px] leading-snug px-3 py-1.5 rounded-xl"
-                style={{
-                  background: "var(--fg-05)",
-                  border: "1px solid var(--fg-08)",
-                  color: "var(--fg-70)",
-                }}
-              >
-                {c}
+                <Meta>{row.useWhen}</Meta>
               </span>
-            ))}
-          </div>
-        </div>
-      )}
+            }
+          />
+        ))}
+      </Surface>
+    </CardBlock>
+  );
+}
 
-      {cardData.depthDial && cardData.depthDial.length > 0 && (
-        <div className="mt-5">
-          <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-1">
-            The depth dial
-          </p>
-          <p className="text-[12px] text-foreground/50 mb-3">
-            Match how deep you go to the level of trust present
-          </p>
-          <div
-            className="rounded-2xl overflow-hidden"
-            style={{
-              background: "var(--fg-03)",
-              border: "1px solid var(--fg-05)",
-            }}
-          >
-            {cardData.depthDial.map((row, i) => (
-              <div
-                key={row.depth}
-                className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 px-3.5 sm:px-4 py-3"
-                style={{
-                  borderBottom:
-                    i < cardData.depthDial!.length - 1
-                      ? "1px solid var(--fg-05)"
-                      : "none",
-                }}
+// ── Field tip ──
+export function FieldTipSection({ cardData }: { cardData: CardData }) {
+  const tip = cardData.fieldTip;
+  if (!tip) return null;
+  return (
+    <CardBlock title="Field tip">
+      <Surface className="p-4 flex flex-col gap-2" data-testid="field-tip">
+        <p
+          className="text-[17px] font-semibold leading-[1.3]"
+          style={{ color: "var(--fg-90)" }}
+        >
+          {tip.headline}
+        </p>
+        <p
+          className="text-[14px] leading-[1.5] whitespace-pre-line"
+          style={{ color: "var(--fg-75)" }}
+        >
+          {tip.body}
+        </p>
+        {tip.example && (
+          <SayBlock className="mt-1">
+            <span
+              className="text-[14px] leading-[1.45]"
+              style={{ color: "var(--fg-80)" }}
+            >
+              {labelled(
+                "Example",
+                tip.example,
+                /^(they (say|said)|example)\b/i,
+              )}
+            </span>
+            {tip.dont && (
+              <span
+                className="text-[14px] leading-[1.45]"
+                style={{ color: "var(--accent-red)" }}
               >
-                {/* Phones: label line above the phrase; wider: side column */}
-                <div className="flex-shrink-0 flex flex-wrap items-baseline gap-x-2 sm:block sm:w-[88px]">
-                  <p className="text-[13px] font-bold text-foreground/90">
-                    {row.depth}
-                  </p>
-                  <p className="text-[11px] text-foreground/60 leading-tight">
-                    {row.useWhen}
-                  </p>
-                </div>
-                <button
-                  onClick={() => handleCopy(row.phrase)}
-                  aria-label={`Copy: ${row.phrase}`}
-                  className="w-full sm:w-auto sm:flex-1 text-left flex items-center justify-between gap-2 rounded-xl px-3 py-2 transition-all active:scale-[0.98]"
-                  style={{
-                    background:
-                      copiedPhrase === row.phrase
-                        ? "color-mix(in srgb, var(--brand) 10%, transparent)"
-                        : "var(--fg-03)",
-                    border: "1px solid var(--fg-06)",
-                  }}
-                >
-                  <span
-                    className="text-[13px]"
-                    style={{
-                      color:
-                        copiedPhrase === row.phrase
-                          ? "var(--brand-text)"
-                          : "var(--fg-78)",
-                    }}
-                  >
-                    {row.phrase}
-                  </span>
-                  {copiedPhrase === row.phrase ? (
-                    <Check
-                      className="w-3.5 h-3.5 flex-shrink-0"
-                      style={{ color: "var(--brand-text)" }}
-                    />
-                  ) : (
-                    <Copy
-                      className="w-3.5 h-3.5 flex-shrink-0"
-                      style={{ color: "var(--fg-45)" }}
-                    />
-                  )}
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+                {labelled("Don't", tip.dont, /^(don't|do not)\b/i)}
+              </span>
+            )}
+            {tip.do && (
+              <span
+                className="text-[14px] leading-[1.45]"
+                style={{ color: "var(--accent-green)" }}
+              >
+                {labelled("Do", tip.do, /^do\b(?! not)/i)}
+              </span>
+            )}
+          </SayBlock>
+        )}
+      </Surface>
+    </CardBlock>
+  );
+}
+
+function StepBody({ step }: { step: MethodStep }) {
+  return (
+    <>
+      <p
+        className="text-[15px] leading-[1.5] whitespace-pre-line"
+        style={{ color: "var(--fg-80)" }}
+      >
+        {step.body}
+      </p>
+      {step.examples && step.examples.length > 0 && (
+        <SayBlock>
+          {/* Labels sit above each line, so a long label never collides
+              with the text beside it. */}
+          {step.examples.map((ex, j) => (
+            <span key={j} className="flex flex-col gap-0.5">
+              <Label>{ex.label}</Label>
+              <Phrase size="sm">{ex.text}</Phrase>
+            </span>
+          ))}
+        </SayBlock>
       )}
-    </SectionAccordion>
+    </>
+  );
+}
+
+// ── The method ──
+export function MethodSection({ cardData }: { cardData: CardData }) {
+  const steps = cardData.method ?? [];
+  return (
+    <CardBlock
+      id="method"
+      title="The method"
+      meta={`${steps.length} ${steps.length === 1 ? "step" : "steps"}`}
+    >
+      <CoreFormula cardData={cardData} />
+      <Surface>
+        <ExpandingRows
+          items={steps}
+          ordered
+          label="Method steps"
+          testId="method-steps"
+          getKey={(m) => m.step}
+          renderHeader={(m, _i, open) => (
+            <>
+              <NumberDisc active={open}>{m.step}</NumberDisc>
+              <span
+                className="flex-1 min-w-0 text-[17px] font-semibold leading-[1.3]"
+                style={{ color: "var(--fg-90)" }}
+              >
+                <span className="sr-only">Step {m.step}: </span>
+                {m.title}
+              </span>
+            </>
+          )}
+          renderBody={(m) => <StepBody step={m} />}
+        />
+      </Surface>
+      {cardData.liveThreadClues && cardData.liveThreadClues.length > 0 && (
+        <Surface className="p-4 flex flex-col gap-2.5">
+          <div className="flex flex-col gap-0.5">
+            <Label>Clues to listen for</Label>
+            <Meta>Words that usually mark the thread worth pulling</Meta>
+          </div>
+          <ul className="flex flex-wrap gap-2" data-testid="method-clues">
+            {cardData.liveThreadClues.map((clue) => (
+              <li
+                key={clue}
+                className="text-[14px] leading-snug px-3 py-1.5 rounded-[14px]"
+                style={{ background: "var(--fg-08)", color: "var(--fg-85)" }}
+              >
+                {clue}
+              </li>
+            ))}
+          </ul>
+        </Surface>
+      )}
+    </CardBlock>
   );
 }

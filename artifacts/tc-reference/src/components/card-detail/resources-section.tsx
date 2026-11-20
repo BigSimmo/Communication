@@ -1,140 +1,93 @@
-import { Eye, FileText } from "lucide-react";
+import { ArrowUpRight, Eye, FileText } from "lucide-react";
 import { usePdf } from "@/lib/pdf-context";
-import type { CardData } from "@/lib/card-types";
-import { SectionAccordion } from "./section-accordion";
+import type { CardData, CardResource } from "@/lib/card-types";
+import { CardBlock, Meta, Surface } from "./card-ui";
+
+const GROUP_ORDER: CardResource["group"][] = [
+  "Visual Cards",
+  "Written Guides",
+  "Practice Tools",
+];
+
+const TYPE_LABEL: Record<CardResource["type"], string> = {
+  pdf: "PDF",
+  docx: "Word",
+  png: "Image",
+  csv: "CSV",
+};
 
 // ── Downloads ──
 export function ResourcesSection({ cardData }: { cardData: CardData }) {
   const { pdfUrl, setPdfOpen } = usePdf();
+  const resources = GROUP_ORDER.flatMap((group) =>
+    (cardData.resources ?? []).filter((r) => r.group === group),
+  );
   return (
-    <SectionAccordion
-      id="resources"
-      label="Downloads"
-      subtitle="PDFs and reference files"
-    >
-      {pdfUrl && (
-        <button
-          type="button"
-          onClick={() => setPdfOpen(true)}
-          data-testid="resources-view-pdf"
-          className="w-full rounded-2xl px-4 py-3.5 mb-5 flex items-center gap-3 text-left transition-all active:scale-[0.98]"
-          style={{
-            minHeight: 56,
-            background:
-              "color-mix(in srgb, var(--accent-purple) 7%, transparent)",
-            border:
-              "1px solid color-mix(in srgb, var(--accent-purple) 18%, transparent)",
-          }}
-        >
-          <Eye
-            className="w-4 h-4 flex-shrink-0"
-            style={{ color: "var(--accent-purple)" }}
-            aria-hidden="true"
-          />
-          <span className="flex-1 min-w-0">
-            <span
-              className="block text-[13px] font-semibold"
-              style={{ color: "var(--fg-85)" }}
-            >
-              View the visual card
-            </span>
-            <span
-              className="block text-[12px] mt-0.5"
-              style={{ color: "var(--fg-55)" }}
-            >
-              Opens the printable card here without leaving the app.
-            </span>
-          </span>
-        </button>
-      )}
-
-      {(["Visual Cards", "Written Guides", "Practice Tools"] as const).map(
-        (group) => {
-          const items = cardData.resources!.filter((r) => r.group === group);
-          if (items.length === 0) return null;
-          const typeStyle: Record<string, { bg: string; color: string }> = {
-            pdf: {
-              bg: "color-mix(in srgb, var(--accent-red) 9%, transparent)",
-              color: "var(--accent-red)",
-            },
-            docx: {
-              bg: "color-mix(in srgb, var(--accent-blue) 9%, transparent)",
-              color: "var(--accent-blue)",
-            },
-            png: {
-              bg: "color-mix(in srgb, var(--accent-emerald) 9%, transparent)",
-              color: "var(--accent-emerald)",
-            },
-            csv: {
-              bg: "color-mix(in srgb, var(--brand) 9%, transparent)",
-              color: "var(--brand-text)",
-            },
-          };
-          return (
-            <div key={group} className="mb-5">
-              <p
-                className="text-[11px] font-bold tracking-[0.08em] uppercase mb-3"
-                style={{ color: "var(--fg-55)" }}
+    <CardBlock id="resources" title="Downloads">
+      <Surface divided>
+        {pdfUrl && (
+          <button
+            type="button"
+            onClick={() => setPdfOpen(true)}
+            data-testid="resources-view-pdf"
+            className="w-full flex items-center gap-3 px-4 py-[13px] min-h-14 text-left transition-colors active:bg-[var(--fg-05)]"
+          >
+            <Eye
+              className="w-[22px] h-[22px] flex-none"
+              style={{ color: "var(--brand-text)" }}
+              aria-hidden="true"
+            />
+            <span className="flex-1 min-w-0 flex flex-col gap-0.5">
+              <span
+                className="text-[16px] font-semibold leading-[1.3]"
+                style={{ color: "var(--fg-90)" }}
               >
-                {group}
-              </p>
-              <div className="space-y-2">
-                {items.map((resource) => {
-                  const ts = typeStyle[resource.type] ?? typeStyle.pdf;
-                  const href = `${import.meta.env.BASE_URL}${resource.href}`;
-                  const isDownload =
-                    resource.type === "docx" || resource.type === "csv";
-                  return (
-                    <a
-                      key={resource.href}
-                      href={href}
-                      {...(isDownload ? { download: true } : {})}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3.5 rounded-2xl px-4 py-3.5 transition-all active:scale-[0.98]"
-                      style={{
-                        background: "var(--fg-03)",
-                        border: "1px solid var(--fg-07)",
-                      }}
-                    >
-                      <div
-                        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: ts.bg }}
-                        aria-hidden="true"
-                      >
-                        <FileText
-                          className="w-4 h-4"
-                          style={{ color: ts.color }}
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p
-                          className="text-[13px] font-semibold"
-                          style={{ color: "var(--fg-85)" }}
-                        >
-                          {resource.label}
-                        </p>
-                        <p
-                          className="text-[11px] mt-0.5"
-                          style={{ color: "var(--fg-55)" }}
-                        >
-                          {resource.description}
-                        </p>
-                      </div>
-                      <span
-                        className="text-[11px] font-bold uppercase tracking-[0.08em] px-2 py-1 rounded-full flex-shrink-0 ml-1"
-                        style={{ background: ts.bg, color: ts.color }}
-                      >
-                        {resource.type}
-                      </span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+                View the visual card
+              </span>
+              <Meta>
+                Opens the printable card here, without leaving the app
+              </Meta>
+            </span>
+          </button>
+        )}
+        {resources.map((resource) => {
+          const isDownload =
+            resource.type === "docx" || resource.type === "csv";
+          return (
+            <a
+              key={resource.href}
+              href={`${import.meta.env.BASE_URL}${resource.href}`}
+              {...(isDownload ? { download: true } : {})}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-4 py-[13px] min-h-14 transition-colors active:bg-[var(--fg-05)]"
+            >
+              <FileText
+                className="w-[22px] h-[22px] flex-none"
+                style={{ color: "var(--fg-55)" }}
+                aria-hidden="true"
+              />
+              <span className="flex-1 min-w-0 flex flex-col gap-0.5">
+                <span
+                  className="text-[16px] font-semibold leading-[1.3]"
+                  style={{ color: "var(--fg-90)" }}
+                >
+                  {resource.label}
+                </span>
+                <Meta>
+                  {TYPE_LABEL[resource.type] ?? resource.type} ·{" "}
+                  {resource.description}
+                </Meta>
+              </span>
+              <ArrowUpRight
+                className="w-[18px] h-[18px] flex-none"
+                style={{ color: "var(--fg-55)" }}
+                aria-hidden="true"
+              />
+            </a>
           );
-        },
-      )}
-    </SectionAccordion>
+        })}
+      </Surface>
+    </CardBlock>
   );
 }

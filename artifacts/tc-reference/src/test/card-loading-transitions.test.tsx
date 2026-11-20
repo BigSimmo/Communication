@@ -109,11 +109,15 @@ describe("lazy card consumer transitions", () => {
       key: "ArrowRight",
     });
     fireEvent.keyDown(window, { key: "ArrowRight", metaKey: true });
-    // Focus on a section pill belongs to the section nav, not card paging
-    fireEvent.keyDown(screen.getByTestId("nav-overview"), {
+    // On the card's tabs the arrows change tab, not card
+    fireEvent.keyDown(screen.getByRole("tab", { name: "Use it" }), {
       key: "ArrowRight",
     });
     expect(setLocation).not.toHaveBeenCalled();
+    expect(screen.getByRole("tab", { name: "Learn it" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
   });
 
   it("announces Quick Lookup aggregate loading and preserves 120 initial rows", async () => {

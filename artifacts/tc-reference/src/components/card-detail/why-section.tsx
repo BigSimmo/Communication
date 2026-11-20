@@ -1,146 +1,90 @@
 import { X } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion } from "./section-accordion";
 import { quoted } from "@/lib/utils";
+import {
+  CardBlock,
+  Label,
+  MarkedList,
+  Phrase,
+  SayBlock,
+  Surface,
+} from "./card-ui";
 
-// ── Why It Works ──
+// ── Why it works ──
 export function WhySection({ cardData }: { cardData: CardData }) {
+  const payoff = cardData.influencePayoff;
+  if (!payoff) {
+    // Cards without the structured payoff still explain themselves.
+    return (
+      <CardBlock id="why" title="Why it works">
+        <p
+          className="text-[16px] leading-[1.5]"
+          style={{ color: "var(--fg-85)" }}
+        >
+          {cardData.whyItWorks}
+        </p>
+      </CardBlock>
+    );
+  }
   return (
-    <SectionAccordion
-      id="why"
-      label="Why it works"
-      subtitle="The principle and what it builds"
-    >
-      <div
-        className="rounded-2xl p-4 sm:p-5 mb-4"
-        style={{
-          background:
-            "color-mix(in srgb, var(--accent-purple) 8%, transparent)",
-          border:
-            "1px solid color-mix(in srgb, var(--accent-purple) 20%, transparent)",
-        }}
+    <CardBlock id="why" title="Why it works">
+      <p
+        className="text-[16px] leading-[1.5]"
+        style={{ color: "var(--fg-90)" }}
+        data-testid="why-principle"
       >
-        <p
-          className="text-[11px] font-bold tracking-[0.08em] uppercase mb-2"
-          style={{ color: "var(--accent-purple)" }}
-        >
-          What they feel
-        </p>
-        <p
-          className="text-[15px] font-semibold leading-relaxed"
-          style={{ color: "var(--fg-90)" }}
-        >
-          {quoted(cardData.influencePayoff!.feeling)}
-        </p>
-      </div>
+        {payoff.principle}
+      </p>
+      <SayBlock>
+        <Label color="var(--brand-text)">What they feel</Label>
+        <Phrase>{quoted(payoff.feeling)}</Phrase>
+      </SayBlock>
 
-      <div
-        className="rounded-2xl p-4 sm:p-5 mb-4"
-        style={{
-          background: "var(--fg-03)",
-          border: "1px solid var(--fg-06)",
-        }}
-      >
-        <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-2">
-          The principle
-        </p>
-        <p className="text-[14px] leading-relaxed text-foreground/80">
-          {cardData.influencePayoff!.principle}
-        </p>
-      </div>
-
-      <div
-        className="rounded-2xl p-4 sm:p-5 mb-4"
-        style={{
-          background: "var(--fg-03)",
-          border: "1px solid var(--fg-06)",
-        }}
-      >
-        <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-3">
-          What it builds
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {cardData.influencePayoff!.gains.map((g) => (
-            <span
-              key={g}
-              className="text-[12px] leading-snug font-medium px-3 py-1.5 rounded-xl"
-              style={{
-                background:
-                  "color-mix(in srgb, var(--accent-purple) 10%, transparent)",
-                border:
-                  "1px solid color-mix(in srgb, var(--accent-purple) 20%, transparent)",
-                color: "var(--accent-purple)",
-              }}
-            >
-              {g}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div
-        className="rounded-2xl p-4 sm:p-5 mb-4"
-        style={{
-          background: "color-mix(in srgb, var(--accent-red) 5%, transparent)",
-          border:
-            "1px solid color-mix(in srgb, var(--accent-red) 14%, transparent)",
-        }}
-      >
-        <p
-          className="text-[11px] font-bold tracking-[0.08em] uppercase mb-3"
-          style={{ color: "var(--accent-red)" }}
-        >
-          Why most people fail
-        </p>
-        <ul className="space-y-2">
-          {cardData.influencePayoff!.whyMostFail.map((item) => (
-            <li key={item} className="flex gap-2.5 items-start">
-              <div
-                className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                style={{
-                  background:
-                    "color-mix(in srgb, var(--accent-red) 50%, transparent)",
-                }}
-                aria-hidden="true"
-              />
-              <p
-                className="text-[13px] leading-snug"
-                style={{ color: "var(--fg-65)" }}
+      {payoff.gains.length > 0 && (
+        <Surface className="p-4 flex flex-col gap-2.5">
+          <Label>What it builds</Label>
+          <ul className="flex flex-wrap gap-2">
+            {payoff.gains.map((gain) => (
+              <li
+                key={gain}
+                className="text-[14px] leading-snug font-medium px-3 py-1.5 rounded-[14px]"
+                style={{ background: "var(--fg-08)", color: "var(--fg-85)" }}
               >
-                {item}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {cardData.whatItIsNot && cardData.whatItIsNot.length > 0 && (
-        <div
-          className="rounded-2xl p-4 sm:p-5"
-          style={{
-            background: "var(--fg-02)",
-            border: "1px solid var(--fg-04)",
-          }}
-        >
-          <p className="text-[11px] font-bold tracking-[0.08em] text-foreground/55 uppercase mb-3">
-            What it is not
-          </p>
-          <ul className="space-y-2.5">
-            {cardData.whatItIsNot.map((item) => (
-              <li key={item} className="flex gap-2.5 items-start">
-                <X
-                  className="w-3.5 h-3.5 mt-0.5 flex-shrink-0"
-                  style={{ color: "var(--fg-45)" }}
-                  aria-hidden="true"
-                />
-                <p className="text-[13px] leading-snug text-foreground/70">
-                  {item}
-                </p>
+                {gain}
               </li>
             ))}
           </ul>
-        </div>
+        </Surface>
       )}
-    </SectionAccordion>
+
+      {payoff.whyMostFail.length > 0 && (
+        <Surface>
+          <div className="px-4 pt-3.5">
+            <Label color="var(--accent-red)">Why most people fail</Label>
+          </div>
+          <MarkedList
+            items={payoff.whyMostFail}
+            mark={
+              <span
+                className="block w-1.5 h-1.5 mt-[6px] rounded-full"
+                style={{ background: "var(--accent-red)" }}
+              />
+            }
+          />
+        </Surface>
+      )}
+
+      {cardData.whatItIsNot && cardData.whatItIsNot.length > 0 && (
+        <Surface>
+          <div className="px-4 pt-3.5">
+            <Label>What it is not</Label>
+          </div>
+          <MarkedList
+            items={cardData.whatItIsNot}
+            mark={<X className="w-4 h-4" style={{ color: "var(--fg-55)" }} />}
+          />
+        </Surface>
+      )}
+    </CardBlock>
   );
 }

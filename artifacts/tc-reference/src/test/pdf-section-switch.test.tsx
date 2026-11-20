@@ -57,8 +57,8 @@ beforeEach(() => {
   window.scrollTo = vi.fn() as unknown as typeof window.scrollTo;
 });
 
-describe("CardDetail PDF viewer — section switching regression", () => {
-  it("keeps PDF open when switching section tabs within the same card", async () => {
+describe("CardDetail PDF viewer: tab switching regression", () => {
+  it("keeps PDF open when switching tabs within the same card", async () => {
     render(
       <Wrapper>
         <OpenPdfButton />
@@ -67,20 +67,21 @@ describe("CardDetail PDF viewer — section switching regression", () => {
       </Wrapper>,
     );
 
-    await screen.findByTestId("nav-phrases");
+    await screen.findByRole("tab", { name: "Use it" });
     fireEvent.click(screen.getByTestId("open-pdf"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
-    fireEvent.click(screen.getByTestId("nav-phrases"));
+    fireEvent.click(screen.getByRole("tab", { name: "Learn it" }));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
-    fireEvent.click(screen.getByTestId("nav-scenarios"));
+    // The Learn tab's jump row moves within the tab
+    fireEvent.click(screen.getByTestId("jump-scenarios"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
-    fireEvent.click(screen.getByTestId("nav-inpractice"));
+    fireEvent.click(screen.getByRole("tab", { name: "Practise it" }));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
-    fireEvent.click(screen.getByTestId("nav-overview"));
+    fireEvent.click(screen.getByRole("tab", { name: "Use it" }));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
   });
 
@@ -93,7 +94,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
       </Wrapper>,
     );
 
-    await screen.findByTestId("nav-phrases");
+    await screen.findByRole("tab", { name: "Use it" });
     fireEvent.click(screen.getByTestId("open-pdf"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
@@ -114,7 +115,7 @@ describe("CardDetail PDF viewer — section switching regression", () => {
     );
   });
 
-  it("switching multiple sections rapidly keeps PDF open throughout", async () => {
+  it("switching tabs rapidly keeps PDF open throughout", async () => {
     render(
       <Wrapper>
         <OpenPdfButton />
@@ -123,19 +124,19 @@ describe("CardDetail PDF viewer — section switching regression", () => {
       </Wrapper>,
     );
 
-    await screen.findByTestId("nav-phrases");
+    await screen.findByRole("tab", { name: "Use it" });
     fireEvent.click(screen.getByTestId("open-pdf"));
     expect(screen.getByTestId("pdf-status").textContent).toBe("open");
 
     const tabs = [
-      "nav-phrases",
-      "nav-scenarios",
-      "nav-inpractice",
-      "nav-overview",
-      "nav-phrases",
+      "Learn it",
+      "Practise it",
+      "Use it",
+      "Practise it",
+      "Learn it",
     ] as const;
-    for (const tab of tabs) {
-      fireEvent.click(screen.getByTestId(tab));
+    for (const name of tabs) {
+      fireEvent.click(screen.getByRole("tab", { name }));
       expect(screen.getByTestId("pdf-status").textContent).toBe("open");
     }
   });

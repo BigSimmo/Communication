@@ -1,240 +1,119 @@
-import { Check, ChevronRight, Copy, Heart } from "lucide-react";
+import { useState } from "react";
 import type { CardData } from "@/lib/card-types";
-import { useFavourites } from "@/lib/favourites-context";
-import { CARD_TITLE_MAP } from "./card-sections";
-import { SectionAccordion } from "./section-accordion";
+import { BottomSheet } from "@/components/ui/bottom-sheet";
+import { Chip } from "@/components/ui/chip";
+import { speakablePhrases } from "./best-line";
+import {
+  CardBlock,
+  CopyRow,
+  EYEBROW,
+  Meta,
+  PhraseRow,
+  Surface,
+} from "./card-ui";
 
-// ── Phrase Bank ──
-export function PhrasesSection({
+/** How many lines "Say this" leads with before the full bank. */
+const LEAD_PHRASES = 3;
+
+/**
+ * Say this: the first few lines from the phrase bank, each one tap to copy,
+ * with the whole bank (every group, save and copy) in a sheet.
+ */
+export function SayThisSection({
   cardId,
   cardData,
-  expandedPhraseGroup,
-  setExpandedPhraseGroup,
-  copiedPhrase,
-  handleCopy,
 }: {
   cardId: string;
   cardData: CardData;
-  expandedPhraseGroup: string | null;
-  setExpandedPhraseGroup: (id: string | null) => void;
-  copiedPhrase: string | null;
-  handleCopy: (phrase: string) => void;
 }) {
-  const { isPhrasesFav, togglePhrase } = useFavourites();
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [group, setGroup] = useState<string | null>(null);
+  const total = cardData.phraseBank.reduce((n, g) => n + g.phrases.length, 0);
+  const lead = speakablePhrases(cardData).slice(0, LEAD_PHRASES);
+  const groups = cardData.phraseBank.filter(
+    (g) => group === null || g.id === group,
+  );
+
   return (
-    <SectionAccordion
+    <CardBlock
       id="phrases"
-      label="Phrase bank"
-      subtitle={`${cardData.phraseBank.reduce((a, g) => a + g.phrases.length, 0)} phrases · ${cardData.phraseBank.length} groups`}
-    >
-      <div className="mb-4">
-        <p className="text-[12px] text-foreground/60 mb-2">
-          Filter by situation
-        </p>
-        <div
-          className="flex gap-2 overflow-x-auto pb-2 -mx-5 px-5"
-          style={{ scrollbarWidth: "none" }}
-          role="toolbar"
-          aria-label="Filter phrases by situation"
+      title="Say this"
+      action={
+        <button
+          type="button"
+          onClick={() => setSheetOpen(true)}
+          aria-haspopup="dialog"
+          data-testid="button-all-phrases"
+          className="tap-band -mr-2 px-2 h-8 rounded-lg text-[13px] font-semibold flex-none transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)]"
+          style={{ color: "var(--brand-text)" }}
         >
-          <button
-            onClick={() => setExpandedPhraseGroup(null)}
-            aria-pressed={expandedPhraseGroup === null}
-            className="flex-shrink-0 text-[11px] font-semibold px-3.5 rounded-full transition-all"
-            style={{
-              minHeight: 44,
-              background:
-                expandedPhraseGroup === null ? "var(--brand)" : "var(--fg-06)",
-              color:
-                expandedPhraseGroup === null
-                  ? "var(--brand-contrast)"
-                  : "var(--fg-60)",
-            }}
-          >
-            All groups
-          </button>
+          All {total} phrases
+        </button>
+      }
+    >
+      <Surface divided data-testid="say-this">
+        {lead.map((phrase, i) => (
+          <CopyRow key={phrase} text={phrase} testId={`say-this-copy-${i}`} />
+        ))}
+      </Surface>
+
+      <BottomSheet
+        open={sheetOpen}
+        onClose={() => setSheetOpen(false)}
+        title={`${total} phrases`}
+        testId="phrases-sheet"
+      >
+        <div
+          className="card-section-scroller flex gap-2 overflow-x-auto -mx-5 px-5 pb-3"
+          role="toolbar"
+          aria-label="Filter phrases by group"
+        >
+          <Chip selected={group === null} onClick={() => setGroup(null)}>
+            All
+          </Chip>
           {cardData.phraseBank.map((g) => (
-            <button
+            <Chip
               key={g.id}
-              onClick={() =>
-                setExpandedPhraseGroup(
-                  expandedPhraseGroup === g.id ? null : g.id,
-                )
-              }
-              aria-pressed={expandedPhraseGroup === g.id}
-              className="flex-shrink-0 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
-              style={{
-                minHeight: 44,
-                background:
-                  expandedPhraseGroup === g.id
-                    ? "var(--brand)"
-                    : "var(--fg-06)",
-                color:
-                  expandedPhraseGroup === g.id
-                    ? "var(--brand-contrast)"
-                    : "var(--fg-60)",
-              }}
+              selected={group === g.id}
+              count={g.phrases.length}
+              onClick={() => setGroup(group === g.id ? null : g.id)}
             >
               {g.label}
-            </button>
+            </Chip>
           ))}
         </div>
-      </div>
-
-      <p className="text-[12px] text-foreground/60 mb-3 font-medium">
-        Tap a phrase to copy it
-      </p>
-
-      <div className="space-y-3">
-        {cardData.phraseBank
-          .filter(
-            (g) => expandedPhraseGroup === null || g.id === expandedPhraseGroup,
-          )
-          .map((group) => {
-            // "All groups" shows every phrase so nothing needs a second tap;
-            // a header or chip narrows the bank to that group.
-            const open =
-              expandedPhraseGroup === null || expandedPhraseGroup === group.id;
-            return (
-              <div
-                key={group.id}
-                className="rounded-2xl overflow-hidden"
-                style={{
-                  background: "var(--fg-03)",
-                  border: "1px solid var(--fg-06)",
-                }}
-                data-testid={`phrase-group-${group.id}`}
-              >
-                <button
-                  onClick={() =>
-                    setExpandedPhraseGroup(
-                      expandedPhraseGroup === group.id ? null : group.id,
-                    )
-                  }
-                  aria-expanded={open}
-                  className="w-full flex items-center justify-between gap-3 px-4 sm:px-5 py-3 transition-colors"
-                  style={{ minHeight: 52 }}
-                >
-                  <div className="text-left min-w-0">
-                    <p className="text-[14px] font-bold text-foreground/90">
-                      {group.label}
-                    </p>
-                    {/* Many cards reuse the label as the tag; skip the echo */}
-                    {group.tag && group.tag !== group.label && (
-                      <p className="text-[11px] text-foreground/50 mt-0.5">
-                        {group.tag}
-                      </p>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span
-                      className="text-[11px] font-bold text-foreground/60 px-2 py-1 rounded-full"
-                      style={{ background: "var(--fg-05)" }}
-                    >
-                      {group.phrases.length}
-                    </span>
-                    <ChevronRight
-                      className="w-4 h-4 text-foreground/40 transition-transform"
-                      style={{
-                        transform: open ? "rotate(90deg)" : "none",
-                      }}
-                      aria-hidden="true"
-                    />
-                  </div>
-                </button>
-                {open && (
-                  <div style={{ borderTop: "1px solid var(--fg-05)" }}>
-                    {group.phrases.map((phrase, i) => (
-                      <div
-                        key={i}
-                        className="w-full flex items-center justify-between px-5 py-3 text-left"
-                        style={{
-                          background:
-                            copiedPhrase === phrase
-                              ? "color-mix(in srgb, var(--brand) 7%, transparent)"
-                              : "transparent",
-                          borderBottom:
-                            i < group.phrases.length - 1
-                              ? "1px solid var(--fg-03)"
-                              : "none",
-                          minHeight: 52,
-                        }}
-                      >
-                        <p
-                          className="phrase-text text-[13px] leading-snug pr-3 flex-1"
-                          style={{
-                            color:
-                              copiedPhrase === phrase
-                                ? "var(--brand-text)"
-                                : "var(--fg-78)",
-                          }}
-                        >
-                          {phrase}
-                        </p>
-                        <div className="flex items-center gap-1 flex-shrink-0">
-                          <button
-                            onClick={() =>
-                              togglePhrase({
-                                cardId,
-                                cardTitle: CARD_TITLE_MAP[cardId] ?? cardId,
-                                groupLabel: group.label,
-                                text: phrase,
-                              })
-                            }
-                            aria-label={
-                              isPhrasesFav(cardId, phrase)
-                                ? "Remove from favourites"
-                                : "Save to favourites"
-                            }
-                            data-testid={`phrase-fav-${group.id}-${i}`}
-                            className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
-                            style={{
-                              background: isPhrasesFav(cardId, phrase)
-                                ? "color-mix(in srgb, var(--brand) 10%, transparent)"
-                                : "transparent",
-                            }}
-                          >
-                            <Heart
-                              className="w-3.5 h-3.5"
-                              style={{
-                                color: isPhrasesFav(cardId, phrase)
-                                  ? "var(--brand-text)"
-                                  : "var(--fg-45)",
-                              }}
-                              fill={
-                                isPhrasesFav(cardId, phrase)
-                                  ? "var(--brand-text)"
-                                  : "none"
-                              }
-                            />
-                          </button>
-                          <button
-                            onClick={() => handleCopy(phrase)}
-                            aria-label={`Copy: ${phrase}`}
-                            data-testid={`phrase-copy-${group.id}-${i}`}
-                            className="tap-target w-8 h-8 flex items-center justify-center rounded-full transition-all active:scale-95"
-                          >
-                            {copiedPhrase === phrase ? (
-                              <Check
-                                className="w-3.5 h-3.5"
-                                style={{ color: "var(--brand-text)" }}
-                              />
-                            ) : (
-                              <Copy
-                                className="w-3.5 h-3.5"
-                                style={{ color: "var(--fg-45)" }}
-                              />
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+        <div className="flex flex-col gap-4">
+          {groups.map((g) => (
+            <section
+              key={g.id}
+              aria-label={g.label}
+              className="flex flex-col gap-2"
+              data-testid={`phrase-group-${g.id}`}
+            >
+              <div className="flex items-baseline justify-between gap-3">
+                <h3 className={EYEBROW} style={{ color: "var(--fg-60)" }}>
+                  {g.label}
+                </h3>
+                {/* Many cards reuse the label as the tag; skip the echo */}
+                {g.tag && g.tag !== g.label && <Meta>{g.tag}</Meta>}
               </div>
-            );
-          })}
-      </div>
-    </SectionAccordion>
+              <Surface divided>
+                {g.phrases.map((phrase, i) => (
+                  <PhraseRow
+                    key={i}
+                    cardId={cardId}
+                    groupLabel={g.label}
+                    text={phrase}
+                    size="sm"
+                    saveTestId={`phrase-fav-${g.id}-${i}`}
+                    copyTestId={`phrase-copy-${g.id}-${i}`}
+                  />
+                ))}
+              </Surface>
+            </section>
+          ))}
+        </div>
+      </BottomSheet>
+    </CardBlock>
   );
 }

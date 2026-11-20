@@ -1,53 +1,59 @@
-import { Check, Zap } from "lucide-react";
+import { Check, X } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion } from "./section-accordion";
+import { CardBlock, Label, Surface } from "./card-ui";
 
-// ── Calibration ──
+function Signals({
+  title,
+  items,
+  good,
+}: {
+  title: string;
+  items: string[];
+  good: boolean;
+}) {
+  const color = good ? "var(--accent-green)" : "var(--accent-red)";
+  return (
+    <Surface className="p-4 flex flex-col gap-2.5">
+      <Label color={color}>
+        {good ? (
+          <Check className="w-4 h-4" aria-hidden="true" />
+        ) : (
+          <X className="w-4 h-4" aria-hidden="true" />
+        )}
+        {title}
+      </Label>
+      <ul className="flex flex-col gap-2">
+        {items.map((item, i) => (
+          <li
+            key={i}
+            className="text-[14px] leading-[1.45]"
+            style={{ color: "var(--fg-85)" }}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </Surface>
+  );
+}
+
+// ── Is it working? ──
+// Side by side from sm up; stacked on phones, where the card's full
+// sentences need the width.
 export function CalibrationSection({ cardData }: { cardData: CardData }) {
   return (
-    <SectionAccordion
-      id="calibration"
-      label="Calibration"
-      subtitle="Signs it is working and when to adjust"
-    >
-      <div className="grid grid-cols-1 gap-4">
-        <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-4 sm:p-5">
-          <div className="flex items-center gap-2 mb-4">
-            <Check className="w-5 h-5 text-green-400" aria-hidden="true" />
-            <p className="text-[14px] font-bold text-green-400 uppercase tracking-wide">
-              It is working if...
-            </p>
-          </div>
-          <ul className="space-y-3">
-            {cardData.calibration.working.map((item, i) => (
-              <li key={i} className="flex gap-3 text-[13px] text-foreground/80">
-                <span className="text-green-500/50 mt-0.5" aria-hidden="true">
-                  •
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4 sm:p-5">
-          <div className="flex items-center gap-2 mb-4">
-            <Zap className="w-5 h-5 text-red-400" aria-hidden="true" />
-            <p className="text-[14px] font-bold text-red-400 uppercase tracking-wide">
-              Adjust if...
-            </p>
-          </div>
-          <ul className="space-y-3">
-            {cardData.calibration.adjust.map((item, i) => (
-              <li key={i} className="flex gap-3 text-[13px] text-foreground/80">
-                <span className="text-red-500/50 mt-0.5" aria-hidden="true">
-                  •
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <CardBlock id="calibration" title="Is it working?">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 gap-2.5"
+        data-testid="signals"
+      >
+        <Signals title="Keep going" items={cardData.calibration.working} good />
+        <Signals
+          title="Ease off"
+          items={cardData.calibration.adjust}
+          good={false}
+        />
       </div>
-    </SectionAccordion>
+    </CardBlock>
   );
 }
