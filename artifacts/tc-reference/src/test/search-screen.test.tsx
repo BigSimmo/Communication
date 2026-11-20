@@ -287,6 +287,16 @@ describe("search screen field and keyboard", () => {
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
 
+  it("Escape works when the focus is not in the field", async () => {
+    render(<Harness initialQuery="silence" />);
+    await act(async () => {});
+    expect(input()).not.toHaveFocus();
+    fireEvent.keyDown(document.body, { key: "Escape" });
+    expect(input()).toHaveValue("");
+    expect(input()).toHaveFocus();
+    expect(onCancel).not.toHaveBeenCalled();
+  });
+
   it("Cancel leaves", async () => {
     render(<Harness />);
     await act(async () => {});

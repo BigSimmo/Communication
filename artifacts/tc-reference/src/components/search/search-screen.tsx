@@ -101,23 +101,24 @@ export function SearchScreen({
     inputRef.current?.blur();
   };
 
-  // Keyboard: Escape clears the field, then leaves. Up and Down walk the
-  // results from the field and back.
+  // Keyboard: Escape clears the field, then leaves, wherever the focus is.
+  // Up and Down walk the results from the field and back.
   useEffect(() => {
     const screen = screenRef.current;
     if (!screen) return;
+    const onEscape = (e: KeyboardEvent) => {
+      if (e.key !== "Escape" || e.defaultPrevented) return;
+      e.preventDefault();
+      const input = inputRef.current;
+      if (input?.value) {
+        onQueryChange("");
+        input.focus();
+      } else {
+        onCancel();
+      }
+    };
     const onKeyDown = (e: KeyboardEvent) => {
       const input = inputRef.current;
-      if (e.key === "Escape") {
-        e.preventDefault();
-        if (input?.value) {
-          onQueryChange("");
-          input.focus();
-        } else {
-          onCancel();
-        }
-        return;
-      }
       if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
       const items = Array.from(
         screen.querySelectorAll<HTMLElement>("[data-search-result]"),
@@ -130,8 +131,12 @@ export function SearchScreen({
       e.preventDefault();
       (next < 0 ? input : items[next])?.focus();
     };
+    window.addEventListener("keydown", onEscape);
     screen.addEventListener("keydown", onKeyDown);
-    return () => screen.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onEscape);
+      screen.removeEventListener("keydown", onKeyDown);
+    };
   }, [onQueryChange, onCancel]);
 
   return (
