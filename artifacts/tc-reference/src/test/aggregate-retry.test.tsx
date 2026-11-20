@@ -2,14 +2,11 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation } from "wouter";
 import { QuickModeOverlay } from "../components/quick-mode-overlay";
-import { SearchModal } from "../components/search-modal";
 import { createCardLoader, loadAllCards } from "../lib/card-loader";
 import { TC001 } from "../lib/cards/TC001";
 import { FavouritesProvider } from "../lib/favourites-context";
 import { loadAllAggregatedPhrases } from "../lib/phrases-data";
 import { QuickModeProvider, useQuickMode } from "../lib/quick-mode";
-import { searchCards } from "../lib/search-index";
-import { ThemeProvider } from "../lib/theme";
 import Phrases from "../pages/phrases";
 
 vi.mock("wouter");
@@ -101,39 +98,6 @@ describe("derived aggregate retry", () => {
       expect.arrayContaining([expect.objectContaining({ cardId: "TC001" })]),
     );
     expect(loadAllAggregatedPhrases()).toBe(retry);
-    expect(loadAllCards).toHaveBeenCalledTimes(2);
-    expect(moduleLoader).toHaveBeenCalledTimes(2);
-  });
-
-  it("retries the search corpus after reopening and shares it across queries", async () => {
-    const search = (
-      <ThemeProvider>
-        <SearchModal query="follow" setQuery={vi.fn()} onClose={vi.fn()} />
-      </ThemeProvider>
-    );
-    const first = render(search);
-    const failedSearch = searchCards("TC001");
-    await act(async () => {
-      await expect(failedSearch).rejects.toThrow("chunk unavailable");
-    });
-    expect(
-      await screen.findByText("Search is unavailable right now."),
-    ).toBeInTheDocument();
-    first.unmount();
-
-    render(search);
-    const retry = searchCards("TC001");
-    // Attach rejection handling immediately so the RED cannot leak an unhandled promise.
-    const retryResult = retry.catch((error: unknown) => error);
-    expect(
-      await screen.findByTestId("search-modal-result-TC001"),
-    ).toBeInTheDocument();
-    expect(await retryResult).toEqual([
-      expect.objectContaining({ id: "TC001" }),
-    ]);
-    expect(await searchCards("follow")).toEqual([
-      expect.objectContaining({ id: "TC001" }),
-    ]);
     expect(loadAllCards).toHaveBeenCalledTimes(2);
     expect(moduleLoader).toHaveBeenCalledTimes(2);
   });

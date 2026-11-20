@@ -66,6 +66,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/phrases": "Phrase Bank",
   "/favourites": "Favourites",
   "/drill": "Daily Drill",
+  "/search": "Search",
 };
 
 const CARD_TITLES: Record<string, string> = Object.fromEntries(

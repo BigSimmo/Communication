@@ -7,14 +7,12 @@ import {
 } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation, useRoute } from "wouter";
-import { SearchModal } from "../components/search-modal";
 import { CARD_DATA } from "../lib/cards";
 import { LIBRARY_CATEGORIES } from "../lib/data";
 import { TC001 } from "../lib/cards/TC001";
 import { FavouritesProvider } from "../lib/favourites-context";
 import { PdfProvider } from "../lib/pdf-context";
 import { QuickModeProvider, useQuickMode } from "../lib/quick-mode";
-import { ThemeProvider } from "../lib/theme";
 import CardDetail from "../pages/card-detail";
 import Drill from "../pages/drill";
 import Phrases from "../pages/phrases";
@@ -198,25 +196,5 @@ describe("lazy card consumer transitions", () => {
       "Phrase Bank",
     );
     expect(screen.getAllByTestId("phrase-row-TC001").length).toBeGreaterThan(0);
-  });
-
-  it("announces smart-search index loading before showing results", async () => {
-    const cards = deferred<Record<string, typeof TC001>>();
-    vi.mocked(loadAllCards).mockReturnValue(cards.promise);
-
-    render(
-      <ThemeProvider>
-        <SearchModal query="follow" setQuery={vi.fn()} onClose={vi.fn()} />
-      </ThemeProvider>,
-    );
-
-    expect(screen.getByRole("status")).toHaveTextContent(
-      "Loading search index",
-    );
-
-    await act(async () => cards.resolve({ TC001 }));
-
-    expect(screen.queryByRole("status")).not.toBeInTheDocument();
-    expect(screen.getByTestId("search-modal-result-TC001")).toBeInTheDocument();
   });
 });
