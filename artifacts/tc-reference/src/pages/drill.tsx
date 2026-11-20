@@ -136,7 +136,12 @@ export default function Drill() {
   const completedToday = isCompletedToday(state);
   // Finished for today, unless the reader chose to do tomorrow's task early.
   const done = completedToday && !draft.ahead;
-  const undo = useMemo(() => (done ? loadUndo(state) : null), [done, state]);
+  // Checked against the review records too: a review of the finished
+  // technique saved since (here or in another tab) withdraws the undo.
+  const undo = useMemo(
+    () => (done ? loadUndo(state, undefined, srsMap) : null),
+    [done, state, srsMap],
+  );
 
   const completionRef = useRef<HTMLDivElement>(null);
   const taskHeadingRef = useRef<HTMLHeadingElement>(null);
@@ -200,7 +205,7 @@ export default function Drill() {
   const finish = () => {
     if (!draft.rating) return;
     const srsBefore = srsMap[currentId] ?? null;
-    updateSRS(currentId, draft.rating);
+    const srsAfter = updateSRS(currentId, draft.rating);
     const next = completeDrill(state);
     saveDrillState(next);
     saveUndo({
@@ -208,6 +213,7 @@ export default function Drill() {
       after: next,
       cardId: currentId,
       srsBefore,
+      srsAfter,
       rating: draft.rating,
       ahead: completedToday,
     });

@@ -29,13 +29,14 @@ const fresh = (): DrillState => sanitiseDrillState({});
 function finishOnce(cardId = "TC004"): DrillUndo {
   const before = fresh();
   const srsBefore = loadSRSMap()[cardId] ?? null;
-  updateSRS(cardId, "confident");
+  const srsAfter = updateSRS(cardId, "confident");
   const after = completeDrill(before);
   const undo: DrillUndo = {
     before,
     after,
     cardId,
     srsBefore,
+    srsAfter,
     rating: "confident",
     ahead: false,
   };
@@ -123,6 +124,22 @@ describe("undo", () => {
       JSON.stringify({ undo: { ...undo, rating: "superb" } }),
     );
     expect(loadUndo(undo.after)).toBeNull();
+  });
+
+  it("is withdrawn once the technique has been reviewed again", () => {
+    const undo = finishOnce();
+    // A review sheet left open in another tab saves its rating afterwards
+    updateSRS("TC004", "not-yet");
+    expect(loadUndo(undo.after)).toBeNull();
+  });
+
+  it("never overwrites a review saved after the finish", () => {
+    const undo = finishOnce();
+    const later = updateSRS("TC004", "getting-there");
+    // Undo was already on screen when the later review landed
+    const restored = undoDrill(undo);
+    expect(restored).toEqual(undo.before);
+    expect(loadSRSMap().TC004).toEqual(later);
   });
 
   it("restores the drill and removes a review record the finish created", () => {

@@ -41,6 +41,8 @@ export interface DrillUndo {
   cardId: string;
   /** The card's review record before the rating, or null if it had none. */
   srsBefore: CardSRS | null;
+  /** The record the rating left, to tell whether it has been reviewed since. */
+  srsAfter: CardSRS;
   rating: DrillRating;
   /** The task was done early, on a day already completed. */
   ahead: boolean;
@@ -119,6 +121,17 @@ function sameState(a: DrillState, b: DrillState): boolean {
   );
 }
 
+function sameSRS(a: CardSRS | undefined, b: CardSRS): boolean {
+  return (
+    a !== undefined &&
+    a.cardId === b.cardId &&
+    a.interval === b.interval &&
+    a.repetition === b.repetition &&
+    a.efactor === b.efactor &&
+    a.nextReviewDate === b.nextReviewDate
+  );
+}
+
 export function saveUndo(undo: DrillUndo): void {
   writeSession({ undo });
 }
@@ -129,13 +142,15 @@ export function clearUndo(): void {
 
 /**
  * The last finish, if it can still be undone: it happened today, and the
- * saved drill is exactly what that finish left. Anything else (a new day,
- * a track change, progress made in another tab) means putting the old
- * state back would lose work, so there is nothing to undo.
+ * saved drill and the card's review record are exactly what that finish
+ * left. Anything else (a new day, a track change, progress or a review made
+ * in another tab) means putting the old state back would lose work, so
+ * there is nothing to undo.
  */
 export function loadUndo(
   current: DrillState,
   today: string = getTodayISO(),
+  srsMap: Record<string, CardSRS> = loadSRSMap(),
 ): DrillUndo | null {
   const value = readSession().undo;
   if (!isRecord(value)) return null;
@@ -145,13 +160,17 @@ export function loadUndo(
   const after = sanitiseDrillState(value.after);
   if (after.lastCompletionDate !== today || !sameState(after, current))
     return null;
-  const srsBefore =
-    sanitiseSRSMap({ [value.cardId]: value.srsBefore })[value.cardId] ?? null;
+  const cardId = value.cardId;
+  const record = (entry: unknown): CardSRS | undefined =>
+    sanitiseSRSMap({ [cardId]: entry })[cardId];
+  const srsAfter = record(value.srsAfter);
+  if (!srsAfter || !sameSRS(srsMap[cardId], srsAfter)) return null;
   return {
     before: sanitiseDrillState(value.before),
     after,
-    cardId: value.cardId,
-    srsBefore,
+    cardId,
+    srsBefore: record(value.srsBefore) ?? null,
+    srsAfter,
     rating: value.rating,
     ahead: value.ahead === true,
   };
@@ -161,14 +180,20 @@ export function loadUndo(
  * Put back what the last finish changed: the drill's place and streak, and
  * the card's review record. Returns the restored drill state. The task
  * reopens with its rating still chosen.
+ *
+ * The review record is only put back while it is still the one the finish
+ * left: a review saved since (in another tab, after loadUndo last looked)
+ * is newer work and stays.
  */
 export function undoDrill(undo: DrillUndo): DrillState {
   const srsMap = loadSRSMap();
-  if (undo.srsBefore) srsMap[undo.cardId] = undo.srsBefore;
-  else delete srsMap[undo.cardId];
-  try {
-    localStorage.setItem(SRS_STORAGE_KEY, JSON.stringify(srsMap));
-  } catch {}
+  if (sameSRS(srsMap[undo.cardId], undo.srsAfter)) {
+    if (undo.srsBefore) srsMap[undo.cardId] = undo.srsBefore;
+    else delete srsMap[undo.cardId];
+    try {
+      localStorage.setItem(SRS_STORAGE_KEY, JSON.stringify(srsMap));
+    } catch {}
+  }
   saveDrillState(undo.before);
   writeSession({
     undo: null,
