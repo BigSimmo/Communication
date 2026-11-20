@@ -10,6 +10,7 @@ const Help = lazy(() => import("@/pages/help"));
 const Favourites = lazy(() => import("@/pages/favourites"));
 const Phrases = lazy(() => import("@/pages/phrases"));
 const Playbooks = lazy(() => import("@/pages/playbooks"));
+const Search = lazy(() => import("@/pages/search"));
 const StartHere = lazy(() => import("@/pages/start"));
 import { FavouritesProvider } from "@/lib/favourites-context";
 import { PlaybookProvider } from "@/lib/playbook-context";
@@ -51,6 +52,7 @@ function Router() {
         <Route path="/favourites" component={Favourites} />
         <Route path="/phrases" component={Phrases} />
         <Route path="/playbooks" component={Playbooks} />
+        <Route path="/search" component={Search} />
         <Route path="/start" component={StartHere} />
         <Route component={NotFound} />
       </Switch>

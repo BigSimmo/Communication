@@ -69,6 +69,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/phrases": "Phrase Bank",
   "/favourites": "Saved",
   "/drill": "Daily Drill",
+  "/search": "Search",
   "/start": "Start here",
 };
 
