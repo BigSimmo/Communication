@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ChevronRight, Route, X } from "lucide-react";
+import { ChevronRight, LifeBuoy, Route, X } from "lucide-react";
 import { CORE_CARD_IDS } from "@/lib/data";
 import { buttonClass } from "@/components/ui/button";
 import {
@@ -136,6 +136,55 @@ export function StartHereShelf() {
               background: "var(--brand)",
             }}
           />
+        </span>
+      </span>
+      <ChevronRight
+        className="w-4 h-4 flex-shrink-0"
+        style={{ color: "var(--fg-55)" }}
+        aria-hidden="true"
+      />
+    </Link>
+  );
+}
+
+/**
+ * "Help me right now": the one amber-edged tile on the Library home, for a
+ * reader who is mid conversation and needs the words, not a lesson.
+ */
+export function HelpNowTile() {
+  return (
+    <Link
+      href="/help"
+      data-testid="library-help-now"
+      className="w-full min-w-0 flex items-center gap-3 rounded-2xl px-3.5 py-3 text-left transition-colors active:scale-[0.98] bg-[var(--surface-card)] hover:bg-[var(--surface-card-hover)]"
+      style={{
+        border: "1px solid color-mix(in srgb, var(--brand) 40%, transparent)",
+        boxShadow: "var(--shadow-card)",
+        minHeight: 64,
+      }}
+    >
+      <span
+        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+        style={{
+          background: "var(--brand)",
+          color: "var(--brand-contrast)",
+        }}
+        aria-hidden="true"
+      >
+        <LifeBuoy className="w-[18px] h-[18px]" />
+      </span>
+      <span className="flex-1 min-w-0">
+        <span
+          className="block text-[15px] font-bold leading-snug"
+          style={{ color: "var(--fg-90)" }}
+        >
+          Help me right now
+        </span>
+        <span
+          className="block text-[13px] leading-[1.4]"
+          style={{ color: "var(--fg-70)" }}
+        >
+          Pick your situation, get three lines to say
         </span>
       </span>
       <ChevronRight
