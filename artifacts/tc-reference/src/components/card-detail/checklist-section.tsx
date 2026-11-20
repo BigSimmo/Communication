@@ -1,8 +1,8 @@
 import { Check } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion } from "./section-accordion";
+import { CardBlock, Surface } from "./card-ui";
 
-// ── After-Action Checklist ──
+// ── After you use it ──
 export function ChecklistSection({
   cardData,
   checkedItems,
@@ -12,94 +12,61 @@ export function ChecklistSection({
   checkedItems: Set<number>;
   toggleCheck: (i: number) => void;
 }) {
+  const total = cardData.checklist.length;
   return (
-    <SectionAccordion
+    <CardBlock
       id="checklist"
-      label="After-action checklist"
-      subtitle={`${checkedItems.size} / ${cardData.checklist.length} items checked`}
-    >
-      <div
-        className="mb-4 rounded-full p-1.5 flex items-center gap-3"
-        style={{
-          background: "var(--fg-03)",
-          border: "1px solid var(--fg-06)",
-        }}
-        role="progressbar"
-        aria-valuenow={checkedItems.size}
-        aria-valuemin={0}
-        aria-valuemax={cardData.checklist.length}
-        aria-label={`${checkedItems.size} of ${cardData.checklist.length} items checked`}
-      >
-        <div
-          className="flex-1 h-2 rounded-full overflow-hidden ml-2"
-          style={{ background: "var(--fg-05)" }}
-        >
-          <div
-            className="h-full bg-primary rounded-full transition-all duration-300"
-            style={{
-              width: `${(checkedItems.size / cardData.checklist.length) * 100}%`,
-            }}
-          />
-        </div>
-        <span className="text-[11px] font-bold text-primary px-2">
-          {checkedItems.size} / {cardData.checklist.length}
+      title="After you use it"
+      meta={
+        <span data-testid="checklist-count" aria-live="polite">
+          {checkedItems.size} of {total} checked
         </span>
-      </div>
-      <div
-        className="rounded-2xl overflow-hidden"
-        style={{
-          background: "var(--fg-03)",
-          border: "1px solid var(--fg-05)",
-        }}
-      >
-        {cardData.checklist.map((item, i) => (
-          <button
-            key={i}
-            onClick={() => toggleCheck(i)}
-            aria-checked={checkedItems.has(i)}
-            role="checkbox"
-            data-testid={`checklist-item-${i}`}
-            className="w-full flex gap-4 p-4 text-left transition-all"
-            style={{
-              background: checkedItems.has(i)
-                ? "color-mix(in srgb, var(--brand) 4%, transparent)"
-                : "transparent",
-              borderBottom:
-                i < cardData.checklist.length - 1
-                  ? "1px solid var(--fg-03)"
-                  : "none",
-              minHeight: 52,
-            }}
-          >
-            <div
-              className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors"
-              style={{
-                background: checkedItems.has(i)
-                  ? "var(--brand)"
-                  : "var(--fg-05)",
-                border: checkedItems.has(i) ? "none" : "1px solid var(--fg-10)",
-              }}
-              aria-hidden="true"
+      }
+    >
+      <Surface divided>
+        {cardData.checklist.map((item, i) => {
+          const checked = checkedItems.has(i);
+          return (
+            <button
+              key={i}
+              type="button"
+              role="checkbox"
+              aria-checked={checked}
+              onClick={() => toggleCheck(i)}
+              data-testid={`checklist-item-${i}`}
+              className="w-full flex items-start gap-3 px-4 py-[13px] min-h-14 text-left transition-colors active:bg-[var(--fg-05)]"
             >
-              {checkedItems.has(i) && (
-                <Check
-                  className="w-3.5 h-3.5"
-                  style={{ color: "var(--brand-contrast)" }}
-                />
-              )}
-            </div>
-            <span
-              className="text-[13px] leading-snug transition-colors"
-              style={{
-                color: checkedItems.has(i) ? "var(--fg-50)" : "var(--fg-78)",
-                textDecoration: checkedItems.has(i) ? "line-through" : "none",
-              }}
-            >
-              {item}
-            </span>
-          </button>
-        ))}
-      </div>
-    </SectionAccordion>
+              <span
+                className="w-6 h-6 rounded-[7px] flex-none flex items-center justify-center transition-colors"
+                style={{
+                  background: checked ? "var(--brand)" : "transparent",
+                  border: checked
+                    ? "2px solid var(--brand)"
+                    : "2px solid var(--fg-25)",
+                }}
+                aria-hidden="true"
+              >
+                {checked && (
+                  <Check
+                    className="w-4 h-4"
+                    strokeWidth={3}
+                    style={{ color: "var(--brand-contrast)" }}
+                  />
+                )}
+              </span>
+              <span
+                className="flex-1 min-w-0 text-[15px] leading-[1.45] pt-px"
+                style={{
+                  color: checked ? "var(--fg-60)" : "var(--fg-90)",
+                  textDecoration: checked ? "line-through" : "none",
+                }}
+              >
+                {item}
+              </span>
+            </button>
+          );
+        })}
+      </Surface>
+    </CardBlock>
   );
 }

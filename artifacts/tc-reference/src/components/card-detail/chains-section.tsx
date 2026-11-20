@@ -1,58 +1,64 @@
+import { useState } from "react";
 import type { CardData } from "@/lib/card-types";
-import { SectionAccordion } from "./section-accordion";
+import { Chip } from "@/components/ui/chip";
+import { CardBlock, Meta, NumberDisc, Phrase, Surface } from "./card-ui";
 
-// ── Chains ──
+// "Rapport chain" is just "Rapport" on a chip under a "Chain it" heading
+function chipLabel(label: string): string {
+  return label.replace(/\s+chain$/i, "");
+}
+
+// ── Chain it with other moves ──
 export function ChainsSection({ cardData }: { cardData: CardData }) {
+  const chains = cardData.chains ?? [];
+  const [index, setIndex] = useState(0);
+  const chain = chains[Math.min(index, chains.length - 1)];
+  if (!chain) return null;
   return (
-    <SectionAccordion
+    <CardBlock
       id="chains"
-      label="Technique chains"
-      subtitle="Combine this move into longer sequences"
+      title="Chain it with other moves"
+      meta={chains.length > 1 ? `${chains.length} chains` : undefined}
     >
-      <div className="space-y-4">
-        {cardData.chains!.map((chain) => (
-          <div
-            key={chain.label}
-            className="rounded-2xl p-4 sm:p-5"
-            style={{
-              background: "var(--fg-03)",
-              border: "1px solid var(--fg-06)",
-            }}
-          >
-            <p className="text-[14px] font-bold text-foreground/90 mb-2">
-              {chain.label}
-            </p>
-            <p
-              className="text-[12px] leading-relaxed mb-4"
-              style={{ color: "var(--accent-indigo)" }}
+      {chains.length > 1 && (
+        <div
+          className="card-section-scroller flex gap-2 overflow-x-auto -mx-4 px-4"
+          role="toolbar"
+          aria-label="Choose a chain"
+        >
+          {chains.map((c, i) => (
+            <Chip
+              key={c.label}
+              selected={i === index}
+              onClick={() => setIndex(i)}
+              data-testid={`chain-chip-${i}`}
             >
-              {chain.sequence}
-            </p>
-            <div className="space-y-2.5 relative pl-5">
-              <div
-                className="absolute left-[5px] top-2 bottom-2 w-px"
-                style={{ background: "var(--fg-08)" }}
-                aria-hidden="true"
-              />
-              {chain.example.map((line, j) => (
-                <div key={j} className="relative">
-                  <div
-                    className="absolute -left-5 top-1.5 w-2.5 h-2.5 rounded-full"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--accent-indigo) 50%, transparent)",
-                    }}
-                    aria-hidden="true"
-                  />
-                  <p className="text-[13px] leading-snug text-foreground/75">
-                    {line}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </SectionAccordion>
+              {chipLabel(c.label)}
+            </Chip>
+          ))}
+        </div>
+      )}
+      <Surface className="p-4 flex flex-col gap-3" data-testid="chain">
+        <div className="flex flex-col gap-0.5">
+          <span
+            className="text-[16px] font-semibold leading-[1.3]"
+            style={{ color: "var(--fg-90)" }}
+          >
+            {chain.label}
+          </span>
+          <Meta>{chain.sequence}</Meta>
+        </div>
+        <ol className="flex flex-col gap-3">
+          {chain.example.map((line, j) => (
+            <li key={j} className="flex items-start gap-3">
+              <NumberDisc small>{j + 1}</NumberDisc>
+              <Phrase size="sm" className="flex-1">
+                {line}
+              </Phrase>
+            </li>
+          ))}
+        </ol>
+      </Surface>
+    </CardBlock>
   );
 }

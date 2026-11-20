@@ -18,8 +18,13 @@ export function DockBar({ children, aboveTabBar = true }: DockBarProps) {
   return (
     <div
       data-testid="dock-bar"
-      className="fixed inset-x-0 px-4 pointer-events-none"
-      style={{ bottom, zIndex: "var(--z-header)" as unknown as number }}
+      className="fixed inset-x-0 px-4 pointer-events-none motion-reduce:transition-none"
+      style={{
+        bottom,
+        zIndex: "var(--z-header)" as unknown as number,
+        // Matches the tab bar's slide, for docks that follow it down.
+        transition: "bottom 260ms cubic-bezier(0.2, 0.8, 0.2, 1)",
+      }}
     >
       <div
         aria-hidden="true"

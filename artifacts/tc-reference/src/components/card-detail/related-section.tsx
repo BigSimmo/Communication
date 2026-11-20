@@ -1,9 +1,9 @@
 import { ChevronRight } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
+import { CardBlock, Meta, Surface } from "./card-ui";
 import { CARD_TITLE_MAP } from "./card-sections";
-import { SectionAccordion } from "./section-accordion";
 
-// ── Related Techniques ──
+// ── Pairs well with ──
 export function RelatedSection({
   cardData,
   setLocation,
@@ -12,62 +12,36 @@ export function RelatedSection({
   setLocation: (to: string) => void;
 }) {
   return (
-    <SectionAccordion
-      id="related"
-      label="Related techniques"
-      subtitle={`${cardData.relatedTechniques?.length ?? 0} paired techniques`}
-    >
-      <div className="space-y-2">
+    <CardBlock id="related" title="Pairs well with">
+      <Surface divided>
         {cardData.relatedTechniques!.map((rt) => (
           <button
             key={rt.id}
+            type="button"
             onClick={() => {
               window.scrollTo(0, 0);
               setLocation(`/card/${rt.id}`);
             }}
             data-testid={`related-${rt.id}`}
-            className="w-full text-left flex items-center gap-3.5 rounded-2xl px-4 py-3.5 transition-all active:scale-[0.98]"
-            style={{
-              background: "var(--fg-03)",
-              border: "1px solid var(--fg-07)",
-            }}
+            className="w-full flex items-center gap-3 px-4 py-[13px] min-h-14 text-left transition-colors active:bg-[var(--fg-05)]"
           >
-            <div
-              className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{
-                background:
-                  "color-mix(in srgb, var(--accent-blue) 10%, transparent)",
-                border:
-                  "1px solid color-mix(in srgb, var(--accent-blue) 20%, transparent)",
-              }}
-              aria-hidden="true"
-            >
+            <span className="flex-1 min-w-0 flex flex-col gap-0.5">
               <span
-                className="text-[11px] font-bold"
-                style={{ color: "var(--accent-blue)" }}
+                className="text-[17px] font-semibold leading-[1.3]"
+                style={{ color: "var(--fg-90)" }}
               >
-                {rt.id.replace(/^TC/, "")}
-              </span>
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-[13px] font-semibold text-foreground/90">
                 {CARD_TITLE_MAP[rt.id] ?? rt.id}
-              </p>
-              <p
-                className="text-[12px] mt-0.5 leading-snug"
-                style={{ color: "var(--fg-50)" }}
-              >
-                {rt.reason}
-              </p>
-            </div>
+              </span>
+              <Meta>{rt.reason}</Meta>
+            </span>
             <ChevronRight
-              className="w-4 h-4 flex-shrink-0"
-              style={{ color: "var(--fg-45)" }}
+              className="w-[18px] h-[18px] flex-none"
+              style={{ color: "var(--fg-55)" }}
               aria-hidden="true"
             />
           </button>
         ))}
-      </div>
-    </SectionAccordion>
+      </Surface>
+    </CardBlock>
   );
 }
