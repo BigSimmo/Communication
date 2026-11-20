@@ -812,14 +812,16 @@ select:focus-visible,
   outline-offset: 2px;
 }
 
-/* Search popout: the input fills its row, so a ring around the bare input
-   reads as a stray box. Show focus on the whole row instead. */
+/* Search field: the input fills its pill, so a ring around the bare input
+   reads as a stray box. The pill shows focus instead (search-field.tsx). */
 .search-modal-input:focus-visible {
   outline: none;
 }
-.search-modal-row:focus-within {
-  box-shadow: inset 0 0 0 2px hsl(var(--ring));
-  border-radius: 16px 16px 0 0;
+
+/* The search screen fills the screen in place of the header and tab bar */
+body:has([data-search-screen]) .app-header,
+body:has([data-search-screen]) .tab-bar {
+  display: none;
 }
 
 /* Sideways-scrolling chip rows: scroll without a visible scrollbar */

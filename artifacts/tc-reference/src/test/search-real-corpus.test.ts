@@ -10,6 +10,12 @@ import {
   type SearchOptions,
 } from "../lib/search-index";
 import { SEARCH_SYNONYMS } from "../lib/search-synonyms";
+import { SEARCH_STARTERS } from "../components/search/search-starts";
+import {
+  FETCH_LIMITS,
+  groupResults,
+  pickBestMatch,
+} from "../components/search/relevance";
 
 const NO_BOOSTS: SearchOptions = {
   boosts: {
@@ -137,5 +143,51 @@ describe("synonym list", () => {
         results.totals.phrases +
         results.totals.playbooks,
     ).toBeGreaterThan(0);
+  });
+});
+
+describe("search screen starters", () => {
+  const search = (query: string) =>
+    searchAll(query, { ...NO_BOOSTS, limits: FETCH_LIMITS });
+
+  it.each(SEARCH_STARTERS)('"%s" leads with a result', async (starter) => {
+    const groups = groupResults(await search(starter));
+    expect(pickBestMatch(groups)).not.toBeNull();
+    expect(groups.techniques.length).toBeGreaterThan(0);
+  });
+
+  it.each([
+    ["Calm things down", /Slow down under pressure/],
+    ["Apologise", /Effective apology/],
+    ["Ask for something", /ask/i],
+    ["Give feedback", /feedback/i],
+  ])('"%s" features a fitting technique or playbook', async (starter, name) => {
+    const best = pickBestMatch(groupResults(await search(starter)));
+    const featured =
+      best?.kind === "technique" ? best.technique.title : best?.playbook.name;
+    expect(featured).toMatch(name);
+  });
+
+  it('"Say no" lists Positive no among its first techniques', async () => {
+    const groups = groupResults(await search("Say no"));
+    expect(titles(groups.techniques.slice(0, 3))).toContain(
+      "Positive no (Yes! No. Yes?)",
+    );
+  });
+
+  it('"Break bad news" features the Breaking bad news playbook', async () => {
+    const best = pickBestMatch(groupResults(await search("Break bad news")));
+    expect(best).toMatchObject({
+      kind: "playbook",
+      playbook: { name: "Breaking bad news" },
+    });
+  });
+
+  it("leads with a short list even when a word reaches most of the catalogue", async () => {
+    const results = await search("apology");
+    expect(results.totals.techniques).toBeGreaterThan(40);
+    const groups = groupResults(results);
+    expect(groups.techniques.length).toBeLessThanOrEqual(12);
+    expect(groups.techniques[0].title).toBe("Effective apology");
   });
 });

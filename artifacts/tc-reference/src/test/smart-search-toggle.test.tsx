@@ -1,14 +1,12 @@
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-  within,
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, beforeAll, beforeEach, vi } from "vitest";
 import { useLocation } from "wouter";
 import { AppHeader } from "../components/app-header";
+import { SearchModal } from "../components/search-modal";
+import {
+  SEARCH_ENTRY_STATE,
+  SEARCH_INPUT_ID,
+} from "../components/search/search-nav";
 import Library from "../pages/library";
 import { FavouritesProvider } from "../lib/favourites-context";
 import { NavProvider } from "../lib/nav-context";
@@ -19,10 +17,12 @@ import { PdfProvider } from "../lib/pdf-context";
 vi.mock("wouter");
 
 beforeAll(async () => {
-  // Warm the lazy search module once so this interaction test measures the
-  // behavior rather than filesystem/module-loader contention from the suite.
+  // Warm the lazy search hand-over once so these interaction tests measure
+  // the behavior rather than module-loader contention from the suite.
   await import("../components/search-modal");
 });
+
+const navigate = vi.fn();
 
 function Wrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -43,7 +43,8 @@ beforeEach(() => {
     configurable: true,
     value: 1024,
   });
-  vi.mocked(useLocation).mockReturnValue(["/", vi.fn()]);
+  navigate.mockClear();
+  vi.mocked(useLocation).mockReturnValue(["/", navigate]);
 
   Object.defineProperty(window, "matchMedia", {
     writable: true,
@@ -60,67 +61,101 @@ beforeEach(() => {
   });
 });
 
-describe("Library smart search toggle", () => {
-  it.each(["", "follow"])(
-    "lets the actual narrow modal input shrink with query %j",
-    async (query) => {
-      Object.defineProperty(window, "innerWidth", {
-        configurable: true,
-        value: 320,
+// Search is the full-screen /search route. The header button, the Library's
+// search field and Ctrl/Cmd+K still "open search" through the nav context;
+// what opens is a hand-over that sends the reader to the search screen.
+describe("opening search from the header and the Library", () => {
+  it("goes to the search screen from the Library search field", async () => {
+    render(
+      <Wrapper>
+        <AppHeader />
+        <Library />
+      </Wrapper>,
+    );
+    const input = screen.getByTestId("library-search-input");
+    expect(input).toHaveAttribute("aria-expanded", "false");
+
+    fireEvent.click(input);
+
+    await waitFor(() => {
+      expect(navigate).toHaveBeenCalledWith("/search", {
+        state: SEARCH_ENTRY_STATE,
       });
+      expect(input).toHaveAttribute("aria-expanded", "false");
+    });
+    expect(navigate).toHaveBeenCalledTimes(1);
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("goes to the search screen from the header search button", async () => {
+    vi.mocked(useLocation).mockReturnValue(["/phrases", navigate]);
+    render(
+      <Wrapper>
+        <AppHeader />
+      </Wrapper>,
+    );
+    const button = screen.getByTestId("button-header-search");
+
+    fireEvent.click(button);
+
+    await waitFor(() => {
+      expect(navigate).toHaveBeenCalledWith("/search", {
+        state: SEARCH_ENTRY_STATE,
+      });
+      expect(button).toHaveAttribute("aria-expanded", "false");
+    });
+    expect(navigate).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(["metaKey", "ctrlKey"])(
+    "goes to the search screen on K with %s",
+    async (modifier) => {
       render(
         <Wrapper>
           <AppHeader />
-          <Library />
         </Wrapper>,
       );
-      // The first render still initializes React.lazy after module prewarming.
-      await act(async () => {
-        fireEvent.click(screen.getByTestId("library-search-input"));
-      });
-      const input = await screen.findByTestId("search-modal-input");
-      if (query) fireEvent.change(input, { target: { value: query } });
-      expect(input).toHaveClass("flex-1", "min-w-0");
-      expect(screen.getByRole("button", { name: "Close search" })).toHaveClass(
-        "flex-shrink-0",
+
+      fireEvent.keyDown(window, { key: "k", [modifier]: true });
+
+      await waitFor(() =>
+        expect(navigate).toHaveBeenCalledWith("/search", {
+          state: SEARCH_ENTRY_STATE,
+        }),
       );
-      if (query) {
-        const clear = within(screen.getByTestId("search-modal")).getByRole(
-          "button",
-          { name: "Clear search" },
-        );
-        expect(clear).toHaveClass("flex-shrink-0");
-        fireEvent.click(clear);
-        expect(input).toHaveValue("");
-        expect(
-          screen.queryByRole("button", { name: "Clear search" }),
-        ).not.toBeInTheDocument();
-      }
+      expect(navigate).toHaveBeenCalledTimes(1);
     },
   );
 
-  it.each(["close button", "backdrop"])(
-    "dismisses via %s and restores the opener without reopening",
-    async (method) => {
-      render(
-        <Wrapper>
-          <AppHeader />
-          <Library />
-        </Wrapper>,
-      );
-      const opener = screen.getByTestId("library-search-input");
-      fireEvent.click(opener);
-      const modal = await screen.findByTestId("search-modal");
-      if (method === "close button")
-        fireEvent.click(screen.getByRole("button", { name: "Close search" }));
-      else fireEvent.mouseDown(modal);
-      await waitFor(() => {
-        expect(screen.queryByTestId("search-modal")).not.toBeInTheDocument();
-        expect(opener).toHaveAttribute("aria-expanded", "false");
-        expect(opener).toHaveFocus();
-      });
-    },
-  );
+  it("takes what was typed along and hands the field back empty", () => {
+    const setQuery = vi.fn();
+    const onClose = vi.fn();
+    const { container } = render(
+      <SearchModal query="say no" setQuery={setQuery} onClose={onClose} />,
+    );
+
+    expect(navigate).toHaveBeenCalledWith("/search?q=say+no", {
+      state: SEARCH_ENTRY_STATE,
+    });
+    expect(setQuery).toHaveBeenCalledWith("");
+    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(container).toBeEmptyDOMElement();
+  });
+
+  it("puts the cursor back in the field when search is already open", () => {
+    vi.mocked(useLocation).mockReturnValue(["/search", navigate]);
+    const onClose = vi.fn();
+    render(
+      <>
+        <input id={SEARCH_INPUT_ID} aria-label="Search" />
+        <SearchModal query="" setQuery={vi.fn()} onClose={onClose} />
+      </>,
+    );
+
+    expect(navigate).not.toHaveBeenCalled();
+    expect(screen.getByLabelText("Search")).toHaveFocus();
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
 
   it("shows and hides the header details from the slider button", () => {
     render(
@@ -135,59 +170,17 @@ describe("Library smart search toggle", () => {
 
     expect(toggle).toHaveAttribute("aria-expanded", "true");
     expect(details).toHaveAttribute("aria-hidden", "false");
-    expect(screen.queryByTestId("search-modal")).not.toBeInTheDocument();
 
     fireEvent.click(toggle);
 
     expect(toggle).toHaveAttribute("aria-expanded", "false");
     expect(details).toHaveAttribute("aria-hidden", "true");
-    expect(screen.queryByTestId("search-modal")).not.toBeInTheDocument();
 
     fireEvent.click(toggle);
 
     expect(toggle).toHaveAttribute("aria-expanded", "true");
     expect(details).toHaveAttribute("aria-hidden", "false");
-  });
-
-  it("opens the popout from the library search input", async () => {
-    render(
-      <Wrapper>
-        <AppHeader />
-        <Library />
-      </Wrapper>,
-    );
-
-    const input = screen.getByTestId("library-search-input");
-
-    expect(input).toHaveAttribute("aria-expanded", "false");
-    expect(screen.queryByTestId("search-modal")).not.toBeInTheDocument();
-
-    fireEvent.click(input);
-
-    expect(input).toHaveAttribute("aria-expanded", "true");
-    expect(await screen.findByTestId("search-modal")).toBeInTheDocument();
-    expect(screen.getByText("Smart starts")).toBeInTheDocument();
-  });
-
-  it("closes with Escape without reopening from restored focus", async () => {
-    render(
-      <Wrapper>
-        <AppHeader />
-        <Library />
-      </Wrapper>,
-    );
-
-    const input = screen.getByTestId("library-search-input");
-    fireEvent.click(input);
-    await screen.findByTestId("search-modal");
-
-    fireEvent.keyDown(window, { key: "Escape" });
-
-    await waitFor(() => {
-      expect(screen.queryByTestId("search-modal")).not.toBeInTheDocument();
-      expect(input).toHaveAttribute("aria-expanded", "false");
-      expect(input).toHaveFocus();
-    });
+    expect(navigate).not.toHaveBeenCalled();
   });
 
   it("consumes the one-shot suppression marker before opening search", () => {
@@ -203,8 +196,9 @@ describe("Library smart search toggle", () => {
 
     fireEvent.focus(input);
 
-    expect(screen.queryByTestId("search-modal")).not.toBeInTheDocument();
+    expect(input).toHaveAttribute("aria-expanded", "false");
     expect(input).not.toHaveAttribute("data-suppress-search-open");
+    expect(navigate).not.toHaveBeenCalled();
   });
 
   it("shows the filter toggle on the Library and a search button elsewhere", () => {
@@ -222,7 +216,7 @@ describe("Library smart search toggle", () => {
     expect(screen.queryByTestId("button-header-menu")).not.toBeInTheDocument();
     unmount();
 
-    vi.mocked(useLocation).mockReturnValue(["/phrases", vi.fn()]);
+    vi.mocked(useLocation).mockReturnValue(["/phrases", navigate]);
     render(
       <Wrapper>
         <AppHeader />
@@ -232,7 +226,6 @@ describe("Library smart search toggle", () => {
       screen.queryByTestId("button-header-details-toggle"),
     ).not.toBeInTheDocument();
     const search = screen.getByTestId("button-header-search");
-    expect(search).toHaveAttribute("aria-controls", "search-popout-panel");
     expect(search).toHaveAttribute("aria-expanded", "false");
   });
 });
