@@ -391,12 +391,13 @@ describe("core accessibility contracts", () => {
     expect(
       screen.getByRole("heading", { level: 1, name: "Daily Drill" }),
     ).toBeInTheDocument();
+    fireEvent.click(await screen.findByRole("button", { name: /^Not yet/ }));
     fireEvent.click(
-      await screen.findByRole("button", { name: "Hard: review soon" }),
+      screen.getByRole("button", { name: "Finish today's drill" }),
     );
 
     const completion = screen.getByRole("status");
-    expect(completion).toHaveTextContent("Great work. Come back tomorrow");
+    expect(completion).toHaveTextContent("Day 1 done");
     await waitFor(() => expect(document.activeElement).toBe(completion));
   });
 

@@ -32,7 +32,7 @@ describe("Drill load failure (F-04)", () => {
     fireEvent.click(screen.getByRole("button", { name: "Retry" }));
 
     expect(
-      await screen.findByRole("button", { name: /^Good/ }),
+      await screen.findByRole("button", { name: /^Getting there/ }),
     ).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Retry" })).toBeNull();
     expect(loadCard).toHaveBeenCalledTimes(2);
