@@ -111,6 +111,19 @@ describe("Library home", () => {
     );
   });
 
+  it("offers Help me right now first, linking to the situation picker", () => {
+    render(
+      <Wrapper>
+        <Library />
+      </Wrapper>,
+    );
+    const help = screen.getByTestId("library-help-now");
+    expect(help).toHaveAttribute("href", "/help");
+    expect(help).toHaveAccessibleName(/Help me right now/);
+    fireEvent.click(screen.getByTestId("category-chip-connection-warmth"));
+    expect(screen.queryByTestId("library-help-now")).not.toBeInTheDocument();
+  });
+
   it("skips the welcome for a reader who has already opened a card", () => {
     recordRecentCard("TC001");
     render(

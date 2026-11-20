@@ -26,7 +26,10 @@ import {
   writeSavedScroll,
 } from "@/lib/library-scroll";
 import { LibraryToday } from "@/components/library-today";
-import { StartHereShelf } from "@/components/library/start-here-shelf";
+import {
+  HelpNowTile,
+  StartHereShelf,
+} from "@/components/library/start-here-shelf";
 import { CategoryChips } from "@/components/library/category-chips";
 import {
   LibraryCardRow,
@@ -737,6 +740,7 @@ export default function Library() {
       <div className="px-4 md:px-6 pt-4 pb-6 space-y-6">
         {!hasFiltersActive && (
           <div className="space-y-2">
+            <HelpNowTile />
             <StartHereShelf />
             <LibraryToday />
           </div>
