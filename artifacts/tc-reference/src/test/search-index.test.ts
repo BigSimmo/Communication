@@ -1,150 +1,22 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { loadAllCards } from "../lib/card-loader";
-import type { CardData, PhraseGroup } from "../lib/card-types";
-import { CORE_CARD_IDS } from "../lib/data";
-import { CARD_IDS } from "../lib/drill-state";
 import {
   DEFAULT_LIMITS,
-  highlightMatch,
   preloadSearchIndex,
   searchAll,
   searchCards,
-  suggestSearches,
-  type SearchOptions,
 } from "../lib/search-index";
+import { CORPUS, expectSortedByScore, ids, NO_BOOSTS } from "./search-fixtures";
 
 vi.mock("../lib/card-loader", async (importOriginal) => ({
   ...(await importOriginal<typeof import("../lib/card-loader")>()),
   loadAllCards: vi.fn(),
 }));
 
-// Synthetic card content keyed by real card ids, so titles and categories come
-// from the real library metadata (data.ts) while the searchable body text is
-// fully controlled here. Playbooks are the real templates.
-function card(id: string, overrides: Partial<CardData> = {}): CardData {
-  return {
-    id,
-    overview: {
-      coreFormula: ["step one"],
-      minimumViableMove: "",
-      impact: "High",
-      difficulty: "Easy",
-      misuse: "",
-      bestFor: ["generic use"],
-    },
-    phraseBank: [
-      {
-        id: "g",
-        label: "Group",
-        tag: "general",
-        tone: "Warm",
-        phrases: ["Plain line."],
-      },
-    ],
-    scenarios: [],
-    whyItWorks: "shared rationale",
-    ...overrides,
-  } as CardData;
-}
-
-function group(
-  label: string,
-  phrases: string[],
-  extra: Partial<PhraseGroup> = {},
-): PhraseGroup {
-  return { id: label.toLowerCase(), label, tag: "general", phrases, ...extra };
-}
-
-const GENERIC_IDS = CARD_IDS.slice(0, 20);
-const CORPUS: Record<string, CardData> = Object.fromEntries(
-  GENERIC_IDS.map((id) => [id, card(id)]),
-);
-// TC014 "Validate the concern" (Clarity / Direction)
-CORPUS.TC014 = card("TC014", {
-  phraseBank: [
-    group("Openers", ["I hear why that worries you."], { tone: "Warm" }),
-  ],
-  whyItWorks: "Naming the concern lowers defences.",
-});
-// TC001 "Live thread follow-ups": mentions TC014's title inside a phrase
-CORPUS.TC001 = card("TC001", {
-  phraseBank: [group("Bridges", ["First validate the concern, then ask."])],
-});
-// TC002: accented text
-CORPUS.TC002 = card("TC002", {
-  whyItWorks: "Avoids the Cliché of instant advice.",
-});
-// TC003: references TC014 by id inside a scenario
-CORPUS.TC003 = card("TC003", {
-  scenarios: [{ situation: "They push back", move: "See TC014", phrase: "" }],
-});
-// TC006 "Emotional labelling": only card vocabulary, never the word "upset"
-CORPUS.TC006 = card("TC006", {
-  overview: {
-    ...card("TC006").overview,
-    bestFor: ["When someone is frustrated or hurt"],
-  },
-  phraseBank: [group("Labels", ["That sounds frustrating."])],
-});
-// TC007: a stage direction that is not a line to say out loud
-CORPUS.TC007 = card("TC007", {
-  phraseBank: [
-    group("Practice", ["[Plant feet. Pause. Continue.]", "Keep it short."]),
-  ],
-});
-// TC008: a phrase group whose tone is the match
-CORPUS.TC008 = card("TC008", {
-  phraseBank: [
-    group("Restart lines", ["Can we start again?"], { tone: "Repair" }),
-  ],
-});
-// TC010: a phrase with the everyday word itself
-CORPUS.TC010 = card("TC010", {
-  phraseBank: [group("Noticing", ["You seem upset."])],
-});
-// TC029 "Strategic silence"
-CORPUS.TC029 = card("TC029", {
-  overview: { ...card("TC029").overview, bestFor: ["Awkward pauses"] },
-  phraseBank: [group("Holding", ["Let the silence do the work."])],
-});
-// TC101 "Effective apology"
-CORPUS.TC101 = card("TC101", {
-  phraseBank: [group("Apologies", ["I'm sorry. That was on me."])],
-  whyItWorks: "A clean apology repairs trust.",
-});
-// TC102 "Positive no (Yes! No. Yes?)"
-CORPUS.TC102 = card("TC102", {
-  overview: {
-    ...card("TC102").overview,
-    bestFor: ["Declining a request kindly"],
-  },
-});
-
-const NO_BOOSTS: SearchOptions = {
-  boosts: {
-    savedCardIds: [],
-    savedPhrases: [],
-    recentCardIds: [],
-    startHereCardIds: [],
-  },
-};
-
-function boosted(boosts: NonNullable<SearchOptions["boosts"]>): SearchOptions {
-  return { boosts: { ...NO_BOOSTS.boosts, ...boosts } };
-}
-
 beforeEach(() => {
   localStorage.clear();
   vi.mocked(loadAllCards).mockResolvedValue(Object.freeze(CORPUS));
 });
-
-function expectSortedByScore(results: { score: number }[]) {
-  for (let i = 1; i < results.length; i++) {
-    expect(results[i - 1].score).toBeGreaterThanOrEqual(results[i].score);
-  }
-}
-
-const ids = (results: { id: string }[]) => results.map((r) => r.id);
 
 describe("searchCards", () => {
   it.each(["", "   ", "\n\t"])(
@@ -419,96 +291,6 @@ describe("searchAll", () => {
   });
 });
 
-describe("ranking boosts", () => {
-  // Every generic card has the same "shared rationale" text, so only the
-  // boosts separate them.
-  const Q = "shared rationale";
-
-  it("lifts saved cards", async () => {
-    const results = await searchCards(Q, boosted({ savedCardIds: ["TC019"] }));
-    expect(results[0].id).toBe("TC019");
-  });
-
-  it("lifts recently opened cards, most recent first", async () => {
-    const results = await searchCards(
-      Q,
-      boosted({ recentCardIds: ["TC020", "TC018"] }),
-    );
-    expect(ids(results).slice(0, 2)).toEqual(["TC020", "TC018"]);
-  });
-
-  it("lifts Start here cards", async () => {
-    const results = await searchCards(
-      Q,
-      boosted({ startHereCardIds: ["TC017"] }),
-    );
-    expect(results[0].id).toBe("TC017");
-  });
-
-  it("ranks saved above recent", async () => {
-    const results = await searchCards(
-      Q,
-      boosted({ savedCardIds: ["TC019"], recentCardIds: ["TC020"] }),
-    );
-    expect(ids(results).slice(0, 2)).toEqual(["TC019", "TC020"]);
-  });
-
-  it("never lets a boost outrank a much better match", async () => {
-    const results = await searchCards(
-      "validate the concern",
-      boosted({ savedCardIds: ["TC001"], recentCardIds: ["TC001"] }),
-    );
-    expect(results[0].id).toBe("TC014");
-  });
-
-  it("lifts saved phrases, then phrases from saved cards", async () => {
-    const saved = await searchAll(
-      "plain line",
-      boosted({ savedPhrases: [{ cardId: "TC019", text: "Plain line." }] }),
-    );
-    expect(saved.phrases[0].cardId).toBe("TC019");
-
-    const fromCard = await searchAll(
-      "plain line",
-      boosted({ savedCardIds: ["TC018"] }),
-    );
-    expect(fromCard.phrases[0].cardId).toBe("TC018");
-  });
-
-  it("reads saved and recent cards from the device by default", async () => {
-    localStorage.setItem(
-      "tc_favourites",
-      JSON.stringify({ cardIds: ["TC019"], phrases: [] }),
-    );
-    localStorage.setItem("tc_recent_cards", JSON.stringify(["TC020"]));
-    const results = await searchCards(Q);
-    expect(ids(results).slice(0, 2)).toEqual(["TC019", "TC020"]);
-  });
-
-  it("lifts the Start here set by default", async () => {
-    const results = await searchCards(Q);
-    expect(CORE_CARD_IDS).toContain(results[0].id);
-  });
-});
-
-describe("suggestSearches", () => {
-  it("completes the word being typed", async () => {
-    expect(await suggestSearches("sil")).toContain("silence");
-    expect(await suggestSearches("let the sil")).toContain("let the silence");
-  });
-
-  it("suggests nothing for very short or finished input", async () => {
-    expect(await suggestSearches("")).toEqual([]);
-    expect(await suggestSearches("s")).toEqual([]);
-    expect(await suggestSearches("sil ")).toEqual([]);
-  });
-
-  it("respects the limit", async () => {
-    expect((await suggestSearches("s", 2)).length).toBeLessThanOrEqual(2);
-    expect((await suggestSearches("st", 2)).length).toBeLessThanOrEqual(2);
-  });
-});
-
 describe("preloadSearchIndex", () => {
   it("builds the index once and reuses it", async () => {
     await preloadSearchIndex();
@@ -516,56 +298,5 @@ describe("preloadSearchIndex", () => {
     await preloadSearchIndex();
     await searchAll("concern");
     expect(vi.mocked(loadAllCards).mock.calls.length).toBe(calls);
-  });
-});
-
-describe("highlightMatch", () => {
-  it("returns the whole text unhighlighted for a blank query", () => {
-    expect(highlightMatch("Validate the concern", "  ")).toEqual([
-      { text: "Validate the concern", highlight: false },
-    ]);
-  });
-
-  it("highlights every case-insensitive occurrence", () => {
-    expect(highlightMatch("Concern about the concern", "CONCERN")).toEqual([
-      { text: "", highlight: false },
-      { text: "Concern", highlight: true },
-      { text: " about the ", highlight: false },
-      { text: "concern", highlight: true },
-      { text: "", highlight: false },
-    ]);
-  });
-
-  it("treats regex metacharacters literally", () => {
-    const parts = highlightMatch("Ask (why?) twice", "(why?)");
-    expect(parts.filter((p) => p.highlight).map((p) => p.text)).toEqual([
-      "(why?)",
-    ]);
-  });
-
-  it("highlights each word of a multi-word query, but not filler words", () => {
-    const parts = highlightMatch(
-      "Validate the concern",
-      "validate the concern",
-    );
-    expect(parts.filter((p) => p.highlight).map((p) => p.text)).toEqual([
-      "Validate the concern",
-    ]);
-    const words = highlightMatch("Validate the concern", "concern validate");
-    expect(words.filter((p) => p.highlight).map((p) => p.text)).toEqual([
-      "Validate",
-      "concern",
-    ]);
-    const filler = highlightMatch("the theme", "the theme");
-    expect(filler.filter((p) => p.highlight).map((p) => p.text)).toEqual([
-      "the theme",
-    ]);
-  });
-
-  it("highlights the corrected words", () => {
-    const parts = highlightMatch("Effective apology", "apolgy", "apology");
-    expect(parts.filter((p) => p.highlight).map((p) => p.text)).toEqual([
-      "apology",
-    ]);
   });
 });
