@@ -1,30 +1,58 @@
 import { useState, useMemo, useEffect } from "react";
+import { Link } from "wouter";
+import {
+  Check,
+  ChevronRight,
+  Copy,
+  Heart,
+  Search,
+  X,
+  MessagesSquare,
+} from "lucide-react";
 import { PageIntro } from "@/components/page-intro";
-import { useLocation } from "wouter";
-import { Check, Copy, Heart, Search, X, MessagesSquare } from "lucide-react";
+import { Chip } from "@/components/ui/chip";
 import {
   loadAllAggregatedPhrases,
   getAllTones,
   type AggregatedPhrase,
 } from "@/lib/phrases-data";
+import type { CanonicalTone } from "@/lib/card-types";
+import {
+  PHRASE_LENGTHS,
+  TONE_HINTS,
+  countFacets,
+  filterPhrases,
+  groupByCard,
+  type PhraseLength,
+} from "@/lib/phrase-filters";
+import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { categoryStyleFor } from "@/lib/design-tokens";
 import { useFavourites } from "@/lib/favourites-context";
-import { useScrollDirection } from "@/hooks/use-scroll-direction";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
+
+// The bank runs to thousands of phrases; render a window and grow it on
+// demand so the page mounts and scrolls smoothly on a phone.
+const PAGE_SIZE = 120;
+
+const CARD_CATEGORY: Record<string, string> = Object.fromEntries(
+  Object.entries(LIBRARY_CATEGORIES).flatMap(([category, cards]) =>
+    cards.map((c) => [c.id, category]),
+  ),
+);
+
+const formatCount = (n: number) => n.toLocaleString("en-GB");
 
 export default function Phrases() {
   const [allPhrases, setAllPhrases] =
     useState<ReadonlyArray<AggregatedPhrase> | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
-  const [toneFilter, setToneFilter] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  // The full bank is thousands of phrases; render a window and grow it on demand
-  // so the page mounts and scrolls smoothly on a phone.
-  const PAGE_SIZE = 120;
+  const [tone, setTone] = useState<CanonicalTone | null>(null);
+  const [length, setLength] = useState<PhraseLength | null>(null);
+  const [query, setQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const { copied: copiedPhrase, copy: handleCopy } = useCopyFeedback(1800);
-  const [, setLocation] = useLocation();
-  const { togglePhrase, isPhrasesFav } = useFavourites();
-  const scrollDirection = useScrollDirection(60);
+  const { copied, copy } = useCopyFeedback(1800);
+  const { state: favState, togglePhrase, isPhrasesFav } = useFavourites();
+  const savedPhraseCount = favState.phrases.length;
 
   useEffect(() => {
     let active = true;
@@ -41,53 +69,46 @@ export default function Phrases() {
     };
   }, []);
 
+  const filter = useMemo(
+    () => ({ tone, length, query }),
+    [tone, length, query],
+  );
   const allTones = useMemo(
     () => (allPhrases ? getAllTones(allPhrases) : []),
     [allPhrases],
   );
-  const toneCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-    for (const phrase of allPhrases ?? []) {
-      counts[phrase.tone] = (counts[phrase.tone] ?? 0) + 1;
-    }
-    return counts;
-  }, [allPhrases]);
+  const counts = useMemo(
+    () => countFacets(allPhrases ?? [], filter),
+    [allPhrases, filter],
+  );
+  const filtered = useMemo(
+    () => filterPhrases(allPhrases ?? [], filter),
+    [allPhrases, filter],
+  );
 
-  const hasActive = !!toneFilter || !!searchQuery;
-  const filterHidden = scrollDirection === "down" && !hasActive;
-
-  const filtered = useMemo(() => {
-    let result = allPhrases ?? [];
-    if (toneFilter) result = result.filter((p) => p.tone === toneFilter);
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      result = result.filter(
-        (p) =>
-          p.text.toLowerCase().includes(q) ||
-          p.cardTitle.toLowerCase().includes(q) ||
-          p.cardId.toLowerCase().includes(q),
-      );
-    }
-    return result;
-  }, [allPhrases, toneFilter, searchQuery]);
-
-  // Reset the render window whenever the result set changes.
-  // Adjusted during render (not in an effect) so the stale window never paints.
-  const [prevFilters, setPrevFilters] = useState({ toneFilter, searchQuery });
-  if (
-    prevFilters.toneFilter !== toneFilter ||
-    prevFilters.searchQuery !== searchQuery
-  ) {
-    setPrevFilters({ toneFilter, searchQuery });
+  // Reset the render window whenever the result set changes. Adjusted during
+  // render (not in an effect) so the stale window never paints.
+  const [prevFilter, setPrevFilter] = useState(filter);
+  if (prevFilter !== filter) {
+    setPrevFilter(filter);
     setVisibleCount(PAGE_SIZE);
   }
 
-  const visible = filtered.slice(0, visibleCount);
+  const groups = useMemo(
+    () => groupByCard(filtered.slice(0, visibleCount)),
+    [filtered, visibleCount],
+  );
   const hasMore = filtered.length > visibleCount;
+  const hasActive = !!tone || !!length || !!query;
+  const clearAll = () => {
+    setTone(null);
+    setLength(null);
+    setQuery("");
+  };
 
   if (!allPhrases) {
     return (
-      <div className="flex flex-col bg-background w-full max-w-2xl mx-auto px-4 md:px-6 pt-4 md:pt-6">
+      <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-4 md:pt-6">
         <PageIntro title="Phrase Bank" />
         <div role="status" aria-live="polite" className="py-16 text-center">
           {loadFailed
@@ -98,296 +119,351 @@ export default function Phrases() {
     );
   }
 
+  const toneTotal = allTones.reduce((n, t) => n + (counts.tone[t] ?? 0), 0);
+  const lengthTotal = PHRASE_LENGTHS.reduce(
+    (n, l) => n + (counts.length[l.id] ?? 0),
+    0,
+  );
+
   return (
-    <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
-      {/* ── Page header ── */}
+    <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-3 md:pt-6 pb-8">
       <PageIntro
         title="Phrase Bank"
-        description="Every phrase from every card. Filter by tone, search, then tap a phrase to copy it."
-        className="px-4 md:px-6 pt-4 md:pt-6 pb-3"
+        description={`${formatCount(allPhrases.length)} lines from every technique. Pick a tone and length, then tap a line to copy it.`}
       />
 
-      {/* ── Sticky filter bar ── */}
-      <div
-        className="sticky z-10 flex-shrink-0 sticky-under-header"
-        style={{
-          top: "var(--app-header-height, 56px)",
-          maxHeight: filterHidden ? 0 : 104,
-          overflow: "hidden",
-          transition: "max-height 300ms ease",
-        }}
-      >
-        <div
+      {savedPhraseCount > 0 && (
+        <Link
+          href="/favourites"
+          data-testid="phrases-saved-link"
+          className="mt-3 flex items-center gap-3 rounded-2xl px-4 min-h-14 transition-colors hover:bg-[var(--surface-card-hover)]"
           style={{
-            transform: filterHidden ? "translateY(-110%)" : "translateY(0)",
-            transition: "transform 300ms ease",
-            willChange: "transform",
-            background: "var(--surface-header)",
-            backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
-            borderBottom: "1px solid var(--fg-05)",
+            background: "var(--surface-card)",
+            border: "1px solid var(--fg-07)",
           }}
         >
-          {/* Row 1: Tone chips */}
-          <div
-            className="flex gap-2 overflow-x-auto py-1.5 px-4 md:px-6"
-            style={{
-              scrollbarWidth: "none",
-              // Fade the trailing edge so off-screen tones read as scrollable
-              maskImage:
-                "linear-gradient(to right, #000 calc(100% - 32px), transparent)",
-              WebkitMaskImage:
-                "linear-gradient(to right, #000 calc(100% - 32px), transparent)",
-            }}
-            role="toolbar"
-            aria-label="Filter by tone"
+          <Heart
+            className="w-[18px] h-[18px] flex-none"
+            style={{ color: "var(--brand-text)" }}
+            fill="var(--brand-text)"
+            aria-hidden="true"
+          />
+          <span
+            className="flex-1 text-[16px] font-semibold"
+            style={{ color: "var(--fg-90)" }}
           >
-            <button
-              onClick={() => setToneFilter(null)}
-              aria-pressed={!toneFilter}
-              data-testid="tone-filter-all"
-              className="tap-band flex-shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
-              style={{
-                height: 32,
-                background: !toneFilter
-                  ? "var(--gradient-active)"
-                  : "var(--fg-05)",
-                color: !toneFilter ? "var(--brand-contrast)" : "var(--fg-60)",
-                border: !toneFilter
-                  ? "1px solid color-mix(in srgb, var(--brand) 60%, transparent)"
-                  : "1px solid var(--fg-08)",
-                boxShadow: !toneFilter
-                  ? "0 2px 10px color-mix(in srgb, var(--brand) 32%, transparent)"
-                  : "none",
-              }}
-            >
-              All
-              <span
-                className="text-[11px] font-bold px-1.5 py-0.5 rounded-full leading-none"
-                style={{
-                  background: !toneFilter
-                    ? "rgba(15,23,36,0.18)"
-                    : "var(--fg-08)",
-                  color: !toneFilter ? "var(--brand-contrast)" : "var(--fg-60)",
-                }}
-              >
-                {allPhrases.length}
-              </span>
-            </button>
-            {allTones.map((tone) => {
-              const active = toneFilter === tone;
-              const count = toneCounts[tone] ?? 0;
-              return (
-                <button
-                  key={tone}
-                  onClick={() => setToneFilter(active ? null : tone)}
-                  aria-pressed={active}
-                  data-testid={`tone-filter-${tone.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="tap-band flex-shrink-0 inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 rounded-full transition-all whitespace-nowrap"
-                  style={{
-                    height: 32,
-                    background: active
-                      ? "var(--gradient-active)"
-                      : "var(--fg-05)",
-                    color: active ? "var(--brand-contrast)" : "var(--fg-60)",
-                    border: active
-                      ? "1px solid color-mix(in srgb, var(--brand) 60%, transparent)"
-                      : "1px solid var(--fg-08)",
-                    boxShadow: active
-                      ? "0 2px 10px color-mix(in srgb, var(--brand) 32%, transparent)"
-                      : "none",
-                  }}
-                >
-                  {tone}
-                  <span
-                    className="text-[11px] font-bold px-1.5 py-0.5 rounded-full leading-none"
-                    style={{
-                      background: active
-                        ? "rgba(15,23,36,0.18)"
-                        : "var(--fg-08)",
-                      color: active ? "var(--brand-contrast)" : "var(--fg-60)",
-                    }}
-                  >
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+            Your saved phrases
+          </span>
+          <span
+            className="text-[14px] font-semibold tabular-nums"
+            style={{ color: "var(--fg-60)" }}
+          >
+            {savedPhraseCount}
+          </span>
+          <ChevronRight
+            className="w-4 h-4 flex-none"
+            style={{ color: "var(--fg-45)" }}
+            aria-hidden="true"
+          />
+        </Link>
+      )}
 
-          {/* Row 2: Search */}
-          <div
-            className="px-4 md:px-6 py-1.5"
-            style={{ borderTop: "1px solid var(--fg-04)" }}
-          >
-            <div className="relative">
-              <Search
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none"
+      {/* ── Search and filters ── */}
+      <div className="mt-4 flex flex-col gap-3">
+        <label
+          className="flex items-center gap-2.5 h-12 rounded-2xl pl-3.5 pr-1 focus-within:ring-2 focus-within:ring-[var(--brand)]"
+          style={{
+            background: "var(--fg-05)",
+            border: "1px solid var(--fg-08)",
+          }}
+        >
+          <Search
+            className="w-4 h-4 flex-none"
+            style={{ color: "var(--fg-55)" }}
+            aria-hidden="true"
+          />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search phrases or techniques"
+            aria-label="Search phrases"
+            data-testid="phrases-search-input"
+            className="flex-1 min-w-0 bg-transparent outline-none text-[16px] placeholder:text-[color:var(--fg-50)] [&::-webkit-search-cancel-button]:hidden"
+            style={{ color: "var(--fg-90)" }}
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={() => setQuery("")}
+              aria-label="Clear search"
+              data-testid="phrases-search-clear"
+              className="w-10 h-10 flex-none flex items-center justify-center rounded-full"
+            >
+              <X
+                className="w-4 h-4"
                 style={{ color: "var(--fg-55)" }}
                 aria-hidden="true"
               />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search phrases or card names…"
-                aria-label="Search phrases"
-                data-testid="phrases-search-input"
-                className="w-full text-[12px] rounded-xl outline-none transition-all placeholder:text-[color:var(--fg-50)]"
-                style={{
-                  background: "var(--fg-04)",
-                  border: "1px solid var(--fg-07)",
-                  color: "var(--fg-90)",
-                  padding: "7px 32px 7px 32px",
-                }}
-                onFocus={(e) => {
-                  e.currentTarget.style.borderColor =
-                    "color-mix(in srgb, var(--brand) 45%, transparent)";
-                  e.currentTarget.style.boxShadow =
-                    "0 0 0 3px color-mix(in srgb, var(--brand) 10%, transparent)";
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = "var(--fg-07)";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  aria-label="Clear search"
-                  data-testid="phrases-search-clear"
-                  className="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
-                >
-                  <span
-                    className="w-5 h-5 flex items-center justify-center rounded-full"
-                    style={{ background: "var(--fg-08)" }}
-                  >
-                    <X
-                      className="w-3 h-3"
-                      style={{ color: "var(--fg-50)" }}
-                      aria-hidden="true"
-                    />
-                  </span>
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
+            </button>
+          )}
+        </label>
+
+        <FilterRow label="Tone">
+          <Chip
+            selected={!tone}
+            count={toneTotal}
+            onClick={() => setTone(null)}
+            data-testid="tone-filter-all"
+          >
+            Any
+          </Chip>
+          {allTones.map((t) => (
+            <Chip
+              key={t}
+              selected={tone === t}
+              count={counts.tone[t] ?? 0}
+              title={TONE_HINTS[t]}
+              onClick={() => setTone(tone === t ? null : t)}
+              data-testid={`tone-filter-${t.toLowerCase().replace(/\s+/g, "-")}`}
+            >
+              {t}
+            </Chip>
+          ))}
+        </FilterRow>
+
+        <FilterRow label="Length">
+          <Chip
+            selected={!length}
+            count={lengthTotal}
+            onClick={() => setLength(null)}
+            data-testid="length-filter-all"
+          >
+            Any
+          </Chip>
+          {PHRASE_LENGTHS.map((l) => (
+            <Chip
+              key={l.id}
+              selected={length === l.id}
+              count={counts.length[l.id] ?? 0}
+              title={l.hint}
+              onClick={() => setLength(length === l.id ? null : l.id)}
+              data-testid={`length-filter-${l.id}`}
+            >
+              {l.label}
+            </Chip>
+          ))}
+        </FilterRow>
       </div>
 
-      {/* ── Count bar ── */}
-      <div className="px-4 md:px-6 pt-3 pb-2 flex items-center justify-between">
+      {/* ── Count and reset ── */}
+      <div className="mt-4 mb-2 flex items-center justify-between gap-3 min-h-11">
         <p
-          className="text-[11px] font-semibold"
-          style={{ color: "var(--fg-55)" }}
+          className="text-[13px] font-semibold"
+          style={{ color: "var(--fg-60)" }}
+          aria-live="polite"
+          data-testid="phrases-count"
         >
-          {filtered.length} {filtered.length === 1 ? "phrase" : "phrases"}
-          {toneFilter ? ` · ${toneFilter}` : ""}
+          {formatCount(filtered.length)}{" "}
+          {filtered.length === 1 ? "phrase" : "phrases"}
+          {tone ? ` · ${tone}` : ""}
+          {length
+            ? ` · ${PHRASE_LENGTHS.find((l) => l.id === length)?.label}`
+            : ""}
         </p>
-        {hasActive && (
+        {hasActive ? (
           <button
-            onClick={() => {
-              setToneFilter(null);
-              setSearchQuery("");
-            }}
+            type="button"
+            onClick={clearAll}
             aria-label="Clear all filters"
             data-testid="phrases-reset"
-            className="tap-target-y inline-flex items-center gap-1 text-[12px] font-bold px-3 rounded-full transition-all active:scale-95 whitespace-nowrap"
+            className="tap-target-y inline-flex items-center gap-1 text-[13px] font-bold px-3 rounded-full min-h-9"
             style={{
-              minHeight: 36,
               background: "color-mix(in srgb, var(--brand) 10%, transparent)",
-              border:
-                "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
               color: "var(--brand-text)",
             }}
           >
-            <X className="w-2.5 h-2.5" aria-hidden="true" />
+            <X className="w-3 h-3" aria-hidden="true" />
             Reset
           </button>
+        ) : (
+          <span className="text-[13px]" style={{ color: "var(--fg-55)" }}>
+            Tap a line to copy
+          </span>
         )}
       </div>
 
-      {/* ── Phrase list ── */}
-      <div className="px-4 md:px-6 pb-8 space-y-1.5">
-        {filtered.length === 0 ? (
+      {/* ── Phrases, grouped by technique ── */}
+      {filtered.length === 0 ? (
+        <div
+          className="flex flex-col items-center gap-3 py-14 text-center"
+          data-testid="phrases-empty"
+        >
           <div
-            className="flex flex-col items-center gap-3 py-14 text-center"
-            data-testid="phrases-empty"
-            role="status"
+            className="w-12 h-12 rounded-2xl flex items-center justify-center"
+            style={{ background: "var(--fg-05)" }}
           >
-            <div
-              className="w-12 h-12 rounded-2xl flex items-center justify-center"
-              style={{ background: "var(--fg-05)" }}
-            >
-              <MessagesSquare
-                className="w-6 h-6"
-                style={{ color: "var(--fg-40)" }}
-                aria-hidden="true"
-              />
-            </div>
-            <div>
-              <p
-                className="text-[15px] font-semibold"
-                style={{ color: "var(--fg-60)" }}
-              >
-                No phrases found
-              </p>
-              <p className="text-[13px] mt-1" style={{ color: "var(--fg-55)" }}>
-                Try a different tone or search term.
-              </p>
-            </div>
-            <button
-              onClick={() => {
-                setToneFilter(null);
-                setSearchQuery("");
-              }}
-              className="text-[12px] font-semibold px-4 py-2 rounded-full transition-all active:scale-95"
-              style={{
-                background: "color-mix(in srgb, var(--brand) 10%, transparent)",
-                color: "var(--brand-text)",
-              }}
-            >
-              Clear filters
-            </button>
-          </div>
-        ) : (
-          visible.map((phrase, i) => (
-            <PhraseRow
-              key={`${phrase.cardId}-${phrase.groupId}-${phrase.text}-${i}`}
-              phrase={phrase}
-              copied={copiedPhrase === phrase.text}
-              faved={isPhrasesFav(phrase.cardId, phrase.text)}
-              onCopy={() => handleCopy(phrase.text)}
-              onFav={() =>
-                togglePhrase({
-                  cardId: phrase.cardId,
-                  cardTitle: phrase.cardTitle,
-                  groupLabel: phrase.groupLabel,
-                  text: phrase.text,
-                })
-              }
-              onCardClick={() => setLocation(`/card/${phrase.cardId}`)}
+            <MessagesSquare
+              className="w-6 h-6"
+              style={{ color: "var(--fg-45)" }}
+              aria-hidden="true"
             />
-          ))
-        )}
-
-        {hasMore && (
+          </div>
+          <p
+            className="text-[16px] font-semibold"
+            style={{ color: "var(--fg-80)" }}
+          >
+            No phrases match
+          </p>
+          <p className="text-[14px]" style={{ color: "var(--fg-60)" }}>
+            Try another tone, length or search.
+          </p>
           <button
-            onClick={() => setVisibleCount((c) => c + PAGE_SIZE * 3)}
-            data-testid="phrases-show-more"
-            className="w-full mt-1 rounded-2xl py-3 text-[12px] font-bold transition-all active:scale-[0.99]"
+            type="button"
+            onClick={clearAll}
+            className="mt-1 text-[14px] font-semibold px-4 min-h-11 rounded-full"
             style={{
-              background: "color-mix(in srgb, var(--brand) 9%, transparent)",
-              border:
-                "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
+              background: "color-mix(in srgb, var(--brand) 10%, transparent)",
               color: "var(--brand-text)",
             }}
           >
-            Show more · {visible.length} of {filtered.length}
+            Clear filters
           </button>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="flex flex-col gap-5">
+          {groups.map((group) => (
+            <PhraseGroup
+              key={group.cardId}
+              cardId={group.cardId}
+              cardTitle={group.cardTitle}
+              phrases={group.phrases}
+              copied={copied}
+              onCopy={copy}
+              isFav={isPhrasesFav}
+              onFav={(p) =>
+                togglePhrase({
+                  cardId: p.cardId,
+                  cardTitle: p.cardTitle,
+                  groupLabel: p.groupLabel,
+                  text: p.text,
+                })
+              }
+            />
+          ))}
+        </div>
+      )}
+
+      {hasMore && (
+        <button
+          type="button"
+          onClick={() => setVisibleCount((c) => c + PAGE_SIZE * 3)}
+          data-testid="phrases-show-more"
+          className="w-full mt-5 rounded-2xl min-h-12 text-[15px] font-bold"
+          style={{
+            background: "var(--fg-08)",
+            color: "var(--fg-90)",
+          }}
+        >
+          Show more · {formatCount(visibleCount)} of{" "}
+          {formatCount(filtered.length)}
+        </button>
+      )}
     </div>
+  );
+}
+
+/** A labelled, sideways-scrolling row of filter chips. */
+function FilterRow({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      role="group"
+      aria-label={`Filter by ${label.toLowerCase()}`}
+      className="flex items-center gap-2 -mx-4 px-4 md:-mx-6 md:px-6 overflow-x-auto"
+      style={{ scrollbarWidth: "none" }}
+    >
+      <span
+        aria-hidden="true"
+        className="flex-none w-[52px] text-[13px] font-semibold"
+        style={{ color: "var(--fg-60)" }}
+      >
+        {label}
+      </span>
+      {children}
+    </div>
+  );
+}
+
+interface PhraseGroupProps {
+  cardId: string;
+  cardTitle: string;
+  phrases: AggregatedPhrase[];
+  copied: string | null;
+  onCopy: (text: string) => void;
+  isFav: (cardId: string, text: string) => boolean;
+  onFav: (phrase: AggregatedPhrase) => void;
+}
+
+function PhraseGroup({
+  cardId,
+  cardTitle,
+  phrases,
+  copied,
+  onCopy,
+  isFav,
+  onFav,
+}: PhraseGroupProps) {
+  const cat = categoryStyleFor(CARD_CATEGORY[cardId] ?? "");
+  return (
+    <section aria-label={cardTitle} className="flex flex-col gap-2">
+      <Link
+        href={`/card/${cardId}`}
+        data-testid={`phrase-card-link-${cardId}`}
+        aria-label={`Open ${cardTitle}`}
+        className="flex items-center gap-2 min-h-11"
+      >
+        <span
+          aria-hidden="true"
+          className="w-2.5 h-2.5 rounded-full flex-none"
+          style={{ background: cat.color }}
+        />
+        <span
+          className="flex-1 min-w-0 truncate text-[16px] font-bold"
+          style={{ color: "var(--fg-90)" }}
+        >
+          {cardTitle}
+        </span>
+        <ChevronRight
+          className="w-4 h-4 flex-none"
+          style={{ color: "var(--fg-45)" }}
+          aria-hidden="true"
+        />
+      </Link>
+      <ul
+        className="rounded-2xl overflow-hidden divide-y divide-[var(--fg-07)]"
+        style={{
+          background: "var(--surface-card)",
+          border: "1px solid var(--fg-07)",
+        }}
+      >
+        {phrases.map((phrase, i) => (
+          <PhraseRow
+            key={`${phrase.groupId}-${i}-${phrase.text}`}
+            phrase={phrase}
+            copied={copied === phrase.text}
+            faved={isFav(phrase.cardId, phrase.text)}
+            onCopy={() => onCopy(phrase.text)}
+            onFav={() => onFav(phrase)}
+          />
+        ))}
+      </ul>
+    </section>
   );
 }
 
@@ -397,117 +473,66 @@ interface PhraseRowProps {
   faved: boolean;
   onCopy: () => void;
   onFav: () => void;
-  onCardClick: () => void;
 }
 
-function PhraseRow({
-  phrase,
-  copied,
-  faved,
-  onCopy,
-  onFav,
-  onCardClick,
-}: PhraseRowProps) {
+function PhraseRow({ phrase, copied, faved, onCopy, onFav }: PhraseRowProps) {
   return (
-    <div
+    <li
       data-testid={`phrase-row-${phrase.cardId}`}
-      className="w-full rounded-2xl pl-4 pr-2 pt-2.5 pb-1 transition-all duration-150"
+      className="flex items-center gap-1 pl-4 pr-1.5 min-h-14 transition-colors"
       style={{
         background: copied
           ? "color-mix(in srgb, var(--brand) 9%, transparent)"
-          : "var(--fg-03)",
-        border: copied
-          ? "1px solid color-mix(in srgb, var(--brand) 25%, transparent)"
-          : "1px solid var(--fg-05)",
-        // Skip painting off-screen rows — the bank runs to thousands of phrases.
+          : undefined,
+        // Skip painting off-screen rows
         contentVisibility: "auto",
-        containIntrinsicSize: "auto 72px",
+        containIntrinsicSize: "auto 64px",
       }}
     >
-      {/* Phrase text — tappable to copy */}
       <button
+        type="button"
         onClick={onCopy}
         aria-label={`Copy: ${phrase.text}`}
         data-testid={`phrase-copy-btn-${phrase.cardId}`}
-        className="w-full text-left text-[14px] leading-snug font-medium pr-2 transition-colors active:opacity-70"
-        style={{ color: copied ? "var(--brand-text)" : "var(--fg-82)" }}
+        className="flex-1 min-w-0 text-left py-3 flex flex-col gap-0.5"
       >
-        {phrase.text}
-      </button>
-
-      {/* Meta caption: tone and source card | actions. Kept to one quiet
-        line so a phone screen shows twice as many phrases. */}
-      <div className="flex items-center gap-1">
         <span
-          className="text-[11px] font-semibold flex-shrink-0 max-w-[35%] truncate"
-          style={{ color: "var(--fg-50)" }}
+          className="text-[16px] leading-[1.4] font-medium"
+          style={{ color: copied ? "var(--brand-text)" : "var(--fg-90)" }}
         >
-          {phrase.groupLabel}
+          {phrase.text}
         </span>
-        <span aria-hidden="true" style={{ color: "var(--fg-30)" }}>
-          ·
-        </span>
-
-        {/* Card badge — links to card */}
-        <button
-          onClick={onCardClick}
-          aria-label={`View card ${phrase.cardId}: ${phrase.cardTitle}`}
-          data-testid={`phrase-card-link-${phrase.cardId}`}
-          className="relative flex items-center gap-1.5 text-[12px] rounded-lg px-1 min-h-11 min-w-0 flex-1 transition-colors hover:bg-[var(--fg-05)] active:bg-[var(--fg-05)]"
+        <span
+          className="text-[12px] font-semibold truncate"
           style={{ color: "var(--fg-55)" }}
         >
-          <span
-            className="font-semibold flex-shrink-0 tabular-nums"
-            style={{ color: "var(--fg-60)" }}
-          >
-            {phrase.cardId}
-          </span>
-          <span className="truncate min-w-0 font-medium">
-            {phrase.cardTitle}
-          </span>
-        </button>
-
-        {/* Copy, then favourite: the same order as Quick Lookup. Both
-          are 36px to the eye and 44px to touch (tap-target). */}
-        <button
-          onClick={onCopy}
-          aria-label={copied ? "Copied" : "Copy phrase"}
-          data-testid={`phrase-copy-icon-btn`}
-          className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
-          style={{
-            background: copied
-              ? "color-mix(in srgb, var(--brand) 12%, transparent)"
-              : "transparent",
-          }}
-        >
-          {copied ? (
-            <Check
-              className="w-3.5 h-3.5"
-              style={{ color: "var(--brand-text)" }}
-            />
-          ) : (
-            <Copy className="w-3.5 h-3.5" style={{ color: "var(--fg-45)" }} />
-          )}
-        </button>
-        {/* Fav button */}
-        <button
-          onClick={onFav}
-          aria-label={faved ? "Remove from favourites" : "Save to favourites"}
-          data-testid={`phrase-fav-btn`}
-          className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95 flex-shrink-0"
-          style={{
-            background: faved
-              ? "color-mix(in srgb, var(--brand) 12%, transparent)"
-              : "transparent",
-          }}
-        >
-          <Heart
-            className="w-3.5 h-3.5"
-            style={{ color: faved ? "var(--brand-text)" : "var(--fg-50)" }}
-            fill={faved ? "var(--brand-text)" : "none"}
-          />
-        </button>
-      </div>
-    </div>
+          {copied ? "Copied" : phrase.groupLabel}
+        </span>
+      </button>
+      <span
+        aria-hidden="true"
+        className="w-9 h-9 flex-none flex items-center justify-center"
+      >
+        {copied ? (
+          <Check className="w-4 h-4" style={{ color: "var(--brand-text)" }} />
+        ) : (
+          <Copy className="w-4 h-4" style={{ color: "var(--fg-45)" }} />
+        )}
+      </span>
+      <button
+        type="button"
+        onClick={onFav}
+        aria-label={faved ? "Remove from favourites" : "Save to favourites"}
+        aria-pressed={faved}
+        data-testid="phrase-fav-btn"
+        className="w-11 h-11 flex-none flex items-center justify-center rounded-full"
+      >
+        <Heart
+          className="w-[18px] h-[18px]"
+          style={{ color: faved ? "var(--brand-text)" : "var(--fg-50)" }}
+          fill={faved ? "var(--brand-text)" : "none"}
+        />
+      </button>
+    </li>
   );
 }
