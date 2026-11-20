@@ -1,8 +1,10 @@
+import { useEffect, useReducer } from "react";
 import { Home, BookOpen, MessagesSquare, Heart, Dumbbell } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useFavourites } from "@/lib/favourites-context";
 import {
+  DRILL_STATE_EVENT,
   getDueCardsCount,
   loadDrillState,
   isCompletedToday,
@@ -94,6 +96,13 @@ export function pageTitle(location: string): string {
 // today's drill is done, else the running streak.
 export function useNavBadges(): Partial<Record<NavDestinationId, string>> {
   const { totalCount } = useFavourites();
+  // Re-read when a drill is completed or a review is rated, so the badge
+  // does not wait for the next navigation.
+  const [, refresh] = useReducer((n: number) => n + 1, 0);
+  useEffect(() => {
+    window.addEventListener(DRILL_STATE_EVENT, refresh);
+    return () => window.removeEventListener(DRILL_STATE_EVENT, refresh);
+  }, []);
   const drill = loadDrillState();
   const due = getDueCardsCount();
   const badges: Partial<Record<NavDestinationId, string>> = {};

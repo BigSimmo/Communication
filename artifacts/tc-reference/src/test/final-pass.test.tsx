@@ -1,10 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useLocation } from "wouter";
 import Playbooks from "../pages/playbooks";
 import { BottomTabBar } from "../components/bottom-tab-bar";
 import { PLAYBOOK_TEMPLATES } from "../lib/playbook-templates";
-import { SRS_STORAGE_KEY } from "../lib/drill-state";
+import { SRS_STORAGE_KEY, updateSRS } from "../lib/drill-state";
 import { useSwipe } from "../hooks/use-swipe";
 import { FavouritesProvider } from "../lib/favourites-context";
 import { PlaybookProvider } from "../lib/playbook-context";
@@ -113,6 +113,30 @@ describe("Drill tab badge", () => {
     expect(screen.getByTestId("nav-tab-drill")).toHaveAccessibleName(
       "Drill, 1 review due",
     );
+  });
+
+  it("updates as soon as a due review is rated", () => {
+    localStorage.setItem(
+      SRS_STORAGE_KEY,
+      JSON.stringify({
+        TC001: {
+          cardId: "TC001",
+          interval: 1,
+          repetition: 1,
+          efactor: 2.5,
+          nextReviewDate: "2000-01-01",
+        },
+      }),
+    );
+    render(
+      <Wrapper>
+        <BottomTabBar />
+      </Wrapper>,
+    );
+    act(() => {
+      updateSRS("TC001", "confident");
+    });
+    expect(screen.getByTestId("nav-tab-drill")).toHaveAccessibleName("Drill");
   });
 
   it("keeps the plain name when nothing is due", () => {
