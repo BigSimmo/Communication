@@ -151,6 +151,14 @@ describe("Drill page: today's task", () => {
     );
   });
 
+  it("says once when a first rating comes back, as every choice is the same", async () => {
+    await renderDrill();
+    expect(screen.getByTestId("drill-rating-note")).toHaveTextContent(
+      "Back tomorrow either way. Your rating sets the gaps after that.",
+    );
+    expect(ratingButton(/^Not yet/)).toHaveAccessibleName("Not yet");
+  });
+
   it.each([
     [/^Not yet/, "Not yet"],
     [/^Getting there/, "Getting there"],
