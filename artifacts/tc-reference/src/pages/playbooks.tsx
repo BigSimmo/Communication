@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useLocation } from "wouter";
 import {
   ArrowDown,
@@ -7,6 +8,7 @@ import {
   Check,
   Trash2,
   Edit2,
+  Printer,
   ChevronRight,
   X,
   FolderHeart,
@@ -19,6 +21,8 @@ import {
   PLAYBOOK_NAME_MAX_LENGTH,
 } from "@/lib/playbook-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
+import { categoryStyleFor } from "@/lib/design-tokens";
+import { Button } from "@/components/ui/button";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { PageIntro } from "@/components/page-intro";
 import { PlaybookTemplateList } from "@/components/playbook-template-list";
@@ -29,6 +33,46 @@ import {
 
 const ALL_CARDS = Object.values(LIBRARY_CATEGORIES).flat();
 const CARD_MAP = Object.fromEntries(ALL_CARDS.map((c) => [c.id, c]));
+const CARD_COLOR: Record<string, string> = Object.fromEntries(
+  Object.entries(LIBRARY_CATEGORIES).flatMap(([category, cards]) =>
+    cards.map((c) => [c.id, categoryStyleFor(category).color]),
+  ),
+);
+
+const FIELD_LABEL = "text-[13px] font-bold tracking-[0.06em] uppercase";
+const FIELD_INPUT =
+  "w-full text-[16px] px-3.5 rounded-xl outline-none border border-[var(--fg-08)] bg-[var(--fg-05)] text-[var(--fg-90)] focus:border-[var(--brand)]";
+
+/** The sheet a playbook prints as: its steps in order, one line each. */
+function PlaybookPrintSheet({ playbook }: { playbook: Playbook }) {
+  const steps = playbook.cardIds.map((id) => CARD_MAP[id]).filter(Boolean);
+  return (
+    <div
+      className="print-target print-playbook"
+      aria-hidden="true"
+      data-testid="playbook-print-sheet"
+    >
+      <p className="print-playbook-kicker">Playbook</p>
+      <p className="print-playbook-title">{playbook.name}</p>
+      {playbook.description && (
+        <p className="print-playbook-description">{playbook.description}</p>
+      )}
+      <ol className="print-playbook-steps">
+        {steps.map((c, i) => (
+          <li key={c.id}>
+            <span className="print-playbook-number">{i + 1}</span>
+            <span>
+              <span className="print-playbook-step-title">
+                {c.title} <span className="print-playbook-code">{c.id}</span>
+              </span>
+              <span className="print-playbook-step-summary">{c.summary}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
 
 function templateFromUrl(): PlaybookTemplate | null {
   try {
@@ -58,6 +102,18 @@ export default function Playbooks() {
   const [deletingPlaybook, setDeletingPlaybook] = useState<Playbook | null>(
     null,
   );
+
+  const [printing, setPrinting] = useState<Playbook | null>(null);
+
+  // Print once the sheet is on the page, and take it away afterwards so an
+  // ordinary browser print of this screen is not replaced by it.
+  useEffect(() => {
+    if (!printing) return;
+    const done = () => setPrinting(null);
+    window.addEventListener("afterprint", done);
+    window.print();
+    return () => window.removeEventListener("afterprint", done);
+  }, [printing]);
 
   const deleteModalRef = useRef<HTMLDivElement>(null);
   const cancelDeleteButtonRef = useRef<HTMLButtonElement>(null);
@@ -171,29 +227,24 @@ export default function Playbooks() {
           // The empty state carries its own Create button
           !isEditing &&
           playbooks.length > 0 && (
-            <button
+            <Button
+              variant="primary"
+              size="sm"
               onClick={handleOpenCreate}
               data-playbook-create
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[13px] font-bold transition-all shadow-sm active:scale-95"
-              style={{
-                minHeight: 44,
-                background:
-                  "linear-gradient(135deg, var(--brand), var(--brand-bright))",
-                color: "var(--brand-contrast)",
-              }}
             >
               <Plus className="w-4 h-4" aria-hidden="true" /> Create
-            </button>
+            </Button>
           )
         }
       />
 
       {isEditing ? (
         <div
-          className="flex flex-col gap-4 p-5 rounded-2xl border"
+          className="flex flex-col gap-4 p-4 rounded-2xl border bg-[var(--surface-card)]"
           style={{
-            background: "var(--fg-02)",
-            borderColor: "var(--fg-08)",
+            borderColor: "var(--fg-07)",
+            boxShadow: "var(--shadow-card)",
           }}
         >
           <div
@@ -201,8 +252,8 @@ export default function Playbooks() {
             style={{ borderColor: "var(--fg-05)" }}
           >
             <h3
-              className="font-bold text-[14px]"
-              style={{ color: "var(--fg-80)" }}
+              className="font-bold text-[17px]"
+              style={{ color: "var(--fg-90)" }}
             >
               {editingId ? "Edit playbook" : "New playbook"}
             </h3>
@@ -219,8 +270,8 @@ export default function Playbooks() {
           <div className="flex flex-col gap-1.5">
             <label
               htmlFor="playbook-name"
-              className="text-[11px] font-bold tracking-[0.08em] uppercase"
-              style={{ color: "var(--fg-55)" }}
+              className={FIELD_LABEL}
+              style={{ color: "var(--fg-60)" }}
             >
               Name
             </label>
@@ -231,20 +282,15 @@ export default function Playbooks() {
               maxLength={PLAYBOOK_NAME_MAX_LENGTH}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g., Difficult feedback"
-              className="w-full text-[13px] px-3.5 py-2.5 rounded-xl outline-none"
-              style={{
-                background: "var(--fg-05)",
-                border: "1px solid var(--fg-08)",
-                color: "var(--fg-85)",
-              }}
+              className={`${FIELD_INPUT} h-12`}
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label
               htmlFor="playbook-description"
-              className="text-[11px] font-bold tracking-[0.08em] uppercase"
-              style={{ color: "var(--fg-55)" }}
+              className={FIELD_LABEL}
+              style={{ color: "var(--fg-60)" }}
             >
               Description
             </label>
@@ -254,21 +300,13 @@ export default function Playbooks() {
               maxLength={PLAYBOOK_DESCRIPTION_MAX_LENGTH}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Brief purpose of this playbook…"
-              className="w-full text-[13px] px-3.5 py-2.5 rounded-xl outline-none min-h-[70px] resize-none"
-              style={{
-                background: "var(--fg-05)",
-                border: "1px solid var(--fg-08)",
-                color: "var(--fg-85)",
-              }}
+              className={`${FIELD_INPUT} py-2.5 min-h-[80px] resize-none`}
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label
-              className="text-[11px] font-bold tracking-[0.08em] uppercase"
-              style={{ color: "var(--fg-55)" }}
-            >
-              Select Techniques ({selectedCards.length} selected)
+            <label className={FIELD_LABEL} style={{ color: "var(--fg-60)" }}>
+              Techniques ({selectedCards.length} selected)
             </label>
             {/* 107 techniques is too many to scan, so let people narrow it */}
             <input
@@ -277,15 +315,10 @@ export default function Playbooks() {
               onChange={(e) => setPickerQuery(e.target.value)}
               placeholder="Filter by name or TC code"
               aria-label="Filter techniques"
-              className="w-full rounded-xl px-3.5 py-2.5 text-[14px] outline-none border focus:border-[var(--brand)]"
-              style={{
-                background: "var(--fg-03)",
-                borderColor: "var(--fg-08)",
-                color: "var(--fg-90)",
-              }}
+              className={`${FIELD_INPUT} h-12`}
             />
             <div
-              className="max-h-[220px] overflow-y-auto rounded-xl p-2 flex flex-col gap-1.5 border"
+              className="max-h-[300px] overflow-y-auto rounded-xl p-2 flex flex-col gap-1 border"
               style={{
                 background: "var(--fg-03)",
                 borderColor: "var(--fg-05)",
@@ -305,10 +338,15 @@ export default function Playbooks() {
                 return (
                   <div key={category} className="flex flex-col gap-1.5">
                     <p
-                      className="px-3 pt-2 text-[11px] font-bold uppercase tracking-[0.08em]"
-                      style={{ color: "var(--fg-50)" }}
+                      className="flex items-center gap-2 px-3 pt-2 text-[13px] font-bold"
+                      style={{ color: "var(--fg-70)" }}
                     >
-                      {category}
+                      <span
+                        className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                        style={{ background: categoryStyleFor(category).color }}
+                        aria-hidden="true"
+                      />
+                      {categoryStyleFor(category).label}
                     </p>
                     {matches.map((card) => {
                       const isSel = selectedCards.includes(card.id);
@@ -317,9 +355,9 @@ export default function Playbooks() {
                           key={card.id}
                           onClick={() => handleToggleCardSelection(card.id)}
                           aria-pressed={isSel}
-                          className="flex items-center justify-between gap-2 text-left px-3 py-2 rounded-lg text-[12px] transition-colors"
+                          className="flex items-center justify-between gap-2 text-left px-3 py-2 rounded-lg text-[15px] transition-colors"
                           style={{
-                            minHeight: 40,
+                            minHeight: 44,
                             background: isSel
                               ? "color-mix(in srgb, var(--brand) 8%, transparent)"
                               : "transparent",
@@ -327,25 +365,22 @@ export default function Playbooks() {
                         >
                           <div>
                             <span
-                              className="font-bold mr-1.5"
+                              className="font-medium"
                               style={{
-                                color: isSel
-                                  ? "var(--brand-text)"
-                                  : "var(--fg-40)",
-                              }}
-                            >
-                              {card.id}
-                            </span>
-                            <span
-                              style={{
-                                color: isSel ? "var(--fg-85)" : "var(--fg-60)",
+                                color: isSel ? "var(--fg-90)" : "var(--fg-70)",
                               }}
                             >
                               {card.title}
                             </span>
+                            <span
+                              className="text-[12px] font-semibold ml-2"
+                              style={{ color: "var(--fg-55)" }}
+                            >
+                              {card.id}
+                            </span>
                           </div>
                           <div
-                            className="w-4 h-4 flex-shrink-0 rounded flex items-center justify-center border transition-colors"
+                            className="w-5 h-5 flex-shrink-0 rounded flex items-center justify-center border transition-colors"
                             style={{
                               borderColor: isSel
                                 ? "var(--brand)"
@@ -357,7 +392,7 @@ export default function Playbooks() {
                           >
                             {isSel && (
                               <Check
-                                className="w-3 h-3 stroke-[3px]"
+                                className="w-3.5 h-3.5 stroke-[3px]"
                                 style={{ color: "var(--brand-contrast)" }}
                               />
                             )}
@@ -379,11 +414,11 @@ export default function Playbooks() {
                 return (
                   <li
                     key={id}
-                    className="flex items-center gap-2 text-[12px] rounded-lg pl-3 pr-1"
-                    style={{ background: "var(--fg-03)" }}
+                    className="flex items-center gap-2 text-[15px] rounded-xl pl-3 pr-1 min-h-11"
+                    style={{ background: "var(--fg-05)" }}
                   >
                     <span
-                      className="w-4 tabular-nums font-bold"
+                      className="w-5 tabular-nums font-bold"
                       style={{ color: "var(--brand-text)" }}
                     >
                       {i + 1}
@@ -400,10 +435,10 @@ export default function Playbooks() {
                       disabled={i === 0}
                       aria-label={`Move ${title} earlier`}
                       data-reorder={`${id}-earlier`}
-                      className="tap-target w-8 h-8 flex items-center justify-center rounded-full disabled:opacity-30"
-                      style={{ color: "var(--fg-60)" }}
+                      className="w-11 h-11 flex items-center justify-center rounded-full disabled:opacity-30"
+                      style={{ color: "var(--fg-70)" }}
                     >
-                      <ArrowUp className="w-3.5 h-3.5" aria-hidden="true" />
+                      <ArrowUp className="w-4 h-4" aria-hidden="true" />
                     </button>
                     <button
                       type="button"
@@ -411,10 +446,10 @@ export default function Playbooks() {
                       disabled={i === selectedCards.length - 1}
                       aria-label={`Move ${title} later`}
                       data-reorder={`${id}-later`}
-                      className="tap-target w-8 h-8 flex items-center justify-center rounded-full disabled:opacity-30"
-                      style={{ color: "var(--fg-60)" }}
+                      className="w-11 h-11 flex items-center justify-center rounded-full disabled:opacity-30"
+                      style={{ color: "var(--fg-70)" }}
                     >
-                      <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+                      <ArrowDown className="w-4 h-4" aria-hidden="true" />
                     </button>
                   </li>
                 );
@@ -422,19 +457,14 @@ export default function Playbooks() {
             </ol>
           )}
 
-          <button
+          <Button
+            variant="primary"
+            className="w-full mt-2"
             onClick={handleSave}
             disabled={!name.trim()}
-            className="w-full py-2.5 rounded-xl text-[13px] font-bold transition-all mt-2 disabled:opacity-50 active:scale-95"
-            style={{
-              minHeight: 44,
-              background:
-                "linear-gradient(135deg, var(--brand), var(--brand-bright))",
-              color: "var(--brand-contrast)",
-            }}
           >
             Save playbook
-          </button>
+          </Button>
         </div>
       ) : (
         <div className="flex flex-col gap-4">
@@ -453,137 +483,169 @@ export default function Playbooks() {
               />
               <div>
                 <p
-                  className="font-bold text-[14px]"
-                  style={{ color: "var(--fg-80)" }}
+                  className="font-bold text-[17px]"
+                  style={{ color: "var(--fg-90)" }}
                 >
                   No playbooks yet
                 </p>
                 <p
-                  className="text-[12px] max-w-[280px] mx-auto mt-1"
-                  style={{ color: "var(--fg-55)" }}
+                  className="text-[15px] leading-snug max-w-[300px] mx-auto mt-1"
+                  style={{ color: "var(--fg-60)" }}
                 >
                   Build your own sequence of cards, or start from one of the
                   templates below.
                 </p>
               </div>
-              <button
+              <Button
+                variant="primary"
+                size="sm"
+                className="mt-2"
                 onClick={handleOpenCreate}
-                className="mt-2 px-4 py-2 rounded-xl text-[12px] font-bold transition-all shadow-sm active:scale-95"
-                style={{
-                  minHeight: 44,
-                  background:
-                    "linear-gradient(135deg, var(--brand), var(--brand-bright))",
-                  color: "var(--brand-contrast)",
-                }}
               >
                 Create playbook
-              </button>
+              </Button>
             </div>
           ) : (
-            playbooks.map((pb) => (
-              <div
-                key={pb.id}
-                className="p-4 rounded-2xl border flex flex-col gap-3 transition-all"
-                style={{
-                  background: "var(--fg-02)",
-                  borderColor: "var(--fg-08)",
-                }}
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3
-                      className="font-bold text-[15px]"
-                      style={{ color: "var(--fg-85)" }}
+            playbooks.map((pb) => {
+              const steps = pb.cardIds.filter((cid) => CARD_MAP[cid]);
+              return (
+                <article
+                  key={pb.id}
+                  aria-label={pb.name}
+                  data-testid="playbook-card"
+                  className="rounded-2xl border flex flex-col bg-[var(--surface-card)] overflow-hidden"
+                  style={{
+                    borderColor: "var(--fg-07)",
+                    boxShadow: "var(--shadow-card)",
+                  }}
+                >
+                  <div className="px-4 pt-4 pb-3">
+                    <h2
+                      className="font-bold text-[18px] leading-snug"
+                      style={{ color: "var(--fg-90)" }}
                     >
                       {pb.name}
-                    </h3>
+                    </h2>
                     {pb.description && (
                       <p
-                        className="text-[12px] mt-0.5"
-                        style={{ color: "var(--fg-55)" }}
+                        className="text-[15px] leading-snug mt-1"
+                        style={{ color: "var(--fg-60)" }}
                       >
                         {pb.description}
                       </p>
                     )}
+                    <p
+                      className="text-[13px] font-semibold mt-1.5"
+                      style={{ color: "var(--fg-55)" }}
+                    >
+                      {steps.length} {steps.length === 1 ? "step" : "steps"}
+                    </p>
                   </div>
-                  <div className="flex gap-1 -mr-1.5 flex-shrink-0">
-                    <button
+
+                  {steps.length > 0 && (
+                    <ol style={{ borderTop: "1px solid var(--fg-07)" }}>
+                      {steps.map((cid, i) => {
+                        const c = CARD_MAP[cid];
+                        return (
+                          <li
+                            key={cid}
+                            style={
+                              i > 0
+                                ? { borderTop: "1px solid var(--fg-07)" }
+                                : undefined
+                            }
+                          >
+                            <button
+                              onClick={() => setLocation(`/card/${cid}`)}
+                              className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-[var(--surface-card-hover)] active:bg-[var(--fg-05)]"
+                              style={{ minHeight: 56 }}
+                            >
+                              <span
+                                className="w-8 h-8 rounded-[10px] flex items-center justify-center text-[15px] font-bold flex-shrink-0 tabular-nums"
+                                style={{
+                                  background: `color-mix(in srgb, ${CARD_COLOR[cid]} 16%, transparent)`,
+                                  color: "var(--fg-90)",
+                                  boxShadow: `inset 0 0 0 1.5px ${CARD_COLOR[cid]}`,
+                                }}
+                                aria-hidden="true"
+                              >
+                                {i + 1}
+                              </span>
+                              <span className="flex-1 min-w-0">
+                                <span
+                                  className="block text-[16px] font-semibold leading-snug"
+                                  style={{ color: "var(--fg-90)" }}
+                                >
+                                  {c.title}
+                                </span>
+                                <span
+                                  className="block text-[14px] leading-snug mt-0.5"
+                                  style={{ color: "var(--fg-60)" }}
+                                >
+                                  {c.summary}
+                                </span>
+                              </span>
+                              <ChevronRight
+                                className="w-4 h-4 flex-shrink-0"
+                                style={{ color: "var(--fg-55)" }}
+                                aria-hidden="true"
+                              />
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  )}
+
+                  <div
+                    className="flex items-center gap-2 px-3 py-2"
+                    style={{ borderTop: "1px solid var(--fg-07)" }}
+                    data-print-hide
+                  >
+                    <Button
+                      variant="quiet"
+                      size="sm"
+                      className="px-3"
+                      onClick={() => setPrinting(pb)}
+                      aria-label={`Print ${pb.name}`}
+                      data-testid="playbook-print"
+                    >
+                      <Printer className="w-4 h-4" aria-hidden="true" />
+                      Print
+                    </Button>
+                    <Button
+                      variant="quiet"
+                      size="sm"
+                      className="px-3"
                       onClick={() => handleOpenEdit(pb)}
                       aria-label="Edit playbook"
-                      className="flex items-center justify-center rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                      style={{ width: 44, height: 44 }}
                     >
-                      <Edit2
-                        className="w-4 h-4"
-                        style={{ color: "var(--fg-55)" }}
-                      />
-                    </button>
+                      <Edit2 className="w-4 h-4" aria-hidden="true" />
+                      Edit
+                    </Button>
                     <button
                       onClick={() => handleDelete(pb)}
                       aria-label="Delete playbook"
-                      className="flex items-center justify-center rounded-lg transition-colors hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
+                      className="ml-auto flex items-center justify-center rounded-xl transition-colors hover:bg-[var(--fg-05)] active:scale-95"
                       style={{ width: 44, height: 44 }}
                     >
                       <Trash2
-                        className="w-4 h-4"
-                        style={{ color: "var(--fg-50)" }}
+                        className="w-[18px] h-[18px]"
+                        style={{ color: "var(--fg-60)" }}
+                        aria-hidden="true"
                       />
                     </button>
                   </div>
-                </div>
-
-                <ol className="flex flex-col gap-1.5">
-                  {pb.cardIds.map((cid, i) => {
-                    const c = CARD_MAP[cid];
-                    if (!c) return null;
-                    return (
-                      <li key={cid}>
-                        <button
-                          onClick={() => setLocation(`/card/${cid}`)}
-                          className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left text-[13px] transition-colors active:scale-[0.98] hover:bg-[var(--fg-05)]"
-                          style={{
-                            minHeight: 44,
-                            background: "var(--fg-03)",
-                            border: "1px solid var(--fg-07)",
-                            color: "var(--fg-80)",
-                          }}
-                        >
-                          <span
-                            className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0"
-                            style={{
-                              background:
-                                "color-mix(in srgb, var(--brand) 14%, transparent)",
-                              color: "var(--brand-text)",
-                            }}
-                            aria-hidden="true"
-                          >
-                            {i + 1}
-                          </span>
-                          <span className="flex-1 min-w-0 font-medium leading-snug">
-                            {c.title}
-                          </span>
-                          <span
-                            className="text-[11px] font-semibold flex-shrink-0"
-                            style={{ color: "var(--fg-45)" }}
-                          >
-                            {cid}
-                          </span>
-                          <ChevronRight
-                            className="w-4 h-4 flex-shrink-0"
-                            style={{ color: "var(--fg-55)" }}
-                            aria-hidden="true"
-                          />
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </div>
-            ))
+                </article>
+              );
+            })
           )}
           <PlaybookTemplateList onUse={handleUseTemplate} />
         </div>
       )}
+
+      {printing &&
+        createPortal(<PlaybookPrintSheet playbook={printing} />, document.body)}
 
       {deletingPlaybook && (
         <div
@@ -627,15 +689,15 @@ export default function Playbooks() {
               <div className="flex flex-col gap-1">
                 <h3
                   id="delete-dialog-title"
-                  className="font-bold text-[15px] leading-tight"
+                  className="font-bold text-[17px] leading-tight"
                   style={{ color: "var(--fg-90)" }}
                 >
                   Delete playbook?
                 </h3>
                 <p
                   id="delete-dialog-desc"
-                  className="text-[12px] leading-relaxed"
-                  style={{ color: "var(--fg-55)" }}
+                  className="text-[15px] leading-snug"
+                  style={{ color: "var(--fg-60)" }}
                 >
                   Are you sure you want to delete{" "}
                   <strong style={{ color: "var(--fg-85)" }}>
@@ -650,7 +712,7 @@ export default function Playbooks() {
               <button
                 ref={cancelDeleteButtonRef}
                 onClick={() => setDeletingPlaybook(null)}
-                className="px-4 py-2 rounded-xl text-[12px] font-semibold transition-all active:scale-95"
+                className="px-4 py-2 rounded-xl text-[15px] font-semibold transition-all active:scale-95"
                 style={{
                   minHeight: 44,
                   background: "var(--fg-05)",
@@ -662,7 +724,7 @@ export default function Playbooks() {
               </button>
               <button
                 onClick={handleConfirmDelete}
-                className="px-4 py-2 rounded-xl text-[12px] font-bold text-white bg-red-600 hover:bg-red-700 transition-all shadow-sm active:scale-95"
+                className="px-4 py-2 rounded-xl text-[15px] font-bold text-white bg-red-600 hover:bg-red-700 transition-all shadow-sm active:scale-95"
                 style={{ minHeight: 44 }}
               >
                 Delete

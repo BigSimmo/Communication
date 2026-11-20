@@ -301,7 +301,7 @@ describe("core accessibility contracts", () => {
     );
 
     const createBtn = screen.getByRole("button", { name: "Create" });
-    expect(createBtn).toHaveStyle({ color: "var(--brand-contrast)" });
+    expect(createBtn).toHaveClass("text-[var(--brand-contrast)]");
 
     const deleteBtn = screen.getByLabelText("Delete playbook");
     fireEvent.click(deleteBtn);

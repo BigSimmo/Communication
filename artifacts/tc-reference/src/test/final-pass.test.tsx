@@ -91,6 +91,45 @@ describe("Playbooks template links", () => {
   });
 });
 
+describe("Playbook print", () => {
+  it("prints one playbook as a run sheet and clears it afterwards", () => {
+    localStorage.setItem(
+      "tc_playbooks",
+      JSON.stringify([
+        {
+          id: "pb_print_1",
+          name: "Hard news",
+          description: "For a difficult update",
+          cardIds: ["TC001", "TC002"],
+        },
+      ]),
+    );
+    const print = vi.fn();
+    vi.stubGlobal("print", print);
+    render(
+      <Wrapper>
+        <Playbooks />
+      </Wrapper>,
+    );
+    expect(screen.queryByTestId("playbook-print-sheet")).toBeNull();
+
+    fireEvent.click(screen.getByRole("button", { name: "Print Hard news" }));
+
+    const sheet = screen.getByTestId("playbook-print-sheet");
+    expect(sheet.parentElement).toBe(document.body);
+    expect(sheet).toHaveClass("print-target");
+    expect(sheet).toHaveTextContent("Hard news");
+    expect(sheet.querySelectorAll("li")).toHaveLength(2);
+    expect(print).toHaveBeenCalledTimes(1);
+
+    act(() => {
+      window.dispatchEvent(new Event("afterprint"));
+    });
+    expect(screen.queryByTestId("playbook-print-sheet")).toBeNull();
+    vi.unstubAllGlobals();
+  });
+});
+
 describe("Drill tab badge", () => {
   it("shows and announces reviews that are due", () => {
     localStorage.setItem(
