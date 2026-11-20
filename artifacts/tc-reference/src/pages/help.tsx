@@ -14,6 +14,7 @@ import { SITUATIONS, getSituation, type Situation } from "@/lib/situations";
 import { useNav } from "@/lib/nav-context";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { quoted } from "@/lib/utils";
+import { buttonClass } from "@/components/ui/button";
 
 // Help me right now: pick what is happening, then get one move, three lines
 // to say, what to do next and one thing to avoid. Built only from the light
@@ -24,9 +25,6 @@ const CARD_BY_ID = new Map(
     cards.map((card) => [card.id, { ...card, category }] as const),
   ),
 );
-
-const PRIMARY_LINK =
-  "inline-flex items-center justify-center gap-2 font-bold h-[52px] px-5 text-[17px] rounded-2xl bg-[var(--brand)] text-[var(--brand-contrast)] transition-transform active:scale-[0.98] motion-reduce:transition-none";
 
 const surface = {
   background: "var(--surface-card)",
@@ -326,7 +324,7 @@ function HelpAnswer({ situation }: { situation: Situation }) {
       {lead && (
         <Link
           href={`/card/${lead.id}`}
-          className={`${PRIMARY_LINK} mt-6 w-full min-w-0`}
+          className={`${buttonClass("primary", "md")} mt-6 w-full min-w-0`}
           data-testid="help-open-technique"
         >
           <span className="truncate">Open {lead.title}</span>
