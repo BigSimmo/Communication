@@ -6,9 +6,11 @@ import Library from "@/pages/library";
 // content is split again inside those routes by the per-card loader.
 const CardDetail = lazy(() => import("@/pages/card-detail"));
 const Drill = lazy(() => import("@/pages/drill"));
+const Help = lazy(() => import("@/pages/help"));
 const Favourites = lazy(() => import("@/pages/favourites"));
 const Phrases = lazy(() => import("@/pages/phrases"));
 const Playbooks = lazy(() => import("@/pages/playbooks"));
+const StartHere = lazy(() => import("@/pages/start"));
 import { FavouritesProvider } from "@/lib/favourites-context";
 import { PlaybookProvider } from "@/lib/playbook-context";
 import { NavProvider } from "@/lib/nav-context";
@@ -44,9 +46,11 @@ function Router() {
         <Route path="/" component={Library} />
         <Route path="/card/:cardId" component={CardDetail} />
         <Route path="/drill" component={Drill} />
+        <Route path="/help/:id?" component={Help} />
         <Route path="/favourites" component={Favourites} />
         <Route path="/phrases" component={Phrases} />
         <Route path="/playbooks" component={Playbooks} />
+        <Route path="/start" component={StartHere} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

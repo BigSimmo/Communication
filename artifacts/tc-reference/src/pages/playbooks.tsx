@@ -253,7 +253,7 @@ export default function Playbooks() {
             >
               Select Techniques ({selectedCards.length} selected)
             </label>
-            {/* 98 techniques is too many to scan, so let people narrow it */}
+            {/* 107 techniques is too many to scan, so let people narrow it */}
             <input
               type="search"
               value={pickerQuery}
