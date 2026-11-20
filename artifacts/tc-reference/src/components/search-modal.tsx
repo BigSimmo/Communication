@@ -261,7 +261,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
     zIndex: "var(--z-search)" as unknown as number,
     display: "flex",
     alignItems: "flex-start",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     padding:
       "calc(var(--app-header-height, 48px) + 8px) max(12px, env(safe-area-inset-right, 0px)) 12px max(12px, env(safe-area-inset-left, 0px))",
     background:
@@ -288,7 +288,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
       >
         {/* Input row */}
         <div
-          className="flex items-center gap-3 px-4"
+          className="search-modal-row flex items-center gap-3 px-4"
           style={{
             borderBottom: "1px solid var(--fg-08)",
             paddingTop: 14,
@@ -322,7 +322,7 @@ export function SearchModal({ query, setQuery, onClose }: SearchModalProps) {
                 : undefined
             }
             data-testid="search-modal-input"
-            className="flex-1 min-w-0 text-[15px] bg-transparent outline-none"
+            className="search-modal-input flex-1 min-w-0 text-[15px] bg-transparent outline-none"
             style={{ color: "var(--fg-90)" }}
           />
           {query && (
