@@ -64,6 +64,7 @@ export const NAV_DESTINATIONS: NavDestination[] = [
 
 const PAGE_TITLES: Record<string, string> = {
   "/": "Library",
+  "/help": "Help me right now",
   "/playbooks": "Playbooks",
   "/phrases": "Phrase Bank",
   "/favourites": "Favourites",
@@ -82,6 +83,7 @@ export function pageTitle(location: string): string {
     const cardId = location.split("/")[2]?.split("?")[0] ?? "";
     return CARD_TITLES[cardId] ?? "Card not found";
   }
+  if (location.startsWith("/help/")) return "Help me right now";
   return PAGE_TITLES[location] ?? "Page not found";
 }
 
