@@ -122,6 +122,34 @@ describe("card content invariants", () => {
     }
   });
 
+  it("gives every card a one-line summary of 90 characters or fewer", () => {
+    // List rows show the summary on one line on an iPhone-width screen.
+    expect(LIBRARY_CARDS).toHaveLength(107);
+    for (const libCard of LIBRARY_CARDS) {
+      const summary = libCard.summary;
+      expect(summary.trim(), libCard.id).toBe(summary);
+      expect(summary.length, libCard.id).toBeGreaterThan(0);
+      expect(summary.length, `${libCard.id}: ${summary}`).toBeLessThanOrEqual(
+        90,
+      );
+      expect(summary, libCard.id).not.toMatch(/\n|\s{2}/);
+    }
+  });
+
+  it("keeps each summary close to the card's minimum viable move", () => {
+    // Summaries are condensed from overview.minimumViableMove. When the move
+    // already fits, it is used as written; a longer move is shortened, so its
+    // summary must not be longer than the move itself.
+    for (const libCard of LIBRARY_CARDS) {
+      const move = CARD_DATA[libCard.id]?.overview.minimumViableMove ?? "";
+      if (move.length <= 90) {
+        expect(libCard.summary, libCard.id).toBe(move);
+      } else {
+        expect(libCard.summary.length, libCard.id).toBeLessThan(move.length);
+      }
+    }
+  });
+
   it("keeps stage directions out of the aggregated phrase pool", async () => {
     // Assert the bracketed format directly rather than via isSpeakablePhrase,
     // so a regression in the predicate itself can't hide leaked entries
