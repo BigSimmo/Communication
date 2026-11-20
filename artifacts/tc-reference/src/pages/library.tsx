@@ -504,11 +504,8 @@ export default function Library() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search techniques…"
-                role="combobox"
-                aria-label="Search techniques"
-                aria-expanded={searchOpen}
-                aria-controls="search-popout-panel"
+                placeholder="Search techniques and phrases…"
+                aria-label="Search techniques, phrases and playbooks"
                 data-search-toggle="true"
                 data-search-open-on-focus="true"
                 data-testid="library-search-input"

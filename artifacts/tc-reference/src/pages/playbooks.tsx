@@ -22,21 +22,38 @@ import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { PageIntro } from "@/components/page-intro";
 import { PlaybookTemplateList } from "@/components/playbook-template-list";
-import type { PlaybookTemplate } from "@/lib/playbook-templates";
+import {
+  PLAYBOOK_TEMPLATES,
+  type PlaybookTemplate,
+} from "@/lib/playbook-templates";
 
 const ALL_CARDS = Object.values(LIBRARY_CATEGORIES).flat();
 const CARD_MAP = Object.fromEntries(ALL_CARDS.map((c) => [c.id, c]));
+
+function templateFromUrl(): PlaybookTemplate | null {
+  try {
+    const id = new URLSearchParams(window.location.search).get("template");
+    return PLAYBOOK_TEMPLATES.find((t) => t.id === id) ?? null;
+  } catch {
+    return null;
+  }
+}
 
 export default function Playbooks() {
   const { playbooks, createPlaybook, updatePlaybook, deletePlaybook } =
     usePlaybooks();
   const [, setLocation] = useLocation();
 
-  const [isEditing, setIsEditing] = useState(false);
+  // A search result for a template links here as /playbooks?template=<id>:
+  // open the editor with that template loaded, as tapping it would.
+  const [linked] = useState(templateFromUrl);
+  const [isEditing, setIsEditing] = useState(linked !== null);
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [selectedCards, setSelectedCards] = useState<string[]>([]);
+  const [name, setName] = useState(linked?.name ?? "");
+  const [description, setDescription] = useState(linked?.description ?? "");
+  const [selectedCards, setSelectedCards] = useState<string[]>(
+    linked?.cardIds ?? [],
+  );
   const [pickerQuery, setPickerQuery] = useState("");
   const [deletingPlaybook, setDeletingPlaybook] = useState<Playbook | null>(
     null,

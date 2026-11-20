@@ -562,6 +562,8 @@ export function updateSRS(cardId: string, rating: SRSRating): CardSRS {
   try {
     localStorage.setItem(SRS_STORAGE_KEY, JSON.stringify(srsMap));
   } catch {}
+  // The due-review count on the nav badge depends on this map.
+  window.dispatchEvent(new Event(DRILL_STATE_EVENT));
   return updated;
 }
 
