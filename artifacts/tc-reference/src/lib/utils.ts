@@ -37,3 +37,8 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 export function quoted(text: string): string {
   return /^["“‘']/.test(text.trim()) ? text : `"${text}"`;
 }
+
+/** Join class names, skipping false, null and undefined. */
+export function cn(...parts: Array<string | false | null | undefined>): string {
+  return parts.filter(Boolean).join(" ");
+}
