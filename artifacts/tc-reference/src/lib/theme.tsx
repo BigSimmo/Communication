@@ -2,15 +2,22 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useStorageSync } from "./storage-sync";
 
 type Theme = "light" | "dark";
+/** What the person picked in Settings: a fixed theme, or follow the system. */
+export type ThemeChoice = Theme | "system";
 
 interface ThemeContextValue {
   theme: Theme;
+  /** "system" until the person picks Light or Dark. */
+  choice: ThemeChoice;
   toggle: () => void;
+  setChoice: (choice: ThemeChoice) => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
   theme: "dark",
+  choice: "system",
   toggle: () => {},
+  setChoice: () => {},
 });
 
 const STORAGE_KEY = "tc_theme";
@@ -67,16 +74,23 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Keep tabs in step when the theme is chosen in another window.
   useStorageSync([STORAGE_KEY], () => setStored(getStoredTheme()));
 
-  const toggle = () => {
-    const next: Theme = theme === "dark" ? "light" : "dark";
+  // "system" removes the stored key, so the theme follows the device again
+  // and a backup carries no theme.
+  const setChoice = (choice: ThemeChoice) => {
+    const next = choice === "system" ? null : choice;
     setStored(next);
     try {
-      localStorage.setItem(STORAGE_KEY, next);
+      if (next) localStorage.setItem(STORAGE_KEY, next);
+      else localStorage.removeItem(STORAGE_KEY);
     } catch {}
   };
 
+  const toggle = () => setChoice(theme === "dark" ? "light" : "dark");
+
   return (
-    <ThemeContext.Provider value={{ theme, toggle }}>
+    <ThemeContext.Provider
+      value={{ theme, choice: stored ?? "system", toggle, setChoice }}
+    >
       {children}
     </ThemeContext.Provider>
   );

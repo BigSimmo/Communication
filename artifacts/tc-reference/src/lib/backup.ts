@@ -30,6 +30,9 @@ export const BACKUP_KEYS = {
   tc_playbooks: "json-array",
   "tc-recent-searches": "json-array",
   tc_theme: "theme",
+  // Display preferences from the Settings sheet (larger phrase text). Older
+  // backups lack it and restore as the defaults.
+  tc_preferences: "json-object",
 } as const;
 
 export type BackupKey = keyof typeof BACKUP_KEYS;

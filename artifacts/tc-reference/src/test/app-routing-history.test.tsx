@@ -65,7 +65,7 @@ describe("App routing with real Wouter browser history", () => {
       expect(savedLink).toHaveAttribute("href", `${base}/favourites`);
       fireEvent.click(savedLink);
       expect(
-        await screen.findByRole("heading", { name: "Favourites", level: 1 }),
+        await screen.findByRole("heading", { name: "Saved", level: 1 }),
       ).toBeInTheDocument();
       expect(window.location.pathname).toBe(`${base}/favourites`);
 
@@ -92,7 +92,7 @@ describe("App routing with real Wouter browser history", () => {
       await waitFor(() => {
         expect(window.location.pathname).toBe(`${base}/favourites`);
         expect(
-          screen.getByRole("heading", { name: "Favourites", level: 1 }),
+          screen.getByRole("heading", { name: "Saved", level: 1 }),
         ).toBeInTheDocument();
       });
 
