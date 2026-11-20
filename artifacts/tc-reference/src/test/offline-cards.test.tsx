@@ -2,6 +2,7 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   CARD_SCRIPTS_CACHE,
+  OfflineCardsBuildMismatch,
   OFFLINE_CARDS_PREF_KEY,
   offlineCardsStatus,
   saveAllCards,
@@ -29,11 +30,19 @@ function fakeCaches() {
 }
 
 /** `failing` holds chunk paths (e.g. assets/cards/TC002-…js) that 503. */
-function fakeFetch(chunks: string[], failing = new Set<string>()) {
+const BUILD = "build-1";
+
+function fakeFetch(
+  chunks: string[],
+  failing = new Set<string>(),
+  serverBuild = BUILD,
+) {
   return vi.fn(async (input: RequestInfo | URL) => {
     const url = String(input);
     if (url.endsWith("/card-chunks.json")) {
-      return new Response(JSON.stringify({ chunks }), { status: 200 });
+      return new Response(JSON.stringify({ buildId: serverBuild, chunks }), {
+        status: 200,
+      });
     }
     if (failing.has(new URL(url).pathname.slice(1)))
       return new Response("nope", { status: 503 });
@@ -43,14 +52,19 @@ function fakeFetch(chunks: string[], failing = new Set<string>()) {
 
 function envFor(
   chunks: string[],
-  options: { failing?: Set<string> } = {},
+  options: { failing?: Set<string>; serverBuild?: string } = {},
 ): OfflineCardsEnv & { stores: Map<string, Map<string, Response>> } {
   const { caches, stores } = fakeCaches();
   return {
     base: "/",
+    buildId: BUILD,
     origin: ORIGIN,
     caches,
-    fetch: fakeFetch(chunks, options.failing) as unknown as typeof fetch,
+    fetch: fakeFetch(
+      chunks,
+      options.failing,
+      options.serverBuild,
+    ) as unknown as typeof fetch,
     stores,
   };
 }
@@ -98,6 +112,26 @@ describe("saveAllCards", () => {
     expect(await offlineCardsStatus(env)).toEqual({ saved: 2, total: 3 });
   });
 
+  it("neither saves nor prunes when the server list is another build's", async () => {
+    // The open app is older than the deploy: its own chunks must survive.
+    const env = envFor(CHUNKS, { serverBuild: "build-2" });
+    const cache = await env.caches.open(CARD_SCRIPTS_CACHE);
+    await cache.put(
+      url("assets/cards/TC001-running.js"),
+      new Response("in use"),
+    );
+
+    await expect(saveAllCards(undefined, env)).rejects.toBeInstanceOf(
+      OfflineCardsBuildMismatch,
+    );
+    await expect(offlineCardsStatus(env)).rejects.toBeInstanceOf(
+      OfflineCardsBuildMismatch,
+    );
+    expect([...env.stores.get(CARD_SCRIPTS_CACHE)!.keys()]).toEqual([
+      url("assets/cards/TC001-running.js"),
+    ]);
+  });
+
   it("throws when the card list cannot be fetched", async () => {
     const env = envFor(CHUNKS);
     env.fetch = vi.fn(
@@ -127,10 +161,12 @@ describe("OfflineCardsSection", () => {
       value: {},
     });
     vi.stubGlobal("fetch", env.fetch);
+    vi.stubEnv("VITE_CARD_BUILD_ID", BUILD);
   });
 
   afterEach(() => {
     vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
     if (originalCaches) Object.defineProperty(window, "caches", originalCaches);
     else delete (window as { caches?: unknown }).caches;
     if (originalSw)
@@ -171,6 +207,17 @@ describe("OfflineCardsSection", () => {
     expect(screen.getByTestId("offline-cards-save")).toHaveTextContent(
       "Try again",
     );
+  });
+
+  it("asks for the app update when the server has a newer build", async () => {
+    vi.stubGlobal("fetch", fakeFetch(CHUNKS, new Set(), "build-2"));
+    await act(async () => {
+      render(<OfflineCardsSection />);
+    });
+    expect(screen.getByTestId("offline-cards-message")).toHaveTextContent(
+      "A newer version of the app is available. Update it first",
+    );
+    expect(screen.queryByTestId("offline-cards-save")).toBeNull();
   });
 
   it("explains when the browser cannot save cards", async () => {

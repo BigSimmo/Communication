@@ -22,6 +22,10 @@ const cardCount = readdirSync(cardsDir).filter((file) =>
   /^TC\d{3}\.ts$/.test(file),
 ).length;
 
+// Ties card-chunks.json to the app build that reads it (see offline-cards.ts).
+const cardBuildId =
+  process.env.CARD_BUILD_ID ?? `${Date.now().toString(36)}-${cardCount}`;
+
 const basePath = process.env.BASE_PATH ?? "/";
 const host = process.env.HOST ?? "127.0.0.1";
 
@@ -40,13 +44,16 @@ const allowedHosts = [
 
 export default defineConfig({
   base: basePath,
+  define: {
+    "import.meta.env.VITE_CARD_BUILD_ID": JSON.stringify(cardBuildId),
+  },
   plugins: [
     react(),
     tailwindcss(),
     // Slim, precached text index so search and phrases work offline.
     cardTextIndexPlugin(cardsDir),
     // Lists the card chunks for "Save all cards for offline".
-    cardChunkListPlugin(),
+    cardChunkListPlugin(cardBuildId),
     VitePWA({
       // "prompt": a new build waits until the user accepts the update toast
       // (src/lib/sw-update.ts), which registers the worker itself.

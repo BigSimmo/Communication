@@ -7,10 +7,12 @@ const CARD_CHUNK = /^assets\/cards\/TC\d{3}-[^/]+\.js$/;
 
 /**
  * Writes `card-chunks.json`: the hashed file name of every card chunk in this
- * build. "Save all cards for offline" (src/lib/offline-cards.ts) reads it to
- * put each chunk in the card-scripts cache without running the card code.
+ * build, tagged with the build id the app is compiled with. "Save all cards
+ * for offline" (src/lib/offline-cards.ts) only acts on a list whose id matches
+ * the running app, so it never caches chunks the app doesn't use or prunes
+ * chunks it still needs.
  */
-export function cardChunkListPlugin(): Plugin {
+export function cardChunkListPlugin(buildId: string): Plugin {
   return {
     name: "tc-card-chunk-list",
     apply: "build",
@@ -21,7 +23,7 @@ export function cardChunkListPlugin(): Plugin {
       this.emitFile({
         type: "asset",
         fileName: CARD_CHUNK_LIST_FILE,
-        source: JSON.stringify({ chunks }),
+        source: JSON.stringify({ buildId, chunks }),
       });
     },
   };

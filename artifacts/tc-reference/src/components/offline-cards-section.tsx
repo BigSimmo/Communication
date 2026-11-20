@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CloudDownload, CircleCheck } from "lucide-react";
 import {
+  OfflineCardsBuildMismatch,
   offlineCardsStatus,
   offlineCardsSupported,
   saveAllCards,
@@ -8,7 +9,7 @@ import {
   type OfflineCardsStatus,
 } from "@/lib/offline-cards";
 
-type Phase = "idle" | "saving" | "done" | "error";
+type Phase = "idle" | "saving" | "done" | "error" | "outdated";
 
 const buttonClass =
   "inline-flex items-center justify-center gap-2 text-[13px] font-semibold px-5 min-h-11 rounded-full transition-all active:scale-95 disabled:opacity-60 disabled:active:scale-100";
@@ -27,7 +28,10 @@ export function OfflineCardsSection() {
         .then((next) => {
           if (mounted.current) setStatus(next);
         })
-        .catch(() => {});
+        .catch((error: unknown) => {
+          if (mounted.current && error instanceof OfflineCardsBuildMismatch)
+            setPhase("outdated");
+        });
     }
     return () => {
       mounted.current = false;
@@ -49,14 +53,20 @@ export function OfflineCardsSection() {
       if (!mounted.current) return;
       setStatus(result);
       setPhase(result.saved >= result.total ? "done" : "error");
-    } catch {
-      if (mounted.current) setPhase("error");
+    } catch (error) {
+      if (!mounted.current) return;
+      setPhase(
+        error instanceof OfflineCardsBuildMismatch ? "outdated" : "error",
+      );
     }
   };
 
   let message: string;
   if (!supported) {
     message = "This browser can't save cards for offline use.";
+  } else if (phase === "outdated") {
+    message =
+      "A newer version of the app is available. Update it first, then save your cards for offline use.";
   } else if (phase === "saving" && status) {
     message = `Saving ${status.saved} of ${status.total} cards…`;
   } else if (phase === "saving") {
@@ -98,7 +108,7 @@ export function OfflineCardsSection() {
       >
         {message}
       </p>
-      {supported && (
+      {supported && phase !== "outdated" && (
         <button
           type="button"
           onClick={handleSave}

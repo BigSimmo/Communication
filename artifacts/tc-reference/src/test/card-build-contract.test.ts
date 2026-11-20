@@ -101,6 +101,7 @@ describe("card chunk list for offline saving", () => {
       verifyCardChunkList(
         splitManifest,
         JSON.stringify({
+          buildId: "b1",
           chunks: [
             "assets/cards/TC002-d4e5f6.js",
             "assets/cards/TC001-a1b2c3.js",
@@ -110,17 +111,35 @@ describe("card chunk list for offline saving", () => {
     ).toEqual({ listed: 2 });
   });
 
+  it("rejects a list without a build id", () => {
+    expect(() =>
+      verifyCardChunkList(
+        splitManifest,
+        JSON.stringify({
+          chunks: [
+            "assets/cards/TC001-a1b2c3.js",
+            "assets/cards/TC002-d4e5f6.js",
+          ],
+        }),
+      ),
+    ).toThrow(/build id/);
+  });
+
   it("rejects a list that misses a card or names a stale chunk", () => {
     expect(() =>
       verifyCardChunkList(
         splitManifest,
-        JSON.stringify({ chunks: ["assets/cards/TC001-a1b2c3.js"] }),
+        JSON.stringify({
+          buildId: "b1",
+          chunks: ["assets/cards/TC001-a1b2c3.js"],
+        }),
       ),
     ).toThrow(/card-chunks.json/);
     expect(() =>
       verifyCardChunkList(
         splitManifest,
         JSON.stringify({
+          buildId: "b1",
           chunks: [
             "assets/cards/TC001-a1b2c3.js",
             "assets/cards/TC002-old000.js",

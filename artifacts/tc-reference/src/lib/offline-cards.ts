@@ -6,6 +6,11 @@
 // The chunks are written to Cache Storage from the page rather than imported,
 // so no card code runs and nothing is held in memory. The saved count is read
 // back from the cache itself, so it is accurate for the current build.
+//
+// card-chunks.json always describes the newest deploy, but the open app may be
+// an older build still served by the waiting-for-update service worker. Every
+// list carries its build id; when it doesn't match the running app we neither
+// save nor prune, and the UI asks the user to update first.
 
 /** Must match the runtime cache name in vite.config.ts. */
 export const CARD_SCRIPTS_CACHE = "card-scripts";
@@ -16,6 +21,8 @@ const CONCURRENCY = 4;
 
 export interface OfflineCardsEnv {
   base: string;
+  /** Build id compiled into the running app (vite.config.ts). */
+  buildId: string | undefined;
   fetch: typeof fetch;
   caches: CacheStorage;
   origin: string;
@@ -38,13 +45,25 @@ export function offlineCardsSupported(): boolean {
 function defaultEnv(): OfflineCardsEnv {
   return {
     base: import.meta.env.BASE_URL,
+    buildId: import.meta.env.VITE_CARD_BUILD_ID as string | undefined,
     fetch: (input, init) => globalThis.fetch(input, init),
     caches: window.caches,
     origin: window.location.origin,
   };
 }
 
-/** Absolute URLs of this build's card chunks. Needs the network. */
+/** The server holds a newer (or older) build than the open app. */
+export class OfflineCardsBuildMismatch extends Error {
+  constructor() {
+    super("The app needs updating before cards can be saved");
+    this.name = "OfflineCardsBuildMismatch";
+  }
+}
+
+/**
+ * Absolute URLs of the running build's card chunks. Needs the network.
+ * Throws OfflineCardsBuildMismatch when the server's list is another build's.
+ */
 export async function cardChunkUrls(
   env: OfflineCardsEnv = defaultEnv(),
 ): Promise<string[]> {
@@ -52,8 +71,14 @@ export async function cardChunkUrls(
   const response = await env.fetch(listUrl, { cache: "no-store" });
   if (!response.ok)
     throw new Error(`Card list unavailable (${response.status})`);
-  const body = (await response.json()) as { chunks?: unknown };
+  const body = (await response.json()) as {
+    buildId?: unknown;
+    chunks?: unknown;
+  };
   if (!Array.isArray(body.chunks)) throw new Error("Card list is malformed");
+  if (!env.buildId || body.buildId !== env.buildId) {
+    throw new OfflineCardsBuildMismatch();
+  }
   return body.chunks
     .filter((chunk): chunk is string => typeof chunk === "string")
     .map((chunk) => new URL(`${env.base}${chunk}`, env.origin).href);
@@ -110,7 +135,8 @@ export async function saveAllCards(
     Array.from({ length: Math.min(CONCURRENCY, pending.length) }, worker),
   );
 
-  // Hashed chunks from earlier builds are never requested again.
+  // The list matched the running build, so chunks outside it belong to older
+  // builds and are never requested again.
   for (const url of cached) {
     if (CARD_CHUNK_PATH.test(new URL(url).pathname) && !current.has(url)) {
       await cache.delete(url);

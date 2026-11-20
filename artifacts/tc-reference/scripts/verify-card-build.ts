@@ -201,7 +201,14 @@ export function verifyCardChunkList(
     .filter(([key]) => /src\/lib\/cards\/TC\d{3}\.ts$/.test(key))
     .map(([, entry]) => entry.file)
     .sort();
-  const listed = (JSON.parse(listSource) as { chunks?: unknown }).chunks;
+  const list = JSON.parse(listSource) as {
+    buildId?: unknown;
+    chunks?: unknown;
+  };
+  if (typeof list.buildId !== "string" || list.buildId === "") {
+    throw new Error("card-chunks.json must carry the app's build id");
+  }
+  const listed = list.chunks;
   if (
     !Array.isArray(listed) ||
     JSON.stringify([...listed].sort()) !== JSON.stringify(expected)
