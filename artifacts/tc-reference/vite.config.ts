@@ -3,7 +3,9 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { VitePWA } from "vite-plugin-pwa";
+import { readdirSync } from "node:fs";
 import { cardTextIndexPlugin } from "./card-text-index-plugin";
+import { cardChunkListPlugin } from "./card-chunk-list-plugin";
 
 const rawPort = process.env.PORT ?? "5173";
 
@@ -12,6 +14,17 @@ const port = Number(rawPort);
 if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
+
+const cardsDir = path.resolve(import.meta.dirname, "src/lib/cards");
+// Card count drives the manifest copy and the card-scripts cache size, so a
+// new card never pushes saved cards out of the offline cache.
+const cardCount = readdirSync(cardsDir).filter((file) =>
+  /^TC\d{3}\.ts$/.test(file),
+).length;
+
+// Ties card-chunks.json to the app build that reads it (see offline-cards.ts).
+const cardBuildId =
+  process.env.CARD_BUILD_ID ?? `${Date.now().toString(36)}-${cardCount}`;
 
 const basePath = process.env.BASE_PATH ?? "/";
 const host = process.env.HOST ?? "127.0.0.1";
@@ -31,11 +44,16 @@ const allowedHosts = [
 
 export default defineConfig({
   base: basePath,
+  define: {
+    "import.meta.env.VITE_CARD_BUILD_ID": JSON.stringify(cardBuildId),
+  },
   plugins: [
     react(),
     tailwindcss(),
     // Slim, precached text index so search and phrases work offline.
-    cardTextIndexPlugin(path.resolve(import.meta.dirname, "src/lib/cards")),
+    cardTextIndexPlugin(cardsDir),
+    // Lists the card chunks for "Save all cards for offline".
+    cardChunkListPlugin(cardBuildId),
     VitePWA({
       // "prompt": a new build waits until the user accepts the update toast
       // (src/lib/sw-update.ts), which registers the worker itself.
@@ -51,8 +69,7 @@ export default defineConfig({
       manifest: {
         name: "TC Reference Tool",
         short_name: "TC Reference",
-        description:
-          "A pocket reference of 98 communication techniques with phrase banks, decision trees, scenarios and daily practice drills. Works offline.",
+        description: `A pocket reference of ${cardCount} communication techniques with phrase banks, decision trees, scenarios and daily practice drills. Works offline.`,
         lang: "en-AU",
         dir: "ltr",
         id: ".",
@@ -133,7 +150,7 @@ export default defineConfig({
             sizes: "780x1688",
             type: "image/webp",
             form_factor: "narrow",
-            label: "Library of 98 communication techniques",
+            label: `Library of ${cardCount} communication techniques`,
           },
           {
             src: "screenshots/phrases-narrow.webp",
@@ -202,13 +219,16 @@ export default defineConfig({
           },
           {
             // Card modules are content-hashed immutable assets. Cache only
-            // cards the user visits; never inflate the initial PWA install
-            // with all 98 technique payloads.
+            // cards the user visits (or saves for offline from Favourites);
+            // never inflate the initial PWA install with every card.
             urlPattern: /\/assets\/cards\/TC\d{3}-[^/]+\.js$/,
             handler: "CacheFirst",
             options: {
               cacheName: "card-scripts",
-              expiration: { maxEntries: 98, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              expiration: {
+                maxEntries: cardCount,
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+              },
             },
           },
         ],

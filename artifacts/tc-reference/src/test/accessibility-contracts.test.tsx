@@ -127,7 +127,7 @@ describe("core accessibility contracts", () => {
   it.each([
     ["/", "Library"],
     ["/drill", "Daily Drill"],
-    ["/favourites", "Favourites"],
+    ["/favourites", "Saved"],
     ["/phrases", "Phrase Bank"],
     ["/playbooks", "Playbooks"],
     ["/card/TC001", "Live thread follow-ups"],
@@ -353,7 +353,7 @@ describe("core accessibility contracts", () => {
 
     expect(
       await screen.findByText(
-        "Every phrase from every card. Filter by tone, search, then tap a phrase to copy it.",
+        /lines from every technique. Pick a tone and length, then tap a line to copy it./,
         undefined,
         { timeout: 5000 },
       ),

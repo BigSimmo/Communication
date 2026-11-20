@@ -1,17 +1,30 @@
 import { useState } from "react";
-import { PageIntro } from "@/components/page-intro";
 import { Link, useLocation } from "wouter";
-import { Heart, Copy, Check, Search, ChevronRight, X } from "lucide-react";
+import {
+  Heart,
+  Copy,
+  Check,
+  Search,
+  ChevronRight,
+  X,
+  Settings,
+  Share,
+} from "lucide-react";
 import { useFavourites } from "@/lib/favourites-context";
+import type { FavouritePhrase } from "@/lib/favourites-state";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
-import { impactStyleFor } from "@/lib/design-tokens";
-import { BackupSection } from "@/components/backup-section";
-import { AppearanceSection } from "@/components/appearance-section";
+import { categoryStyleFor } from "@/lib/design-tokens";
+import { SegmentedTabs } from "@/components/ui/segmented-tabs";
+import { ListRow } from "@/components/ui/list-row";
+import { Button } from "@/components/ui/button";
+import { SettingsSheet } from "@/components/settings-sheet";
+import { ShareSheet } from "@/components/share-sheet";
+import type { ShareItem } from "@/components/share-sheet";
 
 const CARD_META: Record<
   string,
-  { title: string; category: string; difficulty: string; impact: string }
+  { title: string; category: string; difficulty: string }
 > = {};
 for (const [cat, cards] of Object.entries(LIBRARY_CATEGORIES)) {
   for (const c of cards) {
@@ -19,26 +32,61 @@ for (const [cat, cards] of Object.entries(LIBRARY_CATEGORIES)) {
       title: c.title,
       category: cat,
       difficulty: c.difficulty,
-      impact: c.impact,
     };
   }
 }
+
+type SavedTab = "techniques" | "phrases";
+
+function CategoryMeta({ category }: { category: string }) {
+  const style = categoryStyleFor(category);
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <span
+        aria-hidden="true"
+        className="w-2 h-2 rounded-full flex-none"
+        style={{ background: style.color }}
+      />
+      <span>{style.label}</span>
+    </span>
+  );
+}
+
+function EmptyPanel({ children }: { children: string }) {
+  return (
+    <p
+      className="settings-card px-5 py-6 text-center text-[15px]"
+      style={{ color: "var(--fg-70)" }}
+    >
+      {children}
+    </p>
+  );
+}
+
+const iconButton =
+  "w-11 h-11 flex-none flex items-center justify-center rounded-full transition-transform active:scale-90 motion-reduce:transition-none";
 
 export default function Favourites() {
   const { state, toggleCard, togglePhrase } = useFavourites();
   const [, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
-  const { copied: copiedPhrase, copy: handleCopy } = useCopyFeedback();
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [shareItem, setShareItem] = useState<ShareItem | null>(null);
+  const [tab, setTab] = useState<SavedTab>(() =>
+    state.cardIds.length === 0 && state.phrases.length > 0
+      ? "phrases"
+      : "techniques",
+  );
+  const { copied, copy } = useCopyFeedback();
 
   const q = searchQuery.toLowerCase().trim();
+  const totalSaved = state.cardIds.length + state.phrases.length;
 
   const favCards = state.cardIds.filter((id) => {
-    if (!q) return true;
     const meta = CARD_META[id];
-    return (
-      meta &&
-      (id.toLowerCase().includes(q) || meta.title.toLowerCase().includes(q))
-    );
+    if (!meta) return false;
+    if (!q) return true;
+    return id.toLowerCase().includes(q) || meta.title.toLowerCase().includes(q);
   });
 
   const favPhrases = q
@@ -51,446 +99,369 @@ export default function Favourites() {
       )
     : state.phrases;
 
-  const phrasesByCard: Record<string, typeof state.phrases> = {};
+  const phrasesByCard = new Map<string, FavouritePhrase[]>();
   for (const p of favPhrases) {
-    if (!phrasesByCard[p.cardId]) phrasesByCard[p.cardId] = [];
-    phrasesByCard[p.cardId].push(p);
+    const list = phrasesByCard.get(p.cardId) ?? [];
+    list.push(p);
+    phrasesByCard.set(p.cardId, list);
   }
 
-  const totalSaved = state.cardIds.length + state.phrases.length;
-  const hasResults =
-    favCards.length > 0 || Object.keys(phrasesByCard).length > 0;
+  const share = (p: FavouritePhrase) => {
+    const meta = CARD_META[p.cardId];
+    setShareItem({
+      text: p.text,
+      cardId: meta ? p.cardId : undefined,
+      cardTitle: meta?.title ?? p.cardTitle,
+      category: meta?.category,
+      hint: p.groupLabel || undefined,
+    });
+  };
+
+  const tabs = [
+    {
+      id: "techniques" as const,
+      label: `Techniques · ${state.cardIds.length}`,
+    },
+    { id: "phrases" as const, label: `Phrases · ${state.phrases.length}` },
+  ];
 
   return (
     <div className="flex flex-col bg-background w-full max-w-2xl mx-auto">
-      {/* ── Page header ── */}
-      <PageIntro
-        title="Favourites"
-        description="Your saved technique cards and phrases, ready to use."
-        className="px-4 md:px-6 pt-4 md:pt-6 pb-3"
-      />
-
-      {/* Sticky search bar */}
-      <div
-        className="sticky z-10 px-4 md:px-6 py-3 sticky-under-header"
-        style={{
-          top: "var(--app-header-height, 56px)",
-          background: "var(--surface-header)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          borderBottom: "1px solid var(--fg-05)",
-        }}
-      >
-        <div className="relative">
-          <Search
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4"
-            style={{
-              color: "color-mix(in srgb, var(--brand-text) 50%, transparent)",
-            }}
-            aria-hidden="true"
-          />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search your favourites…"
-            aria-label="Search favourites"
-            className="w-full text-[13px] pl-10 pr-10 py-2.5 rounded-xl outline-none transition-colors"
-            style={{
-              background: "var(--fg-05)",
-              border: "1px solid var(--fg-08)",
-              color: "var(--fg-85)",
-            }}
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              aria-label="Clear search"
-              className="absolute right-1 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full"
-            >
-              <span
-                className="w-5 h-5 flex items-center justify-center rounded-full"
-                style={{ background: "var(--fg-08)" }}
-              >
-                <X
-                  className="w-3 h-3"
-                  style={{ color: "var(--fg-50)" }}
-                  aria-hidden="true"
-                />
-              </span>
-            </button>
-          )}
+      <div className="px-4 md:px-6 pt-4 md:pt-6 pb-3 flex items-end justify-between gap-3">
+        <div className="flex flex-col gap-1 min-w-0">
+          <span
+            className="text-[13px] font-bold tracking-[0.06em] uppercase"
+            style={{ color: "var(--fg-60)" }}
+          >
+            {totalSaved} {totalSaved === 1 ? "item" : "items"} · on this device
+          </span>
+          <h1
+            className="text-[34px] leading-[1.1] font-extrabold tracking-[-0.02em]"
+            style={{ color: "var(--fg-90)" }}
+          >
+            Saved
+          </h1>
         </div>
+        <button
+          type="button"
+          onClick={() => setSettingsOpen(true)}
+          aria-label="Settings"
+          aria-haspopup="dialog"
+          data-testid="open-settings"
+          data-print-hide
+          className={iconButton}
+          style={{ background: "var(--fg-08)", color: "var(--fg-90)" }}
+        >
+          <Settings className="w-5 h-5" aria-hidden="true" />
+        </button>
       </div>
 
-      <div className="px-4 md:px-6 pb-12 pt-5 space-y-8">
-        {/* Empty state — nothing saved at all */}
-        {totalSaved === 0 && (
-          <div className="flex flex-col items-center py-16 px-4 text-center">
+      <div className="px-4 md:px-6 pb-12 flex flex-col gap-5">
+        {totalSaved === 0 ? (
+          <div className="flex flex-col items-center py-14 px-4 text-center">
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
               style={{
-                background: "color-mix(in srgb, var(--brand) 8%, transparent)",
-                border:
-                  "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
+                background: "color-mix(in srgb, var(--brand) 10%, transparent)",
               }}
             >
               <Heart
                 className="w-6 h-6"
-                style={{
-                  color:
-                    "color-mix(in srgb, var(--brand-text) 50%, transparent)",
-                }}
+                style={{ color: "var(--brand-text)" }}
+                aria-hidden="true"
               />
             </div>
             <p
-              className="text-[16px] font-semibold mb-2"
-              style={{ color: "var(--fg-65)" }}
+              className="text-[20px] font-bold mb-2"
+              style={{ color: "var(--fg-90)" }}
             >
-              No favourites yet
+              Nothing saved yet
             </p>
             <p
-              className="text-[13px] leading-relaxed max-w-[260px] mb-6"
-              style={{ color: "var(--fg-55)" }}
+              className="text-[15px] leading-relaxed max-w-[300px] mb-6"
+              style={{ color: "var(--fg-70)" }}
             >
-              Tap the heart on any technique card or phrase to save it here for
-              quick access.
+              Tap the heart on any technique or phrase to keep it here for quick
+              access.
             </p>
-            <button
-              onClick={() => setLocation("/")}
-              className="text-[13px] font-semibold px-5 min-h-11 rounded-full transition-all active:scale-95"
-              style={{
-                background: "color-mix(in srgb, var(--brand) 12%, transparent)",
-                border:
-                  "1px solid color-mix(in srgb, var(--brand) 25%, transparent)",
-                color: "var(--brand-text)",
-              }}
-            >
-              Browse the Library
-            </button>
-            <button
-              onClick={() => setLocation("/phrases")}
-              className="mt-2 text-[13px] font-semibold px-5 min-h-11 rounded-full underline underline-offset-4 transition-colors hover:bg-[var(--fg-05)]"
-              style={{ color: "var(--brand-text)" }}
-            >
-              Or open the Phrase Bank
-            </button>
-          </div>
-        )}
-
-        {/* No search results */}
-        {totalSaved > 0 && !hasResults && q && (
-          <div className="flex flex-col items-center py-12 text-center">
-            <p
-              className="text-[14px] font-semibold mb-1.5"
-              style={{ color: "var(--fg-45)" }}
-            >
-              No matches for "{searchQuery}"
-            </p>
-            <p className="text-[12px]" style={{ color: "var(--fg-55)" }}>
-              Try a card name, ID, or phrase keyword.
-            </p>
-          </div>
-        )}
-
-        {/* Techniques section */}
-        {totalSaved > 0 && (
-          <div>
-            <div className="flex items-center justify-between mb-3 px-1">
-              <h2
-                className="text-[11px] font-semibold tracking-[0.08em] uppercase"
-                style={{ color: "var(--fg-55)" }}
-              >
-                Techniques
-              </h2>
-              <span
-                className="text-[11px] font-bold px-2 py-0.5 rounded-full"
-                style={{
-                  background:
-                    "color-mix(in srgb, var(--brand) 12%, transparent)",
-                  color: "var(--brand-text)",
-                }}
-              >
-                {state.cardIds.length}
-              </span>
+            <div className="flex flex-col gap-2 w-full max-w-[280px]">
+              <Button variant="primary" onClick={() => setLocation("/")}>
+                Browse the Library
+              </Button>
+              <Button variant="quiet" onClick={() => setLocation("/phrases")}>
+                Open the Phrase Bank
+              </Button>
             </div>
-            {favCards.length === 0 ? (
-              <div
-                className="rounded-2xl p-5 text-center"
+          </div>
+        ) : (
+          <>
+            <SegmentedTabs<SavedTab>
+              tabs={tabs}
+              value={tab}
+              onChange={setTab}
+              label="Saved items"
+              idBase="saved"
+              className="w-full"
+            />
+
+            <div className="relative" data-print-hide>
+              <Search
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4"
+                style={{ color: "var(--fg-55)" }}
+                aria-hidden="true"
+              />
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search saved items"
+                aria-label="Search saved items"
+                className="w-full text-[15px] pl-10 pr-11 h-11 rounded-xl outline-none"
                 style={{
-                  background: "var(--fg-02)",
-                  border: "1px solid var(--fg-05)",
+                  background: "var(--fg-05)",
+                  border: "1px solid var(--fg-08)",
+                  color: "var(--fg-90)",
                 }}
-              >
-                <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  aria-label="Clear search"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center"
+                >
+                  <X
+                    className="w-4 h-4"
+                    style={{ color: "var(--fg-60)" }}
+                    aria-hidden="true"
+                  />
+                </button>
+              )}
+            </div>
+
+            <div
+              role="tabpanel"
+              id="saved-panel-techniques"
+              aria-labelledby="saved-tab-techniques"
+              hidden={tab !== "techniques"}
+            >
+              {favCards.length === 0 ? (
+                <EmptyPanel>
                   {q
-                    ? "No matching techniques."
-                    : "Tap the heart on any card to save it here."}
-                </p>
-              </div>
-            ) : (
-              <ul className="space-y-2">
-                {favCards.map((id) => {
-                  const meta = CARD_META[id];
-                  if (!meta) return null;
-                  const impact = impactStyleFor(meta.impact);
-                  return (
-                    <li key={id} className="relative">
-                      <Link
-                        href={`/card/${id}`}
-                        aria-label={`${meta.title} (${id})`}
-                        data-testid={`favourite-card-${id}`}
-                        className="flex items-center gap-3 pl-3 pr-14 py-3 rounded-2xl transition-colors bg-[var(--fg-03)] hover:bg-[var(--fg-06)]"
-                        style={{
-                          border: "1px solid var(--fg-07)",
-                          minHeight: 64,
-                        }}
-                      >
-                        <span
-                          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[12px] font-bold tabular-nums"
-                          style={{
-                            background:
-                              "color-mix(in srgb, var(--brand) 14%, transparent)",
-                            border:
-                              "1px solid color-mix(in srgb, var(--brand) 26%, transparent)",
-                            color: "var(--brand-text)",
-                          }}
-                          aria-hidden="true"
+                    ? `No saved techniques match "${searchQuery}".`
+                    : "Tap the heart on any technique to save it here."}
+                </EmptyPanel>
+              ) : (
+                <ul className="settings-card" aria-label="Saved techniques">
+                  {favCards.map((id) => {
+                    const meta = CARD_META[id];
+                    return (
+                      <li key={id} className="flex items-center pr-1.5">
+                        <Link
+                          href={`/card/${id}`}
+                          data-testid={`favourite-card-${id}`}
+                          className="flex-1 min-w-0 rounded-2xl"
                         >
-                          {id.slice(2)}
-                        </span>
-                        <span className="flex-1 min-w-0">
+                          <ListRow
+                            title={meta.title}
+                            meta={
+                              <span className="flex flex-wrap items-center gap-x-2">
+                                <CategoryMeta category={meta.category} />
+                                <span aria-hidden="true">·</span>
+                                <span>{meta.difficulty}</span>
+                              </span>
+                            }
+                            className="pr-1"
+                          />
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => toggleCard(id)}
+                          aria-label={`Remove ${meta.title} from saved`}
+                          className={iconButton}
+                        >
+                          <Heart
+                            className="w-5 h-5"
+                            style={{ color: "var(--brand-text)" }}
+                            fill="var(--brand-text)"
+                            aria-hidden="true"
+                          />
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
+
+            <div
+              role="tabpanel"
+              id="saved-panel-phrases"
+              aria-labelledby="saved-tab-phrases"
+              hidden={tab !== "phrases"}
+              className="flex flex-col gap-4"
+            >
+              {phrasesByCard.size === 0 ? (
+                <EmptyPanel>
+                  {q
+                    ? `No saved phrases match "${searchQuery}".`
+                    : "Tap the heart next to any phrase to save it here."}
+                </EmptyPanel>
+              ) : (
+                [...phrasesByCard].map(([cardId, phrases]) => {
+                  const meta = CARD_META[cardId];
+                  const title = meta?.title ?? phrases[0]?.cardTitle ?? cardId;
+                  return (
+                    <section
+                      key={cardId}
+                      aria-label={title}
+                      className="settings-card"
+                      data-testid={`favourite-phrase-group-${cardId}`}
+                    >
+                      <Link
+                        href={`/card/${cardId}`}
+                        className="flex items-center gap-2 px-4 min-h-12"
+                      >
+                        <span className="flex-1 min-w-0 flex flex-col">
                           <span
-                            className="block text-[15px] font-semibold leading-snug line-clamp-2"
+                            className="text-[15px] font-semibold truncate"
                             style={{ color: "var(--fg-90)" }}
                           >
-                            {meta.title}
+                            {title}
                           </span>
-                          <span
-                            className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12px]"
-                            style={{ color: "var(--fg-55)" }}
-                          >
+                          {meta && (
                             <span
-                              className="font-medium tabular-nums"
-                              style={{ color: "var(--fg-55)" }}
+                              className="text-[13px]"
+                              style={{ color: "var(--fg-60)" }}
                             >
-                              {id}
+                              <CategoryMeta category={meta.category} />
                             </span>
-                            <span aria-hidden="true">·</span>
-                            <span>{meta.difficulty}</span>
-                            <span
-                              className="ml-0.5 text-[11px] font-semibold px-1.5 py-px rounded-md"
-                              style={{
-                                background: impact.bg,
-                                color: impact.color,
-                              }}
-                            >
-                              {impact.label}
-                            </span>
-                          </span>
-                        </span>
-                      </Link>
-                      <button
-                        type="button"
-                        onClick={() => toggleCard(id)}
-                        aria-label={`Remove ${meta.title} from favourites`}
-                        className="library-card-favourite absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
-                        style={{
-                          background:
-                            "color-mix(in srgb, var(--brand) 14%, transparent)",
-                        }}
-                      >
-                        <Heart
-                          className="w-4 h-4"
-                          style={{ color: "var(--brand-text)" }}
-                          fill="var(--brand-text)"
-                          aria-hidden="true"
-                        />
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-          </div>
-        )}
-
-        {/* Phrases section */}
-        {totalSaved > 0 && (
-          <div>
-            <div className="flex items-center justify-between mb-3 px-1">
-              <h2
-                className="text-[11px] font-semibold tracking-[0.08em] uppercase"
-                style={{ color: "var(--fg-55)" }}
-              >
-                Phrases
-              </h2>
-              <span
-                className="text-[11px] font-bold px-2 py-0.5 rounded-full"
-                style={{
-                  background:
-                    "color-mix(in srgb, var(--accent-blue) 12%, transparent)",
-                  color: "var(--accent-blue)",
-                }}
-              >
-                {state.phrases.length}
-              </span>
-            </div>
-            {Object.keys(phrasesByCard).length === 0 ? (
-              <div
-                className="rounded-2xl p-5 text-center"
-                style={{
-                  background: "var(--fg-02)",
-                  border: "1px solid var(--fg-05)",
-                }}
-              >
-                <p className="text-[13px]" style={{ color: "var(--fg-55)" }}>
-                  {q
-                    ? "No matching phrases."
-                    : "Tap the heart next to any phrase to save it here."}
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {Object.entries(phrasesByCard).map(([cardId, phrases]) => {
-                  const meta = CARD_META[cardId];
-                  return (
-                    <div
-                      key={cardId}
-                      className="rounded-2xl overflow-hidden"
-                      style={{
-                        background: "var(--fg-02)",
-                        border: "1px solid var(--fg-06)",
-                      }}
-                    >
-                      <button
-                        className="w-full flex items-center gap-3 px-4 py-3 min-h-12 text-left transition-colors"
-                        onClick={() => setLocation(`/card/${cardId}`)}
-                        aria-label={`Open ${meta?.title ?? cardId}`}
-                        style={{ borderBottom: "1px solid var(--fg-05)" }}
-                      >
-                        <div
-                          className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-[11px] font-bold"
-                          style={{
-                            background: "var(--brand)",
-                            color: "var(--brand-contrast)",
-                          }}
-                        >
-                          {cardId.slice(2)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p
-                            className="text-[12px] font-bold truncate"
-                            style={{ color: "var(--fg-80)" }}
-                          >
-                            {meta?.title ?? cardId}
-                          </p>
-                          {phrases[0]?.groupLabel && (
-                            <p
-                              className="text-[11px] mt-0.5"
-                              style={{ color: "var(--fg-55)" }}
-                            >
-                              {phrases.length} phrase
-                              {phrases.length !== 1 ? "s" : ""}
-                            </p>
                           )}
-                        </div>
+                        </span>
+                        <span className="sr-only">Open technique</span>
                         <ChevronRight
-                          className="w-3.5 h-3.5 flex-shrink-0"
-                          style={{ color: "var(--fg-45)" }}
+                          className="w-4 h-4 flex-none"
+                          style={{ color: "var(--fg-55)" }}
                           aria-hidden="true"
                         />
-                      </button>
-                      <div
-                        className="divide-y"
-                        style={{ borderColor: "var(--fg-04)" }}
-                      >
-                        {phrases.map((p) => (
-                          <div
-                            // Rows are removable — index keys would misassociate
-                            // DOM/state after a deletion; (cardId, text) is the
-                            // favourite's identity
-                            key={`${p.cardId}:${p.text}`}
-                            onClick={() => handleCopy(p.text)}
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(e) => {
-                              // Only respond when the row itself is focused — let the
-                              // nested favourite button handle its own keys
-                              if (e.target !== e.currentTarget) return;
-                              if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                handleCopy(p.text);
-                              }
-                            }}
-                            aria-label={`Copy: ${p.text}`}
-                            className="w-full flex items-center gap-3 px-4 py-3 cursor-pointer transition-all"
-                            style={{
-                              minHeight: 52,
-                              background:
-                                copiedPhrase === p.text
-                                  ? "color-mix(in srgb, var(--brand) 7%, transparent)"
-                                  : "transparent",
-                            }}
-                          >
-                            <p
-                              className="flex-1 text-[13px] leading-snug"
+                      </Link>
+                      <ul>
+                        {phrases.map((p, i) => {
+                          const isCopied = copied === p.text;
+                          return (
+                            <li
+                              // (cardId, text) is the saved phrase's identity
+                              key={`${p.cardId}:${p.text}`}
+                              className="flex items-center pr-1.5"
                               style={{
-                                color:
-                                  copiedPhrase === p.text
-                                    ? "var(--brand-text)"
-                                    : "var(--fg-75)",
+                                borderTop:
+                                  i > 0 ? "1px solid var(--fg-07)" : undefined,
+                                background: isCopied
+                                  ? "color-mix(in srgb, var(--brand) 8%, transparent)"
+                                  : undefined,
                               }}
                             >
-                              {p.text}
-                            </p>
-                            <div
-                              className="flex items-center gap-1.5 flex-shrink-0"
-                              role="presentation"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              {copiedPhrase === p.text ? (
-                                <Check
-                                  className="w-3.5 h-3.5"
-                                  style={{ color: "var(--brand-text)" }}
-                                />
-                              ) : (
-                                <Copy
-                                  className="w-3.5 h-3.5"
-                                  style={{ color: "var(--fg-45)" }}
+                              <button
+                                type="button"
+                                onClick={() => copy(p.text)}
+                                aria-label={`Copy: ${p.text}`}
+                                className="flex-1 min-w-0 flex items-center gap-3 pl-4 pr-1 py-3 min-h-14 text-left"
+                              >
+                                <span
+                                  className="phrase-text flex-1 font-serif text-[17px] leading-snug"
+                                  style={{
+                                    color: isCopied
+                                      ? "var(--brand-text)"
+                                      : "var(--fg-90)",
+                                  }}
+                                >
+                                  {p.text}
+                                </span>
+                                {isCopied ? (
+                                  <Check
+                                    className="w-4 h-4 flex-none"
+                                    style={{ color: "var(--brand-text)" }}
+                                    aria-hidden="true"
+                                  />
+                                ) : (
+                                  <Copy
+                                    className="w-4 h-4 flex-none"
+                                    style={{ color: "var(--fg-55)" }}
+                                    aria-hidden="true"
+                                  />
+                                )}
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => share(p)}
+                                aria-label={`Share: ${p.text}`}
+                                aria-haspopup="dialog"
+                                className={iconButton}
+                                style={{ color: "var(--fg-70)" }}
+                              >
+                                <Share
+                                  className="w-[18px] h-[18px]"
                                   aria-hidden="true"
                                 />
-                              )}
+                              </button>
                               <button
+                                type="button"
                                 onClick={() => togglePhrase(p)}
-                                aria-label="Remove from favourites"
-                                className="tap-target w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-                                style={{
-                                  background:
-                                    "color-mix(in srgb, var(--brand) 10%, transparent)",
-                                }}
+                                aria-label={`Remove from saved: ${p.text}`}
+                                className={iconButton}
                               >
                                 <Heart
-                                  className="w-3.5 h-3.5"
+                                  className="w-[18px] h-[18px]"
                                   style={{ color: "var(--brand-text)" }}
                                   fill="var(--brand-text)"
+                                  aria-hidden="true"
                                 />
                               </button>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </section>
                   );
-                })}
-              </div>
-            )}
-          </div>
+                })
+              )}
+            </div>
+          </>
         )}
 
-        <AppearanceSection />
-        <BackupSection />
+        <div
+          className="settings-card"
+          data-testid="backup-nudge"
+          data-print-hide
+        >
+          <button
+            type="button"
+            onClick={() => setSettingsOpen(true)}
+            aria-haspopup="dialog"
+            className="settings-row w-full text-left"
+          >
+            <span className="flex-1 min-w-0 flex flex-col gap-0.5">
+              <span className="settings-row-title">
+                Back up your saved items
+              </span>
+              <span className="settings-row-meta">
+                They live only on this device
+              </span>
+            </span>
+            <ChevronRight
+              className="w-4 h-4 flex-none"
+              style={{ color: "var(--fg-55)" }}
+              aria-hidden="true"
+            />
+          </button>
+        </div>
       </div>
+
+      <SettingsSheet
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+      />
+      <ShareSheet item={shareItem} onClose={() => setShareItem(null)} />
     </div>
   );
 }

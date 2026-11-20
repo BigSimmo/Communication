@@ -2,6 +2,7 @@
    so the app works fully offline */
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./styles/print-and-preferences.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -819,4 +820,13 @@ select:focus-visible,
 .search-modal-row:focus-within {
   box-shadow: inset 0 0 0 2px hsl(var(--ring));
   border-radius: 16px 16px 0 0;
+}
+
+/* Sideways-scrolling chip rows: scroll without a visible scrollbar */
+.no-scrollbar {
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

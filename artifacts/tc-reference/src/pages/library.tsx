@@ -1,48 +1,48 @@
-import {
-  useState,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
-import { Link, useLocation } from "wouter";
+import { useState, useCallback, useLayoutEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import {
   ChevronDown,
   SearchX,
-  Heart,
   Search,
   X,
-  Check,
   Shuffle,
   SlidersHorizontal,
   ArrowUpDown,
-  BookOpen,
-  Compass,
-  HeartHandshake,
-  LifeBuoy,
-  Mic,
-  Target,
 } from "lucide-react";
 import { CORE_CARD_SET, LIBRARY_CATEGORIES, CardImpact } from "@/lib/data";
 import { useNav } from "@/lib/nav-context";
 import { useFavourites } from "@/lib/favourites-context";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
-import { IMPACT_STYLES } from "@/lib/design-tokens";
+import { IMPACT_STYLES, categoryStyleFor } from "@/lib/design-tokens";
+import {
+  SCROLL_DIRECTION_THRESHOLD,
+  SCROLL_FLIP_THRESHOLD,
+  type SavedLibraryScroll,
+  ensureHistoryEntryId,
+  findLibraryCard,
+  hasPendingRestore,
+  readSavedScroll,
+  scrollWindowTo,
+  writeSavedScroll,
+} from "@/lib/library-scroll";
 import { LibraryToday } from "@/components/library-today";
+import {
+  HelpNowTile,
+  StartHereShelf,
+} from "@/components/library/start-here-shelf";
+import { CategoryChips } from "@/components/library/category-chips";
+import {
+  LibraryCardRow,
+  type LibraryCardMeta,
+} from "@/components/library/card-row";
+import {
+  FilterDropdown,
+  type DropdownOption,
+} from "@/components/library/filter-dropdown";
 import {
   LibraryFilterSheet,
   type SheetGroup,
 } from "@/components/library/filter-sheet";
-
-// One glyph per category gives the list a visual rhythm without repeating
-// the TC code, which already sits in each row's meta line.
-const CATEGORY_ICON: Record<string, typeof BookOpen> = {
-  "Voice / Presence": Mic,
-  "Influence / Framing": Compass,
-  "Clarity / Direction": Target,
-  "Connection / Warmth": HeartHandshake,
-  "Resilience / Recovery": LifeBuoy,
-};
 
 const IMPACT_BADGE: Record<
   CardImpact,
@@ -52,15 +52,6 @@ const IMPACT_BADGE: Record<
   medium: IMPACT_STYLES.medium,
   low: IMPACT_STYLES.low,
 };
-
-// Derived at module level from the light data.ts metadata (NOT the heavy card
-// content) so the Library route stays off the card-data chunk; a content
-// invariant keeps difficulty in sync with cards.ts.
-const CARD_DIFFICULTY: Record<string, string> = Object.fromEntries(
-  Object.values(LIBRARY_CATEGORIES)
-    .flat()
-    .map((c) => [c.id, c.difficulty]),
-);
 
 const DIFFICULTY_ORDER: Record<string, number> = {
   Easy: 0,
@@ -77,208 +68,6 @@ const DIFFICULTY_LEVELS = ["Easy", "Easy-Medium", "Medium", "Hard"] as const;
 const ALL_LOADED_CARDS = Object.values(LIBRARY_CATEGORIES)
   .flat()
   .filter((c) => c.loaded);
-
-// Segment style inside the single line filter bar: inactive segments sit flat
-// on the bar, the active one lifts into an amber pill
-const segmentStyle = (active: boolean, open: boolean): React.CSSProperties => ({
-  background: active
-    ? "var(--gradient-active)"
-    : open
-      ? "var(--fg-08)"
-      : "transparent",
-  color: active
-    ? "var(--brand-contrast)"
-    : open
-      ? "var(--fg-90)"
-      : "var(--fg-60)",
-  boxShadow: active
-    ? "0 1px 6px color-mix(in srgb, var(--brand) 30%, transparent)"
-    : "none",
-});
-
-interface DropdownOption {
-  value: string;
-  label: string;
-  // Shorter label shown on the trigger once selected (defaults to label)
-  short?: string;
-}
-
-interface FilterDropdownProps {
-  label: string;
-  defaultLabel: string;
-  options: DropdownOption[];
-  value: string | null;
-  onChange: (value: string | null) => void;
-  testId: string;
-  icon?: React.ReactNode;
-  align?: "left" | "right";
-  labelClassName?: string;
-}
-
-// Compact dropdown: a single chip-sized trigger that opens a listbox popover.
-// Closes on outside pointer-down, Escape, or selection; supports arrow-key
-// navigation between options.
-function FilterDropdown({
-  label,
-  defaultLabel,
-  options,
-  value,
-  onChange,
-  testId,
-  icon,
-  align = "left",
-  labelClassName = "",
-}: FilterDropdownProps) {
-  const [open, setOpen] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onPointerDown = (e: PointerEvent) => {
-      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
-    };
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setOpen(false);
-        triggerRef.current?.focus();
-      }
-    };
-    // Close when keyboard focus (e.g. Tab) leaves the dropdown entirely
-    const onFocusOut = (e: FocusEvent) => {
-      if (!rootRef.current?.contains(e.relatedTarget as Node)) setOpen(false);
-    };
-    const rootEl = rootRef.current;
-    document.addEventListener("pointerdown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
-    rootEl?.addEventListener("focusout", onFocusOut);
-    return () => {
-      document.removeEventListener("pointerdown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
-      rootEl?.removeEventListener("focusout", onFocusOut);
-    };
-  }, [open]);
-
-  // Focus the selected option (or the first) when the menu opens
-  useEffect(() => {
-    if (!open || !listRef.current) return;
-    const selected = listRef.current.querySelector<HTMLButtonElement>(
-      '[aria-selected="true"]',
-    );
-    (
-      selected ?? listRef.current.querySelector<HTMLButtonElement>("button")
-    )?.focus();
-  }, [open]);
-
-  const moveFocus = (e: React.KeyboardEvent) => {
-    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
-    e.preventDefault();
-    const items = Array.from(
-      listRef.current?.querySelectorAll<HTMLButtonElement>("button") ?? [],
-    );
-    const idx = items.indexOf(document.activeElement as HTMLButtonElement);
-    const next =
-      e.key === "ArrowDown"
-        ? items[(idx + 1) % items.length]
-        : items[(idx - 1 + items.length) % items.length];
-    next?.focus();
-  };
-
-  const active = value !== null;
-  const selectedOption = active
-    ? options.find((o) => o.value === value)
-    : undefined;
-  const currentLabel = selectedOption?.label ?? label;
-  const triggerLabel = selectedOption?.short ?? currentLabel;
-
-  const select = (next: string | null) => {
-    onChange(next);
-    setOpen(false);
-    triggerRef.current?.focus();
-  };
-
-  return (
-    <div ref={rootRef} className="relative flex min-w-0 flex-1">
-      <button
-        ref={triggerRef}
-        onClick={() => setOpen((prev) => !prev)}
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        aria-label={`${label} filter${active ? `: ${currentLabel}` : ""}`}
-        title={active ? currentLabel : undefined}
-        data-testid={testId}
-        className="library-filter-control w-full inline-flex h-full min-w-0 items-center justify-center gap-1 rounded-full px-1.5 text-[11.5px] font-semibold transition-all"
-        style={segmentStyle(active, open)}
-      >
-        {icon}
-        <span className={`truncate ${labelClassName}`}>{triggerLabel}</span>
-        <ChevronDown
-          className="w-2.5 h-2.5 flex-shrink-0 opacity-70 transition-transform"
-          style={{ transform: open ? "rotate(180deg)" : undefined }}
-          aria-hidden="true"
-        />
-      </button>
-
-      {open && (
-        <div
-          ref={listRef}
-          role="listbox"
-          tabIndex={-1}
-          aria-label={label}
-          onKeyDown={moveFocus}
-          className={`absolute top-full mt-2 z-50 w-max min-w-full max-w-[calc(100vw-24px)] max-h-[60vh] overflow-y-auto rounded-xl p-1 ${
-            align === "right" ? "right-0" : "left-0"
-          }`}
-          style={{
-            background: "var(--surface-dd)",
-            border: "1px solid var(--fg-09)",
-            boxShadow: "0 10px 32px rgba(0,0,0,0.35)",
-          }}
-        >
-          {[{ value: null as string | null, label: defaultLabel }]
-            .concat(
-              options.map((o) => ({
-                value: o.value as string | null,
-                label: o.label,
-              })),
-            )
-            .map((option) => {
-              const selected = value === option.value;
-              const slug = (option.value ?? "all")
-                .toLowerCase()
-                .replace(/[\s/]+/g, "-");
-              return (
-                <button
-                  key={option.value ?? "__all__"}
-                  role="option"
-                  aria-selected={selected}
-                  tabIndex={-1}
-                  onClick={() => select(option.value)}
-                  data-testid={`${testId}-option-${slug}`}
-                  className="tap-target-y w-full flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-[13px] font-medium transition-colors whitespace-nowrap hover:bg-[var(--fg-05)]"
-                  style={{
-                    color: selected ? "var(--brand-text)" : "var(--fg-60)",
-                    background: selected
-                      ? "color-mix(in srgb, var(--brand) 10%, transparent)"
-                      : "transparent",
-                  }}
-                >
-                  {option.label}
-                  {selected && (
-                    <Check
-                      className="w-3.5 h-3.5 flex-shrink-0"
-                      aria-hidden="true"
-                    />
-                  )}
-                </button>
-              );
-            })}
-        </div>
-      )}
-    </div>
-  );
-}
 
 // Shared by the segmented bar (400px and up) and the phone filter sheet
 const CATEGORY_OPTIONS: DropdownOption[] = Object.keys(LIBRARY_CATEGORIES).map(
@@ -304,113 +93,33 @@ const SORT_OPTIONS: DropdownOption[] = [
   { value: "core", label: "Start here first", short: "Start here" },
   { value: "impact", label: "Impact · high first", short: "Impact" },
   { value: "difficulty", label: "Difficulty · easy first", short: "Easiest" },
+  { value: "az", label: "A to Z", short: "A to Z" },
 ];
 
-type SortKey = "default" | "core" | "impact" | "difficulty";
+type SortKey = "default" | "core" | "impact" | "difficulty" | "az";
 
-// ── Scroll restoration ──
-// Leaving the Library saves where the reader was (sessionStorage) against an
-// id stamped on the Library's own history entry. Back/Forward lands on that
-// same entry and restores; tapping the Library tab pushes a fresh entry with
-// no id, so it starts at the top.
-const SCROLL_STORAGE_KEY = "tc_library_scroll";
-const HISTORY_ENTRY_KEY = "tcLibraryEntry";
-// Must match the useScrollDirection threshold below
-const SCROLL_DIRECTION_THRESHOLD = 60;
-const SCROLL_FLIP_THRESHOLD = 12;
+// These orders rank every technique against every other, so the list drops
+// its category groups and shows one run; "core" only lifts the Start here
+// cards within each category.
+const FLAT_SORT_HEADING: Partial<Record<SortKey, string>> = {
+  impact: "Highest impact first",
+  difficulty: "Easiest first",
+  az: "A to Z",
+};
 
-interface SavedLibraryScroll {
-  entry: string;
-  y: number;
-  // A card visible when the reader left, and its distance from the top of
-  // the viewport. Restoring against the card is exact even when off screen
-  // rows (content-visibility: auto) are laid out with estimated heights.
-  anchorId?: string;
-  anchorTop?: number;
-}
+type CardWithCategory = LibraryCardMeta & { category: string };
 
-function readSavedScroll(): SavedLibraryScroll | null {
-  try {
-    const raw = window.sessionStorage.getItem(SCROLL_STORAGE_KEY);
-    if (!raw) return null;
-    const parsed: unknown = JSON.parse(raw);
-    if (
-      parsed &&
-      typeof parsed === "object" &&
-      typeof (parsed as SavedLibraryScroll).entry === "string" &&
-      typeof (parsed as SavedLibraryScroll).y === "number"
-    ) {
-      return parsed as SavedLibraryScroll;
-    }
-  } catch {
-    // Storage blocked or corrupt: start at the top
-  }
-  return null;
-}
-
-function writeSavedScroll(value: SavedLibraryScroll) {
-  try {
-    window.sessionStorage.setItem(SCROLL_STORAGE_KEY, JSON.stringify(value));
-  } catch {
-    // Storage blocked or full: restoration is a nicety, never an error
-  }
-}
-
-/** Returns this history entry's Library id, stamping a new one if absent. */
-function ensureHistoryEntryId(): { id: string; isNew: boolean } {
-  try {
-    const state: unknown = window.history.state;
-    const existing =
-      state && typeof state === "object"
-        ? (state as Record<string, unknown>)[HISTORY_ENTRY_KEY]
-        : undefined;
-    if (typeof existing === "string") return { id: existing, isNew: false };
-    const id = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
-    window.history.replaceState(
-      {
-        ...(state && typeof state === "object" ? state : {}),
-        [HISTORY_ENTRY_KEY]: id,
-      },
-      "",
-    );
-    return { id, isNew: true };
-  } catch {
-    return { id: "", isNew: true };
-  }
-}
-
-/** True when this render is a Back/Forward return with a saved position. */
-function hasPendingRestore(): boolean {
-  try {
-    const state: unknown = window.history.state;
-    const entry =
-      state && typeof state === "object"
-        ? (state as Record<string, unknown>)[HISTORY_ENTRY_KEY]
-        : undefined;
-    return typeof entry === "string" && readSavedScroll()?.entry === entry;
-  } catch {
-    return false;
-  }
-}
-
-function scrollWindowTo(top: number) {
-  const next = Math.max(0, top);
-  if (Math.abs(window.scrollY - next) < 1) return;
-  try {
-    window.scrollTo({
-      top: next,
-      behavior: "instant" as ScrollBehavior,
-    });
-  } catch {
-    // jsdom and very old browsers
-  }
-}
-
-function findLibraryCard(root: ParentNode, id: string) {
-  return Array.from(
-    root.querySelectorAll<HTMLElement>("[data-library-card]"),
-  ).find((el) => el.dataset.libraryCard === id);
-}
+const compareCards: Partial<
+  Record<SortKey, (a: LibraryCardMeta, b: LibraryCardMeta) => number>
+> = {
+  core: (a, b) =>
+    Number(CORE_CARD_SET.has(b.id)) - Number(CORE_CARD_SET.has(a.id)),
+  impact: (a, b) => IMPACT_ORDER[a.impact] - IMPACT_ORDER[b.impact],
+  difficulty: (a, b) =>
+    (DIFFICULTY_ORDER[a.difficulty] ?? 0) -
+    (DIFFICULTY_ORDER[b.difficulty] ?? 0),
+  az: (a, b) => a.title.localeCompare(b.title),
+};
 
 function SegmentDivider() {
   return (
@@ -652,25 +361,11 @@ export default function Library() {
     }
 
     if (difficultyFilter) {
-      filtered = filtered.filter(
-        (c) => CARD_DIFFICULTY[c.id] === difficultyFilter,
-      );
+      filtered = filtered.filter((c) => c.difficulty === difficultyFilter);
     }
 
-    if (sortBy === "core") {
-      filtered.sort(
-        (a, b) =>
-          Number(CORE_CARD_SET.has(b.id)) - Number(CORE_CARD_SET.has(a.id)),
-      );
-    } else if (sortBy === "impact") {
-      filtered.sort((a, b) => IMPACT_ORDER[a.impact] - IMPACT_ORDER[b.impact]);
-    } else if (sortBy === "difficulty") {
-      filtered.sort(
-        (a, b) =>
-          (DIFFICULTY_ORDER[CARD_DIFFICULTY[a.id]] ?? 0) -
-          (DIFFICULTY_ORDER[CARD_DIFFICULTY[b.id]] ?? 0),
-      );
-    }
+    const compare = compareCards[sortBy];
+    if (compare) filtered.sort(compare);
 
     if (filtered.length) acc[cat] = filtered;
     return acc;
@@ -707,6 +402,40 @@ export default function Library() {
     },
   ];
 
+  const flatHeading = FLAT_SORT_HEADING[sortBy];
+  // Array.prototype.sort is stable, so ties keep the Library's own order
+  const flatCards: CardWithCategory[] | null = flatHeading
+    ? Object.entries(filteredLibrary)
+        .flatMap(([category, cards]) =>
+          cards.map((card) => ({ ...card, category })),
+        )
+        .sort(compareCards[sortBy])
+    : null;
+  const sections: {
+    key: string;
+    heading: string;
+    cards: CardWithCategory[];
+  }[] = flatCards
+    ? [{ key: "sorted", heading: flatHeading ?? "", cards: flatCards }]
+    : Object.entries(filteredLibrary).map(([category, cards]) => ({
+        key: category,
+        heading: category,
+        cards: cards.map((card) => ({ ...card, category })),
+      }));
+
+  const openCard = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      captureScroll(e.currentTarget);
+      // Skip the unmount capture for this navigation; reset if the click
+      // didn't navigate (new tab)
+      capturedRef.current = true;
+      setTimeout(() => {
+        capturedRef.current = false;
+      }, 0);
+    },
+    [captureScroll],
+  );
+
   const hasResults = Object.keys(filteredLibrary).length > 0;
   const resultCount = Object.values(filteredLibrary).reduce(
     (n, cards) => n + cards.length,
@@ -734,7 +463,7 @@ export default function Library() {
           borderBottom: showHeaderDetails
             ? "1px solid var(--fg-07)"
             : "1px solid transparent",
-          maxHeight: showHeaderDetails ? 96 : 0,
+          maxHeight: showHeaderDetails ? 144 : 0,
           opacity: showHeaderDetails ? 1 : 0,
           // Visible when open so the filter dropdown popovers can extend
           // below the collapsible header without being clipped
@@ -888,7 +617,14 @@ export default function Library() {
             )}
           </div>
 
-          {/* Single line segmented bar: one rounded track, four segments */}
+          <div className="mb-1.5">
+            <CategoryChips
+              value={categoryFilter}
+              onChange={setCategoryFilter}
+            />
+          </div>
+
+          {/* Single line segmented bar: one rounded track, three segments */}
           <div
             className="hidden min-[400px]:flex h-8 min-w-0 items-stretch gap-px rounded-full p-0.5"
             role="toolbar"
@@ -899,15 +635,6 @@ export default function Library() {
               border: "1px solid var(--fg-08)",
             }}
           >
-            <FilterDropdown
-              label="Category"
-              defaultLabel="All categories"
-              options={CATEGORY_OPTIONS}
-              value={categoryFilter}
-              onChange={setCategoryFilter}
-              testId="filter-category"
-            />
-            <SegmentDivider />
             <FilterDropdown
               label="Impact"
               defaultLabel="Any impact"
@@ -1011,7 +738,13 @@ export default function Library() {
 
       {/* ── Card list ── (main already clears the phone tab bar) */}
       <div className="px-4 md:px-6 pt-4 pb-6 space-y-6">
-        {!hasFiltersActive && <LibraryToday />}
+        {!hasFiltersActive && (
+          <div className="space-y-2">
+            <HelpNowTile />
+            <StartHereShelf />
+            <LibraryToday />
+          </div>
+        )}
         {hasFiltersActive && hasResults && (
           // space-y margins sit at zero specificity in Tailwind 4, so this
           // margin sets the gap to the first section (16px)
@@ -1026,139 +759,49 @@ export default function Library() {
           </p>
         )}
         {hasResults ? (
-          Object.entries(filteredLibrary).map(([cat, cards]) => (
-            <div
-              key={cat}
-              data-testid={`category-section-${cat.toLowerCase().replace(/[\s/]+/g, "-")}`}
-            >
-              <h2
-                className="flex items-baseline justify-between text-[11px] font-bold tracking-[0.08em] uppercase mb-2.5 px-1"
-                style={{ color: "var(--fg-50)" }}
+          sections.map(({ key, heading, cards }) => {
+            const cat = flatCards ? null : categoryStyleFor(key);
+            return (
+              <div
+                key={key}
+                data-testid={`category-section-${key.toLowerCase().replace(/[\s/]+/g, "-")}`}
               >
-                <span>{cat}</span>
-                <span
-                  className="font-semibold tracking-normal normal-case"
-                  style={{ color: "var(--fg-45)" }}
+                <h2
+                  className="flex items-center gap-2 text-[11px] font-bold tracking-[0.08em] uppercase mb-2.5 px-1"
+                  style={{ color: "var(--fg-50)" }}
                 >
-                  {cards.length}
-                </span>
-              </h2>
-              <ul className="grid gap-2 lg:grid-cols-2">
-                {cards.map((card) => {
-                  const badge = IMPACT_BADGE[card.impact];
-                  const CategoryIcon = CATEGORY_ICON[cat] ?? BookOpen;
-                  const fav = isCardFav(card.id);
-                  return (
-                    <li key={card.id} className="relative max-w-full min-w-0">
-                      <Link
-                        href={`/card/${card.id}`}
-                        data-testid={`card-link-${card.id}`}
-                        data-library-card={card.id}
-                        onClick={(e: React.MouseEvent<HTMLElement>) => {
-                          captureScroll(e.currentTarget);
-                          // Skip the unmount capture for this navigation;
-                          // reset if the click didn't navigate (new tab)
-                          capturedRef.current = true;
-                          setTimeout(() => {
-                            capturedRef.current = false;
-                          }, 0);
-                        }}
-                        className="w-full max-w-full min-w-0 flex items-center gap-3 pl-3 pr-14 py-3 rounded-2xl transition-colors duration-150 text-left overflow-hidden bg-[var(--surface-card)] hover:bg-[var(--surface-card-hover)] active:bg-[var(--surface-card-hover)]"
-                        style={{
-                          border: "1px solid var(--fg-07)",
-                          boxShadow: "var(--shadow-card)",
-                          minHeight: 64,
-                          contentVisibility: restoring ? undefined : "auto",
-                          // Content box of a one line row (69px tall)
-                          containIntrinsicSize: "auto 43px",
-                        }}
-                      >
-                        <span
-                          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                          style={{
-                            background:
-                              "color-mix(in srgb, var(--brand) 12%, transparent)",
-                            color: "var(--brand-text)",
-                          }}
-                          aria-hidden="true"
-                        >
-                          <CategoryIcon className="w-[18px] h-[18px]" />
-                        </span>
-                        <span className="flex-1 min-w-0">
-                          <span
-                            className="block text-[15px] font-semibold leading-snug line-clamp-2"
-                            style={{ color: "var(--fg-90)" }}
-                          >
-                            {card.title}
-                            {CORE_CARD_SET.has(card.id) && (
-                              <span
-                                className="ml-1.5 inline-block align-middle rounded-full px-1.5 py-px text-[10.5px] font-semibold leading-4"
-                                style={{
-                                  background:
-                                    "color-mix(in srgb, var(--brand) 14%, transparent)",
-                                  color: "var(--brand-text)",
-                                }}
-                                data-testid={`core-badge-${card.id}`}
-                              >
-                                Start here
-                              </span>
-                            )}
-                          </span>
-                          <span
-                            className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12px]"
-                            style={{ color: "var(--fg-55)" }}
-                          >
-                            <span
-                              className="font-medium tabular-nums"
-                              style={{ color: "var(--fg-55)" }}
-                            >
-                              {card.id}
-                            </span>
-                            <span aria-hidden="true">·</span>
-                            <span>{CARD_DIFFICULTY[card.id]}</span>
-                            <span
-                              className="ml-0.5 text-[11px] font-semibold px-1.5 py-px rounded-md"
-                              style={{
-                                background: badge.bg,
-                                color: badge.color,
-                              }}
-                            >
-                              {badge.label}
-                              {/* The visible text is the accessible name
-                                  (WCAG 2.5.3 label-in-name); this just
-                                  says what the badge means. */}
-                              <span className="sr-only"> impact</span>
-                            </span>
-                          </span>
-                        </span>
-                      </Link>
-                      <button
-                        type="button"
-                        onClick={() => toggleCard(card.id)}
-                        aria-label={`Favourite ${card.title}`}
-                        aria-pressed={fav}
-                        className="library-card-favourite absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-90"
-                        style={{
-                          background: fav
-                            ? "color-mix(in srgb, var(--brand) 14%, transparent)"
-                            : "transparent",
-                        }}
-                      >
-                        <Heart
-                          className="w-4 h-4"
-                          style={{
-                            color: fav ? "var(--brand-text)" : "var(--fg-45)",
-                          }}
-                          fill={fav ? "var(--brand-text)" : "none"}
-                          aria-hidden="true"
-                        />
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))
+                  {cat && (
+                    <span
+                      className="w-2 h-2 rounded-full flex-none"
+                      style={{ background: cat.color }}
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span className="flex-1">{heading}</span>
+                  <span
+                    className="font-semibold tracking-normal normal-case"
+                    style={{ color: "var(--fg-45)" }}
+                  >
+                    {cards.length}
+                  </span>
+                </h2>
+                <ul className="grid gap-2 lg:grid-cols-2">
+                  {cards.map((card) => (
+                    <LibraryCardRow
+                      key={card.id}
+                      card={card}
+                      category={card.category}
+                      showCategory={!!flatCards}
+                      fav={isCardFav(card.id)}
+                      onToggleFav={toggleCard}
+                      onOpen={openCard}
+                      restoring={restoring}
+                    />
+                  ))}
+                </ul>
+              </div>
+            );
+          })
         ) : (
           /* ── No-results empty state ── */
           <div className="flex flex-col items-center py-16 px-4 text-center">

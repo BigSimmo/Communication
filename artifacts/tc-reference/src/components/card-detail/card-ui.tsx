@@ -40,11 +40,13 @@ export function Phrase({
     <span
       className={cn(
         "block min-w-0 break-words",
+        // .phrase-text follows the Settings sheet's larger-phrases switch.
+        // The hero size is already bigger than that setting, so it is left.
         size === "lg"
           ? "text-[21px] leading-[1.3] font-semibold tracking-[-0.01em]"
           : size === "sm"
-            ? "text-[15px] leading-[1.4]"
-            : "text-[17px] leading-[1.35]",
+            ? "phrase-text text-[15px] leading-[1.4]"
+            : "phrase-text text-[17px] leading-[1.35]",
         className,
       )}
       style={{ color: muted ? "var(--fg-70)" : "var(--fg-90)" }}

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Check, Copy } from "lucide-react";
 import { recordRecentCard } from "@/lib/recent-cards";
+import { markStartCardOpened } from "@/lib/start-path";
 import { useRoute, useLocation } from "wouter";
 import { loadCard } from "@/lib/card-loader";
 import type { CardData } from "@/lib/card-types";
@@ -293,7 +294,9 @@ export default function CardDetail() {
   // Remember successfully opened cards for the Library's "Pick up where you
   // left off" strip.
   useEffect(() => {
-    if (cardData) recordRecentCard(cardId);
+    if (!cardData) return;
+    recordRecentCard(cardId);
+    markStartCardOpened(cardId);
   }, [cardData, cardId]);
 
   const pdfSheetRef = useRef<HTMLDivElement>(null);

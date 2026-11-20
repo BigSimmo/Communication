@@ -51,7 +51,7 @@ beforeEach(() => {
 });
 
 describe("Library single line filter bar", () => {
-  it("holds all four controls in one toolbar", () => {
+  it("holds impact, difficulty and sort in one toolbar, with category as chips", () => {
     render(
       <Wrapper>
         <Library />
@@ -61,14 +61,15 @@ describe("Library single line filter bar", () => {
     const bar = screen.getByRole("toolbar", {
       name: "Filter and sort techniques",
     });
-    for (const id of [
-      "filter-category",
-      "filter-impact",
-      "filter-difficulty",
-      "sort-control",
-    ]) {
+    for (const id of ["filter-impact", "filter-difficulty", "sort-control"]) {
       expect(within(bar).getByTestId(id)).toBeInTheDocument();
     }
+    const chips = screen.getByRole("group", { name: "Category" });
+    expect(within(chips).getAllByRole("button")).toHaveLength(6);
+    expect(screen.getByTestId("category-chip-all")).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
   });
 
   it("applies a filter and shows the short sort label on the trigger", () => {
