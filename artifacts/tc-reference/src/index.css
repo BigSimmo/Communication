@@ -255,6 +255,15 @@
   --accent-sky: #38bdf8;
   --accent-blue: #60a5fa;
 
+  /* ── Category colours: one hue per Library category, used for the dot and
+     category label only. Amber stays reserved for actions. Light theme
+     overrides with darker shades so the label passes AA on white. ── */
+  --cat-voice: #5cc8ff;
+  --cat-influence: #b7a2ff;
+  --cat-clarity: #3fd6c0;
+  --cat-connection: #ff8fb1;
+  --cat-resilience: #7fdc8f;
+
   /* ── Z-index scale ──
      header/sidebar 30 · tab bar 35 · overlays 50 (Quick Lookup) ·
      modals 60 (PDF sheet) · search 70 */
@@ -394,6 +403,12 @@
   --accent-emerald: #047857;
   --accent-sky: #0369a1;
   --accent-blue: #2563eb;
+
+  --cat-voice: #0369a1;
+  --cat-influence: #6d3fd6;
+  --cat-clarity: #0f766e;
+  --cat-connection: #be185d;
+  --cat-resilience: #15803d;
 }
 
 .dark {
@@ -794,4 +809,14 @@ select:focus-visible,
 [role="option"]:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
+}
+
+/* Search popout: the input fills its row, so a ring around the bare input
+   reads as a stray box. Show focus on the whole row instead. */
+.search-modal-input:focus-visible {
+  outline: none;
+}
+.search-modal-row:focus-within {
+  box-shadow: inset 0 0 0 2px hsl(var(--ring));
+  border-radius: 16px 16px 0 0;
 }

@@ -30,6 +30,9 @@ const DEFAULT_DRILL: DrillState = {
   prevCardIndex: -1,
   prevDayIndex: -1,
   order: "core-first",
+  track: { kind: "everything" },
+  pace: 7,
+  rounds: 0,
 };
 
 /** A drill saved before the core-first order existed (no order field). */
@@ -317,6 +320,9 @@ describe("daily streak (completeDrill)", () => {
       prevCardIndex: 3,
       prevDayIndex: 2,
       order: "core-first",
+      track: { kind: "everything" },
+      pace: 7,
+      rounds: 0,
     });
     expect(isCompletedToday(next)).toBe(true);
     expect(isStreakActive(next)).toBe(true);
@@ -394,6 +400,9 @@ describe("loadDrillState / saveDrillState", () => {
       lastCompletionDate: "2026-03-09",
       prevCardIndex: 12,
       prevDayIndex: 5,
+      track: { kind: "everything" },
+      pace: 7,
+      rounds: 2,
     };
     saveDrillState(state);
     expect(JSON.parse(localStorage.getItem(DRILL_KEY)!)).toEqual(state);

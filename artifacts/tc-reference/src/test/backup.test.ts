@@ -6,6 +6,7 @@ import {
   exportBackup,
   importBackup,
 } from "../lib/backup";
+import { loadDrillState, loadSRSMap } from "../lib/drill-state";
 
 const SAMPLE = {
   tc_favourites: JSON.stringify({ cardIds: ["TC001"], phrases: [] }),
@@ -173,5 +174,65 @@ describe("backup edge cases", () => {
     expect(localStorage.getItem("tc_favourites")).toBe(SAMPLE.tc_favourites);
     expect(localStorage.getItem("tc_playbooks")).toBe(SAMPLE.tc_playbooks);
     expect(localStorage.getItem("tc_theme")).toBeNull();
+  });
+});
+
+describe("drill tracks and pace in backups", () => {
+  beforeEach(() => localStorage.clear());
+
+  it("imports a backup made before tracks existed as the Everything track at a week", () => {
+    const old = {
+      cardIndex: 12,
+      dayIndex: 3,
+      streak: 9,
+      lastCompletionDate: "2026-01-01",
+      prevCardIndex: 12,
+      prevDayIndex: 2,
+    };
+    importBackup(
+      backupWith({
+        tc_drill_state: old,
+        tc_srs_reviews: {
+          TC004: {
+            cardId: "TC004",
+            interval: 6,
+            repetition: 2,
+            efactor: 2.5,
+            nextReviewDate: "2026-01-07",
+          },
+        },
+      }),
+    );
+    expect(loadDrillState()).toEqual({
+      ...old,
+      track: { kind: "everything" },
+      pace: 7,
+      rounds: 0,
+    });
+    expect(loadSRSMap().TC004.interval).toBe(6);
+  });
+
+  it("carries track, pace and rounds through export and import", () => {
+    const state = {
+      cardIndex: 2,
+      dayIndex: 1,
+      streak: 4,
+      lastCompletionDate: "2026-01-01",
+      prevCardIndex: 2,
+      prevDayIndex: 0,
+      order: "core-first",
+      track: {
+        kind: "playbook",
+        playbookId: "p1",
+        cardIds: ["TC004", "TC016", "TC006"],
+      },
+      pace: 3,
+      rounds: 1,
+    };
+    localStorage.setItem("tc_drill_state", JSON.stringify(state));
+    const backup = exportBackup();
+    localStorage.clear();
+    importBackup(JSON.stringify(backup));
+    expect(loadDrillState()).toEqual(state);
   });
 });

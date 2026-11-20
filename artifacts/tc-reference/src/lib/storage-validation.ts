@@ -22,6 +22,11 @@ export function isIntegerInRange(
   );
 }
 
+/** One of a fixed list of allowed values (compared with ===). */
+export function isOneOf<T>(value: unknown, allowed: readonly T[]): value is T {
+  return allowed.includes(value as T);
+}
+
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 /** A calendar date in YYYY-MM-DD form (the format every stored date uses). */
