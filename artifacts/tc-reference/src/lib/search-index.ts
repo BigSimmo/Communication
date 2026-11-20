@@ -1,243 +1,302 @@
-import { inferPhraseTone } from "./card-types";
-import { loadCardTextIndex } from "./card-text-index";
-import { LIBRARY_CATEGORIES } from "./data";
+// Smart search across techniques, phrases and playbooks.
+//
+// Built on MiniSearch (an inverted index with BM25 ranking and prefix search)
+// with this app's own text processing on top: accent folding, a small
+// English stemmer, a hand-kept synonym list and spelling correction against
+// the index's own vocabulary. Each kind of result has its own index so the
+// 4,600 phrases do not skew how techniques rank, but one query plan runs
+// against all of them.
+//
+// Modules: search-engine.ts builds and loads the indexes, search-query.ts
+// plans a query, search-text.ts normalises and stems words, and this file
+// ranks results and is the public API.
 
-export interface RankedResult {
-  id: string;
-  title: string;
-  category: string;
-  loaded: boolean;
-  score: number;
-  matchedIn: string;
+import { CORE_CARD_IDS } from "./data";
+import { loadFavouritesState } from "./favourites-state";
+import { readRecentCards } from "./recent-cards";
+import {
+  loadEngine,
+  PHRASE_FIELDS,
+  PLAYBOOK_FIELDS,
+  TECHNIQUE_FIELDS,
+  wordRun,
+  type SearchEngine,
+  type TechniqueMeta,
+} from "./search-engine";
+import {
+  matchedField,
+  planQuery,
+  runQuery,
+  type QueryPlan,
+} from "./search-query";
+import { isStopWord, tokenize } from "./search-text";
+import {
+  DEFAULT_LIMITS,
+  type PhraseResult,
+  type PlaybookResult,
+  type RankedResult,
+  type SearchBoosts,
+  type SearchOptions,
+  type SearchResults,
+} from "./search-types";
+
+export { preloadSearchIndex } from "./search-engine";
+export {
+  DEFAULT_LIMITS,
+  type PhraseResult,
+  type PlaybookResult,
+  type RankedResult,
+  type SearchBoosts,
+  type SearchOptions,
+  type SearchResults,
+} from "./search-types";
+
+const BOOST = {
+  savedCard: 1.5,
+  savedPhrase: 1.6,
+  phraseFromSavedCard: 1.15,
+  recentFirst: 1.35,
+  recentStep: 0.05,
+  startHere: 1.15,
+} as const;
+
+// ---------------------------------------------------------------------------
+// Ranking
+
+interface ResolvedBoosts {
+  savedCards: ReadonlySet<string>;
+  savedPhrases: ReadonlySet<string>;
+  recent: ReadonlyMap<string, number>;
+  startHere: ReadonlySet<string>;
 }
 
-const CARD_META: Record<
-  string,
-  { title: string; category: string; loaded: boolean }
-> = {};
-for (const [category, cards] of Object.entries(LIBRARY_CATEGORIES)) {
-  for (const card of cards) {
-    CARD_META[card.id] = { title: card.title, category, loaded: card.loaded };
+function phraseKey(cardId: string, text: string): string {
+  return `${cardId}\n${wordRun(text)}`;
+}
+
+function resolveBoosts(boosts: SearchBoosts = {}): ResolvedBoosts {
+  const needsFavourites =
+    boosts.savedCardIds === undefined || boosts.savedPhrases === undefined;
+  const favourites = needsFavourites ? loadFavouritesState() : null;
+  const savedCardIds = boosts.savedCardIds ?? favourites?.cardIds ?? [];
+  const savedPhrases = boosts.savedPhrases ?? favourites?.phrases ?? [];
+  const recentCardIds = boosts.recentCardIds ?? readRecentCards();
+  return {
+    savedCards: new Set(savedCardIds),
+    savedPhrases: new Set(savedPhrases.map((p) => phraseKey(p.cardId, p.text))),
+    recent: new Map(recentCardIds.map((id, index) => [id, index])),
+    startHere: new Set(boosts.startHereCardIds ?? CORE_CARD_IDS),
+  };
+}
+
+function recentBoost(boosts: ResolvedBoosts, cardId: string): number {
+  const position = boosts.recent.get(cardId);
+  if (position === undefined) return 1;
+  return Math.max(1.05, BOOST.recentFirst - BOOST.recentStep * position);
+}
+
+function techniqueBonus(meta: TechniqueMeta, plan: QueryPlan): number {
+  const q = plan.run;
+  if (meta.idNorm === q) return 4;
+  if (meta.titleNorm === q) return 3;
+  if (meta.titleNorm.startsWith(q)) return 2.2;
+  if (` ${meta.titleNorm}`.includes(` ${q}`)) return 1.8;
+  if (meta.categoryNorm.includes(q)) return 1.3;
+  if (plan.words.length > 1 && meta.bodyNorm.includes(q)) return 1.25;
+  return 1;
+}
+
+function byScoreThenId<T extends { score: number; id: string }>(a: T, b: T) {
+  return b.score - a.score || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+}
+
+function rankTechniques(
+  engine: SearchEngine,
+  plan: QueryPlan,
+  boosts: ResolvedBoosts,
+): RankedResult[] {
+  const ranked: RankedResult[] = [];
+  for (const result of runQuery(engine.techniques, plan, TECHNIQUE_FIELDS)) {
+    const id = result.id as string;
+    const meta = engine.techniqueMeta.get(id);
+    if (!meta) continue;
+    let score = result.score * techniqueBonus(meta, plan);
+    if (boosts.savedCards.has(id)) score *= BOOST.savedCard;
+    if (boosts.startHere.has(id)) score *= BOOST.startHere;
+    score *= recentBoost(boosts, id);
+    ranked.push({
+      id,
+      title: meta.title,
+      category: meta.category,
+      loaded: meta.loaded,
+      score,
+      matchedIn: matchedField(result, plan, TECHNIQUE_FIELDS),
+    });
   }
+  return ranked.sort(byScoreThenId);
 }
 
-interface SearchCorpusEntry {
-  id: string;
-  titleLower: string;
-  idLower: string;
-  categoryLower: string;
-  bestForText: string;
-  coreFormulaText: string;
-  phraseBankText: string;
-  scenariosText: string;
-  whyItWorksText: string;
-}
-
-let searchCorpusPromise: Promise<ReadonlyArray<SearchCorpusEntry>> | null =
-  null;
-
-function loadSearchCorpus(): Promise<ReadonlyArray<SearchCorpusEntry>> {
-  if (!searchCorpusPromise) {
-    const pending = loadCardTextIndex()
-      .then((cards) =>
-        Object.freeze(
-          Object.entries(cards).map(([id, card]) => {
-            const meta = CARD_META[id];
-            return {
-              id,
-              titleLower: (meta?.title ?? id).toLowerCase(),
-              idLower: id.toLowerCase(),
-              categoryLower: (meta?.category ?? "").toLowerCase(),
-              bestForText: card.overview.bestFor.join(" ").toLowerCase(),
-              coreFormulaText: card.overview.coreFormula
-                .join(" ")
-                .toLowerCase(),
-              phraseBankText: card.phraseBank
-                .flatMap((group) => [
-                  group.label,
-                  group.tag,
-                  inferPhraseTone(group),
-                  ...group.phrases,
-                ])
-                .join(" ")
-                .toLowerCase(),
-              scenariosText: card.scenarios
-                .map(
-                  (scenario) =>
-                    `${scenario.situation} ${scenario.move} ${scenario.phrase}`,
-                )
-                .join(" ")
-                .toLowerCase(),
-              whyItWorksText: card.whyItWorks.toLowerCase(),
-            };
-          }),
-        ),
-      )
-      .catch((error: unknown) => {
-        if (searchCorpusPromise === pending) searchCorpusPromise = null;
-        throw error;
-      });
-    searchCorpusPromise = pending;
+function rankPhrases(
+  engine: SearchEngine,
+  plan: QueryPlan,
+  boosts: ResolvedBoosts,
+): PhraseResult[] {
+  const ranked: PhraseResult[] = [];
+  for (const result of runQuery(engine.phrases, plan, PHRASE_FIELDS)) {
+    const meta = engine.phraseMeta.get(result.id as string);
+    if (!meta) continue;
+    let score = result.score;
+    if (plan.words.length > 1 && meta.textNorm.includes(plan.run)) score *= 1.5;
+    const { cardId, text } = meta.phrase;
+    if (boosts.savedPhrases.has(phraseKey(cardId, text)))
+      score *= BOOST.savedPhrase;
+    else if (boosts.savedCards.has(cardId)) score *= BOOST.phraseFromSavedCard;
+    ranked.push({
+      ...meta.phrase,
+      score,
+      matchedIn: matchedField(result, plan, PHRASE_FIELDS),
+    });
   }
-  return searchCorpusPromise;
+  return ranked.sort(byScoreThenId);
 }
 
-const FIELD_WEIGHTS: Array<{
-  key: keyof SearchCorpusEntry;
-  label: string;
-  exact: number;
-  prefix: number;
-  contains: number;
-}> = [
-  { key: "idLower", label: "id", exact: 100, prefix: 80, contains: 80 },
-  { key: "titleLower", label: "title", exact: 95, prefix: 85, contains: 70 },
-  {
-    key: "categoryLower",
-    label: "category",
-    exact: 60,
-    prefix: 58,
-    contains: 55,
-  },
-  {
-    key: "bestForText",
-    label: "best-for",
-    exact: 45,
-    prefix: 44,
-    contains: 43,
-  },
-  {
-    key: "coreFormulaText",
-    label: "formula",
-    exact: 40,
-    prefix: 39,
-    contains: 38,
-  },
-  {
-    key: "phraseBankText",
-    label: "phrases",
-    exact: 35,
-    prefix: 34,
-    contains: 33,
-  },
-  {
-    key: "scenariosText",
-    label: "scenarios",
-    exact: 25,
-    prefix: 24,
-    contains: 23,
-  },
-  {
-    key: "whyItWorksText",
-    label: "explanation",
-    exact: 20,
-    prefix: 19,
-    contains: 18,
-  },
-];
-
-const TOKEN_FIELD_WEIGHTS: Array<{
-  key: keyof SearchCorpusEntry;
-  label: string;
-  score: number;
-}> = [
-  { key: "titleLower", label: "title", score: 10 },
-  { key: "categoryLower", label: "category", score: 7 },
-  { key: "bestForText", label: "best-for", score: 6 },
-  { key: "coreFormulaText", label: "formula", score: 5 },
-  { key: "phraseBankText", label: "phrases", score: 4 },
-  { key: "scenariosText", label: "scenarios", score: 3 },
-  { key: "whyItWorksText", label: "explanation", score: 1 },
-];
-
-function scoreEntry(
-  entry: SearchCorpusEntry,
-  q: string,
-): { score: number; matchedIn: string } {
-  const ql = q.toLowerCase().trim();
-  if (!ql) return { score: 0, matchedIn: "" };
-
-  for (const field of FIELD_WEIGHTS) {
-    const text = entry[field.key] as string;
-    if (text === ql) return { score: field.exact, matchedIn: field.label };
-    if (text.startsWith(ql))
-      return { score: field.prefix, matchedIn: field.label };
-    if (text.includes(ql))
-      return { score: field.contains, matchedIn: field.label };
+function rankPlaybooks(
+  engine: SearchEngine,
+  plan: QueryPlan,
+): PlaybookResult[] {
+  const ranked: PlaybookResult[] = [];
+  for (const result of runQuery(engine.playbooks, plan, PLAYBOOK_FIELDS)) {
+    const playbook = engine.playbookMeta.get(result.id as string);
+    if (!playbook) continue;
+    const name = wordRun(playbook.name);
+    const score =
+      result.score *
+      (name === plan.run ? 3 : ` ${name}`.includes(` ${plan.run}`) ? 2 : 1);
+    ranked.push({
+      id: playbook.id,
+      name: playbook.name,
+      description: playbook.description,
+      context: playbook.context,
+      section: playbook.section,
+      cardIds: [...playbook.cardIds],
+      score,
+      matchedIn: matchedField(result, plan, PLAYBOOK_FIELDS),
+    });
   }
-
-  const tokens = ql.split(/\s+/).filter(Boolean);
-  if (tokens.length < 2) return { score: 0, matchedIn: "" };
-
-  let totalScore = 0;
-  let bestLabel = "";
-  let bestLabelPriority = Infinity;
-
-  for (const token of tokens) {
-    let tokenBestScore = 0;
-    let tokenBestPriority = Infinity;
-    let tokenBestLabel = "";
-    for (let fi = 0; fi < TOKEN_FIELD_WEIGHTS.length; fi++) {
-      const field = TOKEN_FIELD_WEIGHTS[fi];
-      const text = entry[field.key] as string;
-      if (text.includes(token)) {
-        if (field.score > tokenBestScore) {
-          tokenBestScore = field.score;
-          tokenBestPriority = fi;
-          tokenBestLabel = field.label;
-        }
-      }
-    }
-    if (tokenBestScore > 0) {
-      totalScore += tokenBestScore;
-      if (tokenBestPriority < bestLabelPriority) {
-        bestLabelPriority = tokenBestPriority;
-        bestLabel = tokenBestLabel;
-      }
-    }
-  }
-
-  // Cap multi-word partial score below the lowest full-phrase exact/prefix score (18)
-  // so any single-word full-phrase match outranks multi-word token matches.
-  const cappedScore = Math.min(totalScore, 17);
-  if (cappedScore > 0) return { score: cappedScore, matchedIn: bestLabel };
-  return { score: 0, matchedIn: "" };
+  return ranked.sort(byScoreThenId);
 }
 
-export async function searchCards(query: string): Promise<RankedResult[]> {
-  const q = query.trim();
-  if (!q) return [];
+// ---------------------------------------------------------------------------
+// Public API
 
-  const searchCorpus = await loadSearchCorpus();
-  const results: RankedResult[] = [];
+/**
+ * Search techniques, phrases and playbooks at once. Words match as you type
+ * (word beginnings), across word forms (apologise / apology) and through the
+ * synonym list (upset -> frustrated, angry, hurt). A word that matches
+ * nothing is replaced by the closest spelling and `correctedQuery` says so.
+ */
+export async function searchAll(
+  query: string,
+  options: SearchOptions = {},
+): Promise<SearchResults> {
+  const trimmed = query.trim();
+  const empty: SearchResults = {
+    query: trimmed,
+    correctedQuery: null,
+    techniques: [],
+    phrases: [],
+    playbooks: [],
+    totals: { techniques: 0, phrases: 0, playbooks: 0 },
+  };
+  if (!trimmed) return empty;
 
-  for (const entry of searchCorpus) {
-    const { score, matchedIn } = scoreEntry(entry, q);
-    if (score > 0) {
-      const meta = CARD_META[entry.id];
-      results.push({
-        id: entry.id,
-        title: meta?.title ?? entry.id,
-        category: meta?.category ?? "",
-        loaded: meta?.loaded ?? false,
-        score,
-        matchedIn,
-      });
-    }
-  }
+  const engine = await loadEngine();
+  const plan = planQuery(engine, trimmed);
+  if (!plan) return empty;
 
-  results.sort((a, b) => b.score - a.score);
-  return results.slice(0, 12);
+  const boosts = resolveBoosts(options.boosts);
+  const limits = { ...DEFAULT_LIMITS, ...options.limits };
+  const techniques = rankTechniques(engine, plan, boosts);
+  const phrases = rankPhrases(engine, plan, boosts);
+  const playbooks = rankPlaybooks(engine, plan);
+  return {
+    query: trimmed,
+    correctedQuery: plan.corrected ? plan.run : null,
+    techniques: techniques.slice(0, limits.techniques),
+    phrases: phrases.slice(0, limits.phrases),
+    playbooks: playbooks.slice(0, limits.playbooks),
+    totals: {
+      techniques: techniques.length,
+      phrases: phrases.length,
+      playbooks: playbooks.length,
+    },
+  };
 }
 
+/** Technique results only, best first (at most 12 by default). */
+export async function searchCards(
+  query: string,
+  options: SearchOptions = {},
+): Promise<RankedResult[]> {
+  const trimmed = query.trim();
+  if (!trimmed) return [];
+  const engine = await loadEngine();
+  const plan = planQuery(engine, trimmed);
+  if (!plan) return [];
+  const limit = options.limits?.techniques ?? DEFAULT_LIMITS.techniques;
+  return rankTechniques(engine, plan, resolveBoosts(options.boosts)).slice(
+    0,
+    limit,
+  );
+}
+
+/**
+ * Completions for the word being typed, most common first: "sil" ->
+ * "silence", "silent". Earlier words are kept as typed (normalised).
+ */
+export async function suggestSearches(
+  query: string,
+  limit = 5,
+): Promise<string[]> {
+  const words = tokenize(query);
+  const last = words.at(-1);
+  if (!last || last.length < 2 || /\s$/.test(query)) return [];
+  const engine = await loadEngine();
+  const before = words.slice(0, -1).join(" ");
+  return [...engine.words.atPrefix(last).entries()]
+    .filter(([word]) => word !== last && !isStopWord(word))
+    .sort(
+      ([a, ca], [b, cb]) => cb - ca || a.length - b.length || (a < b ? -1 : 1),
+    )
+    .slice(0, limit)
+    .map(([word]) => (before ? `${before} ${word}` : word));
+}
+
+/**
+ * Split text into highlighted and plain parts. Highlights the whole query
+ * and each of its words (filler words aside), case-insensitively. Pass
+ * `correctedQuery` from the results to highlight the corrected words.
+ */
 export function highlightMatch(
   text: string,
   query: string,
+  correctedQuery?: string | null,
 ): Array<{ text: string; highlight: boolean }> {
-  if (!query.trim()) return [{ text, highlight: false }];
-  const escaped = query.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const parts = text.split(new RegExp(`(${escaped})`, "gi"));
-  return parts.map((part) => ({
+  const whole = query.trim();
+  if (!whole) return [{ text, highlight: false }];
+  const terms = new Set<string>([whole.toLowerCase()]);
+  for (const source of [whole, correctedQuery ?? ""]) {
+    for (const word of source.toLowerCase().split(/\s+/)) {
+      if (word.length >= 2 && !isStopWord(word)) terms.add(word);
+    }
+  }
+  const escaped = [...terms]
+    .sort((a, b) => b.length - a.length)
+    .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = escaped.join("|");
+  const exact = new RegExp(`^(?:${pattern})$`, "i");
+  return text.split(new RegExp(`(${pattern})`, "gi")).map((part) => ({
     text: part,
-    highlight: part.toLowerCase() === query.trim().toLowerCase(),
+    highlight: part.length > 0 && exact.test(part),
   }));
 }
