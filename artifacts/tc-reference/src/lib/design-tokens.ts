@@ -33,6 +33,14 @@ export function impactStyleFor(impact: string) {
   return IMPACT_STYLES[impact.toLowerCase() as CardImpact] ?? IMPACT_STYLES.low;
 }
 
+/** "Easy-Medium" in the data reads as "Easy to medium" wherever it is shown. */
+export function difficultyLabel(difficulty: string): string {
+  const [first, ...rest] = difficulty.split("-");
+  return rest.length > 0
+    ? `${first} to ${rest.join(" to ").toLowerCase()}`
+    : first;
+}
+
 /**
  * One colour per Library category, for the category dot and label. Values
  * live in index.css as `--cat-*` (dark defaults, light overrides). Keys match

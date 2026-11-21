@@ -18,6 +18,7 @@ import { categoryStyleFor } from "@/lib/design-tokens";
 import { SegmentedTabs } from "@/components/ui/segmented-tabs";
 import { ListRow } from "@/components/ui/list-row";
 import { Button } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/empty-state";
 import { SettingsSheet } from "@/components/settings-sheet";
 import { ShareSheet } from "@/components/share-sheet";
 import type { ShareItem } from "@/components/share-sheet";
@@ -158,41 +159,23 @@ export default function Favourites() {
 
       <div className="px-4 md:px-6 pb-12 flex flex-col gap-5">
         {totalSaved === 0 ? (
-          <div className="flex flex-col items-center py-14 px-4 text-center">
-            <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-              style={{
-                background: "color-mix(in srgb, var(--brand) 10%, transparent)",
-              }}
-            >
-              <Heart
-                className="w-6 h-6"
-                style={{ color: "var(--brand-text)" }}
-                aria-hidden="true"
-              />
-            </div>
-            <p
-              className="text-[20px] font-bold mb-2"
-              style={{ color: "var(--fg-90)" }}
-            >
-              Nothing saved yet
-            </p>
-            <p
-              className="text-[15px] leading-relaxed max-w-[300px] mb-6"
-              style={{ color: "var(--fg-70)" }}
-            >
-              Tap the heart on any technique or phrase to keep it here for quick
-              access.
-            </p>
-            <div className="flex flex-col gap-2 w-full max-w-[280px]">
-              <Button variant="primary" onClick={() => setLocation("/")}>
-                Browse the Library
-              </Button>
-              <Button variant="quiet" onClick={() => setLocation("/phrases")}>
-                Open the Phrase Bank
-              </Button>
-            </div>
-          </div>
+          <EmptyState
+            icon={Heart}
+            title="Nothing saved yet"
+            actions={
+              <>
+                <Button variant="primary" onClick={() => setLocation("/")}>
+                  Browse the Library
+                </Button>
+                <Button variant="quiet" onClick={() => setLocation("/phrases")}>
+                  Open the Phrase Bank
+                </Button>
+              </>
+            }
+          >
+            Tap the heart on any technique or phrase to keep it here for quick
+            access.
+          </EmptyState>
         ) : (
           <>
             <SegmentedTabs<SavedTab>

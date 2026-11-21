@@ -7,14 +7,18 @@ import { CARD_TITLE_MAP } from "./card-sections";
 export function RelatedSection({
   cardData,
   setLocation,
+  limit,
 }: {
   cardData: CardData;
   setLocation: (to: string) => void;
+  /** Show only the first few, e.g. as a "where next" at the end of Use it. */
+  limit?: number;
 }) {
+  const related = cardData.relatedTechniques!.slice(0, limit);
   return (
     <CardBlock id="related" title="Pairs well with">
       <Surface divided>
-        {cardData.relatedTechniques!.map((rt) => (
+        {related.map((rt) => (
           <button
             key={rt.id}
             type="button"
@@ -32,7 +36,14 @@ export function RelatedSection({
               >
                 {CARD_TITLE_MAP[rt.id] ?? rt.id}
               </span>
-              <Meta>{rt.reason}</Meta>
+              <Meta>
+                {/* Shortened where it is a quick "where next" */}
+                {limit ? (
+                  <span className="line-clamp-2">{rt.reason}</span>
+                ) : (
+                  rt.reason
+                )}
+              </Meta>
             </span>
             <ChevronRight
               className="w-[18px] h-[18px] flex-none"

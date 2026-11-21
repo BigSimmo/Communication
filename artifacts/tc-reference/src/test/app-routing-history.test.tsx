@@ -113,7 +113,7 @@ describe("App routing with real Wouter browser history", () => {
 
       act(() => window.history.pushState(null, "", `${base}/missing-route`));
       expect(
-        await screen.findByRole("heading", { name: "404: Page not found" }),
+        await screen.findByRole("heading", { name: "Page not found" }),
       ).toBeInTheDocument();
       fireEvent.click(screen.getByRole("button", { name: "Back to Library" }));
       expect(await screen.findByTestId("card-link-TC001")).toBeInTheDocument();
