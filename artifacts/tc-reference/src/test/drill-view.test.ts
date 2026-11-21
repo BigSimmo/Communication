@@ -16,6 +16,7 @@ import {
   durationLabel,
   gapClause,
   gapLabel,
+  shortGapLabel,
   returnWords,
   leftLabel,
   previewGaps,
@@ -116,6 +117,13 @@ describe("review gaps", () => {
     expect(gapLabel(49)).toBe("Back in 7 weeks");
     expect(gapLabel(90)).toBe("Back in about 3 months");
     expect(gapLabel(400)).toBe("Back in about a year");
+    // Rating buttons use a one-line form
+    expect(shortGapLabel(1)).toBe("Tomorrow");
+    expect(shortGapLabel(3)).toBe("In 3 days");
+    expect(shortGapLabel(7)).toBe("In a week");
+    expect(shortGapLabel(35)).toBe("In 5 weeks");
+    expect(shortGapLabel(36)).toBe("In ~5 weeks");
+    expect(shortGapLabel(90)).toBe("In ~3 months");
     expect(gapClause(1)).toBe("comes back tomorrow");
     expect(gapClause(7)).toBe("comes back in a week");
     expect(returnWords(3)).toBe("in 3 days");

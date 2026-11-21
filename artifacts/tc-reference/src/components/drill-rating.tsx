@@ -1,6 +1,6 @@
 import { useId } from "react";
 import { DRILL_RATINGS, type DrillRating } from "@/lib/drill-state";
-import { gapLabel, RATING_LABELS } from "@/lib/drill-view";
+import { gapLabel, RATING_LABELS, shortGapLabel } from "@/lib/drill-view";
 
 interface DrillRatingProps {
   value: DrillRating | null;
@@ -65,7 +65,7 @@ export function DrillRating({
                 className="text-[13px] leading-tight font-medium"
                 style={{ color: "var(--fg-60)" }}
               >
-                {gapLabel(gaps[rating])}
+                {shortGapLabel(gaps[rating])}
               </span>
             </button>
           );

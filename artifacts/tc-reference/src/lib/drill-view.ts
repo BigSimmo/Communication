@@ -145,6 +145,15 @@ export function returnWords(interval: number): string {
   return years === 1 ? "in about a year" : `in about ${years} years`;
 }
 
+/**
+ * The same gap, short enough for one line on a phone rating button:
+ * "Tomorrow", "In 3 days", "In a week", "In ~5 weeks", "In ~3 months".
+ */
+export function shortGapLabel(interval: number): string {
+  const words = returnWords(interval).replace("in about ", "in ~");
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
 /** "Back tomorrow" / "Back in 3 days" / "Back in a week" for a review gap. */
 export function gapLabel(interval: number): string {
   return `Back ${returnWords(interval)}`;

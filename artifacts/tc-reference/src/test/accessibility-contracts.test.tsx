@@ -147,6 +147,23 @@ describe("core accessibility contracts", () => {
     expect(document.title).toBe(`${title} · TC Reference Tool`);
   });
 
+  it("titles the header of an unknown card plainly, not with its raw id", () => {
+    vi.mocked(useLocation).mockReturnValue(["/card/TC999", vi.fn()]);
+
+    render(
+      <AppProviders>
+        <AppLayout>
+          <div />
+        </AppLayout>
+      </AppProviders>,
+    );
+
+    expect(screen.getByTestId("card-title")).toHaveTextContent(
+      "Card not found",
+    );
+    expect(screen.queryByText("TC999")).not.toBeInTheDocument();
+  });
+
   it("keeps Quick as a header button that opens Quick Lookup", async () => {
     render(
       <AppProviders>

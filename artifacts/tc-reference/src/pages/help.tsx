@@ -79,7 +79,7 @@ function HelpPicker() {
     <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-4 md:pt-6 pb-8">
       <Eyebrow brand>
         <Zap className="w-3.5 h-3.5" fill="currentColor" aria-hidden="true" />
-        Help me right now
+        In the moment
       </Eyebrow>
       <h1
         className="mt-1.5 text-[28px] font-bold leading-tight tracking-tight"
