@@ -365,7 +365,6 @@ export function CopyRow({
     <button
       type="button"
       onClick={() => copy(text)}
-      aria-label={`Copy: ${text}`}
       data-testid={testId}
       className="w-full flex items-center gap-3 px-4 py-[13px] min-h-14 text-left transition-colors active:bg-[var(--fg-05)]"
       style={{
@@ -374,9 +373,11 @@ export function CopyRow({
           : undefined,
       }}
     >
+      {/* Named by its content, not aria-label, so the name holds every
+          word on the row (WCAG 2.5.3): "Copy: Light Early conversation …" */}
+      <span className="sr-only">Copy:</span>{" "}
       <span className="flex-1 min-w-0 flex flex-col gap-0.5">
-        {above}
-        <Phrase size={size}>{text}</Phrase>
+        {above} <Phrase size={size}>{text}</Phrase>
       </span>
       <span
         className="flex-none"

@@ -135,7 +135,7 @@ export function BottomTabBar() {
                       {badge}
                     </span>
                   )}
-                </span>
+                </span>{" "}
                 <span
                   className="tab-bar-label text-[11px] leading-none truncate max-w-full px-1"
                   style={{ fontWeight: active ? 700 : 600 }}

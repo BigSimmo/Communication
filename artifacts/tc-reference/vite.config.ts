@@ -6,6 +6,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import { readdirSync } from "node:fs";
 import { cardTextIndexPlugin } from "./card-text-index-plugin";
 import { cardChunkListPlugin } from "./card-chunk-list-plugin";
+import { fontPreloadPlugin } from "./font-preload-plugin";
 
 const rawPort = process.env.PORT ?? "5173";
 
@@ -54,6 +55,8 @@ export default defineConfig({
     cardTextIndexPlugin(cardsDir),
     // Lists the card chunks for "Save all cards for offline".
     cardChunkListPlugin(cardBuildId),
+    // Inter weights painted on every first screen (see main.tsx imports)
+    fontPreloadPlugin([400, 600, 700]),
     VitePWA({
       // "prompt": a new build waits until the user accepts the update toast
       // (src/lib/sw-update.ts), which registers the worker itself.

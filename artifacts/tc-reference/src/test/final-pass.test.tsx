@@ -150,7 +150,7 @@ describe("Drill tab badge", () => {
       </Wrapper>,
     );
     expect(screen.getByTestId("nav-tab-drill")).toHaveAccessibleName(
-      "Drill, 1 review due",
+      "1 Drill review due",
     );
   });
 
