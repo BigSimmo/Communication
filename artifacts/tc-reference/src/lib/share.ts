@@ -196,10 +196,26 @@ export async function saveImage(
     ? navigator
     : undefined,
 ): Promise<ShareOutcome> {
+  return saveFile(blob, fileName, "image/png", nav);
+}
+
+/**
+ * Hand a file to the share sheet where files can be shared (on iPhone that
+ * offers Save to Files, which works from a Home Screen app where a download
+ * link may not), otherwise download it through a link. "shared" means the
+ * share sheet finished or the download started; closing the share sheet is
+ * "cancelled".
+ */
+export async function saveFile(
+  blob: Blob,
+  fileName: string,
+  type: string,
+  nav: Navigator | undefined = typeof navigator !== "undefined"
+    ? navigator
+    : undefined,
+): Promise<ShareOutcome> {
   const file =
-    typeof File === "function"
-      ? new File([blob], fileName, { type: "image/png" })
-      : null;
+    typeof File === "function" ? new File([blob], fileName, { type }) : null;
   if (file && nav?.share && nav.canShare?.({ files: [file] })) {
     try {
       await nav.share({ files: [file] });

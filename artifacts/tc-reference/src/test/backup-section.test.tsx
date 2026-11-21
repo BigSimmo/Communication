@@ -40,7 +40,7 @@ afterEach(() => {
 });
 
 describe("BackupSection (F-12)", () => {
-  it("exports a JSON download of stored data", () => {
+  it("exports a JSON download of stored data", async () => {
     localStorage.setItem("tc_theme", "dark");
     const createUrl = vi.fn().mockReturnValue("blob:x");
     URL.createObjectURL = createUrl;
@@ -49,7 +49,9 @@ describe("BackupSection (F-12)", () => {
       .spyOn(HTMLAnchorElement.prototype, "click")
       .mockImplementation(() => {});
     render(<BackupSection />);
-    fireEvent.click(screen.getByRole("button", { name: "Export backup" }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Export backup" }));
+    });
     expect(click).toHaveBeenCalledTimes(1);
     const blob = createUrl.mock.calls[0][0] as Blob;
     expect(blob.type).toBe("application/json");
@@ -97,5 +99,80 @@ describe("BackupSection (F-12)", () => {
     );
     await choose(file);
     expect(screen.getByRole("alert")).toBeInTheDocument();
+  });
+
+  it("rejects an oversized file without reading it", async () => {
+    render(<BackupSection />);
+    const file = new File(["{}"], "huge.json");
+    Object.defineProperty(file, "size", { value: 6 * 1024 * 1024 });
+    const text = vi.spyOn(file, "text");
+    await choose(file);
+    expect(screen.getByRole("alert")).toHaveTextContent(/too large/);
+    expect(text).not.toHaveBeenCalled();
+  });
+
+  it("asks to update the app for a backup from a newer version", async () => {
+    render(<BackupSection />);
+    const file = new File(
+      [JSON.stringify({ app: "tc-reference", version: 99, data: {} })],
+      "new.json",
+    );
+    await choose(file);
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      /newer version of TC Reference\. Update the app first/,
+    );
+  });
+
+  it("offers Undo restore after an import and puts the old data back", async () => {
+    localStorage.setItem("tc_theme", "light");
+    const { unmount } = render(<BackupSection />);
+    expect(screen.queryByTestId("backup-undo")).toBeNull();
+    await choose(backupFile({ tc_theme: "dark" }));
+    fireEvent.click(screen.getByRole("button", { name: "Replace my data" }));
+    expect(localStorage.getItem("tc_theme")).toBe("dark");
+    unmount();
+
+    // After the reload the section offers the undo.
+    render(<BackupSection />);
+    expect(screen.getByTestId("backup-undo")).toHaveTextContent(
+      "Restored a backup on",
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Undo restore" }));
+    fireEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    expect(localStorage.getItem("tc_theme")).toBe("dark");
+
+    fireEvent.click(screen.getByRole("button", { name: "Undo restore" }));
+    fireEvent.click(screen.getByRole("button", { name: "Yes, undo" }));
+    expect(localStorage.getItem("tc_theme")).toBe("light");
+    expect(localStorage.getItem("tc_restore_snapshot")).toBeNull();
+    expect(reload).toHaveBeenCalledTimes(2);
+  });
+
+  it("closing the share sheet records no backup", async () => {
+    const share = vi
+      .fn()
+      .mockRejectedValue(new DOMException("canceled", "AbortError"));
+    Object.defineProperty(navigator, "share", {
+      configurable: true,
+      value: share,
+    });
+    Object.defineProperty(navigator, "canShare", {
+      configurable: true,
+      value: () => true,
+    });
+    try {
+      render(<BackupSection />);
+      await act(async () => {
+        fireEvent.click(screen.getByRole("button", { name: "Export backup" }));
+      });
+      expect(share).toHaveBeenCalledTimes(1);
+      expect(screen.getByTestId("backup-last")).toHaveTextContent(
+        "No backup exported from this device yet.",
+      );
+      expect(screen.queryByRole("alert")).toBeNull();
+    } finally {
+      delete (navigator as { share?: unknown }).share;
+      delete (navigator as { canShare?: unknown }).canShare;
+    }
   });
 });

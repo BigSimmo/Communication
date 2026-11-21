@@ -427,6 +427,13 @@ export const SRS_STORAGE_KEY = "tc_srs_reviews";
 /** SM-2 never lets the ease factor drop below this. */
 export const MIN_EFACTOR = 1.3;
 
+/**
+ * The longest a card waits before it comes back: about six months. Without
+ * a ceiling a run of Confident ratings grows the gap past a year, which is
+ * too long for a phrase to stay fresh.
+ */
+export const MAX_INTERVAL_DAYS = 180;
+
 function isValidSRSEntry(
   value: unknown,
 ): value is Omit<CardSRS, "cardId" | "rating"> & { rating?: unknown } {
@@ -517,7 +524,8 @@ export function firstInterval(quality: number): number {
  * One SM-2 step for a response of quality q (0-5; 3+ counts as recalled).
  * The first pass in a run sets the interval to firstInterval(q): 3 days for
  * Getting there, 7 for Confident. Each later pass grows it by the ease
- * factor (from before this response), never dropping below that first gap.
+ * factor (from before this response), never dropping below that first gap
+ * and never going past MAX_INTERVAL_DAYS (about six months).
  * A pass with difficulty (q = 3, Getting there) grows it by only half the
  * ease's growth, so it always comes back sooner than a clean pass would.
  * A fail resets repetition and schedules the card for tomorrow. The ease
@@ -540,7 +548,12 @@ export function applySM2(
     const base = firstInterval(q);
     const growth = q === 3 ? 1 + (nextEfactor - 1) / 2 : nextEfactor;
     nextInterval =
-      nextRep === 0 ? base : Math.max(base, Math.round(nextInterval * growth));
+      nextRep === 0
+        ? base
+        : Math.min(
+            MAX_INTERVAL_DAYS,
+            Math.max(base, Math.round(nextInterval * growth)),
+          );
     nextRep += 1;
   } else {
     nextRep = 0;

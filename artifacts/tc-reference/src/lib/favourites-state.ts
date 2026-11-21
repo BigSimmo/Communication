@@ -27,7 +27,12 @@ const DEFAULT: FavouritesState = { cardIds: [], phrases: [] };
 // stored favourites on load.
 // Keys are the OLD text after the generic normalisation below has run
 // (quotes stripped, ellipsis converted).
-const REPHRASED: Record<string, Record<string, string>> = {
+// When a saveable phrase on a card is reworded, add it here (old -> new) so
+// saved copies follow it; src/test/saved-phrase-guard.test.ts fails until
+// every reworded or removed phrase is accounted for.
+export const REPHRASED: Readonly<
+  Record<string, Readonly<Record<string, string>>>
+> = {
   TC028: {
     "Let me think for a second.": "Let me take a second with that.",
     "The honest answer is...": "My honest take is...",

@@ -1,11 +1,14 @@
 import { useRef, useState } from "react";
-import { Download, Upload } from "lucide-react";
+import { Download, RotateCcw, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   BackupError,
-  downloadBackup,
+  checkBackupFileSize,
   importBackup,
+  loadRestoreSnapshot,
   parseBackup,
+  saveBackup,
+  undoRestore,
 } from "@/lib/backup";
 import {
   hasUserData,
@@ -33,18 +36,23 @@ export function BackupSection() {
   const [pending, setPending] = useState<{ name: string; text: string } | null>(
     null,
   );
+  const [confirmUndo, setConfirmUndo] = useState(false);
   const [error, setError] = useState<string | null>(null);
   // Read on mount (the sheet unmounts when closed) and after each export.
   const [safety, setSafety] = useState(() => ({
     state: loadDataSafety(),
     hasData: hasUserData(),
   }));
+  const [snapshot] = useState(() => loadRestoreSnapshot());
   const lastBackupAt = safety.state.lastBackupAt;
   const reminderDue = isBackupReminderDue(safety.state, safety.hasData);
 
-  const handleExport = () => {
+  const handleExport = async () => {
     setError(null);
-    downloadBackup();
+    const outcome = await saveBackup();
+    if (outcome === "failed") {
+      setError("Couldn't save the backup file. Please try again.");
+    }
     setSafety({ state: loadDataSafety(), hasData: hasUserData() });
   };
 
@@ -55,7 +63,9 @@ export function BackupSection() {
     if (!file) return;
     setError(null);
     setPending(null);
+    setConfirmUndo(false);
     try {
+      checkBackupFileSize(file); // before reading a huge file into memory
       const text = await file.text();
       parseBackup(text); // validate before asking to confirm
       setPending({ name: file.name, text });
@@ -74,6 +84,17 @@ export function BackupSection() {
       return;
     }
     // Every provider read storage on mount; reload so they all pick it up.
+    window.location.reload();
+  };
+
+  const handleUndo = () => {
+    try {
+      undoRestore();
+    } catch (err) {
+      setConfirmUndo(false);
+      setError(errorMessage(err));
+      return;
+    }
     window.location.reload();
   };
 
@@ -128,6 +149,61 @@ export function BackupSection() {
         />
       </div>
 
+      {snapshot && !pending && (
+        <div className="flex items-center gap-2.5" data-testid="backup-undo">
+          <p className="settings-row-meta flex-1">
+            Restored a backup on {formatBackupDate(snapshot.savedAt)}. Your data
+            from before it is kept for 30 days.
+          </p>
+          <Button
+            size="sm"
+            onClick={() => {
+              setError(null);
+              setConfirmUndo(true);
+            }}
+            aria-expanded={confirmUndo}
+          >
+            <RotateCcw className="w-4 h-4" aria-hidden="true" />
+            Undo restore
+          </Button>
+        </div>
+      )}
+
+      {snapshot && confirmUndo && !pending && (
+        <div
+          className="settings-card p-4"
+          role="group"
+          aria-label="Confirm undo restore"
+        >
+          <p
+            className="text-[15px] leading-relaxed mb-3"
+            style={{ color: "var(--fg-80)" }}
+          >
+            This puts back your saved items, drill progress, playbooks and
+            settings from before the restore on{" "}
+            {formatBackupDate(snapshot.savedAt)}. Anything changed since then is
+            replaced.
+          </p>
+          <div className="flex gap-2.5">
+            <Button
+              size="sm"
+              variant="primary"
+              className="flex-1"
+              onClick={handleUndo}
+            >
+              Yes, undo
+            </Button>
+            <Button
+              size="sm"
+              className="flex-1"
+              onClick={() => setConfirmUndo(false)}
+            >
+              Cancel
+            </Button>
+          </div>
+        </div>
+      )}
+
       {pending && (
         <div
           className="settings-card p-4"
@@ -140,7 +216,8 @@ export function BackupSection() {
           >
             Importing <strong>{pending.name}</strong> replaces your current
             saved items, drill progress, playbooks and settings on this device.
-            This can't be undone.
+            A copy of your current data is kept, so you can undo this here for
+            30 days.
           </p>
           <div className="flex gap-2.5">
             <Button
