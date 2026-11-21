@@ -8,6 +8,11 @@
 import type { CanonicalTone } from "./card-types";
 import type { AggregatedPhrase } from "./phrases-data";
 
+/** Every tone a (possibly shared) line carries. */
+function phraseTones(p: AggregatedPhrase): CanonicalTone[] {
+  return [p.tone, ...(p.alsoTones ?? [])];
+}
+
 export type PhraseLength = "short" | "sentence" | "longer";
 
 export const PHRASE_LENGTHS: ReadonlyArray<{
@@ -86,7 +91,7 @@ export function filterPhrases(
   const query = normalise(filter.query.trim());
   return phrases.filter(
     (p) =>
-      (!filter.tone || p.tone === filter.tone) &&
+      (!filter.tone || phraseTones(p).includes(filter.tone)) &&
       (!filter.length || phraseLength(p.text) === filter.length) &&
       matchesQuery(p, query),
   );
@@ -112,9 +117,10 @@ export function countFacets(
   for (const p of phrases) {
     if (!matchesQuery(p, query)) continue;
     const len = phraseLength(p.text);
+    const tones = phraseTones(p);
     if (!filter.length || len === filter.length)
-      tone[p.tone] = (tone[p.tone] ?? 0) + 1;
-    if (!filter.tone || p.tone === filter.tone)
+      for (const t of tones) tone[t] = (tone[t] ?? 0) + 1;
+    if (!filter.tone || tones.includes(filter.tone))
       length[len] = (length[len] ?? 0) + 1;
   }
   return { tone, length };

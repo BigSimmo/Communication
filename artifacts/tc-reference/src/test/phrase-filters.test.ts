@@ -174,3 +174,26 @@ describe("the combined Phrase Bank lists each line once", () => {
     ).toEqual([shared]);
   });
 });
+
+describe("shared lines with different tones", () => {
+  const shared = phrase("What happened after that?", {
+    tone: "Quick",
+    alsoTones: ["Direct"],
+  });
+  const plain = phrase("Tell me more.", { tone: "Direct" });
+
+  it("matches a tone filter on any copy's tone", () => {
+    expect(
+      filterPhrases([shared, plain], { ...NO_FILTER, tone: "Direct" }),
+    ).toEqual([shared, plain]);
+    expect(
+      filterPhrases([shared, plain], { ...NO_FILTER, tone: "Quick" }),
+    ).toEqual([shared]);
+  });
+
+  it("counts the line under each of its tones", () => {
+    const counts = countFacets([shared, plain], NO_FILTER);
+    expect(counts.tone.Direct).toBe(2);
+    expect(counts.tone.Quick).toBe(1);
+  });
+});

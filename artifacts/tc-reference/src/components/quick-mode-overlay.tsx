@@ -209,12 +209,16 @@ function QuickModeContent() {
             })),
         }))
         .filter((g) => g.phrases.length > 0)
-    : (quickGroups ?? [])
-        .map((g) => ({ ...g, phrases: g.phrases.filter((p) => p.primary) }))
-        .filter((g) => g.phrases.length > 0);
+    : (quickGroups ?? []).filter((g) => g.phrases.length > 0);
+  // One situation keeps every line it lists (each is unique within a group).
+  // Across all situations a shared line shows once, under its first group.
   const filteredGroups = quickFilter
     ? allQuickGroups.filter((g) => g.id === quickFilter)
-    : allQuickGroups;
+    : scopedToCard
+      ? allQuickGroups
+      : allQuickGroups
+          .map((g) => ({ ...g, phrases: g.phrases.filter((p) => p.primary) }))
+          .filter((g) => g.phrases.length > 0);
   const totalPhraseCount = filteredGroups.reduce(
     (count, group) => count + group.phrases.length,
     0,

@@ -29,6 +29,16 @@ export interface AggregatedPhrase {
    * bank still lists it. Absent when the line is on one card only.
    */
   alsoOn?: ReadonlyArray<PhraseSource>;
+  /**
+   * Other tones the same line carries on the cards in alsoOn, so a tone
+   * filter still finds it. Absent when every copy has the same tone.
+   */
+  alsoTones?: ReadonlyArray<CanonicalTone>;
+}
+
+/** Every tone a (possibly shared) line carries. */
+export function phraseTones(phrase: AggregatedPhrase): CanonicalTone[] {
+  return [phrase.tone, ...(phrase.alsoTones ?? [])];
 }
 
 /**
@@ -72,6 +82,10 @@ export function loadAllAggregatedPhrases(): Promise<
               const key = phraseDedupeKey(text);
               const first = byKey.get(key);
               if (first) {
+                const tone = inferPhraseTone(group);
+                if (tone !== first.tone && !first.alsoTones?.includes(tone)) {
+                  first.alsoTones = [...(first.alsoTones ?? []), tone];
+                }
                 if (
                   first.cardId !== cardId &&
                   !first.alsoOn?.some((s) => s.cardId === cardId)
@@ -111,7 +125,7 @@ export function loadAllAggregatedPhrases(): Promise<
 export function getAllTones(
   phrases: ReadonlyArray<AggregatedPhrase>,
 ): CanonicalTone[] {
-  const present = new Set(phrases.map((phrase) => phrase.tone));
+  const present = new Set(phrases.flatMap(phraseTones));
   // Fixed canonical order — not alphabetical
   return CANONICAL_TONES.filter((tone) => present.has(tone));
 }

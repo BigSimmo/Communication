@@ -210,5 +210,57 @@ describe("Quick Lookup lists a line once across situations", () => {
     fireEvent.click(screen.getByRole("button", { name: "Open Quick" }));
     await screen.findByText("Only in two");
     expect(screen.getAllByText(/^say more/i)).toHaveLength(1);
+
+    // Picking the second situation still shows the shared line it lists
+    fireEvent.click(screen.getByTestId("quick-filter-repair"));
+    expect(await screen.findByText(/^say more/i)).toBeInTheDocument();
+    expect(screen.getByText("Only in two")).toBeInTheDocument();
+  });
+
+  it("keeps a situation whose lines are all shared in the filter bar", async () => {
+    vi.resetModules();
+    const loader = await import("../lib/card-loader");
+    vi.mocked(loader.loadAllCards).mockResolvedValue({
+      TC001: {
+        phraseBank: [
+          {
+            id: "openers",
+            label: "Openers",
+            tag: "Quick",
+            phrases: ["Say more?"],
+          },
+        ],
+      } as CardData,
+      TC002: {
+        phraseBank: [
+          {
+            id: "repair",
+            label: "Repair",
+            tag: "Repair",
+            phrases: ["say more"],
+          },
+        ],
+      } as CardData,
+    });
+    const { QuickModeOverlay: Overlay } =
+      await import("../components/quick-mode-overlay");
+    const quick = await import("../lib/quick-mode");
+    const favs = await import("../lib/favourites-context");
+    function Open() {
+      const { setIsOpen } = quick.useQuickMode();
+      return <button onClick={() => setIsOpen(true)}>Open Quick</button>;
+    }
+    window.history.replaceState(null, "", "/");
+    render(
+      <quick.QuickModeProvider>
+        <favs.FavouritesProvider>
+          <Open />
+          <Overlay />
+        </favs.FavouritesProvider>
+      </quick.QuickModeProvider>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Open Quick" }));
+    fireEvent.click(await screen.findByTestId("quick-filter-repair"));
+    expect(await screen.findByText(/^say more/i)).toBeInTheDocument();
   });
 });
