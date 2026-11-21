@@ -21,10 +21,9 @@ A mobile-first reference app for 107 communication techniques. It runs entirely 
 - Mobile-first navigation with a bottom tab bar, 44px touch targets and safe-area (notch) support
 - Installable PWA: the app shell, global search, the Phrase Bank and Quick Lookup work offline after the first visit (a slim card text index is precached); full card pages and downloads work offline once they have been opened while online, and **Save all cards for offline** in Settings saves every card (about 4 MB) in one step; downloads stay on demand
 
-<!-- Features landing in parallel work (add when merged):
-- iPhone: an Add to Home Screen hint, a request for persistent storage, and a backup reminder
-- Drill spacing of 1, 3 and 7 days, and a progress view
--->
+- On iPhone, add the app to your Home Screen so Safari doesn't clear your saved progress. The app asks the browser to keep its storage, shows a one-time Add to Home Screen hint in Safari, and reminds you to export a backup if you haven't for 30 days
+- Daily Drill reviews come back after 1, 3 or 7 days (Not yet, Getting there, Confident) and then grow further apart; the Drill page's **Your progress** section counts techniques by status, overall and per category
+- Each card's Use it tab ends with related techniques; missing pages, unknown cards and cards that fail to load offer a way forward (Try again, search, Help me right now)
 
 ---
 
@@ -129,10 +128,13 @@ node --test scripts/code-reviewer.test.mjs scripts/local-process-identity.test.m
 pnpm --filter @workspace/tc-reference test
 ```
 
-<!-- Browser smoke tests landing in parallel work (add when merged):
-`pnpm --filter @workspace/tc-reference test:e2e` runs Playwright WebKit smoke
-tests; see docs/iphone-test-checklist.md for the manual iPhone pass.
--->
+Browser smoke tests (Playwright, iPhone 15 emulation). CI runs the WebKit project; locally only Chromium may be installed:
+
+```bash
+pnpm --filter @workspace/tc-reference run test:e2e --project iphone-chromium
+```
+
+The manual iPhone pass (VoiceOver, larger text, offline, install) is in [docs/iphone-test-checklist.md](docs/iphone-test-checklist.md).
 
 Before installing dependencies, run agent instruction and skill packaging checks directly:
 
