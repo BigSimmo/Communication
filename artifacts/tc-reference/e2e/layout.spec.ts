@@ -91,3 +91,78 @@ test("tab bar sits on the bottom edge and pads for the home indicator", async ({
     ).toBeVisible();
   }
 });
+
+test.describe("landscape iPhone with a notch", () => {
+  // iPhone 15 turned sideways: 852pt wide, so the sidebar layout. iOS reports
+  // a 59pt inset on both sides and 21pt for the home indicator.
+  const INSET = 59;
+  test.use({ viewport: { width: 852, height: 393 } });
+
+  for (const route of ["/", "/card/TC028", "/phrases", "/search"]) {
+    test(`${route} keeps content out of the side safe areas`, async ({
+      page,
+      browserName,
+    }) => {
+      // Only Chromium can emulate safe-area insets (via CDP).
+      test.skip(browserName !== "chromium", "needs CDP safe-area override");
+      const cdp = await page.context().newCDPSession(page);
+      await cdp.send("Emulation.setSafeAreaInsetsOverride", {
+        insets: { top: 0, left: INSET, right: INSET, bottom: 21 },
+      });
+      await page.goto(route);
+      await expect(page.locator("h1").first()).toBeVisible();
+      await expect(page.locator('[aria-busy="true"]')).toHaveCount(0);
+
+      const intruders = await page.evaluate((inset) => {
+        const found: string[] = [];
+        const selector = "h1, h2, h3, p, a, button, input, [role=tab]";
+        for (const el of document.querySelectorAll<HTMLElement>(selector)) {
+          const r = el.getBoundingClientRect();
+          if (!r.width || !r.height) continue;
+          // Rows that scroll sideways may run under the edges by design.
+          if (el.closest("[class*='overflow-x-auto']")) continue;
+          if (r.left < inset - 0.5 || r.right > innerWidth - inset + 0.5) {
+            const text = (el.textContent ?? "").trim().slice(0, 30);
+            found.push(
+              `${el.tagName} "${text}" ${Math.round(r.left)}-${Math.round(r.right)}`,
+            );
+          }
+        }
+        return found;
+      }, INSET);
+      expect(intruders).toEqual([]);
+    });
+  }
+});
+
+test("iOS gets a launch screen for this iPhone, and the manifest allows rotation", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/");
+  const links = await page.evaluate(() =>
+    [
+      ...document.querySelectorAll<HTMLLinkElement>(
+        'link[rel="apple-touch-startup-image"]',
+      ),
+    ].map((link) => ({ href: link.href, media: link.media })),
+  );
+  expect(links.length).toBeGreaterThan(5);
+  // Exactly one image is for the iPhone 15 screen (393x852pt @3x). The test
+  // runner's emulated screen is the viewport, so match the query text rather
+  // than asking matchMedia.
+  const iphone15 = links.filter(
+    (l) =>
+      l.media.includes("(device-width: 393px)") &&
+      l.media.includes("(device-height: 852px)") &&
+      l.media.includes("(-webkit-device-pixel-ratio: 3)"),
+  );
+  expect(iphone15).toHaveLength(1);
+  expect(iphone15[0].href).toMatch(/\/splash\/launch-1179x2556\.png$/);
+  const image = await request.get(iphone15[0].href);
+  expect(image.status()).toBe(200);
+  expect(image.headers()["content-type"]).toContain("image/png");
+
+  const manifest = await (await request.get("/manifest.webmanifest")).json();
+  expect(manifest.orientation ?? "any").toBe("any");
+});

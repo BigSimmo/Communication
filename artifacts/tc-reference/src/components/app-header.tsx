@@ -226,8 +226,8 @@ export function AppHeader() {
           className="flex items-center h-full [--hdr-px:12px] sm:[--hdr-px:16px] md:[--hdr-px:24px] gap-2.5 md:gap-3 min-w-0"
           style={{
             // Clear the notch in landscape (viewport-fit=cover)
-            paddingLeft: "max(var(--hdr-px), env(safe-area-inset-left, 0px))",
-            paddingRight: "max(var(--hdr-px), env(safe-area-inset-right, 0px))",
+            paddingLeft: "max(var(--hdr-px), var(--content-safe-left))",
+            paddingRight: "max(var(--hdr-px), var(--safe-right))",
           }}
         >
           {/* ── CARD MODE ── */}

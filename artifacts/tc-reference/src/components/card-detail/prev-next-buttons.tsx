@@ -25,7 +25,8 @@ export function PrevNextNav({
             setLocation(`/card/${card.id}`);
           }}
           data-testid={testId}
-          aria-label={`${dir} card: ${card.id} ${CARD_TITLE_MAP[card.id] ?? ""}`}
+          // Same words, in the same order, as the visible "Previous · TC102 …"
+          aria-label={`${dir}: ${card.id} ${CARD_TITLE_MAP[card.id] ?? ""}`}
           className={`flex items-center gap-2 rounded-2xl px-3.5 py-3 transition-all active:scale-[0.98] min-w-0 ${dir === "Next" ? "flex-row-reverse text-right" : "text-left"}`}
           style={{
             minHeight: 56,
@@ -52,7 +53,7 @@ export function PrevNextNav({
               style={{ color: "var(--fg-50)" }}
             >
               {dir} · {card.id}
-            </span>
+            </span>{" "}
             <span className="block text-[13px] font-semibold leading-snug text-foreground/85 line-clamp-2 mt-0.5">
               {CARD_TITLE_MAP[card.id] ?? card.id}
             </span>

@@ -144,7 +144,7 @@ export function SearchScreen({
       ref={screenRef}
       data-search-screen
       data-testid="search-screen"
-      className="fixed inset-x-0 top-0 h-dvh md:left-[200px] flex flex-col-reverse md:flex-col bg-background"
+      className="safe-x-content fixed inset-x-0 top-0 h-dvh md:left-[var(--sidebar-w)] flex flex-col-reverse md:flex-col bg-background"
       style={{ zIndex: "var(--z-overlay)" as unknown as number }}
     >
       {/* First in the page so the field is the first stop; drawn at the

@@ -17,6 +17,7 @@ import {
   gapClause,
   gapLabel,
   shortGapLabel,
+  spokenGapLabel,
   returnWords,
   leftLabel,
   previewGaps,
@@ -124,6 +125,12 @@ describe("review gaps", () => {
     expect(shortGapLabel(35)).toBe("In 5 weeks");
     expect(shortGapLabel(36)).toBe("In ~5 weeks");
     expect(shortGapLabel(90)).toBe("In ~3 months");
+    // Their spoken names use the same words, so voice control matches them
+    expect(spokenGapLabel(1)).toBe("tomorrow");
+    expect(spokenGapLabel(35)).toBe("in 5 weeks");
+    expect(spokenGapLabel(36)).toBe("in 5 weeks or so");
+    expect(spokenGapLabel(90)).toBe("in 3 months or so");
+    expect(spokenGapLabel(400)).toBe("in a year or so");
     expect(gapClause(1)).toBe("comes back tomorrow");
     expect(gapClause(7)).toBe("comes back in a week");
     expect(returnWords(3)).toBe("in 3 days");

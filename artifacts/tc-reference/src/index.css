@@ -215,6 +215,9 @@
     0 10px 30px -8px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   --surface-float: rgba(15, 23, 36, 0.8);
   --surface-dd: hsl(217, 42%, 13%);
+  /* Selected segment of a segmented control (Use it / Learn it, Appearance):
+     lifted above its --fg-08 track, never sunk below it. */
+  --surface-segment-active: hsl(217, 24%, 27%);
   --surface-sidebar: hsl(217, 42%, 10%);
   /* Raised list rows (Library cards): a faint lift in dark, true white in
      light so rows separate from the page instead of greying into it. */
@@ -275,9 +278,25 @@
      indicator inset) */
   --tabbar-height: 58px;
   --tabbar-gap: max(8px, env(safe-area-inset-bottom, 0px));
+
+  /* Side safe areas. A landscape iPhone with a notch or Dynamic Island is
+     780-956px wide, so it gets the md (sidebar) layout: the rail grows by the
+     left inset and content clears the right one. --content-safe-left is the
+     left inset only where no sidebar already covers it. All are 0px in
+     portrait and on devices without insets. */
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --content-safe-left: var(--safe-left);
+  --sidebar-w: calc(200px + var(--safe-left));
   --z-overlay: 50;
   --z-modal: 60;
   --z-search: 70;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --content-safe-left: 0px;
+  }
 }
 
 /* ── Light mode overrides ── */
@@ -377,6 +396,7 @@
     0 10px 28px -10px rgba(15, 23, 36, 0.28), 0 1px 3px rgba(15, 23, 36, 0.06);
   --surface-float: rgba(248, 249, 251, 0.88);
   --surface-dd: hsl(0, 0%, 99%);
+  --surface-segment-active: hsl(0, 0%, 100%);
   --surface-sidebar: hsl(210, 20%, 98%);
   --surface-card: #ffffff;
   --surface-card-hover: #f3f4f6;
@@ -564,6 +584,34 @@ body {
 /* Content clears the tab bar and the home indicator on phones */
 .app-main {
   padding-bottom: calc(var(--tabbar-height) + var(--tabbar-gap) + 20px);
+  padding-left: var(--content-safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* Full-width overlays and sheets: keep their content out of landscape
+   notches. Unlayered, so it only suits elements without their own px-*. */
+.safe-x {
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+/* Same, for overlays that sit beside the desktop sidebar. */
+.safe-x-content {
+  padding-left: var(--content-safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* "A new version is ready" toast: above the tab bar, clear of notches. */
+.update-toast {
+  left: max(12px, var(--safe-left));
+  right: max(12px, var(--safe-right));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 88px);
+}
+@media (min-width: 768px) {
+  .update-toast {
+    left: auto;
+    right: max(24px, var(--safe-right));
+    width: 360px;
+  }
 }
 
 @media (min-width: 768px) {

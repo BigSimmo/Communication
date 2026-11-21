@@ -1,6 +1,6 @@
 import { useId } from "react";
 import { DRILL_RATINGS, type DrillRating } from "@/lib/drill-state";
-import { gapLabel, RATING_LABELS, shortGapLabel } from "@/lib/drill-view";
+import { RATING_LABELS, shortGapLabel, spokenGapLabel } from "@/lib/drill-view";
 
 interface DrillRatingProps {
   value: DrillRating | null;
@@ -44,7 +44,7 @@ export function DrillRating({
               key={rating}
               type="button"
               aria-pressed={selected}
-              aria-label={`${RATING_LABELS[rating]}: ${gapLabel(gaps[rating]).toLowerCase()}`}
+              aria-label={`${RATING_LABELS[rating]}: ${spokenGapLabel(gaps[rating])}`}
               onClick={() => onChange(rating)}
               data-testid={`drill-rating-${rating}`}
               className="min-h-[52px] px-1 py-2 rounded-[14px] flex flex-col items-center justify-center gap-0.5 text-center transition-transform active:scale-[0.98] motion-reduce:transition-none"
@@ -60,7 +60,7 @@ export function DrillRating({
                 style={{ color: "var(--fg-90)" }}
               >
                 {RATING_LABELS[rating]}
-              </span>
+              </span>{" "}
               <span
                 className="text-[13px] leading-tight font-medium"
                 style={{ color: "var(--fg-60)" }}

@@ -14,9 +14,8 @@ export function UpdateToast() {
       role="status"
       aria-live="polite"
       data-testid="update-toast"
-      className="fixed left-3 right-3 md:left-auto md:right-6 md:w-[360px] z-50 flex items-center gap-3 rounded-2xl px-4 py-3"
+      className="update-toast fixed z-50 flex items-center gap-3 rounded-2xl px-4 py-3"
       style={{
-        bottom: "calc(env(safe-area-inset-bottom, 0px) + 88px)",
         background: "var(--surface-dd)",
         border: "1px solid var(--fg-15)",
         boxShadow: "0 8px 24px rgba(0,0,0,0.35)",

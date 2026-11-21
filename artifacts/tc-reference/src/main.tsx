@@ -9,6 +9,7 @@ import "@fontsource/inter/800.css";
 import "./index.css";
 import { registerServiceWorker, reloadToLatest } from "./lib/sw-update";
 import { refreshOfflineCardsInBackground } from "./lib/offline-cards";
+import { warmRoute } from "./lib/route-warmup";
 
 // After a deploy, an open tab can ask for lazy chunks that no longer exist.
 // Vite fires vite:preloadError for those; reload once to pick up the new
@@ -40,6 +41,9 @@ window.addEventListener("load", () => {
     } catch {}
   }, PRELOAD_RELOAD_WINDOW_MS);
 });
+
+// Fetch a deep link's page chunk and data alongside the first render
+warmRoute();
 
 createRoot(document.getElementById("root")!).render(<App />);
 

@@ -154,6 +154,18 @@ export function shortGapLabel(interval: number): string {
   return words.charAt(0).toUpperCase() + words.slice(1);
 }
 
+/**
+ * The rating button's spoken gap, in the same words as its visible
+ * shortGapLabel so voice control can match them (WCAG 2.5.3): "tomorrow",
+ * "in 3 days", "in 5 weeks or so" (shown as "In ~5 weeks").
+ */
+export function spokenGapLabel(interval: number): string {
+  const words = returnWords(interval);
+  return words.includes("about ")
+    ? `${words.replace("about ", "")} or so`
+    : words;
+}
+
 /** "Back tomorrow" / "Back in 3 days" / "Back in a week" for a review gap. */
 export function gapLabel(interval: number): string {
   return `Back ${returnWords(interval)}`;
