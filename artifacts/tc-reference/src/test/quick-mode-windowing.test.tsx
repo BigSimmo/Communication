@@ -163,3 +163,52 @@ describe("Quick Lookup de-duplication and card scope", () => {
     window.history.replaceState(null, "", "/");
   });
 });
+
+describe("Quick Lookup lists a line once across situations", () => {
+  it("shows a line from two situations once in the all-cards view", async () => {
+    vi.resetModules();
+    const loader = await import("../lib/card-loader");
+    vi.mocked(loader.loadAllCards).mockResolvedValue({
+      TC001: {
+        phraseBank: [
+          {
+            id: "openers",
+            label: "Openers",
+            tag: "Quick",
+            phrases: ["Say more?"],
+          },
+        ],
+      } as CardData,
+      TC002: {
+        phraseBank: [
+          {
+            id: "repair",
+            label: "Repair",
+            tag: "Repair",
+            phrases: ["say more", "Only in two"],
+          },
+        ],
+      } as CardData,
+    });
+    const { QuickModeOverlay: Overlay } =
+      await import("../components/quick-mode-overlay");
+    const quick = await import("../lib/quick-mode");
+    const favs = await import("../lib/favourites-context");
+    function Open() {
+      const { setIsOpen } = quick.useQuickMode();
+      return <button onClick={() => setIsOpen(true)}>Open Quick</button>;
+    }
+    window.history.replaceState(null, "", "/");
+    render(
+      <quick.QuickModeProvider>
+        <favs.FavouritesProvider>
+          <Open />
+          <Overlay />
+        </favs.FavouritesProvider>
+      </quick.QuickModeProvider>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Open Quick" }));
+    await screen.findByText("Only in two");
+    expect(screen.getAllByText(/^say more/i)).toHaveLength(1);
+  });
+});

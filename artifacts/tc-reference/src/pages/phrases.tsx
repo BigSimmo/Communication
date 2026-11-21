@@ -14,6 +14,7 @@ import { Chip } from "@/components/ui/chip";
 import {
   loadAllAggregatedPhrases,
   getAllTones,
+  phraseSources,
   type AggregatedPhrase,
 } from "@/lib/phrases-data";
 import type { CanonicalTone } from "@/lib/card-types";
@@ -340,15 +341,25 @@ export default function Phrases() {
               phrases={group.phrases}
               copied={copied}
               onCopy={copy}
-              isFav={isPhrasesFav}
-              onFav={(p) =>
-                togglePhrase({
-                  cardId: p.cardId,
-                  cardTitle: p.cardTitle,
-                  groupLabel: p.groupLabel,
-                  text: p.text,
-                })
+              isFav={(p) =>
+                phraseSources(p).some((s) => isPhrasesFav(s.cardId, s.text))
               }
+              onFav={(p) => {
+                // A shared line may have been saved from any of its cards.
+                const saved = phraseSources(p).filter((s) =>
+                  isPhrasesFav(s.cardId, s.text),
+                );
+                const targets =
+                  saved.length > 0 ? saved : [phraseSources(p)[0]];
+                for (const s of targets) {
+                  togglePhrase({
+                    cardId: s.cardId,
+                    cardTitle: s.cardTitle,
+                    groupLabel: p.groupLabel,
+                    text: s.text,
+                  });
+                }
+              }}
             />
           ))}
         </div>
@@ -406,7 +417,7 @@ interface PhraseGroupProps {
   phrases: AggregatedPhrase[];
   copied: string | null;
   onCopy: (text: string) => void;
-  isFav: (cardId: string, text: string) => boolean;
+  isFav: (phrase: AggregatedPhrase) => boolean;
   onFav: (phrase: AggregatedPhrase) => void;
 }
 
@@ -457,7 +468,7 @@ function PhraseGroup({
             key={`${phrase.groupId}-${i}-${phrase.text}`}
             phrase={phrase}
             copied={copied === phrase.text}
-            faved={isFav(phrase.cardId, phrase.text)}
+            faved={isFav(phrase)}
             onCopy={() => onCopy(phrase.text)}
             onFav={() => onFav(phrase)}
           />
@@ -507,6 +518,9 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav }: PhraseRowProps) {
           style={{ color: "var(--fg-55)" }}
         >
           {copied ? "Copied" : phrase.groupLabel}
+          {!copied && phrase.alsoOn?.length
+            ? ` · also on ${phrase.alsoOn.length} more ${phrase.alsoOn.length === 1 ? "card" : "cards"}`
+            : ""}
         </span>
       </button>
       <span

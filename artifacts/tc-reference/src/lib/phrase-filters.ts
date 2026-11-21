@@ -69,10 +69,12 @@ function normalise(text: string): string {
 
 function matchesQuery(phrase: AggregatedPhrase, query: string): boolean {
   if (!query) return true;
-  return (
-    normalise(phrase.text).includes(query) ||
-    normalise(phrase.cardTitle).includes(query) ||
-    phrase.cardId.toLowerCase().includes(query)
+  if (normalise(phrase.text).includes(query)) return true;
+  // A shared line answers to every card it appears on.
+  return [phrase, ...(phrase.alsoOn ?? [])].some(
+    (source) =>
+      normalise(source.cardTitle).includes(query) ||
+      source.cardId.toLowerCase().includes(query),
   );
 }
 
