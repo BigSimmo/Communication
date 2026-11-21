@@ -65,6 +65,7 @@ import {
 } from "@/lib/drill-view";
 import { usePlaybooks } from "@/lib/playbook-context";
 import { useStorageSync } from "@/lib/storage-sync";
+import { usePageTitleRef } from "@/lib/page-title";
 
 const EYEBROW = "text-[12px] font-bold uppercase tracking-[0.06em]";
 
@@ -98,6 +99,7 @@ function isUntouched(state: DrillState): boolean {
 }
 
 export default function Drill() {
+  const pageTitleRef = usePageTitleRef<HTMLHeadingElement>();
   const [, navigate] = useLocation();
   const [state, setState] = useState<DrillState>(() => loadDrillState());
   const [srsMap, setSrsMap] = useState(() => loadSRSMap());
@@ -295,6 +297,7 @@ export default function Drill() {
           · {shownIndex + 1} of {cardCount}
         </p>
         <h1
+          ref={pageTitleRef}
           className="sr-only md:not-sr-only md:text-[32px] md:leading-[1.1] md:font-extrabold md:tracking-[-0.02em]"
           style={{ color: "var(--fg-90)" }}
         >

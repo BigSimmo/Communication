@@ -69,7 +69,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               className="block text-[16px] font-bold leading-tight"
               style={{ color: "var(--fg-90)" }}
             >
-              TC Library
+              TC Reference
             </span>
             <span
               className="block text-[11px] font-medium mt-0.5"

@@ -4,6 +4,7 @@ import {
   difficultyLabel,
   impactStyleFor,
 } from "@/lib/design-tokens";
+import { usePageTitleRef } from "@/lib/page-title";
 import { CARD_CATEGORY_MAP, CARD_TITLE_MAP } from "./card-sections";
 
 function Tag({
@@ -34,6 +35,7 @@ function Tag({
  * tabs it shrinks to the title so the tab's own content starts higher.
  *
  * The app header carries the page h1 (the same title), so this is an h2.
+ * The header draws that h1 only once this title has scrolled away.
  */
 export function CardHeader({
   cardId,
@@ -45,10 +47,14 @@ export function CardHeader({
   compact?: boolean;
 }) {
   const title = CARD_TITLE_MAP[cardId] ?? cardId;
+  // The card's large title: the header shows the name only once this has
+  // scrolled away
+  const pageTitleRef = usePageTitleRef<HTMLHeadingElement>();
   if (compact) {
     return (
       <div className="px-4 pt-3">
         <h2
+          ref={pageTitleRef}
           className="text-[22px] font-bold leading-[1.2] tracking-[-0.01em]"
           style={{ color: "var(--fg-90)" }}
           data-testid="card-brief-title"
@@ -79,6 +85,7 @@ export function CardHeader({
         </span>
       </p>
       <h2
+        ref={pageTitleRef}
         className="text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em]"
         style={{ color: "var(--fg-90)" }}
         data-testid="card-brief-title"
