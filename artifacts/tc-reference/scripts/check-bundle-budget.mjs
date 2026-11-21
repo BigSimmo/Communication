@@ -9,13 +9,13 @@ import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
 
 const KB = 1024;
-// gzip -9 bytes (KiB). Set from the build of 2026-11-21: entry 31.6, vendor
-// 59.4, main CSS 12.4, card text index 173.3.
+// gzip -9 bytes (KiB), about 10% above the build of 2026-11-21 after the
+// design round: entry 34.3, vendor 59.4, main CSS 12.7, card text index 178.5.
 export const BUDGETS = {
-  "entry JS": 35 * KB,
+  "entry JS": 38 * KB,
   "vendor JS": 66 * KB,
-  "main CSS": 13.75 * KB,
-  "card-text-data JS": 191 * KB,
+  "main CSS": 14 * KB,
+  "card-text-data JS": 196 * KB,
 };
 
 const root = path.join(
