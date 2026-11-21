@@ -1,4 +1,4 @@
-// "Help me right now" situation map: the picker shows these eight situations,
+// "Help me right now" situation map: the picker shows these nine situations,
 // and each answer screen leads with one technique, three lines to say, one
 // follow-on step and one thing to avoid.
 //
@@ -8,7 +8,7 @@
 // Every spoken line, follow-on line and avoid note is copied word for word
 // from the named card's existing text (content-invariants test
 // `situations.test.ts` checks this), so the map adds no new advice of its
-// own. Only `label` and `tagline` are new wording. The lead instruction shown
+// own. Only `label`, `tagline` and `safetyNote` are new wording. The lead instruction shown
 // on the answer screen is the lead card's `summary` in ./data.ts.
 
 export interface SituationFollowOn {
@@ -33,6 +33,11 @@ export interface Situation {
   followOn: SituationFollowOn;
   /** One thing to avoid, from the lead card's "what it is not" or "not for" text. */
   avoid: string;
+  /**
+   * Shown before anything else on the answer screen when someone may be at
+   * risk: points to local protocol and emergency services, not clinical advice.
+   */
+  safetyNote?: string;
 }
 
 export const SITUATIONS: readonly Situation[] = [

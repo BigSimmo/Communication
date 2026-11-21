@@ -23,7 +23,7 @@ function ContrastLine({
   const best = kind === "best";
   const text = displayLine(line);
   return (
-    <SayBlock outlined={best} data-testid={`hear-${kind}`}>
+    <SayBlock tone={best ? "best" : "neutral"} data-testid={`hear-${kind}`}>
       <Label color={best ? "var(--accent-green)" : "var(--accent-red)"}>
         {best ? (
           <Check className="w-4 h-4" aria-hidden="true" />

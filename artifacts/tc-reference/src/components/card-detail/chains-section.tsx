@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { CardData } from "@/lib/card-types";
 import { Chip } from "@/components/ui/chip";
 import { CardBlock, Meta, NumberDisc, Phrase, Surface } from "./card-ui";
+import { CardRefText } from "./card-ref-text";
 
 // "Rapport chain" is just "Rapport" on a chip under a "Chain it" heading
 function chipLabel(label: string): string {
@@ -46,14 +47,16 @@ export function ChainsSection({ cardData }: { cardData: CardData }) {
           >
             {chain.label}
           </span>
-          <Meta>{chain.sequence}</Meta>
+          <Meta>
+            <CardRefText text={chain.sequence} selfId={cardData.id} quiet />
+          </Meta>
         </div>
         <ol className="flex flex-col gap-3">
           {chain.example.map((line, j) => (
             <li key={j} className="flex items-start gap-3">
               <NumberDisc small>{j + 1}</NumberDisc>
               <Phrase size="sm" className="flex-1">
-                {line}
+                <CardRefText text={line} selfId={cardData.id} />
               </Phrase>
             </li>
           ))}

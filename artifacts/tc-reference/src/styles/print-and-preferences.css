@@ -1,8 +1,11 @@
 /* Display preferences (Settings sheet) and print layouts. Imported from
    index.css; kept outside @layer so these rules outrank Tailwind utilities. */
 
-/* Larger phrase text: anything that shows a sayable line carries
-   .phrase-text, and grows when the setting is on. */
+/* Anything that shows a sayable line carries .phrase-text: it sets the one
+   phrase face everywhere, and grows when the larger-phrases setting is on. */
+.phrase-text {
+  font-family: var(--app-font-phrase);
+}
 :root[data-large-phrases] .phrase-text {
   font-size: 1.1875rem !important;
   line-height: 1.4 !important;

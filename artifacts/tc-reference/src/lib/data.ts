@@ -100,7 +100,8 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
     {
       id: "TC106",
       title: "Contrasting (don't/do)",
-      summary: '"I\'m not saying [what they fear]. I do want [your real aim]."',
+      summary:
+        "When your intent is misread, say what you don't mean, then what you do mean.",
       loaded: true,
       impact: "medium",
       difficulty: "Easy-Medium",
@@ -117,14 +118,6 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       difficulty: "Easy-Medium",
     },
     {
-      id: "TC012",
-      title: "Full-attention signal",
-      summary: 'Phone away, body toward them, and: "Go on, I\'m with you."',
-      loaded: true,
-      impact: "high",
-      difficulty: "Easy",
-    },
-    {
       id: "TC013",
       title: "Clean request",
       summary: 'Ask for the exact action and timeframe: "Could you do X by Y?"',
@@ -139,15 +132,6 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
         'Say "That\'s a fair concern" and name the concern out loud before you respond.',
       loaded: true,
       impact: "high",
-      difficulty: "Medium",
-    },
-    {
-      id: "TC015",
-      title: "Premature advice restraint",
-      summary:
-        "Reflect once, then ask whether they want ideas or just to be heard.",
-      loaded: true,
-      impact: "medium",
       difficulty: "Medium",
     },
     {
@@ -370,7 +354,7 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       id: "TC102",
       title: "Positive no (Yes! No. Yes?)",
       summary:
-        '"I want to [protect X], so I can\'t [request]. What I can do is [alternative]."',
+        "Name what you're protecting, say no plainly, then offer a genuine way forward.",
       loaded: true,
       impact: "high",
       difficulty: "Medium",
@@ -431,6 +415,24 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       difficulty: "Easy-Medium",
     },
     {
+      id: "TC007",
+      title: "No one-upping discipline",
+      summary:
+        'Before saying "me too", ask one more question about their story.',
+      loaded: true,
+      impact: "low",
+      difficulty: "Medium",
+    },
+    {
+      id: "TC009",
+      title: "Anti-boomerasking discipline",
+      summary:
+        "Ask one real follow-up or reflect before sharing your related story.",
+      loaded: true,
+      impact: "low",
+      difficulty: "Medium",
+    },
+    {
       id: "TC010",
       title: "Warm presence",
       summary:
@@ -438,6 +440,23 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       loaded: true,
       impact: "high",
       difficulty: "Easy-Medium",
+    },
+    {
+      id: "TC012",
+      title: "Full-attention signal",
+      summary: 'Phone away, body toward them, and: "Go on, I\'m with you."',
+      loaded: true,
+      impact: "high",
+      difficulty: "Easy",
+    },
+    {
+      id: "TC015",
+      title: "Premature advice restraint",
+      summary:
+        "Reflect once, then ask whether they want ideas or just to be heard.",
+      loaded: true,
+      impact: "medium",
+      difficulty: "Medium",
     },
     {
       id: "TC016",
@@ -793,7 +812,7 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       id: "TC104",
       title: "Soft start-up",
       summary:
-        '"I\'m feeling [emotion] about [situation]. Could we [positive request]?"',
+        "Name one feeling and the specific situation, then ask for what you need, positively.",
       loaded: true,
       impact: "high",
       difficulty: "Easy-Medium",
@@ -802,7 +821,7 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       id: "TC108",
       title: "Graceful exit",
       summary:
-        "\"I've really enjoyed this. I'll let you get on, and I hope the move goes well.\"",
+        "At a natural pause, say you're heading off, appreciate one detail, then go.",
       loaded: true,
       impact: "medium",
       difficulty: "Easy",
@@ -810,7 +829,8 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
     {
       id: "TC109",
       title: "Looping for understanding",
-      summary: '"So the main thing for you is [X]. Did I get that right?"',
+      summary:
+        "Say back what matters most to them in your own words, then ask if you got it right.",
       loaded: true,
       impact: "high",
       difficulty: "Medium",
@@ -818,27 +838,9 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
   ],
   "Resilience / Recovery": [
     {
-      id: "TC007",
-      title: "No one-upping discipline",
-      summary:
-        'Before saying "me too", ask one more question about their story.',
-      loaded: true,
-      impact: "low",
-      difficulty: "Medium",
-    },
-    {
       id: "TC008",
       title: "No-overexplaining discipline",
       summary: "Make the point once, give one reason, then pause.",
-      loaded: true,
-      impact: "low",
-      difficulty: "Medium",
-    },
-    {
-      id: "TC009",
-      title: "Anti-boomerasking discipline",
-      summary:
-        "Ask one real follow-up or reflect before sharing your related story.",
       loaded: true,
       impact: "low",
       difficulty: "Medium",
@@ -945,7 +947,7 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       id: "TC101",
       title: "Effective apology",
       summary:
-        "\"I'm sorry. I [did X], and that's on me. Here's how I'll fix it.\" Then let them talk.",
+        "Say sorry, name exactly what you did, offer one concrete fix, then stop and listen.",
       loaded: true,
       impact: "high",
       difficulty: "Medium",
@@ -954,7 +956,7 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       id: "TC103",
       title: "Receive feedback well",
       summary:
-        '"Thanks for telling me. Can you give me an example?" Then listen without defending.',
+        "Thank them, ask for one example, and listen before you explain or defend.",
       loaded: true,
       impact: "high",
       difficulty: "Medium",
@@ -963,7 +965,7 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       id: "TC105",
       title: "Take a break, then repair",
       summary:
-        '"I\'m getting too worked up to listen. Can we take twenty minutes and come back?"',
+        "Say you're too worked up to listen, ask for a break and say when you'll come back.",
       loaded: true,
       impact: "high",
       difficulty: "Medium",
@@ -972,7 +974,7 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       id: "TC107",
       title: "Fogging and broken record",
       summary:
-        '"You may be right. And my answer is still no." Said calmly, as often as needed.',
+        "Calmly agree with whatever is true, then repeat your short position in the same words.",
       loaded: true,
       impact: "medium",
       difficulty: "Medium",

@@ -2,6 +2,7 @@ import { X } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { CardBlock, MarkedList, Surface } from "./card-ui";
 import { FORMULA_LABEL } from "./card-sections";
+import { CardRefText } from "./card-ref-text";
 
 /** Chips suit short entries; a card's longer ones read better as a list. */
 const CHIP_MAX_CHARS = 44;
@@ -53,6 +54,9 @@ export function SkipWhenSection({ cardData }: { cardData: CardData }) {
       <Surface data-testid="skip-when">
         <MarkedList
           items={cardData.notFor}
+          renderItem={(item) => (
+            <CardRefText text={item} selfId={cardData.id} />
+          )}
           mark={
             <X className="w-4 h-4" style={{ color: "var(--accent-red)" }} />
           }

@@ -23,7 +23,7 @@ export function DrillRecall({ move, shown, onShow }: DrillRecallProps) {
         role="status"
         aria-live="polite"
         data-testid="drill-recall"
-        className="font-serif text-[17px] leading-[1.4]"
+        className="phrase-text text-[17px] leading-[1.4]"
         style={{ color: "var(--fg-90)" }}
       >
         {move}

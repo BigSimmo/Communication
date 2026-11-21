@@ -18,6 +18,7 @@ import { useTheme } from "@/lib/theme";
 import { usePdf } from "@/lib/pdf-context";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
+import { useHeaderTitleShown } from "@/lib/page-title";
 // Lazily loaded — global search builds its cached aggregate index only after a
 // user enters a query.
 const SearchModal = lazy(() =>
@@ -122,6 +123,15 @@ export function AppHeader() {
   // scroll up or near the top. The shared hook clamps iOS
   // overscroll so rubber banding can't make the header flicker.
   const scrollingDown = useScrollDirection(56, 10, location) === "down";
+  // iOS large-title pattern: while the page's own big title is on screen the
+  // header leaves the name out, then fades it in once that title scrolls
+  // away. Pages without one (the Library) keep the header title throughout.
+  const { hasPageTitle, shown: titleShown } = useHeaderTitleShown();
+  const titleFade: React.CSSProperties = {
+    opacity: titleShown ? 1 : 0,
+    transform: titleShown ? "none" : "translateY(4px)",
+    transition: "opacity 180ms ease, transform 180ms ease",
+  };
 
   const cardId = location.startsWith("/card/")
     ? location.replace("/card/", "").split("?")[0]
@@ -255,13 +265,17 @@ export function AppHeader() {
                     {cardId}
                   </span>
                 )}
+                {/* Stays the page h1 for assistive tech; drawn only once the
+                    card's own large title has scrolled away */}
                 <h1
                   className="font-bold leading-tight truncate"
                   style={{
                     color: "var(--fg-90)",
                     fontSize: 15.5,
+                    ...titleFade,
                   }}
                   data-testid="card-title"
+                  data-title-shown={titleShown}
                 >
                   {cardMeta?.cardTitle ?? "Card not found"}
                 </h1>
@@ -329,9 +343,15 @@ export function AppHeader() {
                   />
                 </span>
                 <div className="min-w-0 leading-none">
+                  {/* The app name. From md up the sidebar already carries it */}
                   <p
-                    className="text-[11px] font-bold tracking-[0.12em] uppercase leading-none mb-[3px]"
-                    style={{ color: "var(--brand-text)" }}
+                    className="md:hidden text-[11px] font-bold tracking-[0.12em] uppercase leading-none mb-[3px]"
+                    style={{
+                      color: "var(--brand-text)",
+                      // Centred on the icon while the page title is away
+                      transform: titleShown ? "none" : "translateY(7px)",
+                      transition: "transform 180ms ease",
+                    }}
                     data-testid="library-subtitle"
                   >
                     TC Reference
@@ -341,8 +361,12 @@ export function AppHeader() {
                     style={{
                       color: "var(--fg-90)",
                       fontSize: 17,
+                      ...titleFade,
                     }}
+                    // The page's own h1 names it; this copy is visual only
+                    aria-hidden={hasPageTitle || undefined}
                     data-testid="library-title"
+                    data-title-shown={titleShown}
                   >
                     {pageTitle}
                   </TitleTag>

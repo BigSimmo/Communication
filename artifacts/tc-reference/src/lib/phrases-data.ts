@@ -1,53 +1,22 @@
-import {
-  CANONICAL_TONES,
-  isSpeakablePhrase,
-  inferPhraseTone,
-} from "./card-types";
+import { CANONICAL_TONES } from "./card-types";
 import type { CanonicalTone } from "./card-types";
 import { loadCardTextIndex } from "./card-text-index";
 import { LIBRARY_CATEGORIES } from "./data";
-import { tokenize } from "./search-text";
+import {
+  aggregatePhrases,
+  type AggregatedPhrase,
+  type PhraseSource,
+} from "./phrase-aggregate";
 
-/** Another card that lists the same line, with its own wording of it. */
-export interface PhraseSource {
-  cardId: string;
-  cardTitle: string;
-  text: string;
-}
-
-export interface AggregatedPhrase {
-  text: string;
-  groupId: string;
-  groupLabel: string;
-  groupTag: string;
-  tone: CanonicalTone;
-  cardId: string;
-  cardTitle: string;
-  /**
-   * Other cards that list the same line (ignoring case and punctuation). The
-   * combined bank shows it once, under the first card; each card's own phrase
-   * bank still lists it. Absent when the line is on one card only.
-   */
-  alsoOn?: ReadonlyArray<PhraseSource>;
-  /**
-   * Other tones the same line carries on the cards in alsoOn, so a tone
-   * filter still finds it. Absent when every copy has the same tone.
-   */
-  alsoTones?: ReadonlyArray<CanonicalTone>;
-}
+export {
+  phraseDedupeKey,
+  type AggregatedPhrase,
+  type PhraseSource,
+} from "./phrase-aggregate";
 
 /** Every tone a (possibly shared) line carries. */
 export function phraseTones(phrase: AggregatedPhrase): CanonicalTone[] {
   return [phrase.tone, ...(phrase.alsoTones ?? [])];
-}
-
-/**
- * The key two lines share when they say the same words, ignoring case,
- * punctuation and quote marks ("That sounds like it mattered." and "that
- * sounds like it mattered" match).
- */
-export function phraseDedupeKey(text: string): string {
-  return tokenize(text).join(" ");
 }
 
 /** The phrase and every other card it appears on, for favourite checks. */
@@ -64,6 +33,16 @@ for (const cards of Object.values(LIBRARY_CATEGORIES)) {
 }
 
 let phrasesPromise: Promise<ReadonlyArray<AggregatedPhrase>> | null = null;
+let loadedPhrases: ReadonlyArray<AggregatedPhrase> | null = null;
+
+/**
+ * The phrases if an earlier load has finished, else null. Lets a return
+ * visit render its full list on the first frame (so the browser can restore
+ * the scroll position) instead of waiting a tick for the promise.
+ */
+export function peekAllAggregatedPhrases(): ReadonlyArray<AggregatedPhrase> | null {
+  return loadedPhrases;
+}
 
 export function loadAllAggregatedPhrases(): Promise<
   ReadonlyArray<AggregatedPhrase>
@@ -71,47 +50,10 @@ export function loadAllAggregatedPhrases(): Promise<
   if (!phrasesPromise) {
     const pending = loadCardTextIndex()
       .then((cards) => {
-        const result: AggregatedPhrase[] = [];
-        // Shared stock lines are listed once, under the first card.
-        const byKey = new Map<string, AggregatedPhrase>();
-        for (const [cardId, card] of Object.entries(cards)) {
-          const cardTitle = CARD_TITLE_MAP[cardId] ?? cardId;
-          for (const group of card.phraseBank) {
-            for (const text of group.phrases) {
-              if (!isSpeakablePhrase(text)) continue;
-              const key = phraseDedupeKey(text);
-              const first = byKey.get(key);
-              if (first) {
-                const tone = inferPhraseTone(group);
-                if (tone !== first.tone && !first.alsoTones?.includes(tone)) {
-                  first.alsoTones = [...(first.alsoTones ?? []), tone];
-                }
-                if (
-                  first.cardId !== cardId &&
-                  !first.alsoOn?.some((s) => s.cardId === cardId)
-                ) {
-                  first.alsoOn = [
-                    ...(first.alsoOn ?? []),
-                    { cardId, cardTitle, text },
-                  ];
-                }
-                continue;
-              }
-              const entry: AggregatedPhrase = {
-                text,
-                groupId: group.id,
-                groupLabel: group.label,
-                groupTag: group.tag,
-                tone: inferPhraseTone(group),
-                cardId,
-                cardTitle,
-              };
-              byKey.set(key, entry);
-              result.push(entry);
-            }
-          }
-        }
-        return Object.freeze(result);
+        loadedPhrases = Object.freeze(
+          aggregatePhrases(cards, (cardId) => CARD_TITLE_MAP[cardId] ?? cardId),
+        );
+        return loadedPhrases;
       })
       .catch((error: unknown) => {
         if (phrasesPromise === pending) phrasesPromise = null;

@@ -57,6 +57,7 @@ export const TC108: CardData = {
     "Not a fake emergency.",
     "Not cutting someone off mid-story.",
     "Not a way to escape someone who needs help.",
+    "Not leaving someone who is waiting on you without saying what happens next.",
   ],
   overview: {
     coreFormula: [
@@ -67,7 +68,7 @@ export const TC108: CardData = {
       "Go. Don't linger.",
     ],
     minimumViableMove:
-      "\"I've really enjoyed this. I'll let you get on, and I hope the move goes well.\"",
+      "At a natural pause, say you're heading off, appreciate one detail, then go.",
     impact: "Medium",
     difficulty: "Easy",
     misuse:
@@ -78,11 +79,16 @@ export const TC108: CardData = {
       "Phone calls you need to finish.",
       "Moving on to speak to someone else.",
       "Ending a date or catch-up on a high.",
+      "Ending a long call with a patient, client or family member when others are waiting.",
+      "Closing a chat with a colleague during a busy shift.",
     ],
   },
   notFor: [
     "Someone is upset and needs you to stay.",
     "A serious conversation you haven't finished. Agree when to continue instead.",
+    "You're responsible for a decision or task they're waiting on. Finish it, or hand over clearly first.",
+    "They've just shared bad news. Stay with it before you go.",
+    "A goodbye that deserves time, such as the end of a long working relationship.",
   ],
   phraseBank: [
     {
@@ -95,6 +101,8 @@ export const TC108: CardData = {
         "I'm going to grab a drink. Lovely to meet you.",
         "I need to head off, but this was fun.",
         "I'll let you go. Talk soon.",
+        "I'm going to keep moving. Thanks for the chat.",
+        "I'd better get going. Lovely catching up.",
       ],
     },
     {
@@ -107,6 +115,8 @@ export const TC108: CardData = {
         "Thanks for the restaurant tip. I'll let you know how it goes.",
         "That story about your dog made my night.",
         "It was great to finally meet you after all those emails.",
+        "Thanks for sharing that. It's given me a lot to think about.",
+        "I really enjoyed hearing how the project came together.",
       ],
     },
     {
@@ -117,6 +127,9 @@ export const TC108: CardData = {
       phrases: [
         "Have you met Sam? You two should talk about cycling.",
         "I'll introduce you to Priya before I go. She's in your industry.",
+        "Have you met Jo? You'd have lots to talk about.",
+        "I'll leave you with Alex. He knows far more about this than I do.",
+        "Let me introduce you to Lee before I head off.",
       ],
     },
     {
@@ -128,6 +141,9 @@ export const TC108: CardData = {
         "I won't keep you. Shall I send you that link tomorrow?",
         "I want to say hi to a few people, but let's connect next week.",
         "I've got to jump on another call. Thanks, this was really useful.",
+        "I need to get to my next appointment. I'll email you the details this afternoon.",
+        "I'll let you get back to it. Thanks for your time today.",
+        "I'm going to wrap up here so we both stay on time.",
       ],
     },
     {
@@ -139,6 +155,33 @@ export const TC108: CardData = {
         "I'll let you go. Thanks for calling.",
         "I need to run, but it was so good to hear your voice.",
         "Let's pick this up on the weekend. Talk then.",
+        "I'm going to have to go, but I'll call you back tomorrow at ten.",
+        "I'll let you get on with your evening. Thanks for ringing.",
+        "I need to finish up, but I'm glad you called.",
+      ],
+    },
+    {
+      id: "care-settings",
+      label: "Patients, clients and families",
+      tag: "Closing kindly when others are waiting",
+      tone: "Professional",
+      phrases: [
+        "I need to see someone else now. Before I go, is there anything we haven't covered that can't wait?",
+        "I'm going to finish up here. Thanks for talking it through with me. The team know how to reach me.",
+        "I have to head off, but I'll be back this afternoon. If you think of something, jot it down.",
+        "Thanks for your patience today. I'll let you rest now.",
+        "I'm going to wrap up our call there. You'll get the letter by Friday, and you can ring the main number if anything changes.",
+      ],
+    },
+    {
+      id: "in-writing",
+      label: "Ending a thread",
+      tag: "Messages and email",
+      tone: "Quick",
+      phrases: [
+        "Thanks, that's everything I needed. Have a good weekend.",
+        "Great, I'll leave it there for now. Talk next week.",
+        "I'll sign off here. Thanks for the quick replies.",
       ],
     },
   ],
@@ -168,6 +211,13 @@ export const TC108: CardData = {
       action: "Stay or check in before you go.",
       phrase: "Before I go, are you okay?",
     },
+    {
+      condition: "Others are waiting for you",
+      action:
+        "Check nothing urgent is left, then close and say what happens next.",
+      phrase:
+        "Before I go, is there anything that can't wait until this afternoon?",
+    },
   ],
   ladder: [
     {
@@ -184,6 +234,11 @@ export const TC108: CardData = {
       weak: '"Let\'s catch up soon!" (never meant)',
       better: '"See you around."',
       best: '"Great to see you. Enjoy the rest of the night."',
+    },
+    {
+      weak: '"Sorry, I really have to run." (already turning away)',
+      better: '"I\'ve got to go, sorry."',
+      best: '"I need to see someone else now. Thanks for telling me that. I\'ll be back after lunch."',
     },
   ],
   scenarios: [
@@ -207,6 +262,18 @@ export const TC108: CardData = {
       move: "Leave on a high.",
       phrase: "\"I've had a really good time. I'd like to do this again.\"",
     },
+    {
+      situation: "A long call with a family member when others are waiting",
+      move: "Check for anything urgent, close warmly, give the next step.",
+      phrase:
+        "\"I'm going to wrap up our call there. Thanks for filling me in. I'll ring you tomorrow with the update.\"",
+    },
+    {
+      situation: "A colleague chatting during a busy shift",
+      move: "Kind and brief, with a later thread.",
+      phrase:
+        '"I\'d love to hear the rest. I need to get back to it now. Tell me at lunch?"',
+    },
   ],
   calibration: {
     working: [
@@ -214,12 +281,17 @@ export const TC108: CardData = {
       "They take the thread you offered.",
       "You leave feeling good.",
       "They seem relieved too.",
+      "Nobody is left unsure what happens next.",
+      "They're happy to talk to you again.",
     ],
     adjust: [
       "They look hurt: you may have cut in too soon.",
       "They keep talking: repeat the close and move.",
       "You're lingering: say it and go.",
       "Your thread wasn't genuine: drop it next time.",
+      "They start something new as you leave: name a later time.",
+      "They look unsettled: check in before you go.",
+      "You leave with open jobs from the chat: send a quick follow-up.",
     ],
   },
   drill: [
@@ -265,6 +337,7 @@ export const TC108: CardData = {
     "Did I appreciate something specific?",
     "Was any follow-up genuine?",
     "Did I actually leave?",
+    "Did they know what happens next?",
   ],
   example: {
     without: [
@@ -279,6 +352,7 @@ export const TC108: CardData = {
       "A: Thanks, good to meet you.",
       "B: You too. I'll send you that podcast.",
     ],
+    note: "In the second version the exit comes at a pause, names something specific and offers a real follow-up, so both people leave on a good note.",
   },
   influencePayoff: {
     feeling: '"That was a nice chat, and they left on a high."',
@@ -347,6 +421,35 @@ export const TC108: CardData = {
     "Long pauses",
     "You need to be somewhere",
     "Someone else is waiting to talk to them",
+    "You keep glancing at the clock",
+  ],
+  depthDial: [
+    {
+      depth: "Light exit",
+      useWhen: "a casual chat that has run its course",
+      phrase: "Lovely to chat. I'll let you get on.",
+    },
+    {
+      depth: "Warm exit",
+      useWhen: "you want to leave a good last impression",
+      phrase: "I've really enjoyed this. Good luck with the move.",
+    },
+    {
+      depth: "Exit with a thread",
+      useWhen: "you genuinely want to follow up",
+      phrase: "Let's pick this up next week. I'll send you a time.",
+    },
+    {
+      depth: "Firm repeat",
+      useWhen: "they keep talking after your first close",
+      phrase: "I really do need to go now. Take care.",
+    },
+    {
+      depth: "Hold the exit",
+      useWhen: "they seem upset or something important comes up",
+      phrase:
+        "Actually, that sounds important. I've got a few more minutes. Tell me.",
+    },
   ],
   commonMistakes: [
     {
@@ -369,11 +472,30 @@ export const TC108: CardData = {
       soundsLike: "Saying bye, then staying ten minutes.",
       better: "Say it, then go.",
     },
+    {
+      mistake: "No next step",
+      soundsLike: "Leaving a patient or client unsure when they'll hear back.",
+      better: '"I\'ll ring you tomorrow with the update."',
+    },
+    {
+      mistake: "Over-apologising",
+      soundsLike: '"Sorry, sorry, I\'m so sorry, I have to go."',
+      better: '"I need to head off. Thanks for this."',
+    },
+    {
+      mistake: "Leaving when they need you",
+      soundsLike: "Closing just after they've shared bad news.",
+      better: "Stay a little longer, or set a time to come back.",
+    },
   ],
   recoveryPhrases: [
     "Sorry, I cut you off. Finish your story, then I'll head off.",
     "That was abrupt of me. It really was great to chat.",
     "I said I'd message you. Here's that link.",
+    "I left that a bit suddenly earlier. I'm sorry. I'd like to hear the rest.",
+    "I said I'd call you back and didn't. I'm sorry. Is now a good time?",
+    "I didn't tell you what happens next before I left. Here's the plan.",
+    "I rushed off. Thanks for your patience. Is there anything you still need?",
   ],
   bestRecoveryLine:
     "Sorry, I cut you off. Finish your story, then I'll head off.",
@@ -386,6 +508,22 @@ export const TC108: CardData = {
         '"I\'ll leave you two to it. Great to meet you."',
       ],
     },
+    {
+      label: "Summary check, then graceful exit",
+      sequence: "Sum up what you agreed, then close.",
+      example: [
+        "\"So you'll send the form, and I'll ring on Friday. Is that right?\"",
+        '"Great. I\'ll let you get on. Thanks for your time."',
+      ],
+    },
+    {
+      label: "Conversation bookmarking, then graceful exit",
+      sequence: "Park the unfinished topic with a time, then go.",
+      example: [
+        '"I\'d love to hear more about that. Can we pick it up on Thursday?"',
+        '"Lovely to see you. Talk then."',
+      ],
+    },
   ],
   relatedTechniques: [
     {
@@ -395,6 +533,24 @@ export const TC108: CardData = {
     {
       id: "TC107",
       reason: "With pushy people, fog and exit politely.",
+    },
+    {
+      id: "TC011",
+      reason: "Sum up what you've agreed before you close.",
+    },
+    {
+      id: "TC065",
+      reason: "Park an unfinished topic with a time to come back to it.",
+    },
+    {
+      id: "TC105",
+      reason:
+        "If the talk is heated rather than finished, take a break with a return time instead.",
+    },
+    {
+      id: "TC010",
+      reason:
+        "Keep the last moment warm and unhurried, even when you're leaving.",
     },
   ],
 };

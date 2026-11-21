@@ -8,6 +8,7 @@ import {
   loadDrillState,
 } from "@/lib/drill-state";
 import { CardBlock, EYEBROW, Meta, NumberDisc, Surface } from "./card-ui";
+import { CardRefText } from "./card-ref-text";
 
 /**
  * Where Daily Drill is with this card, if this is the card it is on. The
@@ -90,7 +91,7 @@ export function PracticeSection({
             className="text-[15px] leading-[1.45]"
             style={{ color: "var(--fg-80)" }}
           >
-            {today.task}
+            <CardRefText text={today.task} selfId={cardData.id} />
           </span>
         </div>
         {place.inDrill && (
@@ -134,7 +135,7 @@ export function PracticeSection({
                   className="text-[14px] leading-[1.45]"
                   style={{ color: "var(--fg-70)" }}
                 >
-                  {d.task}
+                  <CardRefText text={d.task} selfId={cardData.id} />
                 </span>
               </span>
             </li>

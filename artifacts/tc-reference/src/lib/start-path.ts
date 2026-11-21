@@ -1,6 +1,6 @@
 // Progress through the "Start here" path: which of the core cards the reader
-// has opened. Device-local and non-essential, like recent cards, so it is not
-// part of the backup file.
+// has opened. Small and optional, but it is the reader's progress, so it
+// travels in the backup file (see BACKUP_KEYS) along with the welcome flag.
 import { CORE_CARD_IDS, CORE_CARD_SET } from "./data";
 
 const OPENED_KEY = "tc_start_opened";

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { Share, ShieldCheck, X } from "lucide-react";
 import { useUpdateAvailable } from "@/lib/sw-update";
-import { downloadBackup } from "@/lib/backup";
+import { saveBackup } from "@/lib/backup";
 import {
   hasUserData,
   isBackupReminderDue,
@@ -154,9 +154,9 @@ export function DataSafetyNudge() {
               <>
                 <button
                   type="button"
-                  onClick={() => {
-                    downloadBackup();
-                    setClosed(true);
+                  onClick={async () => {
+                    // Closing the share sheet keeps the reminder up.
+                    if ((await saveBackup()) === "saved") setClosed(true);
                   }}
                   className="min-h-[44px] px-4 text-sm font-semibold rounded-lg"
                   style={{

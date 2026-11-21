@@ -56,6 +56,7 @@ export const TC105: CardData = {
     'Not "calm down" said to the other person.',
     "Not a way to avoid the topic for good.",
     "Not time to stew over how wrong they are.",
+    "Not punishing the other person with silence.",
   ],
   overview: {
     coreFormula: [
@@ -66,7 +67,7 @@ export const TC105: CardData = {
       'Come back and repair: "I\'m sorry I got heated. Can we try again?"',
     ],
     minimumViableMove:
-      '"I\'m getting too worked up to listen properly. Can we take twenty minutes and come back to this?"',
+      "Say you're too worked up to listen, ask for a break and say when you'll come back.",
     impact: "High",
     difficulty: "Medium",
     misuse:
@@ -76,12 +77,16 @@ export const TC105: CardData = {
       "A family conversation is going round in circles.",
       "You can feel yourself about to say something you'd regret.",
       "Both of you are raising your voices.",
+      "A tense conversation with a colleague that's getting heated.",
+      "Noticing you're getting sharp at the end of a long shift.",
     ],
   },
   notFor: [
     "You are unsafe. Leave and get help rather than negotiating a break.",
     "A quick practical decision that has to be made now.",
     "When the other person has asked you not to leave mid-talk. Agree a break rule together in a calm moment.",
+    "Using breaks to avoid every hard topic. If it keeps happening, talk about the pattern.",
+    "Formal meetings with a set agenda. Ask the chair for a short adjournment instead.",
   ],
   phraseBank: [
     {
@@ -94,6 +99,8 @@ export const TC105: CardData = {
         "Can we pause? I'm getting too heated.",
         "Let's take twenty minutes and come back.",
         "I want to get this right. Can I have a break?",
+        "I'm too wound up to think straight. Can I have ten minutes?",
+        "Let me step away for a moment. I'll be back.",
       ],
     },
     {
@@ -106,6 +113,8 @@ export const TC105: CardData = {
         "Can we pick this up after dinner?",
         "I'll be back in twenty minutes. This matters to me.",
         "Let's talk again tonight once we've both cooled off.",
+        "Can we come back to this at two, once I've had a breather?",
+        "I'll ring you back in half an hour so we can finish this properly.",
       ],
     },
     {
@@ -132,6 +141,8 @@ export const TC105: CardData = {
         "I'm sorry I raised my voice.",
         "I've been thinking about what you said, and you've got a point.",
         "Can I hear your side again? I wasn't really listening before.",
+        "I've had time to think. Can we start with what matters most to you?",
+        "Thanks for giving me a moment. I'm ready to listen now.",
       ],
     },
     {
@@ -143,6 +154,32 @@ export const TC105: CardData = {
         "Can we agree a signal for when one of us needs a break?",
         'If either of us says "pause", let\'s take twenty minutes.',
         "Let's promise to always come back to it the same day.",
+        "Can we agree that either of us can call a pause, as long as we say when we'll come back?",
+        "Next time it gets heated, let's take a breather and pick it up the same day.",
+      ],
+    },
+    {
+      id: "work",
+      label: "At work",
+      tag: "Meetings, colleagues and long shifts",
+      tone: "Professional",
+      phrases: [
+        "I'd like to pause this and come back after lunch with a clearer head.",
+        "Can we take a short break? I want to give this proper thought.",
+        "I'm not at my best right now. Could we pick this up at the start of tomorrow's shift?",
+        "Let's take five minutes and then look at the options again.",
+        "I've realised I'm getting frustrated, and that's not helping. Can we reset in ten minutes?",
+      ],
+    },
+    {
+      id: "in-writing",
+      label: "Messages and calls",
+      tag: "When the heat is in a thread",
+      tone: "Quick",
+      phrases: [
+        "I want to reply properly, not quickly. I'll get back to you this afternoon.",
+        "I'm going to step away from this thread for an hour and come back with a clear reply.",
+        "Can we finish this on a call tomorrow? It's getting tangled by text.",
       ],
     },
   ],
@@ -172,6 +209,12 @@ export const TC105: CardData = {
       action: "Try a different one, more gently.",
       phrase: "I'm sorry. Can we start again?",
     },
+    {
+      condition: "You're at work and can't leave",
+      action:
+        "Take a micro-pause: slow your breathing and voice, then continue or hand over.",
+      phrase: "Give me a moment. I want to answer this properly.",
+    },
   ],
   ladder: [
     {
@@ -188,6 +231,11 @@ export const TC105: CardData = {
       weak: '"Fine, whatever."',
       better: '"Let\'s stop."',
       best: "\"Let's pause. I want to hear you properly, and I can't right now.\"",
+    },
+    {
+      weak: '"I can\'t deal with you right now."',
+      better: '"I need a minute."',
+      best: "\"I'm getting frustrated and I don't want that to come out on you. Can we pick this up in ten minutes?\"",
     },
   ],
   scenarios: [
@@ -215,6 +263,18 @@ export const TC105: CardData = {
       phrase:
         '"Thanks for the break. I\'m sorry I got loud. Can I hear your side again?"',
     },
+    {
+      situation: "A heated disagreement with a colleague",
+      move: "Name it about you and set a return time.",
+      phrase:
+        '"I\'m getting worked up, and I want to get this right. Can we talk again after lunch?"',
+    },
+    {
+      situation: "A tense text thread",
+      move: "Stop replying fast and say when you'll answer.",
+      phrase:
+        "\"I'd rather reply properly than quickly. I'll message you back tonight.\"",
+    },
   ],
   calibration: {
     working: [
@@ -222,12 +282,17 @@ export const TC105: CardData = {
       "Voices drop and you can listen.",
       "The topic gets resolved, not buried.",
       "Breaks become shorter and easier over time.",
+      "You return with something new to say, not the same argument.",
+      "The other person trusts the break because you came back last time.",
     ],
     adjust: [
       "They feel abandoned: give a clear return time.",
       "You spent the break rehearsing: do something unrelated next time.",
       "The issue keeps getting dropped: put a time on picking it up.",
       "Breaks happen every conversation: look at how the talks start (TC104).",
+      "They follow you or keep talking: say again when you'll be back.",
+      "You can't leave the room: slow your breathing and voice instead.",
+      "The break turned into avoiding the topic: set a time and keep it.",
     ],
   },
   drill: [
@@ -273,6 +338,7 @@ export const TC105: CardData = {
     "Did I do something soothing, not stew?",
     "Did I come back?",
     "Did I open with a repair?",
+    "Did I come back at the time I said?",
   ],
   example: {
     without: [
@@ -287,6 +353,7 @@ export const TC105: CardData = {
       "A: Fine.",
       "B: (Twenty minutes later) Thanks for waiting. I'm sorry I raised my voice. Can I hear your side again?",
     ],
+    note: "In the second version the break is about B's own state, comes with a time, and ends in a repair, so it reads as care rather than an exit.",
   },
   influencePayoff: {
     feeling: '"They didn\'t walk out on me. They came back."',
@@ -362,6 +429,30 @@ export const TC105: CardData = {
     "Going round in circles",
     "Someone crying or shutting down",
   ],
+  depthDial: [
+    {
+      depth: "Micro-pause",
+      useWhen: "you feel the heat rising but can still listen",
+      phrase: "Hang on, let me take a breath before I answer.",
+    },
+    {
+      depth: "Short break",
+      useWhen: "voices are rising or you're going round in circles",
+      phrase: "Let's take twenty minutes and come back to this at four.",
+    },
+    {
+      depth: "Longer break",
+      useWhen: "you're both exhausted or it's late",
+      phrase:
+        "We're both tired. Can we sit down tomorrow morning and finish this?",
+    },
+    {
+      depth: "Agreed rule",
+      useWhen: "breaks keep happening with the same person",
+      phrase:
+        "Can we agree a signal for when one of us needs a pause, and a time to come back?",
+    },
+  ],
   commonMistakes: [
     {
       mistake: '"Calm down"',
@@ -383,11 +474,30 @@ export const TC105: CardData = {
       soundsLike: "The topic quietly disappears.",
       better: '"Can we finish what we started earlier?"',
     },
+    {
+      mistake: "Making the break about them",
+      soundsLike: '"You need to calm down. Let\'s take a break."',
+      better: "\"I'm getting heated. Let's take a break.\"",
+    },
+    {
+      mistake: "Too short a break",
+      soundsLike: "Coming back after two minutes, still wound up.",
+      better: "Give it at least twenty minutes if you can.",
+    },
+    {
+      mistake: "Leaving on a hurtful line",
+      soundsLike: "Walking off straight after saying something cutting.",
+      better: 'Repair first: "That came out wrong. I need a break."',
+    },
   ],
   recoveryPhrases: [
     "I walked off without saying when I'd be back. I'm sorry. Can we talk now?",
     "I told you to calm down, and that wasn't fair.",
     "I'm back. I want to understand your side.",
+    "I said I'd be back in twenty minutes and it's been two hours. I'm sorry. Can we talk now?",
+    "I told you to calm down when it was me who needed to. Sorry.",
+    "I left in a way that felt like a slammed door. That wasn't fair. I'm ready to listen.",
+    "I came back still wound up. Can we try again after dinner?",
   ],
   bestRecoveryLine:
     "I walked off without saying when I'd be back. I'm sorry. Can we talk now?",
@@ -409,6 +519,23 @@ export const TC105: CardData = {
         '"So the main thing is you felt dismissed. Is that right?"',
       ],
     },
+    {
+      label: "Break, then receive feedback",
+      sequence: "Come back ready to hear their side, even the hard bits.",
+      example: [
+        "\"I'm back. I'd like to hear what upset you most.\"",
+        '"Can you give me an example?"',
+      ],
+    },
+    {
+      label: "Strategic pause, then break",
+      sequence:
+        "Try a short pause first. If it's not enough, call a proper break.",
+      example: [
+        '"Give me a second."',
+        '"Actually, I need longer. Can we pick this up at four?"',
+      ],
+    },
   ],
   relatedTechniques: [
     {
@@ -422,6 +549,19 @@ export const TC105: CardData = {
     {
       id: "TC109",
       reason: "Loop their view back once you're calm enough to listen.",
+    },
+    {
+      id: "TC031",
+      reason: "When you can't leave, slow your pace and voice instead.",
+    },
+    {
+      id: "TC103",
+      reason: "Come back ready to hear their side without defending.",
+    },
+    {
+      id: "TC035",
+      reason:
+        "For a few seconds rather than twenty minutes, use a strategic pause.",
     },
   ],
 };

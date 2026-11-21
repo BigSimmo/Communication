@@ -6,6 +6,7 @@ import {
   Compass,
   Copy,
   Search,
+  ShieldAlert,
   X,
   Zap,
 } from "lucide-react";
@@ -17,6 +18,7 @@ import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { quoted } from "@/lib/utils";
 import { buttonClass } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
+import { usePageTitleRef } from "@/lib/page-title";
 
 // Help me right now: pick what is happening, then get one move, three lines
 // to say, what to do next and one thing to avoid. Built only from the light
@@ -74,6 +76,7 @@ export default function Help() {
 }
 
 function HelpPicker() {
+  const pageTitleRef = usePageTitleRef<HTMLHeadingElement>();
   const { openSearch } = useNav();
   return (
     <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-4 md:pt-6 pb-8">
@@ -82,6 +85,7 @@ function HelpPicker() {
         In the moment
       </Eyebrow>
       <h1
+        ref={pageTitleRef}
         className="mt-1.5 text-[28px] font-bold leading-tight tracking-tight"
         style={{ color: "var(--fg-90)" }}
       >
@@ -94,7 +98,12 @@ function HelpPicker() {
         data-testid="help-situations"
       >
         {SITUATIONS.map((s) => (
-          <li key={s.id} className="flex">
+          <li
+            key={s.id}
+            // A safety situation spans the row so it stands apart and its
+            // longer label fits.
+            className={s.safetyNote ? "flex col-span-2" : "flex"}
+          >
             <Link
               href={`/help/${s.id}`}
               data-testid={`help-situation-${s.id}`}
@@ -148,6 +157,7 @@ function HelpPicker() {
 }
 
 function HelpAnswer({ situation }: { situation: Situation }) {
+  const pageTitleRef = usePageTitleRef<HTMLHeadingElement>();
   const { copied, copy } = useCopyFeedback(1800);
   const lead = CARD_BY_ID.get(situation.leadCardId);
   const next = CARD_BY_ID.get(situation.followOn.cardId);
@@ -158,11 +168,45 @@ function HelpAnswer({ situation }: { situation: Situation }) {
       <BackLink href="/help" label="All situations" />
 
       <h1
+        ref={pageTitleRef}
         className="mt-2 text-[26px] font-bold leading-tight tracking-tight"
         style={{ color: "var(--fg-90)" }}
       >
         {situation.label}
       </h1>
+
+      {situation.safetyNote && (
+        <section
+          aria-labelledby="help-safety"
+          className="mt-4 rounded-2xl p-4 flex flex-col gap-1.5"
+          style={{
+            background:
+              "color-mix(in srgb, var(--accent-red) 8%, var(--surface-card))",
+            border:
+              "1px solid color-mix(in srgb, var(--accent-red) 30%, transparent)",
+          }}
+          data-testid="help-safety"
+        >
+          <h2
+            id="help-safety"
+            className="flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.08em]"
+            style={{ color: "var(--fg-70)" }}
+          >
+            <ShieldAlert
+              className="w-3.5 h-3.5"
+              style={{ color: "var(--accent-red)" }}
+              aria-hidden="true"
+            />
+            Safety first
+          </h2>
+          <p
+            className="text-[16px] font-semibold leading-[1.45]"
+            style={{ color: "var(--fg-90)" }}
+          >
+            {situation.safetyNote}
+          </p>
+        </section>
+      )}
 
       {/* Do this first: the lead technique's one-line move */}
       <section

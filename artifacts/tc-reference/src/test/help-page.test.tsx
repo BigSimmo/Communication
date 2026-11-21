@@ -32,7 +32,7 @@ beforeEach(() => {
 });
 
 describe("Help me right now", () => {
-  it("lists all eight situations, each linking to its answer", () => {
+  it("lists all nine situations, each linking to its answer", () => {
     renderAt("/help");
     expect(
       screen.getByRole("heading", { level: 1, name: "What's happening?" }),

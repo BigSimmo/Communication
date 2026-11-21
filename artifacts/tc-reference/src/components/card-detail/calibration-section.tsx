@@ -1,15 +1,18 @@
 import { Check, X } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { CardBlock, Label, Surface } from "./card-ui";
+import { CardRefText } from "./card-ref-text";
 
 function Signals({
   title,
   items,
   good,
+  selfId,
 }: {
   title: string;
   items: string[];
   good: boolean;
+  selfId: string;
 }) {
   const color = good ? "var(--accent-green)" : "var(--accent-red)";
   return (
@@ -29,7 +32,7 @@ function Signals({
             className="text-[14px] leading-[1.45]"
             style={{ color: "var(--fg-85)" }}
           >
-            {item}
+            <CardRefText text={item} selfId={selfId} />
           </li>
         ))}
       </ul>
@@ -47,11 +50,17 @@ export function CalibrationSection({ cardData }: { cardData: CardData }) {
         className="grid grid-cols-1 sm:grid-cols-2 gap-2.5"
         data-testid="signals"
       >
-        <Signals title="Keep going" items={cardData.calibration.working} good />
+        <Signals
+          title="Keep going"
+          items={cardData.calibration.working}
+          good
+          selfId={cardData.id}
+        />
         <Signals
           title="Ease off"
           items={cardData.calibration.adjust}
           good={false}
+          selfId={cardData.id}
         />
       </div>
     </CardBlock>

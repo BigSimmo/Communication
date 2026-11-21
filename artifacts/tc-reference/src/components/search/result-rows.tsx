@@ -145,7 +145,7 @@ export function PhraseRow({
       >
         <span className="flex-1 min-w-0 flex flex-col gap-1">
           <span
-            className="phrase-text font-serif text-[18px] leading-[1.35]"
+            className="phrase-text text-[17px] leading-[1.35]"
             style={{ color: "var(--fg-90)" }}
           >
             <Highlighted text={phrase.text} {...highlight} />
@@ -269,7 +269,7 @@ export function BestTechnique({
             style={{ background: "var(--fg-06)" }}
           >
             <span
-              className="phrase-text flex-1 min-w-0 font-serif text-[18px] leading-[1.35]"
+              className="phrase-text flex-1 min-w-0 text-[17px] leading-[1.35]"
               style={{ color: "var(--fg-90)" }}
             >
               {quoted(phrase.text)}

@@ -196,16 +196,39 @@ export async function saveImage(
     ? navigator
     : undefined,
 ): Promise<ShareOutcome> {
+  return saveFile(blob, fileName, "image/png", nav);
+}
+
+/**
+ * Hand a file to the share sheet where files can be shared (on iPhone that
+ * offers Save to Files, which works from a Home Screen app where a download
+ * link may not), otherwise download it through a link. "shared" means the
+ * share sheet finished or the download started; closing the share sheet is
+ * "cancelled".
+ */
+export async function saveFile(
+  blob: Blob,
+  fileName: string,
+  type: string,
+  nav: Navigator | undefined = typeof navigator !== "undefined"
+    ? navigator
+    : undefined,
+  options: { shareOnlyOnIos?: boolean } = {},
+): Promise<ShareOutcome> {
   const file =
-    typeof File === "function"
-      ? new File([blob], fileName, { type: "image/png" })
-      : null;
-  if (file && nav?.share && nav.canShare?.({ files: [file] })) {
+    typeof File === "function" ? new File([blob], fileName, { type }) : null;
+  // Android and desktop share sheets often have no "save to device" target,
+  // so a file the person needs to keep (a backup) downloads there instead.
+  const shareAllowed = !options.shareOnlyOnIos || isIosDevice(nav);
+  if (shareAllowed && file && nav?.share && nav.canShare?.({ files: [file] })) {
     try {
       await nav.share({ files: [file] });
       return "shared";
     } catch (err) {
       if (isAbort(err)) return "cancelled";
+      // The tap's user gesture is spent by now, so a download link would
+      // likely be blocked: report the failure rather than claim a save.
+      return "failed";
     }
   }
   try {
@@ -229,4 +252,13 @@ export async function saveImage(
  */
 export function printTarget(win: Window = window): void {
   win.print();
+}
+
+/** iPhone, iPod or iPad (iPadOS reports a Mac with touch), any browser. */
+function isIosDevice(nav: Navigator | undefined): boolean {
+  const ua = nav?.userAgent ?? "";
+  return (
+    /iPhone|iPad|iPod/.test(ua) ||
+    (/Macintosh/.test(ua) && (nav?.maxTouchPoints ?? 0) > 1)
+  );
 }

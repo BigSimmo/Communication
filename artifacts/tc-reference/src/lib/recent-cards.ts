@@ -1,5 +1,5 @@
-// Last few technique cards the user opened, newest first. Device-local and
-// non-essential, so it is not part of the backup file.
+// Last few technique cards the user opened, newest first. Optional, and
+// included in the backup file like recent searches (see BACKUP_KEYS).
 const STORAGE_KEY = "tc_recent_cards";
 const MAX_RECENT = 6;
 const CARD_ID = /^TC\d{3}$/;

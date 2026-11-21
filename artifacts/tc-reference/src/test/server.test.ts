@@ -115,6 +115,28 @@ describe("production server (F-10, F-12)", () => {
     expect(res.headers.get("content-type")).toContain("wordprocessingml");
   });
 
+  it("sends HSTS only when the request arrived over HTTPS", async () => {
+    const plain = await fetch(`${base}/`);
+    expect(plain.headers.get("strict-transport-security")).toBeNull();
+    const viaProxy = await fetch(`${base}/assets/index-abc123.js`, {
+      headers: { "x-forwarded-proto": "https" },
+    });
+    expect(viaProxy.headers.get("strict-transport-security")).toBe(
+      "max-age=31536000; includeSubDomains",
+    );
+    const unknownRoute = await fetch(`${base}/admin`, {
+      headers: { "x-forwarded-proto": "https, http" },
+    });
+    expect(unknownRoute.status).toBe(404);
+    expect(unknownRoute.headers.get("strict-transport-security")).toBe(
+      "max-age=31536000; includeSubDomains",
+    );
+    const forwardedHttp = await fetch(`${base}/`, {
+      headers: { "x-forwarded-proto": "http" },
+    });
+    expect(forwardedHttp.headers.get("strict-transport-security")).toBeNull();
+  });
+
   it("matches only real app routes", () => {
     expect(isAppRoute("/")).toBe(true);
     expect(isAppRoute("/card/TC098")).toBe(true);

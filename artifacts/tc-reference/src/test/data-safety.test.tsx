@@ -82,6 +82,7 @@ describe("data-safety state", () => {
 
   it("stays out of backups, so a restored phone starts fresh", () => {
     expect(BACKUP_KEY_LIST).not.toContain(DATA_SAFETY_STORAGE_KEY);
+    expect(BACKUP_KEY_LIST).not.toContain("tc_restore_snapshot");
   });
 
   it("only counts real saved data", () => {
@@ -249,7 +250,7 @@ describe("DataSafetyNudge", () => {
 });
 
 describe("BackupSection last-backup line", () => {
-  it("records the export time and shows it", () => {
+  it("records the export time and shows it", async () => {
     URL.createObjectURL = vi.fn().mockReturnValue("blob:x");
     URL.revokeObjectURL = vi.fn();
     vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
@@ -257,7 +258,9 @@ describe("BackupSection last-backup line", () => {
     expect(screen.getByTestId("backup-last")).toHaveTextContent(
       "No backup exported from this device yet.",
     );
-    fireEvent.click(screen.getByRole("button", { name: "Export backup" }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Export backup" }));
+    });
     expect(loadDataSafety().lastBackupAt).not.toBeNull();
     expect(screen.getByTestId("backup-last")).toHaveTextContent(
       "Last backup on this device:",

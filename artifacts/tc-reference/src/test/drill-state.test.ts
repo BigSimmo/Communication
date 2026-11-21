@@ -19,7 +19,9 @@ import {
   updateSRS,
   type CardSRS,
   type DrillState,
+  MAX_INTERVAL_DAYS,
 } from "../lib/drill-state";
+import { shortGapLabel } from "../lib/drill-view";
 
 const DRILL_KEY = "tc_drill_state";
 const SRS_KEY = "tc_srs_reviews";
@@ -105,6 +107,19 @@ describe("applySM2 (SM-2 update)", () => {
     expect(intervals).toEqual([7, 18, 49, 137]);
     expect(card.repetition).toBe(4);
     expect(card.efactor).toBeCloseTo(2.9, 10);
+  });
+
+  it("never schedules a card more than about six months out", () => {
+    let card = fresh();
+    for (let i = 0; i < 8; i++) card = applySM2(card, 5);
+    expect(card.interval).toBe(MAX_INTERVAL_DAYS);
+    expect(MAX_INTERVAL_DAYS).toBe(180);
+    expect(card.nextReviewDate).toBe("2026-09-06");
+    // A gap saved before the cap came in is brought back under it.
+    expect(applySM2(fresh({ repetition: 6, interval: 400 }), 5).interval).toBe(
+      180,
+    );
+    expect(shortGapLabel(card.interval)).toBe("In ~6 months");
   });
 
   it("grows a pass with difficulty by half the ease's growth", () => {

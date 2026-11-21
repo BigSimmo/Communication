@@ -32,6 +32,7 @@ import {
   StartHereShelf,
 } from "@/components/library/start-here-shelf";
 import { CategoryChips } from "@/components/library/category-chips";
+import { GroupedCardList } from "@/components/library/grouped-card-list";
 import {
   LibraryCardRow,
   type LibraryCardMeta,
@@ -729,8 +730,10 @@ export default function Library() {
                     {cards.length}
                   </span>
                 </h2>
-                <ul className="grid gap-2 lg:grid-cols-2">
-                  {cards.map((card) => (
+                <GroupedCardList
+                  category={flatCards ? null : key}
+                  cards={cards}
+                  renderCard={(card) => (
                     <LibraryCardRow
                       key={card.id}
                       card={card}
@@ -741,8 +744,8 @@ export default function Library() {
                       onOpen={openCard}
                       restoring={restoring}
                     />
-                  ))}
-                </ul>
+                  )}
+                />
               </div>
             );
           })
