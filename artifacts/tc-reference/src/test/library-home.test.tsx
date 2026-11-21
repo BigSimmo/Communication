@@ -4,6 +4,7 @@ import { useLocation } from "wouter";
 import Library from "../pages/library";
 import StartHere from "../pages/start";
 import { CORE_CARD_IDS, LIBRARY_CATEGORIES } from "../lib/data";
+import { groupCategoryCards } from "../lib/category-groups";
 import {
   markStartCardOpened,
   nextStartCard,
@@ -145,7 +146,15 @@ describe("Library home", () => {
     const chip = screen.getByTestId("category-chip-connection-warmth");
     fireEvent.click(chip);
     expect(chip).toHaveAttribute("aria-pressed", "true");
-    expect(cardIds()).toEqual(LIBRARY_CATEGORIES[category].map((c) => c.id));
+    // Shown in its named groups, each keeping the category's own order
+    expect(cardIds()).toEqual(
+      groupCategoryCards(category, LIBRARY_CATEGORIES[category]).flatMap((g) =>
+        g.cards.map((c) => c.id),
+      ),
+    );
+    expect(
+      screen.getByRole("heading", { level: 3, name: /Draw them out/ }),
+    ).toBeInTheDocument();
     fireEvent.click(chip);
     expect(screen.getByTestId("category-chip-all")).toHaveAttribute(
       "aria-pressed",

@@ -117,14 +117,6 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       difficulty: "Easy-Medium",
     },
     {
-      id: "TC012",
-      title: "Full-attention signal",
-      summary: 'Phone away, body toward them, and: "Go on, I\'m with you."',
-      loaded: true,
-      impact: "high",
-      difficulty: "Easy",
-    },
-    {
       id: "TC013",
       title: "Clean request",
       summary: 'Ask for the exact action and timeframe: "Could you do X by Y?"',
@@ -139,15 +131,6 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
         'Say "That\'s a fair concern" and name the concern out loud before you respond.',
       loaded: true,
       impact: "high",
-      difficulty: "Medium",
-    },
-    {
-      id: "TC015",
-      title: "Premature advice restraint",
-      summary:
-        "Reflect once, then ask whether they want ideas or just to be heard.",
-      loaded: true,
-      impact: "medium",
       difficulty: "Medium",
     },
     {
@@ -431,6 +414,24 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       difficulty: "Easy-Medium",
     },
     {
+      id: "TC007",
+      title: "No one-upping discipline",
+      summary:
+        'Before saying "me too", ask one more question about their story.',
+      loaded: true,
+      impact: "low",
+      difficulty: "Medium",
+    },
+    {
+      id: "TC009",
+      title: "Anti-boomerasking discipline",
+      summary:
+        "Ask one real follow-up or reflect before sharing your related story.",
+      loaded: true,
+      impact: "low",
+      difficulty: "Medium",
+    },
+    {
       id: "TC010",
       title: "Warm presence",
       summary:
@@ -438,6 +439,23 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
       loaded: true,
       impact: "high",
       difficulty: "Easy-Medium",
+    },
+    {
+      id: "TC012",
+      title: "Full-attention signal",
+      summary: 'Phone away, body toward them, and: "Go on, I\'m with you."',
+      loaded: true,
+      impact: "high",
+      difficulty: "Easy",
+    },
+    {
+      id: "TC015",
+      title: "Premature advice restraint",
+      summary:
+        "Reflect once, then ask whether they want ideas or just to be heard.",
+      loaded: true,
+      impact: "medium",
+      difficulty: "Medium",
     },
     {
       id: "TC016",
@@ -818,27 +836,9 @@ export const LIBRARY_CATEGORIES: Record<string, LibraryCard[]> = {
   ],
   "Resilience / Recovery": [
     {
-      id: "TC007",
-      title: "No one-upping discipline",
-      summary:
-        'Before saying "me too", ask one more question about their story.',
-      loaded: true,
-      impact: "low",
-      difficulty: "Medium",
-    },
-    {
       id: "TC008",
       title: "No-overexplaining discipline",
       summary: "Make the point once, give one reason, then pause.",
-      loaded: true,
-      impact: "low",
-      difficulty: "Medium",
-    },
-    {
-      id: "TC009",
-      title: "Anti-boomerasking discipline",
-      summary:
-        "Ask one real follow-up or reflect before sharing your related story.",
       loaded: true,
       impact: "low",
       difficulty: "Medium",
