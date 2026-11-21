@@ -46,7 +46,7 @@
     padding: 0 !important;
   }
   /* The desktop sidebar is hidden, so the page takes the full width */
-  .md\:pl-\[200px\] {
+  .md\:pl-\[var\(--sidebar-w\)\] {
     padding-left: 0 !important;
   }
 

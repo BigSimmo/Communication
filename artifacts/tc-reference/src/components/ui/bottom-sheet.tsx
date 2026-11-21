@@ -56,7 +56,7 @@ export function BottomSheet({
 
   return createPortal(
     <div
-      className="fixed inset-0 flex flex-col justify-end"
+      className="safe-x fixed inset-0 flex flex-col justify-end"
       style={{ zIndex: "var(--z-modal)" as unknown as number }}
     >
       <div

@@ -6,6 +6,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import { readdirSync } from "node:fs";
 import { cardTextIndexPlugin } from "./card-text-index-plugin";
 import { cardChunkListPlugin } from "./card-chunk-list-plugin";
+import { launchScreensPlugin, LAUNCH_SCREEN_DIR } from "./launch-screens";
 
 const rawPort = process.env.PORT ?? "5173";
 
@@ -54,6 +55,8 @@ export default defineConfig({
     cardTextIndexPlugin(cardsDir),
     // Lists the card chunks for "Save all cards for offline".
     cardChunkListPlugin(cardBuildId),
+    // iOS launch screens (apple-touch-startup-image links)
+    launchScreensPlugin(),
     VitePWA({
       // "prompt": a new build waits until the user accepts the update toast
       // (src/lib/sw-update.ts), which registers the worker itself.
@@ -74,7 +77,10 @@ export default defineConfig({
         dir: "ltr",
         id: ".",
         scope: ".",
-        orientation: "portrait",
+        // No orientation lock: the layout adapts to landscape and wide
+        // screens, and a lock would pin Android tablets and foldables to
+        // portrait. (iOS ignores this field.)
+        orientation: "any",
         categories: ["education", "productivity"],
         theme_color: "#0f1724",
         background_color: "#0f1724",
@@ -201,7 +207,9 @@ export default defineConfig({
         // PDF would bloat the initial install for documents most users never
         // open.
         globPatterns: ["**/*.{js,css,html,svg,png,woff2}"],
-        globIgnores: ["**/cards/**"],
+        // Launch screens are fetched by iOS at Add to Home Screen, never by
+        // the app, so precaching them would only add ~450 KB to every install.
+        globIgnores: ["**/cards/**", `**/${LAUNCH_SCREEN_DIR}/**`],
         // Keep enough headroom for non-card app-shell chunks. Individual card
         // scripts are excluded above and cached only after a card is visited.
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,

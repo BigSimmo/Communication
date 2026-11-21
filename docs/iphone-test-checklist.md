@@ -17,6 +17,9 @@ did and what you saw, and take a screenshot.
 - [ ] Tap Share, then **Add to Home Screen**. The name and icon look right.
 - [ ] Open it from the Home Screen. It opens full screen, with no Safari
       address bar.
+- [ ] While it opens, a dark screen with the TC icon shows, not a blank
+      white screen. (Delete and re-add the icon if it was added before
+      launch screens shipped: iOS reads them only when the icon is added.)
 - [ ] The top of the screen clears the notch or Dynamic Island.
 - [ ] The tab bar sits just above the home bar line and every tab is easy to
       tap.
@@ -84,7 +87,8 @@ Control Centre, or Settings > Display & Brightness > Dark.
 - [ ] Library, a card, Phrase Bank, Drill and Saved are all easy to read.
 - [ ] No white flash when the app opens.
 - [ ] The status bar text is readable against the header.
-- [ ] Switch back to light and check one screen again.
+- [ ] Switch back to light and check one screen again. From the Home
+      Screen, the status bar text (time, battery) is still readable.
 
 ## 7. Landscape (1 min)
 
