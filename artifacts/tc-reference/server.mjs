@@ -81,6 +81,19 @@ const securityHeaders = (scriptHashes) => ({
   "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
 });
 
+// HSTS only means something over HTTPS: browsers ignore it on plain http, and
+// sending it from localhost could pin a developer's machine to https. Railway
+// terminates TLS at its edge and forwards the original scheme.
+const HSTS = "max-age=31536000; includeSubDomains";
+
+/** True when the client reached us over HTTPS (directly or via the proxy). */
+export function arrivedOverHttps(req) {
+  if (req.socket?.encrypted) return true;
+  const forwarded = req.headers["x-forwarded-proto"];
+  const value = Array.isArray(forwarded) ? forwarded[0] : (forwarded ?? "");
+  return value.split(",")[0].trim().toLowerCase() === "https";
+}
+
 function setHeaders(res, pathname, headers) {
   for (const [name, value] of Object.entries(headers)) {
     res.setHeader(name, value);
@@ -124,6 +137,7 @@ export function createRequestHandler(root = defaultRoot) {
     res.end(req.method === "HEAD" ? undefined : indexHtml);
   };
   return (req, res) => {
+    if (arrivedOverHttps(req)) res.setHeader("Strict-Transport-Security", HSTS);
     req.headers["accept-encoding"] = acceptableEncodings(
       req.headers["accept-encoding"],
     );

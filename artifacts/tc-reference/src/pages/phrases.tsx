@@ -9,10 +9,12 @@ import {
   X,
   MessagesSquare,
 } from "lucide-react";
+import phraseBankSummary from "virtual:phrase-bank-summary";
 import { PageIntro } from "@/components/page-intro";
 import { Chip } from "@/components/ui/chip";
 import {
   loadAllAggregatedPhrases,
+  peekAllAggregatedPhrases,
   getAllTones,
   phraseSources,
   type AggregatedPhrase,
@@ -34,6 +36,20 @@ import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 // The bank runs to thousands of phrases; render a window and grow it on
 // demand so the page mounts and scrolls smoothly on a phone.
 const PAGE_SIZE = 120;
+// About a phone screen of rows, then the rest of the first page in batches.
+const FIRST_BATCH = 24;
+const BATCH = 32;
+
+/** Runs `fn` when the main thread is idle; returns a cancel function. */
+function whenIdle(fn: () => void): () => void {
+  if (typeof window.requestIdleCallback === "function") {
+    const id = window.requestIdleCallback(fn, { timeout: 300 });
+    return () => window.cancelIdleCallback(id);
+  }
+  // Safari has no requestIdleCallback
+  const id = window.setTimeout(fn, 16);
+  return () => window.clearTimeout(id);
+}
 
 const CARD_CATEGORY: Record<string, string> = Object.fromEntries(
   Object.entries(LIBRARY_CATEGORIES).flatMap(([category, cards]) =>
@@ -43,9 +59,18 @@ const CARD_CATEGORY: Record<string, string> = Object.fromEntries(
 
 const formatCount = (n: number) => n.toLocaleString("en-GB");
 
+const introText = (count: number) =>
+  `${formatCount(count)} lines from every technique. Pick a tone and length, then tap a line to copy it.`;
+
 export default function Phrases() {
-  const [allPhrases, setAllPhrases] =
-    useState<ReadonlyArray<AggregatedPhrase> | null>(null);
+  // A return visit has the phrases already: render them in the first frame,
+  // all at once, so the browser can restore the scroll position.
+  const [allPhrases, setAllPhrases] = useState(peekAllAggregatedPhrases);
+  // A cold load paints the first screen of rows, then adds the rest a batch
+  // per idle slot so no single render blocks input for long.
+  const [renderLimit, setRenderLimit] = useState(() =>
+    allPhrases ? Infinity : FIRST_BATCH,
+  );
   const [loadFailed, setLoadFailed] = useState(false);
   const [tone, setTone] = useState<CanonicalTone | null>(null);
   const [length, setLength] = useState<PhraseLength | null>(null);
@@ -56,6 +81,15 @@ export default function Phrases() {
   const savedPhraseCount = favState.phrases.length;
 
   useEffect(() => {
+    if (!allPhrases || renderLimit >= PAGE_SIZE) return;
+    return whenIdle(() =>
+      setRenderLimit((n) => (n + BATCH >= PAGE_SIZE ? Infinity : n + BATCH)),
+    );
+  }, [allPhrases, renderLimit]);
+
+  useEffect(() => {
+    // Also runs on a return visit: the cached promise hands back the same
+    // array, so React skips the re-render.
     let active = true;
     loadAllAggregatedPhrases().then(
       (phrases) => {
@@ -95,11 +129,14 @@ export default function Phrases() {
     setVisibleCount(PAGE_SIZE);
   }
 
+  const renderedCount = Math.min(visibleCount, renderLimit);
   const groups = useMemo(
-    () => groupByCard(filtered.slice(0, visibleCount)),
-    [filtered, visibleCount],
+    () => groupByCard(filtered.slice(0, renderedCount)),
+    [filtered, renderedCount],
   );
-  const hasMore = filtered.length > visibleCount;
+  // Hidden while the first page is still filling in
+  const hasMore =
+    filtered.length > visibleCount && renderedCount === visibleCount;
   const hasActive = !!tone || !!length || !!query;
   const clearAll = () => {
     setTone(null);
@@ -108,9 +145,15 @@ export default function Phrases() {
   };
 
   if (!allPhrases) {
+    // The build precomputes the count, so the intro (the page's largest
+    // first-screen text) paints now, unchanged when the phrases arrive.
+    const knownCount = loadFailed ? null : phraseBankSummary?.phraseCount;
     return (
-      <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-4 md:pt-6">
-        <PageIntro title="Phrase Bank" />
+      <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-3 md:pt-6 pb-8">
+        <PageIntro
+          title="Phrase Bank"
+          description={knownCount ? introText(knownCount) : undefined}
+        />
         <div role="status" aria-live="polite" className="py-16 text-center">
           {loadFailed
             ? "Phrase Bank is unavailable right now."
@@ -130,7 +173,7 @@ export default function Phrases() {
     <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-3 md:pt-6 pb-8">
       <PageIntro
         title="Phrase Bank"
-        description={`${formatCount(allPhrases.length)} lines from every technique. Pick a tone and length, then tap a line to copy it.`}
+        description={introText(allPhrases.length)}
       />
 
       {savedPhraseCount > 0 && (

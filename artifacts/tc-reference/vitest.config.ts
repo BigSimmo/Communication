@@ -11,6 +11,10 @@ export default defineConfig({
         import.meta.dirname,
         "src/test/card-text-index-stub.ts",
       ),
+      "virtual:phrase-bank-summary": path.resolve(
+        import.meta.dirname,
+        "src/test/phrase-bank-summary-stub.ts",
+      ),
     },
   },
   test: {
