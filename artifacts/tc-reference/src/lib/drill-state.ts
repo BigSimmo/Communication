@@ -417,6 +417,9 @@ export interface CardSRS {
   repetition: number;
   efactor: number;
   nextReviewDate: string;
+  /** The latest rating. Absent on reviews saved before it was kept; see
+      srsStatus for how those read. */
+  rating?: DrillRating;
 }
 
 export const SRS_STORAGE_KEY = "tc_srs_reviews";
@@ -424,7 +427,9 @@ export const SRS_STORAGE_KEY = "tc_srs_reviews";
 /** SM-2 never lets the ease factor drop below this. */
 export const MIN_EFACTOR = 1.3;
 
-function isValidSRSEntry(value: unknown): value is Omit<CardSRS, "cardId"> {
+function isValidSRSEntry(
+  value: unknown,
+): value is Omit<CardSRS, "cardId" | "rating"> & { rating?: unknown } {
   return (
     isRecord(value) &&
     isIntegerInRange(value.interval, 0, Number.MAX_SAFE_INTEGER) &&
@@ -453,6 +458,7 @@ export function sanitiseSRSMap(value: unknown): Record<string, CardSRS> {
       repetition: entry.repetition,
       efactor: entry.efactor,
       nextReviewDate: entry.nextReviewDate,
+      ...(isOneOf(entry.rating, DRILL_RATINGS) ? { rating: entry.rating } : {}),
     };
   }
   return out;
@@ -498,11 +504,26 @@ export const RATING_QUALITY: Record<SRSRating, number> = {
 };
 
 /**
+ * Days until a card first comes back after a rating of quality q: tomorrow
+ * for a miss, three days for a pass with difficulty, a week for a clean one.
+ */
+export function firstInterval(quality: number): number {
+  const q = Math.min(5, Math.max(0, Math.round(quality)));
+  if (q < 3) return 1;
+  return q >= 5 ? 7 : 3;
+}
+
+/**
  * One SM-2 step for a response of quality q (0-5; 3+ counts as recalled).
- * A pass advances the interval 1 -> 6 -> round(interval x efactor); a fail
- * resets repetition and schedules the card for tomorrow. The ease factor is
- * adjusted on every response and floored at MIN_EFACTOR. The next review date
- * is a local calendar date, matching getTodayISO() used for due counts.
+ * The first pass in a run sets the interval to firstInterval(q): 3 days for
+ * Getting there, 7 for Confident. Each later pass grows it by the ease
+ * factor (from before this response), never dropping below that first gap.
+ * A pass with difficulty (q = 3, Getting there) grows it by only half the
+ * ease's growth, so it always comes back sooner than a clean pass would.
+ * A fail resets repetition and schedules the card for tomorrow. The ease
+ * factor is adjusted on every response and floored at MIN_EFACTOR. The next
+ * review date is a local calendar date, matching getTodayISO() used for due
+ * counts.
  */
 export function applySM2(
   current: CardSRS,
@@ -516,13 +537,10 @@ export function applySM2(
   let nextEfactor = current.efactor;
 
   if (q >= 3) {
-    if (nextRep === 0) {
-      nextInterval = 1;
-    } else if (nextRep === 1) {
-      nextInterval = 6;
-    } else {
-      nextInterval = Math.round(nextInterval * nextEfactor);
-    }
+    const base = firstInterval(q);
+    const growth = q === 3 ? 1 + (nextEfactor - 1) / 2 : nextEfactor;
+    nextInterval =
+      nextRep === 0 ? base : Math.max(base, Math.round(nextInterval * growth));
     nextRep += 1;
   } else {
     nextRep = 0;
@@ -544,6 +562,16 @@ export function applySM2(
   };
 }
 
+/** The drill rating an older Hard / Good / Easy rating stands for. */
+const AS_DRILL_RATING: Record<SRSRating, DrillRating> = {
+  "not-yet": "not-yet",
+  "getting-there": "getting-there",
+  confident: "confident",
+  hard: "not-yet",
+  good: "getting-there",
+  easy: "confident",
+};
+
 export function updateSRS(cardId: string, rating: SRSRating): CardSRS {
   const srsMap = loadSRSMap();
 
@@ -555,7 +583,10 @@ export function updateSRS(cardId: string, rating: SRSRating): CardSRS {
     nextReviewDate: getTodayISO(),
   };
 
-  const updated = applySM2(current, RATING_QUALITY[rating] ?? 4);
+  const updated: CardSRS = {
+    ...applySM2(current, RATING_QUALITY[rating] ?? 4),
+    rating: AS_DRILL_RATING[rating] ?? "getting-there",
+  };
 
   srsMap[cardId] = updated;
   // Same best-effort persistence as saveDrillState.
