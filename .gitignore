@@ -57,3 +57,7 @@ Thumbs.db
 /artifacts/tc-reference/public/cards/TC*/TC*_Phrase_Bank.csv
 /artifacts/tc-reference/public/cards/TC*/TC*_Anki_Flashcards.csv
 !/artifacts/tc-reference/public/cards/TC001/**
+
+# Playwright output
+test-results/
+playwright-report/

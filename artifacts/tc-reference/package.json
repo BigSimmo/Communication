@@ -9,12 +9,14 @@
     "build": "pnpm run generate:downloads && vite build --config vite.config.ts && pnpm --filter @workspace/scripts exec tsx ../artifacts/tc-reference/scripts/verify-card-build.ts && node scripts/precompress.mjs",
     "serve": "vite preview --config vite.config.ts --host 127.0.0.1",
     "start": "node server.mjs",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p e2e/tsconfig.json",
     "test": "node scripts/ensure-downloads.mjs && vitest run --config vitest.config.ts",
-    "test:full": "pnpm run generate:downloads && vitest run --config vitest.config.ts"
+    "test:full": "pnpm run generate:downloads && vitest run --config vitest.config.ts",
+    "test:e2e": "playwright test --trace off"
   },
   "devDependencies": {
     "@fontsource/inter": "^5.3.0",
+    "@playwright/test": "1.63.0",
     "@tailwindcss/vite": "catalog:",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useSearch } from "wouter";
 import { SearchScreen } from "@/components/search/search-screen";
 import {
@@ -61,9 +61,16 @@ export default function SearchPage() {
     [navigate, query, url.kind, url.category],
   );
 
+  // Set when a result opens. The screen can stay mounted for a moment while
+  // the next route loads, and a pending write would then replace the opened
+  // result's history entry with the search, so a quick tap went nowhere.
+  const leaving = useRef(false);
+
   useEffect(() => {
     if (query.trim() === url.q) return;
-    const timer = setTimeout(() => write({}), URL_WRITE_DELAY_MS);
+    const timer = setTimeout(() => {
+      if (!leaving.current) write({});
+    }, URL_WRITE_DELAY_MS);
     return () => clearTimeout(timer);
   }, [query, url.q, write]);
 
@@ -80,7 +87,10 @@ export default function SearchPage() {
       onKindChange={(kind) => write({ kind })}
       category={url.category}
       onCancel={cancel}
-      onLeave={(scrollTop) => write({}, scrollTop)}
+      onLeave={(scrollTop) => {
+        leaving.current = true;
+        write({}, scrollTop);
+      }}
       initialScroll={arrival.scroll}
       focusOnArrival={arrival.focus}
     />
