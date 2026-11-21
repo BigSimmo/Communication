@@ -500,7 +500,6 @@ export default function Library() {
               <Link
                 href={searchHref()}
                 state={SEARCH_ENTRY_STATE}
-                aria-label="Search techniques, phrases and playbooks"
                 data-testid="library-search-input"
                 className="flex items-center w-full min-w-0 h-9 pointer-coarse:h-11 text-[12px] rounded-xl transition-all focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[color:var(--brand)]"
                 style={{
@@ -532,7 +531,8 @@ export default function Library() {
             {hasFiltersActive && (
               <button
                 onClick={clearAllFilters}
-                aria-label="Clear all active filters"
+                // Starts with the visible "Reset 2" so voice control matches
+                aria-label={`Reset ${activeFilterCount} ${activeFilterCount === 1 ? "filter" : "filters"}`}
                 data-testid="reset-filters"
                 className="max-[400px]:hidden tap-target-y h-9 flex-shrink-0 inline-flex items-center gap-1.5 rounded-xl px-2.5 text-[11px] font-bold transition-all active:scale-95 whitespace-nowrap"
                 style={{
@@ -545,7 +545,7 @@ export default function Library() {
                 }}
               >
                 <X className="w-3 h-3" aria-hidden="true" />
-                Reset
+                Reset{" "}
                 <span
                   className="ml-0.5 rounded-full px-1.5 py-0.5 text-[11px] leading-none"
                   style={{
@@ -622,10 +622,12 @@ export default function Library() {
             aria-haspopup="dialog"
             aria-expanded={sheetOpen}
             aria-controls={sheetOpen ? "library-filter-sheet" : undefined}
+            // Reads in the visible order ("Filters 2 High, Easiest") so voice
+            // control users can say what they see
             aria-label={
               sheetFilterCount
-                ? `Filters, ${sheetFilterCount} active: ${sheetSummary}`
-                : "Filters"
+                ? `Filters ${sheetFilterCount}: ${sheetSummary}, ${sheetFilterCount} active`
+                : `Filters: ${sheetSummary}`
             }
             data-testid="library-filters-button"
             className="library-filter-control flex min-[400px]:hidden h-8 w-full min-w-0 items-center gap-2 rounded-full pl-3 pr-2 text-[12px] font-semibold transition-colors"
@@ -640,7 +642,7 @@ export default function Library() {
               style={{ color: "var(--brand-text)" }}
               aria-hidden="true"
             />
-            <span className="flex-shrink-0">Filters</span>
+            <span className="flex-shrink-0">Filters</span>{" "}
             {sheetFilterCount > 0 && (
               <span
                 className="flex-shrink-0 min-w-[18px] h-[18px] px-1.5 rounded-full text-[11px] font-bold leading-none inline-flex items-center justify-center"
@@ -652,7 +654,7 @@ export default function Library() {
               >
                 {sheetFilterCount}
               </span>
-            )}
+            )}{" "}
             <span
               className="ml-auto min-w-0 truncate text-[11.5px] font-medium"
               style={{ color: "var(--fg-55)" }}

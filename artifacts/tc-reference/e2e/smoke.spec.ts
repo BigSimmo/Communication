@@ -51,7 +51,7 @@ test.describe("core flows", () => {
   }) => {
     await page.goto("/");
     await page
-      .getByRole("link", { name: "Search techniques, phrases and playbooks" })
+      .getByRole("link", { name: "Search techniques and phrases…" })
       .click();
     await expect(page).toHaveURL(/\/search/);
     await page

@@ -115,15 +115,21 @@ export function useNavBadges(): Partial<Record<NavDestinationId, string>> {
   return badges;
 }
 
-/** Spoken name for a nav item, with what its badge means. */
+/**
+ * Spoken name for a nav item, with what its badge means. The badge sits
+ * before the label in reading order ("3 Saved"), so the name keeps that
+ * order: voice control users can then say what they see (WCAG 2.5.3).
+ */
 export function navItemLabel(
   item: NavDestination,
   badge: string | null,
 ): string {
-  if (!badge) return item.label;
+  if (!badge || !/\d/.test(badge)) return item.label;
   if (item.id === "favourites")
-    return `${item.label}, ${badge} ${badge === "1" ? "item" : "items"}`;
-  if (item.id === "drill" && getDueCardsCount() > 0)
-    return `${item.label}, ${badge} ${badge === "1" ? "review" : "reviews"} due`;
+    return `${badge} ${item.label} ${badge === "1" ? "item" : "items"}`;
+  if (item.id === "drill")
+    return getDueCardsCount() > 0
+      ? `${badge} ${item.label} ${badge === "1" ? "review" : "reviews"} due`
+      : `${badge} ${item.label} ${badge === "1" ? "day" : "days"} in a row`;
   return item.label;
 }

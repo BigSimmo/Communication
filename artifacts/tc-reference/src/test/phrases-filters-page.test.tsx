@@ -104,7 +104,9 @@ describe("Phrase Bank saved state for shared lines", () => {
       target: { value: shared.text },
     });
     const row = screen
-      .getAllByRole("button", { name: `Copy: ${shared.text}` })[0]
+      .getAllByRole("button", {
+        name: (name) => name.startsWith(`Copy: ${shared.text} `),
+      })[0]
       .closest("li")!;
     const fav = within(row).getByTestId("phrase-fav-btn");
     expect(fav).toHaveAttribute("aria-pressed", "true");

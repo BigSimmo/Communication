@@ -7,6 +7,7 @@ import { readdirSync } from "node:fs";
 import { cardTextIndexPlugin } from "./card-text-index-plugin";
 import { cardChunkListPlugin } from "./card-chunk-list-plugin";
 import { launchScreensPlugin, LAUNCH_SCREEN_DIR } from "./launch-screens";
+import { fontPreloadPlugin } from "./font-preload-plugin";
 
 const rawPort = process.env.PORT ?? "5173";
 
@@ -57,6 +58,8 @@ export default defineConfig({
     cardChunkListPlugin(cardBuildId),
     // iOS launch screens (apple-touch-startup-image links)
     launchScreensPlugin(),
+    // Inter weights painted on every first screen (see main.tsx imports)
+    fontPreloadPlugin([400, 600, 700]),
     VitePWA({
       // "prompt": a new build waits until the user accepts the update toast
       // (src/lib/sw-update.ts), which registers the worker itself.

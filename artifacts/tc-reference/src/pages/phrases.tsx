@@ -507,16 +507,18 @@ function PhraseRow({ phrase, copied, faved, onCopy, onFav }: PhraseRowProps) {
       <button
         type="button"
         onClick={onCopy}
-        aria-label={`Copy: ${phrase.text}`}
         data-testid={`phrase-copy-btn-${phrase.cardId}`}
         className="flex-1 min-w-0 text-left py-3 flex flex-col gap-0.5"
       >
+        {/* Named by its content so the name includes the visible group
+            line too (WCAG 2.5.3 label in name) */}
+        <span className="sr-only">Copy:</span>{" "}
         <span
           className="phrase-text text-[16px] leading-[1.4] font-medium"
           style={{ color: copied ? "var(--brand-text)" : "var(--fg-90)" }}
         >
           {phrase.text}
-        </span>
+        </span>{" "}
         <span
           className="text-[12px] font-semibold truncate"
           style={{ color: "var(--fg-55)" }}

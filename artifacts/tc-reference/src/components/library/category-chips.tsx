@@ -43,7 +43,8 @@ export function CategoryChips({ value, onChange }: CategoryChipsProps) {
           selected={value === c.name}
           dotColor={c.color}
           count={c.count}
-          aria-label={`${c.label}, ${c.count} techniques`}
+          // Starts with the visible "Voice 4" (WCAG 2.5.3 label in name)
+          aria-label={`${c.short}, ${c.count} techniques`}
           onClick={() => onChange(value === c.name ? null : c.name)}
           data-testid={`category-chip-${c.slug}`}
         >

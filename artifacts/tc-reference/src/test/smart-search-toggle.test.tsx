@@ -95,9 +95,8 @@ describe("opening search from the header and the Library", () => {
 
     expect(field.tagName).toBe("A");
     expect(field).toHaveAttribute("href", "/search");
-    expect(field).toHaveAccessibleName(
-      "Search techniques, phrases and playbooks",
-    );
+    // Named by its visible text, so voice control can match it
+    expect(field).toHaveAccessibleName("Search techniques and phrases…");
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
