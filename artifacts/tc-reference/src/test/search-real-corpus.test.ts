@@ -33,6 +33,37 @@ beforeAll(async () => {
 });
 
 describe("smart search on the real catalogue", () => {
+  it("lists a line shared by several cards once", async () => {
+    const results = await searchAll("That sounds like it mattered", {
+      ...NO_BOOSTS,
+      limits: { phrases: 1000 },
+    });
+    const keys = results.phrases.map((p) =>
+      p.text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim(),
+    );
+    expect(keys).toContain("that sounds like it mattered");
+    expect(new Set(keys).size).toBe(keys.length);
+    expect(results.totals.phrases).toBe(results.phrases.length);
+  });
+
+  it("lists the saved copy of a shared line", async () => {
+    const results = await searchAll("That sounds like it mattered", {
+      boosts: {
+        ...NO_BOOSTS.boosts,
+        savedPhrases: [
+          { cardId: "TC082", text: "That sounds like it mattered" },
+        ],
+      },
+    });
+    const hit = results.phrases.find(
+      (p) => p.text.replace(/[.!?]$/, "") === "That sounds like it mattered",
+    );
+    expect(hit?.cardId).toBe("TC082");
+  });
+
   it('"sil" already shows Strategic silence', async () => {
     expect((await searchCards("sil", NO_BOOSTS))[0]?.title).toBe(
       "Strategic silence",

@@ -1,6 +1,6 @@
 import { useId } from "react";
 import { DRILL_RATINGS, type DrillRating } from "@/lib/drill-state";
-import { gapLabel, RATING_LABELS } from "@/lib/drill-view";
+import { RATING_LABELS, shortGapLabel, spokenGapLabel } from "@/lib/drill-view";
 
 interface DrillRatingProps {
   value: DrillRating | null;
@@ -22,9 +22,6 @@ export function DrillRating({
   prompt = "How does this technique feel?",
 }: DrillRatingProps) {
   const promptId = useId();
-  // A first rating comes back tomorrow whichever is picked; three identical
-  // hints would only suggest the choice doesn't matter, so say it once.
-  const sameGap = DRILL_RATINGS.every((r) => gaps[r] === gaps["not-yet"]);
   return (
     <div
       role="group"
@@ -47,11 +44,7 @@ export function DrillRating({
               key={rating}
               type="button"
               aria-pressed={selected}
-              aria-label={
-                sameGap
-                  ? undefined
-                  : `${RATING_LABELS[rating]}: ${gapLabel(gaps[rating]).toLowerCase()}`
-              }
+              aria-label={`${RATING_LABELS[rating]}: ${spokenGapLabel(gaps[rating])}`}
               onClick={() => onChange(rating)}
               data-testid={`drill-rating-${rating}`}
               className="min-h-[52px] px-1 py-2 rounded-[14px] flex flex-col items-center justify-center gap-0.5 text-center transition-transform active:scale-[0.98] motion-reduce:transition-none"
@@ -67,29 +60,17 @@ export function DrillRating({
                 style={{ color: "var(--fg-90)" }}
               >
                 {RATING_LABELS[rating]}
+              </span>{" "}
+              <span
+                className="text-[13px] leading-tight font-medium"
+                style={{ color: "var(--fg-60)" }}
+              >
+                {shortGapLabel(gaps[rating])}
               </span>
-              {!sameGap && (
-                <span
-                  className="text-[13px] leading-tight font-medium"
-                  style={{ color: "var(--fg-60)" }}
-                >
-                  {gapLabel(gaps[rating])}
-                </span>
-              )}
             </button>
           );
         })}
       </div>
-      {sameGap && (
-        <p
-          className="text-[13px] leading-[1.35]"
-          style={{ color: "var(--fg-60)" }}
-          data-testid="drill-rating-note"
-        >
-          {gapLabel(gaps["not-yet"])} either way. Your rating sets the gaps
-          after that.
-        </p>
-      )}
     </div>
   );
 }

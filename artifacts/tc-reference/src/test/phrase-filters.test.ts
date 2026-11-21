@@ -10,7 +10,9 @@ import {
   sentenceCount,
   wordCount,
 } from "@/lib/phrase-filters";
-import { loadAllAggregatedPhrases } from "@/lib/phrases-data";
+import { loadAllAggregatedPhrases, phraseDedupeKey } from "@/lib/phrases-data";
+import { loadAllCards } from "@/lib/card-loader";
+import { isSpeakablePhrase } from "@/lib/card-types";
 import type { AggregatedPhrase } from "@/lib/phrases-data";
 
 function phrase(
@@ -121,5 +123,77 @@ describe("on the real Phrase Bank", () => {
       0,
     );
     expect(lengthTotal).toBe(all.length);
+  });
+});
+
+describe("the combined Phrase Bank lists each line once", () => {
+  it("has no repeated lines, ignoring case and punctuation", async () => {
+    const all = await loadAllAggregatedPhrases();
+    const keys = all.map((p) => phraseDedupeKey(p.text));
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+
+  it("keeps a shared line under its first card and notes the others", async () => {
+    const all = await loadAllAggregatedPhrases();
+    const key = phraseDedupeKey("That sounds like it mattered");
+    const shared = all.filter((p) => phraseDedupeKey(p.text) === key);
+    expect(shared).toHaveLength(1);
+    expect(shared[0].cardId).toBe("TC001");
+    const others = (shared[0].alsoOn ?? []).map((s) => s.cardId);
+    expect(others).toEqual(expect.arrayContaining(["TC012", "TC082"]));
+    expect(others).not.toContain("TC001");
+  });
+
+  it("loses no line: every card's speakable phrase is in the bank or noted", async () => {
+    const cards = await loadAllCards();
+    const all = await loadAllAggregatedPhrases();
+    const covered = new Set<string>();
+    for (const p of all)
+      for (const s of [p, ...(p.alsoOn ?? [])])
+        covered.add(`${s.cardId}|${phraseDedupeKey(s.text)}`);
+    for (const [cardId, card] of Object.entries(cards))
+      for (const group of card.phraseBank)
+        for (const text of group.phrases)
+          if (isSpeakablePhrase(text))
+            expect(covered.has(`${cardId}|${phraseDedupeKey(text)}`)).toBe(
+              true,
+            );
+  });
+
+  it("finds a shared line by any card it is on", () => {
+    const shared = phrase("A shared line", {
+      alsoOn: [
+        { cardId: "TC082", cardTitle: "Other card", text: "a shared line" },
+      ],
+    });
+    expect(filterPhrases([shared], { ...NO_FILTER, query: "TC082" })).toEqual([
+      shared,
+    ]);
+    expect(
+      filterPhrases([shared], { ...NO_FILTER, query: "other card" }),
+    ).toEqual([shared]);
+  });
+});
+
+describe("shared lines with different tones", () => {
+  const shared = phrase("What happened after that?", {
+    tone: "Quick",
+    alsoTones: ["Direct"],
+  });
+  const plain = phrase("Tell me more.", { tone: "Direct" });
+
+  it("matches a tone filter on any copy's tone", () => {
+    expect(
+      filterPhrases([shared, plain], { ...NO_FILTER, tone: "Direct" }),
+    ).toEqual([shared, plain]);
+    expect(
+      filterPhrases([shared, plain], { ...NO_FILTER, tone: "Quick" }),
+    ).toEqual([shared]);
+  });
+
+  it("counts the line under each of its tones", () => {
+    const counts = countFacets([shared, plain], NO_FILTER);
+    expect(counts.tone.Direct).toBe(2);
+    expect(counts.tone.Quick).toBe(1);
   });
 });

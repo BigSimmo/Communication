@@ -1,0 +1,61 @@
+name: iPhone Safari smoke tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: e2e-webkit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  webkit:
+    name: Playwright (WebKit, iPhone 15)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      # Version comes from packageManager in package.json
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install WebKit
+        working-directory: artifacts/tc-reference
+        run: pnpm exec playwright install --with-deps webkit
+
+      - name: Build production app
+        run: pnpm --filter @workspace/tc-reference build
+
+      - name: Run smoke tests in WebKit
+        working-directory: artifacts/tc-reference
+        env:
+          E2E_SKIP_BUILD: "1"
+        run: pnpm run test:e2e --project iphone-webkit
+
+      - name: Upload failure report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-webkit-results
+          path: artifacts/tc-reference/test-results/
+          retention-days: 7
+          if-no-files-found: ignore

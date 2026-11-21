@@ -274,12 +274,20 @@ describe("searchAll", () => {
     });
     expect(results.techniques).toHaveLength(3);
     expect(results.totals.techniques).toBeGreaterThanOrEqual(15);
-    const plain = await searchAll("plain line", {
+    // "general" is every phrase group's tag
+    const general = await searchAll("general", {
       ...NO_BOOSTS,
       limits: { phrases: 2 },
     });
-    expect(plain.phrases).toHaveLength(2);
-    expect(plain.totals.phrases).toBeGreaterThan(2);
+    expect(general.phrases).toHaveLength(2);
+    expect(general.totals.phrases).toBeGreaterThan(2);
+  });
+
+  it("lists a line shared by several cards once", async () => {
+    // Twenty fixture cards share "Plain line."
+    const plain = await searchAll("plain line", NO_BOOSTS);
+    expect(plain.phrases.map((p) => p.text)).toEqual(["Plain line."]);
+    expect(plain.totals.phrases).toBe(1);
   });
 
   it("gives the same technique results as searchCards", async () => {

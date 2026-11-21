@@ -157,7 +157,15 @@ function rankPhrases(
       matchedIn: matchedField(result, plan, PHRASE_FIELDS),
     });
   }
-  return ranked.sort(byScoreThenId);
+  // Stock lines shared by several cards are listed once: the best-ranked
+  // copy (a saved one, if any) stands for the rest.
+  const shown = new Set<string>();
+  return ranked.sort(byScoreThenId).filter((phrase) => {
+    const key = engine.phraseMeta.get(phrase.id)?.textNorm ?? phrase.id;
+    if (shown.has(key)) return false;
+    shown.add(key);
+    return true;
+  });
 }
 
 function rankPlaybooks(

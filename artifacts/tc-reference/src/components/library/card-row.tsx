@@ -9,7 +9,11 @@ import {
   Target,
 } from "lucide-react";
 import { CORE_CARD_SET, LIBRARY_CATEGORIES } from "@/lib/data";
-import { IMPACT_STYLES, categoryStyleFor } from "@/lib/design-tokens";
+import {
+  IMPACT_STYLES,
+  categoryStyleFor,
+  difficultyLabel,
+} from "@/lib/design-tokens";
 
 export type LibraryCardMeta = (typeof LIBRARY_CATEGORIES)[string][number];
 
@@ -123,15 +127,15 @@ export function LibraryCardRow({
               </>
             )}
             <span aria-hidden="true">·</span>
-            <span>{card.difficulty}</span>
+            <span>{difficultyLabel(card.difficulty)}</span>
+            {/* Named in full, so "Medium · Medium impact" never reads as a
+                repeated word; matches the tags on the card itself. */}
             <span
-              className="ml-0.5 text-[11px] font-semibold px-1.5 py-px rounded-md"
+              className="ml-0.5 text-[11px] font-semibold px-1.5 py-px rounded-md whitespace-nowrap"
               style={{ background: badge.bg, color: badge.color }}
+              data-testid={`card-impact-${card.id}`}
             >
-              {badge.label}
-              {/* The visible text is the accessible name (WCAG 2.5.3
-                  label-in-name); this just says what the badge means. */}
-              <span className="sr-only"> impact</span>
+              {badge.label} impact
             </span>
           </span>
         </span>

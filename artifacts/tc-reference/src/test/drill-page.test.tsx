@@ -143,41 +143,46 @@ describe("Drill page: today's task", () => {
       }),
     );
     await renderDrill();
-    expect(ratingButton(/^Not yet/)).toHaveAccessibleName(
-      "Not yet: back tomorrow",
+    expect(ratingButton(/^Not yet/)).toHaveAccessibleName("Not yet: tomorrow");
+    // 6 x (1 + 1.5 / 2) = 10.5 -> 11; 6 x 2.5 = 15
+    expect(ratingButton(/^Getting there/)).toHaveAccessibleName(
+      "Getting there: in 11 days",
     );
     expect(ratingButton(/^Confident/)).toHaveAccessibleName(
-      "Confident: back in 15 days",
+      "Confident: in 2 weeks or so",
     );
   });
 
-  it("says once when a first rating comes back, as every choice is the same", async () => {
+  it("says a first rating comes back tomorrow, in 3 days or in a week", async () => {
     await renderDrill();
-    expect(screen.getByTestId("drill-rating-note")).toHaveTextContent(
-      "Back tomorrow either way. Your rating sets the gaps after that.",
+    expect(ratingButton(/^Not yet/)).toHaveAccessibleName("Not yet: tomorrow");
+    expect(ratingButton(/^Getting there/)).toHaveAccessibleName(
+      "Getting there: in 3 days",
     );
-    expect(ratingButton(/^Not yet/)).toHaveAccessibleName("Not yet");
+    expect(ratingButton(/^Confident/)).toHaveAccessibleName(
+      "Confident: in a week",
+    );
   });
 
   it.each([
-    [/^Not yet/, "Not yet"],
-    [/^Getting there/, "Getting there"],
-    [/^Confident/, "Confident"],
+    [/^Not yet/, "Not yet", "2026-03-11", "back tomorrow"],
+    [/^Getting there/, "Getting there", "2026-03-13", "back in 3 days"],
+    [/^Confident/, "Confident", "2026-03-17", "back in a week"],
   ])(
     "rating %s finishes the drill and schedules a review",
-    async (name, label) => {
+    async (name, label, date, back) => {
       await renderDrill();
       await rateAndFinish(name);
       const done = screen.getByTestId("drill-done");
       expect(done).toHaveTextContent("Day 1 done");
-      expect(done).toHaveTextContent(`rated ${label}`);
+      expect(done).toHaveTextContent(`rated ${label} · ${back}`);
       expect(screen.getByText("1 day streak")).toBeInTheDocument();
       expect(loadDrillState()).toMatchObject({
         streak: 1,
         dayIndex: 1,
         lastCompletionDate: "2026-03-10",
       });
-      expect(loadSRSMap()[FIRST].nextReviewDate).toBe("2026-03-11");
+      expect(loadSRSMap()[FIRST].nextReviewDate).toBe(date);
       expect(screen.queryByTestId("drill-rating")).toBeNull();
     },
   );
@@ -362,9 +367,10 @@ describe("Drill page: reviews due", () => {
     );
     expect(screen.queryByTestId("drill-review-sheet")).toBeNull();
     expect(screen.queryByTestId("drill-reviews")).toBeNull();
-    expect(loadSRSMap().TC003.nextReviewDate).toBe("2026-03-16");
+    // Seeded as an old 1-day review: Getting there still waits 3 days
+    expect(loadSRSMap().TC003.nextReviewDate).toBe("2026-03-13");
     expect(screen.getByTestId("drill-announce")).toHaveTextContent(
-      `${drillCardTitle("TC003")} comes back in 6 days.`,
+      `${drillCardTitle("TC003")} comes back in 3 days.`,
     );
     expect(loadDrillState().lastCompletionDate).toBeNull();
   });
@@ -444,7 +450,11 @@ describe("Drill page: track and pace", () => {
     fireEvent.click(screen.getByTestId("drill-change-track"));
     fireEvent.click(screen.getByTestId("drill-track-category"));
     expect(screen.getByTestId("drill-track-restart-note")).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: /^Resilience/ }));
+    fireEvent.click(
+      within(screen.getByRole("dialog")).getByRole("button", {
+        name: /^Resilience/,
+      }),
+    );
     await act(async () => {
       fireEvent.click(screen.getByTestId("drill-track-apply"));
     });
@@ -500,5 +510,43 @@ describe("Drill page: track and pace", () => {
     fireEvent.click(screen.getByRole("button", { name: "Cancel" }));
     expect(screen.queryByTestId("drill-track-sheet")).toBeNull();
     expect(loadDrillState()).toEqual(before);
+  });
+});
+
+describe("Drill page: progress", () => {
+  it("counts techniques by status, with words as well as bars", async () => {
+    seedReview("TC003", "2026-03-05");
+    await renderDrill();
+    const progress = screen.getByTestId("drill-progress");
+    expect(
+      within(progress).getByRole("heading", { name: "Your progress" }),
+    ).toBeInTheDocument();
+    expect(progress).toHaveTextContent("1 of 107 techniques started");
+    const overall = within(progress).getByTestId("drill-progress-overall");
+    // An old review without a rating, at ease 2.5, reads as Confident
+    expect(overall).toHaveTextContent("Confident1");
+    expect(overall).toHaveTextContent("Due for review1");
+  });
+
+  it("updates after a rating", async () => {
+    await renderDrill();
+    await rateAndFinish(/^Getting there/);
+    const progress = screen.getByTestId("drill-progress");
+    expect(progress).toHaveTextContent("Getting there1");
+  });
+
+  it("opens the track picker on a category from its row", async () => {
+    await renderDrill();
+    const row = screen.getByTestId("drill-progress-Resilience / Recovery");
+    fireEvent.click(within(row).getByRole("button"));
+    const dialog = await screen.findByRole("dialog");
+    expect(within(dialog).getByTestId("drill-track-category")).toBeChecked();
+    await act(async () => {
+      fireEvent.click(within(dialog).getByTestId("drill-track-apply"));
+    });
+    expect(loadDrillState().track).toEqual({
+      kind: "category",
+      category: "Resilience / Recovery",
+    });
   });
 });

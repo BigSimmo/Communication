@@ -42,6 +42,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/favourites": "Saved",
   "/playbooks": "Playbooks",
   "/start": "Start here",
+  "/search": "Search",
 };
 
 // Header actions share one quiet style. "brand" tints the icon amber for the
@@ -154,7 +155,7 @@ export function AppHeader() {
 
   const isLibraryRoute = location === "/";
   const pageTitle =
-    PAGE_TITLES[location.replace(/^\/help\/.*/, "/help")] ?? "Library";
+    PAGE_TITLES[location.replace(/^\/help\/.*/, "/help")] ?? "Page not found";
 
   const searchButton = (testId: string) => (
     <HeaderIconButton
@@ -225,8 +226,8 @@ export function AppHeader() {
           className="flex items-center h-full [--hdr-px:12px] sm:[--hdr-px:16px] md:[--hdr-px:24px] gap-2.5 md:gap-3 min-w-0"
           style={{
             // Clear the notch in landscape (viewport-fit=cover)
-            paddingLeft: "max(var(--hdr-px), env(safe-area-inset-left, 0px))",
-            paddingRight: "max(var(--hdr-px), env(safe-area-inset-right, 0px))",
+            paddingLeft: "max(var(--hdr-px), var(--content-safe-left))",
+            paddingRight: "max(var(--hdr-px), var(--safe-right))",
           }}
         >
           {/* ── CARD MODE ── */}
@@ -243,15 +244,17 @@ export function AppHeader() {
               </Link>
               <div className="flex-1 min-w-0 flex items-center gap-2">
                 {/* The ID tag gives way to the title on narrow phones */}
-                <span
-                  className="hidden sm:inline text-[11px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
-                  style={{
-                    background: "var(--brand)",
-                    color: "var(--brand-contrast)",
-                  }}
-                >
-                  {cardId}
-                </span>
+                {cardMeta && (
+                  <span
+                    className="hidden sm:inline text-[11px] font-bold px-1.5 py-0.5 rounded flex-shrink-0"
+                    style={{
+                      background: "var(--brand)",
+                      color: "var(--brand-contrast)",
+                    }}
+                  >
+                    {cardId}
+                  </span>
+                )}
                 <h1
                   className="font-bold leading-tight truncate"
                   style={{
@@ -260,7 +263,7 @@ export function AppHeader() {
                   }}
                   data-testid="card-title"
                 >
-                  {cardMeta?.cardTitle ?? cardId}
+                  {cardMeta?.cardTitle ?? "Card not found"}
                 </h1>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">

@@ -58,7 +58,7 @@ describe("Library phone filter sheet", () => {
     );
 
     const trigger = screen.getByTestId("library-filters-button");
-    expect(trigger).toHaveAccessibleName("Filters");
+    expect(trigger).toHaveAccessibleName("Filters: All techniques");
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 
     trigger.focus();
@@ -82,7 +82,7 @@ describe("Library phone filter sheet", () => {
     expect(screen.getByTestId("library-result-count")).toHaveTextContent(
       `${expected} of`,
     );
-    expect(trigger).toHaveAccessibleName("Filters, 1 active: Voice");
+    expect(trigger).toHaveAccessibleName("Filters 1: Voice, 1 active");
     expect(screen.getByTestId("library-filters-count")).toHaveTextContent("1");
 
     // The category chips stay in sync
@@ -116,9 +116,9 @@ describe("Library phone filter sheet", () => {
     expect(clear).toBeDisabled();
     fireEvent.click(within(sheet).getByTestId("sheet-impact-high"));
     fireEvent.click(within(sheet).getByTestId("sheet-sort-difficulty"));
-    expect(trigger).toHaveAccessibleName("Filters, 2 active: High, Easiest");
+    expect(trigger).toHaveAccessibleName("Filters 2: High, Easiest, 2 active");
     fireEvent.click(clear);
-    expect(trigger).toHaveAccessibleName("Filters");
+    expect(trigger).toHaveAccessibleName("Filters: All techniques");
     expect(within(sheet).getByTestId("sheet-impact-all")).toHaveAttribute(
       "aria-pressed",
       "true",

@@ -79,3 +79,43 @@ describe("Phrase Bank tone and length filters", () => {
     expect(count).toHaveTextContent(countText(all.length));
   });
 });
+
+describe("Phrase Bank saved state for shared lines", () => {
+  it("shows a line saved from another card as saved", async () => {
+    const all = await loadAllAggregatedPhrases();
+    const shared = all.find((p) => (p.alsoOn?.length ?? 0) > 0)!;
+    const other = shared.alsoOn![0];
+    localStorage.setItem(
+      "tc_favourites",
+      JSON.stringify({
+        cardIds: [],
+        phrases: [
+          {
+            cardId: other.cardId,
+            cardTitle: other.cardTitle,
+            groupLabel: "Saved earlier",
+            text: other.text,
+          },
+        ],
+      }),
+    );
+    await renderPhrases();
+    fireEvent.change(screen.getByTestId("phrases-search-input"), {
+      target: { value: shared.text },
+    });
+    const row = screen
+      .getAllByRole("button", {
+        name: (name) => name.startsWith(`Copy: ${shared.text} `),
+      })[0]
+      .closest("li")!;
+    const fav = within(row).getByTestId("phrase-fav-btn");
+    expect(fav).toHaveAttribute("aria-pressed", "true");
+    expect(row).toHaveTextContent(/also on \d+ more card/);
+
+    // Unsaving removes the copy saved from the other card
+    fireEvent.click(fav);
+    expect(fav).toHaveAttribute("aria-pressed", "false");
+    const stored = JSON.parse(localStorage.getItem("tc_favourites")!);
+    expect(stored.phrases).toHaveLength(0);
+  });
+});

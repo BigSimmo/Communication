@@ -3,6 +3,7 @@ import {
   ArrowLeft,
   Check,
   ChevronRight,
+  Compass,
   Copy,
   Search,
   X,
@@ -15,6 +16,7 @@ import { useNav } from "@/lib/nav-context";
 import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { quoted } from "@/lib/utils";
 import { buttonClass } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/empty-state";
 
 // Help me right now: pick what is happening, then get one move, three lines
 // to say, what to do next and one thing to avoid. Built only from the light
@@ -77,7 +79,7 @@ function HelpPicker() {
     <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-4 md:pt-6 pb-8">
       <Eyebrow brand>
         <Zap className="w-3.5 h-3.5" fill="currentColor" aria-hidden="true" />
-        Help me right now
+        In the moment
       </Eyebrow>
       <h1
         className="mt-1.5 text-[28px] font-bold leading-tight tracking-tight"
@@ -338,15 +340,20 @@ function HelpNotFound() {
   return (
     <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-3 md:pt-6 pb-8">
       <BackLink href="/help" label="All situations" />
-      <h1
-        className="mt-3 text-[24px] font-bold"
-        style={{ color: "var(--fg-90)" }}
+      <EmptyState
+        icon={Compass}
+        tone="neutral"
+        title="Situation not found"
+        titleAs="h1"
+        className="py-10"
+        actions={
+          <Link href="/help" className={buttonClass("primary")}>
+            See all situations
+          </Link>
+        }
       >
-        Situation not found
-      </h1>
-      <p className="mt-2 text-[15px]" style={{ color: "var(--fg-70)" }}>
         That link may be out of date. Pick what is happening from the list.
-      </p>
+      </EmptyState>
     </div>
   );
 }

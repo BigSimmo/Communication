@@ -4,6 +4,7 @@ import { X, Check, Copy, Heart } from "lucide-react";
 import { LIBRARY_CATEGORIES } from "@/lib/data";
 import { isSpeakablePhrase } from "@/lib/card-types";
 import { loadCardTextIndex, type CardTextIndex } from "@/lib/card-text-index";
+import { phraseDedupeKey } from "@/lib/phrases-data";
 import { useQuickMode } from "@/lib/quick-mode";
 import { useFavourites } from "@/lib/favourites-context";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
@@ -16,6 +17,15 @@ interface QuickPhrase {
   cardTitle: string;
   /** Every card that lists this line in this group (it is shown once). */
   cardIds: string[];
+  /** Each listing card's own wording, so favourites match the card. */
+  textByCard: Record<string, string>;
+  /**
+   * The first listing of this line across every group. The all-cards view
+   * shows only these, so a stock line shared by several cards appears once.
+   */
+  primary: boolean;
+  /** Every card, in any group, that lists the line (shared with duplicates). */
+  allTextByCard: Record<string, string>;
 }
 
 interface QuickGroup {
@@ -35,6 +45,8 @@ function buildQuickGroups(cards: CardTextIndex): QuickGroup[] {
   // Many cards share stock lines ("What was that like?"). Keep one row per
   // line per group and remember every card it came from.
   const seen = new Map<string, QuickPhrase>();
+  // Across groups too: the all-cards view lists each line once.
+  const seenAnywhere = new Map<string, Record<string, string>>();
 
   for (const [cardId, card] of Object.entries(cards)) {
     const cardMeta = Object.values(LIBRARY_CATEGORIES)
@@ -54,10 +66,21 @@ function buildQuickGroups(cards: CardTextIndex): QuickGroup[] {
       const targetGroup = groupsMap.get(group.id)!;
       for (const phraseText of group.phrases) {
         if (!isSpeakablePhrase(phraseText)) continue;
-        const key = `${group.id}\u0000${phraseText.trim().toLowerCase()}`;
+        const lineKey = phraseDedupeKey(phraseText);
+        let allTextByCard = seenAnywhere.get(lineKey);
+        const primary = !allTextByCard;
+        if (!allTextByCard) {
+          allTextByCard = {};
+          seenAnywhere.set(lineKey, allTextByCard);
+        }
+        allTextByCard[cardId] ??= phraseText;
+        const key = `${group.id}\u0000${lineKey}`;
         const existing = seen.get(key);
         if (existing) {
-          if (!existing.cardIds.includes(cardId)) existing.cardIds.push(cardId);
+          if (!existing.cardIds.includes(cardId)) {
+            existing.cardIds.push(cardId);
+            existing.textByCard[cardId] = phraseText;
+          }
           continue;
         }
         const entry: QuickPhrase = {
@@ -65,6 +88,9 @@ function buildQuickGroups(cards: CardTextIndex): QuickGroup[] {
           cardId,
           cardTitle: cardMeta.title,
           cardIds: [cardId],
+          textByCard: { [cardId]: phraseText },
+          primary,
+          allTextByCard,
         };
         seen.set(key, entry);
         targetGroup.phrases.push(entry);
@@ -176,15 +202,23 @@ function QuickModeContent() {
             // Attribute to the open card so favourites file under it
             .map((p) => ({
               ...p,
+              text: p.textByCard[contextCardId] ?? p.text,
               cardId: contextCardId,
               cardTitle: CARD_TITLE_MAP_QM[contextCardId],
+              allTextByCard: { [contextCardId]: p.textByCard[contextCardId] },
             })),
         }))
         .filter((g) => g.phrases.length > 0)
-    : (quickGroups ?? []);
+    : (quickGroups ?? []).filter((g) => g.phrases.length > 0);
+  // One situation keeps every line it lists (each is unique within a group).
+  // Across all situations a shared line shows once, under its first group.
   const filteredGroups = quickFilter
     ? allQuickGroups.filter((g) => g.id === quickFilter)
-    : allQuickGroups;
+    : scopedToCard
+      ? allQuickGroups
+      : allQuickGroups
+          .map((g) => ({ ...g, phrases: g.phrases.filter((p) => p.primary) }))
+          .filter((g) => g.phrases.length > 0);
   const totalPhraseCount = filteredGroups.reduce(
     (count, group) => count + group.phrases.length,
     0,
@@ -205,7 +239,7 @@ function QuickModeContent() {
       role="dialog"
       aria-modal="true"
       aria-label="Quick Lookup"
-      className="fixed inset-0 bg-background flex flex-col animate-in slide-in-from-bottom-full duration-300"
+      className="safe-x fixed inset-0 bg-background flex flex-col animate-in slide-in-from-bottom-full duration-300"
       style={{ zIndex: "var(--z-overlay)" as unknown as number }}
       data-testid="quick-mode-overlay"
     >
@@ -400,7 +434,11 @@ function QuickModeContent() {
               }}
             >
               {group.phrases.map((phrase, i) => {
-                const isFav = isPhrasesFav(phrase.cardId, phrase.text);
+                // A shared line counts as saved from any card that lists it.
+                const savedFrom = Object.entries(phrase.allTextByCard).filter(
+                  ([cardId, text]) => isPhrasesFav(cardId, text),
+                );
+                const isFav = savedFrom.length > 0;
                 return (
                   <div
                     key={i}
@@ -469,14 +507,19 @@ function QuickModeContent() {
                         )}
                       </button>
                       <button
-                        onClick={() =>
-                          togglePhrase({
-                            cardId: phrase.cardId,
-                            cardTitle: phrase.cardTitle,
-                            groupLabel: group.label,
-                            text: phrase.text,
-                          })
-                        }
+                        onClick={() => {
+                          const targets = isFav
+                            ? savedFrom
+                            : [[phrase.cardId, phrase.text] as const];
+                          for (const [cardId, text] of targets) {
+                            togglePhrase({
+                              cardId,
+                              cardTitle: CARD_TITLE_MAP_QM[cardId] ?? cardId,
+                              groupLabel: group.label,
+                              text,
+                            });
+                          }
+                        }}
                         aria-label={
                           isFav
                             ? "Remove from favourites"

@@ -124,16 +124,56 @@ export function daysLeft(state: DrillState, pace: DrillPace = state.pace) {
   return Math.max(1, cards * pace - Math.min(state.dayIndex, pace - 1));
 }
 
-/** "Back tomorrow" / "Back in 6 days" for a review gap in days. */
-export function gapLabel(interval: number): string {
-  return interval <= 1 ? "Back tomorrow" : `Back in ${interval} days`;
+/**
+ * When a review comes back, in everyday words: "tomorrow", "in 3 days",
+ * "in a week", "in 2 weeks", then rounded to weeks, months or years.
+ */
+export function returnWords(interval: number): string {
+  const d = Math.max(1, Math.round(interval));
+  if (d === 1) return "tomorrow";
+  if (d === 7) return "in a week";
+  if (d < 14) return `in ${d} days`;
+  if (d < 56) {
+    const weeks = Math.round(d / 7);
+    return `in ${d % 7 === 0 ? "" : "about "}${weeks} weeks`;
+  }
+  if (d < 335) {
+    const months = Math.round(d / 30.4);
+    return `in about ${months} months`;
+  }
+  const years = Math.round(d / 365);
+  return years === 1 ? "in about a year" : `in about ${years} years`;
 }
 
-/** As a clause: "comes back tomorrow" / "comes back in 6 days". */
+/**
+ * The same gap, short enough for one line on a phone rating button:
+ * "Tomorrow", "In 3 days", "In a week", "In ~5 weeks", "In ~3 months".
+ */
+export function shortGapLabel(interval: number): string {
+  const words = returnWords(interval).replace("in about ", "in ~");
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
+/**
+ * The rating button's spoken gap, in the same words as its visible
+ * shortGapLabel so voice control can match them (WCAG 2.5.3): "tomorrow",
+ * "in 3 days", "in 5 weeks or so" (shown as "In ~5 weeks").
+ */
+export function spokenGapLabel(interval: number): string {
+  const words = returnWords(interval);
+  return words.includes("about ")
+    ? `${words.replace("about ", "")} or so`
+    : words;
+}
+
+/** "Back tomorrow" / "Back in 3 days" / "Back in a week" for a review gap. */
+export function gapLabel(interval: number): string {
+  return `Back ${returnWords(interval)}`;
+}
+
+/** As a clause: "comes back tomorrow" / "comes back in a week". */
 export function gapClause(interval: number): string {
-  return interval <= 1
-    ? "comes back tomorrow"
-    : `comes back in ${interval} days`;
+  return `comes back ${returnWords(interval)}`;
 }
 
 /**
@@ -221,4 +261,87 @@ export function weekStrip(
     if (!inStreak) return { letter, state: "open" };
     return { letter, state: daysAgo === 0 ? "today" : "done" };
   });
+}
+
+/** Where a technique stands: its latest rating, or not drilled yet. */
+export type TechniqueStatus = DrillRating | "not-started";
+
+export const STATUS_ORDER: readonly TechniqueStatus[] = [
+  "confident",
+  "getting-there",
+  "not-yet",
+  "not-started",
+];
+
+export const STATUS_LABELS: Record<TechniqueStatus, string> = {
+  ...RATING_LABELS,
+  "not-started": "Not started",
+};
+
+/**
+ * A technique's status from its review record. Reviews saved before the
+ * rating was kept read from the schedule: a reset run is Not yet, a high
+ * ease (only clean passes raise it) is Confident, anything else Getting
+ * there.
+ */
+export function srsStatus(entry: CardSRS | undefined): TechniqueStatus {
+  if (!entry) return "not-started";
+  if (entry.rating) return entry.rating;
+  if (entry.repetition === 0) return "not-yet";
+  return entry.efactor >= 2.5 ? "confident" : "getting-there";
+}
+
+export interface ProgressCounts {
+  total: number;
+  /** Reviews due today or earlier (also counted under their status). */
+  due: number;
+  byStatus: Record<TechniqueStatus, number>;
+}
+
+export interface CategoryProgress extends ProgressCounts {
+  category: string;
+}
+
+function emptyCounts(): ProgressCounts {
+  return {
+    total: 0,
+    due: 0,
+    byStatus: {
+      confident: 0,
+      "getting-there": 0,
+      "not-yet": 0,
+      "not-started": 0,
+    },
+  };
+}
+
+/**
+ * Every technique counted by status, overall and per library category (in
+ * library order), from the review records.
+ */
+export function drillProgress(
+  srsMap: Readonly<Record<string, CardSRS>>,
+  today: string = getTodayISO(),
+): { overall: ProgressCounts; categories: CategoryProgress[] } {
+  const overall = emptyCounts();
+  const categories: CategoryProgress[] = Object.entries(LIBRARY_CATEGORIES).map(
+    ([category, cards]) => {
+      const counts = emptyCounts();
+      const seen = new Set<string>();
+      for (const card of cards) {
+        if (seen.has(card.id)) continue;
+        seen.add(card.id);
+        const entry = srsMap[card.id];
+        const status = srsStatus(entry);
+        const due = entry !== undefined && entry.nextReviewDate <= today;
+        for (const c of [counts, overall]) {
+          c.total += 1;
+          c.byStatus[status] += 1;
+          if (due) c.due += 1;
+        }
+      }
+      return { category, ...counts };
+    },
+  );
+  return { overall, categories };
 }

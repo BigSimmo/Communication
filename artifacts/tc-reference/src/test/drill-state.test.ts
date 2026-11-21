@@ -14,6 +14,8 @@ import {
   loadSRSMap,
   MIN_EFACTOR,
   saveDrillState,
+  firstInterval,
+  RATING_QUALITY,
   updateSRS,
   type CardSRS,
   type DrillState,
@@ -72,9 +74,9 @@ describe("applySM2 (SM-2 update)", () => {
     [0, 0, 1, 1.7],
     [1, 0, 1, 1.96],
     [2, 0, 1, 2.18],
-    [3, 1, 1, 2.36],
-    [4, 1, 1, 2.5],
-    [5, 1, 1, 2.6],
+    [3, 1, 3, 2.36],
+    [4, 1, 3, 2.5],
+    [5, 1, 7, 2.6],
   ])(
     "quality %i from a fresh card -> repetition %i, interval %i, efactor %f",
     (q, repetition, interval, efactor) => {
@@ -86,26 +88,54 @@ describe("applySM2 (SM-2 update)", () => {
     },
   );
 
-  it("progresses the interval 1, 6, then round(interval x efactor)", () => {
-    let card = fresh();
-    const intervals: number[] = [];
-    for (let i = 0; i < 5; i++) {
-      card = applySM2(card, 4); // quality 4 keeps efactor at 2.5
-      intervals.push(card.interval);
-    }
-    // 6 * 2.5 = 15; 15 * 2.5 = 37.5 -> 38; 38 * 2.5 = 95
-    expect(intervals).toEqual([1, 6, 15, 38, 95]);
-    expect(card.repetition).toBe(5);
-    expect(card.efactor).toBeCloseTo(2.5, 10);
+  it("first gaps are 1, 3 and 7 days for Not yet, Getting there, Confident", () => {
+    expect(firstInterval(RATING_QUALITY["not-yet"])).toBe(1);
+    expect(firstInterval(RATING_QUALITY["getting-there"])).toBe(3);
+    expect(firstInterval(RATING_QUALITY.confident)).toBe(7);
   });
 
-  it("uses the efactor from before the current response when scaling", () => {
+  it("grows a clean pass by the ease from before the response", () => {
     let card = fresh();
-    card = applySM2(card, 5); // i=1, ef 2.6
-    card = applySM2(card, 5); // i=6, ef 2.7
-    card = applySM2(card, 5); // i=round(6 * 2.7)=16, ef 2.8
-    expect(card.interval).toBe(16);
-    expect(card.efactor).toBeCloseTo(2.8, 10);
+    const intervals: number[] = [];
+    for (let i = 0; i < 4; i++) {
+      card = applySM2(card, 5);
+      intervals.push(card.interval);
+    }
+    // 7; 7 x 2.6 = 18.2 -> 18; 18 x 2.7 = 48.6 -> 49; 49 x 2.8 = 137.2 -> 137
+    expect(intervals).toEqual([7, 18, 49, 137]);
+    expect(card.repetition).toBe(4);
+    expect(card.efactor).toBeCloseTo(2.9, 10);
+  });
+
+  it("grows a pass with difficulty by half the ease's growth", () => {
+    let card = fresh();
+    const intervals: number[] = [];
+    for (let i = 0; i < 4; i++) {
+      card = applySM2(card, 3);
+      intervals.push(card.interval);
+    }
+    // 3; 3 x (1 + 1.36/2) = 5.04 -> 5; 5 x 1.61 = 8.05 -> 8; 8 x 1.54 -> 12
+    expect(intervals).toEqual([3, 5, 8, 12]);
+  });
+
+  it("never brings a pass back sooner than its first gap", () => {
+    // A review saved by the old 1-day ladder still gets at least 3 / 7 days
+    const old = fresh({ repetition: 1, interval: 1, efactor: 1.3 });
+    expect(applySM2(old, 3).interval).toBe(3);
+    expect(applySM2(old, 5).interval).toBe(7);
+  });
+
+  it("Getting there always comes back sooner than Confident from the same card", () => {
+    for (const from of [
+      fresh(),
+      fresh({ repetition: 1, interval: 7, efactor: 2.6 }),
+      fresh({ repetition: 3, interval: 49, efactor: 2.8 }),
+      fresh({ repetition: 2, interval: 5, efactor: 1.3 }),
+    ]) {
+      expect(applySM2(from, 3).interval).toBeLessThan(
+        applySM2(from, 5).interval,
+      );
+    }
   });
 
   it("resets repetition and interval on a failed recall (quality < 3)", () => {
@@ -114,8 +144,9 @@ describe("applySM2 (SM-2 update)", () => {
     expect(next.repetition).toBe(0);
     expect(next.interval).toBe(1);
     expect(next.efactor).toBeCloseTo(2.18, 10);
-    // The next pass restarts the 1, 6, ... ladder
-    expect(applySM2(next, 4).interval).toBe(1);
+    // The next pass restarts from the first gaps
+    expect(applySM2(next, 3).interval).toBe(3);
+    expect(applySM2(next, 5).interval).toBe(7);
   });
 
   it("floors the efactor at 1.3", () => {
@@ -142,14 +173,14 @@ describe("applySM2 (SM-2 update)", () => {
     // Just after local midnight and just before the next one: the review date
     // must follow the local day, not the UTC day.
     vi.setSystemTime(new Date(2026, 2, 10, 0, 30));
-    expect(applySM2(fresh(), 4).nextReviewDate).toBe("2026-03-11");
+    expect(applySM2(fresh(), 2).nextReviewDate).toBe("2026-03-11");
     vi.setSystemTime(new Date(2026, 2, 10, 23, 30));
-    expect(applySM2(fresh(), 4).nextReviewDate).toBe("2026-03-11");
+    expect(applySM2(fresh(), 2).nextReviewDate).toBe("2026-03-11");
     // Month and year boundaries
-    vi.setSystemTime(new Date(2026, 11, 31, 9, 0));
-    expect(applySM2(fresh({ repetition: 1, interval: 1 }), 4)).toMatchObject({
-      interval: 6,
-      nextReviewDate: "2027-01-06",
+    vi.setSystemTime(new Date(2026, 11, 29, 9, 0));
+    expect(applySM2(fresh(), 5)).toMatchObject({
+      interval: 7,
+      nextReviewDate: "2027-01-05",
     });
   });
 });
@@ -160,20 +191,37 @@ describe("updateSRS", () => {
     expect(easy).toMatchObject({
       cardId: "TC001",
       repetition: 1,
-      interval: 1,
-      nextReviewDate: "2026-03-11",
+      interval: 7,
+      nextReviewDate: "2026-03-17",
+      rating: "confident",
     });
     expect(easy.efactor).toBeCloseTo(2.6, 10);
 
     const good = updateSRS("TC001", "good");
-    expect(good).toMatchObject({ repetition: 2, interval: 6 });
-    expect(good.nextReviewDate).toBe("2026-03-16");
+    // round(7 x 2.6) = 18
+    expect(good).toMatchObject({
+      repetition: 2,
+      interval: 18,
+      rating: "getting-there",
+    });
+    expect(good.nextReviewDate).toBe("2026-03-28");
 
     const hard = updateSRS("TC001", "hard");
-    expect(hard).toMatchObject({ repetition: 0, interval: 1 });
+    expect(hard).toMatchObject({
+      repetition: 0,
+      interval: 1,
+      rating: "not-yet",
+    });
     expect(hard.efactor).toBeCloseTo(2.28, 10);
 
     expect(storedSRS()).toEqual({ TC001: hard });
+  });
+
+  it("keeps the latest drill rating with the review", () => {
+    expect(updateSRS("TC001", "getting-there").rating).toBe("getting-there");
+    expect(loadSRSMap().TC001.rating).toBe("getting-there");
+    expect(updateSRS("TC001", "confident").rating).toBe("confident");
+    expect(loadSRSMap().TC001.rating).toBe("confident");
   });
 
   it("keeps other cards' entries untouched", () => {
@@ -197,7 +245,7 @@ describe("updateSRS", () => {
   ])("starts fresh when the stored map is %s", (_label, raw) => {
     localStorage.setItem(SRS_KEY, raw);
     const next = updateSRS("TC001", "good");
-    expect(next).toMatchObject({ repetition: 1, interval: 1, efactor: 2.5 });
+    expect(next).toMatchObject({ repetition: 1, interval: 3, efactor: 2.5 });
     expect(Object.keys(storedSRS())).toEqual(["TC001"]);
   });
 
@@ -209,7 +257,7 @@ describe("updateSRS", () => {
       }),
     );
     const next = updateSRS("TC001", "good");
-    expect(next.interval).toBe(1);
+    expect(next.interval).toBe(3);
     expect(Number.isNaN(next.efactor)).toBe(false);
     expect(next.nextReviewDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
@@ -218,7 +266,7 @@ describe("updateSRS", () => {
     vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => {
       throw new Error("QuotaExceededError");
     });
-    expect(updateSRS("TC001", "good").interval).toBe(1);
+    expect(updateSRS("TC001", "not-yet").interval).toBe(1);
   });
 });
 
@@ -275,6 +323,16 @@ describe("getDueCardsCount / loadSRSMap", () => {
     expect(Object.keys(loadSRSMap())).toEqual(["TC001"]);
   });
 
+  it("drops an unknown rating but keeps the review", () => {
+    localStorage.setItem(
+      SRS_KEY,
+      JSON.stringify({ TC001: { ...entry("2026-03-01"), rating: "great" } }),
+    );
+    expect(loadSRSMap()).toEqual({
+      TC001: { cardId: "TC001", ...entry("2026-03-01") },
+    });
+  });
+
   it("drops malformed entries and keeps valid ones", () => {
     localStorage.setItem(
       SRS_KEY,
@@ -297,10 +355,11 @@ describe("getDueCardsCount / loadSRSMap", () => {
     });
   });
 
-  it("round-trips valid data unchanged", () => {
+  it("round-trips valid data unchanged, with or without a rating", () => {
     const map = {
       TC001: fresh({ repetition: 3, interval: 15, efactor: 2.36 }),
       TC050: fresh({ cardId: "TC050", efactor: 1.3 }),
+      TC002: fresh({ cardId: "TC002", rating: "getting-there" }),
     };
     localStorage.setItem(SRS_KEY, JSON.stringify(map));
     expect(loadSRSMap()).toEqual(map);
