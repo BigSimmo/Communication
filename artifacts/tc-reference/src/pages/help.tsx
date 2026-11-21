@@ -91,6 +91,15 @@ function HelpPicker() {
       >
         What's happening?
       </h1>
+      <p
+        className="mt-1.5 text-[14px] leading-[1.5]"
+        style={{ color: "var(--fg-60)" }}
+        data-testid="help-scope-note"
+      >
+        {/* CLINICAL REVIEW NEEDED */}
+        This app helps with words, not clinical risk decisions. Follow your
+        local protocol.
+      </p>
 
       <ul
         className="mt-5 grid grid-cols-2 gap-2.5"

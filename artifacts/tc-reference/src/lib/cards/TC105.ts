@@ -85,6 +85,8 @@ export const TC105: CardData = {
     "You are unsafe. Leave and get help rather than negotiating a break.",
     "A quick practical decision that has to be made now.",
     "When the other person has asked you not to leave mid-talk. Agree a break rule together in a calm moment.",
+    // CLINICAL REVIEW NEEDED
+    "The other person can't safely be left alone. Get a colleague to step in rather than walking away.",
     "Using breaks to avoid every hard topic. If it keeps happening, talk about the pattern.",
     "Formal meetings with a set agenda. Ask the chair for a short adjournment instead.",
   ],
@@ -451,6 +453,14 @@ export const TC105: CardData = {
       useWhen: "breaks keep happening with the same person",
       phrase:
         "Can we agree a signal for when one of us needs a pause, and a time to come back?",
+    },
+    {
+      depth: "Hand over",
+      useWhen:
+        "you're too flooded to continue and the other person still needs support",
+      phrase:
+        // CLINICAL REVIEW NEEDED
+        "I'm going to ask a colleague to join us, so you get the help you need.",
     },
   ],
   commonMistakes: [

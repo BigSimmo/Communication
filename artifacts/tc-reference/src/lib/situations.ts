@@ -155,6 +155,27 @@ export const SITUATIONS: readonly Situation[] = [
     avoid:
       "It works when the silence feels like space. It fails the moment it feels like pressure.",
   },
+  {
+    id: "distressed-or-unsafe",
+    label: "They're very distressed or might not be safe",
+    tagline: "Safety first, then words",
+    leadCardId: "TC098",
+    // CLINICAL REVIEW NEEDED
+    safetyNote:
+      "If someone may be at risk of harm, follow your organisation's safety or risk protocol. If there is immediate danger, call 000. These lines help you check in. They are not a risk assessment.",
+    lines: [
+      // CLINICAL REVIEW NEEDED
+      "I can see this is really hard right now. I'm here, and we can take it slowly.",
+      // CLINICAL REVIEW NEEDED
+      "Are you safe right now?",
+      // CLINICAL REVIEW NEEDED
+      "I'd like to ask you directly. Are you having thoughts of hurting yourself or ending your life?",
+    ],
+    followOn: { cardId: "TC012", line: "Go on, I'm with you." },
+    // CLINICAL REVIEW NEEDED
+    avoid:
+      'It is not a risk assessment or a diagnosis, and it is not a leading question like "You\'re not thinking of hurting yourself, are you?" Ask plainly, and follow your local protocol.',
+  },
 ];
 
 const SITUATION_BY_ID: ReadonlyMap<string, Situation> = new Map(

@@ -63,6 +63,8 @@ export const TC098: CardData = {
     "It is not a delay tactic for dodging accountability, or a polite empathy wrapper before pushing your own agenda.",
     "It is not the same as emotional labelling. Labelling names a feeling. This technique sets the response order.",
     "It is not for moments when a safety-critical fact must come first. Then compress the acknowledgement and move quickly to what must be known or done.",
+    // CLINICAL REVIEW NEEDED
+    'It is not a risk assessment or a diagnosis, and it is not a leading question like "You\'re not thinking of hurting yourself, are you?" Ask plainly, and follow your local protocol.',
   ],
   overview: {
     coreFormula: [
@@ -95,6 +97,8 @@ export const TC098: CardData = {
     "The conversation is being used to abuse, threaten or coerce",
     "Emotion-first wording would imply you agree with a harmful or inaccurate claim",
     "You would be using empathy to pressure someone toward agreement",
+    // CLINICAL REVIEW NEEDED
+    "Someone may be at risk of harm. Follow your organisation's safety or risk protocol, and call 000 if there is immediate danger",
   ],
   phraseBank: [
     {
@@ -183,6 +187,24 @@ export const TC098: CardData = {
         "I hear the urgency. First: this is stressful. Second: here's what we know so far.",
         "I can see that hurt. My intention doesn't cancel the impact, so I want to address that first.",
         "That cost you time, and that's frustrating. I'll check the process after acknowledging that.",
+      ],
+    },
+    {
+      id: "checking-safety",
+      label: "Checking in on safety",
+      tag: "Calm, plain and direct. Your local protocol decides what happens next",
+      tone: "High-stakes",
+      phrases: [
+        // CLINICAL REVIEW NEEDED
+        "I can see this is really hard right now. I'm here, and we can take it slowly.",
+        // CLINICAL REVIEW NEEDED
+        "Are you safe right now?",
+        // CLINICAL REVIEW NEEDED
+        "I'd like to ask you directly. Are you having thoughts of hurting yourself or ending your life?",
+        // CLINICAL REVIEW NEEDED
+        "Thank you for telling me. I'm going to get some support so we can work out the next step together.",
+        // CLINICAL REVIEW NEEDED
+        "You don't have to go through this on your own. Let's work out who can help right now.",
       ],
     },
   ],

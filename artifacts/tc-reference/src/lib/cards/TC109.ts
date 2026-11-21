@@ -53,6 +53,8 @@ export const TC109: CardData = {
     "Not agreeing with them.",
     "Not a set-up for your rebuttal.",
     "Not looping every sentence. Use it for what matters most.",
+    // CLINICAL REVIEW NEEDED
+    "Not a clinical assessment. It checks understanding, not risk or diagnosis.",
   ],
   overview: {
     coreFormula: [
@@ -83,6 +85,8 @@ export const TC109: CardData = {
     "When they just want comfort, not analysis. Stay with support (TC002).",
     "If you can't stay neutral right now. Take a break first.",
     "Someone needs a quick, clear answer or instruction. Give it first.",
+    // CLINICAL REVIEW NEEDED
+    "Someone may be unsafe. Follow your organisation's safety protocol first. Listening can sit alongside it.",
     "You'd be using it to stall a decision you need to make.",
   ],
   phraseBank: [
