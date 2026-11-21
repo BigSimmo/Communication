@@ -6,6 +6,7 @@ import {
   Compass,
   Copy,
   Search,
+  ShieldAlert,
   X,
   Zap,
 } from "lucide-react";
@@ -87,6 +88,15 @@ function HelpPicker() {
       >
         What's happening?
       </h1>
+      <p
+        className="mt-1.5 text-[14px] leading-[1.5]"
+        style={{ color: "var(--fg-60)" }}
+        data-testid="help-scope-note"
+      >
+        {/* CLINICAL REVIEW NEEDED */}
+        This app helps with words, not clinical risk decisions. Follow your
+        local protocol.
+      </p>
 
       <ul
         className="mt-5 grid grid-cols-2 gap-2.5"
@@ -94,7 +104,12 @@ function HelpPicker() {
         data-testid="help-situations"
       >
         {SITUATIONS.map((s) => (
-          <li key={s.id} className="flex">
+          <li
+            key={s.id}
+            // A safety situation spans the row so it stands apart and its
+            // longer label fits.
+            className={s.safetyNote ? "flex col-span-2" : "flex"}
+          >
             <Link
               href={`/help/${s.id}`}
               data-testid={`help-situation-${s.id}`}
@@ -163,6 +178,39 @@ function HelpAnswer({ situation }: { situation: Situation }) {
       >
         {situation.label}
       </h1>
+
+      {situation.safetyNote && (
+        <section
+          aria-labelledby="help-safety"
+          className="mt-4 rounded-2xl p-4 flex flex-col gap-1.5"
+          style={{
+            background:
+              "color-mix(in srgb, var(--accent-red) 8%, var(--surface-card))",
+            border:
+              "1px solid color-mix(in srgb, var(--accent-red) 30%, transparent)",
+          }}
+          data-testid="help-safety"
+        >
+          <h2
+            id="help-safety"
+            className="flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.08em]"
+            style={{ color: "var(--fg-70)" }}
+          >
+            <ShieldAlert
+              className="w-3.5 h-3.5"
+              style={{ color: "var(--accent-red)" }}
+              aria-hidden="true"
+            />
+            Safety first
+          </h2>
+          <p
+            className="text-[16px] font-semibold leading-[1.45]"
+            style={{ color: "var(--fg-90)" }}
+          >
+            {situation.safetyNote}
+          </p>
+        </section>
+      )}
 
       {/* Do this first: the lead technique's one-line move */}
       <section

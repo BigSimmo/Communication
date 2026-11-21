@@ -58,6 +58,7 @@ export const TC103: CardData = {
     "Not defending yourself point by point.",
     "Not silent nodding while you plan your comeback.",
     "Not accepting abuse. You can set a boundary on how feedback is given.",
+    "Not a promise to change everything at once.",
   ],
   overview: {
     coreFormula: [
@@ -68,7 +69,7 @@ export const TC103: CardData = {
       "Decide what to try, and tell them.",
     ],
     minimumViableMove:
-      '"Thanks for telling me. Can you give me an example?" Then listen without defending.',
+      "Thank them, ask for one example, and listen before you explain or defend.",
     impact: "High",
     difficulty: "Medium",
     misuse:
@@ -79,12 +80,17 @@ export const TC103: CardData = {
       "You get a review or comment that stings.",
       "Someone gives vague criticism you don't understand.",
       "You want to ask for feedback and grow.",
+      "A patient, client or family member tells you something didn't go well.",
+      "A senior colleague gives you feedback in front of others.",
     ],
   },
   notFor: [
     'The "feedback" is personal abuse or contempt. Set a boundary instead.',
     "You're too upset to listen. Ask to pick it up later.",
     "Public pile-ons online. You don't owe every comment a reply.",
+    "A formal complaint or performance process is starting. Listen, take notes, and ask what the next steps and supports are.",
+    "A factual error needs correcting urgently. Correct it plainly first, then come back to the rest.",
+    "You'd be performing openness while planning to change nothing.",
   ],
   phraseBank: [
     {
@@ -123,6 +129,8 @@ export const TC103: CardData = {
         "That's hard to hear, but I'm glad you said it.",
         "Let me sit with that and come back to you.",
         "I'm feeling a bit defensive, so give me a minute.",
+        "I'd like to hear this properly. Can we find a quieter spot in ten minutes?",
+        "I'm going to write that down so I don't lose it.",
       ],
     },
     {
@@ -135,6 +143,8 @@ export const TC103: CardData = {
         "What's one thing you see me doing that holds me back?",
         "If you were me, what would you change?",
         "How did that come across from your side?",
+        "What's one thing I should keep doing?",
+        "Was there a moment today where I could have handled it better?",
       ],
     },
     {
@@ -147,6 +157,8 @@ export const TC103: CardData = {
         "I can see why it looked that way. Here's what was going on for me.",
         "Part of that fits and part doesn't. Can I tell you which?",
         "Thanks. I'm going to try your suggestion for two weeks and see.",
+        "I think we're looking at different parts of it. Can I share what I saw?",
+        "I hear you. I'm not sure I agree yet, so let me think it over and come back to you.",
       ],
     },
     {
@@ -158,6 +170,34 @@ export const TC103: CardData = {
         "I tried what you suggested. Thanks, it helped.",
         "You were right about the emails. I've changed how I do them.",
         "Thanks for being honest with me. It made a difference.",
+        "I've made the change you suggested. Let me know if it's working from your side.",
+        "Thanks again for raising it. It's made the handover better.",
+        "I tried it your way this week. Can I tell you what I noticed?",
+      ],
+    },
+    {
+      id: "care-settings",
+      label: "From patients, clients and families",
+      tag: "When someone tells you it didn't go well",
+      tone: "Warm",
+      phrases: [
+        "Thank you for telling me. I'd rather know than not.",
+        "I'm sorry it felt that way. Can you tell me what happened from your side?",
+        "What would have made that easier for you?",
+        "I want to make sure I understand. Was it the waiting, or how it was explained?",
+        "I'll pass this on, and I'll let you know what we change.",
+      ],
+    },
+    {
+      id: "in-front-of-others",
+      label: "In front of others",
+      tag: "Public or senior feedback",
+      tone: "High-stakes",
+      phrases: [
+        "That's a fair point. Can we go through it after the meeting?",
+        "Thanks. I'll take that on board and follow up with you directly.",
+        "I want to understand that properly. Could we find ten minutes later today?",
+        "Thanks for flagging it. I'll come back to you with what I'll change.",
       ],
     },
   ],
@@ -188,6 +228,13 @@ export const TC103: CardData = {
       action: "Say so respectfully and offer to try something.",
       phrase: "I see it differently. Can I try one change and see?",
     },
+    {
+      condition: "It's said in front of others",
+      action:
+        "Acknowledge it briefly and move the detail to a private conversation.",
+      phrase:
+        "Thanks for raising it. Can we talk it through properly afterwards?",
+    },
   ],
   ladder: [
     {
@@ -204,6 +251,11 @@ export const TC103: CardData = {
       weak: '"Whatever."',
       better: '"Thanks for the feedback."',
       best: "\"Thanks. Let me think about it and I'll tell you what I'll change.\"",
+    },
+    {
+      weak: '"I was flat out, what did you expect?"',
+      better: '"Sorry, it was a busy shift."',
+      best: '"Thanks for telling me. Which part of the handover was missing, so I can fix it next time?"',
     },
   ],
   scenarios: [
@@ -228,6 +280,18 @@ export const TC103: CardData = {
       phrase:
         '"I see it differently, but I want to understand. What made it look that way?"',
     },
+    {
+      situation: "A patient's family says nobody explained anything",
+      move: "Thank them, get specific, and say what you'll do.",
+      phrase:
+        '"Thank you for telling me. What would have helped you most to know earlier?"',
+    },
+    {
+      situation: "A senior colleague criticises you in a meeting",
+      move: "Acknowledge it, then move it to a private chat.",
+      phrase:
+        '"That\'s worth looking at. Could we go through it together after this?"',
+    },
   ],
   calibration: {
     working: [
@@ -235,12 +299,16 @@ export const TC103: CardData = {
       "You understand what they want you to change.",
       "They offer feedback more often.",
       "You feel curious rather than attacked.",
+      "You can say back what they want you to change, and they agree.",
+      "The relationship feels steadier after the conversation.",
     ],
     adjust: [
       "You're arguing: switch to a question.",
       "They clam up: thank them and make it safe.",
       "You feel overwhelmed: ask for time.",
       "It's turning personal: set a boundary on how it's said.",
+      "You're nodding but planning your reply: ask one more question instead.",
+      "They're giving lots of points at once: ask which one matters most.",
     ],
   },
   drill: [
@@ -286,6 +354,7 @@ export const TC103: CardData = {
     "Did I separate the message from the messenger?",
     "Did I thank them?",
     "Did I decide what to try and tell them?",
+    "Did I stay curious even when it stung?",
   ],
   example: {
     without: [
@@ -300,6 +369,7 @@ export const TC103: CardData = {
       "A: The data section. Too many slides.",
       "B: That's helpful. I'll cut that to three next time.",
     ],
+    note: "In the second version B asks where it dragged instead of defending, so the feedback becomes one specific thing to fix.",
   },
   influencePayoff: {
     feeling: '"They actually listened. I\'d tell them again."',
@@ -375,6 +445,36 @@ export const TC103: CardData = {
     "Your face getting hot",
     '"I\'m only saying this because..."',
   ],
+  depthDial: [
+    {
+      depth: "Light touch",
+      useWhen: "a passing comment or small suggestion",
+      phrase: "Thanks, that's useful. I'll try it.",
+    },
+    {
+      depth: "Get curious",
+      useWhen: "most feedback, especially when it's vague",
+      phrase: "Can you give me an example of when that happened?",
+    },
+    {
+      depth: "Slow it down",
+      useWhen: "it stings or hits your sense of who you are",
+      phrase:
+        "That's hard to hear. I want to think about it properly and come back to you tomorrow.",
+    },
+    {
+      depth: "Respectful disagreement",
+      useWhen: "you've understood it and still see it differently",
+      phrase:
+        "I see it differently, and I'd like to understand how you got there.",
+    },
+    {
+      depth: "Set a boundary",
+      useWhen: "the feedback has turned into a personal attack or contempt",
+      phrase:
+        "I want to hear the concern, and I need it said without the personal comments.",
+    },
+  ],
   commonMistakes: [
     {
       mistake: "Instant defence",
@@ -396,11 +496,30 @@ export const TC103: CardData = {
       soundsLike: '"Thanks for the feedback." (nothing changes)',
       better: '"Thanks. I\'ll try shorter updates this week."',
     },
+    {
+      mistake: "Over-apologising",
+      soundsLike: "\"I'm so sorry, I'm hopeless, I always get this wrong.\"",
+      better: '"Thanks for telling me. I\'ll fix the handover notes."',
+    },
+    {
+      mistake: "Explaining before understanding",
+      soundsLike: '"The reason that happened was..." before they\'ve finished',
+      better: "Let them finish, then ask one question.",
+    },
+    {
+      mistake: "Promising too much",
+      soundsLike: '"I\'ll change everything."',
+      better: "Pick one change and say when you'll try it.",
+    },
   ],
   recoveryPhrases: [
     "Sorry, I got defensive. Can you say that again?",
     "I jumped in too fast. What did you mean?",
     "I've thought about what you said, and you had a point.",
+    "I talked over you there. Please finish what you were saying.",
+    "I was quick to explain. Can I check I understood the main point first?",
+    "I brushed that off earlier. I've thought about it, and I'd like to hear more.",
+    "I said I'd change it and didn't. I'm sorry. I'm starting today.",
   ],
   bestRecoveryLine: "Sorry, I got defensive. Can you say that again?",
   chains: [
@@ -420,6 +539,22 @@ export const TC103: CardData = {
         "\"You're right. I'm sorry I cut you off.\"",
       ],
     },
+    {
+      label: "Receive feedback, then looping",
+      sequence: "Check you've understood what matters most before you respond.",
+      example: [
+        '"Tell me more."',
+        '"So the main thing is the family didn\'t know the plan. Did I get that right?"',
+      ],
+    },
+    {
+      label: "Receive feedback, then take a break",
+      sequence: "When it stings, buy time and come back.",
+      example: [
+        '"That\'s hard to hear."',
+        '"I want to think about it properly. Can we talk again tomorrow morning?"',
+      ],
+    },
   ],
   relatedTechniques: [
     {
@@ -436,6 +571,20 @@ export const TC103: CardData = {
       id: "TC052",
       reason:
         "Ask for SBI-style detail: the situation, the behaviour and its impact.",
+    },
+    {
+      id: "TC109",
+      reason:
+        "Loop the feedback back until they say yes, then decide what to change.",
+    },
+    {
+      id: "TC005",
+      reason:
+        "You can say their view makes sense without agreeing with all of it.",
+    },
+    {
+      id: "TC031",
+      reason: "When feedback triggers you, slow your pace before you answer.",
     },
   ],
 };

@@ -28,10 +28,10 @@ const LIBRARY_IDS = new Set(
 );
 
 describe("Help me right now situations", () => {
-  it("has exactly eight situations with unique ids and labels", () => {
-    expect(SITUATIONS).toHaveLength(8);
-    expect(new Set(SITUATIONS.map((s) => s.id)).size).toBe(8);
-    expect(new Set(SITUATIONS.map((s) => s.label)).size).toBe(8);
+  it("has exactly nine situations with unique ids and labels", () => {
+    expect(SITUATIONS).toHaveLength(9);
+    expect(new Set(SITUATIONS.map((s) => s.id)).size).toBe(9);
+    expect(new Set(SITUATIONS.map((s) => s.label)).size).toBe(9);
     for (const s of SITUATIONS) {
       expect(s.id, s.id).toMatch(/^[a-z]+(-[a-z]+)*$/);
       expect(s.tagline.split(" ").length, s.id).toBeLessThanOrEqual(6);
@@ -69,6 +69,14 @@ describe("Help me right now situations", () => {
       const cautions = avoidTexts(CARD_DATA[s.leadCardId]);
       expect(cautions, `${s.id}: ${s.avoid}`).toContain(s.avoid);
     }
+  });
+
+  it("points the distress situation at local protocol and 000", () => {
+    const s = getSituation("distressed-or-unsafe");
+    expect(s?.safetyNote).toMatch(/organisation's safety or risk protocol/);
+    expect(s?.safetyNote).toMatch(/\b000\b/);
+    // Only the safety situation carries a safety note.
+    expect(SITUATIONS.filter((x) => x.safetyNote)).toHaveLength(1);
   });
 
   it("looks situations up by id", () => {

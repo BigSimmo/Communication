@@ -69,7 +69,7 @@ export const TC101: CardData = {
       "Commit going forward, then stop talking and let them respond.",
     ],
     minimumViableMove:
-      "\"I'm sorry. I [specific thing], and that's on me. Here's what I'll do to fix it.\" Then let them talk.",
+      "Say sorry, name exactly what you did, offer one concrete fix, then stop and listen.",
     impact: "High",
     difficulty: "Medium",
     misuse:
@@ -80,6 +80,8 @@ export const TC101: CardData = {
       "A joke or comment landed badly.",
       "You made a mistake at work that affected someone else.",
       "Any time you can name what you did and fix some of it.",
+      "Repairing with a patient, client or family member after a delay or miscommunication.",
+      "Owning a handover slip or missed message with a colleague.",
     ],
   },
   notFor: [
@@ -87,6 +89,10 @@ export const TC101: CardData = {
     "Someone is pressuring you to apologise for holding a fair boundary.",
     "A legal or formal process needs advice before you admit fault.",
     "They have asked for space. Respect that and apologise when they're ready.",
+    "A formal complaint or incident process applies. Follow your organisation's process (for example, open disclosure) and get advice before you speak.",
+    "You'd be apologising for someone else's decision as if it were yours. Own your part only.",
+    "The apology is mainly to ease your own guilt rather than repair anything for them.",
+    "You can't yet say what you did. Ask and listen first, then apologise.",
   ],
   phraseBank: [
     {
@@ -114,6 +120,7 @@ export const TC101: CardData = {
         "I made a joke at your expense, and I'm sorry.",
         "I told someone what you'd told me privately. That was wrong of me.",
         "I promised and didn't follow through. I'm sorry.",
+        "I cut you off when you were explaining. I'm sorry.",
       ],
     },
     {
@@ -126,6 +133,8 @@ export const TC101: CardData = {
         "I can see that left you looking bad in front of the team.",
         "That probably made you feel like I wasn't listening.",
         "You had to pick up the slack because of me.",
+        "You had to explain it all again because of me. I'm sorry.",
+        "That put you in an awkward spot with the client.",
       ],
     },
     {
@@ -139,6 +148,7 @@ export const TC101: CardData = {
         "What would help put this right?",
         "From now on I'll check with you before I share anything.",
         "I'll message the group and correct it.",
+        "I'll call you by 4pm with an update, whether or not there's news.",
       ],
     },
     {
@@ -151,6 +161,8 @@ export const TC101: CardData = {
         "I'm sorry for the delay on my side. You'll have it by 3pm.",
         "I should have flagged this earlier. Here's the plan to catch up.",
         "I'm sorry I spoke over you. I'd like to hear the rest of your point.",
+        "I didn't pass that on at handover. That's on me, and I've updated the notes now.",
+        "I'm sorry you were kept waiting without an update. That shouldn't have happened.",
       ],
     },
     {
@@ -163,6 +175,45 @@ export const TC101: CardData = {
         "I understand if you need a bit of time.",
         "I get why you're still annoyed.",
         "Thanks for hearing me out.",
+        "I understand. I'll check back with you tomorrow.",
+        "You don't have to be okay with it yet.",
+      ],
+    },
+    {
+      id: "care-settings",
+      label: "Patients, clients and families",
+      tag: "When you kept someone waiting or got it wrong",
+      tone: "Warm",
+      phrases: [
+        "I'm sorry you've been waiting this long without anyone explaining why. That's on us, and I'll find out what's happening now.",
+        "I told you the wrong time earlier. I'm sorry. The correct time is 2pm, and I've written it down for you.",
+        "I'm sorry I rushed you just now. Please tell me again. I'm listening.",
+        "I should have explained that before we started. I'm sorry. Can I go through it properly now?",
+        "I'm sorry you had to chase this. I'll ring you myself by the end of the day.",
+      ],
+    },
+    {
+      id: "in-writing",
+      label: "In writing",
+      tag: "Email, message or note",
+      tone: "Quick",
+      phrases: [
+        "I'm sorry for the mix-up with the roster. That was my error. I've corrected it and sent the updated version.",
+        "Apologies for the late reply. That's on me. Here's the answer you needed.",
+        "I'm sorry I missed your message yesterday. I've read it now and will reply properly by noon.",
+        "My mistake on the figures. The corrected file is attached, and I've marked the changes.",
+      ],
+    },
+    {
+      id: "high-stakes",
+      label: "When the stakes are high",
+      tag: "Serious hurt, broken trust or a formal setting",
+      tone: "High-stakes",
+      phrases: [
+        "I'm sorry. What I did broke your trust, and I understand if that takes time to rebuild.",
+        "I won't explain it away. I got this wrong, and I want to hear how it affected you.",
+        "I'm sorry. I'd like to put this right, and I'll also follow the proper process so it's handled fairly.",
+        "You don't have to accept this today. I wanted you to hear it from me.",
       ],
     },
   ],
@@ -192,6 +243,13 @@ export const TC101: CardData = {
       action: "Name the pattern and a real change.",
       phrase: "This keeps happening, and I'm changing how I do it.",
     },
+    {
+      condition: "They want to make a formal complaint",
+      action:
+        "Apologise for the part you can own, and tell them how to raise it. Don't talk them out of it.",
+      phrase:
+        "I'm sorry this happened. You're entitled to raise it formally, and I can tell you how.",
+    },
   ],
   ladder: [
     {
@@ -213,6 +271,11 @@ export const TC101: CardData = {
       weak: '"Can you just forgive me?"',
       better: '"I hope we\'re okay."',
       best: "\"I'm sorry. Take whatever time you need. I'll keep my end of it.\"",
+    },
+    {
+      weak: '"Sorry for any inconvenience caused."',
+      better: '"Sorry about the wait."',
+      best: "\"I'm sorry you waited an hour without an update. That's on us. I'll check what's happening and come back in ten minutes.\"",
     },
   ],
   scenarios: [
@@ -244,6 +307,18 @@ export const TC101: CardData = {
       move: "Apologise for the joke, not their reaction.",
       phrase: '"That joke was out of line. Sorry."',
     },
+    {
+      situation: "A family member was given the wrong visiting time",
+      move: "Own it, correct it, and make the fix visible.",
+      phrase:
+        "\"I gave you the wrong time, and I'm sorry you came in for nothing. The right time is 3pm, and I've written it on the card for you.\"",
+    },
+    {
+      situation: "You missed something at handover",
+      move: "Own your part, fix it, and change the habit.",
+      phrase:
+        "\"I didn't mention the change at handover. That's on me. I've updated the notes, and I'll work from the checklist from now on.\"",
+    },
   ],
   calibration: {
     working: [
@@ -251,12 +326,16 @@ export const TC101: CardData = {
       "They tell you more about how it felt.",
       "The conversation moves on to what's next.",
       "They accept the repair or suggest a different one.",
+      "They tell you what would help, and you can do it.",
+      "Later conversations feel easier, not guarded.",
     ],
     adjust: [
       "They get angrier: you may have explained too much. Return to ownership.",
       'They say "it\'s fine" flatly: give them time and follow through.',
       'You hear yourself say "but": restart with just the apology.',
       "They bring up older hurts: listen, and don't argue the record.",
+      "They seem more upset after your explanation: drop the explanation and return to ownership.",
+      "A formal process is involved: keep the apology honest and check what your organisation needs from you.",
     ],
   },
   drill: [
@@ -319,6 +398,7 @@ export const TC101: CardData = {
       "B: Next time I'll message before I leave work. Can I get dinner tonight?",
       "A: Okay. Thanks.",
     ],
+    note: 'The second version has no "but", names the impact and offers a repair before asking for anything back.',
   },
   influencePayoff: {
     feeling: '"They actually get what they did, and they\'re going to fix it."',
@@ -399,6 +479,37 @@ export const TC101: CardData = {
     "Them going quiet around you",
     '"It\'s fine" said flatly',
   ],
+  depthDial: [
+    {
+      depth: "Quick fix",
+      useWhen: "a small slip, like running a few minutes late or a missed text",
+      phrase: "Sorry I'm late. That's on me.",
+    },
+    {
+      depth: "Standard apology",
+      useWhen: "you let someone down and can name the specific thing",
+      phrase:
+        "I'm sorry I didn't call when I said I would. I'll call you tonight at seven.",
+    },
+    {
+      depth: "Full repair",
+      useWhen: "the impact was real and they need to see you understand it",
+      phrase:
+        "I'm sorry I shared what you told me. It meant you heard it from someone else, and that's not okay. From now on I'll check with you first.",
+    },
+    {
+      depth: "Pattern change",
+      useWhen: "the same thing has happened before",
+      phrase:
+        "This keeps happening, and an apology alone won't fix it. Here's what I'm changing.",
+    },
+    {
+      depth: "Apologise and follow process",
+      useWhen: "a formal complaint, incident or legal process is involved",
+      phrase:
+        "I'm sorry this has happened. I want it handled properly, so I'll follow it up through the right process.",
+    },
+  ],
   commonMistakes: [
     {
       mistake: "The non-apology",
@@ -425,12 +536,27 @@ export const TC101: CardData = {
       soundsLike: '"Sorry about everything."',
       better: '"I\'m sorry I missed your birthday dinner."',
     },
+    {
+      mistake: "Hiding behind the system",
+      soundsLike: '"Sorry, that\'s just how the system works."',
+      better:
+        "\"I'm sorry this has been so hard to get through. Here's what I can do today.\"",
+    },
+    {
+      mistake: "Promising what you can't control",
+      soundsLike: '"It\'ll never happen again, I promise."',
+      better:
+        'Promise the change you control: "I\'ll check the list before I send."',
+    },
   ],
   recoveryPhrases: [
     "Let me try that again without the excuse.",
     "I just made that about me. Sorry. How did it land for you?",
     'I said "but" and I shouldn\'t have. It was my fault.',
     "I'd still like to fix this whenever you're ready.",
+    "I've explained too much. The short version is that I got it wrong, and I'm sorry.",
+    "I apologised for how you felt. Let me apologise for what I did.",
+    "I promised a fix and haven't done it yet. I'm sorry. It'll be done by Friday.",
   ],
   bestRecoveryLine: "Let me try that again without the excuse.",
   chains: [
@@ -451,6 +577,23 @@ export const TC101: CardData = {
         '"So the worst part was hearing it from someone else. Is that right?"',
       ],
     },
+    {
+      label: "Apology, then take a break",
+      sequence:
+        "If the apology meets fresh anger, pause and come back rather than defend.",
+      example: [
+        '"I\'m sorry. That was on me."',
+        "\"I can see you're still really angry. Can we talk again after lunch? I'm not dropping it.\"",
+      ],
+    },
+    {
+      label: "Apology, then clean request",
+      sequence: "Own it, then ask what would help you repair it.",
+      example: [
+        '"I\'m sorry I missed the deadline."',
+        '"Which part do you need first, so I can send that today?"',
+      ],
+    },
   ],
   relatedTechniques: [
     {
@@ -467,6 +610,21 @@ export const TC101: CardData = {
       id: "TC105",
       reason:
         "After a fight, apologise for your part once you've both cooled down.",
+    },
+    {
+      id: "TC103",
+      reason:
+        "When someone points out your mistake, receive the feedback first, then apologise for what you did.",
+    },
+    {
+      id: "TC106",
+      reason:
+        "If your apology is heard as an excuse, contrast what you don't mean with what you do.",
+    },
+    {
+      id: "TC098",
+      reason:
+        "When someone is upset with you, meet the feeling first, then own your part.",
     },
   ],
 };
