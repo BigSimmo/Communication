@@ -22,6 +22,22 @@ async function settle(page: Page) {
   await expect(
     page.getByRole("status").filter({ hasText: /^Loading/ }),
   ).toHaveCount(0);
+  // Let fades finish (e.g. the header title), so axe never samples colour
+  // contrast halfway through a transition.
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          document
+            .getAnimations()
+            .filter(
+              (a) =>
+                a.playState === "running" &&
+                a.effect?.getTiming().iterations !== Infinity,
+            ).length,
+      ),
+    )
+    .toBe(0);
 }
 
 async function runAxe(
