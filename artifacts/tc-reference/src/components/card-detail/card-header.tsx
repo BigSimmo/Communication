@@ -1,14 +1,10 @@
 import type { CardData } from "@/lib/card-types";
-import { categoryStyleFor, impactStyleFor } from "@/lib/design-tokens";
+import {
+  categoryStyleFor,
+  difficultyLabel,
+  impactStyleFor,
+} from "@/lib/design-tokens";
 import { CARD_CATEGORY_MAP, CARD_TITLE_MAP } from "./card-sections";
-
-/** "Easy-Medium" in the data reads as "Easy to medium" on the card. */
-function difficultyLabel(difficulty: string): string {
-  const [first, ...rest] = difficulty.split("-");
-  return rest.length > 0
-    ? `${first} to ${rest.join(" to ").toLowerCase()}`
-    : first;
-}
 
 function Tag({
   children,

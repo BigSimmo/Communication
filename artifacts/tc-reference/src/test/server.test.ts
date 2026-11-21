@@ -76,7 +76,16 @@ describe("production server (F-10, F-12)", () => {
   });
 
   it("serves the app shell for known client routes", async () => {
-    for (const route of ["/drill", "/phrases", "/card/TC001", "/playbooks/"]) {
+    for (const route of [
+      "/drill",
+      "/phrases",
+      "/card/TC001",
+      "/playbooks/",
+      "/search",
+      "/start",
+      "/help",
+      "/help/say-no",
+    ]) {
       const res = await fetch(base + route);
       expect(res.status, route).toBe(200);
       expect(await res.text()).toContain("app");
@@ -84,7 +93,13 @@ describe("production server (F-10, F-12)", () => {
   });
 
   it("returns 404 with the app shell for unknown routes", async () => {
-    for (const route of ["/nope", "/card/XYZ", "/drill/extra", "/%E0%A4%A"]) {
+    for (const route of [
+      "/nope",
+      "/card/XYZ",
+      "/drill/extra",
+      "/help/say-no/extra",
+      "/%E0%A4%A",
+    ]) {
       const res = await fetch(base + route);
       expect(res.status, route).toBe(404);
       expect(res.headers.get("content-security-policy")).toBeTruthy();

@@ -3,11 +3,23 @@ import { Download, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   BackupError,
-  backupFileName,
-  exportBackup,
+  downloadBackup,
   importBackup,
   parseBackup,
 } from "@/lib/backup";
+import {
+  hasUserData,
+  isBackupReminderDue,
+  loadDataSafety,
+} from "@/lib/data-safety";
+
+function formatBackupDate(ms: number): string {
+  return new Date(ms).toLocaleDateString("en-AU", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
 
 function errorMessage(err: unknown): string {
   return err instanceof BackupError
@@ -22,21 +34,18 @@ export function BackupSection() {
     null,
   );
   const [error, setError] = useState<string | null>(null);
+  // Read on mount (the sheet unmounts when closed) and after each export.
+  const [safety, setSafety] = useState(() => ({
+    state: loadDataSafety(),
+    hasData: hasUserData(),
+  }));
+  const lastBackupAt = safety.state.lastBackupAt;
+  const reminderDue = isBackupReminderDue(safety.state, safety.hasData);
 
   const handleExport = () => {
     setError(null);
-    const blob = new Blob([JSON.stringify(exportBackup(), null, 2)], {
-      type: "application/json",
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = backupFileName();
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    // Revoke on the next tick so the download has started first.
-    setTimeout(() => URL.revokeObjectURL(url), 0);
+    downloadBackup();
+    setSafety({ state: loadDataSafety(), hasData: hasUserData() });
   };
 
   const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,6 +90,19 @@ export function BackupSection() {
         Saved items, drill progress, playbooks and settings live only on this
         device. Export a backup file to keep them safe or move them to another
         device.
+      </p>
+      <p
+        className="settings-row-meta"
+        data-testid="backup-last"
+        style={reminderDue ? { color: "var(--fg-80)" } : undefined}
+      >
+        {lastBackupAt !== null
+          ? `Last backup on this device: ${formatBackupDate(lastBackupAt)}.`
+          : "No backup exported from this device yet."}
+        {reminderDue &&
+          (lastBackupAt !== null
+            ? " It's been a while, so a fresh one is a good idea."
+            : " Exporting one now keeps your progress safe.")}
       </p>
       <div className="flex gap-2.5">
         <Button size="sm" className="flex-1" onClick={handleExport}>
