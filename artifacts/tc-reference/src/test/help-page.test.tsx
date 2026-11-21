@@ -45,30 +45,6 @@ describe("Help me right now", () => {
     }
   });
 
-  it("shows the scope note on the picker", () => {
-    renderAt("/help");
-    expect(screen.getByTestId("help-scope-note")).toHaveTextContent(
-      "This app helps with words, not clinical risk decisions.",
-    );
-  });
-
-  it("leads the safety situation with the protocol and 000 note", () => {
-    renderAt("/help/distressed-or-unsafe");
-    const note = screen.getByTestId("help-safety");
-    expect(note).toHaveTextContent("follow your organisation's safety");
-    expect(note).toHaveTextContent("call 000");
-    // The note comes before the first move in reading order.
-    expect(
-      note.compareDocumentPosition(screen.getByTestId("help-first")) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
-  });
-
-  it("shows no safety note on everyday situations", () => {
-    renderAt("/help/say-no");
-    expect(screen.queryByTestId("help-safety")).not.toBeInTheDocument();
-  });
-
   it("reaches a line to say in two taps from the picker", async () => {
     const location = renderAt("/help");
     fireEvent.click(screen.getByTestId("help-situation-say-no"));

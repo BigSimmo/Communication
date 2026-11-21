@@ -54,15 +54,6 @@ export function StartHereShelf() {
           practise. New here? Begin with the {TOTAL} that cover most
           conversations.
         </p>
-        <p
-          className="mt-1.5 text-[13px] leading-[1.5]"
-          style={{ color: "var(--fg-60)" }}
-          data-testid="library-welcome-scope"
-        >
-          {/* CLINICAL REVIEW NEEDED */}
-          This app helps with words, not clinical risk decisions. Follow your
-          local protocol.
-        </p>
         <div className="mt-3.5 flex flex-wrap gap-2">
           <Link
             href="/start"
