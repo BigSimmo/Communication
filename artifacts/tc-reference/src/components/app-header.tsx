@@ -42,6 +42,7 @@ const PAGE_TITLES: Record<string, string> = {
   "/favourites": "Saved",
   "/playbooks": "Playbooks",
   "/start": "Start here",
+  "/search": "Search",
 };
 
 // Header actions share one quiet style. "brand" tints the icon amber for the
@@ -154,7 +155,7 @@ export function AppHeader() {
 
   const isLibraryRoute = location === "/";
   const pageTitle =
-    PAGE_TITLES[location.replace(/^\/help\/.*/, "/help")] ?? "Library";
+    PAGE_TITLES[location.replace(/^\/help\/.*/, "/help")] ?? "Page not found";
 
   const searchButton = (testId: string) => (
     <HeaderIconButton

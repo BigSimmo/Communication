@@ -1,4 +1,10 @@
-import { ChevronLeft } from "lucide-react";
+import { Link } from "wouter";
+import { Clock, CloudOff, SearchX } from "lucide-react";
+import { Button, buttonClass } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/empty-state";
+import { SEARCH_ENTRY_STATE, searchHref } from "@/components/search/search-nav";
+
+const WRAP = "w-full max-w-2xl mx-auto min-h-[60vh] flex items-center px-4";
 
 // ── Unknown card ID — not in the library at all ──
 export function CardNotFound({
@@ -9,45 +15,36 @@ export function CardNotFound({
   setLocation: (to: string) => void;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] px-8 text-center">
-      <div
-        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
-        style={{
-          background: "color-mix(in srgb, var(--accent-red) 8%, transparent)",
-          border:
-            "1px solid color-mix(in srgb, var(--accent-red) 18%, transparent)",
-        }}
+    <div className={WRAP}>
+      <EmptyState
+        icon={SearchX}
+        tone="neutral"
+        title="Card not found"
+        titleAs="h2"
+        className="w-full"
+        data-testid="card-not-found"
+        actions={
+          <>
+            <Link
+              href={searchHref()}
+              state={SEARCH_ENTRY_STATE}
+              className={buttonClass("primary")}
+              data-testid="card-not-found-search"
+            >
+              Search techniques
+            </Link>
+            <Button variant="secondary" onClick={() => setLocation("/")}>
+              Back to Library
+            </Button>
+          </>
+        }
       >
-        <span
-          className="text-[20px] font-bold"
-          style={{ color: "var(--accent-red)" }}
-        >
-          ?
-        </span>
-      </div>
-      <h2 className="text-[20px] font-bold text-foreground mb-2">
-        Card not found
-      </h2>
-      <p
-        className="text-[14px] leading-relaxed mb-6 max-w-[280px]"
-        style={{ color: "var(--fg-55)" }}
-      >
-        No technique card with ID{" "}
-        <strong style={{ color: "var(--fg-60)" }}>{cardId || "unknown"}</strong>{" "}
-        exists in the library.
-      </p>
-      <button
-        onClick={() => setLocation("/")}
-        className="flex items-center gap-2 text-[14px] font-semibold px-5 rounded-full transition-all active:scale-95 min-h-11"
-        style={{
-          background: "color-mix(in srgb, var(--brand) 12%, transparent)",
-          border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-          color: "var(--brand-text)",
-        }}
-      >
-        <ChevronLeft className="w-4 h-4" />
-        Back to Library
-      </button>
+        There's no technique card{" "}
+        <strong style={{ color: "var(--fg-90)" }}>
+          {cardId || "with that ID"}
+        </strong>
+        . Search for the one you meant, or browse the Library.
+      </EmptyState>
     </div>
   );
 }
@@ -61,43 +58,60 @@ export function CardComingSoon({
   setLocation: (to: string) => void;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] px-8 text-center">
-      <div
-        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
-        style={{
-          background: "color-mix(in srgb, var(--brand) 8%, transparent)",
-          border: "1px solid color-mix(in srgb, var(--brand) 18%, transparent)",
-        }}
+    <div className={WRAP}>
+      <EmptyState
+        icon={Clock}
+        title="Coming soon"
+        titleAs="h2"
+        className="w-full"
+        data-testid="card-coming-soon"
+        actions={
+          <Button variant="primary" onClick={() => setLocation("/")}>
+            Back to Library
+          </Button>
+        }
       >
-        <span
-          className="text-[20px] font-bold"
-          style={{ color: "var(--brand-text)" }}
-        >
-          {cardId?.slice(2)}
-        </span>
-      </div>
-      <h2 className="text-[20px] font-bold text-foreground mb-2">
-        Coming soon
-      </h2>
-      <p
-        className="text-[14px] leading-relaxed mb-6 max-w-[280px]"
-        style={{ color: "var(--fg-55)" }}
-      >
-        Full content for this card is being prepared. Browse the library to find
-        a fully loaded card.
-      </p>
-      <button
-        onClick={() => setLocation("/")}
-        className="flex items-center gap-2 text-[14px] font-semibold px-5 rounded-full transition-all active:scale-95 min-h-11"
-        style={{
-          background: "color-mix(in srgb, var(--brand) 12%, transparent)",
-          border: "1px solid color-mix(in srgb, var(--brand) 22%, transparent)",
-          color: "var(--brand-text)",
-        }}
-      >
-        <ChevronLeft className="w-4 h-4" />
-        Back to Library
-      </button>
+        Full content for {cardId} is still being written. Browse the Library for
+        cards that are ready to use.
+      </EmptyState>
     </div>
+  );
+}
+
+// ── A known card whose content could not be fetched ──
+export function CardLoadFailed({
+  onRetry,
+  setLocation,
+}: {
+  onRetry: () => void;
+  setLocation: (to: string) => void;
+}) {
+  const offline =
+    typeof navigator !== "undefined" && navigator.onLine === false;
+  return (
+    <EmptyState
+      icon={CloudOff}
+      title="This card didn't load"
+      titleAs="h2"
+      data-testid="card-load-failed"
+      actions={
+        <>
+          <Button
+            variant="primary"
+            onClick={onRetry}
+            data-testid="card-load-retry"
+          >
+            Try again
+          </Button>
+          <Button variant="secondary" onClick={() => setLocation("/")}>
+            Back to Library
+          </Button>
+        </>
+      }
+    >
+      {offline
+        ? "You're offline and this card isn't saved on this device yet. Reconnect, or turn on Offline cards in Settings next time you're online."
+        : "Something went wrong fetching it. Check your connection and try again."}
+    </EmptyState>
   );
 }

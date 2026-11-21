@@ -31,6 +31,7 @@ import { CardCopyProvider } from "@/components/card-detail/card-ui";
 import {
   CardNotFound,
   CardComingSoon,
+  CardLoadFailed,
 } from "@/components/card-detail/card-status";
 import { CardHeader } from "@/components/card-detail/card-header";
 import { CardTabsBar } from "@/components/card-detail/card-tabs-bar";
@@ -202,6 +203,15 @@ function CardView({
               >
                 Next: learn why it works
               </Button>
+              {/* Most people stay on Use it, so the way on to neighbouring
+                  techniques sits here too, not only on Practise it. */}
+              {available("related") && (
+                <RelatedSection
+                  cardData={cardData}
+                  setLocation={setLocation}
+                  limit={3}
+                />
+              )}
               {prevNext}
             </div>
           )}
@@ -297,6 +307,8 @@ export default function CardDetail() {
     data: CardData | null;
   } | null>(null);
   const [loadFailedCardId, setLoadFailedCardId] = useState<string | null>(null);
+  // Bumped by "Try again" to rerun the load; the loader drops failed attempts.
+  const [loadAttempt, setLoadAttempt] = useState(0);
   // A new card starts a fresh load: clear any earlier failure during render.
   const [prevCardId, setPrevCardId] = useState(cardId);
   if (cardId !== prevCardId) {
@@ -334,7 +346,7 @@ export default function CardDetail() {
     return () => {
       active = false;
     };
-  }, [cardId, isKnownCard, isLoaded]);
+  }, [cardId, isKnownCard, isLoaded, loadAttempt]);
 
   // Prev/next navigation follows LIBRARY_CATEGORIES order
   const loadedCardIdx = LOADED_CARDS_NAV.findIndex((c) => c.id === cardId);
@@ -408,9 +420,13 @@ export default function CardDetail() {
         aria-busy={loadFailedCardId !== cardId}
       >
         {loadFailedCardId === cardId ? (
-          <p className="py-24 px-8 text-center">
-            Card content is unavailable right now.
-          </p>
+          <CardLoadFailed
+            setLocation={setLocation}
+            onRetry={() => {
+              setLoadFailedCardId(null);
+              setLoadAttempt((n) => n + 1);
+            }}
+          />
         ) : (
           <>
             {/* Skeleton in the card's own shape so the page doesn't jump */}
