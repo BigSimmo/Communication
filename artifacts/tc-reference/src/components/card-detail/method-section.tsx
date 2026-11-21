@@ -11,6 +11,7 @@ import {
   Surface,
 } from "./card-ui";
 import { CoreFormula } from "./overview-section";
+import { CardRefText } from "./card-ref-text";
 
 // Field-tip text often already opens with its own label ("Don't open with...",
 // "They say: ..."). Only add the label when the text doesn't carry one.
@@ -38,7 +39,13 @@ export function DepthDialSection({ cardData }: { cardData: CardData }) {
                 >
                   {row.depth}
                 </span>
-                <Meta>{row.useWhen}</Meta>
+                <Meta>
+                  <CardRefText
+                    text={row.useWhen}
+                    selfId={cardData.id}
+                    interactive={false}
+                  />
+                </Meta>
               </span>
             }
           />
@@ -109,7 +116,7 @@ function StepBody({ step }: { step: MethodStep }) {
         className="text-[15px] leading-[1.5] whitespace-pre-line"
         style={{ color: "var(--fg-80)" }}
       >
-        {step.body}
+        <CardRefText text={step.body} />
       </p>
       {step.examples && step.examples.length > 0 && (
         <SayBlock>
@@ -118,7 +125,9 @@ function StepBody({ step }: { step: MethodStep }) {
           {step.examples.map((ex, j) => (
             <span key={j} className="flex flex-col gap-0.5">
               <Label>{ex.label}</Label>
-              <Phrase size="sm">{ex.text}</Phrase>
+              <Phrase size="sm">
+                <CardRefText text={ex.text} />
+              </Phrase>
             </span>
           ))}
         </SayBlock>

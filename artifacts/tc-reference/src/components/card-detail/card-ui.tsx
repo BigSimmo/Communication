@@ -194,11 +194,14 @@ export function Surface({
 export function SayBlock({
   children,
   outlined = false,
+  tone = "neutral",
   className,
   ...rest
 }: {
   children: ReactNode;
   outlined?: boolean;
+  /** "best" tints the block light green: the line to aim for. */
+  tone?: "neutral" | "best";
   className?: string;
   "data-testid"?: string;
 }) {
@@ -208,10 +211,20 @@ export function SayBlock({
         "rounded-[14px] px-3.5 py-3 flex flex-col gap-1.5 min-w-0",
         className,
       )}
-      style={{
-        background: "var(--fg-06)",
-        border: outlined ? "1px solid var(--fg-15)" : "1px solid transparent",
-      }}
+      data-tone={tone === "best" ? "best" : undefined}
+      style={
+        tone === "best"
+          ? {
+              background: "var(--best-tint)",
+              border: "1px solid var(--best-tint-border)",
+            }
+          : {
+              background: "var(--fg-06)",
+              border: outlined
+                ? "1px solid var(--fg-15)"
+                : "1px solid transparent",
+            }
+      }
       {...rest}
     >
       {children}
@@ -251,9 +264,12 @@ export function NumberDisc({
 export function MarkedList({
   items,
   mark,
+  renderItem,
 }: {
   items: string[];
   mark: ReactNode;
+  /** Shows an item as more than its text, e.g. with linked references. */
+  renderItem?: (item: string) => ReactNode;
 }) {
   return (
     <ul className="flex flex-col">
@@ -269,7 +285,7 @@ export function MarkedList({
             className="flex-1 min-w-0 text-[15px] leading-[1.45]"
             style={{ color: "var(--fg-85)" }}
           >
-            {item}
+            {renderItem ? renderItem(item) : item}
           </span>
         </li>
       ))}
@@ -352,12 +368,14 @@ export function CopyRow({
   above,
   size = "md",
   testId,
+  className,
 }: {
   text: string;
   /** Quiet line above the phrase, e.g. the situation it suits. */
   above?: ReactNode;
   size?: "sm" | "md";
   testId?: string;
+  className?: string;
 }) {
   const { copied, copy } = useCardCopy();
   const done = copied === text;
@@ -366,7 +384,10 @@ export function CopyRow({
       type="button"
       onClick={() => copy(text)}
       data-testid={testId}
-      className="w-full flex items-center gap-3 px-4 py-[13px] min-h-14 text-left transition-colors active:bg-[var(--fg-05)]"
+      className={cn(
+        "w-full flex items-center gap-3 px-4 py-[13px] min-h-14 text-left transition-colors active:bg-[var(--fg-05)]",
+        className,
+      )}
       style={{
         background: done
           ? "color-mix(in srgb, var(--brand) 8%, transparent)"

@@ -18,6 +18,7 @@ import { useCopyFeedback } from "@/hooks/use-copy-feedback";
 import { quoted } from "@/lib/utils";
 import { buttonClass } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
+import { usePageTitleRef } from "@/lib/page-title";
 
 // Help me right now: pick what is happening, then get one move, three lines
 // to say, what to do next and one thing to avoid. Built only from the light
@@ -75,6 +76,7 @@ export default function Help() {
 }
 
 function HelpPicker() {
+  const pageTitleRef = usePageTitleRef<HTMLHeadingElement>();
   const { openSearch } = useNav();
   return (
     <div className="w-full max-w-full min-w-0 sm:max-w-2xl sm:mx-auto px-4 md:px-6 pt-4 md:pt-6 pb-8">
@@ -83,6 +85,7 @@ function HelpPicker() {
         In the moment
       </Eyebrow>
       <h1
+        ref={pageTitleRef}
         className="mt-1.5 text-[28px] font-bold leading-tight tracking-tight"
         style={{ color: "var(--fg-90)" }}
       >
@@ -163,6 +166,7 @@ function HelpPicker() {
 }
 
 function HelpAnswer({ situation }: { situation: Situation }) {
+  const pageTitleRef = usePageTitleRef<HTMLHeadingElement>();
   const { copied, copy } = useCopyFeedback(1800);
   const lead = CARD_BY_ID.get(situation.leadCardId);
   const next = CARD_BY_ID.get(situation.followOn.cardId);
@@ -173,6 +177,7 @@ function HelpAnswer({ situation }: { situation: Situation }) {
       <BackLink href="/help" label="All situations" />
 
       <h1
+        ref={pageTitleRef}
         className="mt-2 text-[26px] font-bold leading-tight tracking-tight"
         style={{ color: "var(--fg-90)" }}
       >

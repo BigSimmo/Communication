@@ -60,6 +60,7 @@
 
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
+  --font-phrase: var(--app-font-phrase);
   --font-mono: var(--app-font-mono);
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -125,6 +126,10 @@
 
   --app-font-sans: "Inter", system-ui, sans-serif;
   --app-font-serif: Georgia, serif;
+  /* Every sayable line, wherever it shows (card, search, Saved, drill):
+     one face, applied through .phrase-text. Serif is kept only for the
+     printed and shared quote cards. */
+  --app-font-phrase: var(--app-font-sans);
   --app-font-mono: Menlo, monospace;
   --radius: 0.5rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.1);
@@ -256,6 +261,9 @@
   --accent-rose: #fb7185;
   --accent-red: #f87171;
   --accent-emerald: #34d399;
+  /* Light green wash behind a card's best line (weak stays neutral) */
+  --best-tint: color-mix(in srgb, #4ade80 11%, transparent);
+  --best-tint-border: color-mix(in srgb, #4ade80 30%, transparent);
   --accent-sky: #38bdf8;
   --accent-blue: #60a5fa;
 
@@ -422,6 +430,8 @@
   --accent-rose: #be123c;
   --accent-red: #b91c1c;
   --accent-emerald: #047857;
+  --best-tint: color-mix(in srgb, #16a34a 9%, transparent);
+  --best-tint-border: color-mix(in srgb, #15803d 30%, transparent);
   --accent-sky: #0369a1;
   --accent-blue: #2563eb;
 
@@ -899,4 +909,33 @@ body:has([data-search-screen]) .tab-bar {
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* ── Card cross-references (card-ref-text.tsx) ──
+   A reference reads as part of the sentence: brand text with a quiet
+   underline that firms up on hover. Where the title stands in for a bare
+   id it sits in a light chip, so it still reads as a name, not prose. */
+.card-ref {
+  color: var(--brand-text);
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--brand-text) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  border-radius: 4px;
+}
+.card-ref:hover {
+  text-decoration-color: currentColor;
+}
+.card-ref-chip {
+  text-decoration-line: none;
+  padding: 0 0.4em;
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand) 26%, transparent);
+  border-radius: 6px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.card-ref-chip:hover {
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
 }

@@ -22,6 +22,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { SettingsSheet } from "@/components/settings-sheet";
 import { ShareSheet } from "@/components/share-sheet";
 import type { ShareItem } from "@/components/share-sheet";
+import { usePageTitleRef } from "@/lib/page-title";
 
 const CARD_META: Record<
   string,
@@ -68,6 +69,7 @@ const iconButton =
   "w-11 h-11 flex-none flex items-center justify-center rounded-full transition-transform active:scale-90 motion-reduce:transition-none";
 
 export default function Favourites() {
+  const pageTitleRef = usePageTitleRef<HTMLHeadingElement>();
   const { state, toggleCard, togglePhrase } = useFavourites();
   const [, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
@@ -137,6 +139,7 @@ export default function Favourites() {
             {totalSaved} {totalSaved === 1 ? "item" : "items"} · on this device
           </span>
           <h1
+            ref={pageTitleRef}
             className="text-[34px] leading-[1.1] font-extrabold tracking-[-0.02em]"
             style={{ color: "var(--fg-90)" }}
           >
@@ -351,7 +354,7 @@ export default function Favourites() {
                                 className="flex-1 min-w-0 flex items-center gap-3 pl-4 pr-1 py-3 min-h-14 text-left"
                               >
                                 <span
-                                  className="phrase-text flex-1 font-serif text-[17px] leading-snug"
+                                  className="phrase-text flex-1 text-[17px] leading-snug"
                                   style={{
                                     color: isCopied
                                       ? "var(--brand-text)"

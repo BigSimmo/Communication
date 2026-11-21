@@ -54,7 +54,11 @@ export function LadderSection({
                 {row.better}
               </Phrase>
             </div>
-            <div className="flex items-start gap-3 pl-4 pr-2 py-3">
+            <div
+              className="flex items-start gap-3 pl-4 pr-2 py-3"
+              data-tone="best"
+              style={{ background: "var(--best-tint)" }}
+            >
               <Level color="var(--accent-green)">Best</Level>
               <Phrase size="md" className="flex-1">
                 {row.best}
