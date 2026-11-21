@@ -7,6 +7,8 @@
  * read or written; anything else in a backup file is rejected.
  */
 
+import { recordBackupExported } from "./data-safety";
+
 export const BACKUP_APP = "tc-reference";
 export const BACKUP_VERSION = 1;
 
@@ -114,6 +116,26 @@ export function backupFileName(now: Date = new Date()): string {
   const m = String(now.getMonth() + 1).padStart(2, "0");
   const d = String(now.getDate()).padStart(2, "0");
   return `tc-reference-backup-${y}-${m}-${d}.json`;
+}
+
+/**
+ * Save a backup file through the browser's download flow (Files on iPhone)
+ * and note the time, so the backup reminder knows when the last one was.
+ */
+export function downloadBackup(now: Date = new Date()): void {
+  const blob = new Blob([JSON.stringify(exportBackup(now), null, 2)], {
+    type: "application/json",
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = backupFileName(now);
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  // Revoke on the next tick so the download has started first.
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+  recordBackupExported(now.getTime());
 }
 
 function serialiseValue(key: BackupKey, value: unknown): string {

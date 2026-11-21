@@ -85,8 +85,28 @@ export default defineConfig({
         prefer_related_applications: false,
         // Reopen an existing window rather than stacking new ones.
         launch_handler: { client_mode: ["navigate-existing", "auto"] },
-        // Long-press shortcuts on the home screen icon (Android, desktop)
+        // Long-press shortcuts on the home screen icon (Android, desktop).
+        // iOS ignores shortcuts. Launchers show the first few, so the most
+        // urgent come first.
         shortcuts: [
+          {
+            name: "Help me right now",
+            short_name: "Help now",
+            description: "Pick what's happening and get words to say",
+            url: "help",
+            icons: [
+              { src: "pwa-icon-192.png", sizes: "192x192", type: "image/png" },
+            ],
+          },
+          {
+            name: "Search",
+            short_name: "Search",
+            description: "Search techniques, phrases and playbooks",
+            url: "search",
+            icons: [
+              { src: "pwa-icon-192.png", sizes: "192x192", type: "image/png" },
+            ],
+          },
           {
             name: "Phrase Bank",
             short_name: "Phrases",
