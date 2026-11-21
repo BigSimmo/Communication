@@ -2,6 +2,7 @@ import { ChevronRight } from "lucide-react";
 import type { CardData } from "@/lib/card-types";
 import { CardBlock, Meta, Surface } from "./card-ui";
 import { CARD_TITLE_MAP } from "./card-sections";
+import { CardRefText } from "./card-ref-text";
 
 // ── Pairs well with ──
 export function RelatedSection({
@@ -39,9 +40,19 @@ export function RelatedSection({
               <Meta>
                 {/* Shortened where it is a quick "where next" */}
                 {limit ? (
-                  <span className="line-clamp-2">{rt.reason}</span>
+                  <span className="line-clamp-2">
+                    <CardRefText
+                      text={rt.reason}
+                      selfId={cardData.id}
+                      interactive={false}
+                    />
+                  </span>
                 ) : (
-                  rt.reason
+                  <CardRefText
+                    text={rt.reason}
+                    selfId={cardData.id}
+                    interactive={false}
+                  />
                 )}
               </Meta>
             </span>
