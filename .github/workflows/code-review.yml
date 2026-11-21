@@ -49,6 +49,9 @@ jobs:
       - name: Build production app
         run: pnpm --filter @workspace/tc-reference build
 
+      - name: Check bundle size budgets
+        run: pnpm --filter @workspace/tc-reference run budget
+
       - name: Run Automated Code Reviewer
         env:
           CODE_REVIEW_SKIP_CHECKS: "1"

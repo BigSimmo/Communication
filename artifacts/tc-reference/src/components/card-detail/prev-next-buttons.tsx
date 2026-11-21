@@ -25,8 +25,9 @@ export function PrevNextNav({
             setLocation(`/card/${card.id}`);
           }}
           data-testid={testId}
-          // Same words, in the same order, as the visible "Previous · TC102 …"
-          aria-label={`${dir}: ${card.id} ${CARD_TITLE_MAP[card.id] ?? ""}`}
+          // Exactly the visible "Previous · TC102 …" text, separator included,
+          // so the name contains the label (WCAG 2.5.3 label in name)
+          aria-label={`${dir} · ${card.id} ${CARD_TITLE_MAP[card.id] ?? card.id}`}
           className={`flex items-center gap-2 rounded-2xl px-3.5 py-3 transition-all active:scale-[0.98] min-w-0 ${dir === "Next" ? "flex-row-reverse text-right" : "text-left"}`}
           style={{
             minHeight: 56,
