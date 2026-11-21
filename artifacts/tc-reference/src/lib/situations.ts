@@ -1,4 +1,4 @@
-// "Help me right now" situation map: the picker shows these eight situations,
+// "Help me right now" situation map: the picker shows these nine situations,
 // and each answer screen leads with one technique, three lines to say, one
 // follow-on step and one thing to avoid.
 //
@@ -8,7 +8,7 @@
 // Every spoken line, follow-on line and avoid note is copied word for word
 // from the named card's existing text (content-invariants test
 // `situations.test.ts` checks this), so the map adds no new advice of its
-// own. Only `label` and `tagline` are new wording. The lead instruction shown
+// own. Only `label`, `tagline` and `safetyNote` are new wording. The lead instruction shown
 // on the answer screen is the lead card's `summary` in ./data.ts.
 
 export interface SituationFollowOn {
@@ -33,6 +33,11 @@ export interface Situation {
   followOn: SituationFollowOn;
   /** One thing to avoid, from the lead card's "what it is not" or "not for" text. */
   avoid: string;
+  /**
+   * Shown before anything else on the answer screen when someone may be at
+   * risk: points to local protocol and emergency services, not clinical advice.
+   */
+  safetyNote?: string;
 }
 
 export const SITUATIONS: readonly Situation[] = [
@@ -149,6 +154,27 @@ export const SITUATIONS: readonly Situation[] = [
     },
     avoid:
       "It works when the silence feels like space. It fails the moment it feels like pressure.",
+  },
+  {
+    id: "distressed-or-unsafe",
+    label: "They're very distressed or might not be safe",
+    tagline: "Safety first, then words",
+    leadCardId: "TC098",
+    // CLINICAL REVIEW NEEDED
+    safetyNote:
+      "If someone may be at risk of harm, follow your organisation's safety or risk protocol. If there is immediate danger, call 000. These lines help you check in. They are not a risk assessment.",
+    lines: [
+      // CLINICAL REVIEW NEEDED
+      "I can see this is really hard right now. I'm here, and we can take it slowly.",
+      // CLINICAL REVIEW NEEDED
+      "Are you safe right now?",
+      // CLINICAL REVIEW NEEDED
+      "I'd like to ask you directly. Are you having thoughts of hurting yourself or ending your life?",
+    ],
+    followOn: { cardId: "TC012", line: "Go on, I'm with you." },
+    // CLINICAL REVIEW NEEDED
+    avoid:
+      'It is not a risk assessment or a diagnosis, and it is not a leading question like "You\'re not thinking of hurting yourself, are you?" Ask plainly, and follow your local protocol.',
   },
 ];
 

@@ -57,6 +57,7 @@ export const TC107: CardData = {
     "Not agreeing with things that aren't true.",
     "Not ignoring a fair point that deserves a real answer.",
     "Not a way to steamroll someone who is upset for good reason.",
+    "Not stonewalling. You still acknowledge what they say each time.",
   ],
   overview: {
     coreFormula: [
@@ -67,7 +68,7 @@ export const TC107: CardData = {
       "Acknowledge what they say before repeating.",
     ],
     minimumViableMove:
-      '"You may be right. And my answer is still no." Said calmly, as often as needed.',
+      "Calmly agree with whatever is true, then repeat your short position in the same words.",
     impact: "Medium",
     difficulty: "Medium",
     misuse:
@@ -78,12 +79,17 @@ export const TC107: CardData = {
       "Someone criticising you to get a rise.",
       "Holding a refund or service request.",
       "Staying calm when someone is needling you.",
+      "A request to bend a policy you can't change.",
+      "Holding a decision when someone keeps asking the same question in new ways.",
     ],
   },
   notFor: [
     "Someone close to you raising a fair issue. Listen and use receiving feedback (TC103).",
     "Anyone who may become dangerous. Leave and get help.",
     "Negotiations where you want to find a creative solution together.",
+    "A patient, client or family member is distressed and needs to be heard. Listen first.",
+    "You're unsure of your own position. Decide first, then hold it.",
+    "A complaint has real merit and should go through a proper process.",
   ],
   phraseBank: [
     {
@@ -111,6 +117,8 @@ export const TC107: CardData = {
         "That may be so. I'd still like a refund.",
         "I get that. I'm still not lending the car.",
         "Thanks, but no.",
+        "I understand. The answer is still the same.",
+        "I know. My decision hasn't changed.",
       ],
     },
     {
@@ -123,6 +131,8 @@ export const TC107: CardData = {
         "Yes, I've said no before. And it's still no.",
         "I can see you're disappointed. I'm still not coming.",
         "That might be your policy. I'd still like a refund.",
+        "You could be right that it's unfair. I'm still not able to change the booking.",
+        "That's possible. The policy still applies, and I can explain what we can offer.",
       ],
     },
     {
@@ -134,6 +144,9 @@ export const TC107: CardData = {
         "I'm going to leave it there. Thanks for your time.",
         "I've given my answer, so I'll go now.",
         "Let's leave this here for today.",
+        "I don't think we'll agree today, so I'll leave it there.",
+        "I've said what I can. I'm happy to pick it up another time.",
+        "I'll stop here. Thanks for hearing me out.",
       ],
     },
     {
@@ -145,6 +158,33 @@ export const TC107: CardData = {
         "I know you worry about me. I'm still going on the trip.",
         "You might be right that I'll regret it. It's my call though.",
         "I love you, and I'm not changing my mind on this.",
+        "I know this matters to you. I'm still saying no.",
+        "You might be right that I'm being cautious. It's still my decision.",
+        "I hear how much you want this. My answer hasn't changed.",
+      ],
+    },
+    {
+      id: "work",
+      label: "At work",
+      tag: "Policy, requests and pressure",
+      tone: "Professional",
+      phrases: [
+        "I understand why you're asking. I'm still not able to make an exception.",
+        "You may be right that it would be quicker. We still need to follow the process.",
+        "I hear that. The deadline is still Friday.",
+        "That's a fair question. My answer is the same as this morning.",
+        "I can see it's frustrating. I'm not able to approve it, and I can tell you who can review it.",
+      ],
+    },
+    {
+      id: "in-writing",
+      label: "In writing",
+      tag: "Holding a position by email",
+      tone: "Quick",
+      phrases: [
+        "Thanks for your message. My answer is the same as in my email on Monday.",
+        "I understand you disagree. The decision stands, and the review process is in the link below.",
+        "You may be right that it's inconvenient. The booking can't be changed after the cut-off.",
       ],
     },
   ],
@@ -174,6 +214,11 @@ export const TC107: CardData = {
       action: "Close politely.",
       phrase: "I'm going to leave it there. Thanks.",
     },
+    {
+      condition: "They become distressed rather than pushy",
+      action: "Drop the broken record and acknowledge the feeling.",
+      phrase: "I can see this is really upsetting. Let's slow down.",
+    },
   ],
   ladder: [
     {
@@ -190,6 +235,11 @@ export const TC107: CardData = {
       weak: '"Stop nagging me!"',
       better: '"I said no."',
       best: "\"I know you'd like me to. I'm still not going to.\"",
+    },
+    {
+      weak: "\"I've told you a hundred times, the answer's no!\"",
+      better: '"Like I said, no."',
+      best: '"I can see why you\'re asking again. My answer is still no, and I can explain what we can do instead."',
     },
   ],
   scenarios: [
@@ -220,6 +270,12 @@ export const TC107: CardData = {
       move: "Fog without taking the bait.",
       phrase: '"Maybe I am a bit pedantic."',
     },
+    {
+      situation: "Asked to make an exception to policy",
+      move: "Fog the frustration, repeat the position, offer the process.",
+      phrase:
+        '"You may be right that it seems unfair. I\'m still not able to make an exception, and I can tell you how to request a review."',
+    },
   ],
   calibration: {
     working: [
@@ -227,12 +283,17 @@ export const TC107: CardData = {
       "The heat drops.",
       "They accept your answer.",
       "You stay calm throughout.",
+      "They switch to asking what you can do instead.",
+      "The conversation gets shorter, not louder.",
     ],
     adjust: [
       "You're getting louder: slow down and lower your voice.",
       "You've started justifying: go back to your short line.",
       "They raise a real point: switch to listening.",
       "You sound sarcastic: soften your tone.",
+      "They're distressed, not pushy: stop repeating and listen.",
+      "You've repeated it four times: close the conversation politely.",
+      "They've brought new information: reconsider honestly before you repeat.",
     ],
   },
   drill: [
@@ -278,6 +339,7 @@ export const TC107: CardData = {
     "Did I repeat the same short line?",
     "Did I keep a calm, even tone?",
     "Did I switch to listening when a real concern came up?",
+    "Did I know when to stop and close?",
   ],
   example: {
     without: [
@@ -292,6 +354,7 @@ export const TC107: CardData = {
       "A: But it's my birthday.",
       "B: I know, and I hope it's great. I'm still not coming. Can I take you for lunch next week?",
     ],
+    note: 'B never argues the "ridiculous" claim. They fog it, repeat the same no and end with a genuine offer, so there\'s nothing left to fight about.',
   },
   influencePayoff: {
     feeling: "\"They didn't rise to it, and they didn't budge.\"",
@@ -367,6 +430,34 @@ export const TC107: CardData = {
     'A salesperson\'s "limited time offer"',
     'Guilt: "After all I\'ve done for you."',
   ],
+  depthDial: [
+    {
+      depth: "Light fog",
+      useWhen: "a teasing or mild criticism",
+      phrase: "Maybe I am a bit fussy about it.",
+    },
+    {
+      depth: "Fog and acknowledge",
+      useWhen: "they have a point you can honestly agree with",
+      phrase:
+        "You're right, I did say I'd look at it. I still can't change it today.",
+    },
+    {
+      depth: "Broken record",
+      useWhen: "they keep asking the same thing in new ways",
+      phrase: "I understand. My answer is still no.",
+    },
+    {
+      depth: "Record and exit",
+      useWhen: "the pressure keeps going after three rounds",
+      phrase: "I've given my answer, so I'm going to leave it there.",
+    },
+    {
+      depth: "Stop and listen",
+      useWhen: "a real grievance or new information comes up",
+      phrase: "Hang on, that's important. Tell me more.",
+    },
+  ],
   commonMistakes: [
     {
       mistake: "Justifying",
@@ -388,11 +479,30 @@ export const TC107: CardData = {
       soundsLike: "Fogging a partner's real hurt.",
       better: "Stop and listen.",
     },
+    {
+      mistake: "Fogging everything",
+      soundsLike: "Agreeing with untrue claims to make it stop.",
+      better: "Agree only with what's true or possible.",
+    },
+    {
+      mistake: "Robotic repetition",
+      soundsLike: "The same line in a flat, cold voice.",
+      better: 'Acknowledge first: "I hear you. It\'s still no."',
+    },
+    {
+      mistake: "Not knowing when to stop",
+      soundsLike: "Repeating yourself for ten minutes.",
+      better: 'After a few rounds, close: "I\'ll leave it there."',
+    },
   ],
   recoveryPhrases: [
     "I got drawn into arguing. Let me just say it simply. It's still no.",
     "That sounded sarcastic. I meant you could be right.",
     "I've repeated myself a lot. Let me hear your concern properly.",
+    "I've been repeating myself without really listening. What's the bit that matters most to you?",
+    "I agreed with something that isn't true, just to end it. Let me correct that.",
+    "I got short with you there. I'm sorry. My answer is still the same.",
+    "I'll stop repeating myself. I've given my answer, and I'll leave it there.",
   ],
   bestRecoveryLine:
     "I got drawn into arguing. Let me just say it simply. It's still no.",
@@ -413,6 +523,22 @@ export const TC107: CardData = {
         '"I\'ll leave it there. Thanks for your time."',
       ],
     },
+    {
+      label: "Fogging, then validate the concern",
+      sequence: "Agree with what's true, acknowledge the worry, hold the line.",
+      example: [
+        '"You might be right that it\'s slow."',
+        '"It makes sense you\'re frustrated. The process still applies."',
+      ],
+    },
+    {
+      label: "Broken record, then ask what would make it workable",
+      sequence: "Once they accept the no, open the door to what's possible.",
+      example: [
+        '"I\'m still not able to change it."',
+        '"What would make the new time workable for you?"',
+      ],
+    },
   ],
   relatedTechniques: [
     {
@@ -428,6 +554,19 @@ export const TC107: CardData = {
       id: "TC103",
       reason:
         "When the criticism is fair and from someone who matters, receive it instead of fogging it.",
+    },
+    {
+      id: "TC014",
+      reason: "Acknowledge a real worry before you repeat your position.",
+    },
+    {
+      id: "TC083",
+      reason:
+        "Once the no is accepted, ask what would make an alternative work.",
+    },
+    {
+      id: "TC108",
+      reason: "When the loop won't end, close the conversation warmly and go.",
     },
   ],
 };

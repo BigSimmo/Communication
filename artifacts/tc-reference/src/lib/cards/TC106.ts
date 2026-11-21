@@ -53,6 +53,7 @@ export const TC106: CardData = {
     "Not taking back a fair point.",
     "Not an apology when you've done nothing wrong.",
     "Not a way to sneak in criticism.",
+    "Not a long disclaimer before every point.",
   ],
   overview: {
     coreFormula: [
@@ -62,7 +63,7 @@ export const TC106: CardData = {
       "Return to the topic.",
     ],
     minimumViableMove:
-      '"I\'m not saying [what they fear]. I do want [your real aim]."',
+      "When your intent is misread, say what you don't mean, then what you do mean.",
     impact: "Medium",
     difficulty: "Easy-Medium",
     misuse:
@@ -72,12 +73,17 @@ export const TC106: CardData = {
       "Your partner thinks you're blaming them.",
       "A colleague bristles at feedback.",
       "Before raising something that could be misread.",
+      "A patient or family member hears an explanation as dismissive.",
+      "Raising a concern with a colleague without it sounding like an accusation.",
     ],
   },
   notFor: [
     "You actually do mean the thing you're denying. Be honest instead.",
     "When you've done harm. Apologise (TC101).",
     "Every sentence. Overused, it sounds defensive.",
+    "A clear instruction is needed now. Say it plainly first, and clarify intent afterwards.",
+    "They're too upset to hear intent yet. Acknowledge the feeling first (TC098).",
+    "Formal feedback where the message must be unmistakable. Contrast once, then be clear.",
   ],
   phraseBank: [
     {
@@ -90,6 +96,8 @@ export const TC106: CardData = {
         "This isn't a criticism. I want to help.",
         "I'm not saying no. I'm saying not yet.",
         "I don't want to change the plan, just the timing.",
+        "I'm not upset. I just want to check something.",
+        "That's not a no. I need a bit more time.",
       ],
     },
     {
@@ -102,6 +110,7 @@ export const TC106: CardData = {
         "I don't think you're a bad friend at all. I missed you, that's all.",
         "This isn't about you doing it wrong. I'd just like to help more.",
         "I'm not upset with you. I'm upset about the situation.",
+        "I'm not telling you what to do. I want to understand what you'd like.",
       ],
     },
     {
@@ -114,6 +123,8 @@ export const TC106: CardData = {
         "I don't want to slow you down. I want to avoid a redo later.",
         "This isn't a judgement on the team. It's a process gap.",
         "I'm not taking this off you. I'd like to share the load.",
+        "I'm not saying the plan is wrong. I want to check we've covered the risks.",
+        "This isn't about who dropped it. I want the handover to work for everyone.",
       ],
     },
     {
@@ -124,6 +135,10 @@ export const TC106: CardData = {
       phrases: [
         "I don't want this to sound like a complaint, because I love working with you. I do want to raise the late changes.",
         "I'm not asking you to give up the gym. I'd love one evening a week together.",
+        "I don't want you to hear this as criticism, because you've carried a lot this week. I do want to talk about the handover notes.",
+        "I'm not trying to take over. I'd like to suggest one change to the plan.",
+        "This isn't me doubting you. I want to check one detail before we send it.",
+        "I'm not raising this to blame anyone. I want us to fix the gap before Friday.",
       ],
     },
     {
@@ -135,6 +150,31 @@ export const TC106: CardData = {
         "So, back to what I was saying.",
         "With that clear, can we look at the plan?",
         "Does that make more sense of what I meant?",
+        "Okay. With that cleared up, can I finish the point?",
+        "Thanks for checking. So, the timing.",
+      ],
+    },
+    {
+      id: "care-settings",
+      label: "Patients, clients and families",
+      tag: "When an explanation lands as dismissive",
+      tone: "Warm",
+      phrases: [
+        "I'm not saying your concern isn't real. I want to explain what happens next.",
+        "I'm not trying to rush you. I want to make sure we cover what matters most to you today.",
+        "This isn't me brushing you off. I want to find the right person to answer that.",
+        "I'm not saying you did anything wrong. I want to understand what happened.",
+      ],
+    },
+    {
+      id: "high-stakes",
+      label: "When it's tense",
+      tag: "Defensiveness is high",
+      tone: "High-stakes",
+      phrases: [
+        "I can see that landed badly. I'm not accusing you. I want us both to understand what happened.",
+        "I'm not trying to win this. I want to find something that works for both of us.",
+        "I'm not questioning your commitment. I am worried about the deadline.",
       ],
     },
   ],
@@ -159,6 +199,12 @@ export const TC106: CardData = {
       action: "Don't contrast. Apologise.",
       phrase: "That was unfair of me. I'm sorry.",
     },
+    {
+      condition: "They're very upset",
+      action: "Acknowledge the feeling first, then contrast.",
+      phrase:
+        "That sounds really upsetting. I'm not saying you're wrong to feel that. I want to explain what happened.",
+    },
   ],
   ladder: [
     {
@@ -175,6 +221,11 @@ export const TC106: CardData = {
       weak: '"Whatever, forget it."',
       better: '"That\'s not what I meant."',
       best: '"I don\'t want you to feel criticised. I do want to understand what happened."',
+    },
+    {
+      weak: '"Don\'t be so sensitive, I was only asking."',
+      better: '"I was only asking."',
+      best: '"I\'m not checking up on you. I wanted to know if you needed a hand."',
     },
   ],
   scenarios: [
@@ -202,6 +253,18 @@ export const TC106: CardData = {
       phrase:
         "\"I don't want to tell you how to parent. I did notice something I'd like to mention.\"",
     },
+    {
+      situation: "A family member hears an explanation as brushing them off",
+      move: "Clarify intent, then return to the explanation.",
+      phrase:
+        "\"I'm not saying your worry isn't real. I want to explain what happens next, and then answer your questions.\"",
+    },
+    {
+      situation: "Raising a handover gap with a colleague",
+      move: "Pre-empt the blame reading.",
+      phrase:
+        '"This isn\'t about who dropped it. I want the handover to work for everyone. Could we use the checklist?"',
+    },
   ],
   calibration: {
     working: [
@@ -209,12 +272,16 @@ export const TC106: CardData = {
       "They re-engage with the topic.",
       'They say "oh, okay".',
       "The conversation moves forward.",
+      "They ask a question about the topic instead of defending.",
+      "You can raise the next point without another misread.",
     ],
     adjust: [
       "They're still defensive: ask what they heard.",
       "It sounds like an excuse: shorten it.",
       "You're using it constantly: look at how you're raising things.",
       "Your \"don't\" isn't true: be honest instead.",
+      "They're too upset to hear intent: acknowledge the feeling first.",
+      'Your "do" is vague: say exactly what you want.',
     ],
   },
   drill: [
@@ -260,6 +327,7 @@ export const TC106: CardData = {
     "Did I keep it short?",
     "Did I return to the topic?",
     'Did I avoid "no offence, but"?',
+    "Did I check what they heard if it didn't land?",
   ],
   example: {
     without: [
@@ -274,6 +342,7 @@ export const TC106: CardData = {
       "A: Not at all. I'm not criticising your work. I want time to add my bit properly.",
       "B: Oh, okay. Tuesday then?",
     ],
+    note: "In the second version the contrast is one honest sentence about intent, then a return to the request, so the slides get sorted without an argument.",
   },
   influencePayoff: {
     feeling: '"Oh, they\'re not having a go at me."',
@@ -342,6 +411,36 @@ export const TC106: CardData = {
     "A sudden short answer",
     '"Fine."',
     "They start defending something you didn't criticise",
+    '"Are you saying it\'s my fault?"',
+  ],
+  depthDial: [
+    {
+      depth: "One-line contrast",
+      useWhen: 'a small flinch or a short "fine"',
+      phrase: "I'm not having a go. I just want to sort it.",
+    },
+    {
+      depth: "Full don't and do",
+      useWhen: "they've clearly misread your intent",
+      phrase:
+        "I'm not saying you did a bad job. I want the next one to be easier for both of us.",
+    },
+    {
+      depth: "Pre-emptive contrast",
+      useWhen: "you're about to say something easy to misread",
+      phrase:
+        "I don't want this to sound like a complaint. I do want to raise the late changes.",
+    },
+    {
+      depth: "Check what they heard",
+      useWhen: "the contrast didn't land",
+      phrase: "How did that come across to you?",
+    },
+    {
+      depth: "Switch to apology",
+      useWhen: "your intent really was unkind or careless",
+      phrase: "Actually, that was unfair of me. I'm sorry.",
+    },
   ],
   commonMistakes: [
     {
@@ -359,11 +458,35 @@ export const TC106: CardData = {
       soundsLike: "Contrasting every sentence.",
       better: "Use it when you see a misread.",
     },
+    {
+      mistake: '"But" after the don\'t',
+      soundsLike: '"I\'m not criticising, but..."',
+      better: '"I\'m not criticising. I do want to..."',
+    },
+    {
+      mistake: "Making it about you",
+      soundsLike: '"I\'m not a bad person, I was trying to help!"',
+      better: 'Keep to what they feared: "I\'m not saying you did it wrong."',
+    },
+    {
+      mistake: "A vague do",
+      soundsLike: '"I just want things to be better."',
+      better: '"I\'d like the slides by Tuesday so I can add my part."',
+    },
+    {
+      mistake: "Contrasting instead of listening",
+      soundsLike: "Repeating the contrast while they explain why they're hurt.",
+      better: "Stop and ask what they heard.",
+    },
   ],
   recoveryPhrases: [
     "Let me say that better. I'm not having a go. I'd like to help.",
     "That came out wrong. What I meant was...",
     "I think I worried you. That wasn't my intent.",
+    'I said "no offence, but", and that wasn\'t fair. Let me say it properly.',
+    "I don't think that came out how I meant. Can I try again?",
+    "I'm not trying to defend myself. I want to understand why that hurt.",
+    "I explained my intent, but I didn't listen. Tell me what you heard.",
   ],
   bestRecoveryLine: "That came out wrong. What I meant was...",
   chains: [
@@ -383,6 +506,22 @@ export const TC106: CardData = {
         '"Tell me how it looked from your side."',
       ],
     },
+    {
+      label: "Emotion before facts, then contrasting",
+      sequence: "Meet the feeling, then clear up the intent.",
+      example: [
+        '"That sounds really frustrating."',
+        "\"I'm not saying you're wrong to feel that. I want to explain what happened.\"",
+      ],
+    },
+    {
+      label: "Contrasting, then clean request",
+      sequence: "Clear the intent, then make the ask specific.",
+      example: [
+        '"I\'m not questioning your work."',
+        '"Could you send the slides on Tuesday so I can add my part?"',
+      ],
+    },
   ],
   relatedTechniques: [
     {
@@ -397,6 +536,20 @@ export const TC106: CardData = {
     {
       id: "TC052",
       reason: "Pair with SBI when giving feedback that might be misread.",
+    },
+    {
+      id: "TC098",
+      reason:
+        "If they're very upset, meet the feeling before you clarify intent.",
+    },
+    {
+      id: "TC013",
+      reason: "After the contrast, make your request specific.",
+    },
+    {
+      id: "TC077",
+      reason:
+        "Start with what you agree on before raising a point that might be misread.",
     },
   ],
 };
