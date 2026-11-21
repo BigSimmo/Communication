@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { DockBar } from "@/components/ui/dock-bar";
 import { DrillDone } from "@/components/drill-done";
+import { DrillProgress } from "@/components/drill-progress";
 import { DrillRating } from "@/components/drill-rating";
 import { DrillReviewSheet } from "@/components/drill-review-sheet";
 import { DrillReviews } from "@/components/drill-reviews";
@@ -52,10 +53,12 @@ import {
   CORE_TRACK_NAME,
   DRILL_CARD_META,
   drillCardTitle,
+  drillProgress,
   durationLabel,
   gapClause,
   previewGaps,
   RATING_LABELS,
+  returnWords,
   sameTrack,
   trackName,
   weekStrip,
@@ -108,6 +111,8 @@ export default function Drill() {
   const [trackSheet, setTrackSheet] = useState<"closed" | "open" | "suggest">(
     "closed",
   );
+  // The category a progress row asked the track sheet to open on.
+  const [trackCategory, setTrackCategory] = useState<string | undefined>();
   const [reviewId, setReviewId] = useState<string | null>(null);
   const [announcement, setAnnouncement] = useState("");
 
@@ -245,6 +250,7 @@ export default function Drill() {
       setState(next);
     }
     setTrackSheet("closed");
+    setTrackCategory(undefined);
   };
 
   const rateReview = (cardId: string, rating: Rating) => {
@@ -255,6 +261,18 @@ export default function Drill() {
       `${drillCardTitle(cardId)} ${gapClause(updated.interval)}.`,
     );
   };
+
+  const progress = useMemo(() => drillProgress(srsMap), [srsMap]);
+  const progressSection = (
+    <DrillProgress
+      overall={progress.overall}
+      categories={progress.categories}
+      onPickCategory={(category) => {
+        setTrackCategory(category);
+        setTrackSheet("open");
+      }}
+    />
+  );
 
   const retryLoad = () => {
     setLoadFailed(false);
@@ -301,8 +319,12 @@ export default function Drill() {
           state={state}
           dueCount={due.length}
           suggestCore={trackSheet === "suggest"}
+          initialCategory={trackCategory}
           onApply={applyTrack}
-          onClose={() => setTrackSheet("closed")}
+          onClose={() => {
+            setTrackSheet("closed");
+            setTrackCategory(undefined);
+          }}
         />
       )}
       {reviewId && (
@@ -337,6 +359,9 @@ export default function Drill() {
       state.cardIndex === 0 &&
       state.prevCardIndex === cardCount - 1;
     const prevTitle = prevId ? drillCardTitle(prevId) : "";
+    // The finished technique's review: its rating and when it comes back.
+    const prevReview = prevId ? srsMap[prevId] : undefined;
+    const prevRating = undo?.rating ?? prevReview?.rating;
 
     let milestone: ReactNode;
     if (finishedTrack) {
@@ -355,7 +380,11 @@ export default function Drill() {
         </>
       );
     } else if (finishedCard && state.pace > 1) {
-      milestone = `You have finished ${prevTitle}. It will come back for review. Next up: ${nextTitle}.`;
+      milestone = `You have finished ${prevTitle}. It ${
+        prevReview
+          ? `comes back for review ${returnWords(prevReview.interval)}`
+          : "will come back for review"
+      }. Next up: ${nextTitle}.`;
     }
 
     return (
@@ -370,7 +399,13 @@ export default function Drill() {
           }
           detail={
             prevId
-              ? `${prevTitle}${undo ? ` · rated ${RATING_LABELS[undo.rating]}` : ""}`
+              ? [
+                  prevTitle,
+                  prevRating && `rated ${RATING_LABELS[prevRating]}`,
+                  prevReview && `back ${returnWords(prevReview.interval)}`,
+                ]
+                  .filter(Boolean)
+                  .join(" · ")
               : undefined
           }
           onUndo={undo ? handleUndo : undefined}
@@ -388,6 +423,7 @@ export default function Drill() {
         >
           <DrillReviews due={due} onOpen={setReviewId} />
         </DrillDone>
+        {progressSection}
         <Dock>
           <Button
             className="flex-1"
@@ -544,6 +580,8 @@ export default function Drill() {
       />
 
       <DrillReviews due={due} onOpen={setReviewId} />
+
+      {progressSection}
 
       <Dock>
         <Button

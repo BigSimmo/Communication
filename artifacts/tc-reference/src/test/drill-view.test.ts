@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { LIBRARY_CATEGORIES } from "../lib/data";
 import {
   applySM2,
   RATING_QUALITY,
@@ -10,13 +11,16 @@ import {
   CORE_TRACK_NAME,
   daysBetween,
   daysLeft,
+  drillProgress,
   dueLabel,
   durationLabel,
   gapClause,
   gapLabel,
+  returnWords,
   leftLabel,
   previewGaps,
   sameTrack,
+  srsStatus,
   takesLabel,
   trackName,
   weekStrip,
@@ -102,11 +106,19 @@ describe("how long a track takes", () => {
 });
 
 describe("review gaps", () => {
-  it("words a gap of one day as tomorrow", () => {
+  it("words a gap in everyday terms", () => {
     expect(gapLabel(1)).toBe("Back tomorrow");
-    expect(gapLabel(6)).toBe("Back in 6 days");
+    expect(gapLabel(3)).toBe("Back in 3 days");
+    expect(gapLabel(7)).toBe("Back in a week");
+    expect(gapLabel(13)).toBe("Back in 13 days");
+    expect(gapLabel(14)).toBe("Back in 2 weeks");
+    expect(gapLabel(18)).toBe("Back in about 3 weeks");
+    expect(gapLabel(49)).toBe("Back in 7 weeks");
+    expect(gapLabel(90)).toBe("Back in about 3 months");
+    expect(gapLabel(400)).toBe("Back in about a year");
     expect(gapClause(1)).toBe("comes back tomorrow");
-    expect(gapClause(16)).toBe("comes back in 16 days");
+    expect(gapClause(7)).toBe("comes back in a week");
+    expect(returnWords(3)).toBe("in 3 days");
   });
 
   it("previews exactly the gap the real save would set", () => {
@@ -127,11 +139,11 @@ describe("review gaps", () => {
     expect(gaps.confident).toBeGreaterThan(1);
   });
 
-  it("previews a first rating as back tomorrow, whatever the rating", () => {
+  it("previews a first rating as 1, 3 and 7 days", () => {
     expect(previewGaps("TC001", undefined)).toEqual({
       "not-yet": 1,
-      "getting-there": 1,
-      confident: 1,
+      "getting-there": 3,
+      confident: 7,
     });
   });
 
@@ -218,5 +230,77 @@ describe("this week's strip", () => {
       "ahead",
       "ahead",
     ]);
+  });
+});
+
+describe("progress", () => {
+  const review = (patch: Partial<CardSRS> & { cardId: string }): CardSRS => ({
+    interval: 3,
+    repetition: 1,
+    efactor: 2.36,
+    nextReviewDate: "2026-03-20",
+    ...patch,
+  });
+
+  it("reads a technique's status from its latest rating", () => {
+    expect(srsStatus(undefined)).toBe("not-started");
+    expect(srsStatus(review({ cardId: "TC001", rating: "confident" }))).toBe(
+      "confident",
+    );
+    expect(srsStatus(review({ cardId: "TC001", rating: "not-yet" }))).toBe(
+      "not-yet",
+    );
+  });
+
+  it("reads reviews saved before ratings were kept from their schedule", () => {
+    expect(srsStatus(review({ cardId: "TC001", repetition: 0 }))).toBe(
+      "not-yet",
+    );
+    expect(srsStatus(review({ cardId: "TC001", efactor: 2.6 }))).toBe(
+      "confident",
+    );
+    expect(srsStatus(review({ cardId: "TC001", efactor: 2.36 }))).toBe(
+      "getting-there",
+    );
+  });
+
+  it("counts every technique overall and per category", () => {
+    const [firstCategory, cards] = Object.entries(LIBRARY_CATEGORIES)[0];
+    const [a, b, c] = cards.map((card) => card.id);
+    const map = {
+      [a]: review({ cardId: a, rating: "confident" }),
+      [b]: review({
+        cardId: b,
+        rating: "getting-there",
+        nextReviewDate: "2026-03-09",
+      }),
+      [c]: review({
+        cardId: c,
+        rating: "not-yet",
+        nextReviewDate: "2026-03-10",
+      }),
+    };
+    const { overall, categories } = drillProgress(map, "2026-03-10");
+    const total = Object.values(LIBRARY_CATEGORIES).flat().length;
+    expect(overall).toEqual({
+      total,
+      due: 2,
+      byStatus: {
+        confident: 1,
+        "getting-there": 1,
+        "not-yet": 1,
+        "not-started": total - 3,
+      },
+    });
+    expect(categories.map((x) => x.category)).toEqual(
+      Object.keys(LIBRARY_CATEGORIES),
+    );
+    expect(categories[0]).toMatchObject({
+      category: firstCategory,
+      total: cards.length,
+      due: 2,
+      byStatus: { confident: 1, "not-started": cards.length - 3 },
+    });
+    expect(categories[1].byStatus["not-started"]).toBe(categories[1].total);
   });
 });

@@ -133,6 +133,8 @@ interface DrillTrackSheetProps {
   dueCount: number;
   /** Open on Core at three days each: the short way in for a new reader. */
   suggestCore?: boolean;
+  /** Open on this library category (from a progress row). */
+  initialCategory?: string;
   onApply: (track: DrillTrack, pace: DrillPace) => void;
   onClose: () => void;
 }
@@ -147,6 +149,7 @@ export function DrillTrackSheet({
   state,
   dueCount,
   suggestCore = false,
+  initialCategory,
   onApply,
   onClose,
 }: DrillTrackSheetProps) {
@@ -187,11 +190,16 @@ export function DrillTrackSheet({
     return { options, savedCount };
   }, [playbooks, current]);
 
+  const startCategory =
+    initialCategory && CATEGORY_NAMES.includes(initialCategory)
+      ? initialCategory
+      : undefined;
   const [kind, setKind] = useState<TrackKind>(
-    suggestCore ? "core" : current.kind,
+    startCategory ? "category" : suggestCore ? "core" : current.kind,
   );
   const [category, setCategory] = useState(
-    current.kind === "category" ? current.category : CATEGORY_NAMES[0],
+    startCategory ??
+      (current.kind === "category" ? current.category : CATEGORY_NAMES[0]),
   );
   const [playbookId, setPlaybookId] = useState(
     current.kind === "playbook"

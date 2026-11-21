@@ -393,9 +393,12 @@ describe("ratings feed SM-2", () => {
   it("persists the review so it shows as due when its date comes", () => {
     updateSRS("TC004", "getting-there");
     updateSRS("TC006", "confident");
-    expect(loadSRSMap().TC004.nextReviewDate).toBe("2026-03-11");
+    expect(loadSRSMap().TC004.nextReviewDate).toBe("2026-03-13");
+    expect(loadSRSMap().TC006.nextReviewDate).toBe("2026-03-17");
     expect(getDueCardsCount()).toBe(0);
-    vi.setSystemTime(new Date(2026, 2, 11, 12));
+    vi.setSystemTime(new Date(2026, 2, 13, 12));
+    expect(getDueCardIds()).toEqual(["TC004"]);
+    vi.setSystemTime(new Date(2026, 2, 17, 12));
     expect(getDueCardIds()).toEqual(["TC004", "TC006"]);
   });
 
