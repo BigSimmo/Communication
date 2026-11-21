@@ -239,7 +239,7 @@ function QuickModeContent() {
       role="dialog"
       aria-modal="true"
       aria-label="Quick Lookup"
-      className="fixed inset-0 bg-background flex flex-col animate-in slide-in-from-bottom-full duration-300"
+      className="safe-x fixed inset-0 bg-background flex flex-col animate-in slide-in-from-bottom-full duration-300"
       style={{ zIndex: "var(--z-overlay)" as unknown as number }}
       data-testid="quick-mode-overlay"
     >

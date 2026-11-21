@@ -33,8 +33,11 @@ export function AppLayout({ children }: AppLayoutProps) {
       <aside
         data-testid="sidebar-desktop"
         aria-label="Main navigation"
-        className="hidden md:flex fixed left-0 top-0 bottom-0 w-[200px] flex-col z-30"
+        className="hidden md:flex fixed left-0 top-0 bottom-0 w-[var(--sidebar-w)] flex-col z-30"
         style={{
+          // Wider by the left inset so a landscape iPhone keeps the rail
+          // clear of the notch or Dynamic Island
+          paddingLeft: "var(--safe-left)",
           background: "var(--surface-sidebar)",
           borderRight: "1px solid var(--fg-07)",
         }}
@@ -160,7 +163,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       </aside>
 
       {/* ── Content wrapper (sidebar offset + shared header) ── */}
-      <div className="md:pl-[200px] flex flex-col min-h-[100dvh] w-full min-w-0 overflow-x-clip">
+      <div className="md:pl-[var(--sidebar-w)] flex flex-col min-h-[100dvh] w-full min-w-0 overflow-x-clip">
         <AppHeader />
         {/* Bottom padding clears the phone tab bar and the home indicator */}
         <main className="app-main flex-1 min-w-0 overflow-x-clip">

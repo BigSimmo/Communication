@@ -43,6 +43,9 @@ export function Chip({
         />
       )}
       {children}
+      {/* Unrendered between flex items; keeps "Voice 4" two words in the
+          DOM text that the accessible name is checked against */}
+      {count !== undefined && " "}
       {count !== undefined && (
         <span className="text-[12px] font-semibold tabular-nums">{count}</span>
       )}

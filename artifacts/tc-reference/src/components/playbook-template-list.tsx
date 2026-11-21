@@ -36,13 +36,13 @@ export function PlaybookTemplateList({
     <section aria-labelledby="playbook-templates-heading" className="mt-2">
       <h2
         id="playbook-templates-heading"
-        className="text-[11px] font-bold tracking-[0.08em] uppercase mb-1 px-1"
+        className="text-[11px] font-bold tracking-[0.08em] uppercase mb-1"
         style={{ color: "var(--fg-50)" }}
       >
         Start from a template
       </h2>
       <p
-        className="text-[12px] leading-relaxed mb-3 px-1"
+        className="text-[12px] leading-relaxed mb-3"
         style={{ color: "var(--fg-55)" }}
       >
         Load a sequence, then reorder or swap cards before you save it.
@@ -67,7 +67,7 @@ export function PlaybookTemplateList({
           >
             <h3
               id={headingId}
-              className="flex items-center gap-1.5 text-[12px] font-semibold mb-2 px-1"
+              className="flex items-center gap-1.5 text-[12px] font-semibold mb-2"
               style={{ color: "var(--fg-70)" }}
             >
               <Icon
@@ -79,7 +79,7 @@ export function PlaybookTemplateList({
             </h3>
             {note && (
               <p
-                className="text-[12px] leading-relaxed mb-2 px-1"
+                className="text-[12px] leading-relaxed mb-2"
                 style={{ color: "var(--fg-55)" }}
               >
                 {note}
@@ -92,26 +92,28 @@ export function PlaybookTemplateList({
                     type="button"
                     onClick={() => onUse(t)}
                     data-testid={`playbook-template-${t.id}`}
-                    aria-label={`Use template: ${t.name}`}
                     className="w-full h-full text-left flex items-start gap-3 rounded-2xl px-4 py-3.5 transition-all active:scale-[0.98] bg-[var(--surface-card)] hover:bg-[var(--surface-card-hover)]"
                     style={{
                       border: "1px solid var(--fg-07)",
                       boxShadow: "var(--shadow-card)",
                     }}
                   >
+                    {/* Named by its content (title, summary and steps), so
+                        the name holds the visible text (WCAG 2.5.3) */}
+                    <span className="sr-only">Use template:</span>{" "}
                     <span className="flex-1 min-w-0">
                       <span
                         className="block text-[14px] font-semibold leading-snug"
                         style={{ color: "var(--fg-90)" }}
                       >
                         {t.name}
-                      </span>
+                      </span>{" "}
                       <span
                         className="block text-[12px] leading-relaxed mt-1"
                         style={{ color: "var(--fg-60)" }}
                       >
                         {t.description}
-                      </span>
+                      </span>{" "}
                       <span
                         className="block text-[11px] font-medium mt-2"
                         style={{ color: "var(--fg-50)" }}

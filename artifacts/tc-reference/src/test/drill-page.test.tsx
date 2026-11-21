@@ -143,28 +143,24 @@ describe("Drill page: today's task", () => {
       }),
     );
     await renderDrill();
-    expect(ratingButton(/^Not yet/)).toHaveAccessibleName(
-      "Not yet: back tomorrow",
-    );
+    expect(ratingButton(/^Not yet/)).toHaveAccessibleName("Not yet: tomorrow");
     // 6 x (1 + 1.5 / 2) = 10.5 -> 11; 6 x 2.5 = 15
     expect(ratingButton(/^Getting there/)).toHaveAccessibleName(
-      "Getting there: back in 11 days",
+      "Getting there: in 11 days",
     );
     expect(ratingButton(/^Confident/)).toHaveAccessibleName(
-      "Confident: back in about 2 weeks",
+      "Confident: in 2 weeks or so",
     );
   });
 
   it("says a first rating comes back tomorrow, in 3 days or in a week", async () => {
     await renderDrill();
-    expect(ratingButton(/^Not yet/)).toHaveAccessibleName(
-      "Not yet: back tomorrow",
-    );
+    expect(ratingButton(/^Not yet/)).toHaveAccessibleName("Not yet: tomorrow");
     expect(ratingButton(/^Getting there/)).toHaveAccessibleName(
-      "Getting there: back in 3 days",
+      "Getting there: in 3 days",
     );
     expect(ratingButton(/^Confident/)).toHaveAccessibleName(
-      "Confident: back in a week",
+      "Confident: in a week",
     );
   });
 
