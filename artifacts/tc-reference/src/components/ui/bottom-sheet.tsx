@@ -72,7 +72,9 @@ export function BottomSheet({
         aria-modal="true"
         aria-labelledby={titleId}
         data-testid={testId}
-        className="relative flex flex-col rounded-t-[28px] animate-in slide-in-from-bottom duration-200 motion-reduce:animate-none"
+        // Full width on phones; on wider screens a centred sheet of
+        // readable width instead of a 1280px slab.
+        className="relative flex flex-col w-full md:max-w-[600px] md:mx-auto md:border-x md:border-[color:var(--fg-10)] rounded-t-[28px] animate-in slide-in-from-bottom duration-200 motion-reduce:animate-none"
         style={{
           background: "var(--surface-dd)",
           borderTop: "1px solid var(--fg-15)",

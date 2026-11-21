@@ -396,17 +396,21 @@ function FilterRow({
     <div
       role="group"
       aria-label={`Filter by ${label.toLowerCase()}`}
-      className="flex items-center gap-2 -mx-4 px-4 md:-mx-6 md:px-6 overflow-x-auto"
+      className="flex items-center md:items-start gap-2 -mx-4 px-4 md:-mx-6 md:px-6 overflow-x-auto"
       style={{ scrollbarWidth: "none" }}
     >
       <span
         aria-hidden="true"
-        className="flex-none w-[52px] text-[13px] font-semibold"
+        className="flex-none w-[52px] md:pt-2.5 text-[13px] font-semibold"
         style={{ color: "var(--fg-60)" }}
       >
         {label}
       </span>
-      {children}
+      {/* Scrolls sideways on phones; wraps within the column on wider
+          screens, where clipping chips at the column edge looks broken. */}
+      <div className="flex flex-none items-center gap-2 md:flex-1 md:min-w-0 md:flex-wrap">
+        {children}
+      </div>
     </div>
   );
 }

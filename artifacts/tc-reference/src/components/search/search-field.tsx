@@ -29,7 +29,7 @@ export function SearchField({
   };
 
   return (
-    <div className="flex items-center gap-2.5 mx-auto w-full max-w-[640px]">
+    <div className="flex items-center gap-2.5 mx-auto w-full max-w-[600px]">
       <form
         role="search"
         onSubmit={submit}

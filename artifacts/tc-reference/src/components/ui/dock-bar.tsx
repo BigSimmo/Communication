@@ -28,12 +28,17 @@ export function DockBar({ children, aboveTabBar = true }: DockBarProps) {
         transition: "bottom 260ms cubic-bezier(0.2, 0.8, 0.2, 1)",
       }}
     >
+      {/* The fade runs to the bottom of the screen, so rows do not show
+          through the gap above the tab bar or around its rounded corners. */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-9 -bottom-3"
+        className="absolute inset-x-0 -top-9"
         style={{
+          bottom: `calc(-1 * (${bottom}))`,
+          // Fades in over the 36px above the dock, solid from there down, so
+          // a translucent (disabled) button never shows rows through it.
           background:
-            "linear-gradient(to top, hsl(var(--background)) 58%, transparent)",
+            "linear-gradient(to bottom, transparent, hsl(var(--background)) 36px)",
         }}
       />
       <div className="relative flex gap-2.5 pointer-events-auto mx-auto max-w-[520px]">
