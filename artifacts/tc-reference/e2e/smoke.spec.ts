@@ -6,7 +6,12 @@ test.describe("core flows", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: "Library" }),
     ).toBeVisible();
-    await page.getByRole("link", { name: /^Warm vocal baseline/ }).click();
+    const row = page.getByRole("link", { name: /^Warm vocal baseline/ });
+    // Centre the row first: scrolled only to the viewport edge it can sit
+    // under the fixed tab bar while the header folds away, and the tap
+    // lands on the bar instead (seen in WebKit).
+    await row.evaluate((el) => el.scrollIntoView({ block: "center" }));
+    await row.click();
     await expect(page).toHaveURL(/\/card\/TC028$/);
     await expect(
       page.getByRole("heading", { level: 2, name: "Warm vocal baseline" }),
