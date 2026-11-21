@@ -8,16 +8,23 @@ A mobile-first reference app for 107 communication techniques. It runs entirely 
 
 - 107 technique cards (voice/presence, influence/framing, clarity/direction, connection/warmth, resilience/recovery)
 - Library with category, impact and difficulty filters, sort controls and a live result count
-- Phrase Bank (4,000+ phrases, filterable by tone and full-text searchable)
+- **Start here**: a guided path through the 15 core cards, with progress kept on the device
+- **Help me right now**: pick what is happening (eight common situations) and get one move, three lines to say, what to do next and one thing to avoid, without loading a full card
+- Phrase Bank (about 4,500 lines, filterable by tone and length and searchable); a line that several cards share is listed once, under its first card
 - Daily drill: pick a track (Core 15, one category, a playbook or everything) and a pace, rate each technique Not yet, Getting there or Confident, and review it again when it comes due; streak tracking and undo included
-- Playbooks: chain techniques into your own step-by-step guides
-- Favourites for cards and phrases via localStorage persistence
+- Playbooks: chain techniques into your own step-by-step guides, or start from a template
+- Saved: keep cards and phrases (a line saved from any card that lists it shows as saved everywhere)
 - Quick Lookup overlay for fast in-conversation phrase recall, scoped to the open card with one tap to widen to all cards
-- Full-screen search at `/search` (the search button, or `Cmd+K` / `Ctrl+K`) across techniques, phrases and playbooks: it matches as you type, keeps the search in the address so Back returns to your results, forgives typos and word forms, and maps everyday words to card vocabulary through a hand-kept synonym list (`artifacts/tc-reference/src/lib/search-synonyms.ts`), and left/right arrow keys to step between cards
-- Light/dark theme persistence
-- Back up and restore your data: export favourites, drill progress, playbooks and settings to a JSON file from the Favourites page, and import it on any device
+- Full-screen search at `/search` (the search button, or `Cmd+K` / `Ctrl+K`) across techniques, phrases and playbooks: it matches as you type, keeps the search in the address so Back returns to your results, forgives typos and word forms, and maps everyday words to card vocabulary through a hand-kept synonym list (`artifacts/tc-reference/src/lib/search-synonyms.ts`); left/right arrow keys step between cards
+- Settings (from the Saved page): light/dark theme, larger phrase text, drill track, offline status and backup
+- Back up and restore your data: export saved items, drill progress, playbooks and settings to a JSON file, and import it on any device
 - Mobile-first navigation with a bottom tab bar, 44px touch targets and safe-area (notch) support
-- Installable PWA: the app shell, global search, the Phrase Bank and Quick Lookup work offline after the first visit (a slim card text index is precached); full card pages and downloads work offline once they have been opened while online, and **Save all cards for offline** on the Favourites page saves every card (about 4 MB) in one step; downloads stay on demand
+- Installable PWA: the app shell, global search, the Phrase Bank and Quick Lookup work offline after the first visit (a slim card text index is precached); full card pages and downloads work offline once they have been opened while online, and **Save all cards for offline** in Settings saves every card (about 4 MB) in one step; downloads stay on demand
+
+<!-- Features landing in parallel work (add when merged):
+- iPhone: an Add to Home Screen hint, a request for persistent storage, and a backup reminder
+- Drill spacing of 1, 3 and 7 days, and a progress view
+-->
 
 ---
 
@@ -122,6 +129,11 @@ node --test scripts/code-reviewer.test.mjs scripts/local-process-identity.test.m
 pnpm --filter @workspace/tc-reference test
 ```
 
+<!-- Browser smoke tests landing in parallel work (add when merged):
+`pnpm --filter @workspace/tc-reference test:e2e` runs Playwright WebKit smoke
+tests; see docs/iphone-test-checklist.md for the manual iPhone pass.
+-->
+
 Before installing dependencies, run agent instruction and skill packaging checks directly:
 
 ```bash
@@ -182,14 +194,26 @@ This is what Railway runs. For a quick local check, `serve` still runs
 
 ## Routes
 
-| Path            | Screen                                   |
-| --------------- | ---------------------------------------- |
-| `/`             | Library                                  |
+| Path            | Screen                                                |
+| --------------- | ----------------------------------------------------- |
+| `/`             | Library                                               |
+| `/start`        | Start here: the core cards in order                   |
+| `/help`         | Help me right now: pick a situation                   |
+| `/help/:id`     | One situation's move and lines                        |
+| `/card/:cardId` | Full technique card (e.g. `/card/TC001`)              |
+| `/phrases`      | Phrase Bank                                           |
+| `/drill`        | Daily drill                                           |
+| `/playbooks`    | Your playbooks and templates                          |
+| `/favourites`   | Saved cards and phrases (tab label "Saved"), Settings |
+| `/search`       | Full-screen search (`?q=` keeps the query)            |
+
+--------------- | ---------------------------------------- |
+| `/` | Library |
 | `/card/:cardId` | Full technique card (e.g. `/card/TC001`) |
-| `/phrases`      | Phrase browser                           |
-| `/drill`        | Daily drill screen                       |
-| `/favourites`   | Saved cards and phrases                  |
-| `/playbooks`    | Your saved technique playbooks           |
+| `/phrases` | Phrase browser |
+| `/drill` | Daily drill screen |
+| `/favourites` | Saved cards and phrases |
+| `/playbooks` | Your saved technique playbooks |
 
 ---
 
@@ -198,5 +222,5 @@ This is what Railway runs. For a quick local check, `serve` still runs
 TC Reference is a fully client-side SPA with no backend:
 
 - Core card, phrase and drill data lives in `artifacts/tc-reference/src/lib`
-- User state uses `localStorage` (favourites, drill progress, playbooks under `tc_playbooks`, theme)
+- User state uses `localStorage` (saved items under `tc_favourites`, drill progress, playbooks under `tc_playbooks`, preferences under `tc_preferences`, theme)
 - No backend or credentials are required
