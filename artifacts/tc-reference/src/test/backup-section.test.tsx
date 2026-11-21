@@ -160,6 +160,12 @@ describe("BackupSection (F-12)", () => {
       configurable: true,
       value: () => true,
     });
+    // The share sheet is only used for backups on iPhone and iPad.
+    Object.defineProperty(navigator, "userAgent", {
+      configurable: true,
+      value:
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
+    });
     try {
       render(<BackupSection />);
       await act(async () => {
@@ -173,6 +179,7 @@ describe("BackupSection (F-12)", () => {
     } finally {
       delete (navigator as { share?: unknown }).share;
       delete (navigator as { canShare?: unknown }).canShare;
+      delete (navigator as { userAgent?: unknown }).userAgent;
     }
   });
 });

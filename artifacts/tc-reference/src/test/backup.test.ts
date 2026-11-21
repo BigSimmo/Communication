@@ -85,10 +85,47 @@ describe("backup", () => {
 
   it("clears known keys that the backup does not include", () => {
     seed();
-    const summary = importBackup(backupWith({ tc_theme: "dark" }));
+    const summary = importBackup(
+      backupWith({ tc_theme: "dark" }, { version: 2 }),
+    );
     expect(summary.restored).toEqual(["tc_theme"]);
     expect(localStorage.getItem("tc_favourites")).toBeNull();
     expect(localStorage.getItem("tc_theme")).toBe("dark");
+  });
+
+  it("keeps keys a version 1 backup never carried", () => {
+    localStorage.setItem("tc_favourites", SAMPLE.tc_favourites);
+    localStorage.setItem("tc_start_opened", '["TC001"]');
+    localStorage.setItem("tc_recent_cards", '["TC002"]');
+    localStorage.setItem("tc_welcome_dismissed", "1");
+    importBackup(backupWith({ tc_theme: "dark" }, { version: 1 }));
+    expect(localStorage.getItem("tc_favourites")).toBeNull();
+    expect(localStorage.getItem("tc_start_opened")).toBe('["TC001"]');
+    expect(localStorage.getItem("tc_recent_cards")).toBe('["TC002"]');
+    expect(localStorage.getItem("tc_welcome_dismissed")).toBe("1");
+  });
+
+  it("drops an older restore snapshot when the new one can't be saved", () => {
+    localStorage.setItem("tc_theme", "light");
+    importBackup(backupWith({ tc_theme: "dark" }, { version: 2 }));
+    expect(localStorage.getItem("tc_restore_snapshot")).not.toBeNull();
+    const setItem = Storage.prototype.setItem;
+    vi.spyOn(Storage.prototype, "setItem").mockImplementation(function (
+      this: Storage,
+      key: string,
+      value: string,
+    ) {
+      if (key === "tc_restore_snapshot") {
+        throw new DOMException("full", "QuotaExceededError");
+      }
+      return setItem.call(this, key, value);
+    });
+    const summary = importBackup(
+      backupWith({ tc_theme: "light" }, { version: 2 }),
+    );
+    expect(summary.undoAvailable).toBe(false);
+    expect(localStorage.getItem("tc_restore_snapshot")).toBeNull();
+    vi.restoreAllMocks();
   });
 
   it("rejects a file from another app", () => {
@@ -195,15 +232,13 @@ describe("backup edge cases", () => {
     localStorage.setItem("tc_favourites", SAMPLE.tc_favourites);
     localStorage.setItem("tc_playbooks", SAMPLE.tc_playbooks);
     const setItem = Storage.prototype.setItem;
-    let quotaHit = false;
     vi.spyOn(Storage.prototype, "setItem").mockImplementation(function (
       this: Storage,
       key: string,
       value: string,
     ) {
-      // Fail the first write of the large imported playbooks value only.
-      if (!quotaHit && key === "tc_playbooks" && value.length > 100) {
-        quotaHit = true;
+      // Every write of the large imported playbooks value runs out of space.
+      if (key === "tc_playbooks" && value.length > 100) {
         throw new DOMException("full", "QuotaExceededError");
       }
       return setItem.call(this, key, value);
@@ -345,8 +380,16 @@ describe("restore snapshot and undo", () => {
 describe("saveBackup", () => {
   const NOW = new Date("2026-03-04T05:06:07Z");
 
-  function shareNav(share: (data: ShareData) => Promise<void>) {
+  const IPHONE_UA =
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1";
+
+  function shareNav(
+    share: (data: ShareData) => Promise<void>,
+    userAgent = IPHONE_UA,
+  ) {
     return {
+      userAgent,
+      maxTouchPoints: 5,
       canShare: (data: ShareData) => Array.isArray(data.files),
       share: vi.fn(share),
     } as unknown as Navigator;
@@ -396,12 +439,24 @@ describe("saveBackup", () => {
     expect(loadDataSafety().lastBackupAt).toBe(NOW.getTime());
   });
 
-  it("falls back to a download when sharing fails another way", async () => {
+  it("reports a failure when sharing fails another way", async () => {
     const click = stubDownload();
     const nav = shareNav(async () => {
       throw new DOMException("Not allowed", "NotAllowedError");
     });
+    expect(await saveBackup(NOW, nav)).toBe("failed");
+    expect(click).not.toHaveBeenCalled();
+    expect(loadDataSafety().lastBackupAt).toBeNull();
+  });
+
+  it("downloads rather than shares on Android and desktop", async () => {
+    const click = stubDownload();
+    const nav = shareNav(
+      async () => {},
+      "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Mobile Safari/537.36",
+    );
     expect(await saveBackup(NOW, nav)).toBe("saved");
+    expect(nav.share).not.toHaveBeenCalled();
     expect(click).toHaveBeenCalledTimes(1);
   });
 

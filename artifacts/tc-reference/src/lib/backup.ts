@@ -68,6 +68,13 @@ export const BACKUP_KEYS = {
 
 export type BackupKey = keyof typeof BACKUP_KEYS;
 
+/** Keys that version 1 backups never carried, so restoring one keeps them. */
+const VERSION_2_KEYS: readonly BackupKey[] = [
+  "tc_start_opened",
+  "tc_recent_cards",
+  "tc_welcome_dismissed",
+];
+
 export const BACKUP_KEY_LIST = Object.keys(BACKUP_KEYS) as BackupKey[];
 
 export interface BackupFile {
@@ -171,6 +178,7 @@ export async function saveBackup(
     backupFileName(now),
     "application/json",
     nav,
+    { shareOnlyOnIos: true },
   );
   if (outcome === "cancelled") return "cancelled";
   if (outcome !== "shared") return "failed";
@@ -221,6 +229,12 @@ function serialiseValue(key: BackupKey, value: unknown): string {
  * Validate a backup without touching storage. Returns the exact strings that
  * importBackup would write, keyed by known storage key.
  */
+/** The version number of an already validated backup file. */
+function backupVersion(json: string): number {
+  const parsed = JSON.parse(json) as { version: number };
+  return parsed.version;
+}
+
 export function parseBackup(json: string): Map<BackupKey, string> {
   checkBackupFileSize({ size: json.length });
   let parsed: unknown;
@@ -375,6 +389,10 @@ export function loadRestoreSnapshot(
 }
 
 function saveRestoreSnapshot(values: StoredValues, now: number): boolean {
+  // An older snapshot must never outlive this restore: if the new one can't
+  // be written, Undo would otherwise bring back data from before an earlier
+  // restore and silently discard this one.
+  removeRestoreSnapshot();
   try {
     localStorage.setItem(
       RESTORE_SNAPSHOT_KEY,
@@ -400,13 +418,23 @@ export function importBackup(
 ): ImportSummary & { undoAvailable: boolean } {
   const entries = parseBackup(json);
   const previous = readStoredValues();
+  // A version 1 file predates some keys; keep what this device has for them
+  // rather than clearing Start here progress, recent cards and the welcome.
+  if (backupVersion(json) < 2) {
+    for (const key of VERSION_2_KEYS) {
+      const current = previous.get(key);
+      if (!entries.has(key) && current != null) entries.set(key, current);
+    }
+  }
   const undoAvailable = saveRestoreSnapshot(previous, now);
   try {
     return { ...writeStoredValues(entries, previous), undoAvailable };
   } catch (err) {
     // Nothing changed, so there is nothing to undo; free the space too.
-    if (undoAvailable) removeRestoreSnapshot();
-    throw err;
+    if (!undoAvailable) throw err;
+    removeRestoreSnapshot();
+    // The snapshot may have been what filled storage: try once without it.
+    return { ...writeStoredValues(entries, previous), undoAvailable: false };
   }
 }
 

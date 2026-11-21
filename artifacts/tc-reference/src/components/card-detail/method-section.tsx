@@ -109,14 +109,14 @@ export function FieldTipSection({ cardData }: { cardData: CardData }) {
   );
 }
 
-function StepBody({ step }: { step: MethodStep }) {
+function StepBody({ step, selfId }: { step: MethodStep; selfId: string }) {
   return (
     <>
       <p
         className="text-[15px] leading-[1.5] whitespace-pre-line"
         style={{ color: "var(--fg-80)" }}
       >
-        <CardRefText text={step.body} />
+        <CardRefText text={step.body} selfId={selfId} />
       </p>
       {step.examples && step.examples.length > 0 && (
         <SayBlock>
@@ -126,7 +126,7 @@ function StepBody({ step }: { step: MethodStep }) {
             <span key={j} className="flex flex-col gap-0.5">
               <Label>{ex.label}</Label>
               <Phrase size="sm">
-                <CardRefText text={ex.text} />
+                <CardRefText text={ex.text} selfId={selfId} />
               </Phrase>
             </span>
           ))}
@@ -165,7 +165,7 @@ export function MethodSection({ cardData }: { cardData: CardData }) {
               </span>
             </>
           )}
-          renderBody={(m) => <StepBody step={m} />}
+          renderBody={(m) => <StepBody step={m} selfId={cardData.id} />}
         />
       </Surface>
       {cardData.liveThreadClues && cardData.liveThreadClues.length > 0 && (
