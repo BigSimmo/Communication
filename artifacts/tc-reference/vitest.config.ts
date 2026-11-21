@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { configDefaults, defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
@@ -17,6 +17,8 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
+    // Playwright specs run in real browsers via `test:e2e`, not in jsdom.
+    exclude: [...configDefaults.exclude, "e2e/**"],
     // The full card catalogue (98 modules) makes the CardDetail render tests
     // heavy; generous timeouts keep them reliable on loaded CI machines where a
     // correct-but-slow synchronous render would otherwise trip the 5s default.

@@ -32,7 +32,8 @@ const NO_CACHE_FILES = new Set([
 const APP_ROUTES = [
   /^\/$/,
   /^\/card\/TC\d{3}\/?$/,
-  /^\/(drill|favourites|phrases|playbooks)\/?$/,
+  /^\/(drill|favourites|phrases|playbooks|search|start)\/?$/,
+  /^\/help(\/[a-z0-9-]+)?\/?$/,
   /^\/index\.html$/,
 ];
 
