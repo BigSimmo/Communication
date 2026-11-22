@@ -88,6 +88,8 @@ export const TC108: CardData = {
     "A serious conversation you haven't finished. Agree when to continue instead.",
     "You're responsible for a decision or task they're waiting on. Finish it, or hand over clearly first.",
     "They've just shared bad news. Stay with it before you go.",
+    // CLINICAL REVIEW NEEDED
+    "Someone may be unsafe. Don't exit. Stay, and follow your organisation's safety protocol.",
     "A goodbye that deserves time, such as the end of a long working relationship.",
   ],
   phraseBank: [
